@@ -36,3 +36,5 @@ The Fermyon Cloud is currently an open beta service. This means that Fermyon Tec
 ## First step
 
 - Deploy an application to the Fermyon Cloud by following the [quickstart](/cloud/quickstart)
+
+If you have any questions (and cannot find answers) on this site, please go to our [Discord server](https://discord.gg/P4Cx7xUbJu) to reach out.
