@@ -1,0 +1,45 @@
+name = "fermyon-developer"
+spin_version = "1"
+version = "0.1.0"
+description = "The Fermyon Developer website running on... Spin."
+authors = [ "Fermyon Engineering <engineering@fermyon.com>" ]
+trigger = { type = "http", base = "/" }
+
+[[component]]
+source = "modules/bartholomew.wasm"
+id = "bartholomew"
+files = [ "content/**/*" , "templates/*", "scripts/*", "config/*"]
+[component.trigger]
+route = "/..."
+
+[[component]]
+source = "modules/spin_static_fs.wasm"
+id = "fileserver_static"
+files = [ { source = "static/", destination = "/" } ]
+[component.trigger]
+route = "/static/..."
+
+[[component]]
+source = "modules/spin_static_fs.wasm"
+id = "fileserver_downloads"
+files = [ { source = "downloads/", destination = "/" } ]
+[component.trigger]
+route = "/downloads/..."
+
+# Redirect /spin to /spin/index
+[[component]]
+id = "redirect-spin-index"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "/spin/index" }
+[component.trigger]
+route = "/spin"
+executor = { type = "wagi" }
+
+# Redirect /cloud to /cloud/index
+[[component]]
+id = "redirect-cloud-index"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "/cloud/index" }
+[component.trigger]
+route = "/cloud"
+executor = { type = "wagi" }

@@ -1,0 +1,4 @@
+# Ignoring node modules and parcel cache
+.parcel-cache
+node_modules
+.vscode

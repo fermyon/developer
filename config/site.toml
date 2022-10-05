@@ -1,0 +1,14 @@
+title = "Fermyon Developer Home"
+base_url = "http://localhost:3000"
+about = "Fermyon Developer Home — the home for you as a developer using Fermyon projects and products."
+
+[extra]
+copyright = "Fermyon"
+github = "https://github.com/fermyon/developer"
+twitter = "https://twitter.com/fermyontech"
+# ga_measurement_id = "TBD"
+
+# Static assets that we need to provide
+favicon = "/static/image/favicon.png"
+twitter_card_type = "summary"
+twitter_card = "/static/image/twitter_card_summary.png"
