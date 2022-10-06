@@ -30,43 +30,55 @@ TABLE OF CONTENTS
 */
 
 .documentation {
-    .content {
-        padding-top: 8.5rem;
+	.content {
+		padding-top: 8.5rem;
 
-        h1 {
-            margin-top: 2rem;
-            position: relative;
-            padding-bottom: 2.67rem;
-        }
+		h1 {
+			margin-top: 2rem;
+			position: relative;
+			padding-bottom: 2.67rem;
+		}
 
-        &.content-docs-wide {
-            p {
-                line-height: 1.725;
-            }
-        }
-    }
+		&.content-docs-wide {
+			p {
+				line-height: 1.725;
+			}
+		}
 
-    aside.menu {
-        padding-bottom: 7.5rem;
-    }
+		summary {
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		details {
+			p {
+				margin-top: 0px;
+				background: #e9e1eb;
+			}
+		}
+	}
+
+	aside.menu {
+		padding-bottom: 7.5rem;
+	}
 }
 
 @media screen and (max-width: 1023px) {
-    .documentation {
-        .content {
-            h1 {
-                font-size: 6.333vw;
-            }
+	.documentation {
+		.content {
+			h1 {
+				font-size: 6.333vw;
+			}
 
-            h2 {
-                font-size: 5vw;
-            }
+			h2 {
+				font-size: 5vw;
+			}
 
-            h3 {
-                font-size: 3.33vw;
-            }
-        }
-    }
+			h3 {
+				font-size: 3.33vw;
+			}
+		}
+	}
 }
 
 // Styles for the copy button on code blocks
@@ -81,13 +93,16 @@ TABLE OF CONTENTS
 	background-color: #ededed25;
 	border: 2px solid;
 	border-color: #ededed35;
+
 	>svg {
 		fill: #ededed99;
 	}
+
 	&:hover {
 		border-color: #ededed99;
 	}
 }
+
 .copy-code-button.is-success {
 	border-color: #18d1a5;
 }
@@ -95,24 +110,24 @@ TABLE OF CONTENTS
 // Styling for active project in topbar
 
 .logo-project {
-    a {
-        position: relative;
-    }
+	a {
+		position: relative;
+	}
 
-    a.is-active {
-        &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -0.5rem;
-            width: 90%;
-            margin: auto;
-            height: 3px;
-            background: #0e8fdd;
-        }
-    }
+	a.is-active {
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -0.5rem;
+			width: 90%;
+			margin: auto;
+			height: 3px;
+			background: #0e8fdd;
+		}
+	}
 }
 
 // Styles for anchor linking headers
@@ -126,6 +141,7 @@ TABLE OF CONTENTS
 		background-color: transparent;
 	}
 }
+
 h1 {
 	&:hover {
 		>a.anchor-link {
@@ -133,6 +149,7 @@ h1 {
 		}
 	}
 }
+
 h2 {
 	&:hover {
 		>a.anchor-link {
@@ -140,6 +157,7 @@ h2 {
 		}
 	}
 }
+
 h3 {
 	&:hover {
 		>a.anchor-link {
@@ -147,6 +165,7 @@ h3 {
 		}
 	}
 }
+
 h4 {
 	&:hover {
 		>a.anchor-link {
@@ -154,11 +173,13 @@ h4 {
 		}
 	}
 }
+
 a.anchor-link {
 	&:after {
 		content: none;
 	}
 }
+
 html.dark-theme {
 	>body {
 		.content {
@@ -169,6 +190,7 @@ html.dark-theme {
 			}
 		}
 	}
+
 	a.anchor-link {
 		fill: #fff;
 	}
