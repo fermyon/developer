@@ -14,7 +14,7 @@ sass --watch static/sass/styles.scss static/css/style.css --style compressed
 TABLE OF CONTENTS
 ================= */
 @import "../../node_modules/@fermyon/styleguide/scss/fermyon";
-    /* 
+/* 
     npm package 'fermyon-styleguide':
     =================================
     0.1. Brand Colors
@@ -90,4 +90,27 @@ TABLE OF CONTENTS
 }
 .copy-code-button.is-success {
 	border-color: #18d1a5;
+}
+
+// Styling for active project in topbar
+
+.logo-project {
+    a {
+        position: relative;
+    }
+
+    a.is-active {
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -0.5rem;
+            width: 90%;
+            margin: auto;
+            height: 3px;
+            background: #0e8fdd;
+        }
+    }
 }
