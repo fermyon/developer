@@ -1264,6 +1264,16 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
   line-height: 1.725;
 }
 
+.documentation .content summary {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.documentation .content details p {
+  background: #e9e1eb;
+  margin-top: 0;
+}
+
 .documentation aside.menu {
   padding-bottom: 7.5rem;
 }
