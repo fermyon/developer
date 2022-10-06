@@ -1282,4 +1282,27 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
   }
 }
 
+.copy-code-button {
+  cursor: pointer;
+  background-color: #ededed25;
+  border: 2px solid #ededed35;
+  border-radius: .67rem;
+  padding: .2rem;
+  position: absolute;
+  top: .7rem;
+  right: .7rem;
+}
+
+.copy-code-button > svg {
+  fill: #ededed99;
+}
+
+.copy-code-button:hover {
+  border-color: #ededed99;
+}
+
+.copy-code-button.is-success {
+  border-color: #18d1a5;
+}
+
 /*# sourceMappingURL=styles.css.map */
