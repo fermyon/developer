@@ -1,5 +1,5 @@
 title = "Spin Command Line Interface (CLI) Reference"
-template = "main"
+template = "cloud_main"
 date = "2022-01-01T00:00:01Z"
 [extra]
 
