@@ -114,3 +114,62 @@ TABLE OF CONTENTS
         }
     }
 }
+
+// Styles for anchor linking headers
+
+.content {
+	a.anchor-link {
+		padding: 0.3rem;
+		text-decoration: none;
+		opacity: 0;
+		fill: #363636;
+		background-color: transparent;
+	}
+}
+h1 {
+	&:hover {
+		>a.anchor-link {
+			opacity: 1;
+		}
+	}
+}
+h2 {
+	&:hover {
+		>a.anchor-link {
+			opacity: 1;
+		}
+	}
+}
+h3 {
+	&:hover {
+		>a.anchor-link {
+			opacity: 1;
+		}
+	}
+}
+h4 {
+	&:hover {
+		>a.anchor-link {
+			opacity: 1;
+		}
+	}
+}
+a.anchor-link {
+	&:after {
+		content: none;
+	}
+}
+html.dark-theme {
+	>body {
+		.content {
+			a.anchor-link {
+				&:hover {
+					background: transparent !important;
+				}
+			}
+		}
+	}
+	a.anchor-link {
+		fill: #fff;
+	}
+}
