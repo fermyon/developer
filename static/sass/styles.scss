@@ -68,3 +68,26 @@ TABLE OF CONTENTS
         }
     }
 }
+
+// Styles for the copy button on code blocks
+
+.copy-code-button {
+	position: absolute;
+	top: 0.7rem;
+	right: 0.7rem;
+	border-radius: 0.67rem;
+	padding: 0.2rem;
+	cursor: pointer;
+	background-color: #ededed25;
+	border: 2px solid;
+	border-color: #ededed35;
+	>svg {
+		fill: #ededed99;
+	}
+	&:hover {
+		border-color: #ededed99;
+	}
+}
+.copy-code-button.is-success {
+	border-color: #18d1a5;
+}
