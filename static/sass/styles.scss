@@ -45,22 +45,200 @@ TABLE OF CONTENTS
 			}
 		}
 
-		summary {
-			font-size: 1em;
-			font-weight: bold;
+		details {
+			font-size: 1rem;
+			width: 100%;
+			background: #f4f0f5;
+			border-left: 4px solid #d9dbe8;
+			position: relative;
+			max-width: 800px;
+
+			.summary-title {
+				user-select: none;
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			.summary-content {
+				border-top: 1px solid #e2e8f0;
+				cursor: default;
+				padding: 1em;
+				font-weight: 300;
+				line-height: 1.5;
+			}
+
+			summary {
+				list-style: none;
+				padding: 1em;
+
+				&:focus {
+					outline: none;
+				}
+
+				&:hover .summary-chevron-up svg {
+					opacity: 1;
+				}
+			}
+
+			.summary-chevron-up svg {
+				opacity: 0.5;
+			}
+
+			.summary-chevron-up,
+			.summary-chevron-down {
+				pointer-events: none;
+				position: absolute;
+				top: 0.75em;
+				right: 1em;
+				background: #f4f0f5;
+
+				svg {
+					display: block;
+				}
+			}
+
+			summary::-webkit-details-marker {
+				display: none;
+			}
+		}
+	}
+
+	// Styles for the copy button on code blocks
+
+	.copy-code-button {
+		position: absolute;
+		top: 0.7rem;
+		right: 0.7rem;
+		border-radius: 0.67rem;
+		padding: 0.2rem;
+		cursor: pointer;
+		background-color: #ededed25;
+		border: 2px solid;
+		border-color: #ededed35;
+
+		>svg {
+			fill: #ededed99;
 		}
 
-		details {
-			p {
-				margin-top: 0px;
-				background: #e9e1eb;
+		&:hover {
+			border-color: #ededed99;
+		}
+	}
+
+	.copy-code-button.is-success {
+		border-color: #18d1a5;
+	}
+
+	// Styling for active project in topbar
+
+	.logo-project {
+		a {
+			position: relative;
+		}
+
+		a.is-active {
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: -0.5rem;
+				width: 90%;
+				margin: auto;
+				height: 3px;
+				background: #0e8fdd;
 			}
+		}
+	}
+
+	// Styles for anchor linking headers
+
+	.content {
+		a.anchor-link {
+			padding: 0.3rem;
+			text-decoration: none;
+			opacity: 0;
+			fill: #363636;
+			background-color: transparent;
+		}
+	}
+
+	h1 {
+		&:hover {
+			>a.anchor-link {
+				opacity: 1;
+			}
+		}
+	}
+
+	h2 {
+		&:hover {
+			>a.anchor-link {
+				opacity: 1;
+			}
+		}
+	}
+
+	h3 {
+		&:hover {
+			>a.anchor-link {
+				opacity: 1;
+			}
+		}
+	}
+
+	h4 {
+		&:hover {
+			>a.anchor-link {
+				opacity: 1;
+			}
+		}
+	}
+
+	a.anchor-link {
+		&:after {
+			content: none;
 		}
 	}
 
 	aside.menu {
 		padding-bottom: 7.5rem;
 	}
+}
+
+html.dark-theme {
+	body {
+		.content {
+			details {
+				background: #1b2c4f;
+				border-left: 4px solid #243c6c;
+
+				.summary-content {
+					border-top: 1px solid #243c6c;
+				}
+
+				.summary-chevron-up,
+				.summary-chevron-down {
+					background: #1b2c4f;
+				}
+			}
+
+			a.anchor-link {
+				&:hover {
+					background: transparent !important;
+				}
+			}
+
+			a.anchor-link {
+				fill: #fff;
+			}
+		}
+	}
+
+
 }
 
 @media screen and (max-width: 1023px) {
@@ -78,120 +256,5 @@ TABLE OF CONTENTS
 				font-size: 3.33vw;
 			}
 		}
-	}
-}
-
-// Styles for the copy button on code blocks
-
-.copy-code-button {
-	position: absolute;
-	top: 0.7rem;
-	right: 0.7rem;
-	border-radius: 0.67rem;
-	padding: 0.2rem;
-	cursor: pointer;
-	background-color: #ededed25;
-	border: 2px solid;
-	border-color: #ededed35;
-
-	>svg {
-		fill: #ededed99;
-	}
-
-	&:hover {
-		border-color: #ededed99;
-	}
-}
-
-.copy-code-button.is-success {
-	border-color: #18d1a5;
-}
-
-// Styling for active project in topbar
-
-.logo-project {
-	a {
-		position: relative;
-	}
-
-	a.is-active {
-		&::after {
-			content: "";
-			display: block;
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: -0.5rem;
-			width: 90%;
-			margin: auto;
-			height: 3px;
-			background: #0e8fdd;
-		}
-	}
-}
-
-// Styles for anchor linking headers
-
-.content {
-	a.anchor-link {
-		padding: 0.3rem;
-		text-decoration: none;
-		opacity: 0;
-		fill: #363636;
-		background-color: transparent;
-	}
-}
-
-h1 {
-	&:hover {
-		>a.anchor-link {
-			opacity: 1;
-		}
-	}
-}
-
-h2 {
-	&:hover {
-		>a.anchor-link {
-			opacity: 1;
-		}
-	}
-}
-
-h3 {
-	&:hover {
-		>a.anchor-link {
-			opacity: 1;
-		}
-	}
-}
-
-h4 {
-	&:hover {
-		>a.anchor-link {
-			opacity: 1;
-		}
-	}
-}
-
-a.anchor-link {
-	&:after {
-		content: none;
-	}
-}
-
-html.dark-theme {
-	>body {
-		.content {
-			a.anchor-link {
-				&:hover {
-					background: transparent !important;
-				}
-			}
-		}
-	}
-
-	a.anchor-link {
-		fill: #fff;
 	}
 }
