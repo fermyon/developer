@@ -1264,18 +1264,144 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
   line-height: 1.725;
 }
 
-.documentation .content summary {
-  font-size: 1em;
-  font-weight: bold;
+.documentation .content details {
+  width: 100%;
+  max-width: 800px;
+  background: #f4f0f5;
+  border-left: 4px solid #d9dbe8;
+  font-size: 1rem;
+  position: relative;
 }
 
-.documentation .content details p {
-  background: #e9e1eb;
-  margin-top: 0;
+.documentation .content details .summary-title {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.documentation .content details:hover {
+  cursor: pointer;
+}
+
+.documentation .content details .summary-content {
+  cursor: default;
+  border-top: 1px solid #e2e8f0;
+  padding: 1em;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.documentation .content details summary {
+  padding: 1em;
+  list-style: none;
+}
+
+.documentation .content details summary:focus {
+  outline: none;
+}
+
+.documentation .content details summary:hover .summary-chevron-up svg {
+  opacity: 1;
+}
+
+.documentation .content details .summary-chevron-up svg {
+  opacity: .5;
+}
+
+.documentation .content details .summary-chevron-up, .documentation .content details .summary-chevron-down {
+  pointer-events: none;
+  background: #f4f0f5;
+  position: absolute;
+  top: .75em;
+  right: 1em;
+}
+
+.documentation .content details .summary-chevron-up svg, .documentation .content details .summary-chevron-down svg {
+  display: block;
+}
+
+.documentation .content details summary::-webkit-details-marker {
+  display: none;
+}
+
+.documentation .copy-code-button {
+  cursor: pointer;
+  background-color: #ededed25;
+  border: 2px solid #ededed35;
+  border-radius: .67rem;
+  padding: .2rem;
+  position: absolute;
+  top: .7rem;
+  right: .7rem;
+}
+
+.documentation .copy-code-button > svg {
+  fill: #ededed99;
+}
+
+.documentation .copy-code-button:hover {
+  border-color: #ededed99;
+}
+
+.documentation .copy-code-button.is-success {
+  border-color: #18d1a5;
+}
+
+.documentation .logo-project a {
+  position: relative;
+}
+
+.documentation .logo-project a.is-active:after {
+  content: "";
+  width: 90%;
+  height: 3px;
+  background: #0e8fdd;
+  margin: auto;
+  display: block;
+  position: absolute;
+  bottom: -.5rem;
+  left: 0;
+  right: 0;
+}
+
+.documentation .content a.anchor-link {
+  opacity: 0;
+  fill: #363636;
+  background-color: #0000;
+  padding: .3rem;
+  text-decoration: none;
+}
+
+.documentation h1:hover > a.anchor-link, .documentation h2:hover > a.anchor-link, .documentation h3:hover > a.anchor-link, .documentation h4:hover > a.anchor-link {
+  opacity: 1;
+}
+
+.documentation a.anchor-link:after {
+  content: none;
 }
 
 .documentation aside.menu {
   padding-bottom: 7.5rem;
+}
+
+html.dark-theme body .content details {
+  background: #1b2c4f;
+  border-left: 4px solid #243c6c;
+}
+
+html.dark-theme body .content details .summary-content {
+  border-top: 1px solid #243c6c;
+}
+
+html.dark-theme body .content details .summary-chevron-up, html.dark-theme body .content details .summary-chevron-down {
+  background: #1b2c4f;
+}
+
+html.dark-theme body .content a.anchor-link:hover {
+  background: none !important;
+}
+
+html.dark-theme body .content a.anchor-link {
+  fill: #fff;
 }
 
 @media screen and (max-width: 1023px) {
@@ -1290,70 +1416,6 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
   .documentation .content h3 {
     font-size: 3.33vw;
   }
-}
-
-.copy-code-button {
-  cursor: pointer;
-  background-color: #ededed25;
-  border: 2px solid #ededed35;
-  border-radius: .67rem;
-  padding: .2rem;
-  position: absolute;
-  top: .7rem;
-  right: .7rem;
-}
-
-.copy-code-button > svg {
-  fill: #ededed99;
-}
-
-.copy-code-button:hover {
-  border-color: #ededed99;
-}
-
-.copy-code-button.is-success {
-  border-color: #18d1a5;
-}
-
-.logo-project a {
-  position: relative;
-}
-
-.logo-project a.is-active:after {
-  content: "";
-  width: 90%;
-  height: 3px;
-  background: #0e8fdd;
-  margin: auto;
-  display: block;
-  position: absolute;
-  bottom: -.5rem;
-  left: 0;
-  right: 0;
-}
-
-.content a.anchor-link {
-  opacity: 0;
-  fill: #363636;
-  background-color: #0000;
-  padding: .3rem;
-  text-decoration: none;
-}
-
-h1:hover > a.anchor-link, h2:hover > a.anchor-link, h3:hover > a.anchor-link, h4:hover > a.anchor-link {
-  opacity: 1;
-}
-
-a.anchor-link:after {
-  content: none;
-}
-
-html.dark-theme > body .content a.anchor-link:hover {
-  background: none !important;
-}
-
-html.dark-theme a.anchor-link {
-  fill: #fff;
 }
 
 /*# sourceMappingURL=styles.css.map */

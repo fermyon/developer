@@ -1,0 +1,24 @@
+title = "Develop a Spin application"
+template = "cloud_main"
+date = "2022-03-14T00:22:56Z"
+
+---
+
+## Installing the Spin CLI
+
+Before developing a Spin application, you need to have the Spin CLI (the latest version) installed locally. Here’s a way to install the Spin CLI:
+
+```
+$ curl https://spin.fermyon.dev/downloads/install.sh | bash
+```
+
+You can verify the version of the CLI version installed by using this command:
+
+```
+$ spin --version
+spin 0.5.0 (b9fedcc 2022-09-02)
+```
+
+### Next Step
+
+The next step after installing the Spin CLI is creating your very first Spin application by going through and practicing what is in the [quickstart section of the Spin docs](https://spin.fermyon.dev/quickstart/).
