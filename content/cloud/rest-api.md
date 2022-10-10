@@ -1,3 +1,9 @@
+title = "Rest API"
+template = "cloud_main"
+date = "2022-01-01T00:00:01Z"
+[extra]
+
+---
 ## OpenAPI
 
 The [Fermyon Cloud OpenAPI](https://github.com/fermyon/cloud-openapi) project contains automatically generated client libraries for use with the Fermyon Cloud.
