@@ -21,7 +21,7 @@ Copy the URL from the UI in readiness for running the `git clone` command.
 
 ![Fork the repository](/static/image/clone_developer_repo.png)
 
-Go ahead and clone the new fork that you just created (the one which resides in your own GitHub account).
+Go ahead and clone the new fork that you just created (the one which resides in your own GitHub account):
 
 ```bash
 # Change into home directory
@@ -91,7 +91,7 @@ upstream	https://github.com/fermyon/developer (fetch)
 upstream	https://github.com/fermyon/developer (push)
 ```
 
-Once you are satisfied go ahead and push your changes
+Once you are satisfied go ahead and push your changes:
 
 ```bash
 git push -u origin my_new_branch
