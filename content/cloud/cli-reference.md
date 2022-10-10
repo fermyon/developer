@@ -67,6 +67,8 @@ OPTIONS:
 #### Push
 
 ```
+$ spin bindle push --help
+
 USAGE:
     spin bindle push [OPTIONS] --bindle-server <BINDLE_SERVER_URL>
 
@@ -99,6 +101,8 @@ OPTIONS:
 ### Build
 
 ```
+$ spin build --help
+
 USAGE:
     spin build [OPTIONS] [UP_ARGS]...
 
@@ -114,6 +118,8 @@ OPTIONS:
 ### Deploy
 
 ```
+$ spin deploy --help
+
 USAGE:
     spin deploy [OPTIONS] --bindle-server <BINDLE_SERVER_URL> --hippo-server <HIPPO_SERVER_URL> --hippo-username <HIPPO_USERNAME> --hippo-password <HIPPO_PASSWORD>
 
@@ -165,6 +171,8 @@ OPTIONS:
 ### New
 
 ```
+$ spin new --help
+
 USAGE:
     spin new [OPTIONS] [ARGS]
 
@@ -190,6 +198,8 @@ OPTIONS:
 ### Plugin
 
 ```
+$ spin plugin --help
+
 USAGE:
     spin plugin <SUBCOMMAND>
 
@@ -207,6 +217,8 @@ SUBCOMMANDS:
 #### Install
 
 ```
+$ spin plugin install --help
+
 USAGE:
     spin plugin install [OPTIONS] [PLUGIN_NAME]
 
@@ -237,6 +249,8 @@ OPTIONS:
 #### Uninstall
 
 ```
+$ spin plugin uninstall --help
+
 USAGE:
     spin plugin uninstall <NAME>
 
@@ -250,16 +264,8 @@ OPTIONS:
 #### Update
 
 ```
-USAGE:
-    spin plugin uninstall <NAME>
+$ spin plugin update --help
 
-ARGS:
-    <NAME>    Name of Spin plugin
-
-OPTIONS:
-    -h, --help    Print help information
-tpmccallum@Tims-MacBook-Pro-3 spin % spin plugin update --help   
-spin-plugin-update 
 Fetch the latest Spin plugins from the spin-plugins repository
 
 USAGE:
@@ -272,6 +278,8 @@ OPTIONS:
 #### Upgrade
 
 ```
+$ spin plugin upgrade --help
+
 USAGE:
     spin plugin upgrade [OPTIONS] [PLUGIN_NAME]
 
@@ -307,6 +315,8 @@ OPTIONS:
 ### Templates
 
 ```
+$ spin templates --help
+
 USAGE:
     spin templates <SUBCOMMAND>
 
@@ -323,6 +333,8 @@ SUBCOMMANDS:
 #### Install
 
 ```
+$ spin templates install --help
+
 USAGE:
     spin templates install [OPTIONS]
 
@@ -347,6 +359,8 @@ OPTIONS:
 #### List
 
 ```
+$ spin templates list --help
+
 USAGE:
     spin templates list
 
@@ -357,6 +371,8 @@ OPTIONS:
 #### Uninstall
 
 ```
+$ spin templates uninstall --help
+
 USAGE:
     spin templates uninstall <TEMPLATE_ID>
 
