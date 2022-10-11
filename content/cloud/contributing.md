@@ -7,14 +7,14 @@ date = "2022-01-01T00:00:01Z"
 
 To contribute to the Fermyon Cloud Documentation, please follow these steps.
 
-1. [Fork the Repository](/cloud/contributing/#1-fork-the-repository)
-2. [Clone the Fork](/cloud/contributing/#2-clone-the-fork)
-3. [Create New Branch](/cloud/contributing/#3-create-new-branch)
-4. [Add Upstream](/cloud/contributing/#4-add-upstream)
-5. [Add Changes](/cloud/contributing/#5-add-changes)
-6. [Commit Changes](/cloud/contributing/#6-commit-changes)
-7. [Push Changes](/cloud/contributing/#7-push-changes)
-8. [Create a Pull Request](/cloud/contributing/#8-create-a-pull-request)
+- [1. Fork the Repository](#1-fork-the-repository)
+- [2. Clone the Fork](#2-clone-the-fork)
+- [3. Create New Branch](#3-create-new-branch)
+- [4. Add Upstream](#4-add-upstream)
+- [5. Add Changes](#5-add-changes)
+- [6. Commit Changes](#6-commit-changes)
+- [7. Push Changes](#7-push-changes)
+- [8. Create a Pull Request](#8-create-a-pull-request)
 
 ## 1. Fork the Repository
 
@@ -120,6 +120,6 @@ You can also add any information in the textbox provided below the title. For ex
 
 Once you have finished creating your PR, please keep an eye on the PR; answering any questions as part of the collaboration process.
 
-## Thank You
+**Thank You**
 
 Thanks for contributing.
