@@ -18,3 +18,12 @@ Build and run the website locally:
     ```
 
 1. View the website at `http://localhost:3000`
+
+Editing the contents:
+
+Once you edit the website, please run the tests and make sure to fix the errors. The test can be run using the following commands.
+
+```
+npm ci
+npm test
+```

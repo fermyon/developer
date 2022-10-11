@@ -58,6 +58,6 @@ There are two important concepts in this crate:
   [`Engine`](https://docs.rs/wasmtime/latest/wasmtime/struct.Engine.html), and
   [`Store<RuntimeContext<T>>`](https://docs.rs/wasmtime/latest/wasmtime/struct.Store.html)
   (where `RuntimeContext<T>` is the internal Spin context, which is detailed
-  later in the document), and it uses them to [pre-instantiate]()
+  later in the document), and it uses them to pre-instantiate.
 
 - `spin_engine::ExecutionContext` — the main execution engine in Spin.
