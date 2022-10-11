@@ -61,16 +61,42 @@ const svgCheck =
 
 const addCopyButtons = (clipboard) => {
   document.querySelectorAll("pre > code").forEach((codeBlock) => {
+    let content = codeBlock.innerText
+    let isComment = codeBlock.parentNode.previousSibling.previousSibling
+    if (isComment.nodeName == "#comment") {
+      switch (isComment.textContent.trim()) {
+        case "@nocpy": return
+        case "@selectiveCpy": {
+          let previousSlashEnding = false
+          content = content.split("\n").map(k => {
+            console.log(k)
+            k = k.trim()
+            let isCommand = k.startsWith("$")
+            if (isCommand || previousSlashEnding == true) {
+              if (!k.endsWith("\\")) {
+                console.log("here")
+                previousSlashEnding = false
+              } else {
+                previousSlashEnding = true
+              }
+              return isCommand ? k.substring(1).trim() : k
+            } else {
+              return undefined
+            }
+          }).filter(k => k != undefined).join("\n")
+        }
+      }
+    }
     let button = document.createElement("button");
     button.className = "copy-code-button";
     button.type = "button";
     button.ariaLabel = "Copy code"
     button.innerHTML = svgCopy;
     button.addEventListener("click", () => {
-      clipboard.writeText(codeBlock.innerText).then(
+      clipboard.writeText(content).then(
         () => {
-            button.classList.add("is-success")
-            button.innerHTML = svgCheck;
+          button.classList.add("is-success")
+          button.innerHTML = svgCheck;
           setTimeout(() => {
             button.innerHTML = svgCopy
             button.classList.remove("is-success")
