@@ -5,6 +5,25 @@ date = "2022-01-01T00:00:01Z"
 
 ---
 
+- [Spin](#spin)
+  - [Bindle](#bindle)
+    - [Prepare](#prepare)
+    - [Push](#push)
+  - [Build](#build)
+  - [Deploy](#deploy)
+  - [New](#new)
+  - [Plugin](#plugin)
+    - [Install](#install)
+    - [Uninstall](#uninstall)
+    - [Update](#update)
+    - [Upgrade](#upgrade)
+  - [Templates](#templates)
+    - [Install](#install-1)
+    - [List](#list)
+    - [Uninstall](#uninstall-1)
+
+## Spin
+
 This page documents the Spin Command Line Interface (CLI). Specifically, all of the available Spin Options and Subcommands. You can reproduce this documentation on your machine by using the `--help` For example:
 
 ```
