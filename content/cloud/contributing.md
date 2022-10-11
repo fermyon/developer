@@ -16,8 +16,6 @@ To contribute to the Fermyon Cloud Documentation, please follow these steps.
 7. [Push Changes](/cloud/contributing/#7-push-changes)
 8. [Create a Pull Request](/cloud/contributing/#8-create-a-pull-request)
 
-
-
 ## 1. Fork the Repository
 
 The first step is to fork the [developer repository](https://github.com/fermyon/developer), from Fermyon's GitHub, to your own GitHub account.
@@ -93,7 +91,7 @@ At this stage, it is a good idea to just quickly check what GitHub thinks the or
 
 ```bash
 $ git remote -v
-````
+```
 
 The above command will return output similar to the following:
 
