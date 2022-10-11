@@ -1,0 +1,35 @@
+name: Build
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install npm packages
+        run: |
+          npm ci
+
+      - name: Run npm tests
+        run: |
+          npm test
+
+      - name: Install bart
+        run: |
+          curl -LOs https://github.com/fermyon/bartholomew/releases/download/v0.3.0/bart
+          chmod +x bart
+          mv bart /usr/local/bin
+
+      - name: Check Docs
+        run: |
+          bart check content/* && bart check content/**/*
