@@ -32,6 +32,8 @@ Copy the URL from the UI in readiness for running the `git clone` command.
 
 Go ahead and clone the new fork that you just created (the one which resides in your own GitHub account):
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ cd ~
 $ git clone git@github.com:yourusername/developer.git
@@ -42,6 +44,8 @@ $ cd developer
 
 Create a new branch that will house all of your changes for this specific contribution:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ git checkout -b my_new_branch
 ```
@@ -49,6 +53,8 @@ $ git checkout -b my_new_branch
 ## 4. Add Upstream
 
 Create a new remote for the upstream (a pointer to the original repository to which you are contributing):
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ git remote add upstream https://github.com/fermyon/developer
@@ -59,6 +65,8 @@ $ git remote add upstream https://github.com/fermyon/developer
 Once you are satisfied with your contribution go ahead and add your changes by moving to a top-level directory, under which your changes exist i.e. `cd ~/developer`.
 
 Add your changes using the following command:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ git add
@@ -79,6 +87,8 @@ More information can be found at this GitHub documentation page called [signing 
 
 Type the following commit command to ensure that you sign off (--signoff), sign the data (-S) - recommended, and also leave a short message (-m):
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ git commit -S --signoff -m "Updating documentation"
 ```
@@ -88,6 +98,8 @@ $ git commit -S --signoff -m "Updating documentation"
 ## 7. Push Changes
 
 At this stage, it is a good idea to just quickly check what GitHub thinks the origin is. For example, if we type `git remote -v` we can see that the origin is our repo; which we a) forked the original repo into and b) which we then cloned to our local disk so that we could edit:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ git remote -v
@@ -103,6 +115,8 @@ upstream	https://github.com/fermyon/developer (push)
 ```
 
 Once you are satisfied go ahead and push your changes:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ git push -u origin my_new_branch

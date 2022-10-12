@@ -22,6 +22,8 @@ $ bindle-server --address 127.0.0.1:8000 --directory . --unauthenticated
 
 Let's push the application from the [quickstart](./quickstart.md) to the registry:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ export BINDLE_URL=http://localhost:8000/v1
 $ spin bindle push --file spin.toml
@@ -29,6 +31,8 @@ pushed: spin-hello-world/1.0.0
 ```
 
 Now we can run the application using `spin up` directly from the registry:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin up --bindle spin-hello-world/1.0.0

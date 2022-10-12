@@ -104,6 +104,7 @@ $ spin up --file spin.toml
 ```
 
 And the component can now handle incoming requests:
+<!-- @selectiveCpy -->
 
 ```bash
 # based on the configuration file, a request
@@ -133,12 +134,16 @@ Not Found
 We can now [publish the application to the registry](./distributing-apps.md) (together
 with router configuration file):
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ spin bindle push --file spin.toml
 pushed: url-shortener/1.0.0
 ```
 
 And now we can run the application directly from the registry:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin up --bindle url-shortener/1.0.0

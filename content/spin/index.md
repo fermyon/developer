@@ -62,6 +62,8 @@ Running this application with the spin CLI is as simple as using the `spin up` c
 Because a trigger type of `http` is specified in the `spin.toml` file, `spin up` will start
 a web server:
 
+<!-- @selectiveCpy -->
+
 ```console
 $ spin up
 Serving HTTP on address http://127.0.0.1:3000

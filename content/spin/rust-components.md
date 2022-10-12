@@ -111,6 +111,8 @@ Running the application using `spin up --file spin.toml` will start the HTTP
 listener locally (by default on `localhost:3000`), and our component can
 now receive requests in route `/hello`:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ curl -i localhost:3000/hello
 HTTP/1.1 200 OK
@@ -166,6 +168,8 @@ processing the request, it returns an `anyhow::Error`.
 
 The component can be built with Cargo by executing:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ cargo build --target wasm32-wasi --release
 ```
@@ -189,6 +193,8 @@ channel = "messages"
 This application will connect to `redis://localhost:6379`, and for every new
 message on the `messages` channel, the `echo-message` component will be executed.
 
+<!-- @selectiveCpy -->
+
 ```bash
 # first, start redis-server on the default port 6379
 $ redis-server --port 6379
@@ -200,6 +206,8 @@ INFO spin_redis_engine: Subscribed component 0 (echo-message) to channel: messag
 ```
 
 For every new message on the  `messages` channel:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ redis-cli
@@ -214,6 +222,8 @@ Hello, there!
 ```
 
 If you would also like to see the `println!` messages echoed to the console as they happen, please include the additional `--follow-all` option, when starting the spin application. For example:
+
+<!-- @selectiveCpy -->
 
 ```bash
 spin up --file spin.toml --follow-all
@@ -300,6 +310,8 @@ The recommended way of creating new Spin projects is by starting from a template
 This section shows how to  manually create a new project with Cargo.
 
 When creating a new Spin projects with Cargo, you should use the `--lib` flag.
+
+<!-- @selectiveCpy -->
 
 ```console
 $ cargo init --lib

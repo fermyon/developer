@@ -26,6 +26,8 @@ date = "2022-01-01T00:00:01Z"
 
 This page documents the Spin Command Line Interface (CLI). Specifically, all of the available Spin Options and Subcommands. You can reproduce this documentation on your machine by using the `--help` For example:
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin --help
 
@@ -51,6 +53,8 @@ SUBCOMMANDS:
 
 Adding a subcommand (and again issuing the `--help` command) will provide information specific to that particular subcommand. For example:
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin bindle --help
 
@@ -70,6 +74,8 @@ SUBCOMMANDS:
 
 Again, adding another related subcommand provides even more specific information. For example:
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin bindle prepare --help
 
@@ -84,6 +90,8 @@ OPTIONS:
 ```
 
 #### Push
+
+<!-- @selectiveCpy -->
 
 ```
 $ spin bindle push --help
@@ -119,6 +127,8 @@ OPTIONS:
 
 ### Build
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin build --help
 
@@ -135,6 +145,8 @@ OPTIONS:
 ```
 
 ### Deploy
+
+<!-- @selectiveCpy -->
 
 ```
 $ spin deploy --help
@@ -189,6 +201,8 @@ OPTIONS:
 
 ### New
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin new --help
 
@@ -216,6 +230,8 @@ OPTIONS:
 
 ### Plugin
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin plugin --help
 
@@ -234,6 +250,8 @@ SUBCOMMANDS:
 ```
 
 #### Install
+
+<!-- @selectiveCpy -->
 
 ```
 $ spin plugin install --help
@@ -267,6 +285,8 @@ OPTIONS:
 
 #### Uninstall
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin plugin uninstall --help
 
@@ -282,6 +302,8 @@ OPTIONS:
 
 #### Update
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin plugin update --help
 
@@ -295,6 +317,8 @@ OPTIONS:
 ```
 
 #### Upgrade
+
+<!-- @selectiveCpy -->
 
 ```
 $ spin plugin upgrade --help
@@ -333,6 +357,8 @@ OPTIONS:
 
 ### Templates
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin templates --help
 
@@ -350,6 +376,8 @@ SUBCOMMANDS:
 ```
     
 #### Install
+
+<!-- @selectiveCpy -->
 
 ```
 $ spin templates install --help
@@ -377,6 +405,8 @@ OPTIONS:
 
 #### List
 
+<!-- @selectiveCpy -->
+
 ```
 $ spin templates list --help
 
@@ -388,6 +418,8 @@ OPTIONS:
 ```
 
 #### Uninstall
+
+<!-- @selectiveCpy -->
 
 ```
 $ spin templates uninstall --help
