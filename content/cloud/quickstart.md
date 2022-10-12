@@ -13,7 +13,7 @@ This guide will get you up and running in the Fermyon Cloud in less than two min
 First, you need to have Spin installed on your computer. Use the below command to install the latest version of Spin.
 
 ```bash
-curl https://developer.fermyon.dev/downloads/install.sh | bash
+curl https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
 This command downloaded and unpacked the latest Spin binary in the current directory. You can now run spin using the command `./spin`
