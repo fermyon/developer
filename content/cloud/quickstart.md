@@ -28,7 +28,7 @@ Now, let's log in to the Fermyon cloud. You will be using your GitHub user accou
 ./spin login
 ```
 
-This command will generate an authentication code for your current device to be authorized against the Fermyon Cloud.
+This command will generate an authentication code for your current device to be authorized against the Fermyon Cloud. Follow the instructions in the prompt to complete the authorization.
 
 {{ details "Learn more" "The default behavior of `spin login` is to authenticate with the Fermyon Cloud. The command can authenticate against any instance of the [Fermyon Platform](../platform/index). #TODO Check the link." }}
 
@@ -39,7 +39,7 @@ To make this easy, we've already compiled a Webassembly module and created a Spi
 Let's go ahead and clone the <https://github.com/fermyon/cloud-start> repository to your computer, to get that application.
 
 ```bash
-git clone https://github.com/fermyon/cloud-start
+git clone https://github.com/fermyon/cloud-start && cd cloud-start
 ```
 
 This command clones the repository into a new directory named `cloud-start`, and then enters that directory.
