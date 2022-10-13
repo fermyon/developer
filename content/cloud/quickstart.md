@@ -70,6 +70,7 @@ The `../spin` command will use the Spin binary in the parent directory of the cu
 
 This is what success looks like:
 
+<!-- @nocpy -->
 ```bash
 Application cloud_start/0.1.0 deployed, running at cloud-start-00000000.fermyon.app
 ```

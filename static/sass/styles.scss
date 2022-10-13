@@ -258,3 +258,9 @@ html.dark-theme {
 		}
 	}
 }
+
+// fixing https://github.com/fermyon/developer/issues/54 temporarily
+
+.content pre {
+	max-width: 800px;
+}
