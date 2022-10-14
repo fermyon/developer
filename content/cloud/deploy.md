@@ -14,7 +14,7 @@ bash curl https://developer.fermyon.dev/downloads/install.sh | bash
 ```
 ## Login to the Fermyon Cloud
 
-Next, you can Log in to the Fermyon Cloud, and it requires your GitHub account to sign in:
+Next, you can Log in to the Fermyon Cloud, and it requires your GitHub account to sign in.
 ```
 ./spin login
 ```
