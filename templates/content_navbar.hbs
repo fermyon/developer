@@ -1,6 +1,6 @@
 <header class="navbar is-transparent is-wide" id="topbar">
     <div class="navbar-brand">
-        <a class="navbar-item" href="/">
+        <a class="navbar-item" href="/index">
             <div class="logo">
                 <svg width="170" height="64" viewBox="0 0 685 87" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -28,8 +28,26 @@
                 <span class="spin-front"><em></em></span> <span class="spin-back"></span>
             </div>
         </a>
-
-        <div class="logo-project">
+        <div class="dropdown">
+            <div class="logo-project">
+                <a href="#">
+                    {{#if (active_project request.spin-path-info "/spin/" )}} Spin
+                    {{else}}
+                    {{#if (active_project request.spin-path-info "/cloud/" )}} Fermyon Cloud
+                    {{else}} Developer Home
+                    {{/if}}
+                    {{/if}}
+                    ⌄
+                </a>
+            </div>
+            <div class="dropdown-content">
+                <a href="/index">Developer Home</a>
+                <a href="/spin/index/" {{#if (active_project request.spin-path-info "/spin/" )}} class="is-active" {{/if}}>Spin</a>
+                <a href="/cloud/index/" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Fermyon Cloud</a>
+            </div>
+        </div>
+        <div class="dropdown-backdrop"></div>
+        {{!-- <div class="logo-project">
             <a href="/spin" {{#if (active_project request.spin-path-info "/spin/" )}} class="is-active" {{/if}}>Spin
             </a>
         </div>
@@ -38,9 +56,10 @@
             <a href="/cloud" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>
                 Fermyon Cloud
             </a>
-        </div>
+        </div> --}}
 
-        <div class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="docsMenu"><span></span>
+        <div class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="docsMenu">
+            <span></span>
             <span></span> <span></span>
         </div>
 
