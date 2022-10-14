@@ -1,0 +1,19 @@
+name: Dispatch Event
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+
+jobs:
+  dispatch:
+    name: Dispatch fermyon-developer-updated event
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.DEST_REPO_ACCESS_TOKEN }}
+          repository: ${{ secrets.DEST_REPO }}
+          event-type: fermyon-developer-updated
+          client-payload: '{"event_type": "fermyon-developer-updated", "ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
