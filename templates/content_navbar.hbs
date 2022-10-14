@@ -1,6 +1,6 @@
 <header class="navbar is-transparent is-wide" id="topbar">
     <div class="navbar-brand">
-        <a class="navbar-item" href="/index">
+        <a class="navbar-item" href="/">
             <div class="logo">
                 <svg width="170" height="64" viewBox="0 0 685 87" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -41,7 +41,7 @@
                 </a>
             </div>
             <div class="dropdown-content">
-                <a href="/index">Developer Home</a>
+                <a href="/">Developer Home</a>
                 <a href="/spin/index/" {{#if (active_project request.spin-path-info "/spin/" )}} class="is-active" {{/if}}>Spin</a>
                 <a href="/cloud/index/" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Fermyon Cloud</a>
             </div>
@@ -57,8 +57,7 @@
                 Fermyon Cloud
             </a>
         </div> --}}
-
-        <div class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="docsMenu">
+        <div class="navbar-burger burger {{#if (eq request.spin-path-info "/")}}hide-burger {{/if}}" aria-label="menu" aria-expanded="false" data-target="docsMenu">
             <span></span>
             <span></span> <span></span>
         </div>

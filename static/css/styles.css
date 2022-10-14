@@ -1250,6 +1250,10 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
   }
 }
 
+.documentation .hide-burger {
+  display: none;
+}
+
 .documentation .content {
   padding-top: 8.5rem;
 }
