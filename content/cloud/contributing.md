@@ -7,14 +7,14 @@ date = "2022-01-01T00:00:01Z"
 
 To contribute to the Fermyon Cloud Documentation, please follow these steps.
 
-- [1. Fork the Repository](#1-fork-the-repository)
-- [2. Clone the Fork](#2-clone-the-fork)
-- [3. Create New Branch](#3-create-new-branch)
-- [4. Add Upstream](#4-add-upstream)
-- [5. Add Changes](#5-add-changes)
-- [6. Commit Changes](#6-commit-changes)
-- [7. Push Changes](#7-push-changes)
-- [8. Create a Pull Request](#8-create-a-pull-request)
+1. [Fork the Repository](#1-fork-the-repository)
+2. [Clone the Fork](#2-clone-the-fork)
+3. [Create New Branch](#3-create-new-branch)
+4. [Add Upstream](#4-add-upstream)
+5. [Add Changes](#5-add-changes)
+6. [Commit Changes](#6-commit-changes)
+7. [Push Changes](#7-push-changes)
+8. [Create a Pull Request](#8-create-a-pull-request)
 
 ## 1. Fork the Repository
 
