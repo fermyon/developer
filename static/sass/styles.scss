@@ -137,21 +137,6 @@ TABLE OF CONTENTS
 		a {
 			position: relative;
 		}
-
-		a.is-active {
-			&::after {
-				content: "";
-				display: block;
-				position: absolute;
-				left: 0;
-				right: 0;
-				bottom: -0.5rem;
-				width: 90%;
-				margin: auto;
-				height: 3px;
-				background: #0e8fdd;
-			}
-		}
 	}
 
 	// Styles for anchor linking headers
@@ -238,7 +223,82 @@ html.dark-theme {
 		}
 	}
 
+	.dropdown-content {
+		a {
+			color: #34e8bd;
+		}
+	}
+}
 
+.dropdown {
+	position: relative;
+
+	:hover .dropdown-content {
+		display: block;
+	}
+
+	.logo-project {
+		display: none;
+	}
+
+	&:hover+.dropdown-backdrop {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+
+}
+
+.dropdown-content {
+	display: inline-block;
+	min-width: 200px;
+	padding: 0;
+	background: transparent;
+	box-shadow: none;
+	margin: 2rem 0 0 1.3335rem;
+
+	a {
+		color: #213762;
+		font-size: 1.125rem;
+		text-decoration: none;
+		display: inline;
+		cursor: pointer;
+		font-weight: bold;
+		margin-right: 1.3335rem;
+		position: relative;
+
+		&.is-active {
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: -0.5rem;
+				width: 90%;
+				margin: auto;
+				height: 3px;
+				background: #0e8fdd;
+			}
+		}
+	}
+
+	:first-child {
+		display: none;
+	}
+
+
+	// a:hover {
+	// 	// background-color: #e9e1eb;
+	// }
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
 }
 
 @media screen and (max-width: 1023px) {
@@ -257,9 +317,69 @@ html.dark-theme {
 			}
 		}
 	}
-}
 
-// fixing https://github.com/fermyon/developer/issues/54 temporarily
+	// fixing https://github.com/fermyon/developer/issues/54 temporarily
+
+	.dropdown {
+		.logo-project {
+			display: block;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			top: 100%;
+			background-color: #f9f9f9;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			min-width: 200px;
+			padding: 0;
+			border-radius: 0.667rem;
+			margin: 0;
+
+			a {
+				color: #213762;
+				font-size: 1.125rem;
+				text-decoration: none;
+				display: block;
+				cursor: pointer;
+				padding: 0.5rem;
+				font-weight: bold;
+				margin: 0;
+
+				&.is-active {
+					&::after {
+						display: none;
+					}
+				}
+			}
+
+			a:hover {
+				background-color: #e9e1eb;
+			}
+		}
+
+		:hover .dropdown-content {
+			display: block;
+		}
+
+	}
+
+	.dropdown:hover+.dropdown-backdrop {
+		backdrop-filter: blur(6px);
+	}
+
+	html.dark-theme .dropdown-content {
+		background-color: #213762;
+
+		a {
+			color: #34e8bd;
+		}
+
+		a:hover {
+			background: #0d203f;
+		}
+	}
+}
 
 .content pre {
 	max-width: 800px;
