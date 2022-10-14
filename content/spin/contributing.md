@@ -44,6 +44,8 @@ configured:
 Once you have set up the prerequisites and identified the contribution you want
 to make to Spin, make sure you can correctly build the project:
 
+<!-- @selectiveCpy -->
+
 ```
 # clone the repository
 $ git clone https://github.com/fermyon/spin && cd spin
@@ -76,6 +78,8 @@ successful, you should be ready to commit your changes. We try to follow the
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 guidelines for writing commit messages:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ git commit -S -s -m "<your commit message that follows https://www.conventionalcommits.org/en/v1.0.0/>"
 ```
@@ -85,6 +89,8 @@ often, please
 [cleanup the commit history](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
 before opening a pull request. Once you are happy with your changes you can push
 the branch to your fork:
+
+<!-- @selectiveCpy -->
 
 ```bash
 # "fork" is the name of the git remote pointing to your fork

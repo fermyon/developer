@@ -69,12 +69,10 @@ const addCopyButtons = (clipboard) => {
         case "@selectiveCpy": {
           let previousSlashEnding = false
           content = content.split("\n").map(k => {
-            console.log(k)
             k = k.trim()
             let isCommand = k.startsWith("$")
             if (isCommand || previousSlashEnding == true) {
               if (!k.endsWith("\\")) {
-                console.log("here")
                 previousSlashEnding = false
               } else {
                 previousSlashEnding = true

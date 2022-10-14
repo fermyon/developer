@@ -14,20 +14,32 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/quickstart.md"
 
 You can install the `spin` binary using the `install.sh` script hosted on this site.
 
+<!-- @selectiveCpy -->
+
 ```console
 $ curl https://spin.fermyon.dev/downloads/install.sh | bash
 ```
 
-To install a specific version (or canary), you can pass arguments to the install script this way:
+To install a specific version, you can pass arguments to the install script this way:
+
+<!-- @selectiveCpy -->
 
 ```console
 $ curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v v0.5.0
+```
 
+To install canary version of spin, you should pass the argument `-v canary`  
+
+<!-- @selectiveCpy -->
+
+```console
 $ curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v canary
 ``` 
 
 At this point, move the `spin` binary somewhere in your path, so it can be
 accessed from any directory. For example:
+
+<!-- @selectiveCpy -->
 
 ```console
 $ sudo mv ./spin /usr/local/bin/spin
@@ -38,6 +50,8 @@ $ sudo mv ./spin /usr/local/bin/spin
 [Follow the contribution document](./contributing.md) for a detailed guide
 on building Spin from source:
 
+<!-- @selectiveCpy -->
+
 ```console
 $ git clone https://github.com/fermyon/spin
 $ cd spin && make build
@@ -47,6 +61,8 @@ $ ./target/release/spin --help
 ### Alternative 2: Using Cargo to install Spin
 
 If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installation.html), you can clone the repo and install it to your path:
+
+<!-- @selectiveCpy -->
 
 ```console
 $ git clone https://github.com/fermyon/spin -b v0.5.0
@@ -65,6 +81,8 @@ may need `pkg-config`.
 On Debian-like distributions, including Ubuntu, you can install these with a
 command like this:
 
+<!-- @selectiveCpy -->
+
 ```console
 $ sudo apt-get install build-essential libssl-dev pkg-config
 ```
@@ -72,6 +90,8 @@ $ sudo apt-get install build-essential libssl-dev pkg-config
 ## Creating a new Spin application from a template
 
 Spin helps you create a new application based on templates:
+
+<!-- @selectiveCpy -->
 
 ```console
 $ spin templates list
@@ -81,6 +101,8 @@ to install a starter set.
 ```
 
 We first need to configure the [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates):
+
+<!-- @selectiveCpy -->
 
 ```console
 $ spin templates install --git https://github.com/fermyon/spin
@@ -104,6 +126,8 @@ Installing template http-go...
 > and the [Spin Improvement Proposal (SIP) for templates](https://github.com/fermyon/spin/pull/273).
 
 Let's create a new Spin application based on the Rust HTTP template:
+
+<!-- @selectiveCpy -->
 
 ```console
 $ spin new http-rust spin-hello-world
@@ -181,6 +205,8 @@ We can build this component using the regular Rust toolchain, targeting
 `spin.toml`. For convenience, we can use the `spin build` command, which will
 execute the command defined above in `spin.toml` and call the Rust toolchain:
 
+<!-- @selectiveCpy -->
+
 ```console
 $ spin build
 Executing the build command for component spin-hello-world: cargo build --target wasm32-wasi --release
@@ -202,6 +228,8 @@ If you run into errors, you might want to use `rustup check` to see if your Rust
 Now that we configured the application and built our component, we can _spin up_
 the application (pun intended):
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ spin up
 Serving HTTP on address http://127.0.0.1:3000
@@ -211,6 +239,8 @@ Available Routes:
 
 Optionally, set the RUST_LOG environment variable for detailed logs, before running `spin up`.
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ export RUST_LOG=spin=trace
 ```
@@ -219,6 +249,8 @@ Spin will instantiate all components from the application manifest, and
 will create the router configuration for the HTTP trigger accordingly. The
 component can now be invoked by making requests to `http://localhost:3000/hello`
 (see route field in the configuration):
+
+<!-- @selectiveCpy -->
 
 ```
 $ curl -i localhost:3000/hello

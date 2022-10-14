@@ -161,6 +161,8 @@ variable provider, which gets config values from the `spin` process's
 environment (_not_ the component `environment`). Config keys are translated
 to environment variables by upper-casing and prepending with `SPIN_APP_`:
 
+<!-- @selectiveCpy -->
+
 ```sh
 $ export SPIN_APP_API_KEY = "1234"  # Sets the `api_key` value.
 $ spin up

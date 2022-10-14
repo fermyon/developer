@@ -25,6 +25,8 @@ command = "cargo build --target wasm32-wasi --release --manifest-path http-rust/
 
 Then, running `spin build` will execute, sequentially, each build command:
 
+<!-- @selectiveCpy -->
+
 ```
 $ RUST_LOG=spin=trace spin build
 2022-04-25T03:01:56.721630Z  INFO spin_build: Executing the build command for component rust-hello.
@@ -49,6 +51,8 @@ finishes for all application components.
 By default, the `command` to build a component is executed in the manifest's
 directory. This can be changed. For example, assume a component is located in
 subdirectory `deep`:
+
+<!-- @nocpy -->
 
 ```bash
 .

@@ -108,6 +108,8 @@ func main() {}
 
 The component can be built using the `tingygo` toolchain:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ tinygo build -wasm-abi=generic -target=wasi -no-debug -o main.wasm main.go
 ```
@@ -137,6 +139,8 @@ route = "/hello"
 Running the application using `spin up --file spin.toml` will start the HTTP
 listener locally (by default on `localhost:3000`), and our component can
 now receive requests in route `/hello`:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ curl -i localhost:3000/hello
@@ -209,6 +213,8 @@ command = "tinygo build -wasm-abi=generic -target=wasi -gc=leaking -no-debug -o 
 The application will connect to `redis://localhost:6379`, and for every new message
 on the `messages` channel, the `echo-message` component will be executed:
 
+<!-- @selectiveCpy -->
+
 ```bash
 # first, start redis-server on the default port 6379
 $ redis-server --port 6379
@@ -220,12 +226,16 @@ INFO spin_redis_engine: Subscribed component 0 (echo-message) to channel: messag
 
 For every new message on the `messages` channel:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ redis-cli
 127.0.0.1:6379> publish messages "Hello, there!"
 ```
 
 Spin will instantiate and execute the component:
+
+<!-- @nocpy -->
 
 ```bash
 INFO spin_redis_engine: Received message on channel "messages"
