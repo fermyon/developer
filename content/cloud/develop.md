@@ -104,9 +104,7 @@ Successfully ran the build command for the Spin components.
 
 The command above was used to build all the components in the Spin manifest file at once. and also has a flag that starts the application after finishing the compilation, `spin build --up`. For more details, see the [page about developing Spin applications](https://spin.fermyon.dev/developing) to learn more.
 
-
 > 💡 If you run into errors, you can use the `rustup-check` command to see if your Rust installation is up-to-date.
-
 
 ## Running the application
 
