@@ -52,7 +52,7 @@ git clone https://github.com/fermyon/cloud-start && cd cloud-start
 
 This command clones the repository into a new directory named `cloud-start`, and then enters that directory.
 
-{{ details "Learn more" "Normally you would start by using the command `spin new [template name] [project name]` to create a new Spin application. This gives you the option to choose a template, based on your preference of programming language and the trigger you want to use for your first module - e.g., `spin new rust-http my_rust_http_trigger`. \n\n The [Spin quickstart](../../spin/quickstart) guides you through creating a Spin application from scratch." }}
+{{ details "Learn more" "Normally you would start by using the command `spin new [template name] [project name]` to create a new Spin application. This gives you the option to choose a template, based on your preference of programming language and the trigger you want to use for your first module - e.g., `spin new rust-http my_rust_http_trigger`. \n\n The [Spin quickstart](/spin/quickstart) guides you through creating a Spin application from scratch." }}
 
 ## Deploy the application
 
@@ -64,7 +64,7 @@ Let's deploy the application
 
 The `../spin` command will use the Spin binary in the parent directory of the current path and use the Spin application definition file `spin.toml` in the current directory, to know what application to deploy.
 
-{{ details "Learn more" "Deploying a Spin application includes packaging the application in a Bindle and uploading it to a Bindle registry, as well as creating the application in the Fermyon Cloud. \n\n You can learn more about the deployment process [here](../deployment-bindles)." }}
+{{ details "Learn more" "Deploying a Spin application includes packaging the application in a Bindle and uploading it to a Bindle registry, as well as creating the application in the Fermyon Cloud. \n\n You can learn more about the deployment process [here](./deployment-bindles)." }}
 
 ## Success
 
