@@ -639,10 +639,6 @@ html.dark-theme > body {
   background: #0d203f;
 }
 
-html.dark-theme > body h1, html.dark-theme > body h2, html.dark-theme > body h3, html.dark-theme > body h4, html.dark-theme > body h5, html.dark-theme > body p, html.dark-theme > body li {
-  color: #fff;
-}
-
 html.dark-theme > body #topbar.navbar {
   background: #0d203f;
   border-color: #0a455a;
@@ -686,6 +682,7 @@ html.dark-theme > body #topbar.navbar .dark-mode svg {
 }
 
 html.dark-theme > body .menu-wrap {
+  scrollbar-color: #525776, #09152a;
   background: #0d203f;
 }
 
@@ -704,10 +701,6 @@ html.dark-theme > body aside.menu a:hover {
 
 html.dark-theme > body aside.menu a.button svg, html.dark-theme > body aside.menu a.button path {
   fill: #fff !important;
-}
-
-html.dark-theme > body pre {
-  background: linear-gradient(0deg, #173564 15%, #233e68 100%);
 }
 
 html.dark-theme > body .card {
@@ -730,11 +723,6 @@ html.dark-theme > body .content .box {
   background-color: #213762;
 }
 
-html.dark-theme > body .content h1 code, html.dark-theme > body .content h2 code, html.dark-theme > body .content h3 code, html.dark-theme > body .content h4 code, html.dark-theme > body .content h5 code, html.dark-theme > body .content p code, html.dark-theme > body .content li code, html.dark-theme > body .content th code, html.dark-theme > body .content td code, html.dark-theme > body .content dd code {
-  color: #ece5ee;
-  background-color: #213762;
-}
-
 html.dark-theme > body .content section table {
   background-color: #213762;
 }
@@ -753,10 +741,6 @@ html.dark-theme > body .content blockquote > blockquote p, html.dark-theme > bod
   color: #fff;
   background-color: #243c6c;
   border-color: #2b477f;
-}
-
-html.dark-theme > body .content a:hover {
-  background: #1b2c4f !important;
 }
 
 html.dark-theme > body footer {
@@ -875,6 +859,10 @@ body {
 
 .content blockquote a {
   color: #0e8fdd;
+}
+
+.content iframe {
+  margin: 2rem 0;
 }
 
 .content pre, .content code {
@@ -1081,6 +1069,11 @@ body {
   color: #0e8fdd;
 }
 
+.content pre > code, .content code > code {
+  background-color: #0000 !important;
+  background-image: none !important;
+}
+
 .content pre code.hljs, .content code code.hljs {
   padding: 0 !important;
 }
@@ -1180,11 +1173,63 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
   color: #ece5ee;
 }
 
+html.dark-theme > body h1, html.dark-theme > body h2, html.dark-theme > body h3, html.dark-theme > body h4, html.dark-theme > body h5, html.dark-theme > body p, html.dark-theme > body li {
+  color: #fff;
+}
+
+html.dark-theme > body pre {
+  background: linear-gradient(0deg, #173564 15%, #233e68 100%);
+}
+
+html.dark-theme > body pre code {
+  color: #dbc8e2;
+}
+
+html.dark-theme > body .content h1 code, html.dark-theme > body .content h2 code, html.dark-theme > body .content h3 code, html.dark-theme > body .content h4 code, html.dark-theme > body .content h5 code, html.dark-theme > body .content p code, html.dark-theme > body .content li code, html.dark-theme > body .content th code, html.dark-theme > body .content td code, html.dark-theme > body .content dd code {
+  color: #ece5ee;
+  background-color: #213762;
+}
+
+html.dark-theme > body .content .hljs {
+  color: #d2c3d7;
+}
+
+html.dark-theme > body .content .hljs-comment, html.dark-theme > body .content .hljs-quote {
+  color: #afafac;
+}
+
+html.dark-theme > body .content a:hover {
+  background: #1b2c4f !important;
+}
+
+html.dark-theme > body .content .table thead {
+  background-color: #525776;
+}
+
+html.dark-theme > body .content .table thead th {
+  color: #070c16;
+  background-color: #525776;
+  border-color: #040b15;
+}
+
+html.dark-theme > body .content .table td {
+  color: #ece5ee;
+  border-color: #040b15;
+}
+
+html.dark-theme > body .content .table.is-striped tbody tr:not(.is-selected):nth-child(2n) {
+  background-color: #213762;
+}
+
+html.dark-theme > body .content .pagination-link, html.dark-theme > body .content .pagination-next, html.dark-theme > body .content .pagination-previous {
+  border-color: #040b15;
+}
+
 @media screen and (max-width: 1023px) {
   #topbar.navbar .logo {
     width: 3rem;
     height: 3rem;
-    background: url("avatar.a979e1d6.png") 0 0 / contain no-repeat;
+    background: url("avatar.63e1d6e5.png") 0 0 / contain no-repeat;
   }
 
   #topbar.navbar .logo svg, #topbar.navbar .logo span {
