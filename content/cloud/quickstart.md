@@ -32,9 +32,22 @@ This command downloaded and unpacked the latest Spin binary in the current direc
 
 Now, let's log in to the Fermyon cloud. You will be using your GitHub user account to sign in.
 
+<!-- @selectiveCpy -->
 ```bash
-./spin login
+$ ./spin login --hippo-server https://canary.platform.fermyon.link
+What authentication method does this server support?
+
+1. Sign in with GitHub
+2. Sign in with a username and password
+
+Enter a number: 1
+Open https://canary.platform.fermyon.link/device-authorization in your browser
+! Copy your one-time code: XXXXXXXX
+Waiting for device authorization...
+Device authorized!
 ```
+
+> Make sure to use the URL above for the canary instance
 
 This command will generate an authentication code for your current device to be authorized against the Fermyon Cloud. Follow the instructions in the prompt to complete the authorization.
 
@@ -72,7 +85,9 @@ This is what success looks like:
 
 <!-- @nocpy -->
 ```bash
-Application cloud_start/0.1.0 deployed, running at cloud-start-00000000.fermyon.app
+Deployed cloud_start version 0.1.0+qf84cbd7
+Available Routes:
+  cloud-start: https://cloud-start-XXXXXXXX.canary.platform.fermyon.link (wildcard)
 ```
 
 You can CTRL+Click on the link in the terminal to go to the web application you just deployed.
