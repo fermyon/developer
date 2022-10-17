@@ -96,5 +96,5 @@ Congratulations, you've now deployed your first application to the Fermyon Cloud
 
 ## Next Steps
 
-- Go and check out how to build a Spin application from scratch, by following this [tutorial](/cloud/data-in-the-cloud)
-- Or dive into learning more about the [Fermyon Cloud](/cloud/fermyon-cloud)
+- Go and check out how to [build a Spin application from scratch](develop)
+- Or dive into learning more about the [Fermyon Cloud](fermyon-cloud)

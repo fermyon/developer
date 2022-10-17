@@ -5,15 +5,15 @@ enable_shortcodes = true
 
 ---
 
-- [Prerequisites - Installing the Spin CLI](#prerequisites---installing-the-spin-cli)
-- [Creating a new Spin application from a template](#creating-a-new-spin-application-from-a-template)
-- [Running the application](#running-the-application)
+- [Prerequisites - Instal the Spin CLI](#prerequisites---instal-the-spin-cli)
+- [Create a new Spin application from a template](#create-a-new-spin-application-from-a-template)
+- [Run the application](#run-the-application)
 - [Write your code](#write-your-code)
-- [Next Step](#next-step)
+- [Next steps](#next-steps)
 
-> This article briefly describes how to create a new Spin applicaion. For a more thorough guide to developing Spin applications, take a look [here](/spin/developing)
+This article briefly describes how to create a new Spin applicaion. For a more thorough guide to developing Spin applications, take a look [here](/spin/developing)
 
-## Prerequisites - Installing the Spin CLI
+## Prerequisites - Instal the Spin CLI
 
 Before developing a Spin application, you need to have the Spin CLI installed locally. Here’s a way to install the Spin CLI:
 
@@ -23,7 +23,7 @@ curl https://spin.fermyon.dev/downloads/install.sh | bash
 
 {{ details "Additional info" "It's easier if you move the spin binary somewhere in your path, so it can be accessed from any directory. E.g., `sudo mv ./spin /usr/local/bin/spin`. \n\nYou can verify the version of Spin installed by running `spin --version`" }}
 
-## Creating a new Spin application from a template
+## Create a new Spin application from a template
 
 You can create your very own application based on [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates). Start by installing a set of Spin application templates [from the Spin repository](https://github.com/fermyon/spin/tree/main/templates):
 
@@ -42,9 +42,7 @@ Installing template http-go...
 +--------------------------------------------------+
 ```
 
-{{ details "Additional info" "If you already have templates installed, you can update them by running `spin templates install --git https://github.com/fermyon/spin --update`" }}
-
-> If you’re interested in building your own template, you can follow the guide here [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates) and the [Spin Improvement Proposal (SIP) for templates](https://github.com/fermyon/spin/pull/273).
+{{ details "Additional info" "If you already have templates installed, you can update them by running `spin templates install --git https://github.com/fermyon/spin --update` \n\nIf you’re interested in building your own template, you can follow the guide here [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates) and the [Spin Improvement Proposal (SIP) for templates](https://github.com/fermyon/spin/pull/273)." }}
 
 We will be using the http-rust template to build our Spin Application, by running `spin new`
 
@@ -100,11 +98,7 @@ Executing the build command for component hello-rust: cargo build --target wasm3
 Successfully ran the build command for the Spin components.
 ```
 
-<!-- The command above was used to build all the components in the Spin manifest file at once. and also has a flag that starts the application after finishing the compilation, `spin build --up`. For more details, see the [page about developing Spin applications](https://spin.fermyon.dev/developing) to learn more.
-
-> 💡 If you run into errors, you can use the `rustup-check` command to see if your Rust installation is up-to-date. -->
-
-## Running the application
+## Run the application
 
 Now it’s time to `spin up` the application.
 
@@ -174,6 +168,7 @@ fn hello_rust(req: Request) -> Result<Response> {
 
 This Spin application will now take the query string of the URL `http://localhost:3000?Doc` and return the text `Hello Doc!` as a greeting.
 
-## Next Step
+## Next steps
 
-To learn more about how to develop Spin application, head over to the [Spin documentation](/spin)
+- Learn how to [deploy an application](deploy)
+- To learn more about how to develop Spin applications, head over to the [Spin documentation](/spin)
