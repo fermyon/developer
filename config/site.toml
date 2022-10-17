@@ -1,5 +1,5 @@
 title = "Fermyon Developer Home"
-base_url = "http://localhost:3000"
+base_url = ""
 about = "Fermyon Developer Home — the home for you as a developer using Fermyon projects and products."
 
 [extra]
