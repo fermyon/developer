@@ -15,7 +15,7 @@ $ curl https://spin.fermyon.dev/downloads/install.sh | bash
 You can verify the version of the CLI version installed by using this command:
 
 ```bash
-$ spin --version
+$ ./spin --version
 spin 0.5.0 (b9fedcc 2022-09-02)
 ```
 
@@ -23,16 +23,6 @@ Move the spin binary somewhere in your path, so it can be accessed from any dire
 
 ```bash
 $ sudo mv ./spin /usr/local/bin/spin
-```
-
-## Building your Spin Application
-
-We’ll be building directly from the source. You can f[ollow the contribution document](https://spin.fermyon.dev/contributing) for a detailed guide on building from the source.
-
-```bash
-$ git clone https://github.com/fermyon/spin
-$ cd spin && make build
-$ ./target/release/spin --help
 ```
 
 ## ****Creating a new Spin application from a template****
@@ -114,10 +104,9 @@ Successfully ran the build command for the Spin components.
 
 The command above was used to build all the components in the Spin manifest file at once. and also has a flag that starts the application after finishing the compilation, `spin build --up`. For more details, see the [page about developing Spin applications](https://spin.fermyon.dev/developing) to learn more.
 
-<aside>
-💡 If you run into errors, you can use the `rustup-check` command to see if your Rust installation is up-to-date.
 
-</aside>
+> 💡 If you run into errors, you can use the `rustup-check` command to see if your Rust installation is up-to-date.
+
 
 ## Running the application
 
@@ -149,4 +138,4 @@ Hello, Fermyon!
 
 ## Next Step
 
-The next step after installing the Spin CLI is creating your very first Spin application by going through and practicing what is in the [quickstart section of the Spin docs](https://spin.fermyon.dev/quickstart/).
+The next step after installing the Spin CLI is creating your very first Spin application by going through and practicing what is in the [quickstart section of the Spin docs](/cloud/deploy).

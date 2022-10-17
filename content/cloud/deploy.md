@@ -8,7 +8,7 @@ This document will guide you through deploying a Spin Application with the Fermy
 
 ## Setup
 
-Firstly, you need to have the latest Spin Version installed and locally available in your path. You can do that by using this command in your terminal:
+Firstly, you need to have the latest Spin Version installed. You can do that by using this command in your terminal:
 
 ```
 bash curl https://developer.fermyon.dev/downloads/install.sh | bash

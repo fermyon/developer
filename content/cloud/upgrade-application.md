@@ -12,7 +12,7 @@ Firstly, navigate to the ‘spin.toml’ file (the configuration file). In the f
 version = "0.1.0"
 ```
 
-In this case, just change it to the latest version of Spin as:
+In this case, just change it to should be any new version as:
 
 ```bash
 version = "0.6.0"
