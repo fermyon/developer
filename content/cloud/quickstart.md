@@ -34,14 +34,14 @@ Now, let's log in to the Fermyon cloud. You will be using your GitHub user accou
 
 <!-- @selectiveCpy -->
 ```bash
-$ ./spin login --hippo-server https://canary.platform.fermyon.link
+$ ./spin login --url https://canary.cloud.fermyon.link
 What authentication method does this server support?
 
 1. Sign in with GitHub
 2. Sign in with a username and password
 
 Enter a number: 1
-Open https://canary.platform.fermyon.link/device-authorization in your browser
+Open https://canary.cloud.fermyon.link/device-authorization in your browser
 ! Copy your one-time code: XXXXXXXX
 Waiting for device authorization...
 Device authorized!
