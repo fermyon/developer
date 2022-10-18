@@ -31,9 +31,9 @@
         <div class="dropdown">
             <div class="logo-project">
                 <a href="#">
-                    {{#if (active_project request.spin-path-info "/spin/" )}} Spin
+                    {{#if (active_content request.spin-path-info "/spin/" )}} Spin
                     {{else}}
-                    {{#if (active_project request.spin-path-info "/cloud/" )}} Fermyon Cloud
+                    {{#if (active_content request.spin-path-info "/cloud/" )}} Fermyon Cloud
                     {{else}} Developer Home
                     {{/if}}
                     {{/if}}
@@ -42,8 +42,8 @@
             </div>
             <div class="dropdown-content">
                 <a href="/index">Developer Home</a>
-                <a href="/spin/index/" {{#if (active_project request.spin-path-info "/spin/" )}} class="is-active" {{/if}}>Spin</a>
-                <a href="/cloud/index/" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Fermyon Cloud</a>
+                <a href="/spin/index/" {{#if (active_content request.spin-path-info "/spin/" )}} class="is-active" {{/if}}>Spin</a>
+                <a href="/cloud/index/" {{#if (active_content request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Fermyon Cloud</a>
             </div>
         </div>
         <div class="dropdown-backdrop"></div>
