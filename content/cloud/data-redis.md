@@ -4,6 +4,7 @@ date = "2022-01-01T00:00:01Z"
 [extra]
 
 ---
+
 ## Redis
 
 [Redis](https://redis.io/), is an open-source data store used by millions of developers as a database, cache, streaming engine, and message broker. This tutorial will implement a persistent storage solution for Fermyon Cloud, using Redis. In this tutorial, we will be using [Redis Labs](https://redis.com/)' free Redis service.
