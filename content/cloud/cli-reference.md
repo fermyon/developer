@@ -7,20 +7,22 @@ date = "2022-01-01T00:00:01Z"
 
 - [Spin](#spin)
   - [Bindle](#bindle)
-    - [Prepare](#prepare)
-    - [Push](#push)
+    - [Prepare (Bindle)](#prepare-bindle)
+    - [Push (Bindle)](#push-bindle)
   - [Build](#build)
   - [Deploy](#deploy)
+  - [Login](#login)
   - [New](#new)
   - [Plugin](#plugin)
-    - [Install](#install)
-    - [Uninstall](#uninstall)
-    - [Update](#update)
-    - [Upgrade](#upgrade)
+    - [Install (Plugin)](#install-plugin)
+    - [Uninstall (Plugin)](#uninstall-plugin)
+    - [Update (Plugin)](#update-plugin)
+    - [Upgrade (Plugin)](#upgrade-plugin)
   - [Templates](#templates)
-    - [Install](#install-1)
-    - [List](#list)
-    - [Uninstall](#uninstall-1)
+    - [Install (Templates)](#install-templates)
+    - [List (Templates)](#list-templates)
+    - [Uninstall (Templates)](#uninstall-templates)
+  - [Up](#up)
 
 ## Spin
 
@@ -43,6 +45,7 @@ SUBCOMMANDS:
     build        Build the Spin application
     deploy       Deploy a Spin application
     help         Print this message or the help of the given subcommand(s)
+    login        Log into the server
     new          Scaffold a new application or component based on a template
     plugin       Install/uninstall Spin plugins
     templates    Commands for working with WebAssembly component templates
@@ -70,7 +73,7 @@ SUBCOMMANDS:
     push       Publish an application as a bindle
 ```
 
-#### Prepare
+#### Prepare (Bindle)
 
 Again, adding another related subcommand provides even more specific information. For example:
 
@@ -89,7 +92,7 @@ OPTIONS:
     -h, --help                         Print help information
 ```
 
-#### Push
+#### Push (Bindle)
 
 <!-- @selectiveCpy -->
 
@@ -152,18 +155,9 @@ OPTIONS:
 $ spin deploy --help
 
 USAGE:
-    spin deploy [OPTIONS] --bindle-server <BINDLE_SERVER_URL> --hippo-server <HIPPO_SERVER_URL> --hippo-username <HIPPO_USERNAME> --hippo-password <HIPPO_PASSWORD>
+    spin deploy [OPTIONS]
 
 OPTIONS:
-        --bindle-password <BINDLE_PASSWORD>
-            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
-
-        --bindle-server <BINDLE_SERVER_URL>
-            URL of bindle server [env: BINDLE_URL=]
-
-        --bindle-username <BINDLE_USERNAME>
-            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
-
         --buildinfo <BUILDINFO>
             Build metadata to append to the bindle version
 
@@ -173,23 +167,15 @@ OPTIONS:
     -e, --deploy-existing-bindle
             Deploy existing bindle if it already exists on bindle server
 
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
     -f, --file <APP_CONFIG_FILE>
             Path to spin.toml [default: spin.toml]
 
     -h, --help
             Print help information
-
-        --hippo-password <HIPPO_PASSWORD>
-            Hippo password [env: HIPPO_PASSWORD=]
-
-        --hippo-server <HIPPO_SERVER_URL>
-            URL of hippo server [env: HIPPO_URL=]
-
-        --hippo-username <HIPPO_USERNAME>
-            Hippo username [env: HIPPO_USERNAME=]
-
-    -k, --insecure
-            Ignore server certificate errors from bindle and hippo
 
         --no-buildinfo
             Disable attaching buildinfo [env: SPIN_DEPLOY_NO_BUILDINFO=]
@@ -197,6 +183,56 @@ OPTIONS:
         --readiness-timeout <READINESS_TIMEOUT_SECS>
             How long in seconds to wait for a deployed HTTP application to become ready. The default
             is 60 seconds. Set it to 0 to skip waiting for readiness [default: 60]
+```
+
+### Login
+
+<!-- @selectiveCpy -->
+
+```
+spin login --help
+
+USAGE:
+    spin login [OPTIONS]
+
+OPTIONS:
+        --auth-method <auth-method>
+            [env: AUTH_METHOD=] [possible values: github, username]
+
+        --bindle-password <BINDLE_PASSWORD>
+            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
+
+        --bindle-server <BINDLE_SERVER_URL>
+            URL of bindle server [env: BINDLE_URL=]
+
+        --bindle-username <BINDLE_USERNAME>
+            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
+
+        --environment-name <environment-name>
+            Save the login details under the specified name instead of making them the default. Use
+            named environments with `spin deploy --environment-name <name>` [env:
+            FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -k, --insecure
+            Ignore server certificate errors from bindle and hippo
+
+        --list
+            List saved logins
+
+        --password <HIPPO_PASSWORD>
+            Hippo password [env: HIPPO_PASSWORD=]
+
+        --status
+            Display login status
+
+        --url <HIPPO_SERVER_URL>
+            URL of hippo server [env: HIPPO_URL=]
+
+        --username <HIPPO_USERNAME>
+            Hippo username [env: HIPPO_USERNAME=]
 ```
 
 ### New
@@ -249,7 +285,7 @@ SUBCOMMANDS:
     upgrade      Upgrade one or all plugins
 ```
 
-#### Install
+#### Install (Plugin)
 
 <!-- @selectiveCpy -->
 
@@ -283,7 +319,7 @@ OPTIONS:
             Skips prompt to accept the installation of the plugin
 ```
 
-#### Uninstall
+#### Uninstall (Plugin)
 
 <!-- @selectiveCpy -->
 
@@ -300,7 +336,7 @@ OPTIONS:
     -h, --help    Print help information
 ```
 
-#### Update
+#### Update (Plugin)
 
 <!-- @selectiveCpy -->
 
@@ -316,7 +352,7 @@ OPTIONS:
     -h, --help    Print help information
 ```
 
-#### Upgrade
+#### Upgrade (Plugin)
 
 <!-- @selectiveCpy -->
 
@@ -375,7 +411,7 @@ SUBCOMMANDS:
     uninstall    Remove a template from your installation
 ```
     
-#### Install
+#### Install (Templates)
 
 <!-- @selectiveCpy -->
 
@@ -403,7 +439,7 @@ OPTIONS:
             If present, updates existing templates instead of skipping
 ```
 
-#### List
+#### List (Templates)
 
 <!-- @selectiveCpy -->
 
@@ -417,7 +453,7 @@ OPTIONS:
     -h, --help    Print help information
 ```
 
-#### Uninstall
+#### Uninstall (Templates)
 
 <!-- @selectiveCpy -->
 
@@ -432,4 +468,43 @@ ARGS:
 
 OPTIONS:
     -h, --help    Print help information
+```
+
+### Up
+
+<!-- @selectiveCpy -->
+
+```
+$ spin up --help
+
+USAGE:
+    spin up [OPTIONS]
+
+OPTIONS:
+    -b, --bindle <BINDLE_ID>
+            ID of application bindle
+
+        --bindle-password <BINDLE_PASSWORD>
+            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
+
+        --bindle-server <BINDLE_SERVER_URL>
+            URL of bindle server [env: BINDLE_URL=]
+
+        --bindle-username <BINDLE_USERNAME>
+            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
+
+    -e, --env <ENV>
+            Pass an environment variable (key=value) to all components of the application
+
+    -f, --file <APP_CONFIG_FILE>
+            Path to spin.toml
+
+    -h, --help
+            
+
+    -k, --insecure
+            Ignore server certificate errors from bindle server
+
+        --temp <TMP>
+            Temporary directory for the static assets of the components
 ```
