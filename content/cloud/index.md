@@ -8,9 +8,9 @@ date = "2022-03-14T00:22:56Z"
 
 - [Documentation](#documentation)
 - [Getting support](#getting-support)
-- [Open beat](#open-beat)
+- [Open beta](#open-beta)
 
-[The Fermyon Cloud](https://cloud.fermyon.com) is a cloud application platform for WebAssembly microservices. It enables you to run [Spin applications](https://developer.fermyon.com/spin), at scale, in the cloud, without any infrastructure set up.
+[The Fermyon Cloud](https://cloud.fermyon.com) is a cloud application platform for WebAssembly microservices. It enables you to run [Spin applications](/spin), at scale, in the cloud, without any infrastructure set up.
 
 ## Documentation
 
@@ -25,11 +25,11 @@ This site contains the documentation for the Fermyon Cloud. Here you will:
 
 ## Getting support
 
-If you have any questions (and cannot find answers) on this site, please go to our [Discord server](https://discord.gg/P4Cx7xUbJu) to reach out.
+If you have any questions (and cannot find answers) on this site, please go to our [Discord server](https://discord.gg/P4Cx7xUbJu) for assistance.
 
-## Open beat
+## Open beta
 
-The Fermyon Cloud is currently an open beta service. This means that Fermyon Technologies do not provide any service-level agreement on the service, including the workloads you choose to deploy. We also reserve the right to break compatibility with:
+The Fermyon Cloud is currently an open beta service. This means that Fermyon Technologies does not provide any service-level agreements on the service, including the workloads you choose to deploy. We also reserve the right to break compatibility with:
 
-- the [API](rest-api) that Fermyon Cloud exposes, and
-- support for previous and current versions of the Spin SDKs.
+- the Fermyon Cloud [API](rest-api), and
+- support for previous and current versions of the [Spin SDK](/spin)
