@@ -17,7 +17,7 @@ VS Code extensions allow you to add tools to your installation, to support your 
 
 The Spin Extension for VS Code can be found in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=fermyon.spin-vscode&ssr=false#overview) and can also be installed by searching for Fermyon Spin within the Extensions section of your VS Code editor. The extension downloads and uses a compatible version of Spin by default.
 
-## Supported Spin Commands
+### Supported Spin Commands
 
 At present, the Spin VS Code Extension supports the [spin login](./cli-reference#login), [spin build](./cli-reference.md#build) and [spin deploy](./cli-reference.md#deploy) commands. Simply open your VS Code terminal (from the main VS Code menu bar) to perform these commands.
 
