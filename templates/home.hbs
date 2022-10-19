@@ -1,0 +1,160 @@
+{{! This adds the HTML head section and the beginning of the body. See content_top.hbs. }}
+{{> content_top }}
+
+<main class="container page-wrap developer-home-wrap">
+    <div class="columns">
+
+        {{! This adds the sidebar }}
+        <div class="menu-wrap is-narrow is-hidden-desktop" id="docsMenu">
+            <aside class="menu">
+
+                <div id="search-button-container" class="search-button-container"></div>
+
+                <p class="menu-label">
+                    Projects
+                </p>
+                <ul class="menu-list">
+                    <li><a href="/spin/index/" {{#if (active_project request.spin-path-info "/spin/" )}} class="is-active" {{/if}}>Spin</a></li>
+                    <li><a href="/cloud/index/" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Fermyon Cloud</a></li>
+                </ul>
+
+                <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/">Login to Cloud</a>
+            </aside>
+        </div>
+
+        <article class="column content content-docs content-docs-wide">
+            <section id="intro">
+                <h1>Welcome to the<br>Fermyon Developer Home</h1>
+                <p class="lead">We're bringing the joy back to cloud development.</p>
+            </section>
+
+            <section id="projects">
+                <div  class="columns is-multiline">
+                    
+                    <!-- projects here -->
+                    <div class="column is-one-third-desktop is-half-touch">
+                        <div class="card card-one project">
+                            <div class="card-image dark">
+                                <figure class="image">
+                                    <a href="https://cloud.fermyon.com" target="_blank"><img src="{{site.info.base_url}}/static/image/project-left-cloud-dark.png" alt="Fermyon Cloud" /></a>
+                                </figure>
+                            </div>
+                            <div class="card-image light">
+                                <figure class="image">
+                                    <a href="https://cloud.fermyon.com" target="_blank"><img src="{{site.info.base_url}}/static/image/project-left-cloud-light.png" alt="Fermyon Cloud" /></a>
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h3><a href="https://cloud.fermyon.com" target="_blank">Deploy &amp; manage cloud native WebAssembly apps</a></h3>
+                                <p>Go from blinking cursor to deployed app in two minutes.</p>
+
+                                <a class="button is-rounded is-primary" href="https://cloud.fermyon.com" target="_blank"><strong>Learn More</strong></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-third-desktop is-half-touch">
+                        <div class="card card-two project">
+                            <div class="card-image dark">
+                                <figure class="image">
+                                    <a href="https://github.com/fermyon/spin" target="_blank"><img src="{{site.info.base_url}}/static/image/project-left-spin-dark.png" alt="Spin" /></a>
+                                </figure>
+                            </div>
+                            <div class="card-image light">
+                                <figure class="image">
+                                    <a href="https://github.com/fermyon/spin" target="_blank"><img src="{{site.info.base_url}}/static/image/project-left-spin-light.png" alt="Spin" /></a>
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h3><a href="https://github.com/fermyon/spin" target="_blank">Developer tool for serverless WebAssembly apps</a></h3>
+                                <p>Compose serverless applications and quickly deploy to Fermyon Cloud.</p>
+
+                                <a class="button is-rounded is-primary" href="https://github.com/fermyon/spin" target="_blank"><strong>Learn More</strong></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-third-desktop is-half-touch">
+                        <div class="card card-one project">
+                            <div class="card-image dark">
+                                <figure class="image">
+                                    <a href="https://github.com/fermyon/bartholomew" target="_blank"><img src="{{site.info.base_url}}/static/image/project-left-bart-dark.png" alt="Bartholemew" /></a>
+                                </figure>
+                            </div>
+                            <div class="card-image light">
+                                <figure class="image">
+                                    <a href="https://github.com/fermyon/bartholomew" target="_blank"><img src="{{site.info.base_url}}/static/image/project-left-bart-light.png" alt="Bartholemew" /></a>
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h3><a href="https://github.com/fermyon/bartholomew" target="_blank">A micro-CMS for WebAssembly &amp; Spin</a></h3>
+                                <p>Compiled to WebAssembly, Bartholomew can run in any Spin environment.</p>
+
+                                <a class="button is-rounded is-primary" href="https://github.com/fermyon/bartholomew" target="_blank"><strong>Learn More</strong></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="community">
+                <div class="columns is-multiline">
+                    <div class="column is-two-thirds-desktop is-full-touch is-">
+                        <h2>Where to find us next</h2>
+
+                        <article class="community-highlight">
+                            <a href="https://kccncna2022.sched.com/" target="_blank">
+                                <event>
+                                    <date>
+                                        October 22 &mdash; 28
+                                    </date>
+                                    <eventtitle>
+                                        KubeCon 2022
+                                    </eventtitle>
+                                    <p>Visit us at Booth S125. We’re giving away some cool stuff (if we do say so ourselves). Bring your friends.</p>
+                                    <img src="static/image/kubecon.png" alt="KubeCon" class="event-logo" />
+                                </event>
+                            </a>
+                        </article>
+                    </div>
+                    <div class="column is-one-third-desktop is-full-touch">
+                        <h2>Connect</h2>
+
+                        <ul class="connect-links">
+                            <li>
+                                <a href="https://discord.gg/AAFNfS7NGf" target="_blank">Discord <span class="external"></span></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/fermyon" target="_blank">GitHub <span class="external"></span></a>
+                            </li>
+                            <li>
+                                <a href="https://discord.gg/AAFNfS7NGf" target="_blank">Instagram <span class="external"></span></a>
+                            </li>
+                             <li>
+                                <a href="https://www.linkedin.com/company/fermyon/" target="_blank">LinkedIn <span class="external"></span></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/fermyontech" target="_blank">Twitter <span class="external"></span></a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/channel/UCGgsMYwLxmIgv1lXaActZqw" target="_blank">YouTube <span class="external"></span></a>
+                            </li>
+                            <li>
+                                <a href="https://jobs.lever.co/fermyon-technologies" target="_blank">We're hiring! <span class="external"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+        </article>
+
+    </div>
+</main>
+
+{{! This closes the body. See content_bottom.hbs. }}
+{{> content_bottom }}
+
+</body>
+</html>
