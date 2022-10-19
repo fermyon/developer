@@ -1597,6 +1597,7 @@ html.dark-theme .dropdown-content a {
 }
 
 .developer-home-wrap .menu-wrap + article.content {
+  padding-top: 4.5vw;
   padding-left: 0;
   max-width: 100vw !important;
 }
@@ -1608,7 +1609,7 @@ html.dark-theme .dropdown-content a {
 .developer-home-wrap .content h1 {
   margin-bottom: 2rem;
   padding-bottom: 0;
-  padding-right: 20vw;
+  padding-right: 18vw;
   font-size: 4vw;
 }
 
