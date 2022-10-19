@@ -13,7 +13,7 @@ date = "2022-01-01T00:00:01Z"
 
 VS Code extensions allow you to add tools to your installation, to support your development workflow. Fermyon's [Spin VS Code Extension](https://github.com/fermyon/spin-vscode) integrates Spin developer tasks into the VS Code editor.
 
-## Installation
+### Installation
 
 The Spin Extension for VS Code can be found in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=fermyon.spin-vscode&ssr=false#overview) and can also be installed by searching for Fermyon Spin within the Extensions section of your VS Code editor. The extension downloads and uses a compatible version of Spin by default.
 
