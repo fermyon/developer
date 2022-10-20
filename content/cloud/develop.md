@@ -11,7 +11,7 @@ enable_shortcodes = true
 - [Write your code](#write-your-code)
 - [Next steps](#next-steps)
 
-This article briefly describes how to create a new Spin applicaion. For a more thorough guide to developing Spin applications, take a look [here](/spin/developing)
+This article briefly describes how to create a new Spin applicaion. For a more thorough guide to developing Spin applications, take a look [here](/spin/developing).
 
 ## Prerequisites - Instal the Spin CLI
 
@@ -44,7 +44,7 @@ Installing template http-go...
 
 {{ details "Additional info" "If you already have templates installed, you can update them by running `spin templates install --git https://github.com/fermyon/spin --update` \n\nIf you’re interested in building your own template, you can follow the guide here [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates) and the [Spin Improvement Proposal (SIP) for templates](https://github.com/fermyon/spin/pull/273)." }}
 
-We will be using the http-rust template to build our Spin Application, by running `spin new`
+We will be using the http-rust template to build our Spin Application, by running `spin new`.
 
 ```bash
 $ spin new
@@ -172,3 +172,4 @@ This Spin application will now take the query string of the URL `http://localhos
 
 - Learn how to [deploy an application](deploy)
 - To learn more about how to develop Spin applications, head over to the [Spin documentation](/spin)
+- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/cloud-issues)
