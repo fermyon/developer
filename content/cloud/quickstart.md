@@ -99,3 +99,4 @@ Congratulations, you've now deployed your first application to the Fermyon Cloud
 - Go and check out how to [build a Spin application from scratch](develop)
 - Dive into learning more about the [Fermyon Cloud](fermyon-cloud)
 - Learn how to [delete your Spin application](delete)
+- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/cloud-issues)
