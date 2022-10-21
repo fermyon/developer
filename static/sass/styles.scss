@@ -33,6 +33,29 @@ TABLE OF CONTENTS
 	.content {
 		padding-top: 8.5rem;
 
+		section {
+
+			&>ul {
+
+				&:nth-child(2),
+				&:nth-child(3) {
+					position: fixed;
+					top: 30%;
+					right: 15%;
+					max-width: 400px;
+					background: $lightlavender;
+					padding: 0.5rem;
+					border-radius: 0.667rem;
+
+					li {
+						list-style: none;
+						font-weight: 300;
+						padding: 0.2rem;
+					}
+				}
+			}
+		}
+
 		h1 {
 			margin-top: 2rem;
 			position: relative;
@@ -301,6 +324,43 @@ html.dark-theme {
 	display: block;
 }
 
+@media screen and (max-width: 1850px) {
+	.documentation {
+		.content {
+			&> section{
+
+				ul {
+					
+					&:nth-child(2),
+					&:nth-child(3) {
+						right: 5%;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+@media screen and (max-width: 1660px) {
+	.documentation {
+		.content {
+			section{
+				ul {
+
+					
+					&:nth-child(2),
+					&:nth-child(3) {
+						position: relative;
+						left: 0;
+					}
+				}
+		}
+		}
+	}
+
+}
+
 @media screen and (max-width: 1023px) {
 	.documentation {
 		.content {
@@ -425,6 +485,17 @@ html.dark-theme {
 }
 
 html.dark-theme {
+	.content {
+		section {
+			&>ul {
+				&:nth-child(2),
+				&:nth-child(3) {
+					background-color: $darkspace;
+				}
+			}
+		}
+	}
+
 	.search-button {
 		border: 1px solid #a8a8a8;
 		color: white;

@@ -1254,6 +1254,22 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
   padding-top: 8.5rem;
 }
 
+.documentation .content section > ul:nth-child(2), .documentation .content section > ul:nth-child(3) {
+  max-width: 400px;
+  background: #ece5ee;
+  border-radius: .667rem;
+  padding: .5rem;
+  position: fixed;
+  top: 30%;
+  right: 15%;
+}
+
+.documentation .content section > ul:nth-child(2) li, .documentation .content section > ul:nth-child(3) li {
+  padding: .2rem;
+  font-weight: 300;
+  list-style: none;
+}
+
 .documentation .content h1 {
   margin-top: 2rem;
   padding-bottom: 2.67rem;
@@ -1457,6 +1473,19 @@ html.dark-theme .dropdown-content a {
   display: block;
 }
 
+@media screen and (max-width: 1850px) {
+  .documentation .content > section ul:nth-child(2), .documentation .content > section ul:nth-child(3) {
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 1660px) {
+  .documentation .content section ul:nth-child(2), .documentation .content section ul:nth-child(3) {
+    position: relative;
+    left: 0;
+  }
+}
+
 @media screen and (max-width: 1023px) {
   .documentation .content h1 {
     font-size: 6.333vw;
@@ -1568,6 +1597,10 @@ html.dark-theme .dropdown-content a {
   border-radius: .667rem;
   padding: .25em .5em;
   font-size: .7rem;
+}
+
+html.dark-theme .content section > ul:nth-child(2), html.dark-theme .content section > ul:nth-child(3) {
+  background-color: #213762;
 }
 
 html.dark-theme .search-button {
