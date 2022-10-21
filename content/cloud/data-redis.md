@@ -136,8 +136,10 @@ fn publish(_req: Request) -> Result<Response> {
 
 We need to log into Fermyon Cloud, so that we can build/deploy our application. For example:
 
-```bash
-spin login --url https://canary.cloud.fermyon.link
+<!-- @selectiveCpy -->
+
+```console
+$ spin login --url https://canary.cloud.fermyon.link
 ```
 
 ## Spin Build
