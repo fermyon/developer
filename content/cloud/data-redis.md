@@ -163,9 +163,10 @@ Successfully ran the build command for the Spin components.
 ## Spin Deploy
 
 To deploy the application, use the deploy command:
+<!-- @selectiveCpy -->
 
-```bash
-spin deploy
+```console
+$ spin deploy
 ```
 
 The above deploy command will produce similar output to the following:
