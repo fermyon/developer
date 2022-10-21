@@ -43,7 +43,7 @@ Installed 8 template(s)
 +-----------------------------------------------------------------+
 ```
 
-The Redis related template we are interested in is `http-rust`.
+The template we are interested in is `http-rust`.
 
 ## Creating Our New Spin Application
 
