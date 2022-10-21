@@ -67,7 +67,9 @@ HTTP path: /...
 
 You can fill out these values, when prompted, for example:
 
-```bash
+<!-- @nocpy -->
+
+```console
 Project description: A new redis-rust Spin Application.
 Redis base: /
 Redis channel: /data
