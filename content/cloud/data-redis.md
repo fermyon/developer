@@ -25,6 +25,8 @@ $ spin templates install --git https://github.com/fermyon/spin
 
 The output from the command above will be similar to the following:
 
+<!-- @nocpy -->
+
 ```bash
 Copying remote template source
 // --snip--
