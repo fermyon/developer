@@ -27,7 +27,7 @@ The output from the command above will be similar to the following:
 
 <!-- @nocpy -->
 
-```bash
+```console
 Copying remote template source
 // --snip--
 Installing template http-rust...
