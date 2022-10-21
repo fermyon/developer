@@ -17,8 +17,10 @@ First, you need to have Spin installed on your computer. Please use the official
 
 The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](https://developer.fermyon.com/cloud/cli-reference/#templates). For example:
 
+<!-- @selectiveCpy -->
+
 ```bash
-spin templates install --git https://github.com/fermyon/spin
+$ spin templates install --git https://github.com/fermyon/spin
 ```
 
 The output from the command above will be similar to the following:
