@@ -39,4 +39,4 @@ That’s how to upgrade a Spin Application, just as simple as that!
 ## Next steps
 
 - [Delete an application](delete)
-- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/cloud-issues)
+- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/feedback)
