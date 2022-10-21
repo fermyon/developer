@@ -152,6 +152,7 @@ $ spin build
 ```
 
 The output from the above command will look similar to the following:
+<!-- @nocpy -->
 
 ```bash
 Executing the build command for component redis-rust-application: cargo build --target wasm32-wasi --release
