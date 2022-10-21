@@ -17,4 +17,4 @@ For support related to **Spin**, **Bartholomew**, and other projects, please use
 
 ## Report issues on GitHub
 
-To see any know issues and report a specific issue, feel free to use this [GitHub repository](https://github.com/fermyon/cloud-issues)
+To see any know issues and report a specific issue, feel free to use this [GitHub repository]([https://github.com/fermyon/cloud-issues)
