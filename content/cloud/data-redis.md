@@ -145,9 +145,10 @@ $ spin login --url https://canary.cloud.fermyon.link
 ## Spin Build
 
 We build this application by typing the following command:
+<!-- @selectiveCpy -->
 
-```bash
-spin build
+```console
+$ spin build
 ```
 
 The output from the above command will look similar to the following:
