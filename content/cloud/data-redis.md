@@ -47,7 +47,7 @@ The template we are interested in is `http-rust`.
 
 ## Creating Our New Spin Application
 
-The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference/#new). Let's go ahead and create a new `redis-rust` application: 
+The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference/#new). Let's go ahead and create a new `http-rust` application: 
 
 <!-- @selectiveCpy -->
 
