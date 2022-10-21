@@ -30,6 +30,15 @@ TABLE OF CONTENTS
 */
 
 .documentation {
+	aside.menu {
+		a {
+			&.active {
+				color: $darkspace;
+				background-color: $lightlavender;
+			}
+		}
+	}
+
 	.content {
 		padding-top: 8.5rem;
 
@@ -196,6 +205,15 @@ TABLE OF CONTENTS
 
 html.dark-theme {
 	body {
+		aside.menu {
+			a {
+				&.active {
+					color: $seagreen;
+					background-color: $darkspace;
+				}
+			}
+		}
+
 		.content {
 			details {
 				background: #1b2c4f;

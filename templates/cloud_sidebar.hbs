@@ -4,25 +4,24 @@
             Using the Fermyon Cloud
         </p>
         <ul class="menu-list">
-            <li><a href="{{site.info.base_url}}/cloud/">Introduction</a></li>
-            <li><a href="{{site.info.base_url}}/cloud/quickstart">Quickstart</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/index" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/">Introduction</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/quickstart" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/quickstart">Quickstart</a></li>
         </ul>
 
         <p class="menu-label">
             How-To
         </p>
         <ul class="menu-list">
-            <li><a href="{{site.info.base_url}}/cloud/develop">Develop a Spin application</a></li>
-            <li><a href="{{site.info.base_url}}/cloud/deploy">Deploy an application</a></li>
-            <li><a href="{{site.info.base_url}}/cloud/upgrade">Upgrade an application</a></li>
-            <li><a href="{{site.info.base_url}}/cloud/delete">Delete an application</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/develop" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/develop">Develop a Spin application</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/deploy" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/deploy">Deploy an application</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/upgrade" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/upgrade">Upgrade an application</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/delete" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/delete">Delete an application</a></li>
         </ul>
 
         <p class="menu-label">
             Concepts
         </p>
         <ul class="menu-list">
-            <li></li>
         </ul>
 
         <p class="menu-label">
@@ -36,23 +35,23 @@
             References
         </p>
         <ul class="menu-list">
-            <li><a href="{{site.info.base_url}}/cloud/rest-api">REST API</a></li>
-            <li><a href="{{site.info.base_url}}/cloud/cli-reference">CLI Reference</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/rest-api" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/rest-api">REST API</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/cli-reference" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/cli-reference">CLI Reference</a></li>
         </ul>
 
         <p class="menu-label">
             Support
         </p>
         <ul class="menu-list">
-            <li><a href="{{site.info.base_url}}/cloud/faq">FAQ and Known Limitations</a></li>
-            <li><a href="{{site.info.base_url}}/cloud/support">How to get help?</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/faq" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/faq">FAQ and Known Limitations</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/support" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/support">How to get help?</a></li>
         </ul>
 
         <p class="menu-label">
             Contributing
         </p>
         <ul class="menu-list">
-            <li><a href="{{site.info.base_url}}/cloud/contributing">Cloud Docs</a></li>
+            <li><a {{#if(active_content request.spin-path-info "/cloud/contributing" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/contributing">Cloud Docs</a></li>
         </ul>
 
         <ul class-"menu-list">
