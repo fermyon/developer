@@ -229,7 +229,7 @@ OPTIONS:
             Display login status
 
         --url <HIPPO_SERVER_URL>
-            URL of hippo server [env: HIPPO_URL=]
+            URL of hippo server [env: HIPPO_URL=] [default: http://localhost:5309]
 
         --username <HIPPO_USERNAME>
             Hippo username [env: HIPPO_USERNAME=]
