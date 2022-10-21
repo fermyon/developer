@@ -47,8 +47,10 @@ The Redis related template we are interested in is `http-rust`.
 
 The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference/#new). Let's go ahead and create a new `redis-rust` application: 
 
+<!-- @selectiveCpy -->
+
 ```bash
-spin new redis-rust redisRustApplication
+$ spin new redis-rust redisRustApplication
 ```
 
 The above command will ask you to enter a `Project description`, `HTTP base` (default set to `/` which is fine) and `HTTP path`:
