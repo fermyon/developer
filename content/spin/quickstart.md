@@ -26,7 +26,7 @@ To install a specific version, you can pass arguments to the install script this
 <!-- @selectiveCpy -->
 
 ```console
-$ curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v v0.5.0
+$ curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v v0.6.0
 ```
 
 To install canary version of spin, you should pass the argument `-v canary`  
@@ -66,7 +66,7 @@ If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installati
 <!-- @selectiveCpy -->
 
 ```console
-$ git clone https://github.com/fermyon/spin -b v0.5.0
+$ git clone https://github.com/fermyon/spin -b v0.6.0
 $ cd spin
 $ rustup target add wasm32-wasi
 $ cargo install --locked --path .
