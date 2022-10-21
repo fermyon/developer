@@ -83,7 +83,7 @@ To create your free database go to [app.redislabs.com](https://app.redislabs.com
 
 > Note: Programmatic access to the Redis cloud console (Redis Rest API) requires a Redislabs paid plan, so we will just be using the free tier for this tutorial. 
  
-Once you have logged in to Redislabs click on the `Data Access Control` and `Databases` menus (in the left sidebar) to create roles/users and a new Redis database. Be sure to acknowledge the usernames, passwords and database URLs (provided during setup) as we will be using these to configure our Spin application.
+Once you have logged in to Redislabs click on the `Data Access Control` and `Databases` menus (in the left sidebar) to create roles/users and a new Redis database. Be sure to acknowledge the usernames, passwords and database URLs (provided during setup) as we will be using these to configure our Spin application. Please see the  [Redis docs](https://developer.redis.com/create/rediscloud/) for additional information.
 
 ## Configuration
 
