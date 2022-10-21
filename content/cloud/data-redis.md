@@ -55,6 +55,8 @@ $ spin new redis-rust redisRustApplication
 
 The above command will ask you to enter a `Project description`, `HTTP base` (default set to `/` which is fine) and `HTTP path`:
 
+<!-- @nocpy -->
+
 ```bash
 Project description: 
 HTTP base: /
