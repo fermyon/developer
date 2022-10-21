@@ -1250,6 +1250,11 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
   }
 }
 
+.documentation aside.menu a.active {
+  color: #213762;
+  background-color: #ece5ee;
+}
+
 .documentation .content {
   padding-top: 8.5rem;
 }
@@ -1368,6 +1373,11 @@ html.dark-theme > body .content strong, html.dark-theme > body article strong {
 
 .documentation aside.menu {
   padding-bottom: 7.5rem;
+}
+
+html.dark-theme body aside.menu a.active {
+  color: #34e8bd;
+  background-color: #213762;
 }
 
 html.dark-theme body .content details {
