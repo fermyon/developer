@@ -28,10 +28,9 @@ The following are the limits of the Fermyon Cloud
 
 The following are known limitations of the Fermyon Cloud
 
-- You cannot use WAGI as an executor in a Spin application
 - You cannot use Redis triggers
 - You cannot communicate between Spin applications using local name resolution
-- You cannot use a Spin SDK before v0.6.0
+- You cannot use a Spin SDK or Spin CLI with a version before v0.6.0
 
 ## Frequently Asked Questions
 
@@ -48,6 +47,9 @@ The following are known limitations of the Fermyon Cloud
 11:08:27 : Bad Gateway
 11:08:29 : Hello from Rust - updated
 ```
+
+- **How do I report a security concern, or concerns with content hosted on the Fermyon Cloud?**
+  - Please go to our [Feedback repo - Report Security Concern](https://github.com/fermyon/feedback/security/policy) for instructions on how to report any concerns.
 
 ## Next Steps
 
