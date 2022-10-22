@@ -30,7 +30,7 @@ This command downloads and unpacks the latest Spin binary in the current directo
 
 ## Log in to the Fermyon cloud
 
-Now, let's log in to the Fermyon Cloud. You will be using your GitHub user account to sign in.
+Now, let's log in to the Fermyon Cloud. You will be using your [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email) to sign in.
 
 <!-- @selectiveCpy -->
 ```console
