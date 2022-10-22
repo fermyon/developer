@@ -410,19 +410,20 @@ html.dark-theme {
 		}
 
 		h1 {
-			font-size: 4vw;
+			font-size: 4rem;
 			padding-bottom: 0;
 			margin-bottom: 2rem;
-			padding-right: 18vw;
+			padding-right: 8vw;
 
 			&:after {
 				display: none;
 			}
 		}
 		p.lead {
-			font-size: 2.425vw;
+			font-size: 2.75rem;
 			color: darken($lavender, 17.5%);
 			line-height: 1.4;
+			padding-right: 7%;
 		}
 
 		section {

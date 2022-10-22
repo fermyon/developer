@@ -1609,8 +1609,8 @@ html.dark-theme .dropdown-content a {
 .developer-home-wrap .content h1 {
   margin-bottom: 2rem;
   padding-bottom: 0;
-  padding-right: 18vw;
-  font-size: 4vw;
+  padding-right: 8vw;
+  font-size: 4rem;
 }
 
 .developer-home-wrap .content h1:after {
@@ -1619,7 +1619,8 @@ html.dark-theme .dropdown-content a {
 
 .developer-home-wrap .content p.lead {
   color: #8b62d1;
-  font-size: 2.425vw;
+  padding-right: 7%;
+  font-size: 2.75rem;
   line-height: 1.4;
 }
 
