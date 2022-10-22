@@ -119,9 +119,9 @@ spin deploy
 The above deploy command will produce similar output to the following:
 
 ```bash
-Deployed httpCSharpApplication version 1.0.0+q1d52095
+Deployed httpCSharpApplication version 1.0.0+XXXXXXXX
 Available Routes:
-  http_c_sharp_application: https://httpcsharpapplication-ikuc5u33.canary.cloud.fermyon.link/data
+  http_c_sharp_application: https://httpcsharpapplication-XXXXXXXX.fermyon.app/data
 ```
 
 Visiting the above URL will show your data in the browser's body.
