@@ -10,16 +10,17 @@ This document contains:
 - [Service Limits](#service-limits)
 - [Known Limitations](#known-limitations)
 - [Frequently Asked Questions](#frequently-asked-questions)
+- [Next steps](#next-steps)
 
 ## Service Limits
 
 The following are the limits of the Fermyon Cloud
 
 - A user account can have a maximum of five Spin applications deployed at any time
-- A Spin application can have no more than 1.000 executions (requests) per hour when running in the Fermyon Cloud
+- A Spin application can have no more than 1,000 executions (requests) per hour when running in the Fermyon Cloud
 - A user account can execute a maximum of 10 deployments in a minute
 - A user account can execute a maximum of 100 deployments in an hour
-- A user can execute a maximum of 3.000 requests per hour toward the API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
+- A user can execute a maximum of 3,000 requests per hour toward the API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
 - The device and browser token lifetime is 7 days
 
 ## Known Limitations
@@ -65,3 +66,7 @@ The following are known limitations of the Fermyon Cloud
 
 - **When running `spin deploy` I see the following error** `Error: Hippo server [https://platform.fermyon.link/](https://platform.fermyon.link/) is unhealthy`**
   - Make sure you use Spin 0.5.0 (b9fedcc 2022-09-02) or a newer version
+
+## Next Steps
+
+- Learn how to engage with Fermyon[support](support)

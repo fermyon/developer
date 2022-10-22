@@ -28,7 +28,7 @@ It’s super easy to delete your application with Fermyon Cloud. This can be don
 
 ![Fermyon Cloud application drawer](/static/image/drawer.png)
 
-3. Confirm that you want to delete the application, by typing in the application name, and click **Delete**
+3. Confirm that you want to delete the application, by typing in the application name, and click **Delete**. Note this is a permanent action and cannot be undone. 
 
 ![Fermyon Cloud delete application confirmation dialog](/static/image/delete.png)
 
@@ -37,3 +37,4 @@ That’s all about deleting your Spin Application on the Fermyon Cloud!
 ## Next steps
 
 - Make sure to check the [FAQ and Known Limitations](faq) article
+- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/cloud-issues)
