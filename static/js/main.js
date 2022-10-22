@@ -102,7 +102,7 @@ const addAnchorLinks = () => {
     heading.append(anchor);
     anchor.addEventListener("click", (e) => {
       e.preventDefault()
-
+      window.location = anchor.href
       document.querySelector(anchor.getAttribute('href')).scrollIntoView({
         behavior: 'smooth',
         block: 'start' //scroll to top of the target element
