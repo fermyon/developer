@@ -139,7 +139,7 @@ We need to log into Fermyon Cloud, so that we can build/deploy our application. 
 <!-- @selectiveCpy -->
 
 ```console
-$ spin login --url https://canary.cloud.fermyon.link
+$ spin login
 ```
 
 ## Spin Build
@@ -172,8 +172,8 @@ $ spin deploy
 The above deploy command will produce similar output to the following:
 
 ```bash
-Deployed redisRustApplication version 0.1.0+qa7a95e3
-Application is running at redisrustapplication.canary.cloud.fermyon.link
+Deployed redisRustApplication version 0.1.0+XXXXXXXX
+Application is running at redisRustApplication-XXXXXXXX.fermyon.app
 ```
 
 Visiting the URL, which is provided by the spin deploy command's output will show the `Eureka Cloud!` value for the `spin-example` key which is stored in Redis.

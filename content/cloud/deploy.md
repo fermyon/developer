@@ -17,7 +17,7 @@ This article will guide you through deploying a Spin Application with the Fermyo
 Before developing a Spin application, you need to have the Spin CLI installed locally. Here’s a way to install the Spin CLI:
 
 ```console
-curl https://spin.fermyon.dev/downloads/install.sh | bash
+curl https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
 {{ details "Additional info" "It's easier if you move the spin binary somewhere in your path, so it can be accessed from any directory. E.g., `sudo mv ./spin /usr/local/bin/spin`. \n\nYou can verify the version of Spin installed by running `spin --version`" }}
@@ -28,17 +28,16 @@ Next, you can Log in to the Fermyon Cloud, which requires your GitHub account to
 
 <!-- @selectiveCpy -->
 ```console
-$ spin login --url https://canary.cloud.fermyon.link
-What authentication method does this server support?
+$ spin login
 
-1. Sign in with GitHub
-2. Sign in with a username and password
+Copy your one-time code:
 
-Enter a number: 1
-Open https://canary.cloud.fermyon.link/device-authorization in your browser
-! Copy your one-time code: XXXXXXXX
-Waiting for device authorization...
-Waiting for device authorization...
+XXXXXXXX
+
+...and open the authorization page in your browser:
+
+https://cloud.fermyon.com/device-authorization
+
 Waiting for device authorization...
 Device authorized!
 ```
@@ -52,9 +51,11 @@ After having signed in to the Fermyon Cloud, you deploy the application, by runn
 <!-- @selectiveCpy -->
 ```console
 $ spin deploy
-Deployed Hello version 0.1.0+XXXXXXXX
+Uploading cloud_start version 0.1.0+XXXXXXXX...
+Deploying...
+Waiting for application to become ready... ready
 Available Routes:
-  c-hello: https://hello-XXXXXXXX.canary.platform.fermyon.link (wildcard)
+  cloud-start: https://cloud-start-XXXXXXXX.fermyon.app (wildcard)
 ```
 
 Take a look at the [Quickstart article](quickstart) for how to get a pre-built application to deploy.

@@ -13,7 +13,7 @@ It’s super easy to delete your application with Fermyon Cloud. This can be don
 
 ## Sign in to the Fermyon Cloud website
 
-1. Go to [https://canary.cloud.fermyon.link](https://canary.cloud.fermyon.link)
+1. Go to [https://cloud.fermyon.com](https://cloud.fermyon.com)
 1. Sign in using GitHub
  
 ![Fermyon Cloud login page](/static/image/login.png)
@@ -37,4 +37,4 @@ That’s all about deleting your Spin Application on the Fermyon Cloud!
 ## Next steps
 
 - Make sure to check the [FAQ and Known Limitations](faq) article
-- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/cloud-issues)
+- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/feedback)
