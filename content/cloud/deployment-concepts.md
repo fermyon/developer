@@ -15,7 +15,7 @@ enable_shortcodes = true
 
 Deploying applications to a cloud service should be simple. Even though there is complexity involved in operating a cloud with many servers, many applications, and an ever-changing number of workloads, the user's responsibility when deploying their applications should be minimal.
 
-In this article, we described the core components of the Fermyon Cloud. This article expands on explaining those components, by reviewing the deployment process and technologies used in the Fermyon Cloud.
+In this article, we describe the core technologies and concepts, which are part of the deployment process in the Fermyon Cloud.
 
 ## Bindle - An Aggregate Object Storage System
 

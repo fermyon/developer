@@ -1,7 +1,7 @@
 let string = params[0];
 let project = params[1];
 
-if string.contains(project) {
+if string == project {
     return true
 }
 
