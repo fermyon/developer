@@ -22,15 +22,16 @@
             Concepts
         </p>
         <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/cloud/deployment-concepts" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/deployment-concepts">Deployment Concepts</a></li>
         </ul>
 
         <p class="menu-label">
             Tutorials
         </p>
         <ul class="menu-list">
-            <li><a href="{{site.info.base_url}}/cloud/spin-vs-code-extension">Using VS Code Extension</a></li>
-            <li><a href="{{site.info.base_url}}/cloud/data-redis">Persisting data with Redis</a></li>
-            <li><a href="{{site.info.base_url}}/cloud/data-postgres">Persisting data with PostgreSQL</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/spin-vs-code-extension" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/spin-vs-code-extension">Using VS Code Extension</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/data-redis" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/data-redis">Persisting data with Redis</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/cloud/data-postgres" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/data-postgres">Persisting data with PostgreSQL</a></li>
         </ul>
 
         <p class="menu-label">
