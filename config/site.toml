@@ -1,12 +1,12 @@
-title = "Fermyon Developer Home"
+title = "Fermyon Developer"
 base_url = ""
-about = "Fermyon Developer Home — the home for you as a developer using Fermyon projects and products."
+about = "Fermyon Developer — the home for you as a developer using Fermyon projects and products."
 
 [extra]
 copyright = "Fermyon"
 github = "https://github.com/fermyon/developer"
 twitter = "https://twitter.com/fermyontech"
-# ga_measurement_id = "TBD"
+# ga_measurement_id = "G-E1JG1JN662" using plausible.io
 
 # Static assets that we need to provide
 favicon = "/static/image/favicon.png"
