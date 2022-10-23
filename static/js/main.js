@@ -142,14 +142,13 @@ async function setupSearch() {
 class SearchButton {
   constructor(modal) {
     this.modal = modal
-    this.icon = el("span.search-icon", "🔍")
     this.searchPlaceholder = el("span.search-placeholder", "Search")
     this.searchCommand = el("span.search-command", "⌘/ctrl + K")
     this.el = el("button.search-button", {
       onclick: function (e) {
         this.modal.open()
       }.bind(this)
-    }, [this.icon, this.searchPlaceholder, this.searchCommand])
+    }, [this.searchPlaceholder, this.searchCommand])
   }
 }
 

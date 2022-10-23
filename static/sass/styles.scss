@@ -118,6 +118,33 @@ TABLE OF CONTENTS
 				display: none;
 			}
 		}
+
+		.note {
+			background: lighten($lavender, 12.5%);
+			color: $oxfordblue;
+			border-radius: 0.333rem;
+			margin: 5rem 0 3rem;
+			padding: 1.5rem 20vw 1.5rem 2rem;
+			box-shadow: 0.333rem 0.333rem 0 $lavender;
+			position: relative;
+			max-width: 800px;
+
+			h4 {
+				font-size: 1.25rem;
+				color: $oxfordblue;
+			}
+			p:last-of-type {
+				margin-bottom: 0;
+				padding-right: 0;
+			}
+
+			.button {
+				position: absolute;
+				right: 3.3rem;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
 	}
 
 	// Styles for the copy button on code blocks
@@ -212,6 +239,18 @@ html.dark-theme {
 			}
 		}
 
+		#topbar.navbar .navbar-menu .button {
+			&.is-secondary {
+				color: white !important;
+				border-width: 0.125rem;
+
+				&:hover {
+					color: $oxfordblue !important;
+				}
+			}
+
+		}
+
 		.content {
 			details {
 				background: #1b2c4f;
@@ -224,6 +263,20 @@ html.dark-theme {
 				.summary-chevron-up,
 				.summary-chevron-down {
 					background: #1b2c4f;
+				}
+			}
+
+			.note {
+				background: $darkspace;
+				color: white;
+
+				h4 {
+					color: $lightlavender;
+				}
+
+				.button {
+					background-color: transparent;
+					color: $seagreen;
 				}
 			}
 
@@ -308,6 +361,11 @@ html.dark-theme {
 }
 
 #topbar.navbar {
+	&.is-wide {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+	
 	.logo-wrap {
 		border-right: 2px solid rgba(30,30,30,0.025);
 		padding-right: 1vw;
@@ -337,10 +395,14 @@ html.dark-theme {
 		.navbar-end {
 			 z-index: 1022;
 		}
+
+		a {
+			margin-left: 1.75rem;
+		}
 		
 		a.navbar-item {
 			font-size: 1.125rem;
-			margin-left: 0.425vw;
+			margin-left: 0.67rem;
 			position: relative;
 			
 			span {
@@ -382,6 +444,11 @@ html.dark-theme {
 				font-weight: normal;
 				height: 2.75rem;
 				font-weight: bold;
+
+				&.is-secondary {
+					background-color: transparent;
+					color: $oxfordblue !important;
+				}
 
 				&:hover {
 					opacity: 0.85;
