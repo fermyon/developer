@@ -104,9 +104,9 @@
 
 .modal-box {
 	width: 80%;
-	height: 80%;
+	height: auto;
 	max-width: 600px;
-	max-height: 700px;
+	max-height: 85vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -115,6 +115,8 @@
 	border-radius: 0.825rem;
 	box-shadow: rgba(0, 0, 0, 0.04) 1px 3px 5px;
 	padding: 0.67rem;
+	position: fixed;
+	top: 7.5vh;
 }
 
 .modal-search-bar {
@@ -368,17 +370,18 @@ html.dark-theme {
 		}
 
 		.modal-box {
-			background: $oxfordblue;
+			background: lighten($darkspace, 12.5%);
+			background: linear-gradient(45deg, rgba(33, 55, 98,1) 0%, rgba(82,92,118,1) 100%); 
 		}
 
 		input[type="text"].modal-search-bar {
 			background-color: darken($darkspace, 7.5%);
 			color: white;
-			border: 1px solid $lightlavender;
+			border: 1px solid darken($lavender, 10%);
 			outline: none;
 
 			&::placeholder {
-				color: $lightlavender;
+				color: lighten($lavender, 10%);
 			}
 		}
 
@@ -417,8 +420,8 @@ html.dark-theme {
                 }
                 
                 code {
-                    color: $lavender;
-                    background-color: $oxfordblue;
+                    color: $lightlavender !important;
+                    background-color: $darkspace !important;
 
                     &:hover {
                         opacity: 0.85;
@@ -431,7 +434,7 @@ html.dark-theme {
                 }
 
                 code.active {
-                    background-color: $darkspace;
+                    background-color: darken($lavender, 10%) !important;
 
                     &:before,
                     &:after {

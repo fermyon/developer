@@ -278,12 +278,24 @@ class ProjectRecommendations {
   }
 }
 
+// this content shouldn't live in the theme javascript, ideally be managed via the config/site.toml and shortcodes in the template html
 class ModalSuggest {
   constructor() {
     this.projectData = [
-      { project: "Spin", link1: ["Quickstart", "/spin/quickstart/"], link2: ["Configure", "/spin/configuration/"],
-       link3: ["Develop", "/spin/developing"], link4: ["Deploy", "/spin/deploying-to-fermyon/"] },
-      { project: "Cloud", link1: ["Quickstart", "#"], link2: ["Filler", "#"], link3: ["Filler", "#"], link4: ["Filler", "#"] },
+      {
+        project: "Spin",
+        link1: ["Install", "/cloud/quickstart#install-spin"],
+        link2: ["Quickstart", "/spin/quickstart/"],
+        link3: ["Develop", "/spin/developing"],
+        link4: ["Deploy", "/spin/deploy/"]
+      },
+      {
+        project: "Cloud",
+        link1: ["Quickstart", "/cloud/quickstart"],
+        link2: ["VS Code", "/cloud/spin-vs-code-extension"],
+        link3: ["Support", "/cloud/support"],
+        link4: ["FAQ", "/cloud/faq"]
+      }
     ]
     this.projectRecommendations = list("div.result-section", ProjectRecommendations)
     this.projectRecommendations.update(this.projectData)
