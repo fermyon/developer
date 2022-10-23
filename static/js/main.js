@@ -40,7 +40,7 @@ const svgCheck =
 
 const addCopyButtons = (clipboard) => {
   document.querySelectorAll("pre > code").forEach((codeBlock) => {
-    let content = codeBlock.innerText
+    let content = codeBlock.innerText.trim()
     let isComment = codeBlock.parentNode.previousSibling.previousSibling
     if (isComment.nodeName == "#comment") {
       switch (isComment.textContent.trim()) {
