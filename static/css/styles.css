@@ -1462,6 +1462,20 @@ html.dark-theme > body .content .pagination-link, html.dark-theme > body .conten
   justify-content: space-evenly;
   align-items: left;
   display: flex;
+  position: relative;
+}
+
+.result-section-container .suggested-project .recommended-navs:before {
+  content: "↪";
+  width: 2rem;
+  color: #bea7e5;
+  opacity: .5;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  display: inline-block;
+  position: absolute;
+  top: .125rem;
+  left: .5rem;
 }
 
 .result-section-container .suggested-project .recommended-navs a.suggested-project-link {
