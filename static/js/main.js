@@ -284,10 +284,10 @@ class ModalSuggest {
     this.projectData = [
       {
         project: "Spin",
-        link1: ["Install", "/cloud/quickstart#install-spin"],
+        link1: ["Install", "/spin/install"],
         link2: ["Quickstart", "/spin/quickstart/"],
         link3: ["Develop", "/spin/developing"],
-        link4: ["Deploy", "/spin/deploy/"]
+        link4: ["Deploy", "/spin/deploying-to-fermyon/"]
       },
       {
         project: "Cloud",
