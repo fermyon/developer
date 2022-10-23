@@ -168,6 +168,8 @@ fn hello_rust(req: Request) -> Result<Response> {
 
 This Spin application will now take the query string of the URL `http://localhost:3000?Doc` and return the text `Hello Doc!` as a greeting.
 
+Head over to the [Fermyon Cloud Web](https://cloud.fermyon.com) to see your applications logs.
+
 ## Next steps
 
 - Learn how to [deploy an application](deploy)

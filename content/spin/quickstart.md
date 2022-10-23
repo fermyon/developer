@@ -16,77 +16,19 @@ keywords = "quickstart"
 You can install the `spin` binary using the `install.sh` script hosted on this site.
 
 <!-- @selectiveCpy -->
-
 ```console
 $ curl https://spin.fermyon.dev/downloads/install.sh | bash
 ```
-
-To install a specific version, you can pass arguments to the install script this way:
-
-<!-- @selectiveCpy -->
-
-```console
-$ curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v v0.6.0
-```
-
-To install canary version of spin, you should pass the argument `-v canary`  
-
-<!-- @selectiveCpy -->
-
-```console
-$ curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v canary
-``` 
 
 At this point, move the `spin` binary somewhere in your path, so it can be
 accessed from any directory. For example:
 
 <!-- @selectiveCpy -->
-
 ```console
 $ sudo mv ./spin /usr/local/bin/spin
 ```
 
-### Alternative 1: Building Spin from source
-
-[Follow the contribution document](./contributing.md) for a detailed guide
-on building Spin from source:
-
-<!-- @selectiveCpy -->
-
-```console
-$ git clone https://github.com/fermyon/spin
-$ cd spin && make build
-$ ./target/release/spin --help
-```
-
-### Alternative 2: Using Cargo to install Spin
-
-If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installation.html), you can clone the repo and install it to your path:
-
-<!-- @selectiveCpy -->
-
-```console
-$ git clone https://github.com/fermyon/spin -b v0.6.0
-$ cd spin
-$ rustup target add wasm32-wasi
-$ cargo install --locked --path .
-$ spin --help
-```
-
-### Linux: Additional Libraries
-
-On a fresh Linux installation, you will also need the standard build toolchain
-(`gcc`, `make`, etc.), the SSL library headers, and on some distributions you
-may need `pkg-config`.
-
-On Debian-like distributions, including Ubuntu, you can install these with a
-command like this:
-
-<!-- @selectiveCpy -->
-
-```console
-$ sudo apt-get install build-essential libssl-dev pkg-config
-```
+More ways to [install Spin](install)
 
 ## Creating a new Spin application from a template
 
@@ -129,12 +71,23 @@ Installing template http-go...
 Let's create a new Spin application based on the Rust HTTP template:
 
 <!-- @selectiveCpy -->
+```bash
+$ spin new
+Pick a template to start your project with:
+  http-c (HTTP request handler using C and the Zig toolchain)
+  http-csharp (HTTP request handler using C# (EXPERIMENTAL))
+  http-go (HTTP request handler using (Tiny)Go)
+  http-grain (HTTP request handler using Grain)
+> http-rust (HTTP request handler using Rust)
+  http-swift (HTTP request handler using SwiftWasm)
+  http-zig (HTTP request handler using Zig)
+  redis-go (Redis message handler using (Tiny)Go)
+  redis-rust (Redis message handler using Rust)
 
-```console
-$ spin new http-rust spin-hello-world
-Project description: A simple Spin HTTP component in Rust
+Enter a name for your new project: hello_rust
+Project description: My first Rust Spin application
 HTTP base: /
-HTTP path: /hello
+HTTP path: /...
 $ tree
 ├── .cargo
 │   └── config.toml
@@ -243,7 +196,7 @@ Optionally, set the RUST_LOG environment variable for detailed logs, before runn
 <!-- @selectiveCpy -->
 
 ```bash
-$ export RUST_LOG=spin=trace
+export RUST_LOG=spin=trace
 ```
 
 Spin will instantiate all components from the application manifest, and
@@ -273,3 +226,8 @@ application!
 Next, check out the [Rust](./rust-components.md) or [Go](./go-components.md) language
 guides, or have a look at [a more complex Spin application with components built
 in multiple programming languages](https://github.com/fermyon/spin-kitchensink/).
+
+## Next Steps
+
+- Learn about how to [develop a Spin application](developing)
+- Try deploying a Spin applicatin to the [Fermyon Cloud](/cloud/quickstart)
