@@ -5,11 +5,11 @@ enable_shortcodes = true
 
 ---
 
-- [Deployments in Fermyon Cloud](#deployments-in-fermyon-cloud)
-- [Bindle - An Aggregate Object Storage System](#bindle---an-aggregate-object-storage-system)
-- [The Deployment Process Explained](#the-deployment-process-explained)
-  - [1. Packaging and Uploading an Application](#1-packaging-and-uploading-an-application)
-  - [2. Create or Upgrade an Application](#2-create-or-upgrade-an-application)
+* [Deployments in Fermyon Cloud](#deployments-in-fermyon-cloud)
+* [Bindle - An Aggregate Object Storage System](#bindle---an-aggregate-object-storage-system)
+* [The Deployment Process Explained](#the-deployment-process-explained)
+  * [1. Packaging and Uploading an Application](#1-packaging-and-uploading-an-application)
+  * [2. Create or Upgrade an Application](#2-create-or-upgrade-an-application)
 
 ## Deployments in Fermyon Cloud
 
@@ -31,8 +31,8 @@ The Fermyon Cloud uses [Bindle](https://github.com/deislabs/bindle) to package a
 ## The Deployment Process Explained
 
 In the Fermyon Cloud, we host an instance of Bindle, so when you run `spin deploy`, the command will take care of:
-1. Package the application and upload it to the Fermyon Cloud, as a bindle
-2. Create or upgrade an application, using the bindle
+1. Packaging the application and upload it to the Fermyon Cloud
+2. Creating or upgrade an application, using the bindle
 
 There is no direct interaction with Bindle when using the Fermyon Cloud.
 
@@ -54,6 +54,6 @@ The next step in the deployment process is to create or upgrade the application.
 
 An application in the Fermyon Cloud can have multiple revisions, which are tied to channels. These concepts are derived from [Hippo](https://docs.hippofactory.dev/) an open-source Platform as a Service (PaaS) for WebAssembly. As you deploy your application both an application, a channel and a revision will be created in the Fermyon Cloud.
 
-If the application already exists, an upgrade will take place. What happens at this point is that a new revision will be created, and as soon as this is deemed healthy, traffic will start to route to the new revision. The failover from the old to the new revision takes a short amount of time, during which you will be able to observe replies from both revisions. The application existance is determined based on the combination of the user account and the Spin application name, as defined in `spin.toml`.
+If the application already exists, an upgrade will take place. What happens at this point is that a new revision will be created, and as soon as this is deemed healthy, traffic will start to route to the new revision. The failover from the old to the new revision takes a short amount of time, during which you will be able to observe replies from both revisions. The application existence is determined based on the combination of the user account and the Spin application name, as defined in `spin.toml`.
 
 The deployment process checks for the application health endpoint and finishes once the application is concluded to be healthy by the cloud. The application health point is an integral part of the Fermyon Cloud but does reserve the HTTP route `/.well-known/spin/health`, which will not be routed to your Spin application.
