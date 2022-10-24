@@ -30,8 +30,10 @@ version = "0.1.1"
 
 You can now deploy the upgraded version of your application by running this command:
 
-```console
-spin deploy
+<!-- @selectiveCpy -->
+
+```bash
+$ spin deploy
 ```
 
 That’s how to upgrade a Spin Application, just as simple as that!

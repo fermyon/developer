@@ -46,7 +46,7 @@ to make to Spin, make sure you can correctly build the project:
 
 <!-- @selectiveCpy -->
 
-```
+```bash
 # clone the repository
 $ git clone https://github.com/fermyon/spin && cd spin
 # add a new remote pointing to your fork of the project

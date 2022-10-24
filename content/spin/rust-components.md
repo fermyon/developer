@@ -17,7 +17,9 @@ official resources for learning Rust](https://www.rust-lang.org/learn).
 In order to compile Rust programs to Spin components, you also need the
 `wasm32-wasi` target. You can add it using `rustup`:
 
-```console
+<!-- @selectiveCpy -->
+
+```bash
 $ rustup target add wasm32-wasi
 ```
 
@@ -313,7 +315,7 @@ When creating a new Spin projects with Cargo, you should use the `--lib` flag.
 
 <!-- @selectiveCpy -->
 
-```console
+```bash
 $ cargo init --lib
 ```
 

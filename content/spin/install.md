@@ -14,14 +14,18 @@ There are multiple ways to install Spin. The easiest is to use the installer scr
 
 This command will install the latest version of Spin in you current directory.
 
-```console
-curl https://spin.fermyon.dev/downloads/install.sh | bash
+<!-- @selectiveCpy -->
+
+```bash
+$ curl https://spin.fermyon.dev/downloads/install.sh | bash
 ```
 
 It's highly recommended to add Spin to a folder, which is on your path, e.g.:
 
-```console
-sudo mv spin /usr/local/bin/
+<!-- @selectiveCpy -->
+
+```bash
+$ sudo mv spin /usr/local/bin/
 ```
 
 ## Linux: Additional Libraries
@@ -31,44 +35,54 @@ On a fresh Linux installation, you will also need the standard build toolchain
 
 On Debian-like distributions, including Ubuntu, you can install these with a command like this:
 
-```console
-sudo apt-get install build-essential libssl-dev pkg-config
+<!-- @selectiveCpy -->
+
+```bash
+$ sudo apt-get install build-essential libssl-dev pkg-config
 ```
 
 ## Installing a specific version of Spin
 
 To install a specific version, you can pass arguments to the install script this way:
 
-```console
-curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v v0.6.0
+<!-- @selectiveCpy -->
+
+```bash
+$ curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v v0.6.0
 ```
 
 To install canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin.
 
-```console
-curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v canary
+<!-- @selectiveCpy -->
+
+```bash
+$ curl https://spin.fermyon.dev/downloads/install.sh | bash -s -- -v canary
 ```
 
 ## Building Spin from source
 
 [Follow the contribution document](./contributing.md) for a detailed guide on building Spin from source:
 
-```console
-git clone https://github.com/fermyon/spin
-cd spin && make build
-./target/release/spin --help
+<!-- @selectiveCpy -->
+
+```bash
+$ git clone https://github.com/fermyon/spin
+$ cd spin && make build
+$ ./target/release/spin --help
 ```
 
 ## Using Cargo to install Spin
 
 If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installation.html), you can clone the repo and install it to your path:
 
-```console
-git clone https://github.com/fermyon/spin -b v0.6.0
-cd spin
-rustup target add wasm32-wasi
-cargo install --locked --path .
-spin --help
+<!-- @selectiveCpy -->
+
+```bash
+$ git clone https://github.com/fermyon/spin -b v0.6.0
+$ cd spin
+$ rustup target add wasm32-wasi
+$ cargo install --locked --path .
+$ spin --help
 ```
 
 ## Next Steps

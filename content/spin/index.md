@@ -62,7 +62,7 @@ a web server:
 
 <!-- @selectiveCpy -->
 
-```console
+```bash
 $ spin up
 Serving HTTP on address http://127.0.0.1:3000
 Available Routes:

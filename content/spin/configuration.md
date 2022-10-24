@@ -163,7 +163,7 @@ to environment variables by upper-casing and prepending with `SPIN_APP_`:
 
 <!-- @selectiveCpy -->
 
-```sh
+```bash
 $ export SPIN_APP_API_KEY = "1234"  # Sets the `api_key` value.
 $ spin up
 ```

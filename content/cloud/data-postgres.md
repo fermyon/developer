@@ -17,13 +17,17 @@ First, you need to have Spin installed on your computer. Please use the official
 
 The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](https://developer.fermyon.com/cloud/cli-reference/#templates). The template we are interested in, for this tutorial, is the experimental `http-csharp` template. We can go ahead and install it using the following command:
 
+<!-- @selectiveCpy -->
+
 ```bash
-spin templates install --git https://github.com/fermyon/spin-dotnet-sdk --branch main --update
+$ spin templates install --git https://github.com/fermyon/spin-dotnet-sdk --branch main --update
 ```
 
 The output from the command above will be similar to the following:
 
-```bash
+<!-- @nocpy -->
+
+```text
 Copying remote template source
 Installing template http-csharp...
 Installed 1 template(s)
@@ -96,27 +100,35 @@ public static class Handler {
 
 Wizer is required to successfully build this application. Please go ahead and install Wizer using the following command:
 
+<!-- @selectiveCpy -->
+
 ```bash
-cargo install wizer --all-features
+$ cargo install wizer --all-features
 ```
 
 ## Spin Build
 
 To build the application, use the following command:
 
+<!-- @selectiveCpy -->
+
 ```bash
-spin build
+$ spin build
 ```
 
 ## Spin Deploy
 
 To deploy the application, use the deploy command:
 
+<!-- @selectiveCpy -->
+
 ```bash
-spin deploy
+$ spin deploy
 ```
 
 The above deploy command will produce similar output to the following:
+
+<!-- @nocpy -->
 
 ```bash
 Deployed httpCSharpApplication version 1.0.0+XXXXXXXX

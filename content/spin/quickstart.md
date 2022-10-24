@@ -16,7 +16,8 @@ keywords = "quickstart"
 You can install the `spin` binary using the `install.sh` script hosted on this site.
 
 <!-- @selectiveCpy -->
-```console
+
+```bash
 $ curl https://spin.fermyon.dev/downloads/install.sh | bash
 ```
 
@@ -24,7 +25,8 @@ At this point, move the `spin` binary somewhere in your path, so it can be
 accessed from any directory. For example:
 
 <!-- @selectiveCpy -->
-```console
+
+```bash
 $ sudo mv ./spin /usr/local/bin/spin
 ```
 
@@ -36,7 +38,7 @@ Spin helps you create a new application based on templates:
 
 <!-- @selectiveCpy -->
 
-```console
+```bash
 $ spin templates list
 You have no templates installed. Run
 spin templates install --git https://github.com/fermyon/spin
@@ -47,7 +49,7 @@ We first need to configure the [templates from the Spin repository](https://gith
 
 <!-- @selectiveCpy -->
 
-```console
+```bash
 $ spin templates install --git https://github.com/fermyon/spin
 Copying remote template source
 Installing template redis-rust...
@@ -71,6 +73,7 @@ Installing template http-go...
 Let's create a new Spin application based on the Rust HTTP template:
 
 <!-- @selectiveCpy -->
+
 ```bash
 $ spin new
 Pick a template to start your project with:
@@ -161,7 +164,7 @@ execute the command defined above in `spin.toml` and call the Rust toolchain:
 
 <!-- @selectiveCpy -->
 
-```console
+```bash
 $ spin build
 Executing the build command for component spin-hello-world: cargo build --target wasm32-wasi --release
    Compiling spin_hello_world v0.1.0
@@ -206,7 +209,7 @@ component can now be invoked by making requests to `http://localhost:3000/hello`
 
 <!-- @selectiveCpy -->
 
-```
+```bash
 $ curl -i localhost:3000/hello
 HTTP/1.1 200 OK
 foo: bar
