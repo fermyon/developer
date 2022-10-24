@@ -26,7 +26,7 @@ The Fermyon Cloud uses [Bindle](https://github.com/deislabs/bindle) to package a
   - One or more parcels: The individual data components in the package.
 - Bindles are immutable and cannot be overwritten.
   - Once a bindle is put into a bindle hub (the server), it cannot be changed, nor can it be deleted.
-- Bindles can use semantic versioning [SemVer](www.semver.org) as part of their names.
+- Bindles can use semantic versioning [SemVer](https://semver.org) as part of their names.
 
 ## The Deployment Process Explained
 

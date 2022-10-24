@@ -35,7 +35,7 @@ All of the above are cornerstones in ensuring the high dynamism of a cloud platf
 
 ### Orchestration
 
-The core orchestration in the Fermyo Cloud is done using [HashiCorps Nomad](https://www.hahshicorp.com/nomad). Nomad enables the Fermyon Cloud to spread workloads across servers, and run an optimized highly resilient cloud. Nomad guarantees quick placement of Spin applications, at deployment, upgrade and failures in the underlaying infrastructer - which do happen, so we planed for it.
+The core orchestration in the Fermyo Cloud is done using [HashiCorps Nomad](https://www.hashicorp.com/nomad). Nomad enables the Fermyon Cloud to spread workloads across servers, and run an optimized highly resilient cloud. Nomad guarantees quick placement of Spin applications, at deployment, upgrade and failures in the underlaying infrastructer - which do happen, so we planed for it.
 
 ### Service Resolution
 
