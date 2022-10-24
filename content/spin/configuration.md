@@ -2,7 +2,7 @@ title = "Configuration for Spin applications"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/configuration.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/configuration.md"
 ---
 
 Spin applications are comprised of general information (metadata), and a collection

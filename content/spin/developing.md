@@ -2,7 +2,7 @@ title = "Developing Spin applications"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/developing.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/developing.md"
 ---
 
 The Spin CLI offers a few commands to simplify developing applications.

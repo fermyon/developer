@@ -2,7 +2,7 @@ title = "The Spin Redis trigger"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/redis-trigger.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/redis-trigger.md"
 ---
 
 Spin applications can be triggered by a new message on a [Redis channel](https://redis.io/topics/pubsub).

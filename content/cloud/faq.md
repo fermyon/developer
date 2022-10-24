@@ -2,7 +2,8 @@ title = "FAQ and Known Limitations"
 template = "cloud_main"
 date = "2022-10-05T00:00:00Z"
 enable_shortcodes = true
-
+[extra]
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/faq.md"
 ---
 
 This document contains:

@@ -1,6 +1,8 @@
 title = "Spin architecture and internals"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
+[extra]
+url = "https://github.com/fermyon/developer/blob/main/content/spin/architecture.md"
 ---
 
 This document aims to offer an overview to the implementation of Spin, as well

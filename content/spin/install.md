@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 keywords = "install"
-
+url = "https://github.com/fermyon/developer/blob/main/content/spin/install.md"
 ---
 
 ## Installing Spin

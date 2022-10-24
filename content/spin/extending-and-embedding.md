@@ -2,7 +2,7 @@ title = "Extending and embedding Spin"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/extending-and-embedding.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/extending-and-embedding.md"
 ---
 
 > The complete example for extending and embedding Spin [can be found on GitHub](https://github.com/fermyon/spin/tree/main/examples/spin-timer).

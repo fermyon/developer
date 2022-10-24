@@ -1,7 +1,8 @@
 title = "Fermyon Cloud"
 template = "cloud_main"
 date = "2022-03-14T00:22:56Z"
-
+[extra]
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/index.md"
 ---
 
 > This is the open beta of the Fermyon Cloud. For more info about the limitations and support, please see read the [FAQ](/cloud/faq).

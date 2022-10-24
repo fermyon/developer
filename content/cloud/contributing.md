@@ -2,7 +2,7 @@ title = "Contributing"
 template = "cloud_main"
 date = "2022-01-01T00:00:01Z"
 [extra]
-
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/contributing.md"
 ---
 
 To contribute to the Fermyon Cloud Documentation, please follow these steps.
