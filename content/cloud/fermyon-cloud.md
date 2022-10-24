@@ -15,15 +15,15 @@ enable_shortcodes = true
 
 ## The Fermyon Cloud Explained
 
-[The Fermyon Cloud](https://cloud.fermyon.com) is a cloud application platform for WebAssembly microservices. It enables you to run [Spin applications](/spin), at scale, in the cloud, without any infrastructure set up.
+[The Fermyon Cloud](https://cloud.fermyon.com) is a cloud application platform for WebAssembly microservices. It enables you to run [Spin applications](/spin), at scale, in the cloud, without any infrastructure setup.
 
-In this article, we describe the core technologies and concepts, which are part of the Fermyon Cloud.
+In this article we describe the core technologies and concepts which are part of the Fermyon Cloud.
 
 ## Core Components of the Fermyon Cloud
 
-The Fermyon Cloud is an expansion of the [Fermyon Platform](https://github.com/fermyon/installer), and is a cloud platform, built to provide scalable and resilient hosting for Spin applications. 
+The Fermyon Cloud is an expansion of the [Fermyon Platform](https://github.com/fermyon/installer), built to provide scalable and resilient hosting for Spin applications. 
 
-The following core components are, among others, needed in a cloud platform:
+The following core components are needed in a cloud platform:
 
 1. Orchestration - Ensures workloads can be distributed across multiple servers
 2. Service Resolution - Ensures services can resolve other services endpoints
@@ -31,7 +31,7 @@ The following core components are, among others, needed in a cloud platform:
 4. Application Packaging and Distribution - Ensures application can be retrieved by servers needing to run the workloads
 5. Web UI and CLI
 
-All of the above are cornerstones in ensuring the high dynamism of a cloud platform where applications and traffic come and go, in a non-predictable pattern.
+All of the above are key to ensuring the high dynamism of a cloud platform where applications and traffic come and go in unpredictable patterns.
 
 ### Orchestration
 
@@ -43,7 +43,7 @@ In order to successfully route traffic to your Spin applications, a service regi
 
 ### Traffic routing
 
-Traffic routing is done using Traefik, which ensures the data packet are send to the right places in the cloud.
+Traffic routing is done using Traefik, which ensures that data is sent to the right places in the cloud.
 
 ### Application Packaging and Distribution
 
@@ -51,4 +51,4 @@ To package and distribute application to and within the cloud, we rely on Bindle
 
 ### Web UI, API and CLI
 
-The Fermyon Cloud exposes a public [REST API](rest-api.md), which is used by the [web interface](https://cloud.fermyon.com), and the Spin CLI, when logging in and deploying applications.
+The Fermyon Cloud exposes a public [REST API](rest-api.md) which is used by the [web interface](https://cloud.fermyon.com) and the Spin CLI when logging in and deploying applications.
