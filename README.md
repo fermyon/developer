@@ -3,7 +3,7 @@
 Prerequisites to run the website locally:
 
 - [npm and node](https://docs.npmjs.com/cli/v8/configuring-npm/install)
-- [Spin](https://spin.fermyon.dev/quickstart/)
+- [Spin](https://developer.fermyon.com/spin/quickstart)
 
 Build and run the website locally:
 

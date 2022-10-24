@@ -99,7 +99,7 @@ case $OSTYPE in
     ;;
 *)
     fancy_print 1 "The OSTYPE: ${OSTYPE} is not supported by this script."
-    fancy_print 2 "Please refer to this article to install Spin: https://spin.fermyon.dev/quickstart/"
+    fancy_print 2 "Please refer to this article to install Spin: https://developer.fermyon.com/spin/quickstart"
     exit 1
     ;;
 esac
@@ -130,5 +130,5 @@ rm $FILE
 fancy_print 0 "Done...\n"
 
 # Direct to quicks-start doc
-fancy_print 0 "You're good to go. Check here for the next steps: https://spin.fermyon.dev/quickstart/"
+fancy_print 0 "You're good to go. Check here for the next steps: https://developer.fermyon.com/spin/quickstart"
 fancy_print 0 "Run './spin' to get started"
