@@ -5,7 +5,7 @@ enable_shortcodes = true
 
 ---
 
-* [Prerequisites - Instal the Spin CLI](#prerequisites---instal-the-spin-cli)
+* [Prerequisites - Install the Spin CLI](#prerequisites---instal-the-spin-cli)
 * [Create a new Spin application from a template](#create-a-new-spin-application-from-a-template)
 * [Run the application](#run-the-application)
 * [Write your code](#write-your-code)
@@ -13,7 +13,7 @@ enable_shortcodes = true
 
 This article briefly describes how to create a new Spin application. For a more thorough guide to developing Spin applications, take a look [here](/spin/developing).
 
-## Prerequisites - Instal the Spin CLI
+## Prerequisites - Install the Spin CLI
 
 Before developing a Spin application, you need to have the Spin CLI installed locally. Here’s a way to install the Spin CLI:
 
