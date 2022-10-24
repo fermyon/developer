@@ -27,7 +27,7 @@ The output from the command above will be similar to the following:
 
 <!-- @nocpy -->
 
-```console
+```text
 Copying remote template source
 // --snip--
 Installing template http-rust...
@@ -69,7 +69,7 @@ You can fill out these values, when prompted, for example:
 
 <!-- @nocpy -->
 
-```console
+```bash
 Project description: A new redis-rust Spin Application.
 Redis base: /
 Redis channel: /data
@@ -138,7 +138,7 @@ We need to log into Fermyon Cloud, so that we can build/deploy our application. 
 
 <!-- @selectiveCpy -->
 
-```console
+```bash
 $ spin login
 ```
 
@@ -147,7 +147,7 @@ $ spin login
 We build this application by typing the following command:
 <!-- @selectiveCpy -->
 
-```console
+```bash
 $ spin build
 ```
 
@@ -165,13 +165,13 @@ Successfully ran the build command for the Spin components.
 To deploy the application, use the deploy command:
 <!-- @selectiveCpy -->
 
-```console
+```bash
 $ spin deploy
 ```
 
 The above deploy command will produce similar output to the following:
 
-```bash
+```text
 Deployed redisRustApplication version 0.1.0+XXXXXXXX
 Application is running at redisRustApplication-XXXXXXXX.fermyon.app
 ```

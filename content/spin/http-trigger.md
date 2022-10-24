@@ -209,7 +209,9 @@ printing its value to standard output
 - an empty line between the headers and the body
 - the response body printed to standard output
 
-```
+<!-- @nocpy -->
+
+```text
 print("content-type: text/html; charset=UTF-8\n\n");
 print("hello world\n");
 ```

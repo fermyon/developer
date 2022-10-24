@@ -37,7 +37,9 @@ The following are known limitations of the Fermyon Cloud
 - **Why do I see mixed replies from my service during an upgrade?**
   - When doing an upgrade of an application, there is a gradual roll-out happening. This means that requests will hit both the existing and new modules, as the upgrade completes. You will see a pattern like the one below, showing the body reply from an HTTP request:
 
-```console
+<!-- @nocpy -->
+
+```text
 11:08:13 : Hello from Rust
 11:08:18 : Hello from Rust - updated
 11:08:19 : Hello from Rust
