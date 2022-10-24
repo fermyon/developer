@@ -174,4 +174,4 @@ Head over to the [Fermyon Cloud Web](https://cloud.fermyon.com) to see your appl
 
 - Learn how to [deploy an application](deploy)
 - To learn more about how to develop Spin applications, head over to the [Spin documentation](/spin)
-- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/cloud-issues)
+- Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/feedback)
