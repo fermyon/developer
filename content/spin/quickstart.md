@@ -18,7 +18,7 @@ You can install the `spin` binary using the `install.sh` script hosted on this s
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl https://spin.fermyon.dev/downloads/install.sh | bash
+$ curl https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
 At this point, move the `spin` binary somewhere in your path, so it can be
