@@ -8,6 +8,7 @@ This article contains the following information:
 
 - [Engage on Discord](#engage-on-discord)
 - [Report issues on GitHub](#report-issues-on-github)
+- [Report Abuse](#report-abuse)
 
 ## Engage on Discord
 
@@ -18,3 +19,7 @@ For support related to **Spin**, **Bartholomew**, and other projects, please use
 ## Report issues on GitHub
 
 To see any know issues and report a specific issue, feel free to use the [feedback repository](https://github.com/fermyon/feedback)
+
+## Report Abuse
+
+To report suspected abuse of the Fermyon Cloud service, e-mail:: abuse@fermyon.com.
