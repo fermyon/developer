@@ -380,6 +380,17 @@ class SearchModal {
 let searchModal = new SearchModal()
 let searchButton = new SearchButton(searchModal)
 
+function scrollSideMenu() {
+  let sidemenu = document.querySelector("aside.menu")
+  if (sidemenu) {
+    sidemenu.querySelector(".active")?.scrollIntoView({
+      behavior: 'auto',
+      block: 'center',
+      inline: 'center',
+      behavior: 'smooth'
+  })
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize after the DOM.
@@ -398,7 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addCopyButtons(navigator.clipboard);
   }
   addAnchorLinks()
-
+  scrollSideMenu()
   if (window.location.hash.length > 0) {
     setTimeout(function () {
       document.querySelector('a[href="' + window.location.hash + '"]').click()
