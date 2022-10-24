@@ -1346,13 +1346,13 @@ html.dark-theme > body .content .pagination-link, html.dark-theme > body .conten
   transition: all .3s ease-in-out;
   position: absolute;
   top: 3rem;
-  left: 22rem;
+  right: 32rem;
 }
 
 .search-button .search-placeholder {
   opacity: 0;
   color: #a180d9;
-  min-width: 17.5vw;
+  min-width: 6.5vw;
   text-align: left;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
   font-size: 1rem;
@@ -1361,7 +1361,7 @@ html.dark-theme > body .content .pagination-link, html.dark-theme > body .conten
   display: inline-block;
   position: absolute;
   top: 2.25rem;
-  left: 16rem;
+  right: 37.5rem;
 }
 
 .search-button:hover {
@@ -1370,6 +1370,12 @@ html.dark-theme > body .content .pagination-link, html.dark-theme > body .conten
 
 .search-button:hover .search-placeholder, .search-button:hover .search-command {
   opacity: 1;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1214px) {
+  .search-button .search-placeholder, .search-button .search-command {
+    display: none;
+  }
 }
 
 .search-placeholder {

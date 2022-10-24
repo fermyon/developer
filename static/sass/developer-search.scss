@@ -54,7 +54,7 @@
 		opacity: 0;
 		position: absolute;
 		top: 3rem;
-		left: 22rem;
+		right: 32rem;
 		@include transition;
 	}
 
@@ -64,11 +64,11 @@
 		opacity: 0;
 		color: darken($lavender, 10%);
 		font-weight: normal;
-		min-width: 17.5vw;
+		min-width: 6.5vw;
 		display: inline-block;
 		@include transition;
 		position: absolute;
-		left: 16rem;
+		right: 37.5rem;
 		top: 2.25rem;
 		text-align: left;
 	}
@@ -79,6 +79,13 @@
 		
 		.search-placeholder, .search-command {
 			opacity: 1;
+		}
+	}
+
+	@media screen and (min-width: 1024px) and (max-width: 1214px) {
+		.search-placeholder,
+		.search-command {
+			display: none;
 		}
 	}
 }
