@@ -125,6 +125,16 @@
         });
       };
     </script>
+    {{#if site.info.extra.ga_measurement_id }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{site.info.extra.ga_measurement_id}}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{site.info.extra.ga_measurement_id}}');
+        gtag('config', '{{site.info.extra.ga4_measurement_id}}');
+    </script>
+    {{/if}}
 
     <script>
         const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
