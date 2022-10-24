@@ -1831,7 +1831,7 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   background: #e2d8f4;
   border-radius: .333rem;
   margin: 5rem 0 3rem;
-  padding: 1.5rem 20vw 1.5rem 2rem;
+  padding: 1.5rem 2rem;
   position: relative;
   box-shadow: .333rem .333rem #bea7e5;
 }
@@ -1847,9 +1847,7 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content .note .button {
-  position: absolute;
   top: 50%;
-  right: 3.3rem;
   transform: translateY(-50%);
 }
 

@@ -124,7 +124,7 @@ TABLE OF CONTENTS
 			color: $oxfordblue;
 			border-radius: 0.333rem;
 			margin: 5rem 0 3rem;
-			padding: 1.5rem 20vw 1.5rem 2rem;
+			padding: 1.5rem 2rem 1.5rem 2rem;
 			box-shadow: 0.333rem 0.333rem 0 $lavender;
 			position: relative;
 			max-width: 800px;
@@ -139,8 +139,8 @@ TABLE OF CONTENTS
 			}
 
 			.button {
-				position: absolute;
-				right: 3.3rem;
+				// position: absolute;
+				// right: 3.3rem;
 				top: 50%;
 				transform: translateY(-50%);
 			}
