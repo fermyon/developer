@@ -1,6 +1,8 @@
 title = "Support"
 template = "cloud_main"
 date = "2022-10-01T00:00:00Z"
+[extra]
+keywords = "abuse security concern"
 
 ---
 
@@ -22,4 +24,4 @@ To see any know issues and report a specific issue, feel free to use the [feedba
 
 ## Report Abuse
 
-To report suspected abuse of the Fermyon Cloud service, e-mail:: abuse@fermyon.com.
+To report suspected abuse of the Fermyon Cloud service, please e-mail abuse@fermyon.com.
