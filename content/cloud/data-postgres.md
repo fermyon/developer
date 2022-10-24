@@ -11,11 +11,11 @@ date = "2022-01-01T00:00:01Z"
 
 ## Spin and Fermyon Cloud
 
-First, you need to have Spin installed on your computer. Please use the official Fermyon Cloud Quickstart to both [install](https://developer.fermyon.com/cloud/quickstart/#install-spin) Spin and also [log in](https://developer.fermyon.com/cloud/quickstart/#log-in-to-the-fermyon-cloud) to Fermyon Cloud.
+First, you need to have Spin installed on your computer. Please use the official Fermyon Cloud Quickstart to both [install](/cloud/quickstart#install-spin) Spin and also [log in](/cloud/quickstart#log-in-to-the-fermyon-cloud) to Fermyon Cloud.
 
 ## Using Spin Application Templates
 
-The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](https://developer.fermyon.com/cloud/cli-reference/#templates). The template we are interested in, for this tutorial, is the experimental `http-csharp` template. We can go ahead and install it using the following command:
+The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](/cloud/cli-reference#templates). The template we are interested in, for this tutorial, is the experimental `http-csharp` template. We can go ahead and install it using the following command:
 
 <!-- @selectiveCpy -->
 
@@ -41,7 +41,7 @@ Installed 1 template(s)
 
 ## Creating Our New Spin Application
 
-The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference/#new), from an existing template. Using the docs as a reference, we can perform the following:
+The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference#new), from an existing template. Using the docs as a reference, we can perform the following:
 
 ```bash
 spin new http-csharp httpCSharpApplication

@@ -35,7 +35,7 @@ All of the above are key to ensuring the high dynamism of a cloud platform where
 
 ### Orchestration
 
-The core orchestration in the Fermyon Cloud is done using [HashiCorps Nomad](https://www.hahshicorp.com/nomad). Nomad enables the Fermyon Cloud to spread workloads across servers, and run an optimized highly resilient cloud. Nomad guarantees quick placement of Spin applications, at deployment, upgrade and failures in the underlying infrastructure - which do happen, so we planed for it.
+The core orchestration in the Fermyon Cloud is done using [HashiCorp's Nomad](https://www.hashicorp.com/nomad). Nomad enables the Fermyon Cloud to spread workloads across servers, and run an optimized highly resilient cloud. Nomad guarantees quick placement of Spin applications, at deployment, upgrade and failures in the underlying infrastructure - which do happen, so we planed for it.
 
 ### Service Resolution
 
@@ -47,7 +47,7 @@ Traffic routing is done using Traefik, which ensures that data is sent to the ri
 
 ### Application Packaging and Distribution
 
-To package and distribute application to and within the cloud, we rely on Bindle. For more information about deployment concepts in the Fermyon Cloud, see [here](deployment-concept).
+To package and distribute application to and within the cloud, we rely on Bindle. For more information about deployment concepts in the Fermyon Cloud, see [here](deployment-concepts).
 
 ### Web UI, API and CLI
 

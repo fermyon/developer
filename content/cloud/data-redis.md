@@ -11,11 +11,11 @@ date = "2022-01-01T00:00:01Z"
 
 ## Spin and Fermyon Cloud
 
-First, you need to have Spin installed on your computer. Please use the official Fermyon Cloud Quickstart to both [install](https://developer.fermyon.com/cloud/quickstart/#install-spin) Spin and also [log in](https://developer.fermyon.com/cloud/quickstart/#log-in-to-the-fermyon-cloud) to Fermyon Cloud.
+First, you need to have Spin installed on your computer. Please use the official Fermyon Cloud Quickstart to both [install](/cloud/quickstart#install-spin) Spin and also [log in](/cloud/quickstart#log-in-to-the-fermyon-cloud) to Fermyon Cloud.
 
 ## Using Spin Application Templates
 
-The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](https://developer.fermyon.com/cloud/cli-reference/#templates). For example:
+The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](/cloud/cli-reference#templates). For example:
 
 <!-- @selectiveCpy -->
 
@@ -47,7 +47,7 @@ The template we are interested in is `http-rust`.
 
 ## Creating Our New Spin Application
 
-The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference/#new). Let's go ahead and create a new `http-rust` application: 
+The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference#new). Let's go ahead and create a new `http-rust` application: 
 
 <!-- @selectiveCpy -->
 
