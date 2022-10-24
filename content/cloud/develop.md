@@ -5,11 +5,11 @@ enable_shortcodes = true
 
 ---
 
-- [Prerequisites - Instal the Spin CLI](#prerequisites---instal-the-spin-cli)
-- [Create a new Spin application from a template](#create-a-new-spin-application-from-a-template)
-- [Run the application](#run-the-application)
-- [Write your code](#write-your-code)
-- [Next steps](#next-steps)
+* [Prerequisites - Instal the Spin CLI](#prerequisites---instal-the-spin-cli)
+* [Create a new Spin application from a template](#create-a-new-spin-application-from-a-template)
+* [Run the application](#run-the-application)
+* [Write your code](#write-your-code)
+* [Next steps](#next-steps)
 
 This article briefly describes how to create a new Spin application. For a more thorough guide to developing Spin applications, take a look [here](/spin/developing).
 
@@ -143,7 +143,7 @@ fn hello_rust(req: Request) -> Result<Response> {
 }
 ```
 
-Let's change the body text returned to be a parameter from the URL, by changin the `hello_rust` function to the code below:
+Let's change the body text returned to be a parameter from the URL, by changing the `hello_rust` function to the code below:
 
 ```rust
 /// A simple Spin HTTP component, returning the value of the first URL parameter as a greeting.
