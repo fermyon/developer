@@ -20,7 +20,7 @@ This site contains the documentation for the Fermyon Cloud. Here you will:
 - learn how to complete specific tasks, e.g. [Deploying a Spin application to the Fermyon Cloud](deploy)
 - find information about the [concepts of the Fermyon Cloud](fermyon-cloud),
 - find reference documentation for the [API](rest-api) and [Spin CLI](cli-reference),
-- dive into a few sample application tutorials for inspiration (e.g. [Data in the Cloud](data-in-the-cloud)), and
+- dive into a few sample application tutorials for inspiration (e.g. [Persistent Data: Redis](data-redis)), and
 - learn more via the [Frequently Asked Questions (FAQ) and known limitations sections](faq).
 
 ## Getting support
