@@ -5,13 +5,13 @@
 }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>{{site.info.base_url}}/</loc>
+        <loc>https://developer.fermyon.com/</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     {{#each (sitemap site.pages) }}
     <url>
-        <loc>{{../site.info.base_url}}{{uri}}</loc>
+        <loc>https://developer.fermyon.com{{uri}}</loc>
         {{#if page.head.date }}<lastmod>{{date_format "%Y-%m-%dT%H:%M:%SZ" page.head.date}}</lastmod>{{/if}}
         <changefreq>{{frequency}}</changefreq>
         <priority>{{priority}}</priority>
