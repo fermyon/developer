@@ -21,7 +21,9 @@ Using TinyGo to compile components for Spin is currently required, as the
 
 ## Versions
 
-TinyGo requires Go versions `1.15.x` or newer. The recommendation is to use Go version `1.19.x`, and TinyGo version `0.25.x`. TinyGo version `0.26.x` is currently not supported with Spin.
+TinyGo `0.25.x` is recommended, which requires Go `1.16.x` or newer.
+
+> TinyGo version `0.26.x` is known to have issues with Spin on some systems.
 
 ## HTTP components
 
