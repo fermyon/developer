@@ -5,7 +5,7 @@
   "author": {
     "name": "Fermyon Engineering",
     "email": "engineering@fermyon.com",
-    "url": "https://fermyon.com"
+    "url": "https://www.fermyon.com"
   },
   "description": "The Fermyon developer website",
   "repository": {
@@ -20,6 +20,8 @@
     "@fermyon/styleguide": "^0.1.6",
     "@parcel/transformer-sass": "^2.7.0",
     "args-parser": "^1.3.0",
+    "broken-link-checker": "^0.7.8",
+    "concurrently": "^7.5.0",
     "front-matter": "^4.0.2",
     "glob": "^8.0.3",
     "lunr": "^2.3.9",
@@ -27,8 +29,8 @@
     "nodemon": "^2.0.20",
     "parcel": "^2.7.0",
     "parcel-bundler": "^1.12.5",
-    "remark-parse": "^10.0.1",
     "redom": "^3.29.1",
+    "remark-parse": "^10.0.1",
     "sass": "^1.55.0",
     "unified": "^10.1.2",
     "yaml-front-matter": "^4.1.1"
@@ -37,6 +39,7 @@
     "spin": "nodemon --watch content --watch static --watch templates --ext md,rhai,hbs,css,js --verbose --legacy-watch --signal SIGINT --exec 'npm run build-index && spin up --file spin.toml'",
     "styles": "parcel watch static/sass/styles.scss --dist-dir static/css",
     "test": "npx markdownlint-cli2 content/**/*.md \"#node_modules\"",
-    "build-index": "node md_parser.mjs --dir=./content/ --out=./static/data.json"
+    "build-index": "node md_parser.mjs --dir=./content/ --out=./static/data.json",
+    "check-broken-links": ".build/check-broken-links.sh"
   }
 }

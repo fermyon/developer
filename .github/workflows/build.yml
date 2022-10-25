@@ -33,3 +33,13 @@ jobs:
       - name: Check Docs
         run: |
           bart check content/* && bart check content/**/*
+
+      - name: Install spin
+        uses: engineerd/configurator@v0.0.8
+        with:
+          name: "spin"
+          url: "https://github.com/fermyon/spin/releases/download/v0.6.0/spin-v0.6.0-linux-amd64.tar.gz"
+          pathInArchive: "spin"
+
+      - name: Check broken links
+        run: .build/check-broken-links.sh
