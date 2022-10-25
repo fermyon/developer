@@ -17,7 +17,7 @@ This command will install the latest version of Spin in you current directory.
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -L https://developer.fermyon.com/downloads/install.sh | bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
 It's highly recommended to add Spin to a folder, which is on your path, e.g.:
@@ -48,7 +48,7 @@ To install a specific version, you can pass arguments to the install script this
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -L https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.6.0
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.6.0
 ```
 
 To install canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin.
@@ -56,7 +56,7 @@ To install canary version of spin, you should pass the argument `-v canary`. The
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -L https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
 ```
 
 ## Building Spin from source
