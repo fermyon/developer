@@ -39,7 +39,7 @@ The core orchestration in the Fermyon Cloud is done using [HashiCorp's Nomad](ht
 
 ### Service Resolution
 
-In order to successfully route traffic to your Spin applications, a service registry is needed to map application endpoints to sockets on servers. This is done using Consul, as an integrated part of Nomad. Consul helps ensure we can always find you application, as the orchestration engine may or may not move it around.
+In order to successfully route traffic to your Spin applications, a service registry is needed to map application endpoints to sockets on servers. This is done using Consul, as an integrated part of Nomad. Consul helps ensure we can always find your application, as the orchestration engine may or may not move it around.
 
 ### Traffic routing
 
