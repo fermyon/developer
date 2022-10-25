@@ -35,11 +35,11 @@ All of the above are key to ensuring the high dynamism of a cloud platform where
 
 ### Orchestration
 
-The core orchestration in the Fermyon Cloud is done using [HashiCorp's Nomad](https://www.hashicorp.com/nomad). Nomad enables the Fermyon Cloud to spread workloads across servers, and run an optimized highly resilient cloud. Nomad guarantees quick placement of Spin applications, at deployment, upgrade and failures in the underlying infrastructure - which do happen, so we planed for it.
+The core orchestration in the Fermyon Cloud is done using [HashiCorp's Nomad](https://www.hashicorp.com/nomad). Nomad enables the Fermyon Cloud to spread workloads across servers, and run an optimized highly resilient cloud. Nomad guarantees quick placement of Spin applications, at deployment, upgrade and failures in the underlying infrastructure - which do happen, so we planned for it.
 
 ### Service Resolution
 
-In order to successfully route traffic to your Spin applications, a service registry is needed to map application endpoints to sockets on servers. This is done using Consul, as an integrated part of Nomad. Consul helps ensure we can always find you application, as the orchestration engine may or may not move it around.
+In order to successfully route traffic to your Spin applications, a service registry is needed to map application endpoints to sockets on servers. This is done using Consul, as an integrated part of Nomad. Consul helps ensure we can always find your application, as the orchestration engine may or may not move it around.
 
 ### Traffic routing
 
