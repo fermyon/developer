@@ -17,7 +17,7 @@ This article will guide you through deploying a Spin Application with the Fermyo
 Before developing a Spin application, you need to have the Spin CLI installed locally. Here’s a way to install the Spin CLI:
 
 ```console
-curl https://developer.fermyon.com/downloads/install.sh | bash
+curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
 {{ details "Additional info" "It's easier if you move the spin binary somewhere in your path, so it can be accessed from any directory. E.g., `sudo mv ./spin /usr/local/bin/spin`. \n\nYou can verify the version of Spin installed by running `spin --version`" }}
