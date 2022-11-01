@@ -233,4 +233,4 @@ in multiple programming languages](https://github.com/fermyon/spin-kitchensink/)
 ## Next Steps
 
 - Learn about how to [develop a Spin application](developing)
-- Try deploying a Spin applicatin to the [Fermyon Cloud](/cloud/quickstart)
+- Try deploying a Spin application to the [Fermyon Cloud](/cloud/quickstart)
