@@ -75,7 +75,7 @@ stanza to the `spin.toml` file.
 
 ## Deploying a Spin application
 
-Spin applications can be deployed to the fully managed [Fermyon Cloud](/cloud/index), or using the self-hosted [Fremoyn Platform](https://www.fermyon.dev)
+Spin applications can be deployed to the fully managed [Fermyon Cloud](/cloud/index), or using the self-hosted [Fermyon Platform](https://www.fermyon.dev)
 
 ## Next Steps
 
