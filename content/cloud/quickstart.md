@@ -60,7 +60,7 @@ Device authorized!
 
 This command will generate an authentication code for your current device to be authorized against the Fermyon Cloud. Follow the instructions in the prompt to complete the authorization process.
 
-{{ details "Learn more" "The default behavior of `spin login` is to authenticate with the Fermyon Cloud. The command can authenticate against any instance of the [Fermyon Platform](https://fermyon.dev)." }}
+{{ details "Learn more" "The default behavior of `spin login` is to authenticate with the Fermyon Cloud. The command can authenticate against any instance of the [Fermyon Platform](https://www.fermyon.dev)." }}
 
 ## Clone the quickstart repo
 
