@@ -38,7 +38,7 @@
   "scripts": {
     "spin": "nodemon --watch content --watch static --watch templates --ext md,rhai,hbs,css,js --verbose --legacy-watch --signal SIGINT --exec 'npm run build-index && spin up --file spin.toml'",
     "styles": "parcel watch static/sass/styles.scss --dist-dir static/css",
-    "test": "npx markdownlint-cli2 content/**/*.md \"#node_modules\"",
+    "test": "npx markdownlint-cli2 content/**/*.md \"#node_modules\" && npm run check-broken-links",
     "build-index": "node md_parser.mjs --dir=./content/ --out=./static/data.json",
     "check-broken-links": ".build/check-broken-links.sh"
   }
