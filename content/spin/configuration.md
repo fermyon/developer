@@ -156,8 +156,12 @@ api_key = "{{ api_key }}"
 ### Custom Config Providers
 
 [Custom config variables](#custom-config-variables) values may be set at runtime by
-config "providers". Currently there is only one provider: the environment
-variable provider, which gets config values from the `spin` process's
+config "providers". Currently, there are two providers: the environment
+variable provider and vault config provider.
+
+#### Environment Variable Provider
+
+The environment variable provider which gets config values from the `spin` process's
 environment (_not_ the component `environment`). Config keys are translated
 to environment variables by upper-casing and prepending with `SPIN_APP_`:
 
@@ -167,6 +171,65 @@ to environment variables by upper-casing and prepending with `SPIN_APP_`:
 $ export SPIN_APP_API_KEY = "1234"  # Sets the `api_key` value.
 $ spin up
 ```
+
+#### Vault Config Provider
+
+Note: This will be included after spin v0.6.0.
+You can use [canary](https://github.com/fermyon/spin/releases/tag/canary) to try it.
+
+The vault config provider gets secret values from [HashiCorp Vault](https://www.vaultproject.io/).
+Currently, only [KV Secrets Engine - Version 2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2) is supported.
+You can set up v2 kv secret engine at any mount point and give vault information in the [runtime configuration](#runtime-configuration):
+
+```toml
+[[config_provider]]
+type = "vault"
+url = "http://127.0.0.1:8200"
+token = "root"
+mount = "secret"
+```
+
+##### Vault Config Provider Example
+
+1. [Install Vault](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install).
+2. Start vault.
+
+```bash
+$ vault server -dev -dev-root-token-id root
+```
+
+3. Set a password.
+
+```bash
+$ export VAULT_TOKEN=root
+$ export VAULT_ADDR=http://127.0.0.1:8200
+$ vault kv put secret/password value="test_password"
+$ vault kv get secret/password
+```
+
+4. Go to [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-config-test) folder.
+5. Start `vault-config-test` app.
+
+```bash
+$ spin build
+$ spin up --runtime-config-file runtime_config.toml
+```
+
+6. Test the app.
+
+```bash
+$ curl -i http://127.0.0.1:3000
+HTTP/1.1 200 OK
+content-length: 26
+date: Tue, 18 Oct 2022 12:34:40 GMT
+
+Got password test_password
+```
+
+## Runtime Configuration
+
+Runtime configuration contains config provider information like [vault config provider](#vault-config-provider).
+You can use the runtime configuration by giving `--runtime-config-file` in `spin up` command.
 
 ## Examples
 
