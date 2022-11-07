@@ -42,6 +42,7 @@ This command downloads and unpacks the latest Spin binary in the current directo
 ```bash
 $ sudo mv spin /usr/local/bin/
 ```
+
  \n\n The [Spin](/spin) documentation is a good starting place to learn more about using the framework to develop applications."}}
 
 ## Log in to the Fermyon cloud
