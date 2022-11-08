@@ -36,7 +36,7 @@ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 
 This command downloads and unpacks the latest Spin binary in the current directory. You can now run spin using the command `./spin`.
 
-{{ details "Learn more" "[Spin](https://github.com/fermyon/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). It's highly recommended to add Spin to a folder, which is on your path, e.g.:\n\n<!-- @selectiveCpy -->\n\n```bash\n$ sudo mv spin /usr/local/bin/\n```\n\n The [Spin](/spin) documentation is a good starting place to learn more about using the framework to develop applications."}}
+{{ details "Learn more" "[Spin](https://github.com/fermyon/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). \n\n The [Spin](/spin) documentation is a good starting place to learn more about using the framework to develop applications."}}
 
 ## Log in to the Fermyon cloud
 
