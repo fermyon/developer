@@ -16,7 +16,7 @@ manually go into the each component directory, compile the component, then go
 back to the directory with `spin.toml` can be a very repetitive task.
 
 This is why Spin has a top-level command that will execute the build command
-set by each component, `spin up`. To run this command 
+set by each component, `spin up`.
 
 ```toml
 [component.build]
