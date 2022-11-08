@@ -52,7 +52,7 @@ The official Spin CLI documentation also has instructions on how to [create a ne
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new redis-rust redisRustApplication
+$ spin new http-rust redisRustApplication
 ```
 
 The above command will ask you to enter a `Project description`, `HTTP base` (default set to `/` which is fine) and `HTTP path`:
@@ -71,8 +71,8 @@ You can fill out these values, when prompted, for example:
 
 ```bash
 Project description: A new redis-rust Spin Application.
-Redis base: /
-Redis channel: /data
+HTTP base: /
+HTTP path: /data
 ```
 
 > You can change these values later, in the project's `spin.toml` file.
