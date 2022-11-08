@@ -17,8 +17,10 @@ This article briefly describes how to create a new Spin application. For a more 
 
 Before developing a Spin application, you need to have the Spin CLI installed locally. Here’s a way to install the Spin CLI:
 
+<!-- @selectiveCpy -->
+
 ```bash
-curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
 {{ details "Additional info" "It's easier if you move the spin binary somewhere in your path, so it can be accessed from any directory. E.g., `sudo mv ./spin /usr/local/bin/spin`. \n\nYou can verify the version of Spin installed by running `spin --version`" }}
@@ -26,6 +28,8 @@ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 ## Create a new Spin application from a template
 
 You can create your very own application based on [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates). Start by installing a set of Spin application templates [from the Spin repository](https://github.com/fermyon/spin/tree/main/templates):
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin templates install --git https://github.com/fermyon/spin
@@ -45,6 +49,8 @@ Installing template http-go...
 {{ details "Additional info" "If you already have templates installed, you can update them by running `spin templates install --git https://github.com/fermyon/spin --update` \n\nIf you’re interested in building your own template, you can follow the guide here [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates) and the [Spin Improvement Proposal (SIP) for templates](https://github.com/fermyon/spin/pull/273)." }}
 
 We will be using the http-rust template to build our Spin Application, by running `spin new`.
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin new
@@ -86,6 +92,8 @@ command = "cargo build --target wasm32-wasi --release"
 
 Next, let’s build the app.
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ spin build
 Executing the build command for component hello-rust: cargo build --target wasm32-wasi --release
@@ -102,6 +110,8 @@ Successfully ran the build command for the Spin components.
 
 Now it’s time to `spin up` the application.
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ spin up
 Serving http://127.0.0.1:3000
@@ -112,6 +122,8 @@ Available Routes:
 {{ details "Additional info" "To get information printed to the console, use the `--follow-all` flag when running `spin up`. /n/nYou can also set the RUST_LOG environment variable for detailed logs, before running `spin up`, e.g., `RUST_LOG=spin=debug spin up`." }}
 
 Spin will instantiate all components from the application manifest, and will create the router configuration for the HTTP trigger accordingly. The component can now be invoked by making requests to `http://localhost:3000`:
+
+<!-- @selectiveCpy -->
 
 ```
 $ curl -i localhost:3000
