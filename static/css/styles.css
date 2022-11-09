@@ -2707,6 +2707,10 @@ html.dark-theme .developer-home-wrap #intro p.lead {
   color: #34e8bd;
 }
 
+html.dark-theme .developer-home-wrap h2, html.dark-theme .developer-home-wrap h3 {
+  color: #fff;
+}
+
 html.dark-theme .developer-home-wrap .card.project {
   background: #09152a;
   outline: none;
@@ -2738,6 +2742,14 @@ html.dark-theme .developer-home-wrap .card.project p {
 
 html.dark-theme .developer-home-wrap .card.project .button, html.dark-theme .developer-home-wrap .card.project .button strong {
   color: #0d203f !important;
+}
+
+html.dark-theme .developer-home-wrap .flickity-button {
+  background: #525776;
+}
+
+html.dark-theme .developer-home-wrap .flickity-button:hover {
+  background: #213762;
 }
 
 html.dark-theme .developer-home-wrap ul.connect-links li a {

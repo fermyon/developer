@@ -1140,6 +1140,10 @@ html.dark-theme {
 			}
 		}
 
+		h2,
+		h3 {
+			color: white;
+		}
 		.card.project {
 			background: darken($oxfordblue, 5%);
 			outline: none;
@@ -1171,6 +1175,14 @@ html.dark-theme {
 			.button,
 			.button strong {
 				color: $oxfordblue !important;
+			}
+		}
+
+		.flickity-button {
+			background: $darkplum;
+
+			&:hover {
+				background: $darkspace;
 			}
 		}
 
