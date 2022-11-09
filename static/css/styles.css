@@ -2142,6 +2142,10 @@ html.dark-theme .dropdown-content a {
   box-shadow: 0 -.1rem .1rem #00000040;
 }
 
+.developer-home-wrap {
+  padding-bottom: 5rem;
+}
+
 .developer-home-wrap a.anchor-link {
   display: none !important;
 }
@@ -2168,6 +2172,10 @@ html.dark-theme .dropdown-content a {
 
 .developer-home-wrap .content h1:after {
   display: none;
+}
+
+.developer-home-wrap .content h2 {
+  margin-bottom: 1.67rem;
 }
 
 .developer-home-wrap .content p.lead {
@@ -2264,12 +2272,18 @@ html.dark-theme .dropdown-content a {
 }
 
 .developer-home-wrap .community-highlight {
-  min-height: 250px;
+  min-height: 280px;
   background-color: #464e83;
   border-radius: .5rem;
-  margin: 1.67rem 7.5vw 2.33rem 0;
-  padding: 1.67rem 2.333rem;
+  margin: 0 5vw 0 0;
+  padding: 0;
   position: relative;
+}
+
+.developer-home-wrap .community-highlight .carousel-cell {
+  min-height: 250px;
+  width: 100%;
+  padding: 1.67rem 2.5rem 1.67rem 3rem;
 }
 
 .developer-home-wrap .community-highlight event {
@@ -2303,7 +2317,8 @@ html.dark-theme .dropdown-content a {
 
 .developer-home-wrap .community-highlight p {
   margin: 1.5rem 0 1rem;
-  font-size: 1.125rem;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .developer-home-wrap .community-highlight img {
@@ -2311,6 +2326,159 @@ html.dark-theme .dropdown-content a {
   top: 50%;
   right: 2rem;
   transform: translateY(-50%);
+}
+
+.developer-home-wrap .community-highlight.community-highlight-short {
+  min-height: auto;
+  background-color: #535d9b;
+  margin-top: -1rem;
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+.developer-home-wrap .community-highlight.community-highlight-short .event .date {
+  width: 33%;
+  float: left;
+  display: inline-block;
+}
+
+.developer-home-wrap .community-highlight.community-highlight-short .event .eventtitle {
+  width: 57%;
+  float: left;
+  display: inline-block;
+}
+
+.developer-home-wrap .flickity-enabled {
+  position: relative;
+}
+
+.developer-home-wrap .flickity-enabled:focus {
+  outline: none;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-viewport {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.developer-home-wrap .flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.developer-home-wrap .flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.developer-home-wrap .flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-button {
+  color: #0d203f;
+  background: #ffffffbf;
+  border: none;
+  position: absolute;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-button:hover {
+  cursor: pointer;
+  background: #fff;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #345995;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-button:active {
+  opacity: .6;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-button:disabled {
+  opacity: .3;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-button-icon {
+  fill: currentColor;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-prev-next-button {
+  width: 3rem;
+  height: 3rem;
+  z-index: 800;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.developer-home-wrap .flickity-enabled .flickity-prev-next-button.previous {
+  left: -2.5rem;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-prev-next-button.next {
+  right: -2.5rem;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: -2.5rem;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-rtl .flickity-prev-next-button.next {
+  left: -2.5rem;
+  right: auto;
+}
+
+.developer-home-wrap .flickity-enabled .flickity-prev-next-button .flickity-button-icon {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.developer-home-wrap .flickity-page-dots {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  list-style: none;
+  position: absolute;
+  bottom: -3rem;
+}
+
+.developer-home-wrap .flickity-rtl .flickity-page-dots {
+  direction: rtl;
+}
+
+.developer-home-wrap .flickity-page-dots .dot {
+  width: 1rem;
+  height: 1rem;
+  opacity: .25;
+  cursor: pointer;
+  background: #bea7e5;
+  border-radius: 50%;
+  margin: 0 8px;
+  display: inline-block;
+}
+
+.developer-home-wrap .flickity-page-dots .dot.is-selected {
+  opacity: 1;
 }
 
 .developer-home-wrap ul.connect-links {
@@ -2427,7 +2595,7 @@ html.dark-theme .dropdown-content a {
     max-width: 85% !important;
     margin-left: 7.5% !important;
     margin-right: 7.5% !important;
-    padding: 5.5rem 0 0 !important;
+    padding: 5.5rem 0 5rem !important;
   }
 
   .developer-home-wrap article.content {

@@ -507,7 +507,8 @@ html.dark-theme {
 }
 
 .developer-home-wrap {
-
+	padding-bottom: 5rem;
+	
 	// disable the js title anchors on the homepage
 	a.anchor-link {
 		display: none !important;
@@ -536,6 +537,9 @@ html.dark-theme {
 			&:after {
 				display: none;
 			}
+		}
+		h2 {
+			margin-bottom: 1.67rem;
 		}
 
 		p.lead {
@@ -636,10 +640,16 @@ html.dark-theme {
 	.community-highlight {
 		background-color: saturate($darkplum, 12.5%);
 		border-radius: 0.5rem;
-		margin: 1.67rem 7.5vw 2.33rem 0;
-		padding: 1.67rem 2.333rem;
+		margin: 0 5vw 0 0;
+		padding: 0;
 		position: relative;
-		min-height: 250px;
+		min-height: 280px;
+
+		.carousel-cell {
+			min-height: 250px;
+			width: 100%;
+			padding: 1.67rem 2.5rem 1.67rem 3rem;
+		}
 
 		event {
 			position: relative;
@@ -673,7 +683,8 @@ html.dark-theme {
 
 		p {
 			margin: 1.5rem 0 1rem;
-			font-size: 1.125rem;
+			font-size: 1rem;
+			line-height: 1.4;
 		}
 
 		img {
@@ -682,6 +693,162 @@ html.dark-theme {
 			top: 50%;
 			transform: translateY(-50%);
 		}
+
+		&.community-highlight-short {
+			min-height: auto;
+			margin-top: -1rem;
+			margin-bottom: 0;
+			background-color: lighten(saturate($darkplum, 12.5%), 7.5%);
+			padding-right: 0;
+
+			.event {
+				.date {
+					width: 33%;
+					float: left;
+					display: inline-block;
+				}
+				.eventtitle {
+					display: inline-block;
+					width: 57%;
+					float: left;
+				}
+			}
+		}
+	}
+
+	/*! Flickity v2.3.0
+	https://flickity.metafizzy.co
+	---------------------------------------------- */
+
+	.flickity-enabled {
+		position: relative;
+
+		&:focus {
+			outline: none;
+		}
+
+		.flickity-viewport {
+			overflow: hidden;
+			position: relative;
+			height: 100%;
+		}
+	  
+		.flickity-slider {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+
+		&.is-draggable {
+			-webkit-tap-highlight-color: transparent;
+			-webkit-user-select: none;
+			   -moz-user-select: none;
+				-ms-user-select: none;
+					user-select: none;
+
+			.flickity-viewport {
+				cursor: move;
+				cursor: -webkit-grab;
+				cursor: grab;
+
+				&.is-pointer-down {
+					cursor: -webkit-grabbing;
+					cursor: grabbing;
+				}
+			}
+		}
+	
+		.flickity-button {
+			position: absolute;
+			background: hsla(0, 0%, 100%, 0.75);
+			border: none;
+			color: $oxfordblue;
+
+			&:hover {
+				background: white;
+				cursor: pointer;
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 0 0 5px $midblue;
+			}
+
+			&:active {
+				opacity: 0.6;
+			}
+
+			&:disabled {
+				opacity: 0.3;
+				cursor: auto;
+				/* prevent disabled button from capturing pointer up event. #716 */
+				pointer-events: none;
+			}
+		}
+
+		.flickity-button-icon {
+			fill: currentColor;
+		}
+
+		.flickity-prev-next-button {
+			top: 50%;
+			width: 3rem;
+			height: 3rem;
+			border-radius: 50%;
+			/* vertically center */
+			transform: translateY(-50%);
+			z-index: 800;
+
+			&.previous {
+				left: -2.5rem;
+			}
+			&.next {
+				right: -2.5rem;
+			}
+		}
+
+		.flickity-rtl .flickity-prev-next-button.previous {
+			left: auto;
+			right: -2.5rem;
+		}
+
+		.flickity-rtl .flickity-prev-next-button.next {
+			right: auto;
+			left: -2.5rem;
+		}
+
+		.flickity-prev-next-button .flickity-button-icon {
+			position: absolute;
+			left: 20%;
+			top: 20%;
+			width: 60%;
+			height: 60%;
+		}
+	}
+
+	.flickity-page-dots {
+		position: absolute;
+		width: 100%;
+		bottom: -3rem;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		text-align: center;
+		line-height: 1;
+	}
+	.flickity-rtl .flickity-page-dots { direction: rtl; } 
+	.flickity-page-dots .dot {
+		display: inline-block;
+		width: 1rem;
+		height: 1rem;
+		margin: 0 8px;
+		background: $lavender;
+		border-radius: 50%;
+		opacity: 0.25;
+		cursor: pointer;
+	}
+	.flickity-page-dots .dot.is-selected {
+		opacity: 1;
 	}
 
 	ul.connect-links {
@@ -828,7 +995,7 @@ html.dark-theme {
 	}
 
 	.developer-home-wrap {
-		padding: 5.5rem 0 0 !important;
+		padding: 5.5rem 0 5rem !important;
 		max-width: 85% !important;
 		margin-left: 7.5% !important;
 		margin-right: 7.5% !important;
