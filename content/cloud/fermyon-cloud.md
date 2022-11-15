@@ -43,7 +43,7 @@ In order to successfully route traffic to your Spin applications, a service regi
 
 ### Traffic routing
 
-Traffic routing is done using Traefik, which ensures that data is sent to the right places in the cloud.
+Traffic routing is done using [Traefik](https://doc.traefik.io/), which ensures that data is sent to the right places in the cloud.
 
 ### Application Packaging and Distribution
 
