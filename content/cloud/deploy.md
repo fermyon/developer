@@ -22,9 +22,9 @@ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 
 {{ details "Additional info" "It's easier if you move the spin binary somewhere in your path, so it can be accessed from any directory. E.g., `sudo mv ./spin /usr/local/bin/spin`. \n\nYou can verify the version of Spin installed by running `spin --version`" }}
 
-## Login to the Fermyon Cloud
+## Log in to the Fermyon Cloud
 
-Next, you can Log in to the Fermyon Cloud, which requires your GitHub account to sign in.
+Next, you can log in to the Fermyon Cloud, which requires your GitHub account to sign in.
 
 <!-- @selectiveCpy -->
 ```console
@@ -62,7 +62,7 @@ Take a look at the [Quickstart article](quickstart) for how to get a pre-built a
 
 {{ details "Additional info" "`spin deploy` can point to a spin.toml file by using the `--file` option." }}
 
-**Congratulations on Deploying your Spin Application! 🥳**
+**Congratulations on deploying your Spin Application! 🥳**
 
 ## Next steps
 
