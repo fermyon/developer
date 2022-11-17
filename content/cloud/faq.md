@@ -29,6 +29,7 @@ The following are the limits of the Fermyon Cloud
 The following are known limitations of the Fermyon Cloud
 
 - You cannot use Redis triggers
+- [Runtime configuration and secrets](https://developer.fermyon.com/spin/configuration#runtime-configuration) are not yet supported
 - You cannot communicate between Spin applications using local name resolution
 - You cannot use a Spin SDK or Spin CLI with a version before v0.6.0
 
