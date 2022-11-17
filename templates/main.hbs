@@ -8,9 +8,13 @@
 
         <article class="column content content-docs content-docs-wide">
             <section id="type">
-                <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
 
+            {{#if (eq page.head.title "Not Found")}}
+                {{> 404 }}
+            {{else}}
+                <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
                 {{{page.body}}}
+            {{/if}}
             </section>
         </article>
 
