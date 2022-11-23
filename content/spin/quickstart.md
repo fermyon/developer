@@ -152,7 +152,16 @@ fn spin_hello_world(req: Request) -> Result<Response> {
 > See the document on writing [Rust](./rust-components.md) and [Go](./go-components.md)
 > components for Spin, to ensure you have all dependencies installed.
 
-For Rust templates you need the `wasm32-wasi` target. You can add it using `rustup`:`rustup target add wasm32-wasi`.
+For Rust templates you need to install the `wasm32-wasi` target using `rustup`:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ rustup target add wasm32-wasi
+info: downloading component 'rust-std' for 'wasm32-wasi'
+info: installing component 'rust-std' for 'wasm32-wasi'
+ 19.8 MiB /  19.8 MiB (100 %)  11.5 MiB/s in  1s ETA:  0s
+```
 
 For TinyGo templates you need the [TinyGo toolchain installed](https://tinygo.org/getting-started/install/).
 
