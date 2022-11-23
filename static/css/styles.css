@@ -1755,36 +1755,76 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content {
-  padding-top: 8.5rem;
+  padding-top: 3.333rem;
 }
 
-.documentation .content section > ul:nth-child(2), .documentation .content section > ul:nth-child(3) {
-  width: 400px;
+.documentation .content section {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.documentation .content section h1:first-of-type + ul {
+  min-width: 15vw;
   background: #ece5ee;
-  border-radius: .667rem;
-  padding: .5rem;
-  position: fixed;
-  top: 30%;
-  right: 10%;
+  border-radius: .333rem;
+  padding: .5rem 1rem .725rem;
+  list-style: none;
+  display: inline-block;
 }
 
-.documentation .content section > ul:nth-child(2) li, .documentation .content section > ul:nth-child(3) li {
-  padding: .2rem;
-  font-weight: 300;
+.documentation .content section h1:first-of-type + ul:before {
+  content: "Contents:";
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  width: 100%;
+  padding: 0 0 .5rem;
+  font-size: .75rem;
+  line-height: 2;
+  display: inline-block;
+}
+
+.documentation .content section h1:first-of-type + ul li {
+  margin: .175rem 0;
+  padding: 0;
   list-style: none;
 }
 
-.documentation .content section > ul:nth-child(2) li ul li, .documentation .content section > ul:nth-child(3) li ul li {
-  list-style-type: disc;
+.documentation .content section h1:first-of-type + ul li a {
+  border-left: 4px solid #e6dde9;
+  border-radius: 1px;
+  margin: 0;
+  padding: .2rem 0 .2rem .5rem;
+  line-height: 1.2;
+  transition: all .3s ease-in-out;
+  display: inline-block;
 }
 
-.documentation .content section > ul:nth-child(2):before, .documentation .content section > ul:nth-child(3):before {
-  content: "CONTENTS";
-  color: #f9f7ee;
-  background: #d3c3d9;
-  border-radius: .667rem;
-  padding: .2rem;
-  font-size: .8rem;
+.documentation .content section h1:first-of-type + ul li a:hover {
+  background-color: #0000;
+  border-bottom: none;
+  border-left: 4px solid #bea7e5;
+}
+
+.documentation .content section h1:first-of-type + ul li a:hover:after {
+  display: none;
+}
+
+@media screen and (min-width: 1661px) {
+  .documentation .content section h1:first-of-type + ul {
+    width: 15vw;
+    background: #ece5ee;
+    border-radius: .333rem;
+    padding: .825rem 1rem;
+    position: fixed;
+    top: 112px;
+    right: 6.125rem;
+  }
+}
+
+.documentation .content.content-docs-wide section {
+  max-width: 640px !important;
+  max-width: 880px !important;
 }
 
 .documentation .content h1 {
@@ -1888,10 +1928,11 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 
 .documentation .copy-code-button {
   cursor: pointer;
-  background-color: #ededed25;
-  border: 2px solid #ededed35;
-  border-radius: .67rem;
-  padding: .2rem;
+  background: #1b2c4f;
+  border: none;
+  border-radius: .7rem;
+  padding: .2rem .35rem;
+  transition: all .3s ease-in-out;
   position: absolute;
   top: .7rem;
   right: .7rem;
@@ -1902,7 +1943,7 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .copy-code-button:hover {
-  border-color: #ededed99;
+  background: #213762;
 }
 
 .documentation .copy-code-button.is-success {
@@ -2507,7 +2548,12 @@ html.dark-theme .dropdown-content a {
   display: block;
 }
 
-@media screen and (max-width: 1850px) {
+@media screen and (min-width: 1661px) {
+  .documentation .content > section {
+    position: relative;
+    left: -9.25vw;
+  }
+
   .documentation .content > section ul:nth-child(2), .documentation .content > section ul:nth-child(3) {
     right: 5vw;
   }
