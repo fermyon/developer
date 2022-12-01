@@ -14,10 +14,9 @@ To contribute to the Fermyon Cloud Documentation, please follow these steps.
 - [5. Code Blocks and Annotations](#5-code-blocks-and-annotations)
 - [6. Check Content](#6-check-content)
 - [7. Add Changes](#7-add-changes)
-- [7. Commit Changes](#7-commit-changes)
-- [8. Push Changes](#8-push-changes)
-- [9. Create a Pull Request](#9-create-a-pull-request)
-
+- [8. Commit Changes](#8-commit-changes)
+- [9. Push Changes](#9-push-changes)
+- [10. Create a Pull Request](#10-create-a-pull-request)
 
 ## 1. Fork the Repository
 
@@ -91,6 +90,7 @@ $ cd ~
 $ cd developer
 $ npm install
 ```
+
 With all Node dependencies installed, you can now check for broken links and also lint your markdown files using the following `test` command:
 
 <!-- @selectiveCpy -->
@@ -115,7 +115,7 @@ $ cd developer
 $ git add
 ```
 
-## 7. Commit Changes
+## 8. Commit Changes
 
 Before committing, please ensure that your GitHub installation is configured sufficiently so that you can `--signoff` as part of the `git commit` command. For example, please ensure that the `user.name` and `user.email` are configured in your terminal. You can check if these are set by typing `git config --list`.
 
@@ -140,7 +140,7 @@ $ git commit -S --signoff -m "Updating documentation"
 
 > Note: the `--signoff` option will only add a Signed-off-by trailer by the committer at the end of the commit log message. In addition to this, it is recommended that you use the `-S` option which will GPG-sign your commits. For more information about using GPG in GitHub see [this GitHub documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 
-## 8. Push Changes
+## 9. Push Changes
 
 At this stage, it is a good idea to just quickly check what GitHub thinks the origin is. For example, if we type `git remote -v` we can see that the origin is our repo; which we a) forked the original repo into and b) which we then cloned to our local disk so that we could edit:
 
@@ -167,7 +167,7 @@ Once you are satisfied go ahead and push your changes:
 $ git push -u origin my_new_branch
 ```
 
-## 9. Create a Pull Request
+## 10. Create a Pull Request
 
 If you return to your GitHub repository in your browser, you will notice that a PR has automatically been generated for you.
 
