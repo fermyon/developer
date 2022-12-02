@@ -64,7 +64,7 @@ $ git remote add upstream https://github.com/fermyon/developer
 
 ## 5. Code Blocks and Annotations
 
-It is highly recommended that you use either the `<!-- @selectiveCpy -->` or the `<!-- @nocpy -->` annotation before each of your code blocks, and that each code block defines the appropriate [syntax highlighting](https://rdmd.readme.io/docs/code-blocks#language-support). 
+It is highly recommended that you use either the `<!-- @selectiveCpy -->` or the `<!-- @nocpy -->` annotation before each of your code blocks, and that each code block defines the appropriate [syntax highlighting](https://rdmd.readme.io/docs/code-blocks#language-support). The annotation can be skipped for code blocks with example code snippets i.e. non-terminal or generic output examples.
 
 The selective copy annotation (`<!-- @selectiveCpy -->`) is intended for use when communicating code and/or CLI commands for the reader to copy and paste. The selective copy annotation allows the reader to see the entire code block (both commands and results) but only copies the lines that start with `$` into the readers clipboard (minus the `$`) when the user clicks the copy button. For example, copying the following code block will only copy `echo "hello"` into your clipboard, for pasting.
 
@@ -75,29 +75,25 @@ hello
 
 > Note: If the command, that starts with `$`, is deliberately spread over two lines (by escaping the newline character), then the copy mechanism will still copy the second line which is technically still part of that single command.
 
-The no copy annotation (`<!-- @nocpy -->`) preceeds a code block where no copy and pasting of code is intended. For example, use no copy when just displaying output or information to demonstrate a terminal's output.
+The no copy annotation (`<!-- @nocpy -->`) preceeds a code block where no copy and pasting of code is intended. If using the no copy attribute please still be sure to add the appropriate syntax highliting to your code block (for display purposes).
 
 ## 6. Check Content
 
 Once you are satisfied with your contribution, you can programmatically check your content.
 
-If you have not done so already, please go ahead and perform the `npm install` command; to enable Node dependencies such as `markdownlint-cli2`.
+If you have not done so already, please go ahead and perform the `npm install` command; to enable Node dependencies such as `markdownlint-cli2`. Simply run the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd ~
-$ cd developer
 $ npm install
 ```
 
-With all Node dependencies installed, you can now check for broken links and also lint your markdown files using the following `test` command:
+With all Node dependencies installed, you can now check for broken links and also lint your markdown files. Simply run the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd ~
-$ cd developer
 $ npm test
 ```
 
@@ -105,13 +101,11 @@ $ npm test
 
 Once your changes have been checked, go ahead and add your changes by moving to a top-level directory, under which your changes exist i.e. `cd ~/developer`.
 
-Add your changes using the following command:
+Add your changes by running the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd ~
-$ cd developer
 $ git add
 ```
 
@@ -125,6 +119,10 @@ If you need to set these values please use the following commands:
 
 ```bash
 $ git config user.name "yourusername"
+```
+<!-- @selectiveCpy -->
+
+```bash
 $ git config user.email "youremail@somemail.com"
 ```
 
