@@ -3,7 +3,7 @@ date = "2022-08-09T14:05:02.118466Z"
 template = "bartholomew_main"
 
 [extra]
-url = "https://github.com/fermyon/bartholomew/blob/main/docs/content/seo.md"
+
 ---
 
 ## Google Verification using Bartholomew

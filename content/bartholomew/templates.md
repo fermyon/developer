@@ -3,7 +3,7 @@ date = "2022-05-09T19:23:07.490818Z"
 template = "bartholomew_main"
 
 [extra]
-url = "https://github.com/fermyon/bartholomew/blob/main/docs/content/templates.md"
+
 ---
 
 In Bartholomew, layout is handled via templates. All templates are in the

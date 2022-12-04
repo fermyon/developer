@@ -3,7 +3,7 @@ date = "2022-05-09T19:32:09.579913Z"
 template = "bartholomew_main"
 
 [extra]
-url = "https://github.com/fermyon/bartholomew/blob/main/docs/content/configuration.md"
+
 ---
 
 [TOML](https://toml.io/en/) is a simple configuration format.

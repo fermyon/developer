@@ -4,7 +4,7 @@ enable_shortcodes = true
 template = "bartholomew_main"
 
 [extra]
-url = "https://github.com/fermyon/bartholomew/blob/main/docs/content/shortcodes.md"
+
 ---
 
 Shortcodes are simple reusable snippets can be used inside the markdown content.
