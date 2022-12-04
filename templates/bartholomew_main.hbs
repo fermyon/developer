@@ -1,0 +1,40 @@
+{{! This adds the HTML head section and the beginning of the body. See content_top.hbs. }}
+{{> content_top }}
+
+<main class="container is-fullwidth is-widescreen page-wrap">
+    <div class="columns">
+
+        {{! This adds the sidebar }}
+        {{> bartholomew_sidebar }}
+
+        <article class="column content content-docs content-docs-wide">
+            <section id="type">
+                <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
+
+                {{{page.body}}}
+
+                <div class="note">
+                    <div class="columns">
+                        <div class="column is-two-thirds thirds">
+                            <h4>Did we miss something?</h4>
+                            <p>Let us know <a href="https://github.com/fermyon/feedback" target="_blank">how we can improve this project</a>, or <a href="https://github.com/fermyon/developer/tree/main/content/spin" target="_blank">contribute an edit</a> to this page. We really appreciate your feedback, to help us build better tools.</p>
+                        </div>
+
+                        <div class="column is-one-third has-text-centered is-hidden-touch">
+                            <a href="https://github.com/fermyon/feedback" target="_blank" class="button is-outline is-rounded is-medium">Give Feedback</a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </article>
+
+    </div>
+</main>
+
+{{! This closes the body. See content_bottom.hbs. }}
+{{> content_bottom }}
+
+</body>
+</html>
+

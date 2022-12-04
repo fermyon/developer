@@ -43,3 +43,13 @@ environment = { DESTINATION = "/cloud/index" }
 [component.trigger]
 route = "/cloud"
 executor = { type = "wagi" }
+
+# Redirect /bartholomew to /bartholomew/index
+[[component]]
+id = "redirect-bartholomew-index"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "/bartholomew/index" }
+[component.trigger]
+route = "/bartholomew"
+executor = { type = "wagi" }
+
