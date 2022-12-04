@@ -174,12 +174,9 @@ $ spin up
 
 #### Vault Config Provider
 
-Note: This will be included after spin v0.6.0.
-You can use [canary](https://github.com/fermyon/spin/releases/tag/canary) to try it.
-
-The vault config provider gets secret values from [HashiCorp Vault](https://www.vaultproject.io/).
+The Vault config provider gets secret values from [HashiCorp Vault](https://www.vaultproject.io/).
 Currently, only [KV Secrets Engine - Version 2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2) is supported.
-You can set up v2 kv secret engine at any mount point and give vault information in the [runtime configuration](#runtime-configuration):
+You can set up v2 kv secret engine at any mount point and give Vault information in the [runtime configuration](#runtime-configuration) file:
 
 ```toml
 [[config_provider]]
@@ -192,7 +189,7 @@ mount = "secret"
 ##### Vault Config Provider Example
 
 1. [Install Vault](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install).
-2. Start vault.
+2. Start Vault.
 
 ```bash
 $ vault server -dev -dev-root-token-id root
