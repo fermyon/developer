@@ -3,7 +3,7 @@ date = "2022-05-08T14:05:02.118466Z"
 template = "bartholomew_main"
 
 [extra]
-url = "https://github.com/fermyon/bartholomew/blob/main/docs/content/markdown.md"
+
 ---
 
 To write content for a Bartholomew website, there are two steps:

@@ -3,7 +3,7 @@ date = "2022-05-08T14:05:02.118466Z"
 template = "bartholomew_main"
 
 [extra]
-url = "https://github.com/fermyon/bartholomew/blob/main/docs/content/contributing.md"
+
 ---
 
 To contribute to the Bartholomew project, please follow these steps.

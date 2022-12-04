@@ -3,7 +3,7 @@ template = "bartholomew_main"
 date = "2022-05-07T00:22:56Z"
 
 [extra]
-url = "https://github.com/fermyon/bartholomew/blob/main/docs/content/index.md"
+
 ---
 
 Bartholomew is a simple CMS-like (Content Management System) tool for managing a
