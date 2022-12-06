@@ -147,7 +147,7 @@ Some static site generators allow you to use other formats like asciidoc. Bartho
 
 Yes, you can embed HTML tags inside of your Markdown.
 
-Bartholomew supports reusable content using snippets in the form of shortcodes, so let's take a look at the [shortcodes](/shortcodes) support in Bartholomew.
+Bartholomew supports reusable content using snippets in the form of shortcodes, so let's take a look at the [shortcodes](./shortcodes) support in Bartholomew.
 
 Lastly, let's take a look at how templating is used in Bartholomew.
 

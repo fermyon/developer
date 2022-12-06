@@ -62,7 +62,7 @@ the `extra` section, we use `{{ page.head.extra.key }}`.
 
 ### The `site` object
 
-In addition to the `page` object, there is also a `site` object. `site.pages` contains the `head` section and content of every page in the site. `site.pages` is only populated for templates included in `index_site_pages` in `site.toml` as described in the [configuration section](/configuration.md) 
+In addition to the `page` object, there is also a `site` object. `site.pages` contains the `head` section and content of every page in the site. `site.pages` is only populated for templates included in `index_site_pages` in `site.toml` as described in the [configuration section](./configuration.md): 
 
 ```
 {
@@ -181,7 +181,6 @@ The following values are available in the template. This is formatted in YAML fo
 
 To reference a particular value, use dotted notation. For example, `page` has a `head`, which has the page's `title`.
 To access the title, use `{{ page.head.title }}`.
-
 
 ```yaml
 # Page holds data specific to the page that matches the URI. For example, the URI /foo loads page data from /content/foo.md
