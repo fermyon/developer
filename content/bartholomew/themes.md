@@ -10,7 +10,8 @@ Bartholomew supports theming which allows for easy customization of the site alo
 
 ## Adding a theme
 
-Once the initial site has been set up using the [quickstart section](/quickstart), create a themes folder where you will be able to download different themes.
+Once the initial site has been set up using the [quickstart section](./quickstart), create a themes folder where you will be able to download different themes.
+
 ```bash
 mkdir themes
 ```
@@ -42,6 +43,7 @@ ga_measurement_id = ""
 
 date_style = "%B %e, %Y"
 ```
+
 One more step that needs to be done before themes are fully available to the site is to the change the static file server component in the `spin.toml` configuration so that it provides the static assets of the selected theme. The convention of mounting the static assets of the themes before the user-defined static assets is recommened.  
 
 ```
@@ -55,9 +57,7 @@ id = "fileserver"
 files = [ {source = "themes/<name of theme>/static", destination ="/"}, { source = "static/", destination = "/" }, ]
 [component.trigger]
 route = "/static/..."
-
 ```
-
 
 ## Template precedence
 
@@ -76,13 +76,13 @@ git init
 ```
 
 Once the git repository is initialized, create the three required directories.
+
 ```
 mkdir templates scripts static
 ```
 
-Create the custom theme by placing the handlebar templates in the `template/` folder while the Rhai scripts are placed in the `scripts/` folder. All the static assets such as  the images, JS and CSS are placed in the static folder. For reference on creating templates, refer to the [templates section](/templates).
+Create the custom theme by placing the handlebar templates in the `template/` folder while the Rhai scripts are placed in the `scripts/` folder. All the static assets such as  the images, JS and CSS are placed in the static folder. For reference on creating templates, refer to the [templates section](./templates).
 
 Once the required changes are done, commit and push the changes to a remote repository, so as to allow for the theme to cloned as a submodule that can be used for theming a site. 
-
 
 Let's take a look at how you can do something special in your templates [using scripting](./scripting.md).

@@ -92,6 +92,7 @@ Now the shortcode can be used in the markdown file by calling it with the requir
 ```
 \{{ alert "warning" "Bartholomew is a work in progress" }}
 ```
+
 Which renders as the following.
 
 {{ alert "warning" "Bartholomew is a work in progress" }}
@@ -105,5 +106,3 @@ To escape the code, the `\` is used like
 `\\{{ alert "warning" "Bartholomew is a work in progress" }}`
 {{{{/raw}}}}
 which will render `\{{ alert "warning" "Bartholomew is a work in progress" }}` instead of running the shortcode.
-
-

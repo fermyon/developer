@@ -92,6 +92,7 @@ Then add the path to binaryen's bin folder to the last line of your file like th
 ```bash
 export PATH="${HOME}/binaryen-version_109/bin:${PATH}"
 ```
+
 Run whichever file you just edited. For example:
 
 ```bash
@@ -320,6 +321,7 @@ git commit -S --signoff -m "Updating documentation about testing process"
 > Note: the `--signoff` option will only add a Signed-off-by trailer by the committer at the end of the commit log message. In addition to this, it is recommended that you use the `-S` option which will GPG-sign your commits. For more information about using GPG in GitHub see [this GitHub documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 
 ## Push Changes
+
 At this stage, it is a good idea to just quickly check what GitHub thinks the `origin` is. For example, if we type `git remote -v` we can see that the origin is our repo; which we a) forked the original repo into and b) which we then cloned to our local disk so that we could edit:
 
 ```bash
