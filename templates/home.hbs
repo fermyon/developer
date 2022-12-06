@@ -16,7 +16,7 @@
                 <ul class="menu-list">
                     <li><a href="/spin/index" {{#if (active_project request.spin-path-info "/spin/" )}} class="is-active" {{/if}}>Spin</a></li>
                     <li><a href="/cloud/index" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Fermyon Cloud</a></li>
-                    <li><a href="https://bartholomew.fermyon.dev/" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Bartholomew</a></li>
+                    <li><a href="/bartholomew/index" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Bartholomew</a></li>
                 </ul>
 
                 <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/" target="_blank">Login to Cloud</a>
@@ -79,19 +79,19 @@
                         <div class="card card-one project">
                             <div class="card-image dark">
                                 <figure class="image">
-                                    <a href="https://bartholomew.fermyon.dev/" target="_blank"><img src="{{site.info.base_url}}/static/image/project-left-bart-dark.png" alt="Bartholemew" /></a>
+                                    <a href="/bartholomew/index" target="self"><img src="{{site.info.base_url}}/static/image/project-left-bart-dark.png" alt="Bartholemew" /></a>
                                 </figure>
                             </div>
                             <div class="card-image light">
                                 <figure class="image">
-                                    <a href="https://bartholomew.fermyon.dev/" target="_blank"><img src="{{site.info.base_url}}/static/image/project-left-bart-light.png" alt="Bartholemew" /></a>
+                                    <a href="/bartholomew/index" target="self"><img src="{{site.info.base_url}}/static/image/project-left-bart-light.png" alt="Bartholemew" /></a>
                                 </figure>
                             </div>
                             <div class="card-content">
-                                <h3><a href="https://bartholomew.fermyon.dev/" target="_blank">A micro-CMS for WebAssembly &amp; Spin</a></h3>
+                                <h3><a href="/bartholomew/index" target="self">A micro-CMS for WebAssembly &amp; Spin</a></h3>
                                 <p>Compiled to WebAssembly, Bartholomew can run in any Spin environment.</p>
 
-                                <a class="button is-rounded is-primary" href="https://bartholomew.fermyon.dev/" target="_blank"><strong>Learn More</strong></a>
+                                <a class="button is-rounded is-primary" href="/bartholomew/index" target="self"><strong>Learn More</strong></a>
                             </div>
                         </div>
                     </div>
@@ -105,20 +105,6 @@
                         <h2>Where to find us next</h2>
 
                         <div class="community-highlight main-carousel">
-                            <article class="community-highlight carousel-cell">
-                                <a href="https://deploy.digitalocean.com" target="_blank">
-                                    <event>
-                                        <date>
-                                            November 15-16
-                                        </date>
-                                        <eventtitle>
-                                            DigitalOcean Deploy
-                                        </eventtitle>
-                                        <p>DigitalOcean presents two days of learning from developers and founders who’ll share their startup journeys and demonstrate tried-and-true pathways...</p>
-                                        <img src="static/image/community-dodeploy.svg" alt="DigitalOcean Deploy" class="event-logo" />
-                                    </event>
-                                </a>
-                            </article>
                             <article class="community-highlight carousel-cell">
                                 <a href="https://events.hashicorp.com/hashitalksdeploy" target="_blank">
                                     <event>
