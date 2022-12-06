@@ -346,18 +346,43 @@ TABLE OF CONTENTS
 	}
 	.multitab-content {
 		max-width: 800px;
-		padding: 0.67rem 1.25rem;
+		padding: 1px 1.25rem 0.125rem;
 		background-color: $lightlavender;
-		border-radius: 0.33em;
+		border-radius: 0.25em;
+
+		pre:last-of-type {
+			margin-bottom: 1rem !important;
+		}
 	}
 	.tabs {
 		margin-bottom: 0;
 		ul{
 			margin-bottom: 0;
 			border: none;
+
 			li {
 				margin: 0;
 				padding: 0;
+			}
+		}
+
+		&.is-boxed {
+			a {
+				border: none;
+				padding: .5em 1.2em;
+				color: lighten($darkplum, 12.5%);
+				border-radius: 0.25rem 0.25rem 0 0;
+				@include transition;
+
+				&:hover {
+					color: $oxfordblue;
+					background: white;
+				}
+
+				&.is-active {
+					background-color: $lightlavender;
+					color: $oxfordblue;
+				}
 			}
 		}
 	}
