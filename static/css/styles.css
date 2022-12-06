@@ -2053,6 +2053,25 @@ html.dark-theme body .content .note .button {
   background-color: #0000;
 }
 
+html.dark-theme body .content .multitab-content {
+  background-color: #0b1c37;
+}
+
+html.dark-theme body .content .tabs.is-boxed a {
+  color: #c5b1e8;
+  background-color: #0d203f;
+}
+
+html.dark-theme body .content .tabs.is-boxed a:hover {
+  color: #f9f7ee;
+  background-color: #0d203f !important;
+}
+
+html.dark-theme body .content .tabs.is-boxed a.is-active {
+  color: #bea7e5;
+  background-color: #0b1c37;
+}
+
 html.dark-theme body .content a.anchor-link:hover {
   background: none !important;
 }

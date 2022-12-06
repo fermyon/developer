@@ -395,6 +395,28 @@ html.dark-theme {
 				}
 			}
 
+			.multitab-content {
+				background-color: darken($oxfordblue, 2%);
+			}
+			.tabs {
+				&.is-boxed {
+					a {
+						color: lighten($lavender, 2.5%);
+						background-color: $oxfordblue;
+
+						&:hover {
+							background-color: $oxfordblue !important;
+							color: $lightlemon;
+						}
+
+						&.is-active {
+							color: $lavender;
+							background-color: darken($oxfordblue, 2%);
+						}
+					}
+				}	
+			}
+
 			a.anchor-link {
 				&:hover {
 					background: transparent !important;
