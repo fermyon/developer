@@ -33,6 +33,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account'                                                    \
     --exclude 'https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email'    \
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification'                                                        \
+    --exclude 'https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template'                                                            \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
@@ -44,7 +45,9 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
     --exclude 'https://www.instagram.com/fermyontech/'                                                                                                                                      \
     --exclude 'https://www.linkedin.com/company/fermyon/'                                                                                                                                   \
-    | grep "├─BROKEN─" > broken_links || true
+    --exclude 'https://support.google.com/webmasters/answer/7552505'                                                                                                                        \
+    --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en' | grep "├─BROKEN─" > broken_links || true
+   
 
 if [ -s broken_links ]; then
   echo "Some links are broken, retrying to check for transient errors"
@@ -65,4 +68,4 @@ if [ -s broken_links ]; then
   fi  
 else
   echo "All the links are valid!"
-fi
+fi                                                                                                              \
