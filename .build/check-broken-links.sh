@@ -31,6 +31,8 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account'                                                    \
     --exclude 'https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email'    \
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification'                                                        \
+    --exclude 'https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template'                                                            \
+    --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://marketplace.visualstudio.com/items?itemName=fermyon.spin-vscode&ssr=false#overview'                                                                                  \
@@ -39,4 +41,6 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://crates.io/crates/bytes'                                                                                                                                              \
     --exclude 'https://crates.io/crates/http'                                                                                                                                               \
     --exclude 'https://www.instagram.com/fermyontech/'                                                                                                                                      \
-    --exclude 'https://www.linkedin.com/company/fermyon/'
+    --exclude 'https://www.linkedin.com/company/fermyon/'                                                                                                                                   \
+    --exclude 'https://support.google.com/webmasters/answer/7552505'                                                                                                                        \
+    --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en'                                                                                                                  \

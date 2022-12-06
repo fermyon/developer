@@ -1822,8 +1822,11 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   }
 }
 
-.documentation .content.content-docs-wide section {
+.documentation .content.content-docs section {
   max-width: 640px !important;
+}
+
+.documentation .content.content-docs-wide section {
   max-width: 880px !important;
 }
 
@@ -2196,37 +2199,43 @@ html.dark-theme .dropdown-content a {
   max-width: 100vw !important;
 }
 
-.developer-home-wrap .content {
+.developer-home-wrap .content.content-docs.content-docs-wide {
   padding-left: 0 !important;
 }
 
-.developer-home-wrap .content h1, .developer-home-wrap .content h2, .developer-home-wrap .content h3 {
+.developer-home-wrap .content.content-docs.content-docs-wide section {
+  max-width: 90vw !important;
+  margin-left: 5vw !important;
+  margin-right: 5vw !important;
+}
+
+.developer-home-wrap .content.content-docs.content-docs-wide h1, .developer-home-wrap .content.content-docs.content-docs-wide h2, .developer-home-wrap .content.content-docs.content-docs-wide h3 {
   color: #0d203f;
 }
 
-.developer-home-wrap .content h1 {
+.developer-home-wrap .content.content-docs.content-docs-wide h1 {
   margin-bottom: 2rem;
   padding-bottom: 0;
   padding-right: 8vw;
   font-size: 4rem;
 }
 
-.developer-home-wrap .content h1:after {
+.developer-home-wrap .content.content-docs.content-docs-wide h1:after {
   display: none;
 }
 
-.developer-home-wrap .content h2 {
+.developer-home-wrap .content.content-docs.content-docs-wide h2 {
   margin-bottom: 1.67rem;
 }
 
-.developer-home-wrap .content p.lead {
+.developer-home-wrap .content.content-docs.content-docs-wide p.lead {
   color: #8b62d1;
   padding-right: 17.5rem;
   font-size: 2rem;
   line-height: 1.4;
 }
 
-.developer-home-wrap .content section {
+.developer-home-wrap .content.content-docs.content-docs-wide section {
   overflow: visible !important;
 }
 
@@ -2971,8 +2980,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  border-bottom-left-radius: .5em;
   top: 0;
   left: 3em;
 }

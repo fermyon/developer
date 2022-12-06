@@ -1,0 +1,27 @@
+<div class="menu-wrap is-narrow is-fixed-desktop" id="docsMenu">
+    <aside class="menu">
+        <p class="menu-label">
+            Using Bartholomew
+        </p>
+        <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/index" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/">Introduction</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/quickstart" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/quickstart">Quickstart</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/templates" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/templates">Templates</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/configuration" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/configuration">Configuration</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/themes" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/themes">Themes</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/scripting" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/scripting">Scripting</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/markdown" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/markdown">Markdown guide</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/shortcodes" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/shortcodes">Shortcodes</a></li>
+        </ul>
+
+        <p class="menu-label">
+            Advanced
+        </p>
+        <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/contributing" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/contributing">Contribution guide</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/bartholomew/seo" )}} class="active" {{/if}} href="{{site.info.base_url}}/bartholomew/seo">Search Engine Optimization (SEO)</a></li>
+        </ul>
+
+    </aside>
+</div>
+
