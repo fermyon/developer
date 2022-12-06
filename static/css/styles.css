@@ -1972,8 +1972,12 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 .documentation .multitab-content {
   max-width: 800px;
   background-color: #ece5ee;
-  border-radius: .33em;
-  padding: .67rem 1.25rem;
+  border-radius: .25em;
+  padding: 1px 1.25rem .125rem;
+}
+
+.documentation .multitab-content pre:last-of-type {
+  margin-bottom: 1rem !important;
 }
 
 .documentation .tabs {
@@ -1988,6 +1992,24 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 .documentation .tabs ul li {
   margin: 0;
   padding: 0;
+}
+
+.documentation .tabs.is-boxed a {
+  color: #6e749a;
+  border: none;
+  border-radius: .25rem .25rem 0 0;
+  padding: .5em 1.2em;
+  transition: all .3s ease-in-out;
+}
+
+.documentation .tabs.is-boxed a:hover {
+  color: #0d203f;
+  background: #fff;
+}
+
+.documentation .tabs.is-boxed a.is-active {
+  color: #0d203f;
+  background-color: #ece5ee;
 }
 
 html.dark-theme body aside.menu a.active {
