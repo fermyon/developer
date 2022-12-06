@@ -109,7 +109,7 @@ TABLE OF CONTENTS
 			}
 		}
 
-		&.content-docs-wide {
+		&.content-docs {
 			section {
 				max-width: 640px !important;
 			}
@@ -120,46 +120,6 @@ TABLE OF CONTENTS
 				max-width: 880px !important;
 			}
 		}
-
-		h1:first-of-type + ul {
-
-		}
-
-			// &>ul {
-
-			// 	&:nth-child(2),
-			// 	&:nth-child(3) {
-			// 		position: fixed;
-			// 		top: 30%;
-			// 		right: 10%;
-			// 		width: 400px;
-			// 		background: $lightlavender;
-			// 		padding: 0.5rem;
-			// 		border-radius: 0.667rem;
-
-			// 		li {
-			// 			list-style: none;
-			// 			font-weight: 300;
-			// 			padding: 0.2rem;
-
-			// 			ul {
-			// 				li {
-			// 					list-style-type: disc;
-			// 				}
-			// 			}
-			// 		}
-
-			// 		&::before {
-			// 			content: "CONTENTS";
-			// 			color: $lightlemon;
-			// 			background: $lightplum;
-			// 			padding: 0.2rem;
-			// 			font-size: 0.8rem;
-			// 			border-radius: 0.667rem;
-			// 		}
-			// 	}
-			// }
-		// }
 
 		h1 {
 			margin-top: 2rem;
@@ -598,8 +558,14 @@ html.dark-theme {
 		padding-top: 4.5vw;
 	}
 
-	.content {
+	.content.content-docs.content-docs-wide {
 		padding-left: 0 !important;
+
+		section {
+			margin-left: 5vw !important;
+			margin-right: 5vw !important;
+			max-width: 90vw !important;
+		}
 
 		h1,
 		h2,
