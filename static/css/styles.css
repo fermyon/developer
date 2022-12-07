@@ -1995,22 +1995,30 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   padding: 0;
 }
 
+.documentation .tabs.is-boxed {
+  margin-bottom: -8px;
+}
+
 .documentation .tabs.is-boxed a {
   color: #6e749a;
   border: none;
   border-radius: .25rem .25rem 0 0;
-  padding: .5em 1.2em;
-  transition: all .3s ease-in-out;
+  padding: .5em 1.2em 18px;
+  transition: color .3s ease-in-out;
 }
 
 .documentation .tabs.is-boxed a:hover {
   color: #0d203f;
-  background: #fff;
+  background: none !important;
 }
 
 .documentation .tabs.is-boxed a.is-active {
   color: #0d203f;
   background-color: #ece5ee;
+}
+
+.documentation .tabs.is-boxed a.is-active:hover {
+  background-color: #ece5ee !important;
 }
 
 html.dark-theme body aside.menu a.active {
@@ -2060,17 +2068,22 @@ html.dark-theme body .content .multitab-content {
 
 html.dark-theme body .content .tabs.is-boxed a {
   color: #c5b1e8;
-  background-color: #0d203f;
+  background-color: #0000;
+  position: relative;
 }
 
 html.dark-theme body .content .tabs.is-boxed a:hover {
   color: #f9f7ee;
-  background-color: #0d203f !important;
+  background: none !important;
 }
 
 html.dark-theme body .content .tabs.is-boxed a.is-active {
   color: #bea7e5;
-  background-color: #0b1c37;
+  background: #0b1c37;
+}
+
+html.dark-theme body .content .tabs.is-boxed a.is-active:hover {
+  background: #0b1c37 !important;
 }
 
 html.dark-theme body .content a.anchor-link:hover {

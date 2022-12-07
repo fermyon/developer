@@ -142,11 +142,11 @@
       this[globalName] = mainExports;
     }
   }
-})({"cB69c":[function(require,module,exports) {
+})({"6Seph":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 1234;
+var HMR_PORT = 44033;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "42036d7a98ade5a7";
 module.bundle.HMR_BUNDLE_ID = "2a29ff2311f401cb";
@@ -1149,5 +1149,5 @@ class multiTabContentHandler {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["cB69c","e9rxa"], "e9rxa", "parcelRequire252c")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["6Seph","e9rxa"], "e9rxa", "parcelRequire252c")
 
