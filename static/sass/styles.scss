@@ -322,21 +322,26 @@ TABLE OF CONTENTS
 		}
 
 		&.is-boxed {
+			margin-bottom: -8px;
 			a {
 				border: none;
-				padding: .5em 1.2em;
+				padding: .5em 1.2em 18px;
 				color: lighten($darkplum, 12.5%);
 				border-radius: 0.25rem 0.25rem 0 0;
-				@include transition;
+				transition: color ease-in-out 0.3s;
 
 				&:hover {
 					color: $oxfordblue;
-					background: white;
+					background: transparent !important;
 				}
 
 				&.is-active {
 					background-color: $lightlavender;
 					color: $oxfordblue;
+
+					&:hover {
+						background-color: $lightlavender !important;
+					}
 				}
 			}
 		}
@@ -399,19 +404,25 @@ html.dark-theme {
 				background-color: darken($oxfordblue, 2%);
 			}
 			.tabs {
+				
 				&.is-boxed {
 					a {
 						color: lighten($lavender, 2.5%);
-						background-color: $oxfordblue;
+						background-color: transparent;
+						position: relative;
 
 						&:hover {
-							background-color: $oxfordblue !important;
 							color: $lightlemon;
+							background: transparent!important;
 						}
 
 						&.is-active {
 							color: $lavender;
-							background-color: darken($oxfordblue, 2%);
+							background: darken($oxfordblue, 2%);
+
+							&:hover {
+								background: darken($oxfordblue, 2%) !important;
+							}
 						}
 					}
 				}	
