@@ -3,6 +3,8 @@
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {},
 		"./spin": "latest",
-		"./bart": "latest"
+		"./bart": "latest",
+		"ghcr.io/devcontainers/features/common-utils:1": {},
+		"ghcr.io/devcontainers/features/git:1": {}
 	}
 }
