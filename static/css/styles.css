@@ -2758,8 +2758,7 @@ html.dark-theme .content section > ul:nth-child(2), html.dark-theme .content sec
 }
 
 html.dark-theme .content section > ul:nth-child(2):before, html.dark-theme .content section > ul:nth-child(3):before {
-  color: #0d203f;
-  background: #345995;
+  color: #d3c3d9;
 }
 
 html.dark-theme .search-button {
