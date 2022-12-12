@@ -12,7 +12,7 @@ date = "2022-01-01T00:00:01Z"
   - [Build](#build)
   - [Deploy](#deploy)
   - [Login](#login)
-  - [New](#new)
+  - [New and Add](#new)
   - [Plugin](#plugin)
     - [Install (Plugin)](#install-plugin)
     - [Uninstall (Plugin)](#uninstall-plugin)
@@ -41,12 +41,13 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
+    add          Scaffold a new component into an existing application
     bindle       Commands for publishing applications as bindles
     build        Build the Spin application
     deploy       Deploy a Spin application
     help         Print this message or the help of the given subcommand(s)
     login        Log into the server
-    new          Scaffold a new application or component based on a template
+    new          Scaffold a new application based on a template
     plugin       Install/uninstall Spin plugins
     templates    Commands for working with WebAssembly component templates
     up           Start the Spin application
@@ -263,6 +264,8 @@ OPTIONS:
                                        format. Parameters passed as CLI option overwrite parameters
                                        specified in the file
 ```
+
+The `spin add` command is identical to `spin new` except that it adds a component to an existing application (instead of starting a new application).  It needs an existing `spin.toml` file, either in the current directory or referenced via the `-f` option.
 
 ### Plugin
 
