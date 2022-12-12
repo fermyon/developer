@@ -69,10 +69,12 @@ Each `component` object has the following fields:
 - `source` (REQUIRED): Source for the WebAssembly module of the component. This
   field can be _one_ the following:
   - a string with the path to a local file containing the WebAssembly module for
-    the component OR
+    the component; OR
   - a pair of `reference` (REQUIRED) and `parcel` (REQUIRED) fields pointing to
-    a remote bindle package
-    ([Planned in #135](https://github.com/fermyon/spin/issues/135)).
+    a remote bindle package; OR
+  - a pair of `url` (REQUIRED) and `digest` (REQUIRED) fields pointing to a Wasm
+    file on the Web. The `digest` must be in the format `sha256:...` and
+    must match the content at the URL.
 - `environment` (OPTIONAL): Environment variables to be made available inside
   the WebAssembly module at runtime.
 - `files` (OPTIONAL): Files to be made available inside the WebAssembly module
@@ -235,6 +237,17 @@ You can use the runtime configuration by giving `--runtime-config-file` in `spin
 ```toml
 [[component]]
 source = "modules/spin_static_fs.wasm"
+id = "fileserver"
+files = [ { source = "static/", destination = "/" } ]
+[component.trigger]
+route = "/static/..."
+```
+
+- the same static file serving component, but getting the Wasm module from a public release instead of a local copy:
+
+```toml
+[[component]]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375" }
 id = "fileserver"
 files = [ { source = "static/", destination = "/" } ]
 [component.trigger]
