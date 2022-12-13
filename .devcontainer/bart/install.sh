@@ -7,4 +7,3 @@ wget https://github.com/fermyon/bartholomew/releases/download/${VERSION}/bart-cl
 tar -zxvf bart-cli-${VERSION}-${OSARCH}.tar.gz
 su
 mv ./bart /usr/local/bin/
-chmod a+x /usr/local/bin/bart
