@@ -48,6 +48,7 @@ TABLE OF CONTENTS
 			margin-left: auto !important;
 			margin-right: auto !important;
 
+
 			// toc
 			h1:first-of-type + ul {
 				min-width: 15vw;
@@ -585,7 +586,7 @@ html.dark-theme {
 	}
 }
 
-.developer-home-wrap {
+.documentation > .developer-home-wrap {
 	padding-bottom: 5rem;
 	
 	// disable the js title anchors on the homepage
@@ -631,6 +632,13 @@ html.dark-theme {
 		section {
 			overflow: visible !important;
 		}
+
+		&.content-docs-wide > section {
+			max-width: 90vw !important;
+			margin-left: 5vw !important;
+			margin-right: 5vw !important;
+			left: auto;
+		}
 	}
 
 	#projects {
@@ -664,7 +672,7 @@ html.dark-theme {
 		h3 {
 			margin: 0.67rem 0 1.5rem;
 			line-height: 1.275;
-			font-size: 1.925vw;
+			font-size: 1.825vw;
 			color: $darkspace !important;
 
 			a {
@@ -976,6 +984,10 @@ html.dark-theme {
 				}
 			}
 		}
+
+		 .developer-home-wrap .card.project h3 {
+			font-size: 1.825rem;
+		 }
 	}
 
 }
