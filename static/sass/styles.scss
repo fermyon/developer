@@ -1087,7 +1087,7 @@ html.dark-theme {
 		backdrop-filter: blur(6px);
 	}
 
-	.developer-home-wrap {
+	.documentation .developer-home-wrap {
 		padding: 5.5rem 0 5rem !important;
 		max-width: 85% !important;
 		margin-left: 7.5% !important;
@@ -1107,7 +1107,7 @@ html.dark-theme {
 		.menu-wrap+article.content {
 
 			section {
-				width: 100vw !important;
+				// width: 100vw !important;
 				margin: 0;
 			}
 
@@ -1126,8 +1126,12 @@ html.dark-theme {
 			min-height: auto;
 			margin-bottom: 1rem;
 
+			figure a {
+				display: inline-block;
+			}
+
 			h3 {
-				font-size: 1.2rem;
+				font-size: 1.2rem !important;
 				margin-top: 0;
 			}
 		}

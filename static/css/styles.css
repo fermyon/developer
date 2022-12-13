@@ -2648,96 +2648,99 @@ html.dark-theme .dropdown-content a {
     backdrop-filter: blur(6px);
   }
 
-  .developer-home-wrap {
+  .documentation .developer-home-wrap {
     max-width: 85% !important;
     margin-left: 7.5% !important;
     margin-right: 7.5% !important;
     padding: 5.5rem 0 5rem !important;
   }
 
-  .developer-home-wrap article.content {
+  .documentation .developer-home-wrap article.content {
     max-width: 100%;
   }
 
-  .developer-home-wrap aside.menu a.button {
+  .documentation .developer-home-wrap aside.menu a.button {
     min-width: 95%;
     background-color: #34e8bd;
     padding: 0;
     color: #0d203f !important;
   }
 
-  .developer-home-wrap .menu-wrap + article.content section {
+  .documentation .developer-home-wrap .menu-wrap + article.content section {
     margin: 0;
-    width: 100vw !important;
   }
 
-  .developer-home-wrap .menu-wrap + article.content h1 {
+  .documentation .developer-home-wrap .menu-wrap + article.content h1 {
     padding-right: 0;
     font-size: 1.825rem;
   }
 
-  .developer-home-wrap .menu-wrap + article.content p.lead {
+  .documentation .developer-home-wrap .menu-wrap + article.content p.lead {
     padding-right: 0;
     font-size: 1.125rem;
   }
 
-  .developer-home-wrap .card.project {
+  .documentation .developer-home-wrap .card.project {
     min-height: auto;
     margin-bottom: 1rem;
   }
 
-  .developer-home-wrap .card.project h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
+  .documentation .developer-home-wrap .card.project figure a {
+    display: inline-block;
   }
 
-  .developer-home-wrap .community-highlight {
+  .documentation .developer-home-wrap .card.project h3 {
+    margin-top: 0;
+    font-size: 1.2rem !important;
+  }
+
+  .documentation .developer-home-wrap .community-highlight {
     margin-right: 0;
   }
 
-  .developer-home-wrap .community-highlight event {
+  .documentation .developer-home-wrap .community-highlight event {
     padding-right: 0;
   }
 
-  .developer-home-wrap .community-highlight img {
+  .documentation .developer-home-wrap .community-highlight img {
     display: none;
   }
 
-  .developer-home-wrap .community-highlight p {
+  .documentation .developer-home-wrap .community-highlight p {
     font-size: 1rem;
     line-height: 1.5;
   }
 
-  .developer-home-wrap .community-highlight date {
+  .documentation .developer-home-wrap .community-highlight date {
     font-size: .825rem;
   }
 
-  .developer-home-wrap .community-highlight eventtitle {
+  .documentation .developer-home-wrap .community-highlight eventtitle {
     margin: .75rem 0 0;
     font-size: 1.333rem;
     line-height: 1.4;
   }
 
-  .developer-home-wrap .community-highlight .carousel-cell {
+  .documentation .developer-home-wrap .community-highlight .carousel-cell {
     padding: 1.67rem 2rem;
   }
 
-  .developer-home-wrap .flickity-enabled .flickity-prev-next-button {
+  .documentation .developer-home-wrap .flickity-enabled .flickity-prev-next-button {
     width: 1rem;
     height: 1rem;
     opacity: .33;
     top: 21%;
   }
 
-  .developer-home-wrap .flickity-enabled .flickity-prev-next-button.next {
+  .documentation .developer-home-wrap .flickity-enabled .flickity-prev-next-button.next {
     right: .5rem;
   }
 
-  .developer-home-wrap .flickity-enabled .flickity-prev-next-button.previous {
+  .documentation .developer-home-wrap .flickity-enabled .flickity-prev-next-button.previous {
     left: .5rem;
   }
 
-  .developer-home-wrap h2#connect {
+  .documentation .developer-home-wrap h2#connect {
     margin-top: 3rem;
   }
 
