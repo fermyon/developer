@@ -85,6 +85,39 @@ supported:
 |---------------|-----------------|
 | `pattern`     | A regular expression. The user input must match the regular expression to be accepted. |
 
+## Supporting `spin add`
+
+The `spin add` command lets users add your template as a new component in
+an existing application. If you'd like to support this, you'll need to
+add a few items to your metadata.
+
+* In the `metadata` directory, create a folder named `snippets`. In that
+  folder, create a file containing the (templated) manifest _just_ for the
+  component to be added.
+  * Don't include any application-level entries, just the component section.
+  * If your template contains component files, remember they will be copied
+    into a subdirectory, and make sure any paths reflect that.
+* In the `spin-template.toml` file, add a table called `add_component`, with
+  the following entries:
+
+| Key             | Value and usage |
+|-----------------|-----------------|
+| `snippets`      | A subtable with an entry named `component`, whose value is the name of the file containing the component manifest template. (Don't include the `snippets` sirectory prefix - Spin knows to look in the `snippets` directory.) |
+| `skip_files`    | Optional array of content files that should _not_ be copied when running in "add component" mode. For example, if your template contains a `spin.toml` file, you should use this setting to exclude that, because you want to add a new entry to the existing file, not overwrite it. |
+| `skip_parameters` | Optional array of parameters that Spin should _not_ prompt for when running in "add component" mode. For example, the HTTP templates don't prompt for the base path, because that's defined at the application level, not set on an individual component. |
+
+Here is an example `add_component` table from a HTTP template:
+
+```toml
+[add_component]
+skip_files = ["spin.toml"]
+skip_parameters = ["http-base"]
+[add_component.snippets]
+component = "component.txt"
+```
+
+> For examples from the Spin project, see `http-rust` (can be used in both`spin new` and `spin add`) and `static-fileserver` (`spin add` only).
+
 ## Hosting templates in Git
 
 You can publish templates in a Git repo.  The templates must be in the `/templates`
