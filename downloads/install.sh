@@ -89,10 +89,6 @@ esac
 case $OSTYPE in
 "linux-gnu"*)
     OS="linux"
-    if [[ $ARC == "aarch64" ]]; then
-        fancy_print 1 "The Processor type: ${ARC}, on ${OSTYPE} is not yet supported by Spin."
-        exit 1
-    fi
     ;;
 "darwin"*)
     OS="macos"
@@ -115,7 +111,7 @@ URL="https://github.com/fermyon/spin/releases/download/${VERSION}/${FILE}"
 
 # Download file, exit if not found - e.g. version does not exist
 fancy_print 0 "Step 1: Downloading: ${URL}"
-curl -fsOL $URL || (fancy_print 1 "The requested file does not exist: ${FILE}"; exit 1)
+curl -fsOL $URL || (fancy_print 1 "Error downloading the file: ${FILE}"; exit 1)
 fancy_print 0 "Done...\n"
 
 # Decompress the file
