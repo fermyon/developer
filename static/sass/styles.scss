@@ -299,6 +299,23 @@ TABLE OF CONTENTS
 	aside.menu {
 		padding-bottom: 7.5rem;
 	}
+	.multitab-content {
+		max-width: 800px;
+		padding: 0.67rem 1.25rem;
+		background-color: $lightlavender;
+		border-radius: 0.33em;
+	}
+	.tabs {
+		margin-bottom: 0;
+		ul{
+			margin-bottom: 0;
+			border: none;
+			li {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
 }
 
 html.dark-theme {
@@ -369,6 +386,11 @@ html.dark-theme {
 		a {
 			color: #34e8bd;
 		}
+	}
+	.multitab-content {
+		padding: 0.67rem 1.25rem;
+		background-color: $oxfordblue;
+		border-radius: 0.33em;
 	}
 }
 

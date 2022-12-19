@@ -1,12 +1,57 @@
 title = "Install Spin"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
+enable_shortcodes = true
 [extra]
 keywords = "install"
 
 ---
 
 ## Installing Spin
+
+{{ tabs "Os" }}
+
+{{ startTab "Windows"}}
+
+To list files on windows use `dir`
+
+<!-- @selectiveCpy -->
+
+```bash
+$ dir hello_fermyon
+```
+and script in windows have the extension `.bat`
+
+<!-- @nocpy -->
+
+```bash
+hello.bat
+test.bat
+```
+
+{{ blockEnd }}
+
+{{ startTab "Linux"}}
+
+To list files on linux use `ls`
+
+<!-- @selectiveCpy -->
+
+```bash
+$ ls
+```
+
+and script in windows have the extension `.sh`
+
+<!-- @nocpy -->
+
+```bash
+hello.sh
+test.sh
+```
+
+{{ blockEnd }}
+{{ blockEnd }}
 
 Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windows with WSL2 (amd64).
 
