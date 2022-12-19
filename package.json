@@ -37,6 +37,7 @@
   },
   "scripts": {
     "spin": "nodemon --watch content --watch static --watch templates --ext md,rhai,hbs,css,js --verbose --legacy-watch --signal SIGINT --exec 'npm run build-index && spin up --file spin.toml'",
+    "bundle-scripts": " parcel watch static/js/src/main.js --dist-dir static/js --no-source-maps",
     "styles": "parcel watch static/sass/styles.scss --dist-dir static/css",
     "test": "npx markdownlint-cli2 content/**/*.md \"#node_modules\" && npm run check-broken-links",
     "build-index": "node md_parser.mjs --dir=./content/ --out=./static/data.json",
