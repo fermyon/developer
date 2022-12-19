@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"cB69c":[function(require,module,exports) {
+})({"aPAto":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 1234;
+var HMR_PORT = null;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "42036d7a98ade5a7";
-module.bundle.HMR_BUNDLE_ID = "2a29ff2311f401cb";
+var HMR_ENV_HASH = "d6ea1d42532a7575";
+module.bundle.HMR_BUNDLE_ID = "c748e144c2fbcaa3";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -531,11 +531,10 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"e9rxa":[function(require,module,exports) {
-var _search = require("./modules/search");
-var _utils = require("./modules/utils");
-var _multiTab = require("./modules/multiTab");
+},{}],"3MVHK":[function(require,module,exports) {
+var _testJs = require("./test.js");
 const { el , mount , text , list , setChildren , setStyle , setAttr  } = redom;
+let documents;
 document.querySelectorAll(".modal-button").forEach(function(el) {
     el.addEventListener("click", function() {
         var target = document.querySelector(el.getAttribute("data-target"));
@@ -548,57 +547,96 @@ document.querySelectorAll(".modal-button").forEach(function(el) {
         });
     });
 });
-if (document.body.contains(document.getElementById("blogSlogan"))) (0, _utils.blogAd).init();
-document.addEventListener("DOMContentLoaded", function() {
-    // Initialize after the DOM.
-    (function() {
-        var burger = document.querySelector(".burger");
-        var menu = document.querySelector("#" + burger.dataset.target);
-        burger.addEventListener("click", function() {
-            burger.classList.toggle("is-active");
-            menu.classList.toggle("is-active");
-        });
-    })();
-    (0, _utils.header).init();
-    hljs.highlightAll();
-    if (navigator && navigator.clipboard) (0, _utils.addCopyButtons)(navigator.clipboard);
-    (0, _utils.addAnchorLinks)();
-    (0, _utils.scrollSideMenu)();
-    new (0, _multiTab.multiTabContentHandler)();
-    if (window.location.hash.length > 0) {
-        setTimeout(function() {
-            document.querySelector('a[href="' + window.location.hash + '"]').click();
-        }, 150);
-        (0, _utils.header).unpin();
-    }
-    (async function() {
-        try {
-            await (0, _search.setupSearch)();
-            mount(document.getElementById("search-button-container"), (0, _search.searchButton));
-            mount(document.getElementById("search-modal-container"), (0, _search.searchModal));
-            document.onkeydown = function(e) {
-                if (e.key == "Escape") (0, _search.searchModal).close();
-                if ((e.key == "k" || e.key == "K") && (e.metaKey || e.ctrlKey)) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    (0, _search.searchModal).open();
+if (document.body.contains(document.getElementById("blogSlogan"))) blogAd.init();
+const svgCopy = '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg>';
+const svgCheck = '<svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true"><path fill-rule="evenodd" fill="#18d1a5" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>';
+const addCopyButtons = (clipboard)=>{
+    document.querySelectorAll("pre > code").forEach((codeBlock)=>{
+        let content = codeBlock.innerText.trim();
+        let isComment = codeBlock.parentNode.previousSibling.previousSibling;
+        if (isComment.nodeName == "#comment") switch(isComment.textContent.trim()){
+            case "@nocpy":
+                return;
+            case "@selectiveCpy":
+                {
+                    let previousSlashEnding = false;
+                    content = content.split("\n").map((k)=>{
+                        k = k.trim();
+                        let isCommand = k.startsWith("$");
+                        if (isCommand || previousSlashEnding == true) {
+                            if (!k.endsWith("\\")) previousSlashEnding = false;
+                            else previousSlashEnding = true;
+                            return isCommand ? k.substring(1).trim() : k;
+                        } else return undefined;
+                    }).filter((k)=>k != undefined).join("\n");
                 }
-            };
-        } catch (err) {
-            console.err("Could not setup search");
         }
-    })();
-});
-
-},{"./modules/search":"kiRSd","./modules/utils":"hWZf7","./modules/multiTab":"1bdXi"}],"kiRSd":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "setupSearch", ()=>setupSearch);
-parcelHelpers.export(exports, "searchButton", ()=>searchButton);
-parcelHelpers.export(exports, "searchModal", ()=>searchModal);
-const { el , mount , text , list , setChildren , setStyle , setAttr  } = redom;
+        let button = document.createElement("button");
+        button.className = "copy-code-button";
+        button.type = "button";
+        button.ariaLabel = "Copy code";
+        button.innerHTML = svgCopy;
+        button.addEventListener("click", ()=>{
+            clipboard.writeText(content).then(()=>{
+                button.classList.add("is-success");
+                button.innerHTML = svgCheck;
+                setTimeout(()=>{
+                    button.innerHTML = svgCopy;
+                    button.classList.remove("is-success");
+                }, 2000);
+            }, (error)=>button.innerHTML = "Error");
+        });
+        let pre = codeBlock.parentNode;
+        pre.appendChild(button);
+    });
+};
+// const multilangCodeblocks = () => {
+//   let codeblocks = Array.from(document.querySelectorAll("pre > code"))
+//   let multicodes = []
+//   codeblocks.map((k, i) => {
+//     let codeblock = k.parentNode.previousSibling
+//     let comment = undefined
+//     if (codeblock.previousSibling.nodeName == "#comment") comment = codeblock.previousSibling
+//     if (codeblock.previousSibling.previousSibling.previousSibling.nodeName == "#comment") {
+//       comment = codeblock.previousSibling.previousSibling.previousSibling
+//     }
+//     if (comment && comment.textContent.includes("@multilangCode")) {
+//       let nodes = []
+//       comment = comment.textContent
+//       let langs = comment.split("langs=[")[1].split("]")[0].split(",")
+//       for (let j = 0; j < langs.length; j++) {
+//         nodes.push(codeblocks[i + j].parentElement)
+//       }
+//       let data = {
+//         nodes: nodes,
+//         langs: langs
+//       }
+//       multicodes.push(data)
+//     }
+//   })
+//   return multicodes
+// }
+const addAnchorLinks = ()=>{
+    document.querySelectorAll(".content h1, .content h2, .content h3, .content h4").forEach((heading)=>{
+        let id = heading.innerText.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, "").replace(/ +/g, "-");
+        heading.setAttribute("id", id);
+        heading.classList.add("heading-anchor");
+        let anchor = document.createElement("a");
+        anchor.className = "anchor-link";
+        anchor.href = "#" + id;
+        anchor.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width=16 height=16 viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>';
+        heading.append(anchor);
+        anchor.addEventListener("click", (e)=>{
+            e.preventDefault();
+            window.location = anchor.href;
+            document.querySelector(anchor.getAttribute("href")).scrollIntoView({
+                behavior: "smooth",
+                block: "start" //scroll to top of the target element
+            });
+        });
+    });
+};
 let idx;
-let documents;
 async function getSearchIndex() {
     try {
         let res = await fetch("/static/data.json");
@@ -930,53 +968,6 @@ class SearchModal {
 }
 let searchModal = new SearchModal();
 let searchButton = new SearchButton(searchModal);
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}],"j7FRh":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"hWZf7":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "scrollSideMenu", ()=>scrollSideMenu);
-parcelHelpers.export(exports, "addCopyButtons", ()=>addCopyButtons);
-parcelHelpers.export(exports, "addAnchorLinks", ()=>addAnchorLinks);
-parcelHelpers.export(exports, "header", ()=>header);
-parcelHelpers.export(exports, "blogAd", ()=>blogAd);
-var header = new Headroom(document.querySelector("#topbar"), {
-    tolerance: 5,
-    offset: 80
-});
-var blogAd = new Headroom(document.querySelector("#blogSlogan"), {
-    tolerance: 5,
-    offset: 300
-});
 function scrollSideMenu() {
     let sidemenu = document.querySelector("aside.menu");
     if (sidemenu) sidemenu.querySelector(".active")?.scrollIntoView({
@@ -986,74 +977,59 @@ function scrollSideMenu() {
         behavior: "smooth"
     });
 }
-const svgCopy = '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg>';
-const svgCheck = '<svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true"><path fill-rule="evenodd" fill="#18d1a5" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>';
-const addCopyButtons = (clipboard)=>{
-    document.querySelectorAll("pre > code").forEach((codeBlock)=>{
-        let content = codeBlock.innerText.trim();
-        let isComment = codeBlock.parentNode.previousSibling.previousSibling;
-        if (isComment && isComment.nodeName == "#comment") switch(isComment.textContent.trim()){
-            case "@nocpy":
-                return;
-            case "@selectiveCpy":
-                {
-                    let previousSlashEnding = false;
-                    content = content.split("\n").map((k)=>{
-                        k = k.trim();
-                        let isCommand = k.startsWith("$");
-                        if (isCommand || previousSlashEnding == true) {
-                            if (!k.endsWith("\\")) previousSlashEnding = false;
-                            else previousSlashEnding = true;
-                            return isCommand ? k.substring(1).trim() : k;
-                        } else return undefined;
-                    }).filter((k)=>k != undefined).join("\n");
-                }
-        }
-        let button = document.createElement("button");
-        button.className = "copy-code-button";
-        button.type = "button";
-        button.ariaLabel = "Copy code";
-        button.innerHTML = svgCopy;
-        button.addEventListener("click", ()=>{
-            clipboard.writeText(content).then(()=>{
-                button.classList.add("is-success");
-                button.innerHTML = svgCheck;
-                setTimeout(()=>{
-                    button.innerHTML = svgCopy;
-                    button.classList.remove("is-success");
-                }, 2000);
-            }, (error)=>button.innerHTML = "Error");
-        });
-        let pre = codeBlock.parentNode;
-        pre.appendChild(button);
-    });
-};
-const addAnchorLinks = ()=>{
-    document.querySelectorAll(".content h1, .content h2, .content h3, .content h4").forEach((heading)=>{
-        let id = heading.innerText.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, "").replace(/ +/g, "-");
-        heading.setAttribute("id", id);
-        heading.classList.add("heading-anchor");
-        let anchor = document.createElement("a");
-        anchor.className = "anchor-link";
-        anchor.href = "#" + id;
-        anchor.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width=16 height=16 viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>';
-        heading.append(anchor);
-        anchor.addEventListener("click", (e)=>{
-            e.preventDefault();
-            window.location = anchor.href;
-            document.querySelector(anchor.getAttribute("href")).scrollIntoView({
-                behavior: "smooth",
-                block: "start" //scroll to top of the target element
-            });
-        });
-    });
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}],"1bdXi":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "multiTabContentHandler", ()=>multiTabContentHandler);
-const { el , mount , text , list , setChildren , setStyle , setAttr  } = redom;
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+// class codeblockLanguageTab {
+//   constructor(parentCallback) {
+//     this.index
+//     this.parentCallback = parentCallback
+//     this.lang = el("a")
+//     this.el = el("li", {onclick: function(e) {
+//       parentCallback(this.index)
+//     }.bind(this)}, this.lang)
+//   }
+//   update(data, index, items, context) {
+//     this.index = index
+//     this.lang.textContent = data
+//     if (context.active == this.index) {
+//       this.lang.classList.add("is-active")
+//     } else {
+//       this.lang.classList.remove("is-active")
+//     }
+//   }
+// }
+// class MulticodeBlock {
+//   constructor(data) {
+//     this.active = null
+//     this.nodes = data.nodes
+//     this.langs = data.langs
+//     this.tabs = list("ul", codeblockLanguageTab, null, this.ChildEventHandler.bind(this))
+//     this.el = el("div.tabs.is-boxed", this.tabs)
+//     this.tabs.update(this.langs, {active: 0})
+//   }
+//   ChildEventHandler(data) {
+//     console.log(data)
+//     this.tabs.update(this.langs, {active: data})
+//     for (let i = 0; i < this.nodes.length; i++) {
+//       setStyle(this.nodes[i], {display: i == data ? "block" : "none"})
+//     }
+//   }
+//   updateActiveTab() {
+//   }
+// }
+// class MultilangCodeHandler {
+//   constructor(data) {
+//     console.log(data)
+//     this.handles = []
+//     for (let i = 0; i < data.length; i++) {
+//       this.handles.push(new MulticodeBlock(data[i]))
+//       console.log(this.handles)
+//       console.log(data[i].nodes[0])
+//       insertAfter(this.handles[i].el, data[i].nodes[0].previousSibling)
+//     }
+//   }
+// }
 class codeblockLanguageTab {
     constructor(parentCallback){
         this.index;
@@ -1073,16 +1049,12 @@ class codeblockLanguageTab {
     }
 }
 class multiTabBlockHandler {
-    constructor(nodes, tabClass, activeValue, parentCallback){
-        this.tabClass = tabClass;
-        this.parentCallback = parentCallback;
-        // this.active = 0
+    constructor(nodes){
+        this.active = 0;
         this.nodes = Array.from(nodes);
         this.langs = this.nodes.map((k)=>{
             return k.dataset.title;
         });
-        this.active = this.langs.indexOf(activeValue);
-        this.active = this.active > 0 ? this.active : 0;
         this.tabs = list("ul", codeblockLanguageTab, null, this.ChildEventHandler.bind(this));
         this.el = el("div.tabs.is-boxed", this.tabs);
         this.tabs.update(this.langs, {
@@ -1091,63 +1063,79 @@ class multiTabBlockHandler {
         this.updateTabContent(this.active);
     }
     ChildEventHandler(data) {
+        console.log(data);
         this.tabs.update(this.langs, {
             active: data
         });
         this.updateTabContent(data);
-        this.parentCallback(this.tabClass, this.langs[data], true);
     }
     updateTabContent(data) {
         for(let i = 0; i < this.nodes.length; i++)setStyle(this.nodes[i], {
             display: i == data ? "block" : "none"
         });
     }
-    globalTabUpdate(data) {
-        console.log("global update", data);
-        let activeIndex = this.langs.indexOf(data);
-        console.log(activeIndex);
-        if (activeIndex < 0) return;
-        this.tabs.update(this.langs, {
-            active: activeIndex
-        });
-        this.updateTabContent(activeIndex);
-    }
 }
-class multiTabContentHandler {
-    constructor(){
-        this.selectedTab = JSON.parse(localStorage.getItem("toggleTabSelections")) || {
-            os: null,
-            code: null
-        };
-        this.handler = [];
-        let multiTabBlocks = document.querySelectorAll("div.multitab-content-wrapper");
-        multiTabBlocks.forEach((multiTabBlock, index)=>{
-            let tabs = multiTabBlock.querySelectorAll("div.multitab-content");
-            this.handler[index] = {};
-            this.handler[index].class = multiTabBlock.dataset.class.toLowerCase();
-            this.handler[index].tabBlock = new multiTabBlockHandler(tabs, this.handler[index].class, this.selectedTab[this.handler[index].class], this.updateTabs.bind(this));
-            multiTabBlock.insertBefore(this.handler[index].tabBlock.el, multiTabBlock.firstChild);
-        });
-        Object.keys(this.selectedTab).map((k)=>{
-            if (this.selectedTab[k]) this.updateTabs(k, this.selectedTab[k], false);
-        });
-        window.addEventListener("storage", (e)=>{
-            if (e.key == "toggleTabSelections") Object.keys(this.selectedTab).map((k)=>{
-                this.selectedTab = JSON.parse(localStorage.getItem("toggleTabSelections")) || this.selectedTab;
-                if (this.selectedTab[k]) this.updateTabs(k, this.selectedTab[k], false);
-            });
-        });
-    }
-    updateTabs(tabClass, value, updateLocalStorage) {
-        if (tabClass == "soloblock") return;
-        this.selectedTab[tabClass] = value;
-        console.log("setting value", value);
-        this.handler.map((k)=>{
-            if (k.class == tabClass) k.tabBlock.globalTabUpdate(value);
-        });
-        if (updateLocalStorage) localStorage.setItem("toggleTabSelections", JSON.stringify(this.selectedTab));
-    }
+function multiTabContentHandler() {
+    let multiTabBlocks = document.querySelectorAll("div.multitab-content-wrapper");
+    multiTabBlocks.forEach((multiTabBlock)=>{
+        let tabs = multiTabBlock.querySelectorAll("div.multitab-content");
+        let handler = new multiTabBlockHandler(tabs);
+        multiTabBlock.insertBefore(handler.el, multiTabBlock.firstChild);
+    });
 }
+document.addEventListener("DOMContentLoaded", function() {
+    // Initialize after the DOM.
+    (function() {
+        var burger = document.querySelector(".burger");
+        var menu = document.querySelector("#" + burger.dataset.target);
+        burger.addEventListener("click", function() {
+            burger.classList.toggle("is-active");
+            menu.classList.toggle("is-active");
+        });
+    })();
+    header.init();
+    hljs.highlightAll();
+    if (navigator && navigator.clipboard) addCopyButtons(navigator.clipboard);
+    addAnchorLinks();
+    scrollSideMenu();
+    // let multicodes = multilangCodeblocks()
+    // new MultilangCodeHandler(multicodes)
+    multiTabContentHandler();
+    if (window.location.hash.length > 0) {
+        setTimeout(function() {
+            document.querySelector('a[href="' + window.location.hash + '"]').click();
+        }, 150);
+        header.unpin();
+    }
+    (async function() {
+        try {
+            await setupSearch();
+            mount(document.getElementById("search-button-container"), searchButton);
+            mount(document.getElementById("search-modal-container"), searchModal);
+            document.onkeydown = function(e) {
+                if (e.key == "Escape") searchModal.close();
+                if ((e.key == "k" || e.key == "K") && (e.metaKey || e.ctrlKey)) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    searchModal.open();
+                }
+            };
+        } catch (err) {
+            console.err("Could not setup search");
+        }
+    })();
+});
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["cB69c","e9rxa"], "e9rxa", "parcelRequire252c")
+},{"./test.js":"jgWZt"}],"jgWZt":[function(require,module,exports) {
+var header = new Headroom(document.querySelector("#topbar"), {
+    tolerance: 5,
+    offset: 80
+});
+var blogAd = new Headroom(document.querySelector("#blogSlogan"), {
+    tolerance: 5,
+    offset: 300
+});
 
+},{}]},["aPAto","3MVHK"], "3MVHK", "parcelRequire252c")
+
+//# sourceMappingURL=main.js.map
