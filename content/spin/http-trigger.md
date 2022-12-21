@@ -85,7 +85,7 @@ route = "/foo/..."
 Any request starting with the  `/foo/` prefix  will be handled by `component-2`,
 which is the last one defined in `spin.toml`.
 
-Every HTTP application has a special route always configured at `/healthz`, which
+Every HTTP application has a special route always configured at `/.well-known/spin/health`, which
 returns `OK 200` when the Spin instance is healthy.
 
 Once Spin selects a component to handle an incoming request based on the route
