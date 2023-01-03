@@ -8,11 +8,11 @@ keywords = "install"
 
 ## Installing Spin
 
-Spin runs on Linux (amd64), macOS (Intel and Apple Silicon) and Windows with WSL2 (amd64).
+Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windows with WSL2 (amd64).
 
 There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site.
 
-This command will install the latest version of Spin in you current directory.
+This command will install the latest version of Spin in your current directory.
 
 <!-- @selectiveCpy -->
 
@@ -51,7 +51,7 @@ To install a specific version, you can pass arguments to the install script this
 $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.6.0
 ```
 
-To install canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin.
+To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin.
 
 <!-- @selectiveCpy -->
 
