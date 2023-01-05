@@ -41,6 +41,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://crates.io/'                                                                                                                                                          \
     --exclude 'https://crates.io/crates/bytes'                                                                                                                                              \
     --exclude 'https://crates.io/crates/http'                                                                                                                                               \
+    --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
     --exclude 'https://www.instagram.com/fermyontech/'                                                                                                                                      \
     --exclude 'https://www.linkedin.com/company/fermyon/'                                                                                                                                   \
     | grep "├─BROKEN─" > broken_links || true
