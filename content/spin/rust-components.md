@@ -106,17 +106,17 @@ id = "hello"
 source = "target/wasm32-wasi/release/spinhelloworld.wasm"
 allowed_http_hosts = [ "some-random-api.ml" ]
 [component.trigger]
-route = "/hello"
+route = "/outbound"
 ```
 
 Running the application using `spin up --file spin.toml` will start the HTTP
 listener locally (by default on `localhost:3000`), and our component can
-now receive requests in route `/hello`:
+now receive requests in route `/outbound`:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
+$ curl -i localhost:3000/outbound
 HTTP/1.1 200 OK
 date: Fri, 18 Mar 2022 03:54:36 GMT
 content-type: application/json; charset=utf-8
