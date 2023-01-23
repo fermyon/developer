@@ -116,7 +116,7 @@ now receive requests in route `/wildcard`:
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
+$ curl -i localhost:3000/outbound
 HTTP/1.1 200 OK
 date: Fri, 18 Mar 2022 03:54:36 GMT
 content-type: application/json; charset=utf-8
