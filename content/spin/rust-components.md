@@ -106,7 +106,7 @@ id = "hello"
 source = "target/wasm32-wasi/release/spinhelloworld.wasm"
 allowed_http_hosts = [ "some-random-api.ml" ]
 [component.trigger]
-route = "/wilcard"
+route = "/outbound"
 ```
 
 Running the application using `spin up --file spin.toml` will start the HTTP
