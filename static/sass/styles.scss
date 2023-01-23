@@ -112,12 +112,6 @@ TABLE OF CONTENTS
 
 		&.content-docs-wide {
 			section {
-				max-width: 640px !important;
-			}
-		}
-
-		&.content-docs-wide {
-			section {
 				max-width: 880px !important;
 			}
 		}
@@ -995,6 +989,11 @@ html.dark-theme {
 @media screen and (max-width: 1660px) {
 	.documentation {
 		.content {
+			&.content-docs-wide {
+				section {
+					max-width: 640px !important;
+				}
+			}
 			section {
 				ul {
 

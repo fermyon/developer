@@ -1823,7 +1823,6 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content.content-docs-wide section {
-  max-width: 640px !important;
   max-width: 880px !important;
 }
 
@@ -2571,6 +2570,10 @@ html.dark-theme .dropdown-content a {
 }
 
 @media screen and (max-width: 1660px) {
+  .documentation .content.content-docs-wide section {
+    max-width: 640px !important;
+  }
+
   .documentation .content section ul:nth-child(2), .documentation .content section ul:nth-child(3) {
     position: relative;
     left: 0;
