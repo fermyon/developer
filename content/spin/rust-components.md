@@ -111,7 +111,7 @@ route = "/outbound"
 
 Running the application using `spin up --file spin.toml` will start the HTTP
 listener locally (by default on `localhost:3000`), and our component can
-now receive requests in route `/wildcard`:
+now receive requests in route `/outbound`:
 
 <!-- @selectiveCpy -->
 
