@@ -10,7 +10,7 @@ const blockElements = ["paragraph", "blockquote", "list", "listItem", "link"]
 // Elements who's value is just text
 const inlineElements = ["inlineCode", "text", "code"]
 
-function parseMdFile(file, path) {
+function parseMdFile(file, filepath) {
     let data = fs.readFileSync(file,
         { encoding: 'utf8', flag: 'r' });
     let fmIndex = data.indexOf("---")
@@ -34,7 +34,7 @@ function parseMdFile(file, path) {
         .parse(content.body);
 
     // Create default document index for the page
-    let documentIndex = { project: file.split("/")[2], title: content.attributes["title"], subheading: "", content: "", keywords: content.attributes["keywords"], url: "/" + file.replace(path, "") }
+    let documentIndex = { project: file.split("/")[2], title: content.attributes["title"], subheading: "", content: "", keywords: content.attributes["keywords"], url: "/" + file.replace(filepath, "").replace(".md", "") }
     let searchIndex = []
 
     // For each heading create a new search index
@@ -65,7 +65,7 @@ function parseMdFile(file, path) {
             documentIndex = {
                 project: file.split("/")[2],
                 title: content.attributes["title"], subheading: subtitle, content: "", keywords: content.attributes["keywords"],
-                url: "/" + file.replace(path, "") + "#" + subtitle.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, '')
+                url: documentIndex.url + "#" + subtitle.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, '')
                     .replace(/ +/g, '-')
             }
         }
