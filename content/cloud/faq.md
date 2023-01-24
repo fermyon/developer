@@ -20,6 +20,7 @@ The following are the limits of the Fermyon Cloud
 - A Spin application can have no more than 1,000 executions (inbound HTTP requests) every second
 - A Spin application can have no more than 500 outbound requests per hour
 - A Spin application request handler can take no more than 10 seconds to complete
+- A Spin application package cannot exceed a total size of 100MB
 - A user account can execute a maximum of 10 deployments in a minute
 - A user account can execute a maximum of 100 deployments in an hour
 - A user can execute a maximum of 3,000 requests per hour toward the Cloud API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
