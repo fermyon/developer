@@ -40,6 +40,7 @@
             {{!--  <li><a href="{{site.info.base_url}}/spin/architecture/">Architecture</a></li> --}}
             <li><a href="https://github.com/fermyon/spin/blob/main/docs/content/sips/index.md" target="_blank">Spin Improvement Proposals <img src="{{site.info.base_url}}/static/image/arrowexternal.svg" width="15" height="15"></a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/template-authoring" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/template-authoring">Creating Spin Templates</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/plugin-authoring" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/plugin-authoring">Creating Spin Plugins</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/contributing" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/contributing">Contributing to Spin</a></li>
             <li>&nbsp;</li>
             <li><a href="https://github.com/fermyon/developer/blob/main/content{{{request.spin-path-info}}}.md" class="button is-round is-outlined is-size-6 is-medium" target="_blank">
