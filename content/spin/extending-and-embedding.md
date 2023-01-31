@@ -126,7 +126,7 @@ own trigger and application model.
 
 Writing components for the new trigger can be done by using the
 [`wit-bindgen` tooling](https://github.com/bytecodealliance/wit-bindgen) from
-Rust and other supported languages (see [the example in Rust](https://github.com/fermyon/spin/tree/main/examples/spin-timer/example)):
+Rust and other supported languages (see [the example in Rust](https://github.com/fermyon/spin/tree/main/examples/spin-timer/app-example)):
 
 ```rust
 // automatically generate Rust bindings that help us implement the 
