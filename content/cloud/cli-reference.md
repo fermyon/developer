@@ -55,6 +55,7 @@ SUBCOMMANDS:
     templates    Commands for working with WebAssembly component templates
     up           Start the Spin application
 ```
+
 ### Add
 
 Adding a subcommand (and again issuing the `--help` command) will provide information specific to that particular subcommand. For example:
