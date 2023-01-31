@@ -6,18 +6,21 @@ date = "2022-01-01T00:00:01Z"
 ---
 
 - [Spin](#spin)
+  - [Add](#add)
   - [Bindle](#bindle)
     - [Prepare (Bindle)](#prepare-bindle)
     - [Push (Bindle)](#push-bindle)
   - [Build](#build)
   - [Deploy](#deploy)
+  - [Help](#help)
   - [Login](#login)
-  - [New and Add](#new)
-  - [Plugin](#plugin)
-    - [Install (Plugin)](#install-plugin)
-    - [Uninstall (Plugin)](#uninstall-plugin)
-    - [Update (Plugin)](#update-plugin)
-    - [Upgrade (Plugin)](#upgrade-plugin)
+  - [New](#new)
+  - [Plugins](#plugins)
+    - [Install (Plugins)](#install-plugins)
+    - [List (Plugins)](#list-plugins)
+    - [Uninstall (Plugins)](#uninstall-plugins)
+    - [Update (Plugins)](#update-plugins)
+    - [Upgrade (Plugins)](#upgrade-plugins)
   - [Templates](#templates)
     - [Install (Templates)](#install-templates)
     - [List (Templates)](#list-templates)
@@ -48,9 +51,40 @@ SUBCOMMANDS:
     help         Print this message or the help of the given subcommand(s)
     login        Log into the server
     new          Scaffold a new application based on a template
-    plugin       Install/uninstall Spin plugins
+    plugins      Install/uninstall Spin plugins
     templates    Commands for working with WebAssembly component templates
     up           Start the Spin application
+```
+### Add
+
+Adding a subcommand (and again issuing the `--help` command) will provide information specific to that particular subcommand. For example:
+
+<!-- @selectiveCpy -->
+
+```
+$ spin add --help
+
+USAGE:
+    spin add [OPTIONS] [ARGS]
+
+ARGS:
+    <TEMPLATE_ID>    The template from which to create the new application or component. Run
+                     `spin templates list` to see available options
+    <NAME>           The name of the new application or component
+
+OPTIONS:
+        --accept-defaults              An optional argument that allows to skip prompts for the
+                                       manifest file by accepting the defaults if available on the
+                                       template
+    -f, --file <APP_CONFIG_FILE>       Path to spin.toml
+    -h, --help                         Print help information
+    -o, --output <OUTPUT_PATH>         The directory in which to create the new application or
+                                       component. The default is the name argument
+    -v, --value <VALUES>               Parameter values to be passed to the template (in name=value
+                                       format)
+        --values-file <VALUES_FILE>    A TOML file which contains parameter values in name = "value"
+                                       format. Parameters passed as CLI option overwrite parameters
+                                       specified in the file
 ```
 
 ### Bindle
@@ -186,6 +220,35 @@ OPTIONS:
             is 60 seconds. Set it to 0 to skip waiting for readiness [default: 60]
 ```
 
+### Help
+
+<!-- @selectiveCpy -->
+
+```
+spin help
+
+USAGE:
+    spin <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    add          Scaffold a new component into an existing application
+    bindle       Commands for publishing applications as bindles
+    build        Build the Spin application
+    deploy       Deploy a Spin application
+    help         Print this message or the help of the given subcommand(s)
+    login        Log into the server
+    new          Scaffold a new application based on a template
+    plugins      Install/uninstall Spin plugins
+    templates    Commands for working with WebAssembly component templates
+    up           Start the Spin application
+```
+
+> Please note: Spin `help` is a convenient way to access help using a subcommand, instead of using the `--help` option. For example, `spin help deploy` will give you the same output as `spin deploy --help`. Similarly, `spin help build` will give you the same output as `spin build --help` and so forth.
+
 ### Login
 
 <!-- @selectiveCpy -->
@@ -230,7 +293,7 @@ OPTIONS:
             Display login status
 
         --url <HIPPO_SERVER_URL>
-            URL of hippo server [env: HIPPO_URL=] [default: http://localhost:5309]
+            URL of hippo server [env: HIPPO_URL=] [default: https://cloud.fermyon.com/]
 
         --username <HIPPO_USERNAME>
             Hippo username [env: HIPPO_USERNAME=]
@@ -262,20 +325,19 @@ OPTIONS:
                                        format)
         --values-file <VALUES_FILE>    A TOML file which contains parameter values in name = "value"
                                        format. Parameters passed as CLI option overwrite parameters
-                                       specified in the file
 ```
 
 The `spin add` command is identical to `spin new` except that it adds a component to an existing application (instead of starting a new application).  It needs an existing `spin.toml` file, either in the current directory or referenced via the `-f` option.
 
-### Plugin
+### Plugins
 
 <!-- @selectiveCpy -->
 
 ```
-$ spin plugin --help
+$ spin plugins --help
 
 USAGE:
-    spin plugin <SUBCOMMAND>
+    spin plugins <SUBCOMMAND>
 
 OPTIONS:
     -h, --help    Print help information
@@ -283,20 +345,21 @@ OPTIONS:
 SUBCOMMANDS:
     help         Print this message or the help of the given subcommand(s)
     install      Install plugin from a manifest
+    list         List available or installed plugins
     uninstall    Remove a plugin from your installation
     update       Fetch the latest Spin plugins from the spin-plugins repository
     upgrade      Upgrade one or all plugins
 ```
 
-#### Install (Plugin)
+#### Install (Plugins)
 
 <!-- @selectiveCpy -->
 
 ```
-$ spin plugin install --help
+$ spin plugins install --help
 
 USAGE:
-    spin plugin install [OPTIONS] [PLUGIN_NAME]
+    spin plugins install [OPTIONS] [PLUGIN_NAME]
 
 ARGS:
     <PLUGIN_NAME>
@@ -322,15 +385,30 @@ OPTIONS:
             Skips prompt to accept the installation of the plugin
 ```
 
-#### Uninstall (Plugin)
+#### List (Plugins)
 
 <!-- @selectiveCpy -->
 
 ```
-$ spin plugin uninstall --help
+$ spin plugins list --help
 
 USAGE:
-    spin plugin uninstall <NAME>
+    spin plugins list [OPTIONS]
+
+OPTIONS:
+    -h, --help         Print help information
+        --installed    List only installed plugins
+```
+
+#### Uninstall (Plugins)
+
+<!-- @selectiveCpy -->
+
+```
+$ spin plugins uninstall --help
+
+USAGE:
+    spin plugins uninstall <NAME>
 
 ARGS:
     <NAME>    Name of Spin plugin
@@ -339,31 +417,31 @@ OPTIONS:
     -h, --help    Print help information
 ```
 
-#### Update (Plugin)
+#### Update (Plugins)
 
 <!-- @selectiveCpy -->
 
 ```
-$ spin plugin update --help
+$ spin plugins update --help
 
 Fetch the latest Spin plugins from the spin-plugins repository
 
 USAGE:
-    spin plugin update
+    spin plugins update
 
 OPTIONS:
     -h, --help    Print help information
 ```
 
-#### Upgrade (Plugin)
+#### Upgrade (Plugins)
 
 <!-- @selectiveCpy -->
 
 ```
-$ spin plugin upgrade --help
+$ spin plugins upgrade --help
 
 USAGE:
-    spin plugin upgrade [OPTIONS] [PLUGIN_NAME]
+    spin plugins upgrade [OPTIONS] [PLUGIN_NAME]
 
 ARGS:
     <PLUGIN_NAME>    Name of Spin plugin to upgrade
@@ -495,6 +573,10 @@ OPTIONS:
 
         --bindle-username <BINDLE_USERNAME>
             Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
+
+        --direct-mounts
+            For local apps with directory mounts and no excluded files, mount them directly instead
+            of using a temporary directory
 
     -e, --env <ENV>
             Pass an environment variable (key=value) to all components of the application
