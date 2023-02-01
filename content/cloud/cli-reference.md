@@ -25,7 +25,10 @@ date = "2022-01-01T00:00:01Z"
     - [Install (Templates)](#install-templates)
     - [List (Templates)](#list-templates)
     - [Uninstall (Templates)](#uninstall-templates)
-  - [Up](#up)
+  - [Up](#up-default)
+    - [Trigger Options](#trigger-options)
+      - [HTTP Request Handler](#http-request-handler)
+      - [Redis Request Handler](#redis-request-handler)
 
 ## Spin
 
@@ -554,11 +557,12 @@ OPTIONS:
 
 ### Up
 
+Applications without triggers will accept any of the following options. The trigger-specific options are over and above what is shown directly below. Please see the next section for additional trigger options.
+
 <!-- @selectiveCpy -->
 
 ```
 $ spin up --help
-
 USAGE:
     spin up [OPTIONS]
 
@@ -593,7 +597,17 @@ OPTIONS:
 
         --temp <TMP>
             Temporary directory for the static assets of the components
+```
 
+#### Trigger Options
+
+##### HTTP Request Handler
+
+Below, in addition to the default `OPTIONS` above, please see the available trigger options for the HTTP request handler.
+
+<!-- @selectiveCpy -->
+
+```
 TRIGGER OPTIONS:
         --allow-transient-write
             Set the static assets of the components in the temporary directory as writable
@@ -636,6 +650,40 @@ TRIGGER OPTIONS:
         --tls-key <TLS_KEY>
             The path to the certificate key to use for https, if this is not set, normal http will
             be used. The key should be in PKCS#8 format
+```
+
+##### Redis Request Handler
+
+Below, in addition to the default `OPTIONS` above, please see the available trigger options for the Redis request handler.
+
+<!-- @selectiveCpy -->
+
+```
+TRIGGER OPTIONS:
+        --allow-transient-write
+            Set the static assets of the components in the temporary directory as writable
+
+        --cache <WASMTIME_CACHE_FILE>
+            Wasmtime cache configuration file
             
-            [env: SPIN_TLS_KEY=]
+            [env: WASMTIME_CACHE_FILE=]
+
+        --disable-cache
+            Disable Wasmtime cache
+            
+            [env: DISABLE_WASMTIME_CACHE=]
+
+        --follow <FOLLOW_ID>
+            Print output for given component(s) to stdout/stderr
+
+        --follow-all
+            Print all component output to stdout/stderr
+
+    -L, --log-dir <APP_LOG_DIR>
+            Log directory for the stdout and stderr of components
+
+        --runtime-config-file <RUNTIME_CONFIG_FILE>
+            Configuration file for config providers and wasmtime config
+            
+            [env: RUNTIME_CONFIG_FILE=]
 ```
