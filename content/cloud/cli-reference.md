@@ -25,7 +25,7 @@ date = "2022-01-01T00:00:01Z"
     - [Install (Templates)](#install-templates)
     - [List (Templates)](#list-templates)
     - [Uninstall (Templates)](#uninstall-templates)
-  - [Up](#up-default)
+  - [Up](#up)
     - [Trigger Options](#trigger-options)
       - [HTTP Request Handler](#http-request-handler)
       - [Redis Request Handler](#redis-request-handler)
@@ -557,7 +557,7 @@ OPTIONS:
 
 ### Up
 
-Applications without triggers will accept any of the following options. The trigger-specific options are over and above what is shown directly below. Please see the next section for additional trigger options.
+The following options are available in relation to running your Spin application. Additionally, depending on the type of trigger that your application uses (i.e. HTTP or Redis trigger), there are trigger-specific options available. Details of the trigger options can be found in the next section (below).
 
 <!-- @selectiveCpy -->
 
@@ -603,7 +603,7 @@ OPTIONS:
 
 ##### HTTP Request Handler
 
-Below, in addition to the default `OPTIONS` above, please see the available trigger options for the HTTP request handler.
+Below, please see the available trigger options for the HTTP request handler.
 
 <!-- @selectiveCpy -->
 
@@ -654,7 +654,7 @@ TRIGGER OPTIONS:
 
 ##### Redis Request Handler
 
-Below, in addition to the default `OPTIONS` above, please see the available trigger options for the Redis request handler.
+Below, please see the available trigger options for the Redis request handler.
 
 <!-- @selectiveCpy -->
 
