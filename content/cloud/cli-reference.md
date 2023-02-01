@@ -27,8 +27,8 @@ date = "2022-01-01T00:00:01Z"
     - [Uninstall (Templates)](#uninstall-templates)
   - [Up](#up)
     - [Trigger Options](#trigger-options)
-      - [HTTP Request Handler](#http-request-handler)
       - [Redis Request Handler](#redis-request-handler)
+      - [HTTP Request Handler](#http-request-handler)
 
 ## Spin
 
@@ -601,9 +601,45 @@ OPTIONS:
 
 #### Trigger Options
 
+##### Redis Request Handler
+
+Below, please see the available trigger options for the Redis request handler.
+
+<!-- @selectiveCpy -->
+
+```
+TRIGGER OPTIONS:
+        --allow-transient-write
+            Set the static assets of the components in the temporary directory as writable
+
+        --cache <WASMTIME_CACHE_FILE>
+            Wasmtime cache configuration file
+            
+            [env: WASMTIME_CACHE_FILE=]
+
+        --disable-cache
+            Disable Wasmtime cache
+            
+            [env: DISABLE_WASMTIME_CACHE=]
+
+        --follow <FOLLOW_ID>
+            Print output for given component(s) to stdout/stderr
+
+        --follow-all
+            Print all component output to stdout/stderr
+
+    -L, --log-dir <APP_LOG_DIR>
+            Log directory for the stdout and stderr of components
+
+        --runtime-config-file <RUNTIME_CONFIG_FILE>
+            Configuration file for config providers and wasmtime config
+            
+            [env: RUNTIME_CONFIG_FILE=]
+```
+
 ##### HTTP Request Handler
 
-Below, please see the available trigger options for the HTTP request handler.
+Below, please see the available trigger options for the HTTP request handler. Note the additional three trigger options that the HTTP request handler offers (`--listen`, `--tls-cert` and `--tls-key`).
 
 <!-- @selectiveCpy -->
 
@@ -650,40 +686,4 @@ TRIGGER OPTIONS:
         --tls-key <TLS_KEY>
             The path to the certificate key to use for https, if this is not set, normal http will
             be used. The key should be in PKCS#8 format
-```
-
-##### Redis Request Handler
-
-Below, please see the available trigger options for the Redis request handler.
-
-<!-- @selectiveCpy -->
-
-```
-TRIGGER OPTIONS:
-        --allow-transient-write
-            Set the static assets of the components in the temporary directory as writable
-
-        --cache <WASMTIME_CACHE_FILE>
-            Wasmtime cache configuration file
-            
-            [env: WASMTIME_CACHE_FILE=]
-
-        --disable-cache
-            Disable Wasmtime cache
-            
-            [env: DISABLE_WASMTIME_CACHE=]
-
-        --follow <FOLLOW_ID>
-            Print output for given component(s) to stdout/stderr
-
-        --follow-all
-            Print all component output to stdout/stderr
-
-    -L, --log-dir <APP_LOG_DIR>
-            Log directory for the stdout and stderr of components
-
-        --runtime-config-file <RUNTIME_CONFIG_FILE>
-            Configuration file for config providers and wasmtime config
-            
-            [env: RUNTIME_CONFIG_FILE=]
 ```
