@@ -85,6 +85,8 @@ Each `component` object has the following fields:
     `destination` (REQUIRED), the absolute mount path to be mapped inside the
     WebAssembly module. For example
     `{ source = "content/", destination = "/"}`.
+- `exclude_files` (OPTIONAL): List of file path or glob relative to the `spin.toml` that don't mount to wasm
+  - When `exclude_files` conflict with `files` config, `exclude_files` take precedence
 - `allowed_http_hosts` (OPTIONAL): List of HTTP hosts the component is allowed
   to make HTTP requests to
 - `trigger` (REQUIRED): Trigger configuration for the component. Triggers are
