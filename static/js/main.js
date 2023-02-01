@@ -12,15 +12,15 @@ var blogAd = new Headroom(document.querySelector("#blogSlogan"), {
   offset: 300
 });
 
-document.querySelectorAll('.modal-button').forEach(function (el) {
-  el.addEventListener('click', function () {
+document.querySelectorAll('.modal-button').forEach(function(el) {
+  el.addEventListener('click', function() {
     var target = document.querySelector(el.getAttribute('data-target'));
 
     target.classList.add('is-active');
-    target.querySelector('.modal-close').addEventListener('click', function () {
+    target.querySelector('.modal-close').addEventListener('click', function() {
       target.classList.remove('is-active');
     });
-    target.querySelector('.modal-background').addEventListener('click', function () {
+    target.querySelector('.modal-background').addEventListener('click', function() {
       target.classList.remove('is-active');
     });
   });
@@ -125,14 +125,14 @@ async function getSearchIndex() {
 
 async function setupSearch() {
   documents = await getSearchIndex()
-  idx = lunr(function () {
+  idx = lunr(function() {
     this.field('title')
     this.field('subheading')
     this.field('content')
     this.field('keywords', { boost: 10 })
     this.ref('url')
 
-    documents.forEach(function (doc) {
+    documents.forEach(function(doc) {
       this.add(doc)
     }, this)
   })
@@ -145,7 +145,7 @@ class SearchButton {
     this.searchPlaceholder = el("span.search-placeholder", "Search")
     this.searchCommand = el("span.search-command", "⌘/ctrl + K")
     this.el = el("button.search-button", {
-      onclick: function (e) {
+      onclick: function(e) {
         this.modal.open()
       }.bind(this)
     }, [this.searchPlaceholder, this.searchCommand])
@@ -156,7 +156,7 @@ class SearchResultSubHeading {
   constructor() {
     this.itemIcon = el("span.result-item-icon", "#")
     this.link = el("span")
-    this.el = el("a.result-subitem", { onclick: function (e) { searchModal.close() } }, [this.itemIcon, this.link])
+    this.el = el("a.result-subitem", { onclick: function(e) { searchModal.close() } }, [this.itemIcon, this.link])
   }
   update(data) {
     this.link.textContent = data.subheading
@@ -186,7 +186,7 @@ class ResultFilterItem {
     this.active = true
     this.parentCallback
     this.el = el("code.active", {
-      onclick: function (e) {
+      onclick: function(e) {
         this.toggle()
       }.bind(this)
     })
@@ -219,7 +219,7 @@ class SearchResultFilter {
     this.activefilter = categories.map(k => k.toLowerCase())
     this.filters = list("div.filter-categories", ResultFilterItem)
     this.filters.update(this.categories, { callback: this.updateFilterSearch.bind(this) })
-    this.resetFilter = el("span.reset-filter", { onclick: function (e) { this.resetFilters() }.bind(this) }, 'Clear filters')
+    this.resetFilter = el("span.reset-filter", { onclick: function(e) { this.resetFilters() }.bind(this) }, 'Clear filters')
     this.el = el("div.result-filters", this.filters, this.resetFilter)
   }
   updateFilterSearch(index, status) {
@@ -238,7 +238,7 @@ class SearchResultFilter {
 class SearchResult {
   constructor() {
     this.data
-    this.projects = ["Spin", "Cloud"]
+    this.projects = ["Spin", "Cloud", "Bartholomew"]
     this.resultItems = list("div.result-section", SearchResultItem)
     this.resultFilters = new SearchResultFilter(this.projects, this.filter.bind(this))
     this.el = el("div.result-section-container", this.resultFilters, this.resultItems)
@@ -294,6 +294,13 @@ class ModalSuggest {
         link2: ["VS Code", "/cloud/spin-vs-code-extension"],
         link3: ["Support", "/cloud/support"],
         link4: ["FAQ", "/cloud/faq"]
+      },
+      {
+        project: "Bartholomew",
+        link1: ["Quickstart", "/bartholomew/quickstart"],
+        link2: ["Templates", "/bartholomew/templates"],
+        link3: ["Scripting", "/bartholomew/scripting"],
+        link4: ["Shortodes", "/bartholomew/shortcodes"]
       }
     ]
     this.projectRecommendations = list("div.result-section", ProjectRecommendations)
@@ -307,15 +314,15 @@ class SearchModal {
     this.container = document.getElementById("search-modal-container")
     this.modalSearchBar = el("input.modal-search-bar", {
       type: "text", spellcheck: false,
-      placeholder: "Search Fermyon Developer Home", oninput: function (e) {
+      placeholder: "Search Fermyon Developer Home", oninput: function(e) {
         this.updateSearch()
       }.bind(this)
     })
     this.searchResults = new SearchResult()
     this.modalSuggest = new ModalSuggest()
-    this.modal = el("div.modal-box", { onclick: function (e) { e.stopPropagation() } })
+    this.modal = el("div.modal-box", { onclick: function(e) { e.stopPropagation() } })
     this.el = el("div.modal-wrapper", {
-      onclick: function (e) { this.close() }.bind(this), onkeydown: function (e) {
+      onclick: function(e) { this.close() }.bind(this), onkeydown: function(e) {
         if (e.key != "Escape") {
           e.stopPropagation()
         }
@@ -370,7 +377,7 @@ class SearchModal {
     })
     matches = Object.keys(matches).map(k => {
       return matches[k]
-    }).sort(function (a, b) { return b.score - a.score }).filter(k => { return k.title != undefined })
+    }).sort(function(a, b) { return b.score - a.score }).filter(k => { return k.title != undefined })
     this.searchResults.update(matches)
     setChildren(this.modal, [this.modalSearchBar, this.searchResults])
   }
@@ -387,16 +394,16 @@ function scrollSideMenu() {
       block: 'center',
       inline: 'center',
       behavior: 'smooth'
-  })
+    })
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   // Initialize after the DOM.
-  (function () {
+  (function() {
     var burger = document.querySelector('.burger');
     var menu = document.querySelector('#' + burger.dataset.target);
-    burger.addEventListener('click', function () {
+    burger.addEventListener('click', function() {
       burger.classList.toggle('is-active');
       menu.classList.toggle('is-active');
     });
@@ -410,18 +417,18 @@ document.addEventListener("DOMContentLoaded", function () {
   addAnchorLinks()
   scrollSideMenu()
   if (window.location.hash.length > 0) {
-    setTimeout(function () {
+    setTimeout(function() {
       document.querySelector('a[href="' + window.location.hash + '"]').click()
     }, 150)
     header.unpin()
   }
 
-  (async function () {
+  (async function() {
     try {
       await setupSearch()
       mount(document.getElementById("search-button-container"), searchButton);
       mount(document.getElementById("search-modal-container"), searchModal);
-      document.onkeydown = function (e) {
+      document.onkeydown = function(e) {
         if (e.key == "Escape") {
           searchModal.close()
         }
