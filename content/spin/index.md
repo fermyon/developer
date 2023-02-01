@@ -73,7 +73,7 @@ Any time a request is made on the `/hello` route, it will invoke the
 `hello_world` function. Adding another component is as simple as adding another `[[component]]`
 stanza to the `spin.toml` file.
 
-## Deploying a Spin application
+## Deploying a Spin Application
 
 Spin applications can be deployed to the fully managed [Fermyon Cloud](/cloud/index), or using the self-hosted [Fermyon Platform](https://www.fermyon.dev)
 

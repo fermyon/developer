@@ -6,10 +6,10 @@ enable_shortcodes = true
 ---
 
 - [Prerequisites - Install the Spin CLI](#prerequisites---install-the-spin-cli)
-- [Create a new Spin application from a template](#create-a-new-spin-application-from-a-template)
-- [Run the application](#run-the-application)
-- [Write your code](#write-your-code)
-- [Next steps](#next-steps)
+- [Create a New Spin Application From a Template](#create-a-new-spin-application-from-a-template)
+- [Run the Application](#run-the-application)
+- [Write Your Code](#write-your-code)
+- [Next Steps](#next-steps)
 
 This article briefly describes how to create a new Spin application. For a more thorough guide to developing Spin applications, take a look [here](/spin/developing).
 
@@ -25,7 +25,7 @@ $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 
 {{ details "Additional info" "It's easier if you move the spin binary somewhere in your path, so it can be accessed from any directory. E.g., `sudo mv ./spin /usr/local/bin/spin`. \n\nYou can verify the version of Spin installed by running `spin --version`" }}
 
-## Create a new Spin application from a template
+## Create a New Spin Application From a Template
 
 You can create your very own application based on [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates). Start by installing a set of Spin application templates [from the Spin repository](https://github.com/fermyon/spin/tree/main/templates):
 
@@ -106,7 +106,7 @@ Executing the build command for component hello-rust: cargo build --target wasm3
 Successfully ran the build command for the Spin components.
 ```
 
-## Run the application
+## Run the Application
 
 Now it’s time to `spin up` the application.
 
@@ -134,7 +134,7 @@ content-length: 15
 Hello, Fermyon
 ```
 
-## Write your code
+## Write Your Code
 
 For this template, we have a single crate built from `src/lib.rs`, which contains the following code:
 
@@ -180,7 +180,7 @@ fn hello_rust(req: Request) -> Result<Response> {
 
 This Spin application will now take the query string of the URL `http://localhost:3000?Doc` and return the text `Hello Doc!` as a greeting.
 
-## Next steps
+## Next Steps
 
 - Learn how to [deploy an application](deploy)
 - To learn more about how to develop Spin applications, head over to the [Spin documentation](/spin)

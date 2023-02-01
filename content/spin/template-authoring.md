@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/template-authoring.md"
+
 ---
 
 Spin templates allow a Spin developer to quickly create the skeleton of an
@@ -24,7 +25,7 @@ For examples of the directory contents, see the `templates` directory in the
 Templates must always be shared in a `templates` directory.  This allows the
 installer to locate them in repos that contain other content.
 
-## Authoring the content
+## Authoring the Content
 
 Copy all the files that you want to be copied as part of the template into
 the `content` directory. If you do nothing more, they will be copied
@@ -50,7 +51,7 @@ are supported:
 | `snake_case`  | Transforms input into snake case, e.g. `My Application` to `my_application` |
 | `pascal_case` | Transforms input into Pascal case, e.g. `my appplication` to `MyApplication` |
 
-## Authoring the manifest
+## Authoring the Manifest
 
 The template manifest is a TOML file. It must be named `spin-template.toml`.
 
@@ -118,7 +119,7 @@ component = "component.txt"
 
 > For examples from the Spin project, see `http-rust` (can be used in both`spin new` and `spin add`) and `static-fileserver` (`spin add` only).
 
-## Hosting templates in Git
+## Hosting Templates in Git
 
 You can publish templates in a Git repo.  The templates must be in the `/templates`
 directory, with a subdirectory per template.

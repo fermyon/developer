@@ -26,6 +26,7 @@
     "glob": "^8.0.3",
     "lunr": "^2.3.9",
     "markdownlint-cli2": "^0.5.1",
+    "markdownlint-rule-titlecase": "^0.1.0",
     "nodemon": "^2.0.20",
     "parcel": "^2.8.0",
     "parcel-bundler": "^1.12.5",

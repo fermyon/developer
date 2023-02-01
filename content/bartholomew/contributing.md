@@ -44,7 +44,7 @@ cd ~/bartholomew
 Rust and the wasm32-wasi target are prerequisites that are required to build Bartholomew from the source code. Please see the next section if you require these prerequisites on your system.
 
 ---
-
+<!-- markdownlint-disable-next-line titlecase-rule -->
 ## Prerequisites (Rust, wasm32-wasi and wasm-opt)
 
 You will need Rust installed.
@@ -354,7 +354,7 @@ The final stage of a successful contribution will be a notification that the PR 
 
 ![PR merged](../static/image/docs/merged.png)
 
-## Thank you
+## Thank You
 
 At this point, you have performed a significant amount of work which is greatly appreciated. 
 

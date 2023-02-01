@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/distributing-apps.md"
+
 ---
 
 Packaging and distributing Spin applications is done using [Bindle](https://github.com/deislabs/bindle),

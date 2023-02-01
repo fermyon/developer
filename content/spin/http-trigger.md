@@ -1,8 +1,9 @@
-title = "The Spin HTTP trigger"
+title = "The Spin HTTP Trigger"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/http-trigger.md"
+
 ---
 
 An important workload in event-driven environments is represented by HTTP
@@ -93,7 +94,7 @@ configuration, it will instantiate and execute that component based on its
 defined _HTTP executor_, and the next sections explore the two ways of building
 HTTP components based on the two available executors.
 
-## The Spin HTTP executor
+## The Spin HTTP Executor
 
 Spin is built on top of the
 [WebAssembly component model](https://github.com/WebAssembly/component-model).
@@ -168,7 +169,7 @@ This is exactly how [the Rust SDK for Spin](./rust-components.md) is built, and,
 as more languages add support for the component model, how we plan to add
 support for them as well.
 
-## The Wagi HTTP executor
+## The Wagi HTTP Executor
 
 The WebAssembly component model proposal is currently in its early stages, which
 means only a few programming languages fully implement it. While the language
@@ -239,7 +240,7 @@ Array.forEach(print, Process.argv());
 > You can find examples on how to build Wagi applications in
 > [the DeisLabs GitHub organization](https://github.com/deislabs?q=wagi&type=public&language=&sort=).
 
-### The default headers set in Spin HTTP components
+### The Default Headers Set in Spin HTTP Components
 
 Spin sets a few default headers on the request based on the base path, component
 route, and request URI, which will always be available when writing a module:
@@ -258,7 +259,7 @@ route, and request URI, which will always be available when writing a module:
   pattern) — in our case `/hello`
 - `spin-base-path` - the application base path — in our case `/test`.
 
-### The default headers set in Wagi HTTP components
+### The Default Headers Set in Wagi HTTP Components
 
 For Wagi HTTP components, the following are set as environment variables for the
 handler WebAssembly modules:

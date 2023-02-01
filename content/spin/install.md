@@ -41,7 +41,7 @@ On Debian-like distributions, including Ubuntu, you can install these with a com
 $ sudo apt-get install build-essential libssl-dev pkg-config
 ```
 
-## Installing a specific version of Spin
+## Installing a Specific Version of Spin
 
 To install a specific version, you can pass arguments to the install script this way:
 
@@ -59,7 +59,7 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
 ```
 
-## Building Spin from source
+## Building Spin From Source
 
 [Follow the contribution document](./contributing.md) for a detailed guide on building Spin from source:
 
@@ -71,7 +71,7 @@ $ cd spin && make build
 $ ./target/release/spin --help
 ```
 
-## Using Cargo to install Spin
+## Using Cargo to Install Spin
 
 If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installation.html), you can clone the repo and install it to your path:
 

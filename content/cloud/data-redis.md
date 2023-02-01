@@ -132,7 +132,7 @@ fn publish(_req: Request) -> Result<Response> {
 }
 ```
 
-## Log into Fermyon Cloud
+## Log Into Fermyon Cloud
 
 We need to log into Fermyon Cloud, so that we can build/deploy our application. For example:
 

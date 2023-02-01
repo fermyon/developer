@@ -8,7 +8,7 @@ template = "bartholomew_main"
 
 Bartholomew supports theming which allows for easy customization of the site along with the user-defined tempaltes.
 
-## Adding a theme
+## Adding a Theme
 
 Once the initial site has been set up using the [quickstart section](./quickstart), create a themes folder where you will be able to download different themes.
 
@@ -25,7 +25,7 @@ git submodule add <Source_to_the_theme>
 
 Multiple themes can be added to the themes directory but only one of them will be active at a given time as described in the next section.
 
-## Configuring the site to use the theme
+## Configuring the Site to Use the Theme
 
 To choose a theme for the website, the `theme` attribute in `config/site.toml` must be configured, where the value is the name of the theme as found in the `themes/` folder.
 
@@ -59,7 +59,7 @@ files = [ {source = "themes/<name of theme>/static", destination ="/"}, { source
 route = "/static/..."
 ```
 
-## Template precedence
+## Template Precedence
 
 When a theme is enabled for a site, both the user-defined and theme-provided assets like the templates, scripts and static assets will be available. If a theme-provided asset and user-provided asset have the same name, the user-defined asset takes precedence. This allows for the user to override the theme to allow for customization. 
 

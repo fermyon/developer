@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/rust-components.md"
+
 ---
 
 Spin aims to have best-in-class support for building components in Rust, and
@@ -23,7 +24,7 @@ In order to compile Rust programs to Spin components, you also need the
 $ rustup target add wasm32-wasi
 ```
 
-## HTTP components
+## HTTP Components
 
 In Spin, HTTP components are triggered by the occurrence of an HTTP request, and
 must return an HTTP response at the end of their execution. Components can be
@@ -66,7 +67,7 @@ The important things to note in the implementation above:
   (`spin_sdk::http::Request` is a type alias for `http::Request<Option<Bytes>>`)
 - the component returns a Rust `anyhow::Result`, so if there is an error processing the request, it returns an `anyhow::Error`.
 
-## Sending outbound HTTP requests
+## Sending Outbound HTTP Requests
 
 If allowed, Spin components can send outbound HTTP requests.
 Let's see an example of a component that makes a request to
@@ -142,7 +143,7 @@ This can be the basis for building components that communicate with external
 databases or storage accounts, or even more specialized components like HTTP
 proxies or URL shorteners.
 
-## Redis components
+## Redis Components
 
 Besides the HTTP trigger, Spin has built-in support for a Redis trigger —
 which will connect to a Redis instance and will execute Spin components for
@@ -238,7 +239,7 @@ spin up --file spin.toml --follow-all
 > You can find a complete example for a Redis triggered component in the
 > [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/redis-rust).
 
-## Storing data in Redis from Rust components
+## Storing Data in Redis From Rust Components
 
 Using the Spin's Rust SDK, you can use the Redis key/value store and to publish
 messages to Redis channels. This can be used from both HTTP and Redis triggered
@@ -311,7 +312,7 @@ messages on the `messages` Redis channel.
 > You can find a complete example for using outbound Redis from an HTTP component
 > in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis).
 
-## Using external crates in Rust components
+## Using External Crates in Rust Components
 
 In Rust, Spin components are regular libraries that contain a function
 annotated using the `http_component` macro, compiled to the
@@ -337,7 +338,7 @@ the `target/wasm32-wasi/release` directory and looking for `.wasm` files)
 match `source` field in the component configuration (the `source` field contains
 the path to the Wasm module, relative to `spin.toml`)
 
-## Manually creating new projects with Cargo
+## Manually Creating New Projects With Cargo
 
 The recommended way of creating new Spin projects is by starting from a template.
 This section shows how to  manually create a new project with Cargo.
