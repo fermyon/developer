@@ -13,7 +13,7 @@ In Bartholomew, layout is handled via templates. All templates are in the
 While the version of Handlebars used in Bartholomew is written in Rust, not JavaScript,
 it works almost identically.
 
-## A simple template
+## A Simple Template
 
 Here is a simple HTML template with Handlebars:
 
@@ -37,7 +37,7 @@ then fills in the `body` with the value of `page.body`.
 
 Let's take a brief look at the `page` object to understand what is happening here.
 
-### The `page` object
+### The `page` Object
 
 In JSON, the `page` object looks like this:
 
@@ -60,7 +60,7 @@ In JSON, the `page` object looks like this:
 To access a part, you simply use a dotted path notation. So to get the value of `key` in
 the `extra` section, we use `{{ page.head.extra.key }}`.
 
-### The `site` object
+### The `site` Object
 
 In addition to the `page` object, there is also a `site` object. `site.pages` contains the `head` section and content of every page in the site. `site.pages` is only populated for templates included in `index_site_pages` in `site.toml` as described in the [configuration section](./configuration.md): 
 
@@ -84,7 +84,7 @@ In addition to the `page` object, there is also a `site` object. `site.pages` co
 Note that the `site.pages` array has access to every single document in the `content` folder.
 This part of the API may change in the future, as it does not scale terribly well. 
 
-### The `env` object
+### The `env` Object
 
 The third top-level object is `env`, which holds all of the environment data.
 
@@ -107,7 +107,7 @@ You can dump the entire contents of `env` using a template like this:
 </ul>
 ```
 
-### The `request` object
+### The `request` Object
 
 The fourth top-level object is `request`, which holds all the details about
 the HTTP request, the path of this resource, and other Spin information.
@@ -131,7 +131,7 @@ You can dump the entire contents of `request` using a template like this:
 </ul>
 ```
 
-## Including a template
+## Including a Template
 
 It is possible to include a template into another template.
 For example, if we want to include the `navbar.hbs` template, we use a "partial" include
@@ -143,7 +143,7 @@ like this:
 
 Note that we drop the `.hbs` suffix when including this way.
 
-## Calling template helpers
+## Calling Template Helpers
 
 There are a few template helpers defined in Bartholomew.
 
@@ -157,7 +157,7 @@ The above will render `HELLO`.
 
 Note that you can create custom template helpers using [Rhai scripts](./scripting.md).
 
-### Defined helper functions
+### Defined Helper Functions
 
 The following helper functions are provided with Bartholomew
 
@@ -170,7 +170,7 @@ The following helper functions are provided with Bartholomew
 - `abbrev UINT STRING`: Shorten the string to UINT with elipses. For example `abbrev 8 "Functions Example"` returns `Funct...`.
 - `plural INT SINGULAR_STRING PLURAL_STRING`: If `INT` is `1`, return the singular form. Otherwise return plural: `plural 1 "apple" "apples"` returns `apple`. But if we change `1` to `2` (or `0`) it will return `apples`.
 
-### Values reference
+### Values Reference
 
 The following values are available in the template. This is formatted in YAML for readability. The four top-level objects are:
 

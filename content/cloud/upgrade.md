@@ -5,12 +5,12 @@ enable_shortcodes = true
 
 ---
 
-- [Upgrade your application](#upgrade-your-application)
-- [Next steps](#next-steps)
+- [Upgrade Your Application](#upgrade-your-application)
+- [Next Steps](#next-steps)
 
 To upgrade your Spin application, there are just a few steps to take. This doesn’t require so much stress.
 
-## Upgrade your application
+## Upgrade Your Application
 
 To upgrade a Spin application running in the Fermyon Cloud, you first have to change the version of your application.
 
@@ -38,7 +38,7 @@ $ spin deploy
 
 That’s how to upgrade a Spin Application, just as simple as that!
 
-## Next steps
+## Next Steps
 
 - [Delete an application](delete)
 - Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/feedback)

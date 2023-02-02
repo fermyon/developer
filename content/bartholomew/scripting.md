@@ -13,7 +13,7 @@ Bartholomew provides the Rhai scripting language for this.
 [Rhai](https://rhai.rs/) is a simple scripting language that has many stylistic similarities to
 Rust, Go, and Python. The integration with Bartholomew is easy to work with.
 
-## The basic
+## The Basic
 
 1. Create a file in `scripts/` with the extension `.rhai`
 2. Put some Rhai code in there
@@ -50,7 +50,7 @@ When we run the template, we will see:
 hello world
 ```
 
-## A more complicated example.
+## A More Complicated Example.
 
 Let's take a look at `scripts/blogs.rhai`, which is called in a template as `blogs`.
 This script makes a list of all of the blog posts for the site.

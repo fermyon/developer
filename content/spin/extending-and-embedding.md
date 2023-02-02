@@ -1,8 +1,9 @@
-title = "Extending and embedding Spin"
+title = "Extending and Embedding Spin"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/extending-and-embedding.md"
+
 ---
 
 > The complete example for extending and embedding Spin [can be found on GitHub](https://github.com/fermyon/spin/tree/main/examples/spin-timer).
@@ -161,7 +162,7 @@ trigger configuration (an example of component-level trigger configuration
 for this scenario would be each component being able to define its own
 independent time interval for scheduling the execution).
 
-## Other ways to extend and use Spin
+## Other Ways to Extend and Use Spin
 
 Besides building custom triggers, the internals of Spin could also be used
 independently:

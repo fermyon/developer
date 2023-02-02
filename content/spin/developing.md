@@ -1,13 +1,14 @@
-title = "Developing Spin applications"
+title = "Developing Spin Applications"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/developing.md"
+
 ---
 
 The Spin CLI offers a few commands to simplify developing applications.
 
-## Building Spin applications
+## Building Spin Applications
 
 A Spin application is made up of one or more components. When developing a
 multi-component application, it is very common to have multiple directories with

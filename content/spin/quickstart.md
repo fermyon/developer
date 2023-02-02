@@ -4,6 +4,7 @@ date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/quickstart.md"
 keywords = "quickstart"
+
 ---
 
 > This is an early preview of the Spin project. It is still experimental code,
@@ -11,7 +12,7 @@ keywords = "quickstart"
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sDiQV5RHorE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Getting the `spin` binary
+## Getting the `spin` Binary
 
 You can install the `spin` binary using the `install.sh` script hosted on this site.
 
@@ -32,7 +33,7 @@ $ sudo mv ./spin /usr/local/bin/spin
 
 More ways to [install Spin](install)
 
-## Creating a new Spin application from a template
+## Creating a New Spin Application From a Template
 
 Spin helps you create a new application based on templates:
 
@@ -189,7 +190,7 @@ Successfully ran the build command for the Spin components.
 
 If you run into errors, you might want to use `rustup check` to see if your Rust installation is up-to-date.
 
-## Running the application with `spin up`
+## Running the Application With `spin up`
 
 Now that we configured the application and built our component, we can _spin up_
 the application (pun intended):

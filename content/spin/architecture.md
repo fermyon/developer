@@ -1,6 +1,7 @@
-title = "Spin architecture and internals"
+title = "Spin Architecture and Internals"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
+
 ---
 
 This document aims to offer an overview to the implementation of Spin, as well
@@ -8,7 +9,7 @@ as explain how the code is structured and how all parts fit together. This
 document is continuously evolving, and if you want even more detailed
 information, make sure to review the code for a given part of Spin.
 
-## How Spin runs an application
+## How Spin Runs an Application
 
 A Spin application is defined as a `spin.toml` file. It can either be run
 directly by `spin up`, passing the manifest file (`--file spin.toml`), or it can
@@ -38,7 +39,7 @@ application configuration. Then, it instantiates the WebAssembly module (using a
 `SpinHttpExecutor` or the `WagiHttpExecutor`, based on the component
 configuration) to handle the request and return the response.
 
-## The Spin execution context
+## The Spin Execution Context
 
 The Spin execution context (or "Spin engine") is the part of Spin that executes
 WebAssembly components using the

@@ -2,6 +2,7 @@ title = "Building Spin Components in JavaScript"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
+
 ---
 
 With JavaScript being a very popular language, Spin provides support for building components with it using the experimental SDK. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. 
@@ -220,7 +221,7 @@ proxies or URL shorteners.
 
 ---
 
-## Storing Data in Redis from JS/TS Components
+## Storing Data in Redis From JS/TS Components
 
 > You can find a complete example for using outbound Redis from an HTTP component
 > in the [spin-js-sdk repository on GitHub](https://github.com/fermyon/spin-js-sdk/blob/main/examples/typescript/outbound_redis/src/index.ts).

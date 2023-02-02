@@ -6,7 +6,7 @@ template = "bartholomew_main"
 
 ---
 
-## Google Verification using Bartholomew
+## Google Verification Using Bartholomew
 
 Your Bartholomew implementation can be <a href="https://support.google.com/webmasters/answer/9008080?hl=en" target="_blank">officially verified with Google</a>. This is an important first step because the verification process provides you with access to the <a href="https://g.co/kgs/UcBemE" target="_blank">Google Search Console</a>. The Google Search Console (formerly Google Webmaster Tools) allows webmasters to check indexing status, search queries, crawling errors and also optimize visibility of their site.
 
@@ -42,7 +42,7 @@ google-site-verification: abcdefg.html
 
 At this point the verification button in the Google dashboard can be pressed; Google fetches the file from your site and the verification is complete!
 
-## Search Engine Optimization (SEO) using Bartholomew
+## Search Engine Optimization (SEO) Using Bartholomew
 
 In addition to just verifying the ownership of a site/domain, You can see that there are <a href="https://developers.google.com/search/docs/beginner/seo-starter-guide" target="_blank">specific SEO requirements</a> in relation to how the <a href="https://g.co/kgs/p6qtQs" target="_blank">Googlebot</a> indexes content. Googlebot is the web crawler software used by Google.
 

@@ -1,8 +1,9 @@
-title = "Configuration for Spin applications"
+title = "Configuration for Spin Applications"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/configuration.md"
+
 ---
 
 Spin applications are comprised of general information (metadata), and a collection
@@ -28,9 +29,9 @@ route = "/hello"
 command = "cargo build --target wasm32-wasi --release"
 ```
 
-## Application manifest reference
+## Application Manifest Reference
 
-### Application configuration
+### Application Configuration
 
 The following are the fields supported by the `spin.toml` manifest file:
 
@@ -59,7 +60,7 @@ are using for message subscriptions.
 - `variables` (OPTIONAL): [Custom configuration](#custom-configuration) variables.
 - A list of `component` objects (REQUIRED) defining the application components.
 
-### Component configuration
+### Component Configuration
 
 Each `component` object has the following fields:
 

@@ -6,9 +6,9 @@ enable_shortcodes = true
 ---
 
 - [Prerequisites - Install the Spin CLI](#prerequisites---install-the-spin-cli)
-- [Login to the Fermyon Cloud](#login-to-the-fermyon-cloud)
-- [Deploy your application](#deploy-your-application)
-- [Next steps](#next-steps)
+- [Log in to the Fermyon Cloud](#log-in-to-the-fermyon-cloud)
+- [Deploy Your Application](#deploy-your-application)
+- [Next Steps](#next-steps)
 
 This article will guide you through deploying a Spin Application with the Fermyon Cloud. You can deploy your [Spin App](/spin) or [Bartholomew](https://github.com/fermyon/bartholomew) site in just a few steps.
 
@@ -44,7 +44,7 @@ Device authorized!
 
 This command generates an authentication code for your device to be authorized on the Fermyon Cloud. 
 
-## Deploy your application
+## Deploy Your Application
 
 After having signed in to the Fermyon Cloud, you deploy the application, by running the following command in the directory where your applications `spin.toml` file is located.
 
@@ -64,6 +64,6 @@ Take a look at the [Quickstart article](quickstart) for how to get a pre-built a
 
 **Congratulations on deploying your Spin Application! 🥳**
 
-## Next steps
+## Next Steps
 
 - Next, let's look at [how to upgrade an application](upgrade).

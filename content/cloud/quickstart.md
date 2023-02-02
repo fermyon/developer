@@ -8,9 +8,9 @@ enable_shortcodes = true
 > This is the open beta of the Fermyon Cloud. For more info about the limitations and support, please see read the [FAQ](/cloud/faq).
 
 - [Install Spin](#install-spin)
-- [Log in to the Fermyon cloud](#log-in-to-the-fermyon-cloud)
-- [Clone the quickstart repo](#clone-the-quickstart-repo)
-- [Deploy the application](#deploy-the-application)
+- [Log in to the Fermyon Cloud](#log-in-to-the-fermyon-cloud)
+- [Clone the Quickstart Repo](#clone-the-quickstart-repo)
+- [Deploy the Application](#deploy-the-application)
 - [Success](#success)
 - [Next Steps](#next-steps)
 
@@ -38,7 +38,7 @@ This command downloads and unpacks the latest Spin binary in the current directo
 
 {{ details "Learn more" "[Spin](https://github.com/fermyon/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). \n\n The [Spin](/spin) documentation is a good starting place to learn more about using the framework to develop applications."}}
 
-## Log in to the Fermyon cloud
+## Log in to the Fermyon Cloud
 
 Now, let's log in to the Fermyon Cloud. You will be using your [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email) to sign in.
 
@@ -62,7 +62,7 @@ This command will generate an authentication code for your current device to be 
 
 {{ details "Learn more" "The default behavior of `spin login` is to authenticate with the Fermyon Cloud. The command can authenticate against any instance of the [Fermyon Platform](https://www.fermyon.dev)." }}
 
-## Clone the quickstart repo
+## Clone the Quickstart Repo
 
 To make this easy, we've already compiled a Webassembly module and created a Spin application for you to deploy.
 
@@ -76,7 +76,7 @@ This command clones the repository into a local directory named `cloud-start`, a
 
 {{ details "Learn more" "To write your Spin application, you would start by using the command `spin new [template name] [project name]`. This gives you the option to select a template based on your preference of programming language and trigger for your module - e.g., `spin new rust-http my_rust_http_trigger`. \n\n The [Spin quickstart](/spin/quickstart) guides you through creating a Spin application from scratch." }}
 
-## Deploy the application
+## Deploy the Application
 
 Let's deploy the application
 

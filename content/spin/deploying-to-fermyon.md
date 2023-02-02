@@ -1,8 +1,9 @@
-title = "Deploying Spin applications to Fermyon"
+title = "Deploying Spin Applications to Fermyon"
 template = "spin_main"
 date = "2022-05-20T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/deploying-to-fermyon.md"
+
 ---
 
 [Fermyon](https://www.fermyon.dev/) is the frictionless WebAssembly platform for deploying
