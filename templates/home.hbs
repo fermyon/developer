@@ -104,14 +104,25 @@
                     <div class="column is-two-thirds-desktop is-full-touch is-">
                         <h2>Where to find us next</h2>
 
-                        {{!-- {{#each (event site.pages) }} --}}
-                        {{#with (newest_event site.pages) }}
-                            <h1>title {{this.page.head.title}}</h1>
-                        {{/with}}
-                        {{!-- {{/each}} --}}
-
                         <div class="community-highlight main-carousel">
+                            {{#each (events site.pages) }}
                             <article class="community-highlight carousel-cell">
+                                <a href="{{this.page.head.extra.url}}" target="_blank">
+                                    <event>
+                                        <date>
+                                            {{this.page.head.extra.eventdates}}
+                                        </date>
+                                        <eventtitle>
+                                            {{this.page.head.title}}
+                                        </eventtitle>
+                                        <p>{{this.page.head.description}}</p>
+                                        <img src="{{this.page.head.extra.image}}" alt="{{this.page.head.title}}" class="event-logo" />
+                                    </event>
+                                </a>
+                            </article>
+                            {{/each}}
+                            
+                            {{!-- <article class="community-highlight carousel-cell">
                                 <a href="https://sched.co/1H9zV" target="_blank">
                                     <event>
                                         <date>
@@ -124,8 +135,8 @@
                                         <img src="static/image/events/developerweek.jpg" alt="DeveloperWeek SF" class="event-logo" />
                                     </event>
                                 </a>
-                            </article>
-                            <article class="carousel-cell">
+                            </article> --}}
+                            {{!-- <article class="carousel-cell">
                                 <a href="https://wasmio.tech/" target="_blank">
                                     <event>
                                         <date>
@@ -138,7 +149,7 @@
                                         <img src="static/image/events/wasm-io.jpg" alt="Wasm I/O 2023" class="event-logo" />
                                     </event>
                                 </a>
-                            </article>
+                            </article> --}}
                         </div>
                     </div>
                     <div class="column is-one-third-desktop is-full-touch">

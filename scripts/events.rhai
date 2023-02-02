@@ -1,32 +1,43 @@
-// Get just the upcoming events, excluding expired events.
+// This function lists all of the blog posts, subject to the constraints.
 //
-// To use this:
-// {{#with (newest_event site.pages)}} {{this.page.head.title}} {{/with}}
+// It returns an array of objects of the form:
+//  [
+//    #{ 
+//       uri: "path/to/page", 
+//       page: {
+//          head: {title: "some title", description: "Some description", ...}
+//          body: "This is the HTML"
+//       }
+//     }
+// ]
+//
+// The array is sorted with the earlier items being most recent, and the oldest items at the end.
 
 // Param 1 should be `site.pages`
 let pages = params[0];
 
-// If no pages match, this is default content.
-let newest_event = #{date: "0", uri: "/events/index", page: #{head: #{title: "No upcoming events."}}};
+// Loop through them and return all of the page objects that are in
+// the blog path.
 
-// Get each event item, assigning it to {path: object}.
-for item in pages.keys() {
+let blog_pages = [];
+
+// Get each blog post, assigning it to {path: object}.
+let keys = pages.keys();
+for item in keys {
     if item.index_of("/content/events/") == 0 && pages[item].head.extra.type == "event" {
         // Remove /content and .md
         let path = item.sub_string(8);
         let page = pages[item];
         path = path.sub_string(0, path.index_of(".md"));
-
-        // If this page is newer than the last newest page,
-        // set this as the newest page.
-        let date = page.head.date;
-        if date > newest_event.extra.eventexpires {
-            newest_event = #{
-                date: date,
-                uri: path,
-                page: page,
-            };
-        }
+        
+        blog_pages.push(#{
+            uri: path,
+            page: page,
+            template: "blog",
+        });
+        //blog_pages[path] = pages[item];
     }
+   
 }
-newest_event
+
+blog_pages
