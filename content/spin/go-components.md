@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/go-components.md"
+
 ---
 
 [TinyGo](https://tinygo.org/) is an implementation of the
@@ -25,7 +26,7 @@ TinyGo `0.25.x` is recommended, which requires Go `1.16.x` or newer.
 
 > TinyGo version `0.26.x` is known to have issues with Spin on some systems.
 
-## HTTP components
+## HTTP Components
 
 In Spin, HTTP components are triggered by the occurrence of an HTTP request, and
 must return an HTTP response at the end of their execution. Components can be
@@ -66,7 +67,7 @@ contain the HTTP request and response writer you can use to handle the request
 are the Go objects from the standard library, so working with them should feel
 familiar if you are a Go developer
 
-## Sending outbound HTTP requests
+## Sending Outbound HTTP Requests
 
 If allowed, Spin components can send outbound requests to HTTP endpoints. Let's
 see an example of a component that makes a request to
@@ -161,7 +162,7 @@ date: Fri, 18 Mar 2022 23:27:33 GMT
 > the component to make requests to any HTTP host. This is **NOT** recommended
 > for any production or publicly-accessible application.
 
-## Redis components
+## Redis Components
 
 Besides the HTTP trigger, Spin has built-in support for a Redis trigger, which
 will connect to a Redis instance and will execute components for new messages
@@ -243,7 +244,7 @@ Payload::::
 Hello, there!
 ```
 
-## Storing data in Redis from Go components
+## Storing Data in Redis From Go Components
 
 Using the Spin's Go SDK, you can use the Redis key/value store to publish
 messages to Redis channels. This can be used from both HTTP and Redis triggered
@@ -318,7 +319,7 @@ messages on the `messages` Redis channel.
 > You can find a complete example for using outbound Redis from an HTTP component
 > in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/tinygo-outbound-redis).
 
-## Using Go packages in Spin components
+## Using Go Packages in Spin Components
 
 Any
 [package from the Go standard library](https://tinygo.org/docs/reference/lang-support/stdlib/) that can be imported in TinyGo and that compiles to

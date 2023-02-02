@@ -5,13 +5,13 @@ enable_shortcodes = true
 
 ---
 
-* [The Fermyon Cloud Explained](#the-fermyon-cloud-explained)
-* [Core Components of the Fermyon Cloud](#core-components-of-the-fermyon-cloud)
-  * [Orchestration](#orchestration)
-  * [Service Resolution](#service-resolution)
-  * [Traffic routing](#traffic-routing)
-  * [Application Packaging and Distribution](#application-packaging-and-distribution)
-  * [Web UI, API and CLI](#web-ui-api-and-cli)
+- [The Fermyon Cloud Explained](#the-fermyon-cloud-explained)
+- [Core Components of the Fermyon Cloud](#core-components-of-the-fermyon-cloud)
+  - [Orchestration](#orchestration)
+  - [Service Resolution](#service-resolution)
+  - [Traffic Routing](#traffic-routing)
+  - [Application Packaging and Distribution](#application-packaging-and-distribution)
+  - [Web UI, API and CLI](#web-ui-api-and-cli)
 
 ## The Fermyon Cloud Explained
 
@@ -41,7 +41,7 @@ The core orchestration in the Fermyon Cloud is done using [HashiCorp's Nomad](ht
 
 In order to successfully route traffic to your Spin applications, a service registry is needed to map application endpoints to sockets on servers. This is done using Consul, as an integrated part of Nomad. Consul helps ensure we can always find your application, as the orchestration engine may or may not move it around.
 
-### Traffic routing
+### Traffic Routing
 
 Traffic routing is done using [Traefik](https://doc.traefik.io/), which ensures that data is sent to the right places in the cloud.
 

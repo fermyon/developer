@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/other-languages.md"
+
 ---
 
 > This document is continuously evolving as we improve language SDKs and add
@@ -52,7 +53,7 @@ C and C++ are both broadly supported in the WebAssembly ecosystem. WASI/Wagi sup
 - The [C++ entry in the Wasm Language Guide](https://www.fermyon.com/wasm-languages/cpp) has specific caveats for writing C++ (like exception handling)
 - The [yo-wasm](https://github.com/deislabs/yo-wasm) project makes setting up C easier.
 
-## C# and .NET languages
+## C# and .NET Languages
 
 .NET has experimental support for WASI, so many (if not all) .NET languages, including C# and F#, can be used to write Spin applications.
 

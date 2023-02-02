@@ -9,7 +9,7 @@ keywords = "abuse security concern"
 This article contains the following information:
 
 - [Engage on Discord](#engage-on-discord)
-- [Report issues on GitHub](#report-issues-on-github)
+- [Report Issues on GitHub](#report-issues-on-github)
 - [Report Abuse](#report-abuse)
 
 ## Engage on Discord
@@ -18,7 +18,7 @@ As the Fermyon Cloud is currently in Beta, support is being provided best effort
 
 For support related to **Spin**, **Bartholomew**, and other projects, please use the appropriate channels on Discord as well.
 
-## Report issues on GitHub
+## Report Issues on GitHub
 
 To see any know issues and report a specific issue, feel free to use the [feedback repository](https://github.com/fermyon/feedback)
 

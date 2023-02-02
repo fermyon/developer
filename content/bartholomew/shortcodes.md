@@ -11,7 +11,7 @@ Shortcodes are simple reusable snippets can be used inside the markdown content.
 
 Bartholomew supports shortcodes simplify sharing content between different markdown files. 
 
-## The basic
+## The Basic
 
 1. Create a file in shortcodes/ with the extension `.rhai`
 2. Put some Rhai code in there
@@ -19,7 +19,7 @@ Bartholomew supports shortcodes simplify sharing content between different markd
 4. Enable shortcodes in the markdown document
 5. Use it in the content
 
-## Creating a shortcode
+## Creating a Shortcode
 
 An example of a shortcode is in `shortcodes/alert.rhai`. The shortcode is available in the markdown file as `alert` just like for scripts.
 
@@ -71,7 +71,7 @@ let icons = #{
 
 ```
 
-## Enabling shortcodes
+## Enabling Shortcodes
 
 To enable shortcodes support for a particular document, the value of `enable_shortcodes = true` must be set in the page head.
 
@@ -85,7 +85,7 @@ enable_shortcodes = true
 ---
 ```
 
-## Using shortcodes
+## Using Shortcodes
 
 Now the shortcode can be used in the markdown file by calling it with the required arguments. For the alerts script, this is the type of alert and the message to be displayed.
 
@@ -97,7 +97,7 @@ Which renders as the following.
 
 {{ alert "warning" "Bartholomew is a work in progress" }}
 
-## Note while using shortcodes
+## Note While Using Shortcodes
 
 An important note to be considered while using shortcodes is that the `\{{ }}` must be escaped if they are not meant to be executed. This is only required in the content files where shortcodes are enabled.
 

@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/contributing.md"
+
 ---
 
 We are delighted that you are interested in making Spin better! Thank you! This
@@ -19,7 +20,7 @@ queues first to make sure someone else has not started working on it. If it
 doesn't exist already, please open an issue so you have a chance to get feedback
 from the community and the maintainers before you start working on your feature.
 
-## Making code contributions to Spin
+## Making Code Contributions to Spin
 
 The following guide is intended to make sure your contribution can get merged as
 soon as possible. First, make sure you have the following prerequisites
