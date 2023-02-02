@@ -11,7 +11,7 @@ let newest_event = #{date: "0", uri: "/events/index", page: #{head: #{title: "No
 
 // Get each event item, assigning it to {path: object}.
 for item in pages.keys() {
-    if item.index_of("/content/events/") == 0 && pages[item].head.extra.type == "post" {
+    if item.index_of("/content/events/") == 0 && pages[item].head.extra.type == "event" {
         // Remove /content and .md
         let path = item.sub_string(8);
         let page = pages[item];
@@ -19,8 +19,8 @@ for item in pages.keys() {
 
         // If this page is newer than the last newest page,
         // set this as the newest page.
-        let date = page.head.extra.eventexpires;
-        if date > newest_event.eventexpires {
+        let date = page.head.date;
+        if date > newest_event.extra.eventexpires {
             newest_event = #{
                 date: date,
                 uri: path,

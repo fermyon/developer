@@ -104,6 +104,12 @@
                     <div class="column is-two-thirds-desktop is-full-touch is-">
                         <h2>Where to find us next</h2>
 
+                        {{!-- {{#each (event site.pages) }} --}}
+                        {{#with (newest_event site.pages) }}
+                            <h1>title {{this.page.head.title}}</h1>
+                        {{/with}}
+                        {{!-- {{/each}} --}}
+
                         <div class="community-highlight main-carousel">
                             <article class="community-highlight carousel-cell">
                                 <a href="https://sched.co/1H9zV" target="_blank">
