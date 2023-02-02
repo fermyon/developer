@@ -35,6 +35,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification'                                                        \
     --exclude 'https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template'                                                            \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
+    --exclude 'https://www.developerweek.com'                                                                                                                               \
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://marketplace.visualstudio.com/items?itemName=fermyon.spin-vscode&ssr=false#overview'                                                                                  \
