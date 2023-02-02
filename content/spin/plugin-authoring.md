@@ -1,6 +1,7 @@
 title = "Creating Spin Plugins"
 template = "spin_main"
-date = "2023-02-6T00:22:56Z"
+date = "2023-02-1T00:22:56Z"
+
 ---
 
 Spin plugins add new functionality or subcommands to Spin without modifying the
@@ -14,7 +15,7 @@ and more.
 This document will cover what Spin plugins are, how to use a plugin, and how to
 create a plugin.
 
-## What are Spin Plugins?
+## What Are Spin Plugins?
 
 A Spin plugin is an executable that is added to Spin's plugins directory
 (`$XDG_DATA_HOME/spin/plugins`) upon a `spin plugins install <plugin-name>`. The
@@ -62,7 +63,7 @@ Spin plugins are implemented as a manifest that points to one or more `.tar.gz` 
 
 After creating your plugin executable, package it along with its license as a
 `tar.gz` archive. Note that the `name` field in the plugin manifest must match
-both the binary and license name (i.e. `$name.license`). See the [`spin-plugins`
+both the binary and license name. See the [`spin-plugins`
 repository
 README](https://github.com/fermyon/spin-plugins#spin-plugin-naming-conventions)
 for more details on naming conventions.
