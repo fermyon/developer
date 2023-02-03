@@ -6,7 +6,7 @@ description = "Join us in Oakland CA for DeveloperWeek. Fermyon will have a boot
 type = "event"
 eventdates = "Feb 15-17 2023"
 eventexpires = "2023-02-18T02:21:15Z"
-url = "https://s.developerweek.com/ "
+url = "https://www.developerweek.com/"
 image = "static/image/events/developerweek.jpg"
 
 ---

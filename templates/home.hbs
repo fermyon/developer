@@ -103,10 +103,11 @@
                 <div class="columns is-multiline">
                     <div class="column is-two-thirds-desktop is-full-touch is-">
                         <h2>Where to find us next</h2>
-
                         <div class="community-highlight main-carousel">
-                            {{#each (events site.pages) }}
-                            <article class="community-highlight carousel-cell">
+                            {{#with (events site.pages)}}
+                            {{#each this }}
+                            <article class="community-highlight carousel-cell"
+                                data-expirydate="{{this.page.head.extra.eventexpires}}">
                                 <a href="{{this.page.head.extra.url}}" target="_blank">
                                     <event>
                                         <date>
@@ -116,40 +117,27 @@
                                             {{this.page.head.title}}
                                         </eventtitle>
                                         <p>{{this.page.head.description}}</p>
-                                        <img src="{{this.page.head.extra.image}}" alt="{{this.page.head.title}}" class="event-logo" />
+                                        <img src="{{this.page.head.extra.image}}" alt="{{this.page.head.title}}"
+                                            class="event-logo" />
                                     </event>
                                 </a>
                             </article>
                             {{/each}}
-                            
-                            {{!-- <article class="community-highlight carousel-cell">
-                                <a href="https://sched.co/1H9zV" target="_blank">
+                            {{/with}}
+                            {{#unless (events site.pages)}}
+                            <article class="community-highlight carousel-cell">
+                                <a href="#">
                                     <event>
                                         <date>
-                                            February 15-17
                                         </date>
-                                        <eventtitle>
-                                            DeveloperWeek SF
+                                        <eventtitle>No upcoming Events
                                         </eventtitle>
-                                        <p>Join us in Oakland CA for DeveloperWeek. Fermyon will have a booth and Matt Butcher is giving a talk on the 16th.</p>
-                                        <img src="static/image/events/developerweek.jpg" alt="DeveloperWeek SF" class="event-logo" />
+                                        <p></p>
+                                        <img class="event-logo" />
                                     </event>
                                 </a>
-                            </article> --}}
-                            {{!-- <article class="carousel-cell">
-                                <a href="https://wasmio.tech/" target="_blank">
-                                    <event>
-                                        <date>
-                                            March 23-24
-                                        </date>
-                                        <eventtitle>
-                                            Wasm I/O 2023
-                                        </eventtitle>
-                                        <p>Wasm I/O is a two-day single-track conference in Barcelona, focused on the WebAssembly ecosystem. Fermyon is excited to sponsor this new event!</p>
-                                        <img src="static/image/events/wasm-io.jpg" alt="Wasm I/O 2023" class="event-logo" />
-                                    </event>
-                                </a>
-                            </article> --}}
+                            </article>
+                            {{/unless}}
                         </div>
                     </div>
                     <div class="column is-one-third-desktop is-full-touch">
@@ -185,21 +173,6 @@
         </article>
 
         <script src="./static/js/flickity.min.js"></script>
-        <script>
-            var elem = document.querySelector('.main-carousel');
-            var flkty = new Flickity( elem, {
-            // options
-            cellAlign: 'left',
-            contain: true
-            });
-
-            // element argument can be a selector string
-            //   for an individual element
-            var flkty = new Flickity( '.main-carousel', {
-            // options
-            });
-        </script>
-
     </div>
 </main>
 
