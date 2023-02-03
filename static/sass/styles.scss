@@ -1315,7 +1315,7 @@ html.dark-theme {
 
 		h2,
 		h3 {
-			color: white;
+			color: white !important;
 		}
 		.card.project {
 			background: darken($oxfordblue, 5%);
