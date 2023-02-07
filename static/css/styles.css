@@ -2896,7 +2896,7 @@ html.dark-theme .developer-home-wrap #intro p.lead {
 }
 
 html.dark-theme .developer-home-wrap h2, html.dark-theme .developer-home-wrap h3 {
-  color: #fff;
+  color: #fff !important;
 }
 
 html.dark-theme .developer-home-wrap .card.project {
