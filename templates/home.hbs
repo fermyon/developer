@@ -103,36 +103,41 @@
                 <div class="columns is-multiline">
                     <div class="column is-two-thirds-desktop is-full-touch is-">
                         <h2>Where to find us next</h2>
-
                         <div class="community-highlight main-carousel">
+                            {{#with (events site.pages)}}
+                            {{#each this }}
+                            <article class="community-highlight carousel-cell"
+                                data-expirydate="{{this.page.head.extra.eventexpires}}">
+                                <a href="{{this.page.head.extra.url}}" target="_blank">
+                                    <event>
+                                        <date>
+                                            {{this.page.head.extra.eventdates}}
+                                        </date>
+                                        <eventtitle>
+                                            {{this.page.head.title}}
+                                        </eventtitle>
+                                        <p>{{this.page.head.description}}</p>
+                                        <img src="{{this.page.head.extra.image}}" alt="{{this.page.head.title}}"
+                                            class="event-logo" />
+                                    </event>
+                                </a>
+                            </article>
+                            {{/each}}
+                            {{/with}}
+                            {{#unless (events site.pages)}}
                             <article class="community-highlight carousel-cell">
-                                <a href="https://events.hashicorp.com/hashitalksdeploy" target="_blank">
+                                <a href="#">
                                     <event>
                                         <date>
-                                            December 7-8
                                         </date>
-                                        <eventtitle>
-                                            HashiTalks: Deploy
+                                        <eventtitle>No upcoming Events
                                         </eventtitle>
-                                        <p>A free virtual event for the HashiCorp community of application developers on December 7 &amp; 8, 2022. Tune-in to hear from and learn with fellow practitioners.</p>
-                                        <img src="static/image/community-hashitalk.svg" alt="HashiTalk" class="event-logo" />
+                                        <p></p>
+                                        <img class="event-logo" />
                                     </event>
                                 </a>
                             </article>
-                            <article class="carousel-cell">
-                                <a href="https://discord.gg/pgmAPVbu?event=1037841499188105378" target="_blank">
-                                    <event>
-                                        <date>
-                                            December 8 @ 12PM (PST) / 8PM (GMT)
-                                        </date>
-                                        <eventtitle>
-                                            Community Q&amp;A
-                                        </eventtitle>
-                                        <p>Join our Discord for an hour of a little demo'ing and Q&amp;A with the Fermyon team. Bring all your questions, or things you want to show to the rest of the community!</p>
-                                        <img src="static/image/community-qanda.svg" alt="Community Q&A" class="event-logo" />
-                                    </event>
-                                </a>
-                            </article>
+                            {{/unless}}
                         </div>
                     </div>
                     <div class="column is-one-third-desktop is-full-touch">
@@ -157,9 +162,6 @@
                             <li>
                                 <a href="https://www.youtube.com/channel/UCGgsMYwLxmIgv1lXaActZqw" target="_blank">YouTube <span class="external"></span></a>
                             </li>
-                            <li>
-                                <a href="https://jobs.lever.co/fermyon-technologies" target="_blank">We're hiring! <span class="external"></span></a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -168,21 +170,6 @@
         </article>
 
         <script src="./static/js/flickity.min.js"></script>
-        <script>
-            var elem = document.querySelector('.main-carousel');
-            var flkty = new Flickity( elem, {
-            // options
-            cellAlign: 'left',
-            contain: true
-            });
-
-            // element argument can be a selector string
-            //   for an individual element
-            var flkty = new Flickity( '.main-carousel', {
-            // options
-            });
-        </script>
-
     </div>
 </main>
 

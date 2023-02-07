@@ -98,4 +98,53 @@ const addAnchorLinks = () => {
     })
 }
 
-export { scrollSideMenu, addCopyButtons, addAnchorLinks, header, blogAd}
+function removeExpiredEvents() {
+    let events = document.querySelectorAll(".community-highlight .carousel-cell")
+    let eventsNumber = events.length
+
+    if (eventsNumber) {
+        events.forEach((k) => {
+            if (k.dataset.expirydate) {
+                let eventExpiryDate = new Date(k.dataset.expirydate)
+                if (eventExpiryDate < Date.now()) {
+                    k.remove()
+                    eventsNumber--
+                }
+            }
+        })
+    } else {
+        return
+    }
+    if (eventsNumber) {
+        var elem = document.querySelector('.main-carousel');
+        var flkty = new Flickity(elem, {
+            // options
+            cellAlign: 'left',
+            contain: true
+        });
+
+        // element argument can be a selector string
+        //   for an individual element
+        var flkty = new Flickity('.main-carousel', {
+            // options
+        });
+    } else {
+        let eventsCarousel = document.querySelector(".community-highlight")
+        eventsCarousel.innerHTML = `
+        <article class="community-highlight carousel-cell">
+        <a href="#">
+            <event>
+                <date>
+                </date>
+                <eventtitle>No upcoming Events
+                </eventtitle>
+                <p></p>
+                <img class="event-logo" />
+            </event>
+        </a>
+        </article>
+        `
+    }
+}
+
+export { scrollSideMenu, addCopyButtons, addAnchorLinks, removeExpiredEvents, header, blogAd }

@@ -2417,7 +2417,7 @@ html.dark-theme .multitab-content {
 .documentation > .developer-home-wrap .community-highlight .carousel-cell {
   min-height: 250px;
   width: 100%;
-  padding: 1.67rem 2.5rem 1.67rem 3rem;
+  padding: 2.5rem 2.5rem 1.67rem 3rem;
 }
 
 .documentation > .developer-home-wrap .community-highlight event {
@@ -2456,6 +2456,7 @@ html.dark-theme .multitab-content {
 }
 
 .documentation > .developer-home-wrap .community-highlight img {
+  max-width: 140px;
   position: absolute;
   top: 50%;
   right: 2rem;
@@ -2895,7 +2896,7 @@ html.dark-theme .developer-home-wrap #intro p.lead {
 }
 
 html.dark-theme .developer-home-wrap h2, html.dark-theme .developer-home-wrap h3 {
-  color: #fff;
+  color: #fff !important;
 }
 
 html.dark-theme .developer-home-wrap .card.project {

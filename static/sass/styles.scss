@@ -775,7 +775,7 @@ html.dark-theme {
 		.carousel-cell {
 			min-height: 250px;
 			width: 100%;
-			padding: 1.67rem 2.5rem 1.67rem 3rem;
+			padding: 2.5rem 2.5rem 1.67rem 3rem;
 		}
 
 		event {
@@ -819,6 +819,7 @@ html.dark-theme {
 			right: 2rem;
 			top: 50%;
 			transform: translateY(-50%);
+			max-width: 140px;
 		}
 
 		&.community-highlight-short {
@@ -1314,7 +1315,7 @@ html.dark-theme {
 
 		h2,
 		h3 {
-			color: white;
+			color: white !important;
 		}
 		.card.project {
 			background: darken($oxfordblue, 5%);

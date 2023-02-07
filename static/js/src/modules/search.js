@@ -1,5 +1,7 @@
 const { el, mount, text, list, setChildren, setStyle, setAttr } = redom
 
+const projectList = ["Spin", "Cloud", "Bartholomew"]
+
 let idx
 let documents
 
@@ -128,7 +130,7 @@ class SearchResultFilter {
 class SearchResult {
     constructor() {
         this.data
-        this.projects = ["Spin", "Cloud"]
+        this.projects = projectList
         this.resultItems = list("div.result-section", SearchResultItem)
         this.resultFilters = new SearchResultFilter(this.projects, this.filter.bind(this))
         this.el = el("div.result-section-container", this.resultFilters, this.resultItems)
