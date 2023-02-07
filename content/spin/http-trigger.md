@@ -64,11 +64,8 @@ which means the component will be invoked for every request starting with the
 `/base/bar/baz/qux/quux` and so on).
 
 If multiple components could potentially handle the same request based on their
-defined routes, the component whose route has the longest matching prefix 
-takes precedence. 
-
-In the following example, any request starting with the  `/foo/` prefix (e.g. `/foo/bar`)
-will be handled by `component-1`:
+defined routes, the last component defined in `spin.toml` takes precedence.
+In the following example:
 
 ```toml
 # spin.toml
@@ -78,16 +75,16 @@ trigger = { type = "http", base = "/"}
 [[component]]
 id = "component-1"
 [component.trigger]
-route = "/foo/..."
+route = "/..."
 
 [[component]]
 id = "component-2"
 [component.trigger]
-route = "/..."
+route = "/foo/..."
 ```
 
-> Note: Although the route defined by `component-2` also matches `/foo/bar`, the route 
-> defined by `component-1` has the longer matching prefix, i.e. `/foo/`.
+Any request starting with the  `/foo/` prefix  will be handled by `component-2`,
+which is the last one defined in `spin.toml`.
 
 Every HTTP application has a special route always configured at `/.well-known/spin/health`, which
 returns `OK 200` when the Spin instance is healthy.
