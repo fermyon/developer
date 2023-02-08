@@ -61,7 +61,7 @@ $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v 
 
 ## Building Spin From Source
 
-[Follow the contribution document](./contributing.md) for a detailed guide on building Spin from source:
+[Follow the contribution document](./contributing-spin.md) for a detailed guide on building Spin from source:
 
 <!-- @selectiveCpy -->
 
