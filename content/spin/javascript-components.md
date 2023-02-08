@@ -101,7 +101,7 @@ $ spin up
 
 ## A Quick Note About NPM Scripts
 
-Please note that using pre-built NPM scripts can have different effects on different Operating Systems (OSs). For example, an `npm run build` command (like [the one in the spin-js-sdk](https://github.com/fermyon/spin-js-sdk/blob/main/examples/javascript/hello_world/package.json)) performs many separate commands; as shown below:
+Please note that using pre-built NPM scripts can have different effects on different Operating Systems (OSs). Let's take the `npm run build` command (like [the one in the spin-js-sdk](https://github.com/fermyon/spin-js-sdk/blob/main/examples/javascript/hello_world/package.json)) as an example:
 
 <!-- @nocpy -->
 
@@ -112,15 +112,30 @@ Please note that using pre-built NPM scripts can have different effects on diffe
   }
 ```
 
-The `npm run build` command will work repeatedly (when modifying and building/deploying over again) on Linux and macOS. This is because the `-p` option in the `mkdir` command will not produce an error in the event that the `target` directory already exists. However, this is not the case on Windows. When using Windows you will encounter an error like the following.
+The `npm run build` command will work on Linux and macOS. However, on Windows it will create both a `-p` directory and a `target` directory.
+
+On Linux/Unix systems, the `-p` option in the `mkdir` command is designed to prevent an error from occuring in the event that the `target` directory already exists. However, on Windows systems, npm (by default) uses cmd.exe which does not recognize the `-p` option, regarding its `mkdir` command.
+
+If you run `npm run build` on Windows (more than once) the following error will be encountered.
 
 <!-- @nocpy -->
 
 ```bash
-Subdirectory or file target already exists
+A subdirectory or file -p already exists
+A Subdirectory or file target already exists
 ```
 
-If any errors, as described above, occur please consider running the separate parts of the `build` manually; to suit your own OS. For example:
+If any errors, as described above, occur please consider one of the two following options:
+
+a) Configure your instance of `npm` to use bash (by using the `script-shell` configuration setting): 
+
+<!-- @selectiveCpy -->
+
+```bash
+npm config set script-shell "C:\\Program Files (x86)\\git\\bin\\bash.exe"
+```
+
+b) Run the separate parts of the `build` manually, to suite your needs (OS syntax requirements):
 
 <!-- @selectiveCpy -->
 
