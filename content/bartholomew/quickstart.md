@@ -5,7 +5,7 @@ template = "bartholomew_main"
 [extra]
 
 ---
-This is a quickstart example of using Spin to deploy a Bartholomew CMS instance, locally on your machine. In this quickstart session, we use a Bartholomew site template which contains some pre-built parts (for your convenience). If you would like to build all of the parts separately from source (Spin, Bartholomew, File Server), please see the [contributing section](https://bartholomew.fermyon.dev/contributing) which dives a lot deeper than this quickstart example.
+This is a quickstart example of using Spin to deploy a Bartholomew CMS instance, locally on your machine. In this quickstart session, we use a Bartholomew site template which contains some pre-built parts (for your convenience). If you would like to build all of the parts separately from source (Spin, Bartholomew, File Server), please see the [contributing section](https://developer.fermyon.com/bartholomew/contributing-bartholomew) which dives a lot deeper than this quickstart example.
 
 ## Getting the `spin` Binary
 
