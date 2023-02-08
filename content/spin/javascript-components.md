@@ -97,6 +97,55 @@ Once a Spin compatible module is created, it can be run using
 $ spin up
 ```
 
+---
+
+## A Quick Note About NPM Scripts
+
+Please note that using pre-built NPM scripts can have different effects on different Operating Systems (OSs). Let's take the `npm run build` command (like [the one in the spin-js-sdk](https://github.com/fermyon/spin-js-sdk/blob/main/examples/javascript/hello_world/package.json)) as an example:
+
+<!-- @nocpy -->
+
+```bash
+"scripts": {
+    "build": "npx webpack --mode=production && mkdir -p target && spin js2wasm -o target/spin-http-js.wasm dist/spin.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+```
+
+The `npm run build` command will work on Linux and macOS. However, on Windows it will create both a `-p` directory and a `target` directory.
+
+On Linux/Unix systems, the `-p` option in the `mkdir` command is designed to prevent an error from occuring in the event that the `target` directory already exists. However, on Windows systems, npm (by default) uses cmd.exe which does not recognize the `-p` option, regarding its `mkdir` command.
+
+If you run `npm run build` on Windows (more than once) the following error will be encountered.
+
+<!-- @nocpy -->
+
+```bash
+A subdirectory or file -p already exists
+A Subdirectory or file target already exists
+```
+
+If any errors, as described above, occur please consider one of the two following options:
+
+a) Configure your instance of `npm` to use bash (by using the `script-shell` configuration setting): 
+
+<!-- @selectiveCpy -->
+
+```bash
+npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
+```
+
+b) Run the separate parts of the `build` manually, to suite your needs (OS syntax requirements):
+
+<!-- @selectiveCpy -->
+
+```bash
+npx webpack --mode=production
+spin js2wasm -o target/spin-http-js.wasm dist/spin.js
+```
+
+---
+
 ## HTTP Components
 
 In Spin, HTTP components are triggered by the occurrence of an HTTP request, and
@@ -281,4 +330,4 @@ These are some of the suggested libraries that have been tested and confired to 
 
 - All `spinSdk` related functions and methods can be called only inside the `handleRequest` function. This includes the usage of `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
 - Only a subset of the browser and `Node.js` APIs are implemented.
-- The support for `Crypto` module is currently limited to only `getRandomValues`. 
+- The support for Crypto  module is limited. The methods currently supported are `crypto.getRandomValues`, `crypto.subtle.digest`, `cryto.createHash` and `crypto.createHmac`
