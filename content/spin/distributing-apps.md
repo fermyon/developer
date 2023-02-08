@@ -1,4 +1,4 @@
-title = "Packaging and distributing Spin applications"
+title = "Packaging and Distributing Spin Applications"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
@@ -6,7 +6,7 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/distributing-apps.
 
 ---
 
-## Distributing Spin applications using container registry services
+## Distributing Spin Applications Using Container Registry Services
 
 Starting with [v0.8.0](https://github.com/fermyon/spin/releases/tag/v0.8.0), Spin supports distributing applications using existing container registry services such as GitHub Container Registry, Docker Hub, Azure ACR, or AWS ECR. This feature is experimental, and will continue to evolve in future versions of Spin.
 
@@ -27,7 +27,7 @@ $ spin oci run ghcr.io/radu-matei/spin-hello-world:v1
 
 This feature is built on top of the [OCI Artifacts project](https://github.com/opencontainers/artifacts).
 
-### Signing Spin applications and verifying signatures
+### Signing Spin Applications and Verifying Signatures
 
 Since Spin is now using existing container registries to distribute applications, it can also take advantage of the state of the art in terms of signing and verifying artifacts distributed using OCI registries. Here is an example of signing and verifying a Spin application using [Cosign and Sigstore](https://docs.sigstore.dev/cosign/overview/):
 
@@ -56,7 +56,7 @@ The following checks were performed on each of these signatures:
 $ spin oci run ghcr.io/radu-matei/spin-hello-world:v1
 ```
 
-## Distributing Spin applications using Bindle
+## Distributing Spin Applications Using Bindle
 
 Packaging and distributing Spin applications can be done using [Bindle](https://github.com/deislabs/bindle), an open source aggregate object storage system. This allows the packaging of the application manifest, components, and static assets together, and takes advantage of the features of a modern object storage system.
 
