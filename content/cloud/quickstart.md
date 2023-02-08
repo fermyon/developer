@@ -36,7 +36,7 @@ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 
 This command downloads and unpacks the latest Spin binary in the current directory.
 
-It's highly recommended to add Spin to a folder, which is on your path, e.g.:
+**It's highly recommended to add Spin to a folder, which is on your path**, e.g.:
 
 <!-- @selectiveCpy -->
 
@@ -97,7 +97,7 @@ Let's deploy the application
 $ spin deploy
 ```
 
-The `../spin` command will run using the Spin binary in the parent directory of the current path and read the Spin application definition file `spin.toml` in the current directory to know what application to deploy.
+The `spin` command will run using the Spin binary in your system path and read the Spin application definition file `spin.toml` in the current (`cloud-start`) directory to know what application to deploy.
 
 {{ details "Learn more" "Deploying a Spin application to the Fermyon Cloud includes packaging the application and all the required files, uploading it to a Bindle registry, as well as instantiating the application on the cloud. \n\n You can learn more about the deployment process [here](./deployment-concepts)." }}
 
