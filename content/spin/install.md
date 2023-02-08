@@ -107,7 +107,7 @@ Simply unzip the binary release and place the `spin.exe` in your system path.
 
 ## Building Spin From Source
 
-[Follow the contribution document](./contributing.md) for a detailed guide on building Spin from source:
+[Follow the contribution document](./contributing-spin.md) for a detailed guide on building Spin from source:
 
 <!-- @selectiveCpy -->
 
