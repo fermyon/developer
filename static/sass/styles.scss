@@ -108,6 +108,11 @@ TABLE OF CONTENTS
 					border-radius: 0.333rem;
 				}
 			}
+			@media screen and (max-width: 1661px) {
+				h1:first-of-type + ul {
+					display: none;
+				}
+			}
 		}
 
 		&.content-docs {
@@ -130,6 +135,11 @@ TABLE OF CONTENTS
 
 		pre {
 			max-width: 800px;
+			padding: 0 !important;
+
+			code {
+				padding: 1.25em 1.5em !important;
+			}
 		}
 
 		details {
@@ -301,9 +311,9 @@ TABLE OF CONTENTS
 	}
 	.multitab-content {
 		max-width: 800px;
-		padding: 1px 1.25rem 0.125rem;
+		padding: 0.67rem 1.25rem;
 		background-color: $lightlavender;
-		border-radius: 0.25em;
+		border-radius: 0.33em;
 
 		pre:last-of-type {
 			margin-bottom: 1rem !important;
@@ -349,6 +359,9 @@ TABLE OF CONTENTS
 }
 
 html.dark-theme {
+	&:root {
+		color-scheme: dark;
+	}
 	body {
 		aside.menu {
 			a {
@@ -446,9 +459,7 @@ html.dark-theme {
 		}
 	}
 	.multitab-content {
-		padding: 0.67rem 1.25rem;
 		background-color: $oxfordblue;
-		border-radius: 0.33em;
 	}
 }
 
