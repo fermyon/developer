@@ -330,4 +330,4 @@ These are some of the suggested libraries that have been tested and confired to 
 
 - All `spinSdk` related functions and methods can be called only inside the `handleRequest` function. This includes the usage of `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
 - Only a subset of the browser and `Node.js` APIs are implemented.
-- The support for `Crypto` module is currently limited to only `getRandomValues`. 
+- The support for Crypto  module is limited. The methods currently supported are `crypto.getRandomValues`, `crypto.subtle.digest`, `cryto.createHash` and `crypto.createHmac`
