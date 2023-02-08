@@ -39,8 +39,10 @@ To list available plugins, run `spin plugins list`. Now, decide which plugin to
 install. For example, the `js2wasm` plugin, which is needed in order to build
 JavaScript Spin applications, can be installed by running:
 
-```sh
-spin plugins install js2wasm
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins install js2wasm
 ```
 
 With the plugin installed, you can now call `spin js2wasm` to run it. In this
@@ -94,9 +96,11 @@ both installs and upgrades, the `--file` or `--url` flags can be used to point
 to specific local or remote plugin manifests. For example, a local manifest
 called `practice.json` can be installed and run as follows:
 
-```sh
-spin plugin install --file practice.json
-spin practice
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugin install --file practice.json
+$ spin practice
 ```
 
 ### Contributing a Plugin
