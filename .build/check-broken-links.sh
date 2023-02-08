@@ -47,7 +47,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://www.instagram.com/fermyontech/'                                                                                                                                      \
     --exclude 'https://www.linkedin.com/company/fermyon/'                                                                                                                                   \
     --exclude 'https://support.google.com/webmasters/answer/7552505'                                                                                                                        \
-    --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en'| tee /dev/stderr | grep -P "├─BROKEN─" > broken_links || true
+    --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en'| tee /dev/stderr | grep "├─BROKEN─" > broken_links || true
    
 
 if [ -s broken_links ]; then
