@@ -36,7 +36,7 @@ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 
 This command downloads and unpacks the latest Spin binary in the current directory.
 
-**It's highly recommended to add Spin to a folder, which is on your path**, e.g.:
+**We recommend adding Spin to a directory in your `$PATH`**, e.g.:
 
 <!-- @selectiveCpy -->
 
