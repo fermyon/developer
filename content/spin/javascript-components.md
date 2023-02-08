@@ -132,7 +132,7 @@ a) Configure your instance of `npm` to use bash (by using the `script-shell` con
 <!-- @selectiveCpy -->
 
 ```bash
-npm config set script-shell "C:\\Program Files (x86)\\git\\bin\\bash.exe"
+npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
 ```
 
 b) Run the separate parts of the `build` manually, to suite your needs (OS syntax requirements):
