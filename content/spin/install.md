@@ -124,7 +124,7 @@ If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installati
 <!-- @selectiveCpy -->
 
 ```bash
-$ git clone https://github.com/fermyon/spin -b v0.6.0
+$ git clone https://github.com/fermyon/spin -b v0.8.0
 $ cd spin
 $ rustup target add wasm32-wasi
 $ cargo install --locked --path .
