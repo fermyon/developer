@@ -9,7 +9,7 @@ This is a quickstart example of using Spin to deploy a Bartholomew CMS instance,
 
 ## Getting the `spin` Binary
 
-For Spin, follow [the Spin quickstart guide](https://spin.fermyon.dev/quickstart) which details how to either:
+For Spin, follow [the Spin quickstart guide](https://developer.fermyon.com/spin/quickstart) which details how to either:
 - download the latest Spin binary release,
 - clone and build Spin using cargo, or
 - clone and build Spin from source.

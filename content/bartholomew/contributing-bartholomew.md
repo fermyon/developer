@@ -195,7 +195,7 @@ The output from the above command will be similar to the following (depending on
 
 To run Bartholomew, you will need a Spin-capable runtime. 
 
-For Spin, follow [the Spin quickstart guide](https://spin.fermyon.dev/quickstart) which details how to either:
+For Spin, follow [the Spin quickstart guide](https://developer.fermyon.com/spin/quickstart) which details how to either:
 - download the latest Spin binary release,
 - clone and install Spin using cargo, or
 - clone and build Spin from source.
