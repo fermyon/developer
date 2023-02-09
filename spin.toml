@@ -187,12 +187,3 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/rust-component
 [component.trigger]
 route = "/spin/quickstart/rust-components"
 executor = { type = "wagi" }
-
-# Redirect /spin/quickstart/rust-components to /spin/rust-components
-[[component]]
-id = "spin-quickstart-rust-components"
-source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/rust-components" }
-[component.trigger]
-route = "/spin/quickstart/rust-components"
-executor = { type = "wagi" }
