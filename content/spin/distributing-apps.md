@@ -23,6 +23,8 @@ Pushed "https://ghcr.io/v2/radu-matei/spin-hello-world/manifests/sha256:06b19f43
 
 Then running the application using the registry reference:
 
+<!-- @nocpy -->
+
 ```bash
 $ spin oci run ghcr.io/radu-matei/spin-hello-world:v1
 ```
