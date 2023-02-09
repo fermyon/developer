@@ -68,6 +68,8 @@ Packaging and distributing Spin applications can be done using [Bindle](https://
 
 To distribute applications, we first need a Bindle registry. You can [install Bindle v0.8 release](https://github.com/deislabs/bindle/tree/main/docs#from-the-binary-releases), or use the [`autobindle`](https://marketplace.visualstudio.com/items?itemName=fermyon.autobindle) VS Code extension (through the `Bindle: Start` command):
 
+<!-- @nocpy -->
+
 ```bash
 $ bindle-server --address 127.0.0.1:8000 --directory . --unauthenticated
 ```
