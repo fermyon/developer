@@ -53,3 +53,48 @@ environment = { DESTINATION = "/bartholomew/index" }
 route = "/bartholomew"
 executor = { type = "wagi" }
 
+# Redirect /spin/contributing-docs to /common/contributing-docs
+[[component]]
+id = "redirect-contributing-spin-to-common"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/common/contributing-docs" }
+[component.trigger]
+route = "/spin/contributing-docs"
+executor = { type = "wagi" }
+
+# Redirect /cloud/contributing-docs to /common/contributing-docs
+[[component]]
+id = "redirect-contributing-cloud-to-common"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/common/contributing-docs" }
+[component.trigger]
+route = "/cloud/contributing-docs"
+executor = { type = "wagi" }
+
+# Redirect /bartholomew/contributing-docs to /common/contributing-docs
+[[component]]
+id = "redirect-contributing-bartholomew-to-common"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/common/contributing-docs" }
+[component.trigger]
+route = "/bartholomew/contributing-docs"
+executor = { type = "wagi" }
+
+# Redirect /spin/cli-reference to /common/cli-reference
+[[component]]
+id = "redirect-cli-reference-spin-to-common"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/common/cli-reference" }
+[component.trigger]
+route = "/spin/cli-reference"
+executor = { type = "wagi" }
+
+# Redirect /cloud/cli-reference to /common/cli-reference
+[[component]]
+id = "redirect-cli-reference-cloud-to-common"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/common/cli-reference" }
+[component.trigger]
+route = "/cloud/cli-reference"
+executor = { type = "wagi" }
+
