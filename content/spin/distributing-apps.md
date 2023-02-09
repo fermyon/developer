@@ -31,7 +31,7 @@ This feature is built on top of the [OCI Artifacts project](https://github.com/o
 
 Since Spin is now using existing container registries to distribute applications, it can also take advantage of the state of the art in terms of signing and verifying artifacts distributed using OCI registries. Here is an example of signing and verifying a Spin application using [Cosign and Sigstore](https://docs.sigstore.dev/cosign/overview/):
 
-```
+```bash
 # Push your Spin application to any registry that supports OCI Artifacts,
 # such as the GitHub Container Registry, Docker Hub, Azure ACR, or AWS ECR.
 $ spin oci push ghcr.io/radu-matei/spin-hello-world:v1
