@@ -14,6 +14,8 @@ While this feature is still in experimental phase, the CLI will reuse the contai
 
 Pushing an application to a registry:
 
+<!-- @nocpy -->
+
 ```bash
 $ spin oci push ghcr.io/radu-matei/spin-hello-world:v1
 Pushed "https://ghcr.io/v2/radu-matei/spin-hello-world/manifests/sha256:06b19f4394c59fe943140c9b59f083aefd4b53c6b632758523a2800d819a1575"
