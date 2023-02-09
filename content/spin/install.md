@@ -20,7 +20,7 @@ There are multiple ways to install Spin. The easiest is to use the installer scr
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.8.0
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh
 ```
 
 On a fresh Linux installation, you will also need the standard build toolchain
@@ -67,7 +67,7 @@ There are multiple ways to install Spin. The easiest is to use the installer scr
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.8.0
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh
 ```
 
 It's highly recommended to add Spin to a folder, which is on your path, e.g.:
