@@ -7,7 +7,6 @@ index_site_pages = ["sitemap"]
 copyright = "Fermyon"
 github = "https://github.com/fermyon/developer"
 twitter = "https://twitter.com/fermyontech"
-ga_measurement_id = "G-E1JG1JN662"
 
 # Static assets that we need to provide
 favicon = "/static/image/favicon.png"
