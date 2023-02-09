@@ -187,3 +187,12 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/rust-component
 [component.trigger]
 route = "/spin/quickstart/rust-components"
 executor = { type = "wagi" }
+
+# Redirect /spin/contributing/ to spin/contributing-spin
+[[component]]
+id = "spin-contributing"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/contributing-spin" }
+[component.trigger]
+route = "/spin/contributing/"
+executor = { type = "wagi" }
