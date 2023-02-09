@@ -50,14 +50,14 @@ TABLE OF CONTENTS
 
 
 			// toc
-			h1:first-of-type + ul {
+			h1:first-of-type+ul {
 				min-width: 15vw;
 				display: inline-block;
 				background: $lightlavender;
 				padding: 0.5rem 1rem 0.725rem;
 				border-radius: 0.333rem;
 				list-style: none;
-					
+
 				&:before {
 					content: "Contents:";
 					display: inline-block;
@@ -74,7 +74,7 @@ TABLE OF CONTENTS
 					list-style: none;
 					margin: 0.175rem 0;
 					padding: 0;
-					
+
 					a {
 						border-left: 4px solid darken($lightlavender, 2.5%);
 						border-radius: 1px;
@@ -83,7 +83,7 @@ TABLE OF CONTENTS
 						line-height: 1.2;
 						display: inline-block;
 						@include transition;
-						
+
 						&:hover {
 							background-color: transparent;
 							border-bottom: none;
@@ -98,7 +98,7 @@ TABLE OF CONTENTS
 			}
 
 			@media screen and (min-width: 1661px) {
-				h1:first-of-type + ul {
+				h1:first-of-type+ul {
 					position: fixed;
 					top: 112px;
 					right: 6.125rem;
@@ -108,8 +108,9 @@ TABLE OF CONTENTS
 					border-radius: 0.333rem;
 				}
 			}
+
 			@media screen and (max-width: 1661px) {
-				h1:first-of-type + ul {
+				h1:first-of-type+ul {
 					display: none;
 				}
 			}
@@ -309,6 +310,7 @@ TABLE OF CONTENTS
 	aside.menu {
 		padding-bottom: 7.5rem;
 	}
+
 	.multitab-content {
 		max-width: 800px;
 		padding: 0.67rem 1.25rem;
@@ -319,9 +321,11 @@ TABLE OF CONTENTS
 			margin-bottom: 1rem !important;
 		}
 	}
+
 	.tabs {
 		margin-bottom: 0;
-		ul{
+
+		ul {
 			margin-bottom: 0;
 			border: none;
 
@@ -333,6 +337,7 @@ TABLE OF CONTENTS
 
 		&.is-boxed {
 			margin-bottom: -8px;
+
 			a {
 				border: none;
 				padding: .5em 1.2em 18px;
@@ -362,6 +367,7 @@ html.dark-theme {
 	&:root {
 		color-scheme: dark;
 	}
+
 	body {
 		aside.menu {
 			a {
@@ -416,8 +422,9 @@ html.dark-theme {
 			.multitab-content {
 				background-color: darken($oxfordblue, 2%);
 			}
+
 			.tabs {
-				
+
 				&.is-boxed {
 					a {
 						color: lighten($lavender, 2.5%);
@@ -426,7 +433,7 @@ html.dark-theme {
 
 						&:hover {
 							color: $lightlemon;
-							background: transparent!important;
+							background: transparent !important;
 						}
 
 						&.is-active {
@@ -438,7 +445,7 @@ html.dark-theme {
 							}
 						}
 					}
-				}	
+				}
 			}
 
 			a.anchor-link {
@@ -458,6 +465,7 @@ html.dark-theme {
 			color: #34e8bd;
 		}
 	}
+
 	.multitab-content {
 		background-color: $oxfordblue;
 	}
@@ -525,6 +533,8 @@ html.dark-theme {
 }
 
 #topbar.navbar {
+
+
 	&.is-wide {
 		padding-left: 2.5rem;
 		padding-right: 2.5rem;
@@ -554,7 +564,90 @@ html.dark-theme {
 		z-index: 1020;
 
 		.navbar-start {
-			z-index: 1021;
+			z-index: 1023;
+
+			.is-hoverable {
+
+				z-index: 9999;
+
+				.navbar-link {
+					margin-left: 0;
+					font-size: 1.125rem;
+					font-weight: 700;
+				}
+
+				.navbar-dropdown {
+					width: 350px;
+
+					.navbar-item {
+						width: 100%;
+						margin-left: 0;
+						padding: 0;
+
+						.project-content {
+							width: 100%;
+							padding: 1rem 1rem 1rem 3rem;
+
+							.title {
+								font-size: 1.25rem;
+								width: 100%;
+								margin-bottom: 1rem;
+								position: relative;
+								display: flex;
+								align-items: center;
+
+								&:before {
+									position: absolute;
+									left: -2rem;
+									content: '';
+									display: inline-block;
+									width: 1rem;
+									height: 1rem;
+									border-radius: 50%;
+									background-color: lightgray;
+								}
+							}
+
+							&:hover {
+								.title {
+									&::before {
+										background-color: $midgreen;
+									}
+								}
+							}
+
+							.description {
+								width: 100%;
+								color: $darkplum;
+								font-size: 1rem;
+								font-weight: normal;
+								line-height: 1.25rem;
+								white-space: normal;
+							}
+						}
+					}
+
+				}
+
+				+.overlay {
+					z-index: 9998;
+					display: none;
+					position: fixed;
+					left: 0;
+					top: 0;
+					width: 100vw;
+					height: 100vw;
+				}
+
+				&:hover {
+					+.overlay {
+						display: block;
+						backdrop-filter: blur(6px);
+					}
+				}
+
+
+			}
 		}
 
 		.navbar-end {
@@ -571,7 +664,7 @@ html.dark-theme {
 			position: relative;
 
 			span {
-				background: lighten($lightlavender, 2.5%);
+				// background: lighten($lightlavender, 2.5%);
 				@include transition;
 				padding: 0.25rem 1rem;
 				border-radius: 1.75rem;
@@ -579,25 +672,6 @@ html.dark-theme {
 
 				&:hover {
 					background-color: lighten($lightplum, 7.5%);
-				}
-			}
-
-			&.is-active {
-				span {
-					background-color: lighten($lightplum, 20%);
-				}
-
-				&:after {
-					display: block;
-					content: " ";
-					background: $seagreen;
-					top: -0.1rem;
-					left: 0.75vw;
-					right: 0.825vw;
-					position: absolute;
-					height: 0.25rem;
-					border-radius: 0.25rem;
-					z-index: 250;
 				}
 			}
 
@@ -631,9 +705,9 @@ html.dark-theme {
 	}
 }
 
-.documentation > .developer-home-wrap {
+.documentation>.developer-home-wrap {
 	padding-bottom: 5rem;
-	
+
 	// disable the js title anchors on the homepage
 	a.anchor-link {
 		display: none !important;
@@ -669,6 +743,7 @@ html.dark-theme {
 				display: none;
 			}
 		}
+
 		h2 {
 			margin-bottom: 1.67rem;
 		}
@@ -684,7 +759,7 @@ html.dark-theme {
 			overflow: visible !important;
 		}
 
-		&.content-docs-wide > section {
+		&.content-docs-wide>section {
 			max-width: 90vw !important;
 			margin-left: 5vw !important;
 			margin-right: 5vw !important;
@@ -846,6 +921,7 @@ html.dark-theme {
 					float: left;
 					display: inline-block;
 				}
+
 				.eventtitle {
 					display: inline-block;
 					width: 57%;
@@ -871,7 +947,7 @@ html.dark-theme {
 			position: relative;
 			height: 100%;
 		}
-	  
+
 		.flickity-slider {
 			position: absolute;
 			width: 100%;
@@ -881,9 +957,9 @@ html.dark-theme {
 		&.is-draggable {
 			-webkit-tap-highlight-color: transparent;
 			-webkit-user-select: none;
-			   -moz-user-select: none;
-				-ms-user-select: none;
-					user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
 
 			.flickity-viewport {
 				cursor: move;
@@ -896,7 +972,7 @@ html.dark-theme {
 				}
 			}
 		}
-	
+
 		.flickity-button {
 			position: absolute;
 			background: hsla(0, 0%, 100%, 0.75);
@@ -941,6 +1017,7 @@ html.dark-theme {
 			&.previous {
 				left: -2.5rem;
 			}
+
 			&.next {
 				right: -2.5rem;
 			}
@@ -975,7 +1052,11 @@ html.dark-theme {
 		text-align: center;
 		line-height: 1;
 	}
-	.flickity-rtl .flickity-page-dots { direction: rtl; } 
+
+	.flickity-rtl .flickity-page-dots {
+		direction: rtl;
+	}
+
 	.flickity-page-dots .dot {
 		display: inline-block;
 		width: 1rem;
@@ -986,6 +1067,7 @@ html.dark-theme {
 		opacity: 0.25;
 		cursor: pointer;
 	}
+
 	.flickity-page-dots .dot.is-selected {
 		opacity: 1;
 	}
@@ -1020,7 +1102,8 @@ html.dark-theme {
 }
 
 @media screen and (min-width: 1661px) {
-// @media screen and (max-width: 1850px) {
+
+	// @media screen and (max-width: 1850px) {
 	.documentation {
 		.content {
 			&>section {
@@ -1037,9 +1120,9 @@ html.dark-theme {
 			}
 		}
 
-		 .developer-home-wrap .card.project h3 {
+		.developer-home-wrap .card.project h3 {
 			font-size: 1.825rem;
-		 }
+		}
 	}
 
 }
@@ -1052,6 +1135,7 @@ html.dark-theme {
 					max-width: 640px !important;
 				}
 			}
+
 			section {
 				ul {
 
@@ -1195,6 +1279,7 @@ html.dark-theme {
 
 		.community-highlight {
 			margin-right: 0;
+
 			event {
 				padding-right: 0;
 			}
@@ -1207,14 +1292,17 @@ html.dark-theme {
 				font-size: 1rem;
 				line-height: 1.5;
 			}
+
 			date {
 				font-size: 0.825rem;
 			}
+
 			eventtitle {
 				line-height: 1.4;
 				font-size: 1.333rem;
 				margin: 0.75rem 0 0;
 			}
+
 			.carousel-cell {
 				padding: 1.67rem 2rem 1.67rem 2rem;
 			}
@@ -1230,6 +1318,7 @@ html.dark-theme {
 		.flickity-enabled .flickity-prev-next-button.next {
 			right: 0.5rem;
 		}
+
 		.flickity-enabled .flickity-prev-next-button.previous {
 			left: 0.5rem;
 		}
@@ -1288,6 +1377,25 @@ html.dark-theme {
 
 	#topbar.navbar {
 
+		.is-hoverable {
+			.navbar-dropdown {
+				background-color: $darkspace;
+				.navbar-item {
+					.project-content {
+						.title {
+							color: $midgreen;
+						}
+						.description {
+							color: $lightplum !important;
+						}
+					}
+				}
+
+			}
+
+
+		}
+
 		.logo-wrap {
 			border-right: 1px solid darken($darkolive, 17.5%);
 
@@ -1328,6 +1436,7 @@ html.dark-theme {
 		h3 {
 			color: white !important;
 		}
+
 		.card.project {
 			background: darken($oxfordblue, 5%);
 			outline: none;
