@@ -98,3 +98,92 @@ environment = { DESTINATION = "https://developer.fermyon.com/common/cli-referenc
 route = "/cloud/cli-reference"
 executor = { type = "wagi" }
 
+# Redirect /spin/rust-components/http-trigger to /spin/http-trigger
+[[component]]
+id = "redirect-spin-rust-components-http-trigger"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/http-trigger" }
+[component.trigger]
+route = "/spin/rust-components/http-trigger"
+executor = { type = "wagi" }
+
+# Redirect /spin/contributing/extending-and-embedding to /spin/extending-and-embedding
+[[component]]
+id = "spin-contributing-extending-and-embedding"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/extending-and-embedding" }
+[component.trigger]
+route = "/spin/contributing/extending-and-embedding"
+executor = { type = "wagi" }
+
+# Redirect /spin/rust-components/redis-trigger to /spin/redis-trigger
+[[component]]
+id = "spin-rust-components-redis-trigger"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/redis-trigger" }
+[component.trigger]
+route = "/spin/rust-components/redis-trigger"
+executor = { type = "wagi" }
+
+# Redirect /spin/configuration/http-trigger to /spin/http-trigger
+[[component]]
+id = "spin-configuration-http-trigger"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/http-trigger" }
+[component.trigger]
+route = "/spin/configuration/http-trigger"
+executor = { type = "wagi" }
+
+# Redirect /spin/configuration/redis-trigger to /spin/redis-trigger
+[[component]]
+id = "spin-configuration-redis-trigger"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/redis-trigger" }
+[component.trigger]
+route = "/spin/configuration/redis-trigger"
+executor = { type = "wagi" }
+
+# Redirect /spin/quickstart/developing to /spin/quickstart
+[[component]]
+id = "spin-quickstart-developing"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/quickstart" }
+[component.trigger]
+route = "/spin/quickstart/developing"
+executor = { type = "wagi" }
+
+# Redirect /spin/quickstart/configuration to /spin/configuration
+[[component]]
+id = "spin-quickstart-configuration"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/configuration" }
+[component.trigger]
+route = "/spin/quickstart/configuration"
+executor = { type = "wagi" }
+
+# Redirect /spin/quickstart/install to /spin/install
+[[component]]
+id = "spin-quickstart-install"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/install" }
+[component.trigger]
+route = "/spin/quickstart/install"
+executor = { type = "wagi" }
+
+# Redirect /spin/quickstart/go-components to /spin/go-components
+[[component]]
+id = "spin-quickstart-go-components"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/go-components" }
+[component.trigger]
+route = "/spin/quickstart/go-components"
+executor = { type = "wagi" }
+
+# Redirect /spin/quickstart/rust-components to /spin/rust-components
+[[component]]
+id = "spin-quickstart-rust-components"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/rust-components" }
+[component.trigger]
+route = "/spin/quickstart/rust-components"
+executor = { type = "wagi" }
