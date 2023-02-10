@@ -24,7 +24,6 @@ Thank you for your interest in contributing to the Fermyon documentation. Below 
   - [9. Push Changes](#9-push-changes)
   - [10. Create a Pull Request](#10-create-a-pull-request)
 
-
 ## Technical Documentation Types
 
 The following points will help guide your contribution from a resource-type perspective; essentially we would really appreciate you creating and contributing any of the following 4 resource types. 
