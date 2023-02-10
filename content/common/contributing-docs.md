@@ -5,8 +5,6 @@ date = "2022-01-01T00:00:01Z"
 
 ---
 
-Thank you for your interest in contributing to the Fermyon documentation. Below are a few pointers designed to help you contribute.
-
 - [Technical Documentation Types](#technical-documentation-types)
   - [1. Tutorials](#1-tutorials)
   - [2. How-To Guides](#2-how-to-guides)
@@ -23,6 +21,8 @@ Thank you for your interest in contributing to the Fermyon documentation. Below 
   - [8. Commit Changes](#8-commit-changes)
   - [9. Push Changes](#9-push-changes)
   - [10. Create a Pull Request](#10-create-a-pull-request)
+
+Thank you for your interest in contributing to the Fermyon documentation. Below are a few pointers designed to help you contribute.
 
 ## Technical Documentation Types
 
