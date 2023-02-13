@@ -51,7 +51,7 @@ We first need to configure the [templates from the Spin repository](https://gith
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin
+$ spin templates install --git https://github.com/fermyon/spin --update
 Copying remote template source
 Installing template redis-rust...
 Installing template http-rust...
