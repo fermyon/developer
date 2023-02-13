@@ -8,6 +8,32 @@ require() {
   fi
 }
 
+cleanup() {
+  echo "stopping process for $$"
+  cleanup_with_child $$ false
+}
+
+cleanup_with_child() {
+  local pid="$1"
+  local and_self="${2:-false}"
+
+  echo "cleanup_with_child $pid"
+
+  if children="$(pgrep -P "$pid")"; then
+      for child in $children; do
+          echo "stopping child $child (parent: $pid)"
+          cleanup_with_child "$child" true
+      done
+  fi
+
+  if [[ "$and_self" == true ]]; then
+      echo "stopping self $pid"
+      kill -9 "$pid" 2>/dev/null || true
+  fi
+}
+
+trap cleanup EXIT
+
 ## add broken-link-checker to PATH
 export PATH=$PATH:`pwd`/node_modules/broken-link-checker/bin
 
@@ -18,7 +44,7 @@ require blc
 echo "starting developer portal"
 
 ## start the developer portal in background
-(npm run spin >/dev/null 2>&1 &)
+npm run spin >/dev/null 2>&1 &
 
 ## wait for portal to be up and running
 timeout 60s bash -c 'until curl --silent -f http://localhost:3000 > /dev/null; do sleep 2; done'
@@ -70,4 +96,4 @@ if [ -s broken_links ]; then
   fi  
 else
   echo "All the links are valid!"
-fi                                                                                                              \
+fi
