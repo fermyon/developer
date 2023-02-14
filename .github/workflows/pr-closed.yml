@@ -25,7 +25,7 @@ jobs:
           name: developer-docs-preview.json
           path: ${{ env.GITHUB_WORKSPACE }}
 
-      - name: Deploy preview on cloud
+      - name: Undeploy preview from cloud
         uses: rajatjindal/fermyon-preview-deploy@main
         with:
           fermyon_token_file_name: "developer-docs-preview.json"
