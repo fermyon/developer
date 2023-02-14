@@ -129,7 +129,7 @@ Some generic code not intended for copying/pasting
 
 If you create content with many headings it is highly recommended to place a ToC in your markdown file. There are excellent extensions (such as this Visual Studio Code Extension called [markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) which will automatically generate your ToC).
 
-### 6. Check Content
+### 6.1 Checking Your Content - Using NPM
 
 Once you are satisfied with your contribution, you can programmatically check your content.
 
@@ -147,6 +147,66 @@ With all Node dependencies installed, you can now check for broken links and als
 
 ```bash
 $ npm test
+```
+
+### 6.2 Checking Your Content - Using Bartholomew's CLI
+
+The Bartholomew Command Line Interface (CLI) Tool is called `bart`. The `bart` CLI is a tool that simplifies working with Bartholomew projects (by now you probably already know that [Bartholomew](https://www.fermyon.com/blog/introducing-bartholomew) is our in-house WebAssembly (Wasm) content management system (CMS) that powers [our official Website](https://www.fermyon.com/) and this (our official documentation) site). The `bart` CLI is handy to ensure quality assurance of new and existing content. Installing the CLI is a cinch, so please go ahead and use it when contributing.
+
+To build the Bartholomew CLI from source, simply perform the following commands:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ cd ~
+$ git clone https://github.com/fermyon/bartholomew.git
+$ cd ~/bartholomew
+$ make bart
+```
+
+Once built, you will find the `bart` CLI executable in the `~/bartholomew/target/release` directory. However, for convenience it would be a great idea to go ahead and add the `bart` executable to your system path, for example:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ sudo mv ~/bartholomew/target/release/bart /usr/local/bin/
+```
+
+Once installed, you can use the CLI's `--help` flag to learn more. For example:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ bart --help
+bart 0.6.0
+The Bartholomew CLI
+
+USAGE:
+    bart <SUBCOMMAND>
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+SUBCOMMANDS:
+    calendar    Print the content calendar for a Bartholomew website
+    check       Check content and identify errors or warnings
+    help        Prints this message or the help of the given subcommand(s)
+    new         Create a new page or website from a template
+
+```
+
+Let's take a quick look at how you can use the `bart` CLI to check any content that you are wanting to contribute.
+
+## Checking Web Pages
+
+The `bart` CLI can be used to check content by simply passing in the content as a parameter; as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ bart check content/about.md
+✅ content/about.md
 ```
 
 ### 7. Add Changes
