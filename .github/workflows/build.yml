@@ -42,7 +42,7 @@ jobs:
           bart check content/* && bart check content/**/*
 
   cloud-login:
-    uses: "rajatjindal/actions/.github/workflows/auth.yml@fix-auth2"
+    uses: "fermyon/actions/.github/workflows/auth.yml@main"
     secrets:
       gh_username: ${{ secrets.DEV_DOCS_PREVIEW_GH_USERNAME }}
       gh_password: ${{ secrets.DEV_DOCS_PREVIEW_GH_PASSWORD }}
