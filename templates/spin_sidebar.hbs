@@ -26,6 +26,7 @@
         </p>
         <ul class="menu-list">
             <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/url-shortener">Building a URL Shortener With Spin</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/spin-oci">Hosting Spin Apps in OCI Registries</a></li>
         </ul>
 
         <p class="menu-label">
@@ -41,8 +42,7 @@
         <ul class="menu-list">
             <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-trigger">The Redis Trigger</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Packaging and Distribution</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/spin-oci">Hosting Spin Apps in OCI Registries</a></li>    
+            <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Packaging and Distribution</a></li>                
             <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending and Embedding Spin</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/deploying-to-fermyon" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/deploying-to-fermyon">Deploying to Fermyon</a></li>
             {{!--  <li><a href="{{site.info.base_url}}/spin/architecture/">Architecture</a></li> --}}
