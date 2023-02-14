@@ -29,7 +29,6 @@ jobs:
         uses: rajatjindal/fermyon-preview-deploy@main
         with:
           fermyon_token_file_name: "developer-docs-preview.json"
-          undeploy: true
 
   cleanup-token-artifact: 
     runs-on: ubuntu-latest
