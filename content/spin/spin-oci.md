@@ -40,7 +40,7 @@ To use a GHCR instance, you need to set up authentication. In this tutorial, we 
 
 ## Push a Spin App to GHCR
 
-Let's use this full-stack [Typescript and](https://github.com/radu-matei/spin-react-fullstack) ReactJS Spin app](https://github.com/radu-matei/spin-react-fullstack) to walk through this tutorial. If you have a Spin app already feel free to navigate to that directory and skip the step below. 
+Let's use this full-stack [Typescript and ReactJS Spin app](https://github.com/radu-matei/spin-react-fullstack) to walk through this tutorial. If you have a Spin app already feel free to navigate to that directory and skip the step below. 
 
 Fork and clone the app [GitHub repository](https://github.com/radu-matei/spin-react-fullstack.git):
  <!-- @selectiveCpy -->
