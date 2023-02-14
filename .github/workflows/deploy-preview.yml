@@ -1,0 +1,43 @@
+name: Deploy Preview
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  cloud-login:
+    uses: "fermyon/actions/.github/workflows/auth.yml@main"
+    secrets:
+      gh_username: ${{ secrets.DEV_DOCS_PREVIEW_GH_USERNAME }}
+      gh_password: ${{ secrets.DEV_DOCS_PREVIEW_GH_PASSWORD }}
+      gh_totp_secret: ${{ secrets.DEV_DOCS_PREVIEW_GH_TOTP_SECRET }}
+    with:
+      fermyon_deployment_env: developer-docs-preview
+
+  deploy-preview:
+    runs-on: "ubuntu-latest"
+    needs: [cloud-login]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Retrieve saved cloud token
+        uses: actions/download-artifact@v3
+        with:
+          name: developer-docs-preview.json
+          path: ${{ env.GITHUB_WORKSPACE }}
+
+      - name: Deploy preview on cloud
+        uses: rajatjindal/fermyon-preview-deploy@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          fermyon_token_file_name: "developer-docs-preview.json"
+
+  cleanup: 
+    runs-on: ubuntu-latest
+    needs: [deploy-preview]
+    if: always()
+    steps:
+    - uses: geekyeggo/delete-artifact@v2
+      if: always()
+      with:
+        name: developer-docs-preview.json
