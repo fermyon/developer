@@ -3,7 +3,6 @@ template = "spin_main"
 date = "2023-02-13T00:00:00Z"
 [extra]
 
-
 ---
 
 - [Spin OCI Support](#spin-oci-support)
