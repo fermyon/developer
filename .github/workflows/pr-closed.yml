@@ -33,7 +33,7 @@ jobs:
 
   cleanup-token-artifact: 
     runs-on: ubuntu-latest
-    needs: [preview]
+    needs: [undeploy-preview]
     if: always()
     steps:
     - uses: geekyeggo/delete-artifact@v2
