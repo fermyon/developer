@@ -6,6 +6,12 @@ enable_shortcodes = true
 keywords = "install"
 
 ---
+- [Configuration Using TOML](#configuration-using-toml)
+- [Site Header A.K.A. Frontmatter](#site-header-aka-frontmatter)
+- [Extras](#extras)
+- [Next Steps - Using Themes](#next-steps---using-themes)
+
+## Configuration Using TOML
 
 [TOML](https://toml.io/en/) is a simple configuration format.
 Bartholomew uses TOML for [the `head` in Markdown documents](markdown) as well as
@@ -29,6 +35,8 @@ github = "https://github.com/technosophos/bartholomew"
 twitter = "https://twitter.com/technosophos"
 ```
 
+## Your Site's Header; A.K.A. Frontmatter
+
 You can think of this as "header for your site".
 
 It has a few pre-defined fields:
@@ -40,9 +48,13 @@ It has a few pre-defined fields:
 - theme: the name of the theme for the website from the `/themes/` folder
 - index_site_pages: A list of templates that require `site.pages` to be populated.
 
+## Extras
+
 You can define your own fields in the `[extra]` section. Anything in `[extra]` is not
 used by the system itself. But it's a useful way to pass information from one central
 place to all of your templates. For example, a template can access the `copyright` value
 using `{{site.info.extra.copyright}}`.
+
+## Next Steps - Using Themes
 
 Let's take a look at how you can configure your site to use [themes](./themes.md).
