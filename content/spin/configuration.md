@@ -5,6 +5,18 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/configuration.md"
 
 ---
+- [Application Manifest Reference](#application-manifest-reference)
+  - [Application Configuration](#application-configuration)
+  - [Component Configuration](#component-configuration)
+- [Custom Configuration](#custom-configuration)
+  - [Custom Config Variables](#custom-config-variables)
+  - [Component Custom Config](#component-custom-config)
+  - [Custom Config Providers](#custom-config-providers)
+    - [Environment Variable Provider](#environment-variable-provider)
+    - [Vault Config Provider](#vault-config-provider)
+      - [Vault Config Provider Example](#vault-config-provider-example)
+- [Runtime Configuration](#runtime-configuration)
+- [Examples](#examples)
 
 Spin applications are comprised of general information (metadata), and a collection
 of at least one _component_. Configuration for a Spin application lives in a TOML
@@ -130,12 +142,14 @@ component code via the [spin-config interface](https://github.com/fermyon/spin/b
 ### Custom Config Variables
 
 Application-global custom config variables are defined in the top-level `[variables]`
-section. These entries aren't accessed directly by components, but are referenced
+section. These entries aren't accessed directly by components but are referenced
 by [component config](#component-custom-config) value templates. Each entry must
 either have a `default` value or be marked as `required = true`. "Required" entries
 must be [provided](#custom-config-providers) with a value.
 
-Configuration keys may only contain lowercase letters and underscores between letters.
+Configuration keys may only contain lowercase letters and underscores between letters:
+
+<!-- @nocpy -->
 
 ```toml
 [variables]
@@ -148,7 +162,9 @@ api_key = { required = true }
 The configuration entries available to a component are listed in its
 `[component.config]` section. Configuration values may reference
 [config variables](#custom-config-variables) with simple
-[mustache](https://mustache.github.io/)-inspired string templates.
+[mustache](https://mustache.github.io/)-inspired string templates:
+
+<!-- @nocpy -->
 
 ```toml
 [[component]]
@@ -183,6 +199,8 @@ The Vault config provider gets secret values from [HashiCorp Vault](https://www.
 Currently, only [KV Secrets Engine - Version 2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2) is supported.
 You can set up v2 kv secret engine at any mount point and give Vault information in the [runtime configuration](#runtime-configuration) file:
 
+<!-- @nocpy -->
+
 ```toml
 [[config_provider]]
 type = "vault"
@@ -194,13 +212,17 @@ mount = "secret"
 ##### Vault Config Provider Example
 
 1. [Install Vault](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install).
-2. Start Vault.
+2. Start Vault:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ vault server -dev -dev-root-token-id root
 ```
 
-3. Set a password.
+3. Set a password:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ export VAULT_TOKEN=root
@@ -210,14 +232,18 @@ $ vault kv get secret/password
 ```
 
 4. Go to [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-config-test) folder.
-5. Start `vault-config-test` app.
+5. Start `vault-config-test` app:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin build
 $ spin up --runtime-config-file runtime_config.toml
 ```
 
-6. Test the app.
+6. Test the app:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ curl -i http://127.0.0.1:3000
@@ -237,6 +263,8 @@ You can use the runtime configuration by giving `--runtime-config-file` in `spin
 
 - a Spin HTTP component that contains the files in `static/` mapped to `/`:
 
+<!-- @nocpy -->
+
 ```toml
 [[component]]
 source = "modules/spin_static_fs.wasm"
@@ -247,6 +275,8 @@ route = "/static/..."
 ```
 
 - the same static file serving component, but getting the Wasm module from a public release instead of a local copy:
+
+<!-- @nocpy -->
 
 ```toml
 [[component]]
@@ -260,6 +290,8 @@ route = "/static/..."
 - a Wagi HTTP component that contains file mounts and sets the module `argv` and
   invokes a custom export function as the entry point:
 
+<!-- @nocpy -->
+
 ```toml
 [[component]]
 source = "modules/env_wagi.wasm"
@@ -271,6 +303,8 @@ executor = { type = "wagi", argv = "test ${SCRIPT_NAME} ${ARGS} done", entrypoin
 ```
 
 - a Redis component that is invoked for new messages on the `messages` channel:
+
+<!-- @nocpy -->
 
 ```toml
 [[component]]

@@ -5,6 +5,7 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/extending-and-embedding.md"
 
 ---
+- [Other Ways to Extend and Use Spin](#other-ways-to-extend-and-use-spin)
 
 > The complete example for extending and embedding Spin [can be found on GitHub](https://github.com/fermyon/spin/tree/main/examples/spin-timer).
 
@@ -17,16 +18,18 @@ channels
 
 The Spin internals and execution context (the part of Spin executing
 components) are agnostic of the event source and application model.
-In this document we will explore how to extend Spin with custom event sources
+In this document, we will explore how to extend Spin with custom event sources
 (triggers) and application models built on top of the WebAssembly component
 model, as well as how to embed Spin in your application.
 
-In this article we will build a Spin trigger to run the applications based on a
-timer, executing Spin components at configured time interval.
+In this article, we will build a Spin trigger to run the applications based on a
+timer, executing Spin components at a configured time interval.
 
 The current application types that can be implemented with Spin have entry points
 defined using
 [WebAssembly Interface (WIT)](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md):
+
+<!-- @nocpy -->
 
 ```fsharp
 // The entry point for an HTTP handler.
@@ -41,6 +44,8 @@ only argument (the trigger will populate that with the current date and time),
 and it expects a string as the only return value. This is purposefully chosen
 to be a simple function signature:
 
+<!-- @nocpy -->
+
 ```fsharp
 // examples/spin-timer/spin-timer.wit
 handle-timer-request: function(msg: string) -> string
@@ -51,6 +56,8 @@ implement, and which is used by the timer executor when instantiating and
 invoking the component.
 
 Let's have a look at building the timer trigger:
+
+<!-- @nocpy -->
 
 ```rust
 // examples/spin-timer/src/main.rs
@@ -85,6 +92,8 @@ Wasmtime store, instance, and linker, which can be configured as necessary).
 
 Finally, whenever there is a new event (in the case of our timer-based trigger
 every `n` seconds), we execute the entry point of a selected component:
+
+<!-- @nocpy -->
 
 ```rust
 /// Execute the first component in the application manifest.
@@ -129,6 +138,8 @@ Writing components for the new trigger can be done by using the
 [`wit-bindgen` tooling](https://github.com/bytecodealliance/wit-bindgen) from
 Rust and other supported languages (see [the example in Rust](https://github.com/fermyon/spin/tree/main/examples/spin-timer/app-example)):
 
+<!-- @nocpy -->
+
 ```rust
 // automatically generate Rust bindings that help us implement the 
 // `handle-timer-request` function that the trigger will execute.
@@ -144,6 +155,8 @@ application manifest.
 
 Embedding the new trigger in a Rust application is done by creating a new trigger
 instance, then calling its `run` function:
+
+<!-- @nocpy -->
 
 ```rust
 // app() is a utility function that generates a complete application configuration.

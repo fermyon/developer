@@ -5,9 +5,6 @@ date = "2022-10-01T00:00:00Z"
 keywords = "abuse security concern"
 
 ---
-
-This article contains the following information:
-
 - [Engage on Discord](#engage-on-discord)
 - [Report Issues on GitHub](#report-issues-on-github)
 - [Report Abuse](#report-abuse)

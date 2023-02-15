@@ -5,6 +5,7 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/redis-trigger.md"
 
 ---
+- [The WebAssembly Interface](#the-webassembly-interface)
 
 Spin applications can be triggered by a new message on a [Redis channel](https://redis.io/topics/pubsub).
 Spin will connect to a configured Redis instance and will invoke components for
@@ -14,6 +15,8 @@ new messages on the configured channels.
 > build Redis components.
 
 The Redis instance address is specified in the application trigger:
+
+<!-- @nocpy -->
 
 ```toml
 # spin.toml
@@ -27,7 +30,9 @@ trigger = { type = "redis", address = "redis://localhost:6379" }
 
 Then, all components in the application are triggered when new messages are
 published to channels in the instance. [Configuring](./configuration.md) the channel
- is done by setting the `channel` field in the component trigger configuration.
+ is done by setting the `channel` field in the component trigger configuration:
+
+<!-- @nocpy -->
 
 ```toml
 [component.trigger]
@@ -41,6 +46,8 @@ The Redis trigger is built on top of the
 The current interface is defined using the
 [WebAssembly Interface (WIT)](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)
 format, and is a function that takes the message payload as its only parameter:
+
+<!-- @nocpy -->
 
 ```fsharp
 // wit/ephemeral/spin-redis.wit

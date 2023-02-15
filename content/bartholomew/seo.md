@@ -5,6 +5,19 @@ template = "bartholomew_main"
 [extra]
 
 ---
+- [Google Verification Using Bartholomew](#google-verification-using-bartholomew)
+  - [Markdown](#markdown)
+  - [Template](#template)
+- [Search Engine Optimization (SEO) Using Bartholomew](#search-engine-optimization-seo-using-bartholomew)
+  - [Generating a Sitemap](#generating-a-sitemap)
+  - [Creating a Robots File](#creating-a-robots-file)
+- [Google Search Console](#google-search-console)
+- [Google Search Analytics](#google-search-analytics)
+- [Rich Results](#rich-results)
+  - [Structured Data](#structured-data)
+    - [Video](#video)
+    - [Testing Rich Results](#testing-rich-results)
+    - [Monitoring Rich Results](#monitoring-rich-results)
 
 ## Google Verification Using Bartholomew
 
@@ -16,9 +29,11 @@ Let's take a look at how the verification process is accomplished using Bartholo
 
 The first step in the Google verification process is where Google provides you (the owner) of the specific website with a specially named file i.e. `abcdefg.html`. Google now wants you, the owner, to make this file available on your site, so that Google can fetch it as proof that you are the site's owner which has access control to the site. This is a really simple task. First you create a Markdown file (in Bartholomew's `content` directory) called `abcdefg.md` (the name of this file just has to match the name of the file which Google provided). **Note: We are creating an `.md` file here not an `.html` file**.
 
-Bartholomew uses templating so you just have to be explicit about a couple of things inside that new `.md` file. Specifically,  Make sure that there is a template name (we will create the template next) and that the content type (of this file) is rendered as `text/html`. This is shown in the source code of the new `abcdefg.md` file below.
+Bartholomew uses templating so you just have to be explicit about a couple of things inside that new `.md` file. Specifically,  Make sure that there is a template name (we will create the template next) and that the content type (of this file) is rendered as `text/html`. This is shown in the source code of the new `abcdefg.md` file below:
 
-```
+<!-- @nocpy -->
+
+```markdown
 title = "Google Verification"
 description = "Google verification file which provides us with access to Google Search Console"
 date = "2022-07-11T00:01:01Z"
@@ -31,7 +46,9 @@ This is the abcdefg.html file that Google can see openly at the root of the webs
 
 ### Template
 
-Bartholomew uses <a href="https://handlebarsjs.com/" target="_blank">Handlebars</a> templating. Therefore the next step is for you to go ahead and create a new `google_verification.hbs` file in Bartholomew's template directory. Once the file is created, populate it with the content which Google requested, below is just an example.
+Bartholomew uses <a href="https://handlebarsjs.com/" target="_blank">Handlebars</a> templating. Therefore the next step is for you to go ahead and create a new `google_verification.hbs` file in Bartholomew's template directory. Once the file is created, populate it with the content which Google requested, below is just an example:
+
+<!-- @nocpy -->
 
 ```
 {{! 
@@ -50,9 +67,11 @@ Let's take a look at how the SEO compliance (i.e. sitemap and robots.txt) is acc
 
 ### Generating a Sitemap
 
-Google <a href="https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap" target="_blank">expects the standard sitemap protocol to be implemented</a>. Thankfully, Bartholomew automatically builds a sitemap file based on the entire set of content in the CMS. The heavy lifting of the work is performed using the <a href="https://rhai.rs/" target="_blank">Rhai</a> scripting language. Here is an example of the `sitemap.rhai` file that you would store in Bartholomew's scripts directory.
+Google <a href="https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap" target="_blank">expects the standard sitemap protocol to be implemented</a>. Thankfully, Bartholomew automatically builds a sitemap file based on the entire set of content in the CMS. The heavy lifting of the work is performed using the <a href="https://rhai.rs/" target="_blank">Rhai</a> scripting language. Here is an example of the `sitemap.rhai` file that you would store in Bartholomew's scripts directory:
 
-```
+<!-- @nocpy -->
+
+```text
 // This function lists all of the posts, filtering a few.
 //
 // It returns an array of objects of the form:
@@ -127,9 +146,9 @@ site_pages
 
 When Bartholomew sees an incoming request for the `sitemap.xml` URL, it will look inside the scripts directory for a Rhai file named `sitemap.rhai` (as shown above) and execute the script on demand.
 
-In conjunction to the above scripting, the aforementioned <a href="https://handlebarsjs.com/" target="_blank">Handlebars</a> templating assists in this work being performed dynamically (using variables common between the script and the template); as shown in the `sitemap.hbs` file's contents below.
+In conjunction to the above scripting, the aforementioned <a href="https://handlebarsjs.com/" target="_blank">Handlebars</a> templating assists in this work being performed dynamically (using variables common between the script and the template); as shown in the `sitemap.hbs` file's contents below:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 {{!
     For sitemap.xml, see https://www.sitemaps.org/protocol.html
@@ -154,9 +173,11 @@ In conjunction to the above scripting, the aforementioned <a href="https://handl
 
 **If you ever need assistance with any of the scripting, templating or Markdown mentioned here, please go ahead and jump into our <a href="https://discord.gg/AAFNfS7NGf" target="_blank">Discord</a> server. We are here to assist and would love to see what you are building. Alternatively, place [an issue in GitHub](https://github.com/fermyon/bartholomew/issues) and ask for help.**
 
-From a display point of view we again just use Markdown (create a `sitemap.md` file in the site's content directory, correctly reference the name of the template (`sitemap`) and then ensure that the content type is set to `text/xml`). The above process will generate an XML sitemap called `sitemap.xml` at the root of the site. Perfect!
+From a display point of view we again just use Markdown (create a `sitemap.md` file in the site's content directory, correctly reference the name of the template (`sitemap`) and then ensure that the content type is set to `text/xml`). The above process will generate an XML sitemap called `sitemap.xml` at the root of the site:
 
-```
+<!-- @nocpy -->
+
+```markdown
 title = "Sitemap XML file"
 description = "This is the sitemap.xml file"
 date = "2021-12-29T22:36:33Z"
@@ -169,11 +190,13 @@ This is the autogenerated sitemap. Note that the suffix .xml is replaced with .m
 
 ### Creating a Robots File
 
-You can actually control the Googlebot and tell it which files it may access on the site. This is done via the use of <a href="https://developers.google.com/search/docs/advanced/robots/create-robots-txt" target="_blank">a robots.txt file</a>.
+You can control the Googlebot and tell it which files it may access on the site. This is done via the use of <a href="https://developers.google.com/search/docs/advanced/robots/create-robots-txt" target="_blank">a robots.txt file</a>.
 
 Similarly to the process above, you create a `robots.md` Markdown file in the content directory and also a `robots.hbs` in the template directory. These are shown below (in that order).
 
-```
+<!-- @nocpy -->
+
+```markdown
 title = "Robots"
 description = "This is the robots.txt file"
 date = "2021-12-30T03:17:26Z"
@@ -183,8 +206,9 @@ content_type = "text/plain"
 
 This is the robots.txt file. It is autogenerated.
 ```
+<!-- @nocpy -->
 
-```
+```text
 {{! 
 For info on what can be placed here, see http://www.robotstxt.org/
 See also: https://developers.google.com/search/docs/advanced/robots/intro
@@ -218,7 +242,9 @@ Let's go ahead and create a JSON-LD code snippet for a video. In this case, we g
 
 The following is an example of the JSON-LD that we used (in a particular blog post). 
 
->> Note: Whilst you can see URLs to the actual video content, this rich results data is just metadata. In addition to this data, the actual video embedding takes place elsewhere in the page's content.
+>> Note: Whilst you can see URLs to the actual video content, this rich results data is just metadata. In addition to this data, the actual video embedding takes place elsewhere in the page's content:
+
+<!-- @nocpy -->
 
 ```javascript
 <script type="application/ld+json">

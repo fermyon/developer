@@ -1,4 +1,4 @@
-title = "Bartholomew shortcodes"
+title = "Bartholomew Shortcodes"
 date = "2022-05-09T19:23:07.490818Z"
 enable_shortcodes = true
 template = "bartholomew_main"
@@ -6,6 +6,11 @@ template = "bartholomew_main"
 [extra]
 
 ---
+- [The Basic](#the-basic)
+- [Creating a Shortcode](#creating-a-shortcode)
+- [Enabling Shortcodes](#enabling-shortcodes)
+- [Using Shortcodes](#using-shortcodes)
+- [Note While Using Shortcodes](#note-while-using-shortcodes)
 
 Shortcodes are simple reusable snippets can be used inside the markdown content.
 
@@ -21,7 +26,9 @@ Bartholomew supports shortcodes simplify sharing content between different markd
 
 ## Creating a Shortcode
 
-An example of a shortcode is in `shortcodes/alert.rhai`. The shortcode is available in the markdown file as `alert` just like for scripts.
+An example of a shortcode is in `shortcodes/alert.rhai`. The shortcode is available in the markdown file as `alert` just like for scripts:
+
+<!-- @nocpy -->
 
 ```rust
 let type = params[0];
@@ -67,15 +74,15 @@ let icons = #{
   </div>
 </div>
 `
-
-
 ```
 
 ## Enabling Shortcodes
 
-To enable shortcodes support for a particular document, the value of `enable_shortcodes = true` must be set in the page head.
+To enable shortcodes support for a particular document, the value of `enable_shortcodes = true` must be set in the page head:
 
-```
+<!-- @nocpy -->
+
+```markdown
 title = "A New Article"
 description = "This article is really interesting and full of useful material."
 date = "2021-12-23T15:05:19Z"
@@ -87,13 +94,17 @@ enable_shortcodes = true
 
 ## Using Shortcodes
 
-Now the shortcode can be used in the markdown file by calling it with the required arguments. For the alerts script, this is the type of alert and the message to be displayed.
+Now the shortcode can be used in the markdown file by calling it with the required arguments. For the alerts script, this is the type of alert and the message to be displayed:
+
+<!-- @nocpy -->
 
 ```
 \{{ alert "warning" "Bartholomew is a work in progress" }}
 ```
 
-Which renders as the following.
+Which renders as the following:
+
+<!-- @nocpy -->
 
 {{ alert "warning" "Bartholomew is a work in progress" }}
 

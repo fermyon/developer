@@ -5,6 +5,10 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/template-authoring.md"
 
 ---
+- [Authoring the Content](#authoring-the-content)
+- [Authoring the Manifest](#authoring-the-manifest)
+- [Supporting `spin add`](#supporting-spin-add)
+- [Hosting Templates in Git](#hosting-templates-in-git)
 
 Spin templates allow a Spin developer to quickly create the skeleton of an
 application or component, ready for the application logic to be filled in.
@@ -30,15 +34,14 @@ installer to locate them in repos that contain other content.
 Copy all the files that you want to be copied as part of the template into
 the `content` directory. If you do nothing more, they will be copied
 verbatim. Often, though, you'll want to allow the user to put their own
-values in - for example, a project name, or a HTTP route.
+values in - for example, a project name, or an HTTP route.
 
 To do this, replace the text you want the user to be able to substitute
 with an expression of the form `{{parameter-name}}`, where `parameter-name`
 is an identifier of your choice.  **You will need to add an entry to
 the manifest matching this name** - see below.
 
-You can reuse a parameter in more than one place - it will be prompted for
-only once and will get the same value in each place.
+You can reuse a parameter in more than one place - it will be prompted only once and will get the same value in each place.
 
 You can also transform the user value by specifying a filter after a bar:
 `{{parameter-name | filter-name}}`.  This is particularly useful when you
@@ -53,7 +56,9 @@ are supported:
 
 ## Authoring the Manifest
 
-The template manifest is a TOML file. It must be named `spin-template.toml`.
+The template manifest is a TOML file. It must be named `spin-template.toml`:
+
+<!-- @nocpy -->
 
 ```toml
 manifest_version = "1"
@@ -108,6 +113,8 @@ add a few items to your metadata.
 | `skip_parameters` | Optional array of parameters that Spin should _not_ prompt for when running in "add component" mode. For example, the HTTP templates don't prompt for the base path, because that's defined at the application level, not set on an individual component. |
 
 Here is an example `add_component` table from a HTTP template:
+
+<!-- @nocpy -->
 
 ```toml
 [add_component]

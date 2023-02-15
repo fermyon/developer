@@ -5,6 +5,9 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/distributing-apps.md"
 
 ---
+- [Distributing Spin Applications Using Container Registry Services](#distributing-spin-applications-using-container-registry-services)
+  - [Signing Spin Applications and Verifying Signatures](#signing-spin-applications-and-verifying-signatures)
+- [Distributing Spin Applications Using Bindle](#distributing-spin-applications-using-bindle)
 
 ## Distributing Spin Applications Using Container Registry Services
 

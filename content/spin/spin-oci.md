@@ -4,7 +4,6 @@ date = "2023-02-13T00:00:00Z"
 [extra]
 
 ---
-
 - [Spin OCI Support](#spin-oci-support)
   - [Prerequisites](#prerequisites)
   - [Set Up Your GHCR Instance](#set-up-your-ghcr-instance)
@@ -43,13 +42,15 @@ To use a GHCR instance, you need to set up authentication. In this tutorial, we 
 Let's use this full-stack [TypeScript and ReactJS Spin app](https://github.com/radu-matei/spin-react-fullstack) to walk through this tutorial. If you have a Spin app already feel free to navigate to that directory and skip the step below. 
 
 Fork and clone the app [GitHub repository](https://github.com/radu-matei/spin-react-fullstack.git):
+
  <!-- @selectiveCpy -->
 
  ```bash
 $ git clone https://github.com/USERNAME/spin-react-fullstack.git
 ```
 
-Now, switch to that directory and rebuild the application. 
+Now, switch to that directory and rebuild the application:
+
  <!-- @selectiveCpy -->
 
  ```bash
@@ -57,7 +58,8 @@ $ cd spin-react-fullstack
 $ spin build
 ```
 
-Now we're ready to push the application. Run the `spin oci push` command to push your application to the registry. 
+Now we're ready to push the application. Run the `spin oci push` command to push your application to the registry:
+
  <!-- @selectiveCpy -->
 
  ```bash
@@ -69,6 +71,7 @@ You now have a Spin application stored in your registry. You can see the artifac
 ## Pull a Spin App From GHCR
 
 Now that we've successfully pushed a Spin app, let's see if we can pull it. To do so, run the following command: 
+
  <!-- @selectiveCpy -->
  
  ```bash
@@ -77,7 +80,8 @@ $ spin oci pull ghcr.io/USERNAME/spin-react-fullstack
 
 ## Run a Spin App From GHCR
 
-Lastly, let's run this Spin application. Note to mark this functionality as early and experimental, instead of integrating this functionality into `spin up` we will run this with the temporary command `spin oci run`.
+Lastly, let's run this Spin application. Note to mark this functionality as early and experimental, instead of integrating this functionality into `spin up` we will run this with the temporary command `spin oci run`:
+
  <!-- @selectiveCpy -->
 
  ```bash

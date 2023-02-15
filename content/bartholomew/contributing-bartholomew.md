@@ -1,10 +1,19 @@
 title = "Contributing to Bartholomew"
 date = "2022-05-08T14:05:02.118466Z"
 template = "bartholomew_main"
-
+enable_shortcodes = true
 [extra]
+keywords = "install"
 
 ---
+
+- [Adding, Committing and Pushing via Github](#adding-committing-and-pushing-via-github)
+  - [Add Changes](#add-changes)
+  - [Commit Changes](#commit-changes)
+  - [Push Changes](#push-changes)
+  - [Create a Pull Request (PR)](#create-a-pull-request-pr)
+  - [Merged](#merged)
+  - [Thank You](#thank-you)
 
 To contribute to the Bartholomew project, please follow these steps.
 
@@ -26,17 +35,21 @@ Go ahead and clone the new fork that you just created (the one which resides in 
 
 Cloning is performed using the following commands:
 
+<!-- @selectiveCpy -->
+
 ```bash
 # Change into home directory
-cd ~
+$ cd ~
 # Clone
-git clone git@github.com:yourusername/bartholomew.git
+$ git clone git@github.com:yourusername/bartholomew.git
 ```
 
 Change into the new Bartholomew directory (repo):
 
+<!-- @selectiveCpy -->
+
 ```bash
-cd ~/bartholomew
+$ cd ~/bartholomew
 ```
 
 ## Building the Bartholomew Server
@@ -59,9 +72,11 @@ Installing Rust via the<a href="https://www.rust-lang.org/tools/install" target=
 
 Installing the <a href="https://doc.rust-lang.org/stable/nightly-rustc/rustc_target/spec/wasm32_wasi/index.html" target="_blank">wasm32-wasi</a> target is done using the following commands:
 
+<!-- @selectiveCpy -->
+
 ```bash
-rustup target install wasm32-wasi
-rustup target add wasm32-wasi
+$ rustup target install wasm32-wasi
+$ rustup target add wasm32-wasi
 ```
 
 If you would like more details about the WebAssembly System Interface (WASI) there is an <a href="https://wasi.dev/" target="_blank">official specification</a> and an <a href="https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-intro.md" target="_blank">'intro' document</a> available.
@@ -70,45 +85,87 @@ If you would like more details about the WebAssembly System Interface (WASI) the
 
 Please go to the [latest release page](https://github.com/WebAssembly/binaryen/releases) of binaryen and download the compressed package that suits your specific operating system. Unpack the compressed file to a location of your choice. We are just using `~/` (home directory) for presentation purposes. For example:
 
+<!-- @selectiveCpy -->
+
 ```bash
 # Download binaryen tar.gz file to home directory first
 # Then change into home directory
-cd ~
+$ cd ~
 # Unpack .tar.gz
-tar -zxvf binaryen-version_109-arm64-macos.tar.gz
+$ tar -zxvf binaryen-version_109-arm64-macos.tar.gz
 ```
 
 Once unpacked, ensure that binaryen's bin folder is in your path. For example, open your `.zshrc` or `.bash_profile` file (depending on your OS) for editing:
 
+{{ tabs "os" }}
+
+{{ startTab "Linux"}}
+
+<!-- @selectiveCpy -->
+
 ```bash
-# macOS example
-vi ~/.zshrc
-# Ubuntu Linux example
-vi ~/.bash_profile
+$ vi ~/.bash_profile
 ```
+
+{{ blockEnd }}
+
+{{ startTab "macOS"}}
+
+<!-- @selectiveCpy -->
+
+```bash
+$ vi ~/.zshrc
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 Then add the path to binaryen's bin folder to the last line of your file like this:
 
+<!-- @selectiveCpy -->
+
 ```bash
-export PATH="${HOME}/binaryen-version_109/bin:${PATH}"
+$ export PATH="${HOME}/binaryen-version_109/bin:${PATH}"
 ```
 
 Run whichever file you just edited. For example:
 
+{{ tabs "os" }}
+
+{{ startTab "Linux"}}
+
+<!-- @selectiveCpy -->
+
 ```bash
-# macOS example
-. ~/.zshrc
-# Ubuntu Linux example
-. ~/.bash_profile
+$ . ~/.bash_profile
 ```
+
+{{ blockEnd }}
+
+{{ startTab "macOS"}}
+
+<!-- @selectiveCpy -->
+
+```bash
+$ . ~/.zshrc
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 You can check this has worked by echoing your path. For example:
 
+<!-- @selectiveCpy -->
+
 ```bash
-echo $PATH
+$ echo $PATH
 ```
 
 The output from the above command will be similar to the following:
+
+<!-- @nocpy -->
 
 ```bash
 ~/binaryen-version_109/bin:/other/things/in/your/path
@@ -118,8 +175,10 @@ The output from the above command will be similar to the following:
 
 Once the prerequisites are satisfied, you can go ahead and build Bartholomew:
 
+<!-- @selectiveCpy -->
+
 ```bash
-make build
+$ make build
 ```
 
 The `make build` command does a `cargo build --target wasm32-wasi --release`.
@@ -134,18 +193,22 @@ The Bartholomew Command Line Interface (CLI) Tool is called `bart`. this CLI is 
 
 To build the Bartholomew CLI from source, perform the following commands:
 
+<!-- @selectiveCpy -->
+
 ```bash
-cd ~/bartholomew
-make bart
+$ cd ~/bartholomew
+$ make bart
 ```
 
 Once built, you will find the very useful `bart` CLI executable in the `~/bartholomew/target/release` directory. 
 
 For more information about how to use the CLI, please type `~/bartholomew/target/release/bart --help`, as shown below:
 
+<!-- @selectiveCpy -->
+
 ```bash
-~/bartholomew/target/release/bart --help    
-bart 0.1.0
+$ ~/bartholomew/target/release/bart --help    
+bart 0.6.0
 The Bartholomew CLI
 
 USAGE:
@@ -159,19 +222,23 @@ SUBCOMMANDS:
     calendar    Print the content calendar for a Bartholomew website
     check       Check content and identify errors or warnings
     help        Prints this message or the help of the given subcommand(s)
-    new         Create a new post
+    new         Create a new page or website from a template
 ```
 
 The Bartholomew CLI also has some other great features i.e. the `bart` command can automatically check the content (i.e. parse your web page and/or blog post markdown files) and identify & report any issues. See the example of test output below.
 
 ## Check Web Pages
 
+<!-- @selectiveCpy -->
+
 ```bash
 # Note the "bart check" command is being run, as an absolute path, from where we installed bartholomew from source (notice how we are passing in the "content/*" as a parameter to bart's "check" subcommand).
-~/bartholomew/target/release/bart check content/*
+$ ~/bartholomew/target/release/bart check content/*
 ```
 
 The output from the above command will be similar to the following (depending on the web pages on your system):
+
+<!-- @nocpy -->
 
 ```bash
 ✅ content/about.md
@@ -179,12 +246,16 @@ The output from the above command will be similar to the following (depending on
 
 ## Check Blog Posts
 
+<!-- @selectiveCpy -->
+
 ```bash
 # Note the "bart check" command is still being run, as an absolute path, from where we installed bartholomew from source (notice how we are passing in the "blog/*" as a parameter to bart's "check" subcommand this time around).
-~/bartholomew/target/release/bart check blog/*
+$ ~/bartholomew/target/release/bart check blog/*
 ```
 
 The output from the above command will be similar to the following (depending on the blog posts on your system):
+
+<!-- @nocpy -->
 
 ```bash
 ✅ content/blog/2022-02-08-hello-world.md
@@ -210,16 +281,20 @@ Please build the spin-fileserver and then copy the resulting `spin_static_fs.was
 
 Create a new branch that will house all of your changes for this specific contribution:
 
+<!-- @selectiveCpy -->
+
 ```bash
-git checkout -b my_new_branch
+$ git checkout -b my_new_branch
 ```
 
 ## Create a New Remote
 
 Create a new remote for the upstream (a pointer to the original repository to which you are contributing):
 
+<!-- @selectiveCpy -->
+
 ```bash
-git remote add upstream https://github.com/fermyon/bartholomew
+$ git remote add upstream https://github.com/fermyon/bartholomew
 ```
 
 ## Modify Your Code
@@ -234,10 +309,12 @@ Also, when contributing, please ensure that you notice any unwritten conventions
 
 ## Testing Your Changes
 
-Once you have made the required changes, test the code to make sure all the test cases are satisfied. You can test the code using the following command in the top-level directory, under which your changes exist. 
+Once you have made the required changes, test the code to make sure all the test cases are satisfied. You can test the code using the following command in the top-level directory, under which your changes exist:
+
+<!-- @selectiveCpy -->
 
 ```bash
-make test
+$ make test
 ```
 
 ### Viewing Your Changes
@@ -246,11 +323,15 @@ If you made changes that will have a visual effect when Bartholomew has hosted i
 
 Running Bartholomew using Spin:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ spin up
 ```
 
 Running Bartholomew using make:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ make serve
@@ -273,11 +354,15 @@ To view unpublished content i.e. if you are creating a new file, turn on `PREVIE
 
 Spin:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ spin up -e PREVIEW_MODE=1
 ```
 
 Make:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ PREVIEW_MODE=1 make serve
@@ -293,6 +378,8 @@ Once you are satisfied with your contribution, please ensure that your GitHub in
 
 If you need to set these values please use the following commands:
 
+<!-- @nocpy -->
+
 ```bash
 git config user.name "yourname"
 git config user.email "youremail@somemail.com"
@@ -306,16 +393,20 @@ Move to a top-level directory, under which your changes exist i.e. `cd ~/barthol
 
 Add your changes using the following command:
 
+<!-- @selectiveCpy -->
+
 ```bash
-git add .
+$ git add .
 ```
 
 ## Commit Changes
 
 Type the following commit command to ensure that you sign off (`--signoff`), sign the data (`-S`) - recommended, and also leave a short message (`-m`):
 
+<!-- @selectiveCpy -->
+
 ```bash
-git commit -S --signoff -m "Updating documentation about testing process"
+$ git commit -S --signoff -m "Your message here"
 ```
 
 > Note: the `--signoff` option will only add a Signed-off-by trailer by the committer at the end of the commit log message. In addition to this, it is recommended that you use the `-S` option which will GPG-sign your commits. For more information about using GPG in GitHub see [this GitHub documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
@@ -324,16 +415,20 @@ git commit -S --signoff -m "Updating documentation about testing process"
 
 At this stage, it is a good idea to just quickly check what GitHub thinks the `origin` is. For example, if we type `git remote -v` we can see that the origin is our repo; which we a) forked the original repo into and b) which we then cloned to our local disk so that we could edit:
 
+<!-- @selectiveCpy -->
+
 ```bash
-git remote -v
+$ git remote -v
 origin	git@github.com:yourusername/bartholomew.git (fetch)
 origin	git@github.com:yourusername/bartholomew.git (push)
 ```
 
 Next, we push the changes (explicitly mentioning the origin and also the new branch which we created in one of the earlier steps in this tutorial):
 
+<!-- @selectiveCpy -->
+
 ```bash
-git push -u origin my_new_branch
+$ git push -u origin my_new_branch
 ```
 
 ## Create a Pull Request (PR)

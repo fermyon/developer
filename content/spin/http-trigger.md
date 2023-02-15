@@ -5,6 +5,11 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/http-trigger.md"
 
 ---
+- [Routing](#routing)
+- [The Spin HTTP Executor](#the-spin-http-executor)
+- [The Wagi HTTP Executor](#the-wagi-http-executor)
+  - [The Default Headers Set in Spin HTTP Components](#the-default-headers-set-in-spin-http-components)
+  - [The Default Headers Set in Wagi HTTP Components](#the-default-headers-set-in-wagi-http-components)
 
 An important workload in event-driven environments is represented by HTTP
 applications, and Spin has built-in support for creating and running HTTP
@@ -20,6 +25,8 @@ entry point function, then returns an HTTP response.
 Creating an HTTP application is done when [configuring the application](./configuration.md)
 by defining the top-level application trigger:
 
+<!-- @nocpy -->
+
 ```toml
 # spin.toml
 trigger = { type = "http", base = "/" }
@@ -31,6 +38,8 @@ and the _HTTP executor_ (see details below about executors). For example:
 
 - an HTTP component configured on the `/hello` route that uses the Spin executor:
 
+<!-- @nocpy -->
+
 ```toml
 [component.trigger]
 route = "/hello"
@@ -38,6 +47,8 @@ executor = { type = "spin" }
 ```
 
 - an HTTP component configured on the `/goodbye` route that uses the Wagi executor:
+
+<!-- @nocpy -->
 
 ```toml
 [component.trigger]
@@ -69,6 +80,8 @@ takes precedence.
 
 In the following example, any request starting with the  `/foo/` prefix (e.g. `/foo/bar`)
 will be handled by `component-1`:
+
+<!-- @nocpy -->
 
 ```toml
 # spin.toml
@@ -116,6 +129,8 @@ We define the HTTP objects as
 [WebAssembly Interface (WIT)](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)
 objects, currently using _records_:
 
+<!-- @nocpy -->
+
 ```fsharp
 // wit/ephemeral/http-types.wit
 
@@ -153,6 +168,8 @@ record response {
 > HTTP requests.
 
 Then, we define the entry point for a Spin HTTP component:
+
+<!-- @nocpy -->
 
 ```fsharp
 // wit/ephemeral/spin-http.wit
@@ -211,7 +228,7 @@ In pseudo-code, this is the minimum required in a Wagi component:
 - either the `content-media` or `location` headers must be set — this is done by
 printing its value to standard output
 - an empty line between the headers and the body
-- the response body printed to standard output
+- the response body printed to standard output:
 
 <!-- @nocpy -->
 
@@ -223,6 +240,8 @@ print("hello world\n");
 The [Go SDK for Spin](./go-components.md) supports the Spin executor.
 Here is another example, written in [Grain](https://grain-lang.org/),
 a new programming language that natively targets WebAssembly:
+
+<!-- @nocpy -->
 
 ```js
 import Process from "sys/process";

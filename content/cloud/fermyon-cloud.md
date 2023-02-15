@@ -4,7 +4,6 @@ date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
-
 - [The Fermyon Cloud Explained](#the-fermyon-cloud-explained)
 - [Core Components of the Fermyon Cloud](#core-components-of-the-fermyon-cloud)
   - [Orchestration](#orchestration)

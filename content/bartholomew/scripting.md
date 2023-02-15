@@ -5,6 +5,8 @@ template = "bartholomew_main"
 [extra]
 
 ---
+- [The Basic](#the-basic)
+- [A More Complicated Example.](#a-more-complicated-example)
 
 Sometimes you want to do something special in your templates. Perhaps it's some
 fancy formatting or iterating through some content and finding specific information.
@@ -22,7 +24,9 @@ Rust, Go, and Python. The integration with Bartholomew is easy to work with.
 
 For example, let's take a look at the `scripts/echo.rhai` script. Note that because
 it is named `echo.rhai`, it will be accessible inside of templates as `echo` (just remove
-the `.rhai`).
+the `.rhai`):
+
+<!-- @nocpy -->
 
 ```rust
 let msg = params[0];
@@ -40,11 +44,15 @@ That's all there is to a simple Rhai script.
 
 From a template, we can then use this script like this:
 
+<!-- @nocpy -->
+
 ```
 {{ echo "world" }}
 ```
 
 When we run the template, we will see:
+
+<!-- @nocpy -->
 
 ```
 hello world
@@ -53,7 +61,9 @@ hello world
 ## A More Complicated Example.
 
 Let's take a look at `scripts/blogs.rhai`, which is called in a template as `blogs`.
-This script makes a list of all of the blog posts for the site.
+This script makes a list of all of the blog posts for the site:
+
+<!-- @nocpy -->
 
 ```rust
 // Param 1 should be `site.pages`
@@ -93,6 +103,8 @@ from the `params` array, and ends by sending back the output of the last line, `
 The script returns a more complex data type, so let's see how this one is used in the
 `content_sidebar.hbs` template:
 
+<!-- @nocpy -->
+
 ```html
 <div class="p-4">
     <h4 class="fst-italic">Recent Posts</h4>
@@ -108,8 +120,10 @@ Then the `each` loops through the results.
 
 The value of `this` within the `#each` loop is the object that we created in Rhai:
 
+<!-- @nocpy -->
+
 ```rust
-#{
+{
     uri: "/some/path"
     page: #{head: #{...}, body: "some html" }
 }
