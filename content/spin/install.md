@@ -15,7 +15,7 @@ Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windo
 
 {{ startTab "Linux"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site.
+There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site:
 
 <!-- @selectiveCpy -->
 
@@ -32,7 +32,7 @@ $ sudo mv spin /usr/local/bin/
 > Please note: On a fresh Linux installation, you will also need the standard build toolchain
 (`gcc`, `make`, etc.), the SSL library headers, and on some distributions you may need `pkg-config`.
 
-On Debian-like distributions, including Ubuntu, you can install these with a command like this.
+On Debian-like distributions, including Ubuntu, you can install the standard build toolchain with a command like this:
 
 <!-- @selectiveCpy -->
 
@@ -46,7 +46,7 @@ To install a specific version, you can pass arguments to the install script this
 
 <pre class="bash spin-install" id="spin-install-linux-version"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.8.0</code></pre>
 
-To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin.
+To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
 
 <!-- @selectiveCpy -->
 
@@ -56,7 +56,7 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "macOS"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site.
+There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site:
 
 <!-- @selectiveCpy -->
 
@@ -76,7 +76,7 @@ To install a specific version, you can pass arguments to the install script this
 
 <pre class="bash spin-install" id="spin-install-macos-version"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.8.0</code></pre>
 
-To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin.
+To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
 
 <!-- @selectiveCpy -->
 
