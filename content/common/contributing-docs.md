@@ -153,7 +153,7 @@ $ npm test
 
 The Bartholomew Command Line Interface (CLI) Tool is called `bart`. The `bart` CLI is a tool that simplifies working with Bartholomew projects (by now you probably already know that [Bartholomew](https://www.fermyon.com/blog/introducing-bartholomew) is our in-house WebAssembly (Wasm) content management system (CMS) that powers [our official Website](https://www.fermyon.com/)). And this (our official documentation) site. The `bart` CLI is handy to ensure quality assurance of new and existing content. Installing the CLI is a cinch, so please go ahead and use it when contributing.
 
-To build the Bartholomew CLI from source, simply perform the following commands:
+To build the Bartholomew CLI from source perform the following commands:
 
 <!-- @selectiveCpy -->
 
