@@ -4,6 +4,13 @@ date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
+- [Install Spin](#install-spin)
+- [Log in to the Fermyon Cloud](#log-in-to-the-fermyon-cloud)
+- [Clone the Quickstart Repo](#clone-the-quickstart-repo)
+- [Deploy the Application](#deploy-the-application)
+- [Success](#success)
+- [Next Steps](#next-steps)
+
 
 > This is the open beta of the Fermyon Cloud. For more info about the limitations and support, please see read the [FAQ](/cloud/faq).
 
@@ -28,7 +35,9 @@ This guide will get you up and running in the Fermyon Cloud in less than two min
 
 ## Install Spin
 
-First, you need to have Spin installed on your computer. Use the command below to install the latest version of Spin.
+First, you need to have Spin installed on your computer. Use the command below to install the latest version of Spin:
+
+<!-- @nocpy -->
 
 ```console
 curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
@@ -48,7 +57,7 @@ $ sudo mv spin /usr/local/bin/
 
 ## Log in to the Fermyon Cloud
 
-Now, let's log in to the Fermyon Cloud. You will be using your [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email) to sign in.
+Now, let's log in to the Fermyon Cloud. You will be using your [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email) to sign in:
 
 <!-- @selectiveCpy -->
 
@@ -75,7 +84,7 @@ This command will generate an authentication code for your current device to be 
 
 To make this easy, we've already compiled a Webassembly module and created a Spin application for you to deploy.
 
-Let's go ahead and clone the <https://github.com/fermyon/cloud-start> repository to your computer to retrieve that application.
+Let's go ahead and clone the <https://github.com/fermyon/cloud-start> repository to your computer to retrieve that application:
 
 <!-- @selectiveCpy -->
 
@@ -89,7 +98,7 @@ This command clones the repository into a local directory named `cloud-start`, a
 
 ## Deploy the Application
 
-Let's deploy the application
+Let's deploy the application:
 
 <!-- @selectiveCpy -->
 
@@ -106,6 +115,7 @@ The `spin` command will run using the Spin binary in your system path and read t
 This is what a successful Spin application deployment on Fermyon Cloud looks like:
 
 <!-- @nocpy -->
+
 ```console
 Uploading cloud_start version 0.1.0+XXXXXXXX...
 Deploying...

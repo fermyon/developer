@@ -4,6 +4,10 @@ date = "2022-01-01T00:00:01Z"
 [extra]
 
 ---
+- [OpenAPI](#openapi)
+- [Rust Client](#rust-client)
+- [Documenting the Fermyon Cloud API](#documenting-the-fermyon-cloud-api)
+- [Related Resources](#related-resources)
 
 ## OpenAPI
 
@@ -12,6 +16,8 @@ The [Fermyon Cloud OpenAPI](https://github.com/fermyon/cloud-openapi) project co
 ## Rust Client
 
 To use [the Rust client](https://github.com/fermyon/cloud-openapi/tree/main/clients/rust), go ahead and add a reference to the Fermyon Cloud OpenAPI in your project’s `Cargo.toml` file, as shown below:
+
+<!-- @nocpy -->
 
 ```toml
 cloud-openapi = { git = "https://github.com/fermyon/cloud-openapi" }

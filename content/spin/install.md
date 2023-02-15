@@ -6,6 +6,11 @@ enable_shortcodes = true
 keywords = "install"
 
 ---
+- [Installing Spin](#installing-spin)
+- [Building Spin From Source](#building-spin-from-source)
+- [Using Cargo to Install Spin](#using-cargo-to-install-spin)
+- [Next Steps](#next-steps)
+
 
 ## Installing Spin
 

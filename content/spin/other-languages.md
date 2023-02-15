@@ -5,6 +5,13 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/other-languages.md"
 
 ---
+- [AssemblyScript](#assemblyscript)
+- [C/C++](#cc)
+- [C# and .NET Languages](#c-and-net-languages)
+- [Grain](#grain)
+- [Python](#python)
+- [Ruby](#ruby)
+- [Zig](#zig)
 
 > This document is continuously evolving as we improve language SDKs and add
 > more examples on how to build Spin components in various programming languages.

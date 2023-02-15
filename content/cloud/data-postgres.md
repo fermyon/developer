@@ -4,6 +4,14 @@ date = "2022-01-01T00:00:01Z"
 [extra]
 
 ---
+- [PostgreSQL](#postgresql)
+- [Spin and Fermyon Cloud](#spin-and-fermyon-cloud)
+- [Using Spin Application Templates](#using-spin-application-templates)
+- [Creating Our New Spin Application](#creating-our-new-spin-application)
+- [CSharp](#csharp)
+- [Wizer](#wizer)
+- [Spin Build](#spin-build)
+- [Spin Deploy](#spin-deploy)
 
 ## PostgreSQL
 
@@ -43,14 +51,18 @@ Installed 1 template(s)
 
 The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference#new), from an existing template. Using the docs as a reference, we can perform the following:
 
+<!-- @selectiveCpy -->
+
 ```bash
-spin new http-csharp httpCSharpApplication
+$ spin new http-csharp httpCSharpApplication
 Project description: A new http-csharp spin application
 HTTP base: /
 HTTP path: /data
 ```
 
 ## CSharp
+
+<!-- @nocpy -->
 
 ```csharp
 using Fermyon.Spin.Sdk;

@@ -5,11 +5,12 @@ enable_shortcodes = true
 
 ---
 
-* [Deployments in Fermyon Cloud](#deployments-in-fermyon-cloud)
-* [Bindle - An Aggregate Object Storage System](#bindle---an-aggregate-object-storage-system)
-* [The Deployment Process Explained](#the-deployment-process-explained)
-  * [1. Packaging and Uploading an Application](#1-packaging-and-uploading-an-application)
-  * [2. Create or Upgrade an Application](#2-create-or-upgrade-an-application)
+- [Deployments in Fermyon Cloud](#deployments-in-fermyon-cloud)
+- [Bindle - An Aggregate Object Storage System](#bindle---an-aggregate-object-storage-system)
+- [The Deployment Process Explained](#the-deployment-process-explained)
+  - [1. Packaging and Uploading an Application](#1-packaging-and-uploading-an-application)
+  - [2. Create or Upgrade an Application](#2-create-or-upgrade-an-application)
+
 
 ## Deployments in Fermyon Cloud
 

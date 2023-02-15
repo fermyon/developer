@@ -3,6 +3,13 @@ template = "spin_main"
 date = "2023-02-1T00:22:56Z"
 
 ---
+- [What Are Spin Plugins?](#what-are-spin-plugins)
+- [How to Find and Use a Spin Plugin](#how-to-find-and-use-a-spin-plugin)
+- [Authoring a Spin Plugin](#authoring-a-spin-plugin)
+  - [Packaging a Plugin](#packaging-a-plugin)
+  - [Creating a Spin Plugin Manifest](#creating-a-spin-plugin-manifest)
+  - [Installing a Local Plugin](#installing-a-local-plugin)
+  - [Contributing a Plugin](#contributing-a-plugin)
 
 Spin plugins add new functionality or subcommands to Spin without modifying the
 Spin codebase. They make Spin easily extensible while keeping it lightweight.

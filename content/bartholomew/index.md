@@ -6,6 +6,8 @@ date = "2022-05-07T00:22:56Z"
 
 ---
 
+- [Overview](#overview)
+
 Bartholomew is a simple CMS-like (Content Management System) tool for managing a
 website. It is compiled to WebAssembly, and can run in any [Spin](https://developer.fermyon.com/spin)
 environment.

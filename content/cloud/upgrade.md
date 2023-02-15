@@ -4,9 +4,9 @@ date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
-
 - [Upgrade Your Application](#upgrade-your-application)
 - [Next Steps](#next-steps)
+
 
 To upgrade your Spin application, there are just a few steps to take. This doesn’t require so much stress.
 
@@ -16,11 +16,15 @@ To upgrade a Spin application running in the Fermyon Cloud, you first have to ch
 
 1. Open the `spin.toml` file. In the file, you’ll find this line of code for the version:
 
+<!-- @nocpy -->
+
 ```toml
 version = "0.1.0"
 ```
 
-In this case, we're changing the version from `0.1.0` to `0.1.1`
+In this case, we're changing the version from `0.1.0` to `0.1.1`:
+
+<!-- @nocpy -->
 
 ```toml
 version = "0.1.1"

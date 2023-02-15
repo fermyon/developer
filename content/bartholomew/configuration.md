@@ -1,8 +1,9 @@
 title = "Bartholomew configuration"
 date = "2022-05-09T19:32:09.579913Z"
 template = "bartholomew_main"
-
+enable_shortcodes = true
 [extra]
+keywords = "install"
 
 ---
 
@@ -12,7 +13,9 @@ in the site configuration. In this chapter, we will focus on site configuration.
 
 Your site's `config/` directory has one configuration file in it, called `site.toml`:
 
-```
+<!-- @nocpy -->
+
+```toml
 title = "Bartholomew"
 # logo = "URL to logo"
 base_url = "http://localhost:3000"

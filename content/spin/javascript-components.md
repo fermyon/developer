@@ -4,6 +4,17 @@ date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
+- [Installing Templates](#installing-templates)
+- [Structure of a JS/TS Component](#structure-of-a-jsts-component)
+- [Building and Running the Template](#building-and-running-the-template)
+- [A Quick Note About NPM Scripts](#a-quick-note-about-npm-scripts)
+- [HTTP Components](#http-components)
+- [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
+- [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
+- [Using External NPM Libraries](#using-external-npm-libraries)
+  - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
+- [Caveats](#caveats)
+
 
 With JavaScript being a very popular language, Spin provides support for building components with it using the experimental SDK. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. 
 
@@ -31,7 +42,7 @@ The JavaScript/TypeScript templates can be installed from [spin-js-sdk repositor
 $ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
 ```
 
-which will install the `http-js` and `http-ts` templates.
+which will install the `http-js` and `http-ts` templates:
 
 <!-- @nocpy -->
 
@@ -89,7 +100,7 @@ $ npm install
 $ npm run build
 ```
 
-Once a Spin compatible module is created, it can be run using 
+Once a Spin compatible module is created, it can be run using:
 
 <!-- @selectiveCpy -->
 
@@ -116,7 +127,7 @@ The `npm run build` command will work on Linux and macOS. However, on Windows it
 
 On Linux/Unix systems, the `-p` option in the `mkdir` command is designed to prevent an error from occuring in the event that the `target` directory already exists. However, on Windows systems, npm (by default) uses cmd.exe which does not recognize the `-p` option, regarding its `mkdir` command.
 
-If you run `npm run build` on Windows (more than once) the following error will be encountered.
+If you run `npm run build` on Windows (more than once) the following error will be encountered:
 
 <!-- @nocpy -->
 
@@ -132,7 +143,7 @@ a) Configure your instance of `npm` to use bash (by using the `script-shell` con
 <!-- @selectiveCpy -->
 
 ```bash
-npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
+$ npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
 ```
 
 b) Run the separate parts of the `build` manually, to suite your needs (OS syntax requirements):
@@ -140,8 +151,8 @@ b) Run the separate parts of the `build` manually, to suite your needs (OS synta
 <!-- @selectiveCpy -->
 
 ```bash
-npx webpack --mode=production
-spin js2wasm -o target/spin-http-js.wasm dist/spin.js
+$ npx webpack --mode=production
+$ spin js2wasm -o target/spin-http-js.wasm dist/spin.js
 ```
 
 ---
@@ -159,6 +170,8 @@ for writing Spin components with the Spin JS/TS SDK.
 Building a Spin HTTP component using the JS/TS SDK means writing a single function
 that takes an HTTP request as a parameter, and returns an HTTP response — below
 is a complete implementation for such a component in TypeScript:
+
+<!-- @nocpy -->
 
 ```Javascript
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
@@ -188,6 +201,8 @@ Let's see an example of a component that makes a request to
 [an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
 inserts a custom header into the response before returning:
 
+<!-- @nocpy -->
+
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
 
@@ -215,6 +230,8 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 Before we can execute this component, we need to add the `some-random-api.ml`
 domain to the application manifest `allowed_http_hosts` list containing the list of
 domains the component is allowed to make HTTP requests to:
+
+<!-- @nocpy -->
 
 ```toml
 # spin.toml
@@ -278,6 +295,8 @@ proxies or URL shorteners.
 Using the Spin's JS SDK, you can use the Redis key/value store and to publish messages to Redis channels.
 
 Let's see how we can use the JS/TS SDK to connect to Redis:
+
+<!-- @nocpy -->
 
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"

@@ -5,6 +5,9 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/developing.md"
 
 ---
+- [Building Spin Applications](#building-spin-applications)
+- [Component `workdir`](#component-workdir)
+
 
 The Spin CLI offers a few commands to simplify developing applications.
 
@@ -18,6 +21,8 @@ back to the directory with `spin.toml` can be a very repetitive task.
 
 This is why Spin has a top-level command that will execute the build command
 set by each component, `spin up`:
+
+<!-- @nocpy -->
 
 ```toml
 [component.build]
@@ -65,6 +70,8 @@ subdirectory `deep`:
 ```
 
 To run the build `command` in directory `deep`, set the component's `workdir`:
+
+<!-- @nocpy -->
 
 ```toml
 [component.build]

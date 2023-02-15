@@ -5,6 +5,8 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/contributing.md"
 
 ---
+- [Making Code Contributions to Spin](#making-code-contributions-to-spin)
+
 
 We are delighted that you are interested in making Spin better! Thank you! This
 document will guide you through making your first contribution to the project.
