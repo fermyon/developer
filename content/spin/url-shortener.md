@@ -5,6 +5,11 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/url-shortener.md"
 
 ---
+- [A Simple URL Shortener Built With Spin](#a-simple-url-shortener-built-with-spin)
+- [Here Is One We Prepared Earlier](#here-is-one-we-prepared-earlier)
+- [Conclusion](#conclusion)
+
+## A Simple URL Shortener Built With Spin
 
 This tutorial will walk you through building a Spin component that
 redirects short URLs to their configured destinations.
@@ -15,15 +20,13 @@ This is an evolving tutorial. As Spin allows building more complex components
 (through supporting access to services like databases), this tutorial will be
 updated to reflect that.
 
-> The complete implementation for this tutorial
-> [can be found on GitHub](https://github.com/fermyon/url-shortener).
+## Here Is One We Prepared Earlier
+The complete implementation for this tutorial [can be found on GitHub](https://github.com/fermyon/url-shortener).
 
 First, our URL shortener allows users to configure their own final URLs —
 currently, that is done through a configuration file that contains multiple
 `[[route]]` entries, each containing the shortened path as `source`, and
 the `destination` URL:
-
-<!-- @nocpy -->
 
 ```toml
 [[route]]
@@ -42,8 +45,6 @@ using Spin.
 
 First, we start with [a new Spin component written in Rust](./rust-components.md):
 
-<!-- @nocpy -->
-
 ```rust
 /// A Spin HTTP component that redirects requests 
 /// based on the router configuration.
@@ -56,8 +57,6 @@ fn redirect(req: Request) -> Result<Response> {
 
 All the component does is create a new router based on the default configuration,
 then use it to redirect the request. Let's see how the router is defined:
-
-<!-- @nocpy -->
 
 ```rust
 #[derive(Debug, Deserialize, Serialize)]
@@ -73,9 +72,7 @@ pub struct Router {
 }
 ```
 
-The `Router` structure is a Rust representation of the TOML configuration above:
-
-<!-- @nocpy -->
+The `Router` structure is a Rust representation of the TOML configuration above.
 
 ```rust
 pub fn redirect(self, req: Request) -> Result<Response> {
@@ -106,8 +103,6 @@ corresponding destination from the router configuration, then sends the
 HTTP redirect to the new location.
 
 At this point, we can build the module with `cargo` and run it with Spin:
-
-<!-- @nocpy -->
 
 ```bash
 $ cargo build --target wasm32-wasi --release
@@ -161,7 +156,9 @@ And now we can run the application directly from the registry:
 $ spin up --bindle url-shortener/1.0.0
 ```
 
-In this tutorial, we built a simple URL shortener as a Spin component.
-In the future, we will expand this tutorial by storing the router configuration
+## Conclusion
+
+In this tutorial we built a simple URL shortener as a Spin component.
+In the future we will expand this tutorial by storing the router configuration
 in a database supported by Spin, and potentially create another component that
 can be used to add new routes to the configuration.
