@@ -9,7 +9,6 @@ enable_shortcodes = true
 - [Deploy Your Application](#deploy-your-application)
 - [Next Steps](#next-steps)
 
-
 This article will guide you through deploying a Spin Application with the Fermyon Cloud. You can deploy your [Spin App](/spin) or [Bartholomew](https://github.com/fermyon/bartholomew) site in just a few steps.
 
 ## Prerequisites - Install the Spin CLI

@@ -7,7 +7,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/extending-and-embe
 ---
 - [Other Ways to Extend and Use Spin](#other-ways-to-extend-and-use-spin)
 
-
 > The complete example for extending and embedding Spin [can be found on GitHub](https://github.com/fermyon/spin/tree/main/examples/spin-timer).
 
 Spin currently implements triggers and application models for:

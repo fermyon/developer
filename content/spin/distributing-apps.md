@@ -9,7 +9,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/distributing-apps.
   - [Signing Spin Applications and Verifying Signatures](#signing-spin-applications-and-verifying-signatures)
 - [Distributing Spin Applications Using Bindle](#distributing-spin-applications-using-bindle)
 
-
 ## Distributing Spin Applications Using Container Registry Services
 
 Starting with [v0.8.0](https://github.com/fermyon/spin/releases/tag/v0.8.0), Spin supports distributing applications using existing container registry services such as GitHub Container Registry, Docker Hub, Azure ACR, or AWS ECR. This feature is experimental, and will continue to evolve in future versions of Spin.

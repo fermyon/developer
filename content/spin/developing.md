@@ -8,7 +8,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/developing.md"
 - [Building Spin Applications](#building-spin-applications)
 - [Component `workdir`](#component-workdir)
 
-
 The Spin CLI offers a few commands to simplify developing applications.
 
 ## Building Spin Applications

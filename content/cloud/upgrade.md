@@ -7,7 +7,6 @@ enable_shortcodes = true
 - [Upgrade Your Application](#upgrade-your-application)
 - [Next Steps](#next-steps)
 
-
 To upgrade your Spin application, there are just a few steps to take. This doesn’t require so much stress.
 
 ## Upgrade Your Application

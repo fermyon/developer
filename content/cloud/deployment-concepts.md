@@ -11,7 +11,6 @@ enable_shortcodes = true
   - [1. Packaging and Uploading an Application](#1-packaging-and-uploading-an-application)
   - [2. Create or Upgrade an Application](#2-create-or-upgrade-an-application)
 
-
 ## Deployments in Fermyon Cloud
 
 Deploying applications to a cloud service should be simple. Even though there is complexity involved in operating a cloud with many servers, many applications, and an ever-changing number of workloads, the user's responsibility when deploying their applications should be minimal.

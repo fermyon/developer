@@ -10,7 +10,6 @@ enable_shortcodes = true
 - [Write Your Code](#write-your-code)
 - [Next Steps](#next-steps)
 
-
 This article briefly describes how to create a new Spin application. For a more thorough guide to developing Spin applications, take a look [here](/spin/developing).
 
 ## Prerequisites - Install the Spin CLI

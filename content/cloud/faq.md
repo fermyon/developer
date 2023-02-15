@@ -9,7 +9,6 @@ enable_shortcodes = true
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Next Steps](#next-steps)
 
-
 ## Service Limits
 
 The following are the limits of the Fermyon Cloud

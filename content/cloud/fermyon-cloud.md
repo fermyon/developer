@@ -12,7 +12,6 @@ enable_shortcodes = true
   - [Application Packaging and Distribution](#application-packaging-and-distribution)
   - [Web UI, API and CLI](#web-ui-api-and-cli)
 
-
 ## The Fermyon Cloud Explained
 
 [The Fermyon Cloud](https://cloud.fermyon.com) is a cloud application platform for WebAssembly microservices. It enables you to run [Spin applications](/spin), at scale, in the cloud, without any infrastructure setup.

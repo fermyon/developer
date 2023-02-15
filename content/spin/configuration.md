@@ -18,7 +18,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/configuration.md"
 - [Runtime Configuration](#runtime-configuration)
 - [Examples](#examples)
 
-
 Spin applications are comprised of general information (metadata), and a collection
 of at least one _component_. Configuration for a Spin application lives in a TOML
 file called `spin.toml` (the _application manifest_). In the example below we can see

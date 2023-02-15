@@ -8,7 +8,6 @@ date = "2022-03-14T00:22:56Z"
 - [Getting Support](#getting-support)
 - [Open Beta](#open-beta)
 
-
 [The Fermyon Cloud](https://cloud.fermyon.com) is a cloud application platform for WebAssembly microservices. It enables you to run [Spin applications](/spin), at scale, in the cloud, without any infrastructure setup.
 
 ## Documentation

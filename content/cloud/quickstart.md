@@ -11,7 +11,6 @@ enable_shortcodes = true
 - [Success](#success)
 - [Next Steps](#next-steps)
 
-
 > This is the open beta of the Fermyon Cloud. For more info about the limitations and support, please see read the [FAQ](/cloud/faq).
 
 - [Install Spin](#install-spin)

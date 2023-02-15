@@ -7,7 +7,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/redis-trigger.md"
 ---
 - [The WebAssembly Interface](#the-webassembly-interface)
 
-
 Spin applications can be triggered by a new message on a [Redis channel](https://redis.io/topics/pubsub).
 Spin will connect to a configured Redis instance and will invoke components for
 new messages on the configured channels.

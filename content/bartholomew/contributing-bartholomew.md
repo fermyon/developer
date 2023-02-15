@@ -15,7 +15,6 @@ keywords = "install"
   - [Merged](#merged)
   - [Thank You](#thank-you)
 
-
 To contribute to the Bartholomew project, please follow these steps.
 
 > These steps will seperately install (from source) all of the software components that make up a Bartholomew Content Management System (CMS) deployment on localhost. Whilst this page is aimed at showing you how to contribute to Bartholomew, it also demonstrates how all of the different components work together. This is a great way to learn about Spin, Bartholomew, Spin File Server and in addition how the WebAssembly binary files contribute to the workings of this system.
@@ -117,7 +116,9 @@ $ vi ~/.bash_profile
 ```bash
 $ vi ~/.zshrc
 ```
+
 {{ blockEnd }}
+
 {{ blockEnd }}
 
 Then add the path to binaryen's bin folder to the last line of your file like this:
@@ -149,7 +150,9 @@ $ . ~/.bash_profile
 ```bash
 $ . ~/.zshrc
 ```
+
 {{ blockEnd }}
+
 {{ blockEnd }}
 
 You can check this has worked by echoing your path. For example:

@@ -13,7 +13,6 @@ date = "2023-02-13T00:00:00Z"
   - [Conclusion](#conclusion)
   - [Next Steps](#next-steps)
 
-
 # Spin OCI Support
 
 In [Spin v0.8.0](https://www.fermyon.com/blog/spin-v08), we announced the ability to store and run Spin applications stored in an [OCI compatible](https://opencontainers.org/) registry. Spin developers now have a powerful workflow that enables them to use idiomatic infrastructure tooling, such as [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/), to store, deploy, and share their Spin applications. 

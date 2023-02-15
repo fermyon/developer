@@ -15,7 +15,6 @@ enable_shortcodes = true
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
 - [Caveats](#caveats)
 
-
 With JavaScript being a very popular language, Spin provides support for building components with it using the experimental SDK. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. 
 
 > This guide assumes you are familiar with the JavaScript programming language,

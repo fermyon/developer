@@ -6,7 +6,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/deploying-to-fermy
 
 ---
 
-
 [Fermyon](https://www.fermyon.dev/) is the frictionless WebAssembly platform for deploying
 microservices and web apps. With Fermyon, you can deploy your spin applications onto a server in
 moments.

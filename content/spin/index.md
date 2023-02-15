@@ -13,7 +13,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/index.md"
 - [Deploying a Spin Application](#deploying-a-spin-application)
 - [Next Steps](#next-steps)
 
-
 Spin is a framework for building and running event-driven microservice applications with WebAssembly (Wasm) components. With Spin, we’re trying to make it easier to get started with using WebAssembly on the server so that we can all take advantage of the security, portability, and speed WebAssembly provides when it comes to running microservices.
 
 [Install Spin](install)

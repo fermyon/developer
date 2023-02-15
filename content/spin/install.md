@@ -11,7 +11,6 @@ keywords = "install"
 - [Using Cargo to Install Spin](#using-cargo-to-install-spin)
 - [Next Steps](#next-steps)
 
-
 ## Installing Spin
 
 Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windows with WSL2 (amd64).
