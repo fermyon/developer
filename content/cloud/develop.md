@@ -32,7 +32,7 @@ You can create your very own application based on [templates from the Spin repos
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin
+$ spin templates install --git https://github.com/fermyon/spin --update
 Copying remote template source
 Installing template http-rust...
 Installing template http-go...

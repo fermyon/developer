@@ -20,7 +20,7 @@ The Spin CLI facilitates the creation of new Spin applications through the use o
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin
+$ spin templates install --git https://github.com/fermyon/spin --update
 ```
 
 The output from the command above will be similar to the following:

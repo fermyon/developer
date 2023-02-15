@@ -28,7 +28,7 @@ The JavaScript/TypeScript templates can be installed from [spin-js-sdk repositor
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
 ```
 
 which will install the `http-js` and `http-ts` templates.
