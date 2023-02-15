@@ -193,7 +193,6 @@ SUBCOMMANDS:
     check       Check content and identify errors or warnings
     help        Prints this message or the help of the given subcommand(s)
     new         Create a new page or website from a template
-
 ```
 
 Let's take a quick look at how you can use the `bart` CLI to check any content that you are wanting to contribute.
