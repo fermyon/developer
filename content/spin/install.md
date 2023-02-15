@@ -21,7 +21,15 @@ There are multiple ways to install Spin. The easiest is to use the installer scr
 
 <pre class="bash spin-install" id="spin-install-linux"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash</code></pre>
 
-On a fresh Linux installation, you will also need the standard build toolchain
+It's highly recommended to add Spin to a folder, which is on your path, e.g.:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ sudo mv spin /usr/local/bin/
+```
+
+> Please note: On a fresh Linux installation, you will also need the standard build toolchain
 (`gcc`, `make`, etc.), the SSL library headers, and on some distributions you may need `pkg-config`.
 
 On Debian-like distributions, including Ubuntu, you can install these with a command like this.
@@ -30,14 +38,6 @@ On Debian-like distributions, including Ubuntu, you can install these with a com
 
 ```bash
 $ sudo apt-get install build-essential libssl-dev pkg-config
-```
-
-It's highly recommended to add Spin to a folder, which is on your path, e.g.:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ sudo mv spin /usr/local/bin/
 ```
 
 To install a specific version, you can pass arguments to the install script this way:
