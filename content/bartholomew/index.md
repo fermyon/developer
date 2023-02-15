@@ -1,7 +1,6 @@
 title = "Introducing Bartholomew"
 template = "bartholomew_main"
 date = "2022-05-07T00:22:56Z"
-
 [extra]
 
 ---
@@ -32,5 +31,7 @@ Bartholomew is a [Spin](https://developer.fermyon.com/spin) component, and
 websites built with Bartholomew are Spin applications that can run in any
 environment that is capable of running Spin. At Fermyon, we run all of our
 websites using Bartholomew and Spin, on our [Fermyon Platform, running on Nomad](https://www.fermyon.com/blog/spin-nomad).
+
+## Taking Bartholomew for a Spin
 
 In the next page, we will [take Bartholomew for a spin](./quickstart.md).
