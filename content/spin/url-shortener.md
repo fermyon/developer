@@ -21,6 +21,7 @@ This is an evolving tutorial. As Spin allows building more complex components
 updated to reflect that.
 
 ## Here Is One We Prepared Earlier
+
 The complete implementation for this tutorial [can be found on GitHub](https://github.com/fermyon/url-shortener).
 
 First, our URL shortener allows users to configure their own final URLs —
