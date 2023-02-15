@@ -18,9 +18,8 @@ You can install the `spin` binary using the `install.sh` script hosted on this s
 
 <!-- @selectiveCpy -->
 
-```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
-```
+<pre class="bash spin-install" id="spin-install-quick"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
+</code></pre>
 
 At this point, move the `spin` binary somewhere in your path, so it can be
 accessed from any directory. For example:
