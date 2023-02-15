@@ -5,6 +5,7 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/developing.md"
 
 ---
+
 - [Building Spin Applications](#building-spin-applications)
 - [Component `workdir`](#component-workdir)
 
