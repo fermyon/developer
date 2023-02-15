@@ -4,7 +4,7 @@ description = "Join our Discord for an hour of a little demo'ing and Q&A with th
 
 [extra]
 type = "event"
-eventdates = "Friday 10th March (6pm UTC / 3:30pm PT)"
+eventdates = "Friday 09th March (6pm UTC / 10am PT)"
 eventexpires = "2023-03-11T00:00:00Z"
 url = "https://discord.gg/6B8nQWMd?event=1065607706620203038"
 image = "static/image/community-qanda.svg"
