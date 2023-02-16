@@ -1,6 +1,7 @@
 title = "Hosting Spin Apps in OCI registries"
 template = "spin_main"
 date = "2023-02-13T00:00:00Z"
+enable_shortcodes = true
 [extra]
 
 ---
@@ -27,6 +28,8 @@ First, follow [this guide](./install.md) to install Spin v0.8.0 or later. To ens
 ```bash
 $ spin --version
 ```
+
+Please note if you're using version v0.9.0 or later you will be using the command `spin registry`. The command `spin oci` will only be supported with v0.8.8. 
 
 ## Set Up Your GHCR Instance
 
@@ -58,32 +61,90 @@ Now, switch to that directory and rebuild the application.
 ```
 
 Now we're ready to push the application. Run the `spin oci push` command to push your application to the registry. 
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v0.8.0"}}
+
  <!-- @selectiveCpy -->
 
  ```bash
  spin oci push ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
+{{ blockEnd }}
+
+{{ startTab "v0.9.0"}}
+
+ <!-- @selectiveCpy -->
+
+ ```bash
+ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
 You now have a Spin application stored in your registry. You can see the artifact under packages in the [GitHub UI](https://docs.github.com/en/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages).
 
 ## Pull a Spin App From GHCR
 
 Now that we've successfully pushed a Spin app, let's see if we can pull it. To do so, run the following command: 
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v0.8.0"}}
+
  <!-- @selectiveCpy -->
  
  ```bash
  spin oci pull ghcr.io/USERNAME/spin-react-fullstack
 ```
 
+{{ blockEnd }}
+
+{{ startTab "v0.9.0"}}
+
+ <!-- @selectiveCpy -->
+ 
+ ```bash
+ spin registry pull ghcr.io/USERNAME/spin-react-fullstack
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
 ## Run a Spin App From GHCR
 
-Lastly, let's run this Spin application. Note to mark this functionality as early and experimental, instead of integrating this functionality into `spin up` we will run this with the temporary command `spin oci run`.
+Lastly, let's run this Spin application. 
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v0.8.0"}}
+
  <!-- @selectiveCpy -->
 
  ```bash
  # make sure you've built your application with `spin build` prior
  spin oci run ghcr.io/USERNAME/spin-react-fullstack
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v0.9.0"}}
+
+<!-- @selectiveCpy -->
+
+ ```bash
+ # make sure you've built your application with `spin build` prior
+ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 ## Conclusion
 
