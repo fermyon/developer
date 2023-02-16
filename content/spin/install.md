@@ -48,7 +48,7 @@ To install a specific version, you can pass arguments to the install script this
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-linux-version"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.8.0</code></pre>
+<pre class="bash spin-install" id="spin-install-linux-version"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.9.0</code></pre>
 
 To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
 
@@ -78,7 +78,7 @@ To install a specific version, you can pass arguments to the install script this
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-macos-version"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.8.0</code></pre>
+<pre class="bash spin-install" id="spin-install-macos-version"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.9.0</code></pre>
 
 To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
 
@@ -90,7 +90,7 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "Windows"}}
 
-On Windows systems you can download <a href="https://github.com/fermyon/spin/releases/tag/v0.8.0" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a>.
+On Windows systems you can download <a href="https://github.com/fermyon/spin/releases/tag/v0.9.0" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a>.
 
 Simply unzip the binary release and place the `spin.exe` in your system path.
 
@@ -114,7 +114,7 @@ If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installati
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-source-cargo"><code>$ git clone https://github.com/fermyon/spin -b v0.8.0
+<pre class="bash spin-install" id="spin-install-source-cargo"><code>$ git clone https://github.com/fermyon/spin -b v0.9.0
 $ cd spin
 $ rustup target add wasm32-wasi
 $ cargo install --locked --path .

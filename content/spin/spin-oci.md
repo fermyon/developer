@@ -1,10 +1,10 @@
-title = "Hosting Spin Apps in OCI registries"
+title = "Hosting Spin Apps in Open Container Initiative (OCI) Registries"
 template = "spin_main"
 date = "2023-02-13T00:00:00Z"
 [extra]
 
 ---
-- [Spin OCI Support](#spin-oci-support)
+- [Spin Open Container Initiative (OCI) Support](#spin-open-container-initiative-oci-support)
   - [Prerequisites](#prerequisites)
   - [Set Up Your GHCR Instance](#set-up-your-ghcr-instance)
   - [Push a Spin App to GHCR](#push-a-spin-app-to-ghcr)
@@ -13,9 +13,9 @@ date = "2023-02-13T00:00:00Z"
   - [Conclusion](#conclusion)
   - [Next Steps](#next-steps)
 
-# Spin OCI Support
+# Spin Open Container Initiative (OCI) Support
 
-In [Spin v0.8.0](https://www.fermyon.com/blog/spin-v08), we announced the ability to store and run Spin applications stored in an [OCI compatible](https://opencontainers.org/) registry. Spin developers now have a powerful workflow that enables them to use idiomatic infrastructure tooling, such as [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/), to store, deploy, and share their Spin applications. 
+From [Spin v0.8.0](https://www.fermyon.com/blog/spin-v08) onwards, you can store and run Spin applications stored in an OCI compatible registry. Spin developers now have a powerful workflow that enables them to use idiomatic infrastructure tooling, such as [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/), to store, deploy, and share their Spin applications. 
 
 ## Prerequisites
 
@@ -58,12 +58,12 @@ $ cd spin-react-fullstack
 $ spin build
 ```
 
-Now we're ready to push the application. Run the `spin oci push` command to push your application to the registry:
+Now we're ready to push the application. Run the `spin registry push` command to push your application to the registry:
 
  <!-- @selectiveCpy -->
 
  ```bash
-$ spin oci push ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 You now have a Spin application stored in your registry. You can see the artifact under packages in the [GitHub UI](https://docs.github.com/en/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages).
@@ -75,23 +75,23 @@ Now that we've successfully pushed a Spin app, let's see if we can pull it. To d
  <!-- @selectiveCpy -->
  
  ```bash
-$ spin oci pull ghcr.io/USERNAME/spin-react-fullstack
+$ spin registry pull ghcr.io/USERNAME/spin-react-fullstack
 ```
 
 ## Run a Spin App From GHCR
 
-Lastly, let's run this Spin application. Note to mark this functionality as early and experimental, instead of integrating this functionality into `spin up` we will run this with the temporary command `spin oci run`:
+Lastly, let's run this Spin application. Note to mark this functionality as early and experimental, instead of integrating this functionality into `spin up` we will run this with the temporary command `spin registry run`:
 
  <!-- @selectiveCpy -->
 
  ```bash
  # make sure you've built your application with `spin build` prior
-$ spin oci run ghcr.io/USERNAME/spin-react-fullstack
+$ spin registry run ghcr.io/USERNAME/spin-react-fullstack
 ```
 
 ## Conclusion
 
-Congratulations on completing this tutorial! You have now successfully built, pushed, pulled, and run a Spin app using GHCR. Behind the scenes, Spin uses [OCI Artifacts](https://github.com/opencontainers/artifacts) project to distribute Spin apps across container registries. To learn more about how this feature works, take a look at [our proposal](https://github.com/fermyon/spin/blob/main/docs/content/sips/008-using-oci-registries.md) and [the implementation](https://github.com/fermyon/spin/pull/1014). 
+Congratulations on completing this tutorial! You have now successfully built, pushed, pulled, and run a Spin app using GHCR. Behind the scenes, Spin uses [OCI artifacts](https://github.com/opencontainers/artifacts) project to distribute Spin apps across container registries. To learn more about how this feature works, take a look at [our proposal](https://github.com/fermyon/spin/blob/main/docs/content/sips/008-using-oci-registries.md) and [the implementation](https://github.com/fermyon/spin/pull/1014). 
 
 ## Next Steps
 
