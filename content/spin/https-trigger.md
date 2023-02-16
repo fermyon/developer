@@ -4,6 +4,9 @@ date = "2022-03-14T00:22:56Z"
 [extra]
 
 ---
+- [HTTP vs HTTPS](#http-vs-https)
+- [Routing](#routing)
+- [Defining the HTTP Object](#defining-the-http-object)
 
 ## HTTP vs HTTPS
 
