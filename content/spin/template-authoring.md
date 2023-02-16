@@ -64,6 +64,7 @@ The template manifest is a TOML file. It must be named `spin-template.toml`:
 manifest_version = "1"
 id = "my-application"
 description = "An application"
+tags = ["my-tag"]
 
 [parameters]
 # Example parameter
@@ -74,6 +75,8 @@ project-name = { type = "string", prompt = "Project name" }
 * `id` is however you want users to refer to your template in `spin new`.
   It may contain letters, digits, hypens and underscores.
 * `description` is optional. It is shown when displaying the template.
+* `tags` is optional. These are used to enable discoverability via the Spin CLI.
+  For example, `spin new --tag my-tag` will prompt selection for a template containing `"my-tag"`.
 
 The `parameters` table is where you list the placeholders that you edited
 into your content for the user to substitute. You should include an entry
