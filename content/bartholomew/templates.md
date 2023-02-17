@@ -5,6 +5,16 @@ template = "bartholomew_main"
 [extra]
 
 ---
+- [A Simple Template](#a-simple-template)
+  - [The `page` Object](#the-page-object)
+  - [The `site` Object](#the-site-object)
+  - [The `env` Object](#the-env-object)
+  - [The `request` Object](#the-request-object)
+- [Including a Template](#including-a-template)
+- [Calling Template Helpers](#calling-template-helpers)
+  - [Defined Helper Functions](#defined-helper-functions)
+  - [Values Reference](#values-reference)
+  - [Template Functions and Rhai Scripts](#template-functions-and-rhai-scripts)
 
 In Bartholomew, layout is handled via templates. All templates are in the
 `templates/` directory.
@@ -17,7 +27,9 @@ it works almost identically.
 
 Here is a simple HTML template with Handlebars:
 
-```
+<!-- @nocpy -->
+
+```html
 <!DOCTYPE html>
 <html>
 
@@ -41,7 +53,9 @@ Let's take a brief look at the `page` object to understand what is happening her
 
 In JSON, the `page` object looks like this:
 
-```
+<!-- @nocpy -->
+
+```json
 {
     head: {
         title: "Some title",
@@ -64,7 +78,9 @@ the `extra` section, we use `{{ page.head.extra.key }}`.
 
 In addition to the `page` object, there is also a `site` object. `site.pages` contains the `head` section and content of every page in the site. `site.pages` is only populated for templates included in `index_site_pages` in `site.toml` as described in the [configuration section](./configuration.md): 
 
-```
+<!-- @nocpy -->
+
+```json
 {
     info: {
         title: "site title"
@@ -90,7 +106,9 @@ The third top-level object is `env`, which holds all of the environment data.
 
 The `env` object is a set of keys and values:
 
-```
+<!-- @nocpy -->
+
+```json
 {
     PREVIEW_MODE: "0"
     ...
@@ -99,7 +117,9 @@ The `env` object is a set of keys and values:
 
 You can dump the entire contents of `env` using a template like this:
 
-```
+<!-- @nocpy -->
+
+```html
 <ul>
     {{#each env}}
     <li><code>{{@key}}</code>: <code>"{{this}}"</code></li>
@@ -114,7 +134,9 @@ the HTTP request, the path of this resource, and other Spin information.
 
 The `request` object is a set of keys and values:
 
-```
+<!-- @nocpy -->
+
+```json
 {
     spin-full-url: "http://localhost:3000/test"
     ...
@@ -123,7 +145,9 @@ The `request` object is a set of keys and values:
 
 You can dump the entire contents of `request` using a template like this:
 
-```
+<!-- @nocpy -->
+
+```html
 <ul>
     {{#each request}}
     <li><code>{{@key}}</code>: <code>"{{this}}"</code></li>
@@ -137,7 +161,9 @@ It is possible to include a template into another template.
 For example, if we want to include the `navbar.hbs` template, we use a "partial" include
 like this:
 
-```
+<!-- @nocpy -->
+
+```text
 {{> navbar }}
 ```
 
@@ -149,7 +175,9 @@ There are a few template helpers defined in Bartholomew.
 
 For example, to change a piece of text to all-caps, use the `upper` helper:
 
-```
+<!-- @nocpy -->
+
+```text
 {{ upper "hello" }}
 ```
 
@@ -180,7 +208,9 @@ The following values are available in the template. This is formatted in YAML fo
 - *request* - Information about the browser, HTTP request and other spin information.
 
 To reference a particular value, use dotted notation. For example, `page` has a `head`, which has the page's `title`.
-To access the title, use `{{ page.head.title }}`.
+To access the title, use `{{ page.head.title }}`:
+
+<!-- @nocpy -->
 
 ```yaml
 # Page holds data specific to the page that matches the URI. For example, the URI /foo loads page data from /content/foo.md
@@ -238,11 +268,15 @@ request: # HTTP request data along with spin information.
 
 Given the above, for example, you can write a template to create a link to the current page:
 
+<!-- @nocpy -->
+
 ```html
 <a href="{{site.info.base_url}}{{env.PATH_INFO}}">{{page.head.title}}</a>
 ```
 
 The above will output something like:
+
+<!-- @nocpy -->
 
 ```html
 <a href="https://example.com/in-action">WebAssembly In Action</a>

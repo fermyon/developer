@@ -5,6 +5,13 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/index.md"
 
 ---
+- [Structure of a Spin Application](#structure-of-a-spin-application)
+- [Example Spin Application](#example-spin-application)
+  - [HTTP Handler](#http-handler)
+  - [Spin Manifest](#spin-manifest)
+  - [Running a Spin Application](#running-a-spin-application)
+- [Deploying a Spin Application](#deploying-a-spin-application)
+- [Next Steps](#next-steps)
 
 Spin is a framework for building and running event-driven microservice applications with WebAssembly (Wasm) components. With Spin, we’re trying to make it easier to get started with using WebAssembly on the server so that we can all take advantage of the security, portability, and speed WebAssembly provides when it comes to running microservices.
 
@@ -25,7 +32,9 @@ The following illustrates how to define an HTTP application.
 
 ### HTTP Handler
 
-This `hello_world` function written in Rust defines a component that takes a `Request` and returns a `Result<Response>`.
+This `hello_world` function written in Rust defines a component that takes a `Request` and returns a `Result<Response>`:
+
+<!-- @nocpy -->
 
 ```rust
 #[http_component]​
@@ -40,6 +49,8 @@ fn hello_world(_req: Request) -> Result<Response> {​
 
 Once the code is compiled to a WebAssembly component, it can be referenced in a `spin.toml`
 file to create an HTTP application like what you can see below:
+
+<!-- @nocpy -->
 
 ```toml
 spin_version = "1"

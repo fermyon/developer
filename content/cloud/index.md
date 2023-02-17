@@ -4,8 +4,6 @@ date = "2022-03-14T00:22:56Z"
 
 ---
 
-> This is the open beta of the Fermyon Cloud. For more information about limitations and support, please see the [FAQ](/cloud/faq).
-
 - [Documentation](#documentation)
 - [Getting Support](#getting-support)
 - [Open Beta](#open-beta)

@@ -4,6 +4,12 @@ date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
+- [Install Spin](#install-spin)
+- [Log in to the Fermyon Cloud](#log-in-to-the-fermyon-cloud)
+- [Clone the Quickstart Repo](#clone-the-quickstart-repo)
+- [Deploy the Application](#deploy-the-application)
+- [Success](#success)
+- [Next Steps](#next-steps)
 
 > This is the open beta of the Fermyon Cloud. For more info about the limitations and support, please see read the [FAQ](/cloud/faq).
 
@@ -28,23 +34,34 @@ This guide will get you up and running in the Fermyon Cloud in less than two min
 
 ## Install Spin
 
-First, you need to have Spin installed on your computer. Use the command below to install the latest version of Spin.
+First, you need to have Spin installed on your computer. Use the command below to install the latest version of Spin:
+
+<!-- @nocpy -->
 
 ```console
 curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
-This command downloads and unpacks the latest Spin binary in the current directory. You can now run spin using the command `./spin`.
+This command downloads and unpacks the latest Spin binary in the current directory.
+
+**We recommend adding Spin to a directory in your `$PATH`**, e.g.:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ sudo mv spin /usr/local/bin/
+```
 
 {{ details "Learn more" "[Spin](https://github.com/fermyon/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). \n\n The [Spin](/spin) documentation is a good starting place to learn more about using the framework to develop applications."}}
 
 ## Log in to the Fermyon Cloud
 
-Now, let's log in to the Fermyon Cloud. You will be using your [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email) to sign in.
+Now, let's log in to the Fermyon Cloud. You will be using your [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email) to sign in:
 
 <!-- @selectiveCpy -->
-```console
-$ ./spin login
+
+```bash
+$ spin login
 
 Copy your one-time code:
 
@@ -66,10 +83,12 @@ This command will generate an authentication code for your current device to be 
 
 To make this easy, we've already compiled a Webassembly module and created a Spin application for you to deploy.
 
-Let's go ahead and clone the <https://github.com/fermyon/cloud-start> repository to your computer to retrieve that application.
+Let's go ahead and clone the <https://github.com/fermyon/cloud-start> repository to your computer to retrieve that application:
 
-```console
-git clone https://github.com/fermyon/cloud-start && cd cloud-start
+<!-- @selectiveCpy -->
+
+```bash
+$ git clone https://github.com/fermyon/cloud-start && cd cloud-start
 ```
 
 This command clones the repository into a local directory named `cloud-start`, and then enters that directory.
@@ -78,13 +97,15 @@ This command clones the repository into a local directory named `cloud-start`, a
 
 ## Deploy the Application
 
-Let's deploy the application
+Let's deploy the application:
+
+<!-- @selectiveCpy -->
 
 ```bash
-../spin deploy
+$ spin deploy
 ```
 
-The `../spin` command will run using the Spin binary in the parent directory of the current path and read the Spin application definition file `spin.toml` in the current directory to know what application to deploy.
+The `spin` command will run using the Spin binary in your system path and read the Spin application definition file `spin.toml` in the current (`cloud-start`) directory to know what application to deploy.
 
 {{ details "Learn more" "Deploying a Spin application to the Fermyon Cloud includes packaging the application and all the required files, uploading it to a Bindle registry, as well as instantiating the application on the cloud. \n\n You can learn more about the deployment process [here](./deployment-concepts)." }}
 
@@ -93,6 +114,7 @@ The `../spin` command will run using the Spin binary in the parent directory of 
 This is what a successful Spin application deployment on Fermyon Cloud looks like:
 
 <!-- @nocpy -->
+
 ```console
 Uploading cloud_start version 0.1.0+XXXXXXXX...
 Deploying...

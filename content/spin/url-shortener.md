@@ -5,6 +5,11 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/url-shortener.md"
 
 ---
+- [A Simple URL Shortener Built With Spin](#a-simple-url-shortener-built-with-spin)
+- [Here Is One We Prepared Earlier](#here-is-one-we-prepared-earlier)
+- [Conclusion](#conclusion)
+
+## A Simple URL Shortener Built With Spin
 
 This tutorial will walk you through building a Spin component that
 redirects short URLs to their configured destinations.
@@ -15,8 +20,9 @@ This is an evolving tutorial. As Spin allows building more complex components
 (through supporting access to services like databases), this tutorial will be
 updated to reflect that.
 
-> The complete implementation for this tutorial
-> [can be found on GitHub](https://github.com/fermyon/url-shortener).
+## Here Is One We Prepared Earlier
+
+The complete implementation for this tutorial [can be found on GitHub](https://github.com/fermyon/url-shortener).
 
 First, our URL shortener allows users to configure their own final URLs —
 currently, that is done through a configuration file that contains multiple
@@ -105,6 +111,7 @@ $ spin up --file spin.toml
 ```
 
 And the component can now handle incoming requests:
+
 <!-- @selectiveCpy -->
 
 ```bash
@@ -149,6 +156,8 @@ And now we can run the application directly from the registry:
 ```bash
 $ spin up --bindle url-shortener/1.0.0
 ```
+
+## Conclusion
 
 In this tutorial we built a simple URL shortener as a Spin component.
 In the future we will expand this tutorial by storing the router configuration

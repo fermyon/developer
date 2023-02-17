@@ -4,7 +4,6 @@ date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
-
 - [Sign in to the Fermyon Cloud Website](#sign-in-to-the-fermyon-cloud-website)
 - [Delete Your Application](#delete-your-application)
 - [Next Steps](#next-steps)

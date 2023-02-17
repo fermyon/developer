@@ -4,7 +4,6 @@ date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
-
 - [Prerequisites - Install the Spin CLI](#prerequisites---install-the-spin-cli)
 - [Log in to the Fermyon Cloud](#log-in-to-the-fermyon-cloud)
 - [Deploy Your Application](#deploy-your-application)
@@ -16,17 +15,20 @@ This article will guide you through deploying a Spin Application with the Fermyo
 
 Before developing a Spin application, you need to have the Spin CLI installed locally. Here’s a way to install the Spin CLI:
 
+<!-- @selectiveCpy -->
+
 ```console
-curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
 {{ details "Additional info" "It's easier if you move the spin binary somewhere in your path, so it can be accessed from any directory. E.g., `sudo mv ./spin /usr/local/bin/spin`. \n\nYou can verify the version of Spin installed by running `spin --version`" }}
 
 ## Log in to the Fermyon Cloud
 
-Next, you can log in to the Fermyon Cloud, which requires your GitHub account to sign in.
+Next, you can log in to the Fermyon Cloud, which requires your GitHub account to sign in:
 
 <!-- @selectiveCpy -->
+
 ```console
 $ spin login
 
@@ -46,9 +48,10 @@ This command generates an authentication code for your device to be authorized o
 
 ## Deploy Your Application
 
-After having signed in to the Fermyon Cloud, you deploy the application, by running the following command in the directory where your applications `spin.toml` file is located.
+After having signed in to the Fermyon Cloud, you deploy the application, by running the following command in the directory where your applications `spin.toml` file is located:
 
 <!-- @selectiveCpy -->
+
 ```console
 $ spin deploy
 Uploading cloud_start version 0.1.0+XXXXXXXX...

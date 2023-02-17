@@ -4,6 +4,17 @@ date = "2022-01-01T00:00:01Z"
 [extra]
 
 ---
+- [Redis](#redis)
+- [Spin and Fermyon Cloud](#spin-and-fermyon-cloud)
+- [Using Spin Application Templates](#using-spin-application-templates)
+- [Creating Our New Spin Application](#creating-our-new-spin-application)
+- [Redis](#redis-1)
+- [Configuration](#configuration)
+- [Spin SDK's Redis Implementation](#spin-sdks-redis-implementation)
+- [Rust](#rust)
+- [Log Into Fermyon Cloud](#log-into-fermyon-cloud)
+- [Spin Build](#spin-build)
+- [Spin Deploy](#spin-deploy)
 
 ## Redis
 
@@ -20,7 +31,7 @@ The Spin CLI facilitates the creation of new Spin applications through the use o
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin
+$ spin templates install --git https://github.com/fermyon/spin --update
 ```
 
 The output from the command above will be similar to the following:
@@ -89,6 +100,8 @@ Once you have logged in to Redislabs click on the `Data Access Control` and `Dat
 
 Open the Spin application's `spin.toml` file and add an environment configuration value, within the `[[component]]` section. For example:
 
+<!-- @nocpy -->
+
 ```bash
 environment = { REDIS_ADDRESS = "redis://username:password@redis.cloud.redislabs.com:16675" }
 ```
@@ -102,6 +115,8 @@ In this tutorial we will create the code to store and retrieve data from a Redis
 ## Rust 
 
 The following is the content which is required in the `src/lib.rs` file. Feel free to cut and paste the following, for convenience:
+
+<!-- @nocpy -->
 
 ```rust
 use anyhow::{anyhow, Result};
@@ -145,6 +160,7 @@ $ spin login
 ## Spin Build
 
 We build this application by typing the following command:
+
 <!-- @selectiveCpy -->
 
 ```bash
@@ -152,6 +168,7 @@ $ spin build
 ```
 
 The output from the above command will look similar to the following:
+
 <!-- @nocpy -->
 
 ```bash
@@ -163,6 +180,7 @@ Successfully ran the build command for the Spin components.
 ## Spin Deploy
 
 To deploy the application, use the deploy command:
+
 <!-- @selectiveCpy -->
 
 ```bash
@@ -170,6 +188,8 @@ $ spin deploy
 ```
 
 The above deploy command will produce similar output to the following:
+
+<!-- @nocpy -->
 
 ```text
 Deployed redisRustApplication version 0.1.0+XXXXXXXX

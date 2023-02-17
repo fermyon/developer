@@ -4,9 +4,6 @@ date = "2022-10-05T00:00:00Z"
 enable_shortcodes = true
 
 ---
-
-This document contains:
-
 - [Service Limits](#service-limits)
 - [Known Limitations](#known-limitations)
 - [Frequently Asked Questions](#frequently-asked-questions)

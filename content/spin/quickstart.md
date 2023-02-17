@@ -6,6 +6,10 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/quickstart.md"
 keywords = "quickstart"
 
 ---
+- [Getting the `spin` Binary](#getting-the-spin-binary)
+- [Creating a New Spin Application From a Template](#creating-a-new-spin-application-from-a-template)
+- [Running the Application With `spin up`](#running-the-application-with-spin-up)
+- [Next Steps](#next-steps)
 
 > This is an early preview of the Spin project. It is still experimental code,
 > and you should expect breaking changes before the first stable release.
@@ -14,13 +18,12 @@ keywords = "quickstart"
 
 ## Getting the `spin` Binary
 
-You can install the `spin` binary using the `install.sh` script hosted on this site.
+You can install the `spin` binary using the `install.sh` script hosted on this site:
 
 <!-- @selectiveCpy -->
 
-```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
-```
+<pre class="bash spin-install" id="spin-install-quick"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
+</code></pre>
 
 At this point, move the `spin` binary somewhere in your path, so it can be
 accessed from any directory. For example:
@@ -51,7 +54,7 @@ We first need to configure the [templates from the Spin repository](https://gith
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin
+$ spin templates install --git https://github.com/fermyon/spin --update
 Copying remote template source
 Installing template redis-rust...
 Installing template http-rust...
@@ -105,6 +108,8 @@ $ tree
 This command created all the necessary files we need to build and run our first
 Spin application. Here is `spin.toml`, the manifest file for a Spin application:
 
+<!-- @nocpy -->
+
 ```toml
 spin_version = "1"
 description = "A simple Spin HTTP component in Rust"
@@ -131,6 +136,8 @@ Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in Rust — a regular Rust function that
 takes an HTTP request as a parameter and returns an HTTP response, and it is
 annotated with the `http_component` macro:
+
+<!-- @nocpy -->
 
 ```rust
 use anyhow::Result;
@@ -164,7 +171,7 @@ info: installing component 'rust-std' for 'wasm32-wasi'
  19.8 MiB /  19.8 MiB (100 %)  11.5 MiB/s in  1s ETA:  0s
 ```
 
-For TinyGo templates you need the [TinyGo toolchain installed](https://tinygo.org/getting-started/install/).
+For TinyGo templ>ates you need the [TinyGo toolchain installed](https://tinygo.org/getting-started/install/).
 
 We can build this component using the regular Rust toolchain, targeting
 `wasm32-wasi`, which will produce the WebAssembly module and place it at
@@ -204,12 +211,12 @@ Available Routes:
   spin-hello-world: http://127.0.0.1:3000/hello
 ```
 
-Optionally, set the RUST_LOG environment variable for detailed logs, before running `spin up`.
+Optionally, set the RUST_LOG environment variable for detailed logs, before running `spin up`:
 
 <!-- @selectiveCpy -->
 
 ```bash
-export RUST_LOG=spin=trace
+$ export RUST_LOG=spin=trace
 ```
 
 Spin will instantiate all components from the application manifest, and

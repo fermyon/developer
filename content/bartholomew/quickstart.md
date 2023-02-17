@@ -1,15 +1,28 @@
 title = "Taking Bartholomew for a spin"
 date = "2022-05-08T14:05:02.118466Z"
 template = "bartholomew_main"
-
+enable_shortcodes = true
 [extra]
+keywords = "install"
 
 ---
-This is a quickstart example of using Spin to deploy a Bartholomew CMS instance, locally on your machine. In this quickstart session, we use a Bartholomew site template which contains some pre-built parts (for your convenience). If you would like to build all of the parts separately from source (Spin, Bartholomew, File Server), please see the [contributing section](https://bartholomew.fermyon.dev/contributing) which dives a lot deeper than this quickstart example.
+- [Getting the `spin` Binary](#getting-the-spin-binary)
+- [Templates](#templates)
+- [Use the Bartholomew Site Template](#use-the-bartholomew-site-template)
+- [Fetch Your Site](#fetch-your-site)
+- [Spin Up Your Site](#spin-up-your-site)
+- [Creating Your Content](#creating-your-content)
+  - [Bartholomew CLI](#bartholomew-cli)
+- [Create Your First Blog Post](#create-your-first-blog-post)
+- [Validate Your Content](#validate-your-content)
+  - [Validating Content With Shortcodes](#validating-content-with-shortcodes)
+- [Viewing Your Changes](#viewing-your-changes)
+
+This is a quickstart example of using Spin to deploy a Bartholomew CMS instance, locally on your machine. In this quickstart session, we use a Bartholomew site template which contains some pre-built parts (for your convenience). If you would like to build all of the parts separately from source (Spin, Bartholomew, File Server), please see the [contributing section](https://developer.fermyon.com/bartholomew/contributing-bartholomew) which dives a lot deeper than this quickstart example.
 
 ## Getting the `spin` Binary
 
-For Spin, follow [the Spin quickstart guide](https://spin.fermyon.dev/quickstart) which details how to either:
+For Spin, follow [the Spin quickstart guide](https://developer.fermyon.com/spin/quickstart) which details how to either:
 - download the latest Spin binary release,
 - clone and build Spin using cargo, or
 - clone and build Spin from source.
@@ -30,11 +43,15 @@ Here are some additional details about [creating a repository from a template](h
 
 Clone the repository which you created in the previous step: 
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ git clone <your-github-account> <your-repo-name>
 ```
 
 Navigate into your newly cloned repository:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ cd <your-repo-name>
@@ -43,6 +60,8 @@ $ cd <your-repo-name>
 ## Spin Up Your Site
 
 Issue the following `spin up` command to launch your site on localhost:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin up --follow-all
@@ -58,7 +77,9 @@ Creating content is made easy with the Bartholomew Command Line Interface (CLI) 
 
 For the `bart` CLI, there are two options:
 - download the latest `bart` binary [release](https://github.com/fermyon/bartholomew/releases/), or
-- clone and build `bart` from source (requires Rust), using the following commands (NOTE: `target/release/bart` will need to be installed to a user executable directory such as `/usr/local/bin/` to be run when built this way.):
+- clone and build `bart` from source (requires Rust), using the following commands (NOTE: `target/release/bart` will need to be installed to a user executable directory such as `/usr/local/bin/` to be run when built this way):
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ git clone https://github.com/fermyon/bartholomew.git
@@ -77,12 +98,16 @@ Note below how we:
 
 Feel free to change these values when you run the command on your system:
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ mkdir content/blog
 $ bart new post content/blog protons.md --author "Enrico Fermi" --template "blog" --title "On the Recombination of Neutrons and Protons"
 ```
 
 The output from the above command will look similar to the following:
+
+<!-- @nocpy -->
 
 ```bash
 Wrote new post in file content/blog/protons.md
@@ -92,11 +117,15 @@ Wrote new post in file content/blog/protons.md
 
 If you would like to check the validity of your content, you can use the following `bart check` command. Notice how we specify the location of the content we want to check. In this case, we are checking all of the Markdown files in the blog directory:
 
+<!-- @selectiveCpy -->
+
 ```bash
-bart check content/blog/*
+$ bart check content/blog/*
 ```
 
 If your syntax in the `.md` file is **correct**, you will receive an output similar to the following. Otherwise, you will receive an informative error message and a cross:
+
+<!-- @nocpy -->
 
 ```bash
 ✅ content/blog/protons.md
@@ -104,10 +133,12 @@ If your syntax in the `.md` file is **correct**, you will receive an output simi
 
 ### Validating Content With Shortcodes
 
-If some of your documents uses shortcodes, then directory from which the shortcodes must be loaded needs to be specified using the `--shortcodes` flag.
+If some of your documents uses shortcodes, then directory from which the shortcodes must be loaded needs to be specified using the `--shortcodes` flag:
+
+<!-- @selectiveCpy -->
 
 ```bash
-bart check content/blog/* --shortcode ./shortcodes
+$ bart check content/blog/* --shortcode ./shortcodes
 ```
 
 ## Viewing Your Changes

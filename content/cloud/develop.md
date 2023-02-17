@@ -4,7 +4,6 @@ date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
-
 - [Prerequisites - Install the Spin CLI](#prerequisites---install-the-spin-cli)
 - [Create a New Spin Application From a Template](#create-a-new-spin-application-from-a-template)
 - [Run the Application](#run-the-application)
@@ -32,7 +31,7 @@ You can create your very own application based on [templates from the Spin repos
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin
+$ spin templates install --git https://github.com/fermyon/spin --update
 Copying remote template source
 Installing template http-rust...
 Installing template http-go...
@@ -48,7 +47,7 @@ Installing template http-go...
 
 {{ details "Additional info" "If you already have templates installed, you can update them by running `spin templates install --git https://github.com/fermyon/spin --update` \n\nIf you’re interested in building your own template, you can follow the guide here [templates from the Spin repository](https://github.com/fermyon/spin/tree/main/templates) and the [Spin Improvement Proposal (SIP) for templates](https://github.com/fermyon/spin/pull/273)." }}
 
-We will be using the http-rust template to build our Spin Application, by running `spin new`.
+We will be using the http-rust template to build our Spin Application, by running `spin new`:
 
 <!-- @selectiveCpy -->
 
@@ -73,6 +72,8 @@ HTTP path: /...
 
 The command created all the files we need to build and run our Spin Application. Here’s the `spin.toml` file — the manifest file for a Spin application:
 
+<!-- @nocpy -->
+
 ```bash
 spin_version = "1"
 authors = ["Doc Docsen <docs@fermyon.com>"]
@@ -90,7 +91,7 @@ route = "/..."
 command = "cargo build --target wasm32-wasi --release"
 ```
 
-Next, let’s build the app.
+Next, let’s build the app:
 
 <!-- @selectiveCpy -->
 
@@ -108,7 +109,7 @@ Successfully ran the build command for the Spin components.
 
 ## Run the Application
 
-Now it’s time to `spin up` the application.
+Now it’s time to `spin up` the application:
 
 <!-- @selectiveCpy -->
 
@@ -138,6 +139,8 @@ Hello, Fermyon
 
 For this template, we have a single crate built from `src/lib.rs`, which contains the following code:
 
+<!-- @nocpy -->
+
 ```rust
 use anyhow::Result;
 use spin_sdk::{
@@ -156,6 +159,8 @@ fn hello_rust(req: Request) -> Result<Response> {
 ```
 
 Let's change the body text returned to be a parameter from the URL, by changing the `hello_rust` function to the code below:
+
+<!-- @nocpy -->
 
 ```rust
 /// A simple Spin HTTP component, returning the value of the first URL parameter as a greeting.

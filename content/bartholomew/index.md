@@ -1,13 +1,14 @@
 title = "Introducing Bartholomew"
 template = "bartholomew_main"
 date = "2022-05-07T00:22:56Z"
-
 [extra]
 
 ---
 
+- [Overview](#overview)
+
 Bartholomew is a simple CMS-like (Content Management System) tool for managing a
-website. It is compiled to WebAssembly, and can run in any [Spin](https://spin.fermyon.dev)
+website. It is compiled to WebAssembly, and can run in any [Spin](https://developer.fermyon.com/spin)
 environment.
 
 At a glance, with Bartholomew you can:
@@ -26,9 +27,11 @@ one you might find in AWS Lambda or Azure Functions. The CMS is only running whe
 it needs to handle incoming requests, reducing the load on the servers
 running it.
 
-Bartholomew is a [Spin](https://spin.fermyon.dev) component, and
+Bartholomew is a [Spin](https://developer.fermyon.com/spin) component, and
 websites built with Bartholomew are Spin applications that can run in any
 environment that is capable of running Spin. At Fermyon, we run all of our
 websites using Bartholomew and Spin, on our [Fermyon Platform, running on Nomad](https://www.fermyon.com/blog/spin-nomad).
+
+## Taking Bartholomew for a Spin
 
 In the next page, we will [take Bartholomew for a spin](./quickstart.md).

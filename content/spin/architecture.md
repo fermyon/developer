@@ -3,6 +3,8 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 
 ---
+- [How Spin Runs an Application](#how-spin-runs-an-application)
+- [The Spin Execution Context](#the-spin-execution-context)
 
 This document aims to offer an overview to the implementation of Spin, as well
 as explain how the code is structured and how all parts fit together. This

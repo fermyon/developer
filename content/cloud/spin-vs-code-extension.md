@@ -4,6 +4,11 @@ date = "2022-01-01T00:00:01Z"
 [extra]
 
 ---
+- [Visual Studio Code](#visual-studio-code)
+- [The Spin Extension](#the-spin-extension)
+  - [Installation](#installation)
+  - [Supported Spin Commands](#supported-spin-commands)
+- [Fermyon Cloud and VS Code](#fermyon-cloud-and-vs-code)
 
 ## Visual Studio Code
 

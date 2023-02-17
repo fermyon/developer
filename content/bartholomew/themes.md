@@ -5,31 +5,41 @@ template = "bartholomew_main"
 [extra]
 
 ---
+- [Adding a Theme](#adding-a-theme)
+- [Configuring the Site to Use the Theme](#configuring-the-site-to-use-the-theme)
+- [Template Precedence](#template-precedence)
+- [Creating a Theme](#creating-a-theme)
 
 Bartholomew supports theming which allows for easy customization of the site along with the user-defined tempaltes.
 
 ## Adding a Theme
 
-Once the initial site has been set up using the [quickstart section](./quickstart), create a themes folder where you will be able to download different themes.
+Once the initial site has been set up using the [quickstart section](./quickstart), create a themes folder where you will be able to download different themes:
+
+<!-- @selectiveCpy -->
 
 ```bash
-mkdir themes
+$ mkdir themes
 ```
 
-Once the folder is created, different themes can be added as submodules to the folder which can then in turn be used to theme the site.
+Once the folder is created, different themes can be added as submodules to the folder which can then in turn be used to theme the site:
+
+<!-- @selectiveCpy -->
 
 ```bash
-cd themes
-git submodule add <Source_to_the_theme>
+$ cd themes
+$ git submodule add <Source_to_the_theme>
 ```
 
 Multiple themes can be added to the themes directory but only one of them will be active at a given time as described in the next section.
 
 ## Configuring the Site to Use the Theme
 
-To choose a theme for the website, the `theme` attribute in `config/site.toml` must be configured, where the value is the name of the theme as found in the `themes/` folder.
+To choose a theme for the website, the `theme` attribute in `config/site.toml` must be configured, where the value is the name of the theme as found in the `themes/` folder:
 
-```toml
+<!-- @nocpy -->
+
+```text
 title = "Bartholomew Documentation"
 base_url = "http://localhost:3000"
 about = "The Micro-CMS for WebAssembly and Spin"
@@ -44,13 +54,11 @@ ga_measurement_id = ""
 date_style = "%B %e, %Y"
 ```
 
-One more step that needs to be done before themes are fully available to the site is to the change the static file server component in the `spin.toml` configuration so that it provides the static assets of the selected theme. The convention of mounting the static assets of the themes before the user-defined static assets is recommened.  
+One more step that needs to be done before themes are fully available to the site is to change the static file server component in the `spin.toml` configuration so that it provides the static assets of the selected theme. The convention of mounting the static assets of the themes before the user-defined static assets is recommended:
 
-```
-.
-.
-.
+<!-- @nocpy -->
 
+```text
 [[component]]
 source = "modules/spin_static_fs.wasm"
 id = "fileserver"
@@ -67,18 +75,22 @@ As an example, if both `templates/main.hbs` and `themes/<name of theme>/template
 
 ## Creating a Theme
 
-Creating a theme for Bartholomew is easy. Create a new folder and initialize it.
+Creating a theme for Bartholomew is easy. Create a new folder and initialize it:
 
-```
-mkdir custom_theme
-cd custom_theme
-git init
+<!-- @selectiveCpy -->
+
+```bash
+$ mkdir custom_theme
+$ cd custom_theme
+$ git init
 ```
 
-Once the git repository is initialized, create the three required directories.
+Once the git repository is initialized, create the three required directories:
 
-```
-mkdir templates scripts static
+<!-- @selectiveCpy -->
+
+```bash
+$ mkdir templates scripts static
 ```
 
 Create the custom theme by placing the handlebar templates in the `template/` folder while the Rhai scripts are placed in the `scripts/` folder. All the static assets such as  the images, JS and CSS are placed in the static folder. For reference on creating templates, refer to the [templates section](./templates).

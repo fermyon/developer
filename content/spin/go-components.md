@@ -6,11 +6,12 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/go-components.md"
 
 ---
 
-[TinyGo](https://tinygo.org/) is an implementation of the
-[Go programming language](https://go.dev/) for embedded systems and WebAssembly.
-The Spin SDK for Go uses
-[TinyGo's WASI support](https://tinygo.org/docs/reference/usage/important-options/)
-to build programs written in Go as Spin components.
+- [Versions](#versions)
+- [HTTP Components](#http-components)
+- [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
+- [Redis Components](#redis-components)
+- [Storing Data in Redis From Go Components](#storing-data-in-redis-from-go-components)
+- [Using Go Packages in Spin Components](#using-go-packages-in-spin-components)
 
 > This guide assumes you are familiar with the Go programming language, and that
 > you have
@@ -35,6 +36,8 @@ writing applications, through its SDK.
 
 Building a Spin HTTP component using the Go SDK means writing a single function,
 `init` — below is a complete implementation for such a component:
+
+<!-- @nocpy -->
 
 ```go
 // A Spin component written in Go that returns "Hello, Fermyon!"
@@ -73,6 +76,8 @@ If allowed, Spin components can send outbound requests to HTTP endpoints. Let's
 see an example of a component that makes a request to
 [an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
 inserts a custom header into the response before returning:
+
+<!-- @nocpy -->
 
 ```go
 // A Spin component written in Go that sends a request to an API
@@ -119,6 +124,8 @@ Before we can execute this component, we need to add the
 `some-random-api.ml` domain to the application manifest `allowed_http_hosts`
 list containing the list of domains the component is allowed to make HTTP
 requests to:
+
+<!-- @nocpy -->
 
 ```toml
 # spin.toml
@@ -172,6 +179,8 @@ on the configured channels.
 
 Writing a Redis component in Go also takes advantage of the SDK:
 
+<!-- @nocpy -->
+
 ```go
 package main
 
@@ -195,6 +204,8 @@ func main() {}
 ```
 
 The manifest for a Redis application must contain the address of the Redis instance:
+
+<!-- @nocpy -->
 
 ```toml
 spin_version = "1"
@@ -252,6 +263,8 @@ components.
 
 Let's see how we can use the Go SDK to connect to Redis:
 
+<!-- @nocpy -->
+
 ```go
 package main
 
@@ -305,6 +318,8 @@ func main() {}
 This HTTP component demonstrates fetching a value from Redis by key, setting a
 key with a value, and publishing a message to a Redis channel. The component is
 triggered by an HTTP request served on the route configured in the `spin.toml`:
+
+<!-- @nocpy -->
 
 ```toml
 [[component]]

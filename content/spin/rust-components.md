@@ -5,6 +5,13 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/rust-components.md"
 
 ---
+- [HTTP Components](#http-components)
+- [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
+- [Redis Components](#redis-components)
+- [Storing Data in Redis From Rust Components](#storing-data-in-redis-from-rust-components)
+- [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
+- [Troubleshooting](#troubleshooting)
+- [Manually Creating New Projects With Cargo](#manually-creating-new-projects-with-cargo)
 
 Spin aims to have best-in-class support for building components in Rust, and
 writing such components should be familiar for Rust developers.
@@ -37,6 +44,8 @@ for writing Spin components with the Spin Rust SDK.
 Building a Spin HTTP component using the Rust SDK means writing a single function
 that takes an HTTP request as a parameter, and returns an HTTP response — below
 is a complete implementation for such a component:
+
+<!-- @nocpy -->
 
 ```rust
 use anyhow::Result;
@@ -74,6 +83,8 @@ Let's see an example of a component that makes a request to
 [an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
 inserts a custom header into the response before returning:
 
+<!-- @nocpy -->
+
 ```rust
 #[http_component]
 fn hello_world(_req: Request) -> Result<Response> {
@@ -94,6 +105,8 @@ fn hello_world(_req: Request) -> Result<Response> {
 Before we can execute this component, we need to add the `some-random-api.ml`
 domain to the application manifest `allowed_http_hosts` list containing the list of
 domains the component is allowed to make HTTP requests to:
+
+<!-- @nocpy -->
 
 ```toml
 # spin.toml
@@ -153,6 +166,8 @@ new messages on the configured channels.
 
 Writing a Redis component in Rust also takes advantage of the SDK:
 
+<!-- @nocpy -->
+
 ```rust
 use anyhow::Result;
 use bytes::Bytes;
@@ -184,6 +199,8 @@ $ cargo build --target wasm32-wasi --release
 The manifest for a Redis application must contain the address of the Redis
 instance the trigger must connect to:
 
+<!-- @nocpy -->
+
 ```toml
 spin_version = "1"
 name = "spin-redis"
@@ -198,7 +215,7 @@ channel = "messages"
 ```
 
 This application will connect to `redis://localhost:6379`, and for every new
-message on the `messages` channel, the `echo-message` component will be executed.
+message on the `messages` channel, the `echo-message` component will be executed:
 
 <!-- @selectiveCpy -->
 
@@ -233,7 +250,7 @@ If you would also like to see the `println!` messages echoed to the console as t
 <!-- @selectiveCpy -->
 
 ```bash
-spin up --file spin.toml --follow-all
+$ spin up --file spin.toml --follow-all
 ```
 
 > You can find a complete example for a Redis triggered component in the
@@ -246,6 +263,8 @@ messages to Redis channels. This can be used from both HTTP and Redis triggered
 components.
 
 Let's see how we can use the Rust SDK to connect to Redis:
+
+<!-- @nocpy -->
 
 ```rust
 use anyhow::{anyhow, Result};
@@ -299,6 +318,8 @@ This HTTP component demonstrates fetching a value from Redis by key, setting a
 key with a value, and publishing a message to a Redis channel. The component is
 triggered by an HTTP request served on the route configured in the `spin.toml`:
 
+<!-- @nocpy -->
+
 ```toml
 [[component]]
 environment = { REDIS_ADDRESS = "redis://127.0.0.1:6379", REDIS_CHANNEL = "messages" }
@@ -343,7 +364,7 @@ the path to the Wasm module, relative to `spin.toml`)
 The recommended way of creating new Spin projects is by starting from a template.
 This section shows how to  manually create a new project with Cargo.
 
-When creating a new Spin projects with Cargo, you should use the `--lib` flag.
+When creating a new Spin projects with Cargo, you should use the `--lib` flag:
 
 <!-- @selectiveCpy -->
 
@@ -352,6 +373,8 @@ $ cargo init --lib
 ```
 
 A `Cargo.toml` with standard Spin dependencies looks like this:
+
+<!-- @nocpy -->
 
 ```toml
 [package]

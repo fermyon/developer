@@ -1,10 +1,20 @@
 title = "Markdown guide"
 date = "2022-05-08T14:05:02.118466Z"
 template = "bartholomew_main"
-
+enable_shortcodes = true
 [extra]
+keywords = "install"
 
 ---
+
+- [Creating a New File](#creating-a-new-file)
+- [Editing the Page Head](#editing-the-page-head)
+  - [Markdown Body](#markdown-body)
+- [Writing a Markdown Body](#writing-a-markdown-body)
+- [Why Is Markdown the Only Supported Format?](#why-is-markdown-the-only-supported-format)
+- [Can I Embed HTML?](#can-i-embed-html)
+- [Templates](#templates)
+  - [Accessing The Head (Front Matter) and the Body](#accessing-the-head-front-matter-and-the-body)
 
 To write content for a Bartholomew website, there are two steps:
 
@@ -32,6 +42,8 @@ The head is formatted as TOML, which for the most part is just names and values.
 
 Here is an example head for a blog post:
 
+<!-- @nocpy -->
+
 ```markdown
 title = "A New Article"
 description = "This article is really interesting and full of useful material."
@@ -48,6 +60,8 @@ author_page = "/author/butcher"
 
 Here is an example head for a web page:
 
+<!-- @nocpy -->
+
 ```markdown
 title = "The title"
 description = "A short description"
@@ -63,7 +77,7 @@ key = "your custom name value pairs go hear, but values MUST be strings"
 
 Markdown support includes all the usual stuff plus fenced codeblocks. Image links are
 supported, but you need to use the external [fileserver](https://github.com/fermyon/spin-fileserver)
-library to display the images. If you are using your deployment of Spin and Bartholomew, you can [read more about how to install the fileserver](https://bartholomew.fermyon.dev/contributing) from source.
+library to display the images. If you are using your deployment of Spin and Bartholomew, you can [read more about how to install the fileserver](https://developer.fermyon.com/bartholomew/contributing-bartholomew) from source.
 
 The last line of the example above is very important. The `---` tells Bartholomew that the head is done, and the body is coming up.
 
@@ -93,6 +107,8 @@ After the `---`, you can write the content's body in Markdown.
 
 **Please note:** When writing a blog post with more than one paragraph, the `<!-- break -->` syntax must be placed between the end of the first paragraph and the beginning of the second paragraph. The paragraph content above the `<!-- break -->` will be shown in the HTML as having a slightly larger font size (relative to the rest of the page's content). The first paragraph will also appear when viewing the list of all blog posts (from the blog index page). Here is an example:
 
+<!-- @nocpy -->
+
 ```markdown
 This is my first paragraph which introduces my blog post.
 
@@ -113,6 +129,8 @@ To make a header, you just use hash marks: `#` for a title, `##` for a sub-heade
 
 For example:
 
+<!-- @nocpy -->
+
 ```markdown
 - This
 - Is
@@ -129,11 +147,15 @@ The above produces:
 
 Make text italic by wrapping it in underscores: `_hello_` becomes _hello_. And use double asterisks for bold. `**goodbye**` becomes **goodbye**.
 
-There are other Markdown goodies, but one you should know is how to make a link. Links are built by putting text in square brackets, and the URL in parentheses.
+There are other Markdown goodies, but one you should know is how to make a link. Links are built by putting text in square brackets, and the URL in parentheses:
+
+<!-- @nocpy -->
 
 ```markdown
 Say [Hello](http://example.com)
 ```
+
+The above markdown code will produce the following output:
 
 Say [Hello](http://example.com).
 
