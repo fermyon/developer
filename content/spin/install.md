@@ -121,6 +121,14 @@ $ cargo install --locked --path .
 $ spin --help
 </code></pre>
 
+> Please note: Spin v0.9.0 requires `wasmtime v5.0.0` which requires rustc 1.66.0 or newer. You can update Rust using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ rustup update
+```
+
 ## Next Steps
 
 - [Take Spin for a spin](./quickstart.md)
