@@ -29,7 +29,7 @@ First, follow [this guide](./install.md) to install Spin v0.8.0 or later. To ens
 $ spin --version
 ```
 
-Please note if you're using version v0.9.0 or later you will be using the command `spin registry`. The command `spin oci` will only be supported with v0.8.8. 
+If you're using version v0.9.0 or later, it is officially recommended that you use the command `spin registry`. However, please note that the command `spin oci` (whilst initially supported by v0.8.0) is now also an alias (`oci` and `registry` are interchangeable) in v0.9.0. 
 
 ## Set Up Your GHCR Instance
 
