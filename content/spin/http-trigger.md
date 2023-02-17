@@ -67,6 +67,8 @@ If multiple components could potentially handle the same request based on their
 defined routes, the last component defined in `spin.toml` takes precedence.
 In the following example:
 
+<!-- @nocpy -->
+
 ```toml
 # spin.toml
 
