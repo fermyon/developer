@@ -128,7 +128,7 @@ Lastly, let's run this Spin application.
 
  ```bash
  # make sure you've built your application with `spin build` prior
- spin oci run ghcr.io/USERNAME/spin-react-fullstack
+ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
