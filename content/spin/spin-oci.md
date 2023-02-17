@@ -14,7 +14,7 @@ enable_shortcodes = true
   - [Conclusion](#conclusion)
   - [Next Steps](#next-steps)
 
-# Spin Open Container Initiative (OCI) Support
+## Spin Open Container Initiative (OCI) Support
 
 From [Spin v0.8.0](https://www.fermyon.com/blog/spin-v08) onwards, you can store and run Spin applications stored in an OCI compatible registry. Spin developers now have a powerful workflow that enables them to use idiomatic infrastructure tooling, such as [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/), to store, deploy, and share their Spin applications. 
 
