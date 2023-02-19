@@ -18,7 +18,7 @@ enable_shortcodes = true
 
  Spin application are best suited for event-driven, stateless workloads that have low-latency requirements. If your Spin applications needs to persist state, the data will need to be stored in an external tool or service. In [Spin v0.9.0](https://www.fermyon.com/blog/spin-v09), we've added support for key/value storage. This is a storage option for applications that need to data in the form of key/value pairs and are satistifed by a BASE consistency model. Workload examples include general value caching, session caching, counters, serialized application state.
 
- Spin users can use new a API in the Spin SDKs for persisting and retrieving non-relational data from a key/value store across multiple requests to and from the same application. Together with the updated SDKs we are introducing a built-in, _local_ key/value store available with minimal configuration for every Spin application. The default key/value store is available for the following SKDs: Go, JavaScript, TypeScript, and Rust. 
+ Spin users can use new a API in the Spin SDKs for persisting and retrieving non-relational data from a key/value store across multiple requests to and from the same application. Together with the updated SDKs we are introducing a built-in, _local_ key/value store available with minimal configuration for every Spin application. The default key/value store is available for the following SKDs: Go, JavaScript/TypeScript, and Rust. 
 
  Let's get started with creating and deploying your first Spin application that uses key/value storage.
 
@@ -46,43 +46,58 @@ First, we must open a default key/value store for our Spin application. This is 
 
 ```rust
 
-// key for the application state
-const DATA_KEY: &str = "app-data";
-// application state
-#[derive(Serialize, Deserialize, Default)]
-struct Data {
-    views: u64,
-    previous_request: String,
-}
-/// A simple Spin HTTP component.
+use anyhow::Result;
+use http::{Method, StatusCode};
+use spin_sdk::{
+    http::{Request, Response},
+    http_component,
+    key_value::{Error, Store},
+};
+
 #[http_component]
-fn hello_kv(req: Request) -> Result<Response> {
-    // open the default KV store
-    let kv = Store::open_default()?;
-    // check whether the key already exists
-    let mut data = match kv.exists(DATA_KEY)? {
-        // if it exists, get the value and deserialize it
-        true => serde_json::from_slice(&kv.get(DATA_KEY)?)?,
-        false => Data::default(),
+fn handle_request(req: Request) -> Result<Response> {
+    // Open the default key-value store
+    let store = Store::open_default()?;
+
+    let (status, body) = match req.method() {
+        &Method::POST => {
+            // Add the request (URI, body) tuple to the store
+            store.set(req.uri().path(), req.body().as_deref().unwrap_or(&[]))?;
+            (StatusCode::OK, None)
+        }
+        &Method::GET => {
+            // Get the value associated with the request URI, or return a 404 if it's not present
+            match store.get(req.uri().path()) {
+                Ok(value) => (StatusCode::OK, Some(value.into())),
+                Err(Error::NoSuchKey) => (StatusCode::NOT_FOUND, None),
+                Err(error) => return Err(error.into()),
+            }
+        }
+        &Method::DELETE => {
+            // Delete the value associated with the request URI, if present
+            store.delete(req.uri().path())?;
+            (StatusCode::OK, None)
+        }
+        &Method::HEAD => {
+            // Like GET, except do not return the value
+            match store.exists(req.uri().path()) {
+                Ok(true) => (StatusCode::OK, None),
+                Ok(false) => (StatusCode::NOT_FOUND, None),
+                Err(error) => return Err(error.into()),
+            }
+        }
+        // No other methods are currently supported
+        _ => (StatusCode::METHOD_NOT_ALLOWED, None),
     };
-    // update the key/value pair using the new data
-    data.views += 1;
-    let body = serde_json::to_string(&data)?;
-    data.previous_request = req.uri().path().into();
-    // update the key/value pair using the new data
-    kv.set(DATA_KEY, serde_json::to_vec(&data)?)?;
-    // send the value as a response
-    Ok(http::Response::builder()
-        .status(200)
-        .header("content-type", "application/json")
-        .body(Some(body.into()))?)
+
+    Ok(http::Response::builder().status(status).body(body)?)
 }
 
 ```
 
 {{ blockEnd }}
 
-{{ startTab "Typscript"}}
+{{ startTab "TypeScript"}}
 
 <!-- @selectiveCpy -->
 
@@ -115,28 +130,169 @@ export async function handleRequest(request) {
 
 {{ blockEnd }}
 
+{{ startTab "TinyGo" }}
+
+```go
+
+package main
+
+import (
+	"net/http"
+	"reflect"
+	"fmt"
+
+	spin_http "github.com/fermyon/spin/sdk/go/http"
+	"github.com/fermyon/spin/sdk/go/key_value"
+)
+
+func init() {
+
+	// handler for the http trigger
+	spin_http.Handle(func(w http.ResponseWriter, r *http.Request) {
+		store, err := key_value.Open("default");
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		defer key_value.Close(store)
+
+		if err := key_value.Set(store, "foo", []byte("bar")); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		{
+			expected := []byte("bar")
+			if value, err := key_value.Get(store, "foo"); err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			} else if !reflect.DeepEqual(value, expected) {
+				http.Error(
+					w,
+					fmt.Sprintf("expected %v, got %v", expected, value),
+					http.StatusInternalServerError,
+				)
+				return
+			}
+		}
+
+		{
+			expected := []string{"foo"}
+			if value, err := key_value.GetKeys(store); err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			} else if !reflect.DeepEqual(value, expected) {
+				http.Error(
+					w,
+					fmt.Sprintf("expected %v, got %v", expected, value),
+					http.StatusInternalServerError,
+				)
+				return
+			}
+		}
+
+		if err := key_value.Delete(store, "foo"); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		if exists, err := key_value.Exists(store, "foo"); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		} else if exists {
+			http.Error(w, "key was not deleted as expected", http.StatusInternalServerError)
+			return
+		}
+	})
+}
+
+func main() {}
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ## Configure `spin.toml` To Use A Default Key/Value Store
+
+{{ tabs "sdk-type" }}
+
+{{ startTab "Rust"}}
 
 <!-- @selectiveCpy -->
 
 ```toml
 
-# spin.toml
 spin_version = "1"
-name = "spin-hello-world"
-trigger = { type = "http", base = "/" }
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+description = "A simple application that exercises key-value storage."
+name = "spin-key-value"
+trigger = {type = "http", base = "/test"}
 version = "1.0.0"
+
 [[component]]
-id = "kv-example"
-# we need to explicitly grant this component access
-# to the application's default KV store.
+id = "hello"
+source = "target/wasm32-wasi/release/spin_key_value.wasm"
 key_value_stores = ["default"]
 [component.trigger]
-route = "/app/..."
+route = "/..."
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
 
 ```
+
+{{ blockEnd }}
+
+{{ startTab "TypeScript" }}
+
+```toml
+
+spin_version = "1"
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+description = "A simple application that exercises key-value storage."
+name = "spin-key-value"
+trigger = {type = "http", base = "/test"}
+version = "1.0.0"
+
+[[component]]
+id = "hello"
+source = "target/wasm32-wasi/release/spin_key_value.wasm"
+key_value_stores = ["default"]
+[component.trigger]
+route = "/..."
+[component.build]
+command = "npm run build"
+
+```
+
+{{ blockEnd }}
+
+{{ startTab "TinyGo" }}
+
+```toml
+
+spin_version = "1"
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+name = "tinygo-key-value-example"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "key-value"
+source = "main.wasm"
+key_value_stores = ["default"]
+[component.trigger]
+route = "/test"
+[component.build]
+command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 ## Build And Deploy Your Spin Application
 
@@ -145,7 +301,9 @@ Now let's build and deploy our Spin Application locally. Run the following comma
 <!-- @selectiveCpy -->
 
 ```bash
+
 spin build
+
 ```
 
 Now run the subsequent command to deploy your application: 
@@ -153,7 +311,9 @@ Now run the subsequent command to deploy your application:
 <!-- @selectiveCpy -->
 
 ```bash
+
 spin up
+
 ```
 
 ## Store and Retrieve Data From Your Default Key/Value Store
@@ -164,24 +324,24 @@ Once you have completed this minimal configuration and deployed your application
 
 ```bash
 
-curl localhost:3000/app/hello
-curl localhost:3000/app/goodbye
-curl localhost:3000/app/hi-again
+curl localhost:3000/hello
+curl localhost:3000/goodbye
+curl localhost:3000/hi-again
 
 ```
 
 You should see the following output to confirm the key/value pairs are being stored correctly:
 
-<!-- @selectiveCpy -->
+<!-- @nocopy -->
 
 ```bash
 
-$ curl localhost:3000/rust/hello
+$ curl localhost:3000/hello
 {"views":1,"previous_request":""}
-$ curl localhost:3000/rust/goodbye
-{"views":2,"previous_request":"/rust/hello"}
-$ curl localhost:3000/rust/hi-again
-{"views":3,"previous_request":"/rust/goodbye"}
+$ curl localhost:3000/goodbye
+{"views":2,"previous_request":"/hello"}
+$ curl localhost:3000/hi-again
+{"views":3,"previous_request":"/goodbye"}
 
 ```
 
