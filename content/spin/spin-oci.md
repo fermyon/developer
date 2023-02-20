@@ -6,13 +6,13 @@ enable_shortcodes = true
 
 ---
 - [Spin Open Container Initiative (OCI) Support](#spin-open-container-initiative-oci-support)
-  - [Prerequisites](#prerequisites)
-  - [Set Up Your GHCR Instance](#set-up-your-ghcr-instance)
-  - [Push a Spin App to GHCR](#push-a-spin-app-to-ghcr)
-  - [Pull a Spin App From GHCR](#pull-a-spin-app-from-ghcr)
-  - [Run a Spin App From GHCR](#run-a-spin-app-from-ghcr)
-  - [Conclusion](#conclusion)
-  - [Next Steps](#next-steps)
+- [Prerequisites](#prerequisites)
+- [Set Up Your GHCR Instance](#set-up-your-ghcr-instance)
+- [Push a Spin App to GHCR](#push-a-spin-app-to-ghcr)
+- [Pull a Spin App From GHCR](#pull-a-spin-app-from-ghcr)
+- [Run a Spin App From GHCR](#run-a-spin-app-from-ghcr)
+- [Conclusion](#conclusion)
+- [Next Steps](#next-steps)
 
 ## Spin Open Container Initiative (OCI) Support
 
@@ -78,7 +78,7 @@ $ spin oci push ghcr.io/USERNAME/spin-react-fullstack:v1
  <!-- @selectiveCpy -->
 
  ```bash
- spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
@@ -108,7 +108,7 @@ $ spin oci pull ghcr.io/USERNAME/spin-react-fullstack:v1
  <!-- @selectiveCpy -->
  
  ```bash
- spin registry pull ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin registry pull ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
