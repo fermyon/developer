@@ -126,8 +126,7 @@ Lastly, let's run this Spin application.
  <!-- @selectiveCpy -->
 
  ```bash
- # make sure you've built your application with `spin build` prior
- spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
+ spin oci run --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
@@ -137,7 +136,6 @@ Lastly, let's run this Spin application.
 <!-- @selectiveCpy -->
 
  ```bash
- # make sure you've built your application with `spin build` prior
  spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
