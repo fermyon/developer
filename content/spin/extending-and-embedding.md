@@ -177,16 +177,8 @@ independent time interval for scheduling the execution).
 
 ## Other Ways to Extend and Use Spin
 
-Besides building custom triggers, the internals of Spin could also be used
-independently:
+Besides building custom triggers, the internals of Spin could also be used independently:
 
-- the Spin execution context can be used entirely without a `spin.toml`
-application manifest — for embedding scenarios, the configuration for the
-execution can be constructed without a `spin.toml` (see [issue #229](https://github.com/fermyon/spin/issues/229)
-for context)
-- the standard way of distributing a Spin application can be changed by
-re-implementing the [`loader`](https://github.com/fermyon/spin/tree/main/crates/loader)
-and [`publish`](https://github.com/fermyon/spin/tree/main/crates/publish) crates —
-all is required is that loading the application returns a valid
-`Application` that the Spin execution context can use to
-instantiate and execute components.
+- the Spin execution context can be used entirely without a `spin.toml` application manifest — for embedding scenarios, the configuration for the
+execution can be constructed without a `spin.toml` (see [issue #229](https://github.com/fermyon/spin/issues/229) for context)
+- the standard way of distributing a Spin application can be changed by re-implementing the [`loader`](https://github.com/fermyon/spin/tree/main/crates/loader) crate — all is required is that loading the application returns a valid `Application` that the Spin execution context can use to instantiate and execute components.
