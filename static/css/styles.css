@@ -2190,7 +2190,7 @@ html.dark-theme .multitab-content {
 }
 
 #topbar.navbar .logo-wrap .logo-project {
-  margin: 2rem 0 0 .125rem;
+  margin: 1.875rem 0 0 .125rem;
   display: inline-block;
 }
 
@@ -2213,6 +2213,7 @@ html.dark-theme .multitab-content {
 
 #topbar.navbar .navbar-menu .navbar-start .is-hoverable .navbar-link {
   margin-left: 0;
+  padding: 0 3.33rem 0 .75rem;
   font-size: 1.125rem;
   font-weight: 700;
 }
@@ -2235,7 +2236,7 @@ html.dark-theme .multitab-content {
 #topbar.navbar .navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content .title {
   width: 100%;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: .67rem;
   font-size: 1.25rem;
   display: flex;
   position: relative;
@@ -2247,17 +2248,18 @@ html.dark-theme .multitab-content {
   height: 1rem;
   background-color: #d3d3d3;
   border-radius: 50%;
+  transition: all .3s ease-in-out;
   display: inline-block;
   position: absolute;
   left: -2rem;
 }
 
 #topbar.navbar .navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content:hover .title:before {
-  background-color: #1fbca0;
+  background-color: #34e8bd;
 }
 
 #topbar.navbar .navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content .description {
-  width: 100%;
+  width: 92%;
   color: #525776;
   white-space: normal;
   font-size: 1rem;
@@ -3156,8 +3158,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-right-radius: .5em;
   border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
   top: 0;
   left: 3em;
 }
