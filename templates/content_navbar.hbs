@@ -41,23 +41,60 @@
 
     <div class="navbar-menu">
         <div class="navbar-start">
-            
-            <a href="/spin/index" class="{{#if (active_project request.spin-path-info "/spin/" )}} is-active {{/if}} navbar-item"><span>Spin</span></a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    {{#if (active_project request.spin-path-info "/spin/" )}}
+                    Spin
+                    {{else}}
+                    {{#if (active_project request.spin-path-info "/cloud/" )}}
+                    Cloud
+                    {{else}}
+                    {{#if (active_project request.spin-path-info "/bartholomew/" )}}
+                    Bartholomew
+                    {{else}}
+                    Projects
+                    {{/if}}
+                    {{/if}}
+                    {{/if}}
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                    <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-path-info "/spin/" )}}
+                        is-active {{/if}}">
+                        <div class="project-content">
+                            <div class="title">Spin</div>
+                            <div class="description">A framework for quickly composing serverless apps.</div>
+                        </div>
+                    </a>
 
-            <a href="/cloud/index" class="{{#if (active_project request.spin-path-info "/cloud/" )}} is-active {{/if}} navbar-item"><span>Cloud</span></a>
-        
-            <a href="/bartholomew/index" class="{{#if (active_project request.spin-path-info "/bartholomew/" )}} is-active {{/if}} navbar-item"><span>Bartholomew</span></a>
+                    <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-path-info "/cloud/" )}}
+                        is-active {{/if}}">
+                        <div class="project-content">
+                            <div class="title">Cloud</div>
+                            <div class="description">The easiest way to deploy & manage WebAssembly apps</div>
+                        </div>
+                    </a>
+
+                    <a href="/bartholomew/index" class="navbar-item{{#if (active_project request.spin-path-info "/bartholomew/" )}} is-active {{/if}}">
+                        <div class="project-content">
+                            <div class="title">Bartholomew</div>
+                            <div class="description">Compile WebAssembly-powered websites with this micro CMS</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="overlay"></div>
         </div>
 
         <div class="navbar-end">
 
-            <a class="navbar-item button is-rounded is-outline is-secondary is-small" href="https://github.com/fermyon/feedback" target="_blank">Give Feedback</a>
+            <a class="navbar-item button is-rounded is-outline is-secondary is-small"
+                href="https://github.com/fermyon/feedback" target="_blank">Give Feedback</a>
 
             <a class="navbar-item button is-rounded is-small" href="https://cloud.fermyon.com/">Login to Cloud</a>
-            
+
             <a class="dark-mode">
-                <svg width="1.5rem" height="1.5rem" viewBox="0 0 502 502" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg width="1.5rem" height="1.5rem" viewBox="0 0 502 502" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>Light Mode</title>
                     <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
                         <g id="noun-dark-mode-4600782" transform="translate(0.168000, 0.168250)" fill-rule="nonzero">
