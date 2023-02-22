@@ -42,7 +42,6 @@ First, we must open a default key/value store for our Spin application. This is 
 
 {{ startTab "Rust"}}
 
-<!-- @selectiveCpy -->
 
 ```rust
 
