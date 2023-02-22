@@ -318,11 +318,9 @@ Once you have completed this minimal configuration and deployed your application
 <!-- @selectiveCpy -->
 
 ```bash
-
-curl localhost:3000/hello
-curl localhost:3000/goodbye
-curl localhost:3000/hi-again
-
+$ curl localhost:3000/hello
+$ curl localhost:3000/goodbye
+$ curl localhost:3000/hi-again
 ```
 
 You should see the following output to confirm the key/value pairs are stored correctly:
