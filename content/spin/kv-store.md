@@ -98,7 +98,6 @@ fn handle_request(req: Request) -> Result<Response> {
 
 {{ startTab "TypeScript"}}
 
-<!-- @selectiveCpy -->
 
 ```typescript
 
