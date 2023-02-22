@@ -219,7 +219,6 @@ func main() {}
 
 {{ startTab "Rust"}}
 
-<!-- @selectiveCpy -->
 
 ```toml
 
