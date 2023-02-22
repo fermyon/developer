@@ -98,7 +98,7 @@ Now that we've successfully pushed a Spin app, let's see if we can pull it. To d
  <!-- @selectiveCpy -->
  
  ```bash
-spin oci pull ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin oci pull ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
