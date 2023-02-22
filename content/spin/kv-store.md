@@ -328,7 +328,7 @@ curl localhost:3000/hi-again
 
 ```
 
-You should see the following output to confirm the key/value pairs are being stored correctly:
+You should see the following output to confirm the key/value pairs are stored correctly:
 
 <!-- @nocopy -->
 
