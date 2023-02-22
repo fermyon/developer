@@ -29,7 +29,7 @@ First, follow [this guide](./install.md) to install Spin v0.9.0 or later. To ens
 <!-- @selectiveCpy -->
 
 ```bash
-spin --version
+$ spin --version
 ```
 
 ## Use Spin SDK To Open And Persist Data In A Default Key/Value Store 
