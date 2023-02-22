@@ -308,9 +308,7 @@ Now run the subsequent command to deploy your application:
 <!-- @selectiveCpy -->
 
 ```bash
-
-spin up
-
+$ spin up
 ```
 
 ## Store and Retrieve Data From Your Default Key/Value Store
