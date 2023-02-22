@@ -299,7 +299,7 @@ Now let's build and deploy our Spin Application locally. Run the following comma
 
 ```bash
 
-spin build
+$ spin build
 
 ```
 
