@@ -328,14 +328,12 @@ You should see the following output to confirm the key/value pairs are stored co
 <!-- @nocopy -->
 
 ```bash
-
 $ curl localhost:3000/hello
 {"views":1,"previous_request":""}
 $ curl localhost:3000/goodbye
 {"views":2,"previous_request":"/hello"}
 $ curl localhost:3000/hi-again
 {"views":3,"previous_request":"/goodbye"}
-
 ```
 
 ## Conclusion
