@@ -18,7 +18,7 @@ enable_shortcodes = true
 
  Spin applicationss are best suited for event-driven, stateless workloads that have low-latency requirements. If your Spin application needs to persist state, the data should be stored in an external tool or service. In [Spin v0.9.0](https://www.fermyon.com/blog/spin-v09), we've added support for key/value storage. This is a storage option for applications that need to data in the form of key/value pairs and are satisfied by a BASE consistency model. Workload examples include general value caching, session caching, counters, and serialized application state.
 
- Spin users can use new a API in the Spin SDKs for persisting and retrieving non-relational data from a key/value store across multiple requests to and from the same application. Together with the updated SDKs we are introducing a built-in, _local_ key/value store available with minimal configuration for every Spin application. The default key/value store is available for the following SKDs: Go, JavaScript/TypeScript, and Rust. 
+ This new key/value API is available to Spin users via various language SDKs. Now spin users can persist and retrieve non-relational data from a key/value store across multiple requests to and from the same application. Along with the updated SDKs, we are introducing a built-in, _local_ key/value SQLite database available with minimal configuration for every Spin application. The default key/value store is available for the following SKDs: Go, JavaScript/TypeScript, and Rust. 
 
  Let's get started with creating and deploying your first Spin application that uses key/value storage.
 
