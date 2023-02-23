@@ -13,7 +13,7 @@ enable_shortcodes = true
 - [Configuration](#configuration)
   - [The Spin TOML File](#the-spin-toml-file)
 - [Using the Spin SDK](#using-the-spin-sdk)
-- [Checking the Spin SDK Version](#checking-the-spin-sdk-version)
+  - [The Spin SDK Version](#the-spin-sdk-version)
 - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
 - [Storing and Retrieving Data From Your Default Key/Value Store](#storing-and-retrieving-data-from-your-default-keyvalue-store)
 - [Conclusion](#conclusion)
@@ -159,9 +159,9 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. As mentioned above the store is essentially an embedding of [SQLite](https://www.sqlite.org/index.html) within the Spin framework. 
 
-## Checking the Spin SDK Version
+### The Spin SDK Version
 
-Please note that your application will need to specify Spin v0.9.0 in its configuration. For example, a new application made using the `http-rust` template might need the reference to the Spin SDK in its `Cargo.toml` file updated to look like the following:
+If you have an existing application and want to try out this new key/value feature (i.e. a previous application made using the `http-rust` template). You might need to update your existing application's `Cargo.toml` to point to v0.9.0 of the Spin SDK, as shown below:
 
 <!-- @nocpy -->
 
