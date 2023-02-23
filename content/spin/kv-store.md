@@ -13,6 +13,7 @@ enable_shortcodes = true
 - [Configuration](#configuration)
   - [The Spin TOML File](#the-spin-toml-file)
 - [Using the Spin SDK](#using-the-spin-sdk)
+- [Checking the Spin SDK Version](#checking-the-spin-sdk-version)
 - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
 - [Storing and Retrieving Data From Your Default Key/Value Store](#storing-and-retrieving-data-from-your-default-keyvalue-store)
 - [Conclusion](#conclusion)
@@ -47,7 +48,7 @@ spin 0.9.0
 
 ## Creating a New Application
 
-As previously documented, [Creating a new Spin application from a template](https://developer.fermyon.com/spin/quickstart#creating-a-new-spin-application-from-a-template) is a cinch:
+As previously documented, you can go ahead and [create a new Spin application from a template](https://developer.fermyon.com/spin/quickstart#creating-a-new-spin-application-from-a-template). Before you do though, please go ahead and read the [spin template](https://developer.fermyon.com/common/cli-reference#templates) and [spin new](https://developer.fermyon.com/common/cli-reference#new) sections of the Spin Command Line Interface (CLI) documentation. You will learn how to use the commands effectively and also see many handy options to [install](https://developer.fermyon.com/common/cli-reference#install-templates) and [upgrade](https://developer.fermyon.com/common/cli-reference#upgrade-templates) templates and so forth. When you are ready, go ahead and create your new application using commands similar to the ones shown below:
 
 {{ tabs "sdk-type" }}
 
@@ -77,18 +78,12 @@ spin new http-go my_http_go_app
 
 {{ blockEnd }}
 
-If you would like more information, please see the [spin template](https://developer.fermyon.com/common/cli-reference#templates) and [spin new](https://developer.fermyon.com/common/cli-reference#new) sections of the Spin Command Line Interface (CLI) documentation.
-
 ## Configuration
 
-Take special note of the `key_value_stores = ["default"]` line in the `[[component]]` area of the `spin.toml` file, as shown in the next section. A newly scaffolded application will not have this line. Trying to access the key/value feature in your source code without this configuration will result in an error similar to the following:
+Take special note of the `key_value_stores = ["default"]` line in the `[[component]]` area of the `spin.toml` file, as shown in the next section. A newly scaffolded application will not have this line. You will need to add it.
 
-```bash
-unresolved import spin_sdk::key_value
-key_value::{Error, Store}
-^^^^^^^^^ could not find `key_value` in `spin_sdk`
-```
 ### The Spin TOML File
+
 In this section we begin by configuring the application's `spin.toml` to use a default key/value store i.e. you will need to add the `key_value_stores` configuration before proceeding, as demonstrated below:
 
 {{ tabs "sdk-type" }}
@@ -163,6 +158,33 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 ## Using the Spin SDK
 
 In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. As mentioned above the store is essentially an embedding of [SQLite](https://www.sqlite.org/index.html) within the Spin framework. 
+
+## Checking the Spin SDK Version
+
+Please note that your application will need to specify Spin v0.9.0 in its configuration. For example, a new application made using the `http-rust` template might need the reference to the Spin SDK in its `Cargo.toml` file updated to look like the following:
+
+<!-- @nocpy -->
+
+```toml
+# The Spin SDK.
+spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v0.9.0" }
+```
+
+Similarly an application created using the `http-go` template might need the reference to the Spin SDK in its `go.mod` file updated to look like the following:
+
+<!-- @nocpy -->
+
+```mod
+require github.com/fermyon/spin/sdk/go v0.9.0
+```
+
+The same applies to other programming languages and their respective configuration. This information is provided to prevent you from experiencing an error such as the following:
+
+```bash
+unresolved import spin_sdk::key_value
+key_value::{Error, Store}
+^^^^^^^^^ could not find `key_value` in `spin_sdk`
+```
 
 Once we have created our store, we can use the Spin SDK to:
 - check if a key exists and if so, retrieve the corresponding value, and
