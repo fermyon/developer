@@ -174,7 +174,11 @@ Similarly an application created using the `http-go` template might need the ref
 
 <!-- @nocpy -->
 
-```mod
+```bash
+module github.com/http_go
+
+go 1.17
+
 require github.com/fermyon/spin/sdk/go v0.9.0
 ```
 
