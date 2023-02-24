@@ -16,7 +16,6 @@ date = "2022-01-01T00:00:01Z"
   - [3. Create New Branch](#3-create-new-branch)
   - [4. Add Upstream](#4-add-upstream)
   - [5. Code Blocks, Annotations and Table of Contents (ToC)](#5-code-blocks-annotations-and-table-of-contents-toc)
-  - [Implementing a Table of Contents (ToC)](#implementing-a-table-of-contents-toc)
   - [6.1 Checking Your Content - Using NPM](#61-checking-your-content---using-npm)
   - [6.2 Generating Indexing For Your Content](#62-generating-indexing-for-your-content)
   - [6.3 How To Properly Edit CSS Styles](#63-how-to-properly-edit-css-styles)
@@ -173,7 +172,7 @@ To list files on linux use `ls`
 $ ls
 \`\`\`
 
-and script in windows have the extension `.sh`
+and script in linux have the extension `.sh`
 
 <!-- @nocpy -->
 
@@ -188,7 +187,7 @@ test.sh
 
 The next section covers the highly recommended use of ToCs.
 
-### Implementing a Table of Contents (ToC)
+**Implementing a Table of Contents (ToC)**
 
 If you create content with many headings it is highly recommended to place a ToC in your markdown file. There are excellent extensions (such as this Visual Studio Code Extension called [markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) which will automatically generate your ToC).
 
