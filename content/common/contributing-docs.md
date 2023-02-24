@@ -185,6 +185,7 @@ test.sh
 {{ blockEnd }}
 {{ blockEnd }}
 ```
+
 The next section covers the highly recommended use of ToCs.
 
 ### Implementing a Table of Contents (ToC)
