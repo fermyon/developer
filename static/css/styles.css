@@ -1838,6 +1838,10 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   position: relative;
 }
 
+.documentation .content h2 {
+  line-height: 1.5;
+}
+
 .documentation .content.content-docs-wide p {
   line-height: 1.725;
 }
@@ -3158,8 +3162,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  border-bottom-left-radius: .5em;
   top: 0;
   left: 3em;
 }
