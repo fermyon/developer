@@ -457,6 +457,7 @@ HEAD /test HTTP/1.1
 Host: localhost:3000
 HTTP/1.1 200 OK
 ```
+
 Perfect, `200 OK`, now, let's create a GET request that fetches the data from our component:
 
 <!-- @selectiveCpy -->
