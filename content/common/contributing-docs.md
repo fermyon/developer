@@ -4,23 +4,28 @@ date = "2022-01-01T00:00:01Z"
 [extra]
 
 ---
-
 - [Technical Documentation Types](#technical-documentation-types)
   - [1. Tutorials](#1-tutorials)
   - [2. How-To Guides](#2-how-to-guides)
   - [3. Reference](#3-reference)
   - [4. Explanation](#4-explanation)
+- [Documents Relevant to Two or More Projects](#documents-relevant-to-two-or-more-projects)
 - [Technical Documentation Procedure](#technical-documentation-procedure)
   - [1. Fork the Repository](#1-fork-the-repository)
   - [2. Clone the Fork](#2-clone-the-fork)
   - [3. Create New Branch](#3-create-new-branch)
   - [4. Add Upstream](#4-add-upstream)
   - [5. Code Blocks, Annotations and Table of Contents (ToC)](#5-code-blocks-annotations-and-table-of-contents-toc)
-  - [6. Check Content](#6-check-content)
-  - [7. Add Changes](#7-add-changes)
-  - [8. Commit Changes](#8-commit-changes)
-  - [9. Push Changes](#9-push-changes)
-  - [10. Create a Pull Request](#10-create-a-pull-request)
+  - [Implementing a Table of Contents (ToC)](#implementing-a-table-of-contents-toc)
+  - [6.1 Checking Your Content - Using NPM](#61-checking-your-content---using-npm)
+  - [6.2 Generating Indexing For Your Content](#62-generating-indexing-for-your-content)
+  - [6.3 How To Properly Edit CSS Styles](#63-how-to-properly-edit-css-styles)
+  - [6.4 Checking Your Content - Using Bartholomew's CLI](#64-checking-your-content---using-bartholomews-cli)
+  - [7. Checking Web Pages](#7-checking-web-pages)
+  - [8. Add Changes](#8-add-changes)
+  - [9. Commit Changes](#9-commit-changes)
+  - [10. Push Changes](#10-push-changes)
+  - [11. Create a Pull Request](#11-create-a-pull-request)
 
 Thank you for your interest in contributing to the Fermyon documentation. Below are a few pointers designed to help you contribute.
 
@@ -53,6 +58,10 @@ You will notice that the menu system is organized in terms of "Tutorial", "How-T
 The resulting output would be as follows.
 
 ![cloud develop example](../static/image/docs/cloud-develop-example-2.png)
+
+## Documents Relevant to Two or More Projects
+
+If a document is relevant to two or more projects it is advised to place it in the new [common](https://github.com/fermyon/developer/tree/main/content/common) folder area (i.e. as opposed to just placing it in the [spin](https://github.com/fermyon/developer/tree/main/content/spin) folder or just placing it in [cloud](https://github.com/fermyon/developer/tree/main/content/cloud) folder). Items in the common area can still be linked to from any of the menu templates i.e. [spin_main](https://github.com/fermyon/developer/blob/main/templates/spin_sidebar.hbs#L59), [cloud_main](https://github.com/fermyon/developer/blob/main/templates/common_sidebar.hbs#L23) and [common_main](https://github.com/fermyon/developer/blob/main/templates/common_sidebar.hbs#L23) `.hbs` templates all link to this how-to-contribute document; which you are currently reading.
 
 ## Technical Documentation Procedure
 
@@ -125,7 +134,60 @@ The no copy annotation (`<!-- @nocpy -->`) precedes a code block where no copy a
 Some generic code not intended for copying/pasting
 ```
 
-**Table of Contents (ToC)**
+Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](https://developer.fermyon.com/spin/install#installing-spin) installer documentation](https://developer.fermyon.com/spin/install#installing-spin) and [Spin Key/Value documentation](https://developer.fermyon.com/spin/kv-store#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
+
+The first step to implementing multi-tab code blocks is placing the `enable_shortcodes = true` configuration at the start of the `.md` file. Specifically, in the `.md` file's frontmatter.
+
+The markup to create tabs in markdown is as follows 
+
+```
+{{ tabs "Os" }}
+
+{{ startTab "Windows"}}
+
+To list files on windows use `dir`
+
+<!-- @selectiveCpy -->
+
+\`\`\`bash
+$ dir hello_fermyon
+\`\`\`
+and script in windows have the extension `.bat`
+
+<!-- @nocpy -->
+
+\`\`\`bash
+hello.bat
+test.bat
+\`\`\`
+
+{{ blockEnd }}
+
+{{ startTab "Linux"}}
+
+To list files on linux use `ls`
+
+<!-- @selectiveCpy -->
+
+\`\`\`bash
+$ ls
+\`\`\`
+
+and script in windows have the extension `.sh`
+
+<!-- @nocpy -->
+
+\`\`\`bash
+hello.sh
+test.sh
+\`\`\`
+
+{{ blockEnd }}
+{{ blockEnd }}
+```
+The next section covers the highly recommended use of ToCs.
+
+### Implementing a Table of Contents (ToC)
 
 If you create content with many headings it is highly recommended to place a ToC in your markdown file. There are excellent extensions (such as this Visual Studio Code Extension called [markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) which will automatically generate your ToC).
 
@@ -141,15 +203,37 @@ If you have not done so already, please go ahead and perform the `npm install` c
 $ npm install
 ```
 
-With all Node dependencies installed, you can now check for broken links and also lint your markdown files. Simply run the following command, from the root of the developer repository:
+With all Node dependencies installed, you can now check for broken links and also lint your markdown files. Simply run the following command, from the root of the developer repository. Note, this does take several minutes to complete; as it literally checks all URLs in the entire site:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ npm test
+$ npm run test
 ```
 
-### 6.2 Checking Your Content - Using Bartholomew's CLI
+### 6.2 Generating Indexing For Your Content
+
+The documentation site implements in-house search and therefore it is recommended to generate a new index each time you update and push changes to the developer documentation repository. This is done simply by using the following command; in the developer directory:
+
+<!-- @selectiveCpy -->
+
+```bash
+npm run build-index
+```
+
+### 6.3 How To Properly Edit CSS Styles
+
+Directly editing `.css` files is not recommended, because these are overwritten. Instead, if you would like to make and test a new/different style please go ahead and update the appropriate `.scss` file and then run the following command; which will in-turn update the `.css`:
+
+<!-- @selectiveCpy -->
+
+```bash
+npm run styles
+```
+
+After the above changes have been made to styles, please go ahead and double-check that you are achieving the intended results; before adding, committing and pushing (which will be covered below, in a few minutes).
+
+### 6.4 Checking Your Content - Using Bartholomew's CLI
 
 The Bartholomew Command Line Interface (CLI) Tool is called `bart`. The `bart` CLI is a tool that simplifies working with Bartholomew projects (by now you probably already know that [Bartholomew](https://www.fermyon.com/blog/introducing-bartholomew) is our in-house WebAssembly (Wasm) content management system (CMS) that powers [our official Website](https://www.fermyon.com/)). And this (our official documentation) site. The `bart` CLI is handy to ensure quality assurance of new and existing content. Installing the CLI is a cinch, so please go ahead and use it when contributing.
 
@@ -197,7 +281,7 @@ SUBCOMMANDS:
 
 Let's take a quick look at how you can use the `bart` CLI to check any content that you are wanting to contribute.
 
-## Checking Web Pages
+### 7. Checking Web Pages
 
 The `bart` CLI can be used to check content by simply passing in the content as a parameter; as shown below:
 
@@ -208,7 +292,7 @@ $ bart check content/about.md
 ✅ content/about.md
 ```
 
-### 7. Add Changes
+### 8. Add Changes
 
 Once your changes have been checked, go ahead and add your changes by moving to a top-level directory, under which your changes exist i.e. `cd ~/developer`.
 
@@ -220,7 +304,7 @@ Add your changes by running the following command, from the root of the develope
 $ git add
 ```
 
-### 8. Commit Changes
+### 9. Commit Changes
 
 Before committing, please ensure that your GitHub installation is configured sufficiently so that you can `--signoff` as part of the `git commit` command. For example, please ensure that the `user.name` and `user.email` are configured in your terminal. You can check if these are set by typing `git config --list`.
 
@@ -249,7 +333,7 @@ $ git commit -S --signoff -m "Updating documentation"
 
 > Note: the `--signoff` option will only add a Signed-off-by trailer by the committer at the end of the commit log message. In addition to this, it is recommended that you use the `-S` option which will GPG-sign your commits. For more information about using GPG in GitHub see [this GitHub documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 
-### 9. Push Changes
+### 10. Push Changes
 
 At this stage, it is a good idea to just quickly check what GitHub thinks the origin is. For example, if we type `git remote -v` we can see that the origin is our repo; which we a) forked the original repo into and b) which we then cloned to our local disk so that we could edit:
 
@@ -276,7 +360,7 @@ Once you are satisfied go ahead and push your changes:
 $ git push -u origin my_new_branch
 ```
 
-### 10. Create a Pull Request
+### 11. Create a Pull Request
 
 If you return to your GitHub repository in your browser, you will notice that a PR has automatically been generated for you.
 
