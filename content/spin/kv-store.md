@@ -7,13 +7,15 @@ enable_shortcodes = true
 ---
 - [Key Value Storage With Spin Applications](#key-value-storage-with-spin-applications)
 - [SQLite](#sqlite)
-	- [Redis, PostgreSQL \& SQLite](#redis-postgresql--sqlite)
+  - [Redis, PostgreSQL \& SQLite](#redis-postgresql--sqlite)
 - [Tutorial Prerequisites](#tutorial-prerequisites)
 - [Creating a New Application](#creating-a-new-application)
 - [Configuration](#configuration)
-	- [The Spin TOML File](#the-spin-toml-file)
+  - [The Spin TOML File](#the-spin-toml-file)
 - [Using the Spin SDK](#using-the-spin-sdk)
-	- [The Spin SDK Version](#the-spin-sdk-version)
+  - [The Spin SDK Version](#the-spin-sdk-version)
+- [Quick Overview - Video](#quick-overview---video)
+- [Source Code](#source-code)
 - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
 - [Storing and Retrieving Data From Your Default Key/Value Store](#storing-and-retrieving-data-from-your-default-keyvalue-store)
 - [Conclusion](#conclusion)
@@ -215,9 +217,20 @@ key_value::{Error, Store}
 ^^^^^^^^^ could not find `key_value` in `spin_sdk`
 ```
 
-Once we have created our store, we can use the Spin SDK to:
-- check if a key exists and if so, retrieve the corresponding value, and
-- list all the available keys.
+## Quick Overview - Video
+
+Before we get into the source code, let's watch a quick overview of the new key/value store feature.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qNBnVA2pkkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Source Code
+
+Now let's use the Spin SDK to:
+- add new data
+- check that the new data exists
+- retrieve that data
+- delete data
+- check the data has been removed
 
 {{ tabs "sdk-type" }}
 
@@ -525,3 +538,17 @@ This is an early preview for working with key/value stores, and we want to get f
 ## Next Steps
 
 You can read the [improvement proposal for key/value support](https://github.com/fermyon/spin/pull/1045) as well as the implementation for the [current feature](https://github.com/fermyon/spin/pull/1035). Please feel free to ask questions and also share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Key/Value Store preview - Spin 0.9.0",
+  "description": "Overview of the key/value store in Spin v0.9.0",
+  "thumbnailUrl": "https://www.fermyon.com/static/image/twc-spin.png",
+  "uploadDate": "2023-02-25T08:00:00+00:00",
+  "duration": "PT3M16S",
+  "contentUrl": "https://www.youtube.com/watch?v=qNBnVA2pkkY",
+  "embedUrl": "https://www.youtube.com/embed/qNBnVA2pkkY"
+}
+</script>
