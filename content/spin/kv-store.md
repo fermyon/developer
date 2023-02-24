@@ -216,6 +216,7 @@ unresolved import spin_sdk::key_value
 key_value::{Error, Store}
 ^^^^^^^^^ could not find `key_value` in `spin_sdk`
 ```
+
 ## Quick Overview - Video
 
 Before we get into the source code, let's watch a quick overview of the new key/value store feature.
