@@ -225,9 +225,12 @@ Before we get into the source code, let's watch a quick overview of the new key/
 
 ## Source Code
 
-Once we have created our store, we can use the Spin SDK to:
-- check if a key exists and if so, retrieve the corresponding value, and
-- list all the available keys.
+Now let's use the Spin SDK to:
+- add new data
+- check that the new data exists
+- retrieve that data
+- delete data
+- check the data has been removed
 
 {{ tabs "sdk-type" }}
 
