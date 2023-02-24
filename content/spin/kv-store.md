@@ -80,7 +80,9 @@ spin new http-go my_http_go_app
 
 ## Configuration
 
-Take special note of the `key_value_stores = ["default"]` line in the `[[component]]` area of the `spin.toml` file, as shown in the next section. A newly scaffolded application will not have this line. You will need to add it.
+Take special note of the `key_value_stores = ["default"]` line in the `[[component]]` area of the `spin.toml` file, as shown in the next section. A newly scaffolded application will not have this line; you will need to add it. 
+
+Each Spin application's `key_value_stores` instances are implemented on a per-component basis across the entire Spin application. What this essentially means is that (in cases where you have more than one `[[component]]`) any component in your Spin application (which has the same `key_value_stores = ["default"]` configuration line) will be equally able to access that same data store. If one of your components creates a new key/value, another one of your application's components can update/overwrite that initial key/value, after the fact.
 
 ### The Spin TOML File
 
