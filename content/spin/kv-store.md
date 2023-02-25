@@ -441,7 +441,7 @@ $ spin up
 
 ## Storing and Retrieving Data From Your Default Key/Value Store
 
-Once you have completed this minimal configuration and deployed your application, data will be persisted across requests. Let's begin by creating a POST request that stores a JSON key/value object:
+Once you have completed this minimal configuration and deployed your application, data will be persisted across requests. Let's begin by creating a `POST` request that stores a JSON key/value object:
 
 <!-- @selectiveCpy -->
 
@@ -471,7 +471,7 @@ Host: localhost:3000
 HTTP/1.1 200 OK
 ```
 
-Perfect, `200 OK`, now, let's create a GET request that fetches the data from our component:
+Perfect, `200 OK`, now, let's create a `GET` request that fetches the data from our component:
 
 <!-- @selectiveCpy -->
 
@@ -499,7 +499,7 @@ Great!, the above command successfully returned our data as intended:
 }
 ```
 
-Lastly, we show how to create a DELETE request that removes the data for this specific component altogether:
+Lastly, we show how to create a `DELETE` request that removes the data for this specific component altogether:
 
 <!-- @selectiveCpy -->
 
@@ -515,7 +515,7 @@ HTTP/1.1 200 OK
 
 Note how all of the above commands returned `200 OK` responses. In these examples, we were able to `POST`, `HEAD` (check to see if data exists), `GET` and also `DELETE` data from our component.
 
-Interestingly there is one more request we can re-run before wrapping up this tutorial. If no data exists in the component's endpoint of `/test` (which is technically the case now that we have sent the DELETE request) the `HEAD` request should correctly return `404 Not Found`. You can consider this a type of litmus test; let's try it out:
+Interestingly there is one more request we can re-run before wrapping up this tutorial. If no data exists in the component's endpoint of `/test` (which is technically the case now that we have sent the `DELETE` request) the `HEAD` request should correctly return `404 Not Found`. You can consider this a type of litmus test; let's try it out:
 
 <!-- @selectiveCpy -->
 
