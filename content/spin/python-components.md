@@ -126,7 +126,7 @@ def handle_request(request):
 The important things to note in the implementation above:
 
 - the `handle_request` function is the entry point for the Spin component.
-- the component returns `HttpResponse`.
+- the component returns a `spin_http.Response`.
 
 The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. 
 
