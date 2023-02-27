@@ -9,8 +9,11 @@ date = "2023-03-01T02:00:00Z"
 - [A Simple HTTP Components Example](#a-simple-http-components-example)
   - [Building and Running the Application](#building-and-running-the-application)
 - [An Outbound HTTP Example](#an-outbound-http-example)
-- [An Outbound Redis Example](#an-outbound-redis-example)
   - [Configuration](#configuration)
+  - [Building and Running the Application](#building-and-running-the-application-1)
+- [An Outbound Redis Example](#an-outbound-redis-example)
+  - [Configuration](#configuration-1)
+  - [Building and Running the Application](#building-and-running-the-application-2)
 
 With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
 
@@ -183,6 +186,8 @@ def handle_request(request):
                     bytes(f"Here is a dog fact: {str(response.body, 'utf-8')}, the environment: {environ}", "utf-8"))
 ```
 
+### Configuration
+
 The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `some-random-api.ml` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_http_hosts`:
 
 ```
@@ -202,6 +207,8 @@ route = "/..."
 [component.build]
 command = "spin py2wasm app -o app.wasm"
 ```
+
+### Building and Running the Application
 
 If we re-build the application with this new configuration and re-run, we will get our new dog fact:
 
@@ -282,6 +289,8 @@ def handle_request(request):
                     [("content-type", "text/plain")],
                     bytes(f"Executed outbound Redis commands: {request.uri}", "utf-8"))
 ```
+
+### Building and Running the Application
 
 After we re-build and re-run, again, we can make one final request to our Spin application:
 
