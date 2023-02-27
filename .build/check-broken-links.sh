@@ -43,6 +43,9 @@ require blc
 
 echo "starting developer portal"
 
+## allow unpublished content during broken link checker
+export PREVIEW_MODE_ENV=1
+
 ## start the developer portal in background
 npm run spin >/dev/null 2>&1 &
 
