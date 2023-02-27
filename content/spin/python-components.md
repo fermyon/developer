@@ -125,11 +125,11 @@ The important things to note in the implementation above:
 - the `handle_request` function is the entry point for the Spin component.
 - the component returns `HttpResponse`.
 
-The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. All you need to do is run the `spin build` command from within the project's directory; as shown in the next section.
+The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. 
 
 ### Building and Running the Application
 
-The following `spin build` command installs all of the necessary dependencies for the template and then bundles the application up into a single JavaScript file:
+All you need to do is run the `spin build` command from within the project's directory; as shown below:
 
 <!-- @selectiveCpy -->
 
