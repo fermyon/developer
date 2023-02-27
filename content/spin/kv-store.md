@@ -91,7 +91,7 @@ $ spin new http-ts spin-kv
 ```bash
 $ spin new http-go tinygo-key-value
 
-# Reference: https://github.com/rajatjindal/tinygo-key-value
+# Reference: https://github.com/fermyon/spin/tree/main/examples/tinygo-key-value
 ```
 
 {{ blockEnd }}
