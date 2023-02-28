@@ -1764,12 +1764,14 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content section h1:first-of-type + ul {
+  max-height: 80%;
   min-width: 15vw;
   background: #ece5ee;
   border-radius: .333rem;
   padding: .5rem 1rem .725rem;
   list-style: none;
   display: inline-block;
+  overflow-y: auto;
 }
 
 .documentation .content section h1:first-of-type + ul:before {
