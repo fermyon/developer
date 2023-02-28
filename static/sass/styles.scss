@@ -51,6 +51,8 @@ TABLE OF CONTENTS
 
 			// toc
 			h1:first-of-type+ul {
+				max-height: 80%;
+				overflow-y: auto;
 				min-width: 15vw;
 				display: inline-block;
 				background: $lightlavender;
@@ -126,6 +128,10 @@ TABLE OF CONTENTS
 			margin-top: 2rem;
 			position: relative;
 			padding-bottom: 2.67rem;
+		}
+
+		h2 {
+			line-height: 1.5;
 		}
 
 		&.content-docs-wide {

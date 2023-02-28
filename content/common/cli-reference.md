@@ -1285,4 +1285,3 @@ TRIGGER OPTIONS:
 {{ blockEnd }}
 
 {{ blockEnd }}
-```

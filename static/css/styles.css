@@ -1764,12 +1764,14 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content section h1:first-of-type + ul {
+  max-height: 80%;
   min-width: 15vw;
   background: #ece5ee;
   border-radius: .333rem;
   padding: .5rem 1rem .725rem;
   list-style: none;
   display: inline-block;
+  overflow-y: auto;
 }
 
 .documentation .content section h1:first-of-type + ul:before {
@@ -1836,6 +1838,10 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   margin-top: 2rem;
   padding-bottom: 2.67rem;
   position: relative;
+}
+
+.documentation .content h2 {
+  line-height: 1.5;
 }
 
 .documentation .content.content-docs-wide p {
@@ -3158,8 +3164,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  border-bottom-left-radius: .5em;
   top: 0;
   left: 3em;
 }
