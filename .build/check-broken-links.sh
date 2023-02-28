@@ -42,6 +42,7 @@ require timeout
 require blc
 
 echo "starting developer portal"
+export PREVIEW_MODE=1
 
 ## allow unpublished content during broken link checker
 export PREVIEW_MODE_ENV=1
