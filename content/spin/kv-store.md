@@ -65,7 +65,7 @@ As previously documented, you can go ahead and [create a new Spin application fr
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-rust spin-rust-key-value
+$ spin new http-rust spin-key-value
 
 # Reference: https://github.com/fermyon/spin/tree/main/examples/rust-key-value
 ```
@@ -77,7 +77,7 @@ $ spin new http-rust spin-rust-key-value
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-ts spin-ts-key-value
+$ spin new http-ts spin-key-value
 
 # Reference: https://github.com/karthik2804/spin-kv-ts
 ```
@@ -89,7 +89,7 @@ $ spin new http-ts spin-ts-key-value
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-go spin-tinygo-key-value
+$ spin new http-go spin-key-value
 
 # Reference: https://github.com/fermyon/spin/tree/main/examples/tinygo-key-value
 ```
@@ -116,13 +116,13 @@ In this section we begin by configuring the application's `spin.toml` to use a d
 spin_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
-name = "spin-rust-key-value"
+name = "spin-key-value"
 trigger = { type = "http", base = "/test" }
 version = "0.1.0"
 
 [[component]]
-id = "spin-rust-key-value"
-source = "target/wasm32-wasi/release/spin-rust-key-value.wasm"
+id = "spin-key-value"
+source = "target/wasm32-wasi/release/spin-key-value.wasm"
 allowed_http_hosts = []
 key_value_stores = ["default"]
 [component.trigger]
@@ -139,13 +139,13 @@ command = "cargo build --target wasm32-wasi --release"
 spin_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
-name = "spin-ts-key-value"
+name = "spin-key-value"
 trigger = { type = "http", base = "/test" }
 version = "0.1.0"
 
 [[component]]
-id = "spin-ts-key-value"
-source = "target/spin-ts-key-value.wasm"
+id = "spin-key-value"
+source = "target/spin-key-value.wasm"
 exclude_files = ["**/node_modules"]
 key_value_stores = ["default"]
 [component.trigger]
@@ -162,12 +162,12 @@ command = "npm run build"
 spin_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
-name = "spin-tinygo-key-value"
+name = "spin-key-value"
 trigger = { type = "http", base = "/test" }
 version = "1.0.0"
 
 [[component]]
-id = "spin-tinygo-key-value"
+id = "spin-key-value"
 source = "main.wasm"
 key_value_stores = ["default"]
 [component.trigger]
