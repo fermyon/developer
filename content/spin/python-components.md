@@ -1,6 +1,6 @@
 title = "Building Spin Components in Python"
 template = "spin_main"
-date = "2023-03-01T02:00:00Z"
+date = "2023-02-28T02:00:00Z"
 
 ---
 - [Spin's Python Plugin](#spins-python-plugin)
