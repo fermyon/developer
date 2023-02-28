@@ -42,10 +42,9 @@ require timeout
 require blc
 
 echo "starting developer portal"
-export PREVIEW_MODE=1
 
 ## allow unpublished content during broken link checker
-export PREVIEW_MODE_ENV=1
+export PREVIEW_MODE=1
 
 ## start the developer portal in background
 npm run spin >/dev/null 2>&1 &
