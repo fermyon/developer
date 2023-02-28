@@ -10,6 +10,9 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/http-trigger.md"
 - [The Wagi HTTP Executor](#the-wagi-http-executor)
   - [The Default Headers Set in Spin HTTP Components](#the-default-headers-set-in-spin-http-components)
   - [The Default Headers Set in Wagi HTTP Components](#the-default-headers-set-in-wagi-http-components)
+- [Exposing HTTP Triggers Using HTTPS](#exposing-http-triggers-using-https)
+  - [Trigger Options](#trigger-options)
+  - [Environment Variables](#environment-variables)
 
 An important workload in event-driven environments is represented by HTTP
 applications, and Spin has built-in support for creating and running HTTP
@@ -302,3 +305,35 @@ handler WebAssembly modules:
 
 Besides the headers above, components that use the Wagi executor also have set
 [all headers set by Wagi, following the CGI spec](https://github.com/deislabs/wagi/blob/main/docs/environment_variables.md).
+
+## Exposing HTTP Triggers Using HTTPS
+
+When exposing HTTP triggers using HTTPS you must provide `spin up` with a TLS certificate and a private key. This can be achieved by either using trigger options (`--tls-cert` and `--tls-key`) when running the `spin up` command, or by setting environment variables (`SPIN_TLS_CERT` and `SPIN_TLS_KEY`) before running the `spin up` command.
+
+### Trigger Options
+
+The `spin up` command's `--tls-cert` and `--tls-key` trigger options provide a way for you to specify both a TLS certificate and a private key (whilst running the `spin up` command).
+
+The `--tls-cert` option specifies the path to the TLS certificate to use for HTTPS, if this is not set, normal HTTP will be used. The certificate should be in PEM format. 
+
+The `--tls-key` option specifies the path to the private key to use for HTTPS, if this is not set, normal HTTP will be used. The key should be in PKCS#8 format. For more information, please see the [Spin CLI Reference](../common/cli-reference#trigger-options).
+
+### Environment Variables
+
+The `spin up` command can also automatically use the `SPIN_TLS_CERT` and `SPIN_TLS_KEY` environment variables instead of the respective flags (`--tls-cert` and `--tls-key`):
+
+<!-- @nocpy -->
+
+```bash
+SPIN_TLS_CERT=<path/to/cert>
+SPIN_TLS_KEY=<path/to/key>
+```
+
+Once set, `spin up` will automatically use these explicitly set environment variables. For example, if using a Linux-based system, you can go ahead and use the `export` command to set the variables in your session (before you run the `spin up` command):
+
+<!-- @nocpy -->
+
+```bash
+export SPIN_TLS_CERT=<path/to/cert>
+export SPIN_TLS_KEY=<path/to/key>
+```
