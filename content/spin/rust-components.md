@@ -102,6 +102,8 @@ fn hello_world(_req: Request) -> Result<Response> {
 }
 ```
 
+In the previous snippet, we used `http::Request::builder()`, which is provided by the `http` crate. Ensure that `http` is part of your dependencies in `Cargo.toml`. You must manually add the dependency for projects created using templates other than `http-rust`.
+
 Before we can execute this component, we need to add the `some-random-api.ml`
 domain to the application manifest `allowed_http_hosts` list containing the list of
 domains the component is allowed to make HTTP requests to:
