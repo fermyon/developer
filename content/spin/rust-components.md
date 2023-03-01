@@ -102,6 +102,8 @@ fn hello_world(_req: Request) -> Result<Response> {
 }
 ```
 
+> The `http::Request::builder()` method is provided by the Rust `http` crate. The `http` crate is already added to projects using the Spin `http-rust` template. If you create a project without using this template, you'll need to add the `http` crate yourself via `cargo add http`.
+
 Before we can execute this component, we need to add the `some-random-api.ml`
 domain to the application manifest `allowed_http_hosts` list containing the list of
 domains the component is allowed to make HTTP requests to:
