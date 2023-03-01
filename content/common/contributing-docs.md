@@ -223,7 +223,9 @@ npm run build-index
 
 ### 6.3 How To Properly Edit CSS Styles
 
-Directly editing `.css` files is not recommended, because these are overwritten. Instead, if you would like to make and test a new/different style please go ahead and update the appropriate `.scss` file instead. The following command will automatically update the `.css` file that is relevant to the `.scss` file that you are editing:
+> The following section (the running of the `npm run styles` command) is not necessary unless you are editing styles i.e. updating `.scss` files, in order to generate new `.css` files, as part of your contribution.
+
+Directly editing `.css` files is not recommended, because `.css` files are overwritten. Instead, if you would like to make and test a new/different style please go ahead and update the appropriate `.scss` file. The following command will automatically update the `.css` file that is relevant to the `.scss` file that you are editing:
 
 <!-- @selectiveCpy -->
 
