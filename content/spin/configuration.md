@@ -1,4 +1,4 @@
-title = "Configuration for Spin Applications"
+title = "Writing Spin Applications"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
@@ -8,14 +8,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/configuration.md"
 - [Application Manifest Reference](#application-manifest-reference)
   - [Application Configuration](#application-configuration)
   - [Component Configuration](#component-configuration)
-- [Custom Configuration](#custom-configuration)
-  - [Custom Config Variables](#custom-config-variables)
-  - [Component Custom Config](#component-custom-config)
-  - [Custom Config Providers](#custom-config-providers)
-    - [Environment Variable Provider](#environment-variable-provider)
-    - [Vault Config Provider](#vault-config-provider)
-      - [Vault Config Provider Example](#vault-config-provider-example)
-- [Runtime Configuration](#runtime-configuration)
 - [Examples](#examples)
 
 Spin applications are comprised of general information (metadata), and a collection
@@ -41,7 +33,26 @@ route = "/hello"
 command = "cargo build --target wasm32-wasi --release"
 ```
 
-## Application Manifest Reference
+## Spin Components
+
+At the Wasm level, a Spin component is a Wasm module that exports a handler for the application trigger.  At the developer level, a Spin component is a library or program that implements your event handling logic, and uses Spin interfaces, libraries, or tools to associate that with the events handled by Spin.
+
+See the Language Guides section for how to do this in your preferred language.  As an example, though, this is a component written in the Rust language.  The `hello_world` function uses an attribute to identify the function as handling a Spin HTTP event.  The function takes a `Request` and returns a `Result<Response>`:
+
+<!-- @nocpy -->
+
+```rust
+#[http_component]​
+fn hello_world(_req: Request) -> Result<Response> {​
+    Ok(http::Response::builder()​
+        .status(200)​
+        .body(Some("Hello, Fermyon!".into()))?)​
+}​
+```
+
+Spin components are wired up into applications using the application manifest.
+
+## The Spin Application Manifest
 
 ### Application Configuration
 
@@ -133,131 +144,6 @@ Each `component` object has the following fields:
     - `channel` (REQUIRED): The Redis channel for which, whenever a new message
 is published, the component will be invoked.
 - `config` (OPTIONAL): [Custom configuration](#custom-configuration) values.
-
-## Custom Configuration
-
-Spin applications may define custom configuration which can be looked up by
-component code via the [spin-config interface](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-config.wit).
-
-### Custom Config Variables
-
-Application-global custom config variables are defined in the top-level `[variables]`
-section. These entries aren't accessed directly by components but are referenced
-by [component config](#component-custom-config) value templates. Each entry must
-either have a `default` value or be marked as `required = true`. "Required" entries
-must be [provided](#custom-config-providers) with a value.
-
-Configuration keys may only contain lowercase letters and underscores between letters:
-
-<!-- @nocpy -->
-
-```toml
-[variables]
-api_host = { default = "api.example.com" }
-api_key = { required = true }
-```
-
-### Component Custom Config
-
-The configuration entries available to a component are listed in its
-`[component.config]` section. Configuration values may reference
-[config variables](#custom-config-variables) with simple
-[mustache](https://mustache.github.io/)-inspired string templates:
-
-<!-- @nocpy -->
-
-```toml
-[[component]]
-# ...
-[component.config]
-api_base_url = "https://{{ api_host }}/v1"
-api_key = "{{ api_key }}"
-```
-
-### Custom Config Providers
-
-[Custom config variables](#custom-config-variables) values may be set at runtime by
-config "providers". Currently, there are two providers: the environment
-variable provider and vault config provider.
-
-#### Environment Variable Provider
-
-The environment variable provider which gets config values from the `spin` process's
-environment (_not_ the component `environment`). Config keys are translated
-to environment variables by upper-casing and prepending with `SPIN_APP_`:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ export SPIN_APP_API_KEY = "1234"  # Sets the `api_key` value.
-$ spin up
-```
-
-#### Vault Config Provider
-
-The Vault config provider gets secret values from [HashiCorp Vault](https://www.vaultproject.io/).
-Currently, only [KV Secrets Engine - Version 2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2) is supported.
-You can set up v2 kv secret engine at any mount point and give Vault information in the [runtime configuration](#runtime-configuration) file:
-
-<!-- @nocpy -->
-
-```toml
-[[config_provider]]
-type = "vault"
-url = "http://127.0.0.1:8200"
-token = "root"
-mount = "secret"
-```
-
-##### Vault Config Provider Example
-
-1. [Install Vault](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install).
-2. Start Vault:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ vault server -dev -dev-root-token-id root
-```
-
-3. Set a password:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ export VAULT_TOKEN=root
-$ export VAULT_ADDR=http://127.0.0.1:8200
-$ vault kv put secret/password value="test_password"
-$ vault kv get secret/password
-```
-
-4. Go to [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-config-test) folder.
-5. Start `vault-config-test` app:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin build
-$ spin up --runtime-config-file runtime_config.toml
-```
-
-6. Test the app:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ curl -i http://127.0.0.1:3000
-HTTP/1.1 200 OK
-content-length: 26
-date: Tue, 18 Oct 2022 12:34:40 GMT
-
-Got password test_password
-```
-
-## Runtime Configuration
-
-Runtime configuration contains config provider information like [vault config provider](#vault-config-provider).
-You can use the runtime configuration by giving `--runtime-config-file` in `spin up` command.
 
 ## Examples
 
