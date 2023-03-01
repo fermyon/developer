@@ -223,7 +223,9 @@ npm run build-index
 
 ### 6.3 How To Properly Edit CSS Styles
 
-Directly editing `.css` files is not recommended, because these are overwritten. Instead, if you would like to make and test a new/different style please go ahead and update the appropriate `.scss` file and then run the following command; which will in-turn update the `.css`:
+> The following section (the running of the `npm run styles` command) is not necessary unless you are editing styles i.e. updating `.scss` files, in order to generate new `.css` files, as part of your contribution.
+
+Directly editing `.css` files is not recommended, because `.css` files are overwritten. Instead, if you would like to make and test a new/different style please go ahead and update the appropriate `.scss` file. The following command will automatically update the `.css` file that is relevant to the `.scss` file that you are editing:
 
 <!-- @selectiveCpy -->
 
@@ -231,7 +233,7 @@ Directly editing `.css` files is not recommended, because these are overwritten.
 npm run styles
 ```
 
-After the above changes have been made to styles, please go ahead and double-check that you are achieving the intended results; before adding, committing and pushing (which will be covered below, in a few minutes).
+The above command is designed to be run in the background; enabling you to view your design changes (that are reflected in the `.css`) while you are editing the `.scss` in real-time. If you are not running this command in the background (i.e. just deliberately regenerating the `.css` files once), then the above command can be stopped by pressing `Ctrl` + `C`.
 
 ### 6.4 Checking Your Content - Using Bartholomew's CLI
 
