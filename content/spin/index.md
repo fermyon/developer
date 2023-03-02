@@ -14,7 +14,7 @@ Many languages have Wasm implementations, so **developers don't have to learn ne
 
 Spin is **open source** and **built on standards**, meaning you can take your Spin applications anywhere.  There are Spin implementations for local development, for self-hosted servers, for Kubernetes, and for cloud-hosted services.
 
-- [Install Spin](install)
 - [Take Spin for a spin](quickstart)
+- [Install Spin](install)
 - [Learn how to write Spin applications](configuration)
 - [Run your Spin applications in the Fermyon Cloud](/cloud/index)

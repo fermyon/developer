@@ -5,10 +5,12 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/spin/blob/main/docs/content/configuration.md"
 
 ---
-- [Application Manifest Reference](#application-manifest-reference)
+- [Spin Components](#spin-components)
+- [The Spin Application Manifest](#the-spin-application-manifest)
   - [Application Configuration](#application-configuration)
   - [Component Configuration](#component-configuration)
 - [Examples](#examples)
+- [Next Steps](#next-steps)
 
 Spin applications are comprised of general information (metadata), and a collection
 of at least one _component_. Configuration for a Spin application lives in a TOML
@@ -199,3 +201,9 @@ source = "spinredis.wasm"
 [component.trigger]
 channel = "messages"
 ```
+
+## Next Steps
+
+- Learn about how to [develop a Spin application](developing)
+- Learn about how to [configure your application at runtime](dynamic-configuration)
+- Try deploying a Spin application to the [Fermyon Cloud](/cloud/quickstart)
