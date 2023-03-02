@@ -99,6 +99,13 @@ TABLE OF CONTENTS
 				}
 			}
 
+			table {
+				code {
+					display: inline-block;
+					margin: 0 !important;
+				}
+			}
+
 			@media screen and (min-width: 1661px) {
 				h1:first-of-type+ul {
 					position: fixed;
@@ -397,6 +404,19 @@ html.dark-theme {
 		}
 
 		.content {
+			table {
+				th{
+					background-color: #0a1931;
+					border-bottom: 1px solid #0d203f;
+					color: #fff;
+				}
+				td {
+					border-bottom-color: #0d203f;
+				}
+				code {
+					background-color: $oxfordblue;
+				}
+			}
 			details {
 				background: #1b2c4f;
 				border-left: 4px solid #243c6c;
@@ -1388,11 +1408,13 @@ html.dark-theme {
 		.is-hoverable {
 			.navbar-dropdown {
 				background-color: $darkspace;
+
 				.navbar-item {
 					.project-content {
 						.title {
 							color: $midgreen;
 						}
+
 						.description {
 							color: $lightplum !important;
 						}
