@@ -1812,6 +1812,11 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   display: none;
 }
 
+.documentation .content section table code {
+  display: inline-block;
+  margin: 0 !important;
+}
+
 @media screen and (min-width: 1661px) {
   .documentation .content section h1:first-of-type + ul {
     width: 15vw;
@@ -2053,6 +2058,20 @@ html.dark-theme body #topbar.navbar .navbar-menu .button.is-secondary {
 
 html.dark-theme body #topbar.navbar .navbar-menu .button.is-secondary:hover {
   color: #0d203f !important;
+}
+
+html.dark-theme body .content table th {
+  color: #fff;
+  background-color: #0a1931;
+  border-bottom: 1px solid #0d203f;
+}
+
+html.dark-theme body .content table td {
+  border-bottom-color: #0d203f;
+}
+
+html.dark-theme body .content table code {
+  background-color: #0d203f;
 }
 
 html.dark-theme body .content details {
