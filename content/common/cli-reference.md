@@ -487,11 +487,10 @@ OPTIONS:
 
 {{ blockEnd }}
 
-**Please note: `spin new` vs `spin add`**.
+**Please note: `spin new` vs `spin add`**.  These commands are similar except that:
 
-The previous `spin add` command (from versions before Spin v0.9.0) still exists for backward compatibility. The `spin new` command, shown above, automatically scaffolds a new application based on a template. This is the recommended way to create a Spin application.
-
-In contrast, the older `spin add` command will accept a relative path or an absolute path to an existing `spin.toml` application configuration file (via the `-f` or `--file` option). Using `spin add` in this way will create a new instance of an existing application (based on that specific pre-written `spin.toml` file's contents).
+* `spin new` creates a _new_ application - that is, a new directory with a new `spin.toml` file.
+* `spin add` _adds_ a component to an _existing_ application - that is, it modifies an existing `spin.toml` file.
 
 ### Plugins
 
