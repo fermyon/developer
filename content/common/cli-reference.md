@@ -1011,44 +1011,20 @@ $ spin up --help
 
 spin-up 
 Start the Spin application
-
 USAGE:
     spin up [OPTIONS]
 
 OPTIONS:
-    -b, --bindle <BINDLE_ID>
-            ID of application bindle
-
-        --bindle-password <BINDLE_PASSWORD>
-            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
-
-        --bindle-server <BINDLE_SERVER_URL>
-            URL of bindle server [env: BINDLE_URL=]
-
-        --bindle-username <BINDLE_USERNAME>
-            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
-
-        --direct-mounts
-            For local apps with directory mounts and no excluded files, mount them directly instead
-            of using a temporary directory
-
-    -e, --env <ENV>
-            Pass an environment variable (key=value) to all components of the application
-
-    -f, --file <APP_CONFIG_FILE>
-            Path to spin.toml
-
-        --from-registry <REGISTRY_REFERENCE>
-            Reference to run the application from a registry
-
-    -h, --help
-            
-
-    -k, --insecure
-            Ignore server certificate errors from bindle server or registry
-
-        --temp <TMP>
-            Temporary directory for the static assets of the components
+        --direct-mounts         For local apps with directory mounts and no excluded files, mount
+                                them directly instead of using a temporary directory
+    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
+                                application
+    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
+                                directory containing a spin.toml file, or a remote registry
+                                reference. If omitted, it defaults to "spin.toml"
+    -h, --help                  
+    -k, --insecure              Ignore server certificate errors from bindle server or registry
+        --temp <TMP>            Temporary directory for the static assets of the components
 
 TRIGGER OPTIONS:
         --allow-transient-write
@@ -1065,10 +1041,7 @@ TRIGGER OPTIONS:
             [env: DISABLE_WASMTIME_CACHE=]
 
         --follow <FOLLOW_ID>
-            Print output for given component(s) to stdout/stderr
-
-        --follow-all
-            Print all component output to stdout/stderr Deprecated
+            Print output to stdout/stderr only for given component(s)
 
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
@@ -1080,11 +1053,14 @@ TRIGGER OPTIONS:
             Configuration file for config providers and wasmtime config
             
             [env: RUNTIME_CONFIG_FILE=]
+
 ```
 
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+> **Please note:** If the `-f` or `--from` options do not accurately infer the intended registry or `.toml` file for your application, then you can explicitly specify either the `--from-registry` or  `--from-file` options to clarify this.
 
 #### Trigger Options
 
@@ -1108,39 +1084,16 @@ USAGE:
     spin up [OPTIONS]
 
 OPTIONS:
-    -b, --bindle <BINDLE_ID>
-            ID of application bindle
-
-        --bindle-password <BINDLE_PASSWORD>
-            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
-
-        --bindle-server <BINDLE_SERVER_URL>
-            URL of bindle server [env: BINDLE_URL=]
-
-        --bindle-username <BINDLE_USERNAME>
-            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
-
-        --direct-mounts
-            For local apps with directory mounts and no excluded files, mount them directly instead
-            of using a temporary directory
-
-    -e, --env <ENV>
-            Pass an environment variable (key=value) to all components of the application
-
-    -f, --file <APP_CONFIG_FILE>
-            Path to spin.toml
-
-        --from-registry <REGISTRY_REFERENCE>
-            Reference to run the application from a registry
-
-    -h, --help
-            
-
-    -k, --insecure
-            Ignore server certificate errors from bindle server or registry
-
-        --temp <TMP>
-            Temporary directory for the static assets of the components
+        --direct-mounts         For local apps with directory mounts and no excluded files, mount
+                                them directly instead of using a temporary directory
+    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
+                                application
+    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
+                                directory containing a spin.toml file, or a remote registry
+                                reference. If omitted, it defaults to "spin.toml"
+    -h, --help                  
+    -k, --insecure              Ignore server certificate errors from bindle server or registry
+        --temp <TMP>            Temporary directory for the static assets of the components
 
 TRIGGER OPTIONS:
         --allow-transient-write
@@ -1157,10 +1110,7 @@ TRIGGER OPTIONS:
             [env: DISABLE_WASMTIME_CACHE=]
 
         --follow <FOLLOW_ID>
-            Print output for given component(s) to stdout/stderr
-
-        --follow-all
-            Print all component output to stdout/stderr Deprecated
+            Print output to stdout/stderr only for given component(s)
 
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
@@ -1198,39 +1148,16 @@ USAGE:
     spin up [OPTIONS]
 
 OPTIONS:
-    -b, --bindle <BINDLE_ID>
-            ID of application bindle
-
-        --bindle-password <BINDLE_PASSWORD>
-            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
-
-        --bindle-server <BINDLE_SERVER_URL>
-            URL of bindle server [env: BINDLE_URL=]
-
-        --bindle-username <BINDLE_USERNAME>
-            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
-
-        --direct-mounts
-            For local apps with directory mounts and no excluded files, mount them directly instead
-            of using a temporary directory
-
-    -e, --env <ENV>
-            Pass an environment variable (key=value) to all components of the application
-
-    -f, --file <APP_CONFIG_FILE>
-            Path to spin.toml
-
-        --from-registry <REGISTRY_REFERENCE>
-            Reference to run the application from a registry
-
-    -h, --help
-            
-
-    -k, --insecure
-            Ignore server certificate errors from bindle server or registry
-
-        --temp <TMP>
-            Temporary directory for the static assets of the components
+        --direct-mounts         For local apps with directory mounts and no excluded files, mount
+                                them directly instead of using a temporary directory
+    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
+                                application
+    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
+                                directory containing a spin.toml file, or a remote registry
+                                reference. If omitted, it defaults to "spin.toml"
+    -h, --help                  
+    -k, --insecure              Ignore server certificate errors from bindle server or registry
+        --temp <TMP>            Temporary directory for the static assets of the components
 
 TRIGGER OPTIONS:
         --allow-transient-write
@@ -1247,10 +1174,7 @@ TRIGGER OPTIONS:
             [env: DISABLE_WASMTIME_CACHE=]
 
         --follow <FOLLOW_ID>
-            Print output for given component(s) to stdout/stderr
-
-        --follow-all
-            Print all component output to stdout/stderr Deprecated
+            Print output to stdout/stderr only for given component(s)
 
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
