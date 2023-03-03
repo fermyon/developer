@@ -17,6 +17,16 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install npm packages
+        run: |
+          npm ci
+
+      # TODO: any other node-y things to do prior to build/deploy? 'npm run styles', etc.?
+
+      - name: Create search index
+        run: |
+          npm run build-index
+
       - name: build and deploy preview
         uses: fermyon/actions/spin/preview@v1
         with:
