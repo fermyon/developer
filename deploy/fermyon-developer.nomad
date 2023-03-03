@@ -35,11 +35,11 @@ EOF
     error_message = "The Let's Encrypt env must be either 'staging' or 'prod'."
   }
 }
+variable "oci_ref" {
 
-variable "bindle_id" {
   type        = string
-  default     = "fermyon-developer/0.1.0"
-  description = "A bindle id, such as foo/bar/1.2.3"
+  default     = "ghcr.io/fermyon/developer:latest"
+  description = "The OCI reference of the Spin app for the Fermyon Developer website"
 }
 
 locals {
@@ -107,7 +107,6 @@ job "fermyon-developer" {
 
       env {
         RUST_LOG   = "spin=trace"
-        BINDLE_URL = "http://bindle.service.consul:3030/v1"
         BASE_URL   = "https://${local.hostname}"
       }
 
@@ -115,8 +114,8 @@ job "fermyon-developer" {
         command = "spin"
         args = [
           "up",
+          "--from", var.oci_ref,
           "--listen", "${NOMAD_IP_http}:${NOMAD_PORT_http}",
-          "--bindle", var.bindle_id,
           "--log-dir", "${NOMAD_ALLOC_DIR}/logs",
           "--temp", "${NOMAD_ALLOC_DIR}/tmp",
 

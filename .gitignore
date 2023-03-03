@@ -7,3 +7,5 @@ node_modules
 broken_links
 final_broken
 .spin
+# The search index is generated at time of deploy
+static/data.json

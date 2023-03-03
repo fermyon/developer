@@ -7,11 +7,12 @@ on:
 
   workflow_dispatch:
     inputs:
-      ref:
-        description: 'Git ref to deploy from (refs/tags/v* for tag)'
-        default: 'refs/heads/main'
-      commit:
-        description: 'Commit SHA to deploy from (optional)'
+      oci_ref_name:
+        description: 'OCI reference name for the Fermyon Developer Spin app'
+        default: 'ghcr.io/fermyon/developer'
+      oci_ref_tag:
+        description: 'OCI reference tag for the Fermyon Developer Spin app'
+        default: 'latest'
       environment:
         type: choice
         description: 'Environment to deploy to (Default: canary)'
@@ -38,8 +39,8 @@ jobs:
     steps:
       - name: Echo Inputs
         run: |
-          echo ref: ${{ github.event.inputs.ref }}
-          echo commit: ${{ github.event.inputs.commit }}
+          echo ref: ${{ github.event.inputs.oci_ref_name }}
+          echo commit: ${{ github.event.oci_ref_tag }}
           echo environment: ${{ github.event.inputs.environment }}
 
   deploy:
@@ -92,8 +93,8 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         shell: bash
         run: |
-          echo "GIT_REF=${{ github.event.inputs.ref }}" >> $GITHUB_ENV
-          echo "GIT_SHA=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
+          echo "OCI_REF_NAME=${{ github.event.inputs.oci_ref_name }}" >> $GITHUB_ENV
+          echo "OCI_REF_TAG=${{ github.event.oci_ref_tag }}" >> $GITHUB_ENV
           
           if [[ "${{ github.event.inputs.environment }}" == "prod" ]]; then
             echo "PRODUCTION=true" >> $GITHUB_ENV
@@ -107,8 +108,8 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         shell: bash
         run: |
-          echo "GIT_REF=${{ github.ref }}" >> $GITHUB_ENV
-          echo "GIT_SHA=${{ github.sha }}" >> $GITHUB_ENV
+          echo "OCI_REF_NAME=ghcr.io/${{ github.repository_owner }}/developer" >> $GITHUB_ENV
+          echo "OCI_REF_TAG=${{ github.ref_name }}-${{ github.sha }}" >> $GITHUB_ENV
 
           echo "PRODUCTION=true" >> $GITHUB_ENV
           echo "NOMAD_NAMESPACE=prod" >> $GITHUB_ENV
@@ -116,27 +117,8 @@ jobs:
       - name: Deploy
         shell: bash
         run: |
-          set -euox pipefail
-
-          # purge any lingering/completed publish jobs
-          nomad job inspect publish-${{ env.JOB }} &>/dev/null && \
-            nomad stop -purge -yes publish-${{ env.JOB }}
-
-          # run the publish job
-          nomad run \
-            -var "region=${{ secrets.AWS_REGION }}" \
-            -var "git_ref=${{ env.GIT_REF }}" \
-            -var "commit_sha=${{ env.GIT_SHA }}" \
-            deploy/publish-${{ env.JOB }}.nomad
-
-          # wait for publish job to complete
-          timeout 300s bash -c 'until [[ "$(nomad job inspect publish-${{ env.JOB }} | jq -j '.Job.Status')" == "dead" ]]; do sleep 2; done'
-
-          readonly bindle_id="$(nomad logs -job publish-${{ env.JOB }} | sed -n 's/pushed: //p')"
-
-          # run/update the website job
           nomad run \
             -var "region=${{ secrets.AWS_REGION }}" \
             -var "production=${{ env.PRODUCTION }}" \
-            -var "bindle_id=${bindle_id}" \
+            -var "oci_ref=${{ env.OCI_REF_NAME }}:${{ env.OCI_REF_TAG }}" \
             deploy/${{ env.JOB }}.nomad
