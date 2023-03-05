@@ -166,7 +166,7 @@ $ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 <!-- @selectiveCpy -->
 
  ```bash
-$ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}

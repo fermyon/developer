@@ -614,7 +614,7 @@ Executing the build command for component hello-rust: cargo build --target wasm3
    Compiling anyhow v1.0.69
    Compiling version_check v0.9.4
    # ...
-   Compiling spin-sdk v0.9.0 (https://github.com/fermyon/spin?tag=v0.9.0#a99ed513)
+   Compiling spin-sdk v0.10.0 
    Compiling hello-rust v0.1.0 (/home/ivan/testing/start/hello_rust)
     Finished release [optimized] target(s) in 11.94s
 Successfully ran the build command for the Spin components.
@@ -728,7 +728,7 @@ You can always run this command manually; `spin build` is a shortcut.
 ```bash
 $ spin build
 Executing the build command for component hello-go: tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go
-go: downloading github.com/fermyon/spin/sdk/go v0.9.0
+go: downloading github.com/fermyon/spin/sdk/go v0.10.0
 Successfully ran the build command for the Spin components.
 ```
 
