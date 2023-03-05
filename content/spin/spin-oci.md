@@ -83,6 +83,16 @@ $ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
 
 {{ blockEnd }}
 
+{{ startTab "v0.10.0"}}
+
+ <!-- @selectiveCpy -->
+
+ ```bash
+$ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 You now have a Spin application stored in your registry. You can see the artifact under packages in the [GitHub UI](https://docs.github.com/en/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages).
@@ -113,6 +123,16 @@ $ spin registry pull ghcr.io/USERNAME/spin-react-fullstack:v1
 
 {{ blockEnd }}
 
+{{ startTab "v0.10.0"}}
+
+ <!-- @selectiveCpy -->
+ 
+ ```bash
+$ spin registry pull ghcr.io/USERNAME/spin-react-fullstack:v1
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ## Run a Spin App From GHCR
@@ -132,6 +152,16 @@ Lastly, let's run this Spin application.
 {{ blockEnd }}
 
 {{ startTab "v0.9.0"}}
+
+<!-- @selectiveCpy -->
+
+ ```bash
+ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
