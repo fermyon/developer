@@ -6,3 +6,4 @@ node_modules
 *.css.map
 broken_links
 final_broken
+.spin
