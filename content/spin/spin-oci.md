@@ -146,7 +146,7 @@ Lastly, let's run this Spin application.
  <!-- @selectiveCpy -->
 
  ```bash
- spin oci run --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin oci run --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
@@ -156,7 +156,7 @@ Lastly, let's run this Spin application.
 <!-- @selectiveCpy -->
 
  ```bash
- spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
@@ -166,7 +166,7 @@ Lastly, let's run this Spin application.
 <!-- @selectiveCpy -->
 
  ```bash
- spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
