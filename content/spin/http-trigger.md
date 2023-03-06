@@ -21,11 +21,11 @@ some implementation details around the WebAssembly component model and how it
 is used in Spin.
 
 The HTTP trigger in Spin is a web server. It listens for incoming requests and
-based on the [application manifest](./configuration.md), it routes them to an
+based on the [application manifest](./writing-apps.md), it routes them to an
 _executor_ which instantiates the appropriate component, executes its
 entry point function, then returns an HTTP response.
 
-Creating an HTTP application is done when [configuring the application](./configuration.md)
+Creating an HTTP application is done when [configuring the application](./writing-apps.md)
 by defining the top-level application trigger:
 
 <!-- @nocpy -->

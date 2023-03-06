@@ -104,7 +104,7 @@ Each table in the `component` array contains the following fields:
 |                         |            | Table       | * A directory to be made available to the Wasm module at a specific path. This must be a table containing a `source` field for the directory relative to the manifest file, and a `destination` field containing the absolute path at which to make it available. | `{ source = "assets/images", destination = "/pictures" }` |
 | `exclude_files`         | Optional   | Array of strings | Any files or glob patterns that should _not_ be available to the Wasm module at runtime, even though they match a `files` entry. | `[assets/images/test/**/*.*]` |
 | `allowed_http_hosts`    | Optional   | Array of strings | The host names or addresses to which the Wasm module is allowed to send HTTP requests. If the name includes a port, the Wasm module can send requests only to that port; otherwise, the Wasm module can send requests only to the default port for the scheme it uses. The special string `insecure:allow-all` permits the module to send HTTP requests to _any_ host, but is intended for development use only; some deployment environments may decline to honour it. | `["example.com", "localhost:8081"]` |
-| `key_value_stores`      | Optional   | Array of strings | An array of key-value stores that the Wasm module is allowed to read or write. A store named `default` is provided by the Spin runtime, though modules must still be permitted to access it. Other names must be defined by the [runtime configuration](dynamic-configuration). | `["default"]` |
+| `key_value_stores`      | Optional   | Array of strings | An array of key-value stores that the Wasm module is allowed to read or write. A store named `default` is provided by the Spin runtime, though modules must still be permitted to access it. In current versions of Spin, `"default"` is the only store allowed. | `["default"]` |
 | `environment`           | Optional   | Table       | Environment variables to be set for the Wasm module. This is a table. The table keys are user-defined; the values must be strings. | `{ DB_URL = "mysql://spin:spin@localhost/dev" }` |
 | `trigger`               | Required   | Table       | Specifies how this component is triggered. This is a table, whose contents of are trigger-specific; see below. | `[component.trigger]`<br />`route = "/..."` |
 | `build`                 | Optional   | Table       | The command that `spin build` uses to build this component. See [The `component.build` Table](#the-componentbuild-table) below. | `[component.build]`<br />`command = "npm run build"` |
@@ -134,7 +134,7 @@ Each table in the `component` array contains the following fields:
 
 ## Next Steps
 
-- Learn about [writing Spin applications and their manifests](configuration)
+- Learn about [writing Spin applications and their manifests](writing-apps)
 - Learn about [dynamic and runtime configuration](dynamic-configuration)
 - See more information about the [HTTP trigger](http-trigger)
 - See more information about the [Redis trigger](redis-trigger)

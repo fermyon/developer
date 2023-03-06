@@ -16,5 +16,5 @@ Spin is **open source** and **built on standards**, meaning you can take your Sp
 
 - [Take Spin for a spin](quickstart)
 - [Install Spin](install)
-- [Learn how to write Spin applications](configuration)
+- [Learn how to write Spin applications](writing-apps)
 - [Run your Spin applications in the Fermyon Cloud](/cloud/index)
