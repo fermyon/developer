@@ -42,7 +42,7 @@ This page documents the Spin Command Line Interface (CLI). Specifically, all of 
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -82,7 +82,7 @@ Adding a subcommand (and again issuing the `--help` command) will provide inform
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -126,7 +126,7 @@ Adding a subcommand (and again issuing the `--help` command) will provide inform
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -158,7 +158,7 @@ Again, adding another related subcommand provides even more specific information
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -186,7 +186,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -233,7 +233,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -263,7 +263,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -295,7 +295,7 @@ Please note: the previous `spin deploy` command (from versions before Spin v0.9.
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -346,7 +346,7 @@ Please note: the previous `spin login` command (from versions before Spin v0.9.0
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -407,7 +407,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -450,7 +450,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -496,7 +496,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -529,7 +529,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -576,7 +576,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -602,7 +602,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -630,7 +630,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -655,7 +655,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -705,7 +705,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -738,7 +738,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -769,7 +769,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -798,7 +798,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -828,7 +828,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -860,7 +860,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -902,7 +902,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -931,7 +931,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -959,7 +959,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1002,7 +1002,7 @@ The following options are available in relation to running your Spin application
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1070,7 +1070,7 @@ Below, please see the available trigger options for the Redis request handler.
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1134,7 +1134,7 @@ Below, please see the available trigger options for the HTTP request handler. No
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.9.0"}}
+{{ startTab "v0.10.0"}}
 
 <!-- @selectiveCpy -->
 

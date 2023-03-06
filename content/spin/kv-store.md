@@ -23,7 +23,7 @@ enable_shortcodes = true
 
 ## Key Value Storage With Spin Applications
 
-Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times; during an application’s execution. In [Spin v0.9.0](https://www.fermyon.com/blog/spin-v09), we've added support for key/value storage. This is a storage option for applications that need data in the form of key/value pairs and are satisfied by a BASE consistency model. Workload examples include general value caching, session caching, counters, and serialized application state.
+Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times; during an application’s execution. [Spin](https://www.fermyon.com/blog/spin-v09) has support for applications that need data in the form of key/value pairs and are satisfied by a BASE consistency model. Workload examples include general value caching, session caching, counters, and serialized application state.
 
 ## SQLite
 
@@ -39,20 +39,21 @@ In all of these previous examples, to persist data within your application, a se
 
 However, from Spin v0.9.0 onwards, you are no longer required to install any on-disk persistence; outside of just installing Spin itself. SQLite exists inside Spin. SQLite is embedded in a way that is analogous to how one would imagine using a software library i.e. SQLite is designed to be used in this manner and therefore, for all intents and purposes, you could say that SQLite does not exist outside of Spin. When you run your Spin application using the [spin up](https://developer.fermyon.com/common/cli-reference#up) command SQLite is available to your application. When your application is no longer running, neither is SQLite. Your data will continue to persist at all times (including during restarts) and will support the running of your application.
 
-In the future, it may be possible to embed other database technologies into Spin (as v0.9.0 has shown here with SQLite). For example, future Spin SDK updates may target other databases such as Redis; which may allow you to build applications using Redis via minimal Spin configuration without the need to locally install and maintain your own Redis instance.
+In the future, it may be possible to embed other database technologies into Spin. For example, future Spin SDK updates may target other databases such as Redis; which may allow you to build applications using Redis via minimal Spin configuration without the need to locally install and maintain your own Redis instance.
 
 Let's get started with creating and deploying your first Spin application that uses this new key/value storage mechanism.
 
 ## Tutorial Prerequisites
 
-First, follow [this guide](./install.md) to install Spin v0.9.0 or later. To ensure you have the correct version, you can check with this command:
+First, follow [this guide](./install.md) to install Spin. To ensure you have the correct version, you can check with this command:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin --version
-spin 0.9.0
 ```
+
+> If the version is 0.8 or earlier, you'll need to upgrade to a more recent version.
 
 ## Creating a New Application
 
@@ -186,13 +187,13 @@ In this section, we use the Spin SDK to open and persist our application's data 
 
 ### The Spin SDK Version
 
-If you have an existing application and want to try out this new key/value feature (i.e. a previous application made using the `http-rust` template). You might need to update your existing application's `Cargo.toml` to point to v0.9.0 of the Spin SDK, as shown below:
+If you have an existing application and would like to try out the key/value feature, please check the Spin SDK reference in your existing application's `Cargo.toml` file. If it refers to version 0.8 or earlier then update the Spin SDK reference to match your upgraded version of Spin. For example:
 
 <!-- @nocpy -->
 
 ```toml
 # The Spin SDK.
-spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v0.9.0" }
+spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v0.10.0" }
 ```
 
 Similarly an application created using the `http-go` template might need the reference to the Spin SDK in its `go.mod` file updated to look like the following:
@@ -204,7 +205,7 @@ module github.com/http_go
 
 go 1.17
 
-require github.com/fermyon/spin/sdk/go v0.9.0
+require github.com/fermyon/spin/sdk/go v0.10.0
 ```
 
 The same applies to other programming languages and their respective configuration. This information is provided to prevent you from experiencing an error such as the following:
@@ -533,7 +534,7 @@ As we can see above, there is currently no data found at the `/test` endpoint of
 
 ## Conclusion
 
-This is an early preview for working with key/value stores, and we want to get feedback on the ergonomics of the API. We are curious about what new APIs you would suggest we implement and are also interested in learning about what backing stores you would like to see. In the next iterations for this feature, we will focus on configuring multiple KV stores with multiple backing services (such as cloud services).
+We want to get feedback on the ergonomics of the key/value API. We are curious about what new APIs you would suggest we implement and are also interested in learning about what backing stores you would like to see. In the next iterations for this feature, we will focus on configuring multiple KV stores with multiple backing services (such as cloud services).
 
 ## Next Steps
 
@@ -543,8 +544,8 @@ You can read the [improvement proposal for key/value support](https://github.com
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "Key/Value Store preview - Spin 0.9.0",
-  "description": "Overview of the key/value store in Spin v0.9.0",
+  "name": "Key/Value Store - Spin 0.10.0",
+  "description": "Overview of the key/value store in Spin v0.10.0",
   "thumbnailUrl": "https://www.fermyon.com/static/image/twc-spin.png",
   "uploadDate": "2023-02-25T08:00:00+00:00",
   "duration": "PT3M16S",

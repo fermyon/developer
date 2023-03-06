@@ -63,12 +63,12 @@ Now we're ready to push the application. Run the `spin oci push` command (for Sp
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.8.0"}}
+{{ startTab "v0.10.0"}}
 
  <!-- @selectiveCpy -->
 
-```bash
-$ spin oci push ghcr.io/USERNAME/spin-react-fullstack:v1
+ ```bash
+$ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
@@ -93,12 +93,12 @@ Now that we've successfully pushed a Spin app, let's see if we can pull it. To d
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.8.0"}}
+{{ startTab "v0.10.0"}}
 
  <!-- @selectiveCpy -->
  
  ```bash
-$ spin oci pull ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin registry pull ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
@@ -121,12 +121,12 @@ Lastly, let's run this Spin application.
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.8.0"}}
+{{ startTab "v0.10.0"}}
 
- <!-- @selectiveCpy -->
+<!-- @selectiveCpy -->
 
  ```bash
- spin oci run --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
@@ -136,7 +136,7 @@ Lastly, let's run this Spin application.
 <!-- @selectiveCpy -->
 
  ```bash
- spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
+$ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
