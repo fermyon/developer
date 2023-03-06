@@ -73,7 +73,7 @@ $ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
 
 {{ blockEnd }}
 
-{{ startTab ">=v0.9.0"}}
+{{ startTab "v0.9.0"}}
 
  <!-- @selectiveCpy -->
 
@@ -103,7 +103,7 @@ $ spin registry pull ghcr.io/USERNAME/spin-react-fullstack:v1
 
 {{ blockEnd }}
 
-{{ startTab ">=v0.9.0"}}
+{{ startTab "v0.9.0"}}
 
  <!-- @selectiveCpy -->
  
@@ -131,7 +131,7 @@ $ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
 
 {{ blockEnd }}
 
-{{ startTab ">=v0.9.0"}}
+{{ startTab "v0.9.0"}}
 
 <!-- @selectiveCpy -->
 
