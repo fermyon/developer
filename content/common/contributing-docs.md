@@ -10,7 +10,8 @@ date = "2022-01-01T00:00:01Z"
   - [3. Reference](#3-reference)
   - [4. Explanation](#4-explanation)
 - [Documents Relevant to Two or More Projects](#documents-relevant-to-two-or-more-projects)
-- [Technical Documentation Procedure](#technical-documentation-procedure)
+- [Technical Documentation Procedure (Video - Brief Explanation)](#technical-documentation-procedure-video---brief-explaination)
+- [Technical Documentation Procedure (Text - Detailed Explanation)](#technical-documentation-procedure-text---detailed-explaination)
   - [1. Fork the Repository](#1-fork-the-repository)
   - [2. Clone the Fork](#2-clone-the-fork)
   - [3. Create New Branch](#3-create-new-branch)
@@ -62,9 +63,11 @@ The resulting output would be as follows.
 
 If a document is relevant to two or more projects it is advised to place it in the new [common](https://github.com/fermyon/developer/tree/main/content/common) folder area (i.e. as opposed to just placing it in the [spin](https://github.com/fermyon/developer/tree/main/content/spin) folder or just placing it in [cloud](https://github.com/fermyon/developer/tree/main/content/cloud) folder). Items in the common area can still be linked to from any of the menu templates i.e. [spin_main](https://github.com/fermyon/developer/blob/main/templates/spin_sidebar.hbs#L59), [cloud_main](https://github.com/fermyon/developer/blob/main/templates/common_sidebar.hbs#L23) and [common_main](https://github.com/fermyon/developer/blob/main/templates/common_sidebar.hbs#L23) `.hbs` templates all link to this how-to-contribute document; which you are currently reading.
 
-## Technical Documentation Procedure
+## Technical Documentation Procedure (Video - Brief Explanation)
 
-The following steps will assist you to contribute from a technical standpoint.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Edku4hQj9Mo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Technical Documentation Procedure (Text - Detailed Explanation)
 
 ### 1. Fork the Repository
 
