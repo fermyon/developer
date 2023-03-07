@@ -2296,16 +2296,18 @@ html.dark-theme .multitab-content {
   z-index: 9998;
   width: 100vw;
   height: 100vw;
-  display: none;
+  opacity: 0;
+  transition: -webkit-backdrop-filter 1s ease-in-out .1s, backdrop-filter 1s ease-in-out .1s;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 500%;
 }
 
 #topbar.navbar .navbar-menu .navbar-start .is-hoverable:hover + .overlay {
+  opacity: 1;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
-  display: block;
+  left: 0;
 }
 
 #topbar.navbar .navbar-menu .navbar-end {
@@ -3183,8 +3185,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-right-radius: .5em;
   border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
   top: 0;
   left: 3em;
 }

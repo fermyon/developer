@@ -654,22 +654,25 @@ html.dark-theme {
 							}
 						}
 					}
-
 				}
 
 				+.overlay {
 					z-index: 9998;
-					display: none;
+					// display: none;
 					position: fixed;
-					left: 0;
+					left: 500%;
 					top: 0;
 					width: 100vw;
 					height: 100vw;
+					opacity: 0;
+					transition: backdrop-filter ease-in-out 1s 0.1s; 
 				}
 
 				&:hover {
 					+.overlay {
-						display: block;
+						// display: block;
+						left: 0;
+						opacity: 1;
 						backdrop-filter: blur(6px);
 					}
 				}
