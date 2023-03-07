@@ -99,16 +99,28 @@ TABLE OF CONTENTS
 				}
 			}
 
+			blockquote p {
+				font-size: 1rem !important;
+				margin: 1.67rem auto 2.67rem !important;
+				border-radius: 0.5rem;
+				background-color: rgba(0,0,0,0.25);
+			}
+
 			table {
+				th {
+					background-color: rgba($lightlavender, 1);
+				}
+				
 				th, td {
-					padding: 0.33rem 0.425rem;
-					font-size: 0.925rem;
+					padding: 0.67rem 0.5rem;
+					font-size: 0.825rem;
 				}
 				code {
 					display: inline-block;
 					margin: 0 !important;
 					font-size: 0.825rem;
 					padding: 0.1rem 0.2rem;
+					background-color: rgba($lightlavender, 0.5);
 				}
 			}
 
@@ -1177,7 +1189,7 @@ html.dark-theme {
 		.content {
 			&.content-docs-wide {
 				section {
-					max-width: 640px !important;
+					max-width: 780px !important;
 				}
 			}
 
@@ -1197,6 +1209,16 @@ html.dark-theme {
 }
 
 @media screen and (max-width: 1023px) {
+	main.is-fullwidth {
+		max-width: 95vw !important;
+		padding-left: 2.5vw !important;
+		padding-right: 2.5vw !important;
+	}
+
+	.menu-wrap + article.content {
+		max-width: 95vw !important;
+	}
+	
 	.documentation {
 		.content {
 			padding-top: 2rem;
@@ -1293,7 +1315,6 @@ html.dark-theme {
 		.menu-wrap+article.content {
 
 			section {
-				// width: 100vw !important;
 				margin: 0;
 			}
 

@@ -1812,12 +1812,24 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   display: none;
 }
 
+.documentation .content section blockquote p {
+  background-color: #00000040;
+  border-radius: .5rem;
+  margin: 1.67rem auto 2.67rem !important;
+  font-size: 1rem !important;
+}
+
+.documentation .content section table th {
+  background-color: #ece5ee;
+}
+
 .documentation .content section table th, .documentation .content section table td {
-  padding: .33rem .425rem;
-  font-size: .925rem;
+  padding: .67rem .5rem;
+  font-size: .825rem;
 }
 
 .documentation .content section table code {
+  background-color: #ece5ee80;
   padding: .1rem .2rem;
   font-size: .825rem;
   display: inline-block;
@@ -2769,7 +2781,7 @@ html.dark-theme .multitab-content {
 
 @media screen and (max-width: 1660px) {
   .documentation .content.content-docs-wide section {
-    max-width: 640px !important;
+    max-width: 780px !important;
   }
 
   .documentation .content section ul:nth-child(2), .documentation .content section ul:nth-child(3) {
@@ -2779,6 +2791,16 @@ html.dark-theme .multitab-content {
 }
 
 @media screen and (max-width: 1023px) {
+  main.is-fullwidth {
+    max-width: 95vw !important;
+    padding-left: 2.5vw !important;
+    padding-right: 2.5vw !important;
+  }
+
+  .menu-wrap + article.content {
+    max-width: 95vw !important;
+  }
+
   .documentation .content {
     padding-top: 2rem;
   }
