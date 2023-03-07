@@ -29,7 +29,7 @@ trigger = { type = "redis", address = "redis://localhost:6379" }
 > messages to channels.
 
 Then, all components in the application are triggered when new messages are
-published to channels in the instance. [Configuring](./configuration.md) the channel
+published to channels in the instance. [Configuring](./writing-apps.md) the channel
  is done by setting the `channel` field in the component trigger configuration:
 
 <!-- @nocpy -->
