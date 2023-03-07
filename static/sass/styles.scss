@@ -100,9 +100,15 @@ TABLE OF CONTENTS
 			}
 
 			table {
+				th, td {
+					padding: 0.33rem 0.425rem;
+					font-size: 0.925rem;
+				}
 				code {
 					display: inline-block;
 					margin: 0 !important;
+					font-size: 0.825rem;
+					padding: 0.1rem 0.2rem;
 				}
 			}
 
@@ -153,6 +159,13 @@ TABLE OF CONTENTS
 
 			code {
 				padding: 1.25em 3.5em !important;
+			}
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			code {
+				font-size: 0.825em !important;
+				font-weight: 600;
 			}
 		}
 
@@ -414,7 +427,7 @@ html.dark-theme {
 					border-bottom-color: #0d203f;
 				}
 				code {
-					background-color: $oxfordblue;
+					background-color: rgba($oxfordblue, 0.5);
 				}
 			}
 			details {

@@ -1812,7 +1812,14 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   display: none;
 }
 
+.documentation .content section table th, .documentation .content section table td {
+  padding: .33rem .425rem;
+  font-size: .925rem;
+}
+
 .documentation .content section table code {
+  padding: .1rem .2rem;
+  font-size: .825rem;
   display: inline-block;
   margin: 0 !important;
 }
@@ -1860,6 +1867,11 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 
 .documentation .content pre code {
   padding: 1.25em 3.5em !important;
+}
+
+.documentation .content h1 code, .documentation .content h2 code, .documentation .content h3 code, .documentation .content h4 code, .documentation .content h5 code, .documentation .content h6 code {
+  font-weight: 600;
+  font-size: .825em !important;
 }
 
 .documentation .content details {
@@ -2071,7 +2083,7 @@ html.dark-theme body .content table td {
 }
 
 html.dark-theme body .content table code {
-  background-color: #0d203f;
+  background-color: #0d203f80;
 }
 
 html.dark-theme body .content details {
