@@ -154,11 +154,12 @@ TABLE OF CONTENTS
 		}
 
 		pre {
-			max-width: 800px;
+			// max-width: 800px;
 			padding: 0 !important;
 
 			code {
-				padding: 1.25em 3.5em !important;
+				padding: 1.125em 1.25rem !important;
+				margin-right: 2.75rem;
 			}
 		}
 

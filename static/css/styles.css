@@ -1861,12 +1861,12 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content pre {
-  max-width: 800px;
   padding: 0 !important;
 }
 
 .documentation .content pre code {
-  padding: 1.25em 3.5em !important;
+  margin-right: 2.75rem;
+  padding: 1.125em 1.25rem !important;
 }
 
 .documentation .content h1 code, .documentation .content h2 code, .documentation .content h3 code, .documentation .content h4 code, .documentation .content h5 code, .documentation .content h6 code {
