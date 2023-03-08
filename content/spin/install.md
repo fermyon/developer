@@ -132,5 +132,5 @@ $ rustup update
 ## Next Steps
 
 - [Take Spin for a spin](./quickstart.md)
-- Learn about how to [develop a Spin application](developing)
+- Learn about how to [write a Spin application](writing-apps)
 - Try the [Fermyon Cloud](/cloud/quickstart)

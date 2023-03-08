@@ -7,8 +7,9 @@
             <li><a {{#if (active_content request.spin-path-info "/spin/index" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/">Introduction</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/install" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/install">Install</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/quickstart" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/quickstart">Quickstart</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/configuration" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/configuration">Writing Spin Applications</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/developing" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/developing">Developing Spin Applications</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/configuration" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/writing-apps">Writing Applications</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/developing" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/build">Building Application Code</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/configuration" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/running-apps">Running Applications</a></li>
         </ul>
 
         <p class="menu-label">
@@ -20,6 +21,14 @@
             <li><a {{#if (active_content request.spin-path-info "/spin/javascript-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/javascript-components">Javascript</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/python-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/python-components">Python</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/other-languages" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/other-languages">Other Languages</a></li>
+        </ul>
+
+        <p class="menu-label">
+            Triggers
+        </p>
+        <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-trigger">The Redis Trigger</a></li>
         </ul>
 
         <p class="menu-label">
@@ -36,14 +45,13 @@
         </p>
         <ul class="menu-list">
             <li><a {{#if (active_content request.spin-path-info "/common/cli-reference" )}} class="active" {{/if}} href="{{site.info.base_url}}/common/cli-reference">CLI Reference</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/common/manifest-reference" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/manifest-reference">Application Manifest Reference</a></li>
         </ul>
 
         <p class="menu-label">
             Advanced
         </p>
         <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-trigger">The Redis Trigger</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Packaging and Distribution</a></li>                
             <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending and Embedding Spin</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/deploying-to-fermyon" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/deploying-to-fermyon">Deploying to Fermyon</a></li>

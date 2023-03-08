@@ -302,7 +302,7 @@ meaning it will match any route.  When the application gets an HTTP request, Spi
 to the `hello-rust` component, and execute the associated `hello_rust.wasm`
 WebAssembly module.
 
-[Learn more about the manifest here.](./configuration)
+[Learn more about the manifest here.](./writing-apps)
 
 Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in Rust — a regular Rust function that
@@ -394,7 +394,7 @@ meaning it will match any route.  When the application gets an HTTP request, Spi
 to the `hello-typescript` component, and execute the associated `spin-http-js.wasm`
 WebAssembly module.
 
-[Learn more about the manifest here.](./configuration)
+[Learn more about the manifest here.](./writing-apps)
 
 Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in TypeScript — a regular function named `handleRequest` that
@@ -478,7 +478,7 @@ meaning it will match any route.  When the application gets an HTTP request, Spi
 to the `hello-python` component, and execute the associated `app.wasm`
 WebAssembly module.
 
-[Learn more about the manifest here.](./configuration)
+[Learn more about the manifest here.](./writing-apps)
 
 Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in Python — a regular function named `handle_request` that
@@ -560,7 +560,7 @@ meaning it will match any route.  When the application gets an HTTP request, Spi
 to the `hello-go` component, and execute the associated `main.wasm`
 WebAssembly module.
 
-[Learn more about the manifest here.](./configuration)
+[Learn more about the manifest here.](./writing-apps)
 
 Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in Go. Notice where the work is done.  The
@@ -755,7 +755,7 @@ You can always run this command manually; `spin build` is a shortcut to save you
 > file at the same time, and also has a flag that starts the application after
 > finishing the compilation, `spin build --up`.
 >
-> For more details, see the [page about developing Spin applications](./developing.md).
+> For more details, see the [page about building Spin applications](./build.md).
 
 ## Run Your Application
 
@@ -802,6 +802,6 @@ Congratulations! You just created, built and ran your first Spin application!
 
 ## Next Steps
 
-- Learn more about [writing Spin components and manifests](configuration)
-- Learn about how to [develop a Spin application](developing)
+- Learn more about [writing Spin components and manifests](writing-apps)
+- Learn how to [build your Spin application code](build)
 - Try deploying a Spin application to the [Fermyon Cloud](/cloud/quickstart)
