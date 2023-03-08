@@ -1,32 +1,41 @@
 title = "The Spin HTTP Trigger"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
+enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/http-trigger.md"
 
 ---
-- [Routing](#routing)
-- [The Spin HTTP Executor](#the-spin-http-executor)
-- [The Wagi HTTP Executor](#the-wagi-http-executor)
-  - [The Default Headers Set in Spin HTTP Components](#the-default-headers-set-in-spin-http-components)
-  - [The Default Headers Set in Wagi HTTP Components](#the-default-headers-set-in-wagi-http-components)
+- [Specifying an Application as HTTP](#specifying-an-application-as-http)
+- [Mapping a Route to a Component](#mapping-a-route-to-a-component)
+  - [Routing with an Application `base`](#routing-with-an-application-base)
+  - [Resolving Overlapping Routes](#resolving-overlapping-routes)
+  - [Health Check Route](#health-check-route)
+- [HTTP Components](#http-components)
+  - [The Request Handler](#the-request-handler)
+  - [The Request and Response Records](#the-request-and-response-records)
+  - [Additional Request Information](#additional-request-information)
+  - [Inside HTTP Components](#inside-http-components)
+- [HTTP With Wagi (WebAssembly Gateway Interface)](#http-with-wagi-webassembly-gateway-interface)
+  - [Wagi Component Requirements](#wagi-component-requirements)
+  - [Request Handling in Wagi](#request-handling-in-wagi)
+  - [Wagi HTTP Environment Variables](#wagi-http-environment-variables)
 - [Exposing HTTP Triggers Using HTTPS](#exposing-http-triggers-using-https)
   - [Trigger Options](#trigger-options)
   - [Environment Variables](#environment-variables)
 
-An important workload in event-driven environments is represented by HTTP
-applications, and Spin has built-in support for creating and running HTTP
-components. This document presents an overview of the HTTP trigger, as well as
-some implementation details around the WebAssembly component model and how it
-is used in Spin.
+HTTP applications are an important workload in event-driven environments,
+and Spin has built-in support for creating and running HTTP
+components. This page covers Spin options that are specific to HTTP applications.
 
 The HTTP trigger in Spin is a web server. It listens for incoming requests and
 based on the [application manifest](./writing-apps.md), it routes them to an
-_executor_ which instantiates the appropriate component, executes its
-entry point function, then returns an HTTP response.
+component, which returns an HTTP response.
 
-Creating an HTTP application is done when [configuring the application](./writing-apps.md)
-by defining the top-level application trigger:
+## Specifying an Application as HTTP
+
+Every Spin application has a trigger specified in the manifest, which declares the type of events it responds to.
+For HTTP applications, the application trigger has `type = "http"`:
 
 <!-- @nocpy -->
 
@@ -35,54 +44,72 @@ by defining the top-level application trigger:
 trigger = { type = "http", base = "/" }
 ```
 
-Then, when defining the component (in `spin.toml`), there are two pieces of
-configuration that can be set for the component trigger: the route,
-and the _HTTP executor_ (see details below about executors). For example:
+The HTTP trigger also requires a `base` field.  Spin interprets each component route as relative to this route.  In most cases, you can set this to `"/"`, the base of the Web server, meaning Spin applies no prefix to component routes.
 
-- an HTTP component configured on the `/hello` route that uses the Spin executor:
+> If you create an application from a HTTP template, the trigger will be already set up for you.
 
-<!-- @nocpy -->
+In addition, each component must have HTTP-specific configuration in its `[component.trigger]` table.
 
-```toml
-[component.trigger]
-route = "/hello"
-executor = { type = "spin" }
-```
+## Mapping a Route to a Component
 
-- an HTTP component configured on the `/goodbye` route that uses the Wagi executor:
+Each component handles one route, specified in the `route` field of the component manifest.
+
+The route may be _exact_ or _wildcard_.
+
+An _exact_ route matches only the given route.  This is the default behavior.  For example, `/cart` matches only `/cart`, and not `/cart/checkout`:
 
 <!-- @nocpy -->
 
 ```toml
+# Run the `cart.wasm` module when the application receives a request to `/cart`...
+[[component]]
+id = "cart"
+source = "cart.wasm"
 [component.trigger]
-route = "/goodbye"
-executor = { type = "wagi" }
+route = "/cart"
+
+# ...and the `checkout.wasm` module for `/cart/checkout`
+[[component]]
+id = "checkout"
+source = "checkout.wasm"
+[component.trigger]
+route = "/cart/checkout"
 ```
 
-## Routing
+A _wildcard_ route matches the given route and any route under it.  A route is a wildcard if it ends in `/...`.  For example, `/users/...` matches `/users`, `/users/1`, `/users/1/edit`, and so on.  Any of these routes will run the mapped component.
 
-Routing an incoming request to a particular component is done using the
-application base path (`base` in `spin.toml`) and the component defined routes
-(`route` in the component configuration) by prefixing the application base path
-to all component routes defined for that application.
+> In particular, the route `/...` matches all routes.
 
-For example, if the application `base` path is `base = /base`, and a component
-has defined `route = /foo`, that component will be executed for requests on
-`http(s)://<spin-up-defined-address-and-port>/base/foo`.
+<!-- @nocpy -->
 
-Components can either define exact routes, for example `route = /bar/baz`, where
-the component will be invoked only for requests on `/base/bar/baz`, or they
-can define a wildcard as the last path segment, for example `route = /bar/baz/...`,
-which means the component will be invoked for every request starting with the
-`/base/bar/baz/` prefix (such as `/base/bar/baz`, `/base/bar/baz/qux`,
-`/base/bar/baz/qux/quux` and so on).
+```toml
+[[component]]
+id = "user-manager"
+source = "users.wasm"
+# Run the `users.wasm` module when the application receives a request to `/users`
+# or any path beginning with `/users/`
+[component.trigger]
+route = "/users/..."
+```
+
+### Routing with an Application `base`
+
+If the application `base` is `"/"` then all component routes are matched exactly as given.
+
+If `base` contains a non-root path, this is prefixed to all component routes,
+exact or wildcard.
+
+For example, suppose the application `base` path is `base = "/shop"`.  Then a component with `route = "/cart"` will be executed for requests to `/shop/cart`.  Similarly, a component with `route = "/users/..."` will be executed for requests to `/shop/users`, `/shop/users/1`, `/shop/users/1/edit` and so on.
+
+### Resolving Overlapping Routes
 
 If multiple components could potentially handle the same request based on their
 defined routes, the component whose route has the longest matching prefix 
-takes precedence. 
+takes precedence.  This also means that exact matches take precedence over wildcard matches.
 
-In the following example, any request starting with the  `/foo/` prefix (e.g. `/foo/bar`)
-will be handled by `component-1`:
+In the following example, requests starting with the  `/users/` prefix (e.g. `/users/1`)
+will be handled by `user-manager`, even though it is also matched by the `shop` route, because the `/users` prefix is longer than `/`.
+But requests to `/users/admin` will be handled by the `admin` component, not `user-manager`, because that is a more exact match still:
 
 <!-- @nocpy -->
 
@@ -92,45 +119,184 @@ will be handled by `component-1`:
 trigger = { type = "http", base = "/"}
 
 [[component]]
-id = "component-1"
+id = "user-manager"
 [component.trigger]
-route = "/foo/..."
+route = "/users/..."
 
 [[component]]
-id = "component-2"
+id = "admin"
+[component.trigger]
+route = "/users/admin"
+
+[[component]]
+id = "shop"
 [component.trigger]
 route = "/..."
 ```
 
-> Note: Although the route defined by `component-2` also matches `/foo/bar`, the route 
-> defined by `component-1` has the longer matching prefix, i.e. `/foo/`.
+### Health Check Route
 
-Every HTTP application has a special route always configured at `/.well-known/spin/health`, which
+Every HTTP application automatically has a special route always configured at `/.well-known/spin/health`, which
 returns `OK 200` when the Spin instance is healthy.
 
-Once Spin selects a component to handle an incoming request based on the route
-configuration, it will instantiate and execute that component based on its
-defined _HTTP executor_, and the next sections explore the two ways of building
-HTTP components based on the two available executors.
+## HTTP Components
 
-## The Spin HTTP Executor
+> Spin has two ways of running HTTP components, depending on language support for the evolving WebAssembly component standards.  This section describes the default way, which is currently used by Rust, JavaScript/TypeScript, Python, and TinyGo components.  For other languages, see [HTTP Components with Wagi](#http-with-wagi-webassembly-gateway-interface)) below.
 
-Spin is built on top of the
-[WebAssembly component model](https://github.com/WebAssembly/component-model).
-We _strongly_ believe the component model represents the future of WebAssembly,
-and we are working with the [Bytecode Alliance](https://bytecodealliance.org)
-community on building exciting new features and tools for it. As a result, the
-Spin HTTP _executor_ is defined using WebAssembly interfaces.
+By default, Spin runs components using the [WebAssembly component model](https://github.com/WebAssembly/component-model).  In this model, the Wasm module exports a well-known function that Spin calls to handle the HTTP request.
 
-> The WebAssembly component model is in its early stages, and during the `0.x`
-> releases of Spin, the triggers and application entry points will suffer
-> breaking changes, particularly around the primitive types used to define
-> the HTTP objects and function signatures — i.e. bodies will become streams,
-> handler functions will become asynchronous.
+### The Request Handler
 
-We define the HTTP objects as
-[WebAssembly Interface (WIT)](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)
-objects, currently using _records_:
+The exact signature of the HTTP handler, and how a function is identified to be exported as the handler, will depend on your language.
+
+{{ tabs "sdk-type" }}
+
+{{ startTab "Rust"}}
+
+In Rust, the handler is identified by the `#[spin_sdk::http_component]` attribute.  It takes a `spin_sdk::http::Request`, and returns a `spin_sdk::http::Response` (or error).  These types are instantiations of the standard `http::Request` and `http::Response` types and behave exactly like them:
+
+<!-- @nocpy -->
+
+```rust
+use anyhow::Result;
+use spin_sdk::{
+    http::{Request, Response},
+    http_component,
+};
+
+/// A simple Spin HTTP component.
+#[http_component]
+fn handle_hello_rust(req: Request) -> Result<Response> {
+    Ok(http::Response::builder()
+        .status(200)
+        .header("foo", "bar")
+        .body(Some("Hello, Fermyon".into()))?)
+}
+```
+
+{{ blockEnd }}
+
+{{ startTab "TypeScript"}}
+
+In JavaScript or TypeScript, the handler is identified by name.  It must be called `handleRequest`.  The way you declare it is slightly different between the two languages.
+
+In **JavaScript**, `handleRequest` is declared as `export async function`.  It takes a JsvaScript object representing the request, and returns a response object.  The fields of these objects are exactly the same as in TypeScript:
+
+<!-- @nocpy -->
+
+```javascript
+export async function handleRequest(request) {
+    return {
+        status: 200,
+        headers: { "foo": "bar" },
+        body: "Hello from JS-SDK"
+    }
+}
+```
+
+In **TypeScript**, `handleRequest` is declared as an `export const` of the `HandleRequest` function type - that is, a function literal rather than a function declaration.  It takes a `HttpRequest` object, and returns a `HttpResponse` object, both defined in the `@fermyon/spin-sdk` package:
+
+<!-- @nocpy -->
+
+```javascript
+import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
+
+export const handleRequest: HandleRequest = async function(request: HttpRequest): Promise<HttpResponse> {
+    return {
+      status: 200,
+      headers: { "foo": "bar" },
+      body: "Hello from TS-SDK"
+    }
+}
+```
+
+{{ blockEnd }}
+
+{{ startTab "Python"}}
+
+In Python, the handler is identified by name.  It must be called `handle_request`.  It takes a request object and must return an instance of `Response`, defined in the `spin_http` package:
+
+<!-- @nocpy -->
+
+```python
+from spin_http import Response
+
+def handle_request(request):
+    return Response(200,
+                    [("content-type", "text/plain")],
+                    bytes(f"Hello from the Python SDK", "utf-8"))
+```
+
+{{ blockEnd }}
+
+{{ startTab "TinyGo"}}
+
+In Go, you register the handler as a callback in your program's `init` function.  Call `spinhttp.Handle`, passing your handler as the sole argument.  Your handler takes a `http.Request` record, from the standard `net/http` package, and a `ResponseWriter` to construct the response.
+
+> The do-nothing `main` function is required by TinyGo but is not used; the action happens in the `init` function and handler callback.
+
+<!-- @nocpy -->
+
+```go
+package main
+
+import (
+        "fmt"
+        "net/http"
+
+        spinhttp "github.com/fermyon/spin/sdk/go/http"
+)
+
+func init() {
+        spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
+                w.Header().Set("Content-Type", "text/plain")
+                fmt.Fprintln(w, "Hello Fermyon!")
+        })
+}
+
+func main() {}
+```
+
+> If you are moving between languages, note that in most other Spin SDKs, your handler _constructs and returns_ a response, but in Go, _Spin_ constructs a `ResponseWriter`, and you write to it; your handler does not return a value.
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+### The Request and Response Records
+
+Exactly how the Spin SDK surfaces the request and response types varies from language to language; this section calls out general features.
+
+* In the request record, the URL contains the path and query, but not the scheme and host.  For example, in a request to `https://example.com/shop/users/1?theme=pink`, the URL contains `/shop/users/1?theme=pink`.  If you need the full URL, you can get it from the `spin-full-url` header - see the table below.
+
+### Additional Request Information
+
+As well as any headers passed by the client, Spin sets several headers on the request passed to your component, which you can use to access additional information about the HTTP request.
+
+> In the following table, the examples suppose that:
+> * Spin is listening on `example.com:8080`
+> * The application `base` is `/shop`
+> * The component `route` is `/users/...`
+> * The request is to `https://example.com:8080/shop/users/1/edit?theme=pink`
+
+| Header Name                  | Value                | Example |
+|------------------------------|----------------------|---------|
+| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/edit?theme=pink` |
+| `spin-path-info`             | The request path relative to the component route (including any base) | `/1/edit` |
+| `spin-matched-route`         | The part of the request path that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/...` |
+| `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/...` |
+| `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users` |
+| `spin-base-path`             | The application base path | `/shop` |
+
+### Inside HTTP Components
+
+For the most part, you'll build HTTP component modules using a language SDK (see the Language Guides section), such as a JavaScript module or a Rust crate.  If you're interested in what happens inside the SDK, or want to implement HTTP components in another language, read on!
+
+> The WebAssembly component model is in its early stages, and over time the triggers and application entry points will undergo changes, both in the definitions of functions and types, and in the binary representations of those definitions and of primitive types (the so-called Application Binary Interface or ABI).  However, Spin ensures binary compatibility over the course of any given major release.  For example, a component built using the Spin 1.0 SDK will work on any version of Spin in the 1.x range.
+
+The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin HTTP components at https://github.com/fermyon/spin/blob/main/wit/ephemeral.
+
+The core HTTP types are defined in https://github.com/fermyon/spin/blob/main/wit/ephemeral/http-types.wit:
 
 <!-- @nocpy -->
 
@@ -155,7 +321,7 @@ record request {
     method: method,
     uri: uri,
     headers: headers,
-    params: params,
+    params: params, // Retained for binary compatibility but no longer used
     body: option<body>,
 }
 
@@ -165,12 +331,13 @@ record response {
     headers: option<headers>,
     body: option<body>,
 }
+
+// error types omitted
 ```
 
-> The same HTTP types are also used to model the API for sending outbound
-> HTTP requests.
+> The same HTTP types are also used to model the API for sending outbound HTTP requests.
 
-Then, we define the entry point for a Spin HTTP component:
+The entry point for Spin HTTP components is then defined in https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-http.wit:
 
 <!-- @nocpy -->
 
@@ -178,6 +345,7 @@ Then, we define the entry point for a Spin HTTP component:
 // wit/ephemeral/spin-http.wit
 
 use * from http-types
+
 // The entry point for an HTTP handler.
 handle-http-request: function(req: request) -> response
 ```
@@ -185,14 +353,17 @@ handle-http-request: function(req: request) -> response
 This is the function signature that all HTTP components must implement, and
 which is used by the Spin HTTP executor when instantiating and invoking the
 component.
+
 This interface (`spin-http.wit`) can be directly used together with the
 [Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen)
 to build a component that the Spin HTTP executor can invoke.
-This is exactly how [the Rust SDK for Spin](./rust-components.md) is built, and,
-as more languages add support for the component model, how we plan to add
-support for them as well.
 
-## The Wagi HTTP Executor
+This is exactly how Spin SDKs such as the [Rust](rust-components), [JavaScript](javascript-components) and [Go](go-components) SDKs are built.
+As more languages add support for the component model, we plan to add support for them in the same way.
+
+> WIT and the ABI are evolving standards.  The latest version of `wit-bindgen` creates binary implementations that do not work with current language implementation of the WabAssembly System Interface (WASI).  Spin remains pinned to an older implementation of `wit-bindgen` until the next generation of the component model stabilizes and achieves language-level support.
+
+## HTTP With Wagi (WebAssembly Gateway Interface)
 
 The WebAssembly component model proposal is currently in its early stages, which
 means only a few programming languages fully implement it. While the language
@@ -220,6 +391,25 @@ The Wagi model is only used to parse the HTTP request and response. Everything
 else — defining the application, running it, or [distributing](./distributing-apps.md)
 is done the same way as a component that uses the Spin executor.
 
+### Wagi Component Requirements
+
+Spin uses the component model by default, and cannot detect from the Wasm module alone whether it was built with component model support.  For Wagi components, therefore, you must tell Spin in the component manifest to run them using Wagi instead of 'default' Spin.  To do this, use the `executor` field in the `[component.trigger]` table:
+
+```toml
+[[component]]
+id = "wagi-test"
+source = "wagitest.wasm"
+[component.trigger]
+route = "/"
+executor = { type = "wagi" }
+```
+
+> If, for whatever reason, you want to highlight that a component uses the default Spin execution model, you can write `executor = { type = "spin" }`.  But this is the default and is rarely written out.
+
+Wagi supports non-default entry points, and allows you to pass an arguments string that a program can receive as if it had been passed on the command line. If you need these you can specify them in the `executor` table. For details, see the [Manifest Reference](manifest-reference#the-componenttrigger-table-for-http-applications).
+
+### Request Handling in Wagi
+
 Building a Wagi component in a particular programming language that can compile
 to `wasm32-wasi` does not require any special libraries — instead,
 [building Wagi components](https://github.com/deislabs/wagi/tree/main/docs) can
@@ -240,9 +430,9 @@ print("content-type: text/html; charset=UTF-8\n\n");
 print("hello world\n");
 ```
 
-The [Go SDK for Spin](./go-components.md) supports the Spin executor.
-Here is another example, written in [Grain](https://grain-lang.org/),
-a new programming language that natively targets WebAssembly:
+Here is a working example, written in [Grain](https://grain-lang.org/),
+a programming language that natively targets WebAssembly and WASI but
+does not yet support the component model:
 
 <!-- @nocpy -->
 
@@ -265,29 +455,9 @@ Array.forEach(print, Process.argv());
 > You can find examples on how to build Wagi applications in
 > [the DeisLabs GitHub organization](https://github.com/deislabs?q=wagi&type=public&language=&sort=).
 
-### The Default Headers Set in Spin HTTP Components
+### Wagi HTTP Environment Variables
 
-Spin sets a few default headers on the request based on the base path, component
-route, and request URI, which will always be available when writing a module:
-
-- `spin-full-url` - the full URL of the request —
-  `http://localhost:3000/test/wagi/abc/def?foo=bar`
-- `spin-path-info` - the path info, relative to both the base application path _and_
-  component route — in our example, where the base path is `/test`, and the
-  component route is `/hello`, this is `/abc/def`.
-- `spin-matched-route` - the base path and route pattern matched (including the
-  wildcard pattern, if applicable) (this updates the header set in Wagi to
-  include the base path) — in our case `"/test/hello/..."`.
-- `spin-raw-component-route` - the route pattern matched (including the wildcard
-  pattern, if applicable) — in our case `/hello/...`.
-- `spin-component-route` - the route path matched (stripped of the wildcard
-  pattern) — in our case `/hello`
-- `spin-base-path` - the application base path — in our case `/test`.
-
-### The Default Headers Set in Wagi HTTP Components
-
-For Wagi HTTP components, the following are set as environment variables for the
-handler WebAssembly modules:
+Wagi passes request metadata to the program through well-known environment variables. The key path-related request variables are:
 
 - `X_FULL_URL` - the full URL of the request —
   `http://localhost:3000/test/wagi/abc/def?foo=bar`
@@ -303,8 +473,8 @@ handler WebAssembly modules:
   pattern) — in our case `/hello`
 - `X_BASE_PATH` - the application base path — in our case `/test`.
 
-Besides the headers above, components that use the Wagi executor also have set
-[all headers set by Wagi, following the CGI spec](https://github.com/deislabs/wagi/blob/main/docs/environment_variables.md).
+For details, and for a full list of all Wagi environment variables, see
+[the Wagi documentation](https://github.com/deislabs/wagi/blob/main/docs/environment_variables.md).
 
 ## Exposing HTTP Triggers Using HTTPS
 
