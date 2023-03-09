@@ -263,7 +263,7 @@ files = [ "images/**/*.jpg", { source = "styles/dist", destination = "/styles" }
 
 The `files` field is an array listing the files, patterns and directories you want to include. Each element of the array can be:
 
-* A glob pattern, such as `images/**/*.jpg`.  In this case, the files that match the pattern are available to the Wasm code, at the same paths as they are in your file system. For example, if the glob pattern matches `images/photos/lake.jpg`, the Wasm module can access it using the path `/images/photos/lake.jpg`.  Glob patterns are relative to the directory containing `spin.toml`, and must be within that directory.
+* A glob pattern, such as `images/**/*.jpg`.  In this case, the files that match the pattern are available to the Wasm code, at the same paths as they are in your file system. For example, if the glob pattern matches `images/photos/lake.jpg`, the Wasm module can access it using the path `images/photos/lake.jpg`.  Glob patterns are relative to the directory containing `spin.toml`, and must be within that directory.
 * A mapping from a `source` directory to a `destination` directory, such as `{ source = "styles/dist", destination = "/styles" }`.  In this case, the entire contents of the source directory are available to the Wasm code at the destination directory.  In this example, if you have a file named `styles/dist/list/exciting.css`, the Wasm module can access it using the path `/styles/list/exciting.css`.  Source directories are relative to the directory containing `spin.toml`; destination directories must be absolute.
 
 If your files list would match some files or directories that you _don't_ want included, you can use the `exclude_files` field to omit them.
