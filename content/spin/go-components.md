@@ -129,7 +129,7 @@ requests to:
 
 ```toml
 # spin.toml
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-hello-tinygo"
 trigger = { type = "http", base = "/" }
 version = "1.0.0"
@@ -208,7 +208,7 @@ The manifest for a Redis application must contain the address of the Redis insta
 <!-- @nocpy -->
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-redis"
 trigger = { type = "redis", address = "redis://localhost:6379" }
 version = "0.1.0"

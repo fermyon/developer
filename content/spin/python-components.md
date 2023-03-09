@@ -90,7 +90,7 @@ The `spin.toml` file will look similar to the following:
 <!-- @nocpy -->
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
 name = "hello-world"
@@ -191,7 +191,7 @@ def handle_request(request):
 The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `some-random-api.ml` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_http_hosts`:
 
 ```
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
 name = "hello-world"
@@ -244,7 +244,7 @@ After installing Redis on localhost, we simply add the `config = { redis_address
 <!-- @nocpy -->
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
 name = "hello-world"

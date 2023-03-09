@@ -234,7 +234,7 @@ domains the component is allowed to make HTTP requests to:
 
 ```toml
 # spin.toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 name = "spin-http-js"
 trigger = { type = "http", base = "/" }
