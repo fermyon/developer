@@ -9,6 +9,9 @@ require() {
 }
 
 cleanup() {
+  if [[ "$?" == "124" ]]; then
+    echo "timeout exceeded waiting for the developer portal to run"
+  fi
   echo "stopping process for $$"
   cleanup_with_child $$ false
 }
@@ -50,11 +53,20 @@ export PREVIEW_MODE=1
 npm run spin >/dev/null 2>&1 &
 
 ## wait for portal to be up and running
-timeout 60s bash -c 'until curl --silent -f http://localhost:3000 > /dev/null; do sleep 2; done'
+export RESP_CODE="$(mktemp)"
+timeout 10s bash -c 'until curl -o /dev/null -s -w "%{http_code}\n" http://localhost:3000 > $RESP_CODE; do sleep 2; done'
+
+echo "checking website health via http://localhost:3000"
+
+[[ "$(< $RESP_CODE)" == "200" ]] && \
+  (echo "Success: website returned a 200 response code") || \
+  (echo "Failure: unexpected response code: $(< $RESP_CODE)" && exit 1)
 
 echo "starting link checker"
 
-## Run the broken link checker          
+## Run the broken link checker
+report="$(mktemp)"
+blc_error=false
 blc --recursive http://127.0.0.1:3000                                                                                                                                                       \
                                                                                                                                                                                             \
     `## returns 403`                                                                                                                                                                        \
@@ -77,8 +89,9 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://www.instagram.com/fermyontech/'                                                                                                                                      \
     --exclude 'https://www.linkedin.com/company/fermyon/'                                                                                                                                   \
     --exclude 'https://support.google.com/webmasters/answer/7552505'                                                                                                                        \
-    --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en'| tee /dev/stderr | grep "├─BROKEN─" > broken_links || true
-   
+    --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en' | tee "${report}" || blc_error=true
+
+cat "${report}" | grep "├─BROKEN─" > broken_links || true
 
 if [ -s broken_links ]; then
   echo "Some links are broken, retrying to check for transient errors"
@@ -98,5 +111,8 @@ if [ -s broken_links ]; then
     echo "All the errors were transient. The links are valid!"  
   fi  
 else
+  if [ "${blc_error}" == "true" ]; then
+    echo "Failure: error(s) encountered attempting to check website links" && exit 1
+  fi
   echo "All the links are valid!"
 fi
