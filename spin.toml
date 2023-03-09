@@ -153,11 +153,11 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/quickstart" }
 route = "/spin/quickstart/developing"
 executor = { type = "wagi" }
 
-# Redirect /spin/quickstart/configuration to /spin/configuration
+# Redirect /spin/quickstart/configuration to /spin/writing-apps
 [[component]]
 id = "spin-quickstart-configuration"
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/configuration" }
+environment = { DESTINATION = "https://developer.fermyon.com/spin/writing-apps" }
 [component.trigger]
 route = "/spin/quickstart/configuration"
 executor = { type = "wagi" }
