@@ -4,7 +4,6 @@ date = "2023-03-14T00:22:56Z"
 enable_shortcodes = true
 
 ---
-<<<<<<< HEAD
 - [Key/Value Store](#keyvalue-store)
 - [Other Persistent Storage Concepts in Webassembly Applications](#other-persistent-storage-concepts-in-webassembly-applications)
 
