@@ -114,7 +114,7 @@ In this section we begin by configuring the application's `spin.toml` to use a d
 {{ startTab "Rust"}}
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"
@@ -137,7 +137,7 @@ command = "cargo build --target wasm32-wasi --release"
 {{ startTab "TypeScript" }}
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"
@@ -160,7 +160,7 @@ command = "npm run build"
 {{ startTab "TinyGo" }}
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"

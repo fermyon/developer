@@ -112,7 +112,7 @@ domains the component is allowed to make HTTP requests to:
 
 ```toml
 # spin.toml
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-hello-world"
 trigger = { type = "http", base = "/" }
 version = "1.0.0"
@@ -204,7 +204,7 @@ instance the trigger must connect to:
 <!-- @nocpy -->
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-redis"
 trigger = { type = "redis", address = "redis://localhost:6379" }
 version = "0.1.0"
