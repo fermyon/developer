@@ -40,3 +40,7 @@ jobs:
       - name: Run npm tests
         run: |
           npm test
+
+      - name: Test website
+        run: |
+          npm run test-website
