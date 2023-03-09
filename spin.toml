@@ -126,6 +126,15 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/redis-trigger"
 route = "/spin/rust-components/redis-trigger"
 executor = { type = "wagi" }
 
+# Redirect /spin/configuration to /spin/writing-apps
+[[component]]
+id = "spin-configuration"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/writing-apps" }
+[component.trigger]
+route = "/spin/configuration"
+executor = { type = "wagi" }
+
 # Redirect /spin/configuration/http-trigger to /spin/http-trigger
 [[component]]
 id = "spin-configuration-http-trigger"
