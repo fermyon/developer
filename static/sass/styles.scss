@@ -99,10 +99,28 @@ TABLE OF CONTENTS
 				}
 			}
 
+			blockquote p {
+				font-size: 1rem !important;
+				margin: 1.67rem auto 2.67rem !important;
+				border-radius: 0.5rem;
+				background-color: rgba(0,0,0,0.25);
+			}
+
 			table {
+				th {
+					background-color: rgba($lightlavender, 1);
+				}
+				
+				th, td {
+					padding: 0.67rem 0.5rem;
+					font-size: 0.825rem;
+				}
 				code {
 					display: inline-block;
 					margin: 0 !important;
+					font-size: 0.825rem;
+					padding: 0.1rem 0.2rem;
+					background-color: rgba($lightlavender, 0.5);
 				}
 			}
 
@@ -148,11 +166,19 @@ TABLE OF CONTENTS
 		}
 
 		pre {
-			max-width: 800px;
+			// max-width: 800px;
 			padding: 0 !important;
 
 			code {
-				padding: 1.25em 3.5em !important;
+				padding: 1.125em 1.25rem !important;
+				margin-right: 2.75rem;
+			}
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			code {
+				font-size: 0.825em !important;
+				font-weight: 600;
 			}
 		}
 
@@ -414,7 +440,7 @@ html.dark-theme {
 					border-bottom-color: #0d203f;
 				}
 				code {
-					background-color: $oxfordblue;
+					background-color: rgba($oxfordblue, 0.5);
 				}
 			}
 			details {
@@ -654,22 +680,25 @@ html.dark-theme {
 							}
 						}
 					}
-
 				}
 
 				+.overlay {
 					z-index: 9998;
-					display: none;
+					// display: none;
 					position: fixed;
-					left: 0;
+					left: 500%;
 					top: 0;
 					width: 100vw;
 					height: 100vw;
+					opacity: 0;
+					transition: backdrop-filter ease-in-out 1s 0.1s; 
 				}
 
 				&:hover {
 					+.overlay {
-						display: block;
+						// display: block;
+						left: 0;
+						opacity: 1;
 						backdrop-filter: blur(6px);
 					}
 				}
@@ -1160,7 +1189,7 @@ html.dark-theme {
 		.content {
 			&.content-docs-wide {
 				section {
-					max-width: 640px !important;
+					max-width: 780px !important;
 				}
 			}
 
@@ -1180,6 +1209,16 @@ html.dark-theme {
 }
 
 @media screen and (max-width: 1023px) {
+	main.is-fullwidth {
+		max-width: 95vw !important;
+		padding-left: 2.5vw !important;
+		padding-right: 2.5vw !important;
+	}
+
+	.menu-wrap + article.content {
+		max-width: 95vw !important;
+	}
+	
 	.documentation {
 		.content {
 			padding-top: 2rem;
@@ -1276,7 +1315,6 @@ html.dark-theme {
 		.menu-wrap+article.content {
 
 			section {
-				// width: 100vw !important;
 				margin: 0;
 			}
 

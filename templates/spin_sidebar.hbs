@@ -31,6 +31,14 @@
         </ul>
 
         <p class="menu-label">
+            Triggers
+        </p>
+        <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-trigger">The Redis Trigger</a></li>
+        </ul>
+
+        <p class="menu-label">
             Tutorials
         </p>
         <ul class="menu-list">
@@ -51,8 +59,6 @@
             Advanced
         </p>
         <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-trigger">The Redis Trigger</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Packaging and Distribution</a></li>                
             <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending and Embedding Spin</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/deploying-to-fermyon" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/deploying-to-fermyon">Deploying to Fermyon</a></li>
