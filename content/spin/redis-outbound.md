@@ -6,13 +6,13 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/spin/blob/main/docs/content/redis-outbound.md"
 
 ---
-- [Using Redis from Applications](#using-redis-from-applications)
+- [Using Redis From Applications](#using-redis-from-applications)
 
 Spin provides an interface for you to read and write the Redis key/value store, and to publish Redis pub-sub messages.
 
 {{ details "Why do I need a Spin interface? Why can't I just use my language's Redis library?" "The current version of the WebAssembly System Interface (WASI) doesn't provide a sockets interface, so Redis libraries that depend on sockets can't be built to Wasm. The Spin interface means Wasm modules can bypass this limitation by asking Spin to make the Redis connection on their behalf." }}
 
-## Using Redis from Applications
+## Using Redis From Applications
 
 The Spin SDK surfaces the Spin Redis interface to your language.  The set of operations is common across all SDKs:
 
