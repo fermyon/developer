@@ -13,6 +13,8 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/go-components.md"
 - [Storing Data in Redis From Go Components](#storing-data-in-redis-from-go-components)
 - [Using Go Packages in Spin Components](#using-go-packages-in-spin-components)
 
+> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Go templates, installing required tools, and creating Go applications.
+
 > This guide assumes you are familiar with the Go programming language, and that
 > you have
 > [configured the TinyGo toolchain locally](https://tinygo.org/getting-started/install/).

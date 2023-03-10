@@ -16,6 +16,8 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/rust-components.md
 Spin aims to have best-in-class support for building components in Rust, and
 writing such components should be familiar for Rust developers.
 
+> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Rust templates, installing required tools, and creating Rust applications.
+
 > This guide assumes you are familiar with the Rust programming language,
 > but if you are just getting started, be sure to check [the
 official resources for learning Rust](https://www.rust-lang.org/learn).

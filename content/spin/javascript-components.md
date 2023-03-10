@@ -17,6 +17,8 @@ enable_shortcodes = true
 
 With JavaScript being a very popular language, Spin provides support for building components with it using the experimental SDK. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. 
 
+> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the JavaScript templates, installing required tools, and creating JavaScript and TypeScript applications.
+
 > This guide assumes you are familiar with the JavaScript programming language,
 > but if you are just getting started, be sure to check [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide).
 
