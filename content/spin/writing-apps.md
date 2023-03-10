@@ -45,7 +45,7 @@ This example is the manifest for a simple HTTP application with a single compone
 
 ```toml
 # General identification information
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-hello-world"
 version = "1.0.0"
 description = "A simple application that returns hello world."
@@ -129,7 +129,7 @@ route = "/hello"
 
 At the Wasm level, a Spin component is a Wasm module that exports a handler for the application trigger.  At the developer level, a Spin component is a library or program that implements your event handling logic, and uses Spin interfaces, libraries, or tools to associate that with the events handled by Spin.
 
-See the Language Guides section for how to do this in your preferred language.  As an example, this is a component written in the Rust language.  The `hello_world` function uses an attribute to identify the function as handling a Spin HTTP event.  The function takes a `Request` and returns a `Result<Response>`:
+See the Language Guides section for how to do this in your preferred language. As an example, this is a component written in the Rust language. The `hello_world` function uses an attribute `#[http_component]` to identify the function as handling a Spin HTTP event. The function takes a `Request` and returns a `Result<Response>`:
 
 <!-- @nocpy -->
 
