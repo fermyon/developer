@@ -103,7 +103,8 @@ TABLE OF CONTENTS
 				font-size: 1rem !important;
 				margin: 1.67rem auto 2.67rem !important;
 				border-radius: 0.5rem;
-				background-color: rgba(0,0,0,0.25);
+				background-color: rgba(211, 195, 217, 0.25);
+				line-height: 1.725;
 			}
 
 			table {
@@ -508,6 +509,10 @@ html.dark-theme {
 
 			a.anchor-link {
 				fill: #fff;
+			}
+
+			blockquote p {
+				background-color: rgba(0,0,0,0.25);
 			}
 		}
 	}
