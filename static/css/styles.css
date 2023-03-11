@@ -1813,8 +1813,9 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content section blockquote p {
-  background-color: #00000040;
+  background-color: #d3c3d940;
   border-radius: .5rem;
+  line-height: 1.725;
   margin: 1.67rem auto 2.67rem !important;
   font-size: 1rem !important;
 }
@@ -2155,6 +2156,10 @@ html.dark-theme body .content a.anchor-link:hover {
 
 html.dark-theme body .content a.anchor-link {
   fill: #fff;
+}
+
+html.dark-theme body .content blockquote p {
+  background-color: #00000040;
 }
 
 html.dark-theme .dropdown-content a {
