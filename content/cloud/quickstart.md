@@ -13,13 +13,6 @@ enable_shortcodes = true
 
 > This is the open beta of the Fermyon Cloud. For more info about the limitations and support, please see read the [FAQ](/cloud/faq).
 
-- [Install Spin](#install-spin)
-- [Log in to the Fermyon Cloud](#log-in-to-the-fermyon-cloud)
-- [Clone the Quickstart Repo](#clone-the-quickstart-repo)
-- [Deploy the Application](#deploy-the-application)
-- [Success](#success)
-- [Next Steps](#next-steps)
-
 This guide will get you up and running in the Fermyon Cloud in less than two minutes. To do so, we've already made a Spin application ready for you to deploy to the cloud.
 
 <p style="
@@ -34,23 +27,55 @@ This guide will get you up and running in the Fermyon Cloud in less than two min
 
 ## Install Spin
 
-First, you need to have Spin installed on your computer. Use the command below to install the latest version of Spin:
+{{ tabs "os" }}
 
-<!-- @nocpy -->
+{{ startTab "Linux"}}
 
-```console
-curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
-```
+Download the `spin` binary using the `install.sh` script hosted on this site:
 
-This command downloads and unpacks the latest Spin binary in the current directory.
+<!-- @selectiveCpy -->
 
-**We recommend adding Spin to a directory in your `$PATH`**, e.g.:
+<pre class="bash spin-install" id="spin-install-quick"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
+</code></pre>
+
+Then move the `spin` binary somewhere in your path, so you can run it from anywhere. For example:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ sudo mv spin /usr/local/bin/
+$ sudo mv ./spin /usr/local/bin/spin
 ```
+
+{{ blockEnd }}
+
+{{ startTab "macOS"}}
+
+Download the `spin` binary using the `install.sh` script hosted on this site:
+
+<!-- @selectiveCpy -->
+
+<pre class="bash spin-install" id="spin-install-quick"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
+</code></pre>
+
+Then move the `spin` binary somewhere in your path, so you can run it from anywhere. For example:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ sudo mv ./spin /usr/local/bin/spin
+```
+
+{{ blockEnd }}
+
+{{ startTab "Windows"}}
+
+Download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
+
+Unzip the binary release and place the `spin.exe` in your system path.
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 {{ details "Learn more" "[Spin](https://github.com/fermyon/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). \n\n The [Spin](/spin) documentation is a good starting place to learn more about using the framework to develop applications."}}
 
