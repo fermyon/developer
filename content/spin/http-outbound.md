@@ -127,7 +127,7 @@ res3, err3 := spinhttp.Send(req)
 **Notes**
 
 * In the `Post` function, the body is an `io.Reader`. The Spin SDK reads this into the underlying Wasm byte array.
-* The `NewRequest` function is part of the standard library.  The `Send` method adapts the standard request type to the underlying Wasm interface.
+* The `NewRequest` function is part of the standard library. The `Send` method adapts the standard request type to the underlying Wasm interface.
 * Errors are returned through the usual Go multiple return values mechanism.
 
 You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/http-tinygo-outbound-http).
