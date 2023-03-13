@@ -29,7 +29,7 @@ and Spin has built-in support for creating and running HTTP
 components. This page covers Spin options that are specific to HTTP applications.
 
 The HTTP trigger in Spin is a web server. It listens for incoming requests and
-based on the [application manifest](./writing-apps.md), it routes them to an
+based on the [application manifest](./writing-apps.md), it routes them to a
 component, which returns an HTTP response.
 
 ## Specifying an Application as HTTP
@@ -52,7 +52,7 @@ In addition, each component must have HTTP-specific configuration in its `[compo
 
 ## Mapping a Route to a Component
 
-Each component handles one route, specified in the `route` field of the component manifest.
+Each component handles one route, specified in the `route` field of the component `trigger` table.
 
 The route may be _exact_ or _wildcard_.
 
@@ -358,10 +358,10 @@ This interface (`spin-http.wit`) can be directly used together with the
 [Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen)
 to build a component that the Spin HTTP executor can invoke.
 
-This is exactly how Spin SDKs such as the [Rust](rust-components), [JavaScript](javascript-components) and [Go](go-components) SDKs are built.
+This is exactly how Spin SDKs, such as the [Rust](rust-components), [JavaScript](javascript-components) and [Go](go-components) SDKs, are built.
 As more languages add support for the component model, we plan to add support for them in the same way.
 
-> WIT and the ABI are evolving standards.  The latest version of `wit-bindgen` creates binary implementations that do not work with current language implementation of the WabAssembly System Interface (WASI).  Spin remains pinned to an older implementation of `wit-bindgen` until the next generation of the component model stabilizes and achieves language-level support.
+> WIT and the ABI are evolving standards.  The latest version of `wit-bindgen` creates binary implementations that do not work with current language implementation of the WebAssembly System Interface (WASI).  Spin remains pinned to an older implementation of `wit-bindgen` until the next generation of the component model stabilizes and achieves language-level support.
 
 ## HTTP With Wagi (WebAssembly Gateway Interface)
 
