@@ -15,7 +15,7 @@ Spin provides an interface for you to make outgoing HTTP requests.
 
 ## Using HTTP From Applications
 
-The Spin SDK surfaces the Spin HTTP interface to your language.  The interface contains only one operation:
+The Spin SDK surfaces the Spin HTTP interface to your language. The interface contains only one operation:
 
 | Operation  | Parameters | Returns | Behavior |
 |------------|------------|---------|----------|
