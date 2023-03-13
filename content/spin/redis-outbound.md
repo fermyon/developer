@@ -137,7 +137,7 @@ payload, err := redis.Get(address, key)
 **`execute` Operation**
 
 * The arguments are passed as `[]redis.RedisParameter`. You can construct `RedisParameter` instances around an `interface{}` but must provide a `Kind`. For example, `hello := redis.RedisParameter{Kind: redis.RedisParameterKindBinary, Val: []byte("hello")}`.
-* The results are returned as `[]redis.Result`.  You can use the `Kind` member of `redis.Result` to interpret the `Val`.
+* The results are returned as `[]redis.Result`. You can use the `Kind` member of `redis.Result` to interpret the `Val`.
 
 You can find a complete example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/tinygo-outbound-redis).
 
