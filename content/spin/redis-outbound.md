@@ -87,7 +87,7 @@ const value = spinSdk.redis.get(address, key);
 
 **`execute` Operation**
 
-* The arguments and results can be either numbers or buffers.  (In TypeScript they are union types, e.g. `BigInt | ArrayBuffer`.)
+* The arguments and results can be either numbers or buffers. (In TypeScript they are union types, e.g. `BigInt | ArrayBuffer`.)
 
 You can find a complete example for using outbound Redis from an HTTP component in the [JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_redis).
 
