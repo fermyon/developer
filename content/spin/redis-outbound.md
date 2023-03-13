@@ -71,7 +71,7 @@ You can find a complete example for using outbound Redis from an HTTP component 
 
 {{ startTab "TypeScript"}}
 
-Redis functions are available on the `spinSdk.redis` object.  The function names match the operations above.  For example:
+Redis functions are available on the `spinSdk.redis` object. The function names match the operations above. For example:
 
 ```javascript
 const value = spinSdk.redis.get(address, key);
