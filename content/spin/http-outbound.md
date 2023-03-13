@@ -71,7 +71,7 @@ You can find a complete example for using outbound HTTP in the [Spin repository 
 
 {{ startTab "TypeScript"}}
 
-HTTP operations are available via the standard JavaScript `fetch` function.  The Spin runtime maps this to the underlying Wasm interface.  For example:
+HTTP operations are available via the standard JavaScript `fetch` function. The Spin runtime maps this to the underlying Wasm interface. For example:
 
 ```javascript
 const response = await fetch("https://example.com/users");
