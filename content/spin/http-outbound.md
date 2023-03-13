@@ -81,7 +81,7 @@ const response = await fetch("https://example.com/users");
 
 * Although the underlying Spin interface is blocking, the `fetch` function is defined by JavaScript as async. You must await the response, but the request will always block, and the promise will resolve as soon as the request is returned.
 
-You can find complete example for using outbound HTTP in the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_http), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/javascript/outbound-http)).
+You can find a complete example of using outbound HTTP in the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_http), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/javascript/outbound-http)).
 
 {{ blockEnd }}
 
