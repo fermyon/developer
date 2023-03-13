@@ -57,7 +57,7 @@ You can find complete examples for using relational databases in the Spin reposi
 
 {{ startTab "TypeScript"}}
 
-The JavaScript/TypeScript SDK doesn't surface the MySQL or PostgreSQL APIs.  However, you can use hosted relational database services that are accessible over HTTP.  For an example, see the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/planetscale), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/javascript/planetscale)).
+The JavaScript/TypeScript SDK doesn't surface the MySQL or PostgreSQL APIs. However, you can use hosted relational database services that are accessible over HTTP. For an example, see the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/planetscale), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/javascript/planetscale)).
 
 {{ blockEnd }}
 
