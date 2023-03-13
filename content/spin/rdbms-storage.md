@@ -27,7 +27,7 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
-MySQL functions are available in the `spin_sdk::mysql` module, and PostgreSQL functions in the `spin_sdk::pg` module.  The function names match the operations above.  This example shows MySQL:
+MySQL functions are available in the `spin_sdk::mysql` module, and PostgreSQL functions in the `spin_sdk::pg` module. The function names match the operations above. This example shows MySQL:
 
 ```rust
 use spin_sdk::mysql::{self, Decode, ParameterValue};
