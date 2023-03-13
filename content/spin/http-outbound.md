@@ -138,7 +138,7 @@ You can find a complete example for using outbound HTTP in the [Spin repository 
 
 ## Granting HTTP Permissions to Components
 
-By default, Spin components are not allowed to make outgoing HTTP requests.  This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing.  To grant a component permission to make HTTP requests to a particular host, use the `allowed_http_hosts` field in the component manifest:
+By default, Spin components are not allowed to make outgoing HTTP requests. This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing. To grant a component permission to make HTTP requests to a particular host, use the `allowed_http_hosts` field in the component manifest:
 
 ```toml
 [component]
