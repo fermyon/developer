@@ -99,7 +99,7 @@ response = http_send(
 **Notes**
 
 * For compatibility with idiomatic Python, types do not necessarily match the underlying Wasm interface. For example, `method` is a string.
-* Request and response bodies are `bytes`.  (You can pass literal strings using the `b` prefix.)  Pass `None` for no body.
+* Request and response bodies are `bytes`. (You can pass literal strings using the `b` prefix.)  Pass `None` for no body.
 * Errors are signalled through exceptions.
 
 You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outbound_http).
