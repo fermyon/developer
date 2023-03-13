@@ -95,7 +95,7 @@ You can find a complete example for using outbound Redis from an HTTP component 
 
 {{ startTab "Python"}}
 
-Redis functions are available in the `spin_redis` module.  The function names are prefixed `redis_`.  For example:
+Redis functions are available in the `spin_redis` module. The function names are prefixed `redis_`. For example:
 
 ```python
 from spin_redis import redis_get
