@@ -46,7 +46,7 @@ The exact detail of calling the `request` operation from your application depend
 
 {{ startTab "Rust"}}
 
-HTTP functions are available in the `spin_sdk::outbound_http` module.  The function is named `send_request`.  It takes a `spin_sdk::http::Request` and return a `spin_sdk::http::Response`.  Both of these types are specializations of the `Request` and `Response` types from the `http` crate, and have all their behavior and methods; the Spin SDK maps them to the underlying Wasm interface.  For example:
+HTTP functions are available in the `spin_sdk::outbound_http` module. The function is named `send_request`. It takes a `spin_sdk::http::Request` and returns a `spin_sdk::http::Response`. Both of these types are specializations of the `Request` and `Response` types from the `http` crate, and have all their behaviour and methods; the Spin SDK maps them to the underlying Wasm interface. For example:
 
 ```rust
 use spin_sdk::http::{Request, Response};
