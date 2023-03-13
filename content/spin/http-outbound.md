@@ -98,7 +98,7 @@ response = http_send(
 
 **Notes**
 
-* For compatibility with idiomatic Python, types do not necessarily match the underlying Wasm interface.  For example, `method` is a string.
+* For compatibility with idiomatic Python, types do not necessarily match the underlying Wasm interface. For example, `method` is a string.
 * Request and response bodies are `bytes`.  (You can pass literal strings using the `b` prefix.)  Pass `None` for no body.
 * Errors are signalled through exceptions.
 
