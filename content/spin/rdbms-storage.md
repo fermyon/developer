@@ -14,7 +14,7 @@ Spin provides an interface for you to access relational (SQL) databases, specifi
 
 ## Using MySQL and PostgreSQL From Applications
 
-The Spin SDK surfaces the Spin MySQL and PostgreSQL interfaces to your language.  The set of operations is the same across both databases:
+The Spin SDK surfaces the Spin MySQL and PostgreSQL interfaces to your language. The set of operations is the same across both databases:
 
 | Operation  | Parameters                          | Returns             | Behavior |
 |------------|-------------------------------------|---------------------|----------|
