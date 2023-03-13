@@ -14,7 +14,7 @@ Spin provides an interface for you to read and write the Redis key/value store, 
 
 ## Using Redis From Applications
 
-The Spin SDK surfaces the Spin Redis interface to your language.  The set of operations is common across all SDKs:
+The Spin SDK surfaces the Spin Redis interface to your language. The set of operations is common across all SDKs:
 
 | Operation  | Parameters | Returns | Behavior |
 |------------|------------|---------|----------|
