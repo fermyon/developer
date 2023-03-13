@@ -87,7 +87,7 @@ You can find complete example for using outbound HTTP in the JavaScript SDK repo
 
 {{ startTab "Python"}}
 
-HTTP functions and classes are available in the `spin_http` module.  The function name is `http_send`.  The request type is `Request` and the response type is `Response`.  For example:
+HTTP functions and classes are available in the `spin_http` module. The function name is `http_send`. The request type is `Request`, and the response type is `Response`. For example:
 
 ```python
 from spin_http import Request, Response, http_send
