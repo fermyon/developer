@@ -106,7 +106,7 @@ value = redis_get(address, key)
 **General Notes**
 
 * Address and key parameters are strings (`str`).
-* Bytes parameters and return values are `bytes`.  (You can pass literal strings using the `b` prefix, e.g. `redis_set(address, key, b"hello")`.)
+* Bytes parameters and return values are `bytes`. (You can pass literal strings using the `b` prefix, e.g. `redis_set(address, key, b"hello")`.)
 * Numeric return values are of type `int64`.
 * Lists are passed and returned as Python lists.
 * Errors are signalled through exceptions.
