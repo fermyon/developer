@@ -108,7 +108,7 @@ You can find a complete example for using outbound HTTP in the [Python SDK repos
 
 {{ startTab "TinyGo"}}
 
-HTTP functions are available in the `github.com/fermyon/spin/sdk/go/http` package.  The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations.  For example:
+HTTP functions are available in the `github.com/fermyon/spin/sdk/go/http` package. The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations. For example:
 
 ```go
 import (
