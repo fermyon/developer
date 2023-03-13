@@ -117,7 +117,7 @@ You can find a complete example for using outbound Redis from an HTTP component 
 
 {{ startTab "TinyGo"}}
 
-Redis functions are available in the `github.com/fermyon/spin/sdk/go/redis` package.  The function names are TitleCased.  For example:
+Redis functions are available in the `github.com/fermyon/spin/sdk/go/redis` package. The function names are TitleCased. For example:
 
 ```go
 import (
