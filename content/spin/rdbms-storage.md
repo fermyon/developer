@@ -48,7 +48,7 @@ match rowset.rows.first() {
 * Parameters are instances of the `ParameterValue` enum; you must wrap raw values in this type.
 * A row is a vector of the `DbValue` enum. Use the `Decode` trait to access conversions to common types.
 * Using PostgreSQL works in the same way, except that you `use` the `spin_sdk::pg` module instead of `spin_sdk::mysql`.
-* Modified row counts are returned as `u64`.  (MySQL `execute` does not return the modified row count.)
+* Modified row counts are returned as `u64`. (MySQL `execute` does not return the modified row count.)
 * All functions wrap the return in `anyhow::Result`.
 
 You can find complete examples for using relational databases in the Spin repository on GitHub ([MySQL](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-mysql), [PostgreSQL](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-pg)).
