@@ -38,7 +38,7 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
-Redis functions are available in the `spin_sdk::redis` module.  The function names match the operations above.  For example:
+Redis functions are available in the `spin_sdk::redis` module. The function names match the operations above. For example:
 
 ```rust
 use spin_sdk::redis;
