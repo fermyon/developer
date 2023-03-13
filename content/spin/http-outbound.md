@@ -126,7 +126,7 @@ res3, err3 := spinhttp.Send(req)
 
 **Notes**
 
-* In the `Post` function, the body is an `io.Reader`.  The Spin SDK reads this into the underlying Wasm byte array.
+* In the `Post` function, the body is an `io.Reader`. The Spin SDK reads this into the underlying Wasm byte array.
 * The `NewRequest` function is part of the standard library.  The `Send` method adapts the standard request type to the underlying Wasm interface.
 * Errors are return through the usual Go multiple return values mechanism.
 
