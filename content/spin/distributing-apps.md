@@ -16,25 +16,21 @@ The [OCI](https://opencontainers.org/) is an open governance structure for the e
 
 ## Distributing Spin Applications Based on the OCI Distribution Specification
 
-Starting with [v0.8.0](https://github.com/fermyon/spin/releases/tag/v0.8.0), Spin supports distributing applications using existing container registry services such as GitHub Container Registry, Docker Hub, Azure ACR, or AWS ECR. This feature is experimental and will continue to evolve in future versions of Spin.
+Starting with [v0.8.0](https://github.com/fermyon/spin/releases/tag/v0.8.0), Spin supports distributing applications using existing container registry services such as GitHub Container Registry, Docker Hub, Azure ACR, or AWS ECR. The `spin registry` command can be used to login to registries and push and pull Spin applications to and from a registry. `spin up` also supports directly running a Spin application from a registry.
 
-While this feature is still in the experimental phase, the CLI will reuse the container registry authentication used by the Docker CLI, so you first have to log in to the registry service using an existing tool (such as `docker login`, or using the instructions provided by the registry service). In a future version, this will be improved using a Spin login command for the target registry.
-
-Pushing an application to a registry:
+Here is the current experience for distributing and running Spin applications using the [GitHub registry](https://github.com/features/packages):
 
 <!-- @nocpy -->
 
 ```bash
-$ spin registry push ghcr.io/radu-matei/spin-hello-world:v1
-Pushed "https://ghcr.io/v2/radu-matei/spin-hello-world/manifests/sha256:06b19f4394c59fe943140c9b59f083aefd4b53c6b632758523a2800d819a1575"
-```
-
-Then run the application using the registry reference:
-
-<!-- @nocpy -->
-
-```bash
-$ spin registry run ghcr.io/radu-matei/spin-hello-world:v1
+# create a new Spin application and build it
+$ spin new http-go hello-registries --accept-defaults && cd hello-registries && spin build
+# log in to the GitHub registry
+$ echo $GHCR_PAT | spin registry login --username radu-matei --password-stdin ghcr.io
+# push the Spin application to the GitHub registry
+$ spin registry push ghcr.io/radu-matei/hello-registries:v1
+# run the Spin application directly from the GitHub registry
+$ spin up --from-registry ghcr.io/radu-matei/hello-registries:v1
 ```
 
 ### Signing Spin Applications and Verifying Signatures
