@@ -173,6 +173,10 @@ TABLE OF CONTENTS
 			code {
 				padding: 1.125em 1.25rem !important;
 				margin-right: 2.75rem;
+
+				.hljs-comment {
+					color: #bbb !important;
+				  }
 			}
 		}
 
