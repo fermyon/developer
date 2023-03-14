@@ -1,16 +1,24 @@
 <div class="menu-wrap is-narrow is-fixed-desktop" id="docsMenu">
     <aside class="menu">
         <p class="menu-label">
-            Using Spin
+            Get Started
         </p>
         <ul class="menu-list">
             <li><a {{#if (active_content request.spin-path-info "/spin/index" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/">Introduction</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/install" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/install">Install</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/quickstart" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/quickstart">Quickstart</a></li>
+        </ul>
+
+        <p class="menu-label">
+            Applications
+        </p>
+        <ul class="menu-list">
             <li><a {{#if (active_content request.spin-path-info "/spin/writing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/writing-apps">Writing Applications</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/build" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/build">Building Application Code</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/running-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/running-apps">Running Applications</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Publishing and Distribution</a></li>                
         </ul>
+
 
         <p class="menu-label">
             Language Guides
@@ -61,7 +69,6 @@
             Advanced
         </p>
         <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Packaging and Distribution</a></li>                
             <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending and Embedding Spin</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/deploying-to-fermyon" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/deploying-to-fermyon">Deploying to Fermyon</a></li>
             {{!--  <li><a href="{{site.info.base_url}}/spin/architecture/">Architecture</a></li> --}}
