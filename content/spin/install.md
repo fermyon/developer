@@ -97,7 +97,7 @@ $ cd spin && make build
 $ ./target/release/spin --help
 </code></pre>
 
-> Please note: On a fresh Linux installation, you will also need the standard build toolchain (`gcc`, `make`, etc.), the SSL library headers, and on some distributions you may need `pkg-config`. For example, on Debian-like distributions, including Ubuntu, you can install the standard build toolchain with a command like this:
+> Please note: On a fresh Linux installation, you will also need the standard build toolchain (`gcc`, `make`, etc.), the SSL library headers, and on some distributions you may need `pkg-config`. For example, on Debian-like distributions, including Ubuntu, you can install the standard build toolchain with this command:
 
 <!-- @selectiveCpy -->
 
