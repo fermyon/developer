@@ -126,6 +126,8 @@ $ spin --help
 $ rustup update
 ```
 
+> Please note: If you run into any issues relating to the requirement of additional tools and packages (toolchain requirements based on your platform) please reach out to us on [Discord](https://discord.com/invite/AAFNfS7NGf) and we will be happy to assist.
+
 ## Next Steps
 
 - [Take Spin for a spin](./quickstart.md)
