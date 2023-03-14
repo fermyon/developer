@@ -33,17 +33,6 @@ It's highly recommended to add Spin to a folder, which is on your path, e.g.:
 $ sudo mv spin /usr/local/bin/
 ```
 
-> Please note: On a fresh Linux installation, you will also need the standard build toolchain
-(`gcc`, `make`, etc.), the SSL library headers, and on some distributions you may need `pkg-config`.
-
-On Debian-like distributions, including Ubuntu, you can install the standard build toolchain with a command like this:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ sudo apt-get install build-essential libssl-dev pkg-config
-```
-
 To install a specific version, you can pass arguments to the install script this way:
 
 <!-- @selectiveCpy -->
@@ -107,6 +96,14 @@ Simply unzip the binary release and place the `spin.exe` in your system path.
 $ cd spin && make build
 $ ./target/release/spin --help
 </code></pre>
+
+> Please note: On a fresh Linux installation, you will also need the standard build toolchain (`gcc`, `make`, etc.), the SSL library headers, and on some distributions you may need `pkg-config`. For example, on Debian-like distributions, including Ubuntu, you can install the standard build toolchain with a command like this:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ sudo apt-get install build-essential libssl-dev pkg-config
+```
 
 ## Using Cargo to Install Spin
 
