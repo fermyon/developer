@@ -342,7 +342,11 @@ Some NPM packages can be installed and used in the component. If a popular libra
 
 These are some of the suggested libraries that have been tested and confired to work with the SDK for common tasks.
 
+{{ details "HTML parsers" "- [node-html-parser](https://www.npmjs.com/package/node-html-parser)" }}
+
 {{ details "Parsing formdata" "- [parse-multipart-data](https://www.npmjs.com/package/parse-multipart-data)" }} 
+
+{{ details "Runtime schema validation" "- [zod](https://www.npmjs.com/package/zod)" }} 
 
 {{ details "Unique ID generator" "- [nanoid](https://www.npmjs.com/package/nanoid)\n- [ulidx](https://www.npmjs.com/package/ulidx)\n- [uuid](https://www.npmjs.com/package/uuid)" }} 
 
