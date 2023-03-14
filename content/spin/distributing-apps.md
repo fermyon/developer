@@ -11,6 +11,7 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/distributing-apps.
   - [Fallback Credentials](#fallback-credentials)
 - [Publishing a Spin Application to a Registry](#publishing-a-spin-application-to-a-registry)
 - [Running Published Applications](#running-published-applications)
+  - [Running Published Applications by Digest](#running-published-applications-by-digest)
   - [Pulling a Published Application](#pulling-a-published-application)
 - [Signing Spin Applications and Verifying Signatures](#signing-spin-applications-and-verifying-signatures)
 
@@ -39,7 +40,7 @@ In a non-interactive environment such as GitHub Actions, you will typically log 
 <!-- @noCpy -->
 
 ```bash
-$ echo "${{ secrets.GITHUB_TOKEN }}" | spin registry login ghcr.io --username ${{ github.actor }} --password-stdin
+$ echo "$\{{ secrets.GITHUB_TOKEN }}" | spin registry login ghcr.io --username $\{{ github.actor }} --password-stdin
 ```
 
 Other environments will have different ways of referring to the token and user but the pattern remains the same.
@@ -62,7 +63,7 @@ Here is an example of pushing an application to GHCR:
 $ spin registry push ghcr.io/alyssa-p-hacker/hello-world:v1
 ```
 
-Notice that the user name is part of the reference; the registry does not infer it from the login.  Also notice that the version is specified explicitly; Spin does not infer it from the `spin.toml` file.
+Notice that the username is part of the reference; the registry does not infer it from the login.  Also notice that the version is specified explicitly; Spin does not infer it from the `spin.toml` file.
 
 > Whether newly uploaded artifacts are private or public depends on the registry.  See your registry documentation.  This will also tell you how to change the visibility if the default is not what you want.
 
@@ -78,6 +79,14 @@ $ spin up -f ghcr.io/alyssa-p-hacker/hello-world:v1
 
 > Remember that if the artifact is private you will need to be logged in, with permission to access it.
 
+### Running Published Applications by Digest
+
+Registry versions are mutable; that is, the owner of an application can change which build the `:v1` label points to at any time.  If you want to run a specific build of the package, you can refer to it by _digest_.  This is similar to a Git commit hash: it is immutable, meaning the same digest always gets the exact same data, no matter what the package owner does.  To do this, use the `@sha256:...` syntax instead of the `:v...` syntax:
+
+```bash
+$ spin up -f ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
+```
+
 ### Pulling a Published Application
 
 `spin up` automatically downloads the application from the registry. If you want to manually download the application, without running it, use the `spin registry pull` command:
@@ -86,6 +95,7 @@ $ spin up -f ghcr.io/alyssa-p-hacker/hello-world:v1
 
 ```bash
 $ spin registry pull ghcr.io/alyssa-p-hacker/hello-world:v1
+$ spin registry pull ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
 ```
 
 > Downloaded applications are cached. When run, or pulled again, Spin checks to see if they have changed from the cached copy, and downloads only the changes if any.
@@ -103,7 +113,7 @@ $ spin registry push ghcr.io/alyssa-p-hacker/hello-world:v1
 
 # You can now sign your Spin app using Cosign (or any other tool that can sign
 # OCI registry objects).
-$ COSIGN_EXPERIMENTAL=1 cosign sign ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
+$ cosign sign ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
 Generating ephemeral keys...
 Retrieving signed certificate...
 tlog entry created with index: 12519542
@@ -111,7 +121,7 @@ Pushing signature to: ghcr.io/alyssa-p-hacker/hello-world
 
 # Someone interested in your application can now use Cosign to verify the signature
 # before running the application.
-$ COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
+$ cosign verify ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
 Verification for ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19 --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
@@ -119,5 +129,7 @@ The following checks were performed on each of these signatures:
   - Any certificates were verified against the Fulcio roots.
 
 # The consumer of your app can now run it from the registry.
-$ spin up -f ghcr.io/alyssa-p-hacker/hello-world:v1
+$ spin up -f ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
 ```
+
+> You'll need Cosign 2.0 or above to verify Spin artifacts.
