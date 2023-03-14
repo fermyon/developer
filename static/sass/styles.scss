@@ -696,15 +696,15 @@ html.dark-theme {
 					width: 100vw;
 					height: 100vw;
 					opacity: 0;
-					transition: backdrop-filter ease-in-out 1s 0.1s; 
 				}
-
+				
 				&:hover {
 					+.overlay {
 						// display: block;
 						left: 0;
 						opacity: 1;
 						backdrop-filter: blur(6px);
+						transition: backdrop-filter ease-in-out 1s 0.1s; 
 					}
 				}
 

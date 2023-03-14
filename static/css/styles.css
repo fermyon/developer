@@ -2326,7 +2326,6 @@ html.dark-theme .multitab-content {
   width: 100vw;
   height: 100vw;
   opacity: 0;
-  transition: -webkit-backdrop-filter 1s ease-in-out .1s, backdrop-filter 1s ease-in-out .1s;
   position: fixed;
   top: 0;
   left: 500%;
@@ -2336,6 +2335,7 @@ html.dark-theme .multitab-content {
   opacity: 1;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
+  transition: -webkit-backdrop-filter 1s ease-in-out .1s, backdrop-filter 1s ease-in-out .1s;
   left: 0;
 }
 
@@ -3224,8 +3224,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  border-bottom-left-radius: .5em;
   top: 0;
   left: 3em;
 }
