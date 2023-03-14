@@ -7,7 +7,7 @@ class codeblockLanguageTab {
         this.lang = el("a")
         this.el = el("li", {
             onclick: function (e) {
-                parentCallback(this.index)
+                parentCallback(this.index, e.target)
             }.bind(this)
         }, this.lang)
     }
@@ -37,10 +37,10 @@ class multiTabBlockHandler {
         this.tabs.update(this.langs, { active: 0 })
         this.updateTabContent(this.active)
     }
-    ChildEventHandler(data) {
+    ChildEventHandler(data, element) {
         this.tabs.update(this.langs, { active: data })
         this.updateTabContent(data)
-        this.parentCallback(this.tabClass, this.langs[data], true)
+        this.parentCallback(this.tabClass, this.langs[data], true, true, element)
     }
     updateTabContent(data) {
         for (let i = 0; i < this.nodes.length; i++) {
@@ -48,9 +48,7 @@ class multiTabBlockHandler {
         }
     }
     globalTabUpdate(data) {
-        console.log("global update", data)
         let activeIndex = this.langs.indexOf(data)
-        console.log(activeIndex)
         if (activeIndex < 0) return
         this.tabs.update(this.langs, { active: activeIndex })
         this.updateTabContent(activeIndex)
@@ -90,17 +88,26 @@ class multiTabContentHandler {
             }
          })
     }
-    updateTabs(tabClass, value, updateLocalStorage) {
+    updateTabs(tabClass, value, updateLocalStorage, isUserEvent, element) {
         if (tabClass == "soloblock") {
             return
         }
         this.selectedTab[tabClass] = value
-        console.log("setting value", value)
+        let originalOffset, newOffset  
+        if (isUserEvent) {
+            originalOffset = element.getBoundingClientRect().top
+        }
         this.handler.map(k => {
             if (k.class == tabClass) {
+                
                 k.tabBlock.globalTabUpdate(value)
+                
             }
         })
+        if (isUserEvent) {
+            newOffset = element.getBoundingClientRect().top + document.documentElement.scrollTop
+            window.scroll(0, newOffset - originalOffset)
+        }
         if(updateLocalStorage) localStorage.setItem("toggleTabSelections", JSON.stringify(this.selectedTab))
     }
 }
