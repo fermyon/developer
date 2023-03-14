@@ -1882,6 +1882,10 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   padding: 1.125em 1.25rem !important;
 }
 
+.documentation .content pre code .hljs-comment {
+  color: #bbb !important;
+}
+
 .documentation .content h1 code, .documentation .content h2 code, .documentation .content h3 code, .documentation .content h4 code, .documentation .content h5 code, .documentation .content h6 code {
   font-weight: 600;
   font-size: .825em !important;
