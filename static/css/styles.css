@@ -1878,8 +1878,7 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content pre code {
-  margin-right: 2.75rem;
-  padding: 1.125em 1.25rem !important;
+  padding: 1.125em 3.875rem 1.25rem 1.25rem !important;
 }
 
 .documentation .content pre code .hljs-comment {
