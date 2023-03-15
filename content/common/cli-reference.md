@@ -1230,7 +1230,7 @@ CLI commands have four phases that indicate levels of stability:
 | `spin new`                                                 | Stable      |
 | `spin plugins <install\|list\|uninstall\|update\|upgrade>` | Stable      |
 | `spin templates <install\|list\|uninstall\|upgrade>`       | Stable      |
-| `spin up`                                                  | Stable      |
+| `spin up`                                                  | Stabilizing |
 | `spin cloud <deploy\|login>`                               | Stabilizing |
 | `spin registry`                                            | Stabilizing |
 | `spin bindle <prepare\|push>`                              | Deprecated  |
