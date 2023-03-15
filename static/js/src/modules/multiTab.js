@@ -59,7 +59,9 @@ class multiTabContentHandler {
     constructor() {
         this.selectedTab = JSON.parse(localStorage.getItem("toggleTabSelections")) || {
             os: null,
-            code: null,
+        }
+        if (this.selectedTab.os == null ) {
+            this.selectedTab.os = detectOS()
         }
         this.handler = []
         let multiTabBlocks = document.querySelectorAll("div.multitab-content-wrapper")
@@ -68,48 +70,65 @@ class multiTabContentHandler {
             this.handler[index] = {}
             this.handler[index].class = multiTabBlock.dataset.class.toLowerCase()
             this.handler[index].tabBlock = new multiTabBlockHandler(tabs, this.handler[index].class,
-                 this.selectedTab[this.handler[index].class], this.updateTabs.bind(this))
+                this.selectedTab[this.handler[index].class], this.updateTabs.bind(this))
             multiTabBlock.insertBefore(this.handler[index].tabBlock.el, multiTabBlock.firstChild);
         })
-        Object.keys(this.selectedTab).map(k =>{
-            if (this.selectedTab[k] ) {
+        Object.keys(this.selectedTab).map(k => {
+            if (this.selectedTab[k]) {
                 this.updateTabs(k, this.selectedTab[k], false)
             }
         })
 
         window.addEventListener('storage', (e) => {
-            if(e.key == "toggleTabSelections") {
-                Object.keys(this.selectedTab).map(k =>{
+            if (e.key == "toggleTabSelections") {
+                Object.keys(this.selectedTab).map(k => {
                     this.selectedTab = JSON.parse(localStorage.getItem("toggleTabSelections")) || this.selectedTab
-                    if (this.selectedTab[k] ) {
+                    if (this.selectedTab[k]) {
                         this.updateTabs(k, this.selectedTab[k], false)
                     }
                 })
             }
-         })
+        })
     }
     updateTabs(tabClass, value, updateLocalStorage, isUserEvent, element) {
         if (tabClass == "soloblock") {
             return
         }
         this.selectedTab[tabClass] = value
-        let originalOffset, newOffset  
+        let originalOffset, newOffset
         if (isUserEvent) {
             originalOffset = element.getBoundingClientRect().top
         }
         this.handler.map(k => {
             if (k.class == tabClass) {
-                
+
                 k.tabBlock.globalTabUpdate(value)
-                
+
             }
         })
         if (isUserEvent) {
             newOffset = element.getBoundingClientRect().top + document.documentElement.scrollTop
             window.scroll(0, newOffset - originalOffset)
         }
-        if(updateLocalStorage) localStorage.setItem("toggleTabSelections", JSON.stringify(this.selectedTab))
+        if (updateLocalStorage) localStorage.setItem("toggleTabSelections", JSON.stringify(this.selectedTab))
     }
+}
+
+function detectOS() {
+    let OS = null
+    let userAgent = navigator.userAgent.toLowerCase()
+    switch (true) {
+        case (userAgent.indexOf("win") != -1):
+            OS = "Windows";
+            break
+        case (userAgent.indexOf("mac") != -1):
+            OS = "macOS";
+            break
+        case (userAgent.indexOf("linux") != -1):
+            OS = "Linux";
+            break
+    }
+    return OS
 }
 
 export { multiTabContentHandler }
