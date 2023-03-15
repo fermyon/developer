@@ -35,10 +35,11 @@ enable_shortcodes = true
     - [Trigger Options](#trigger-options)
       - [Redis Request Handler](#redis-request-handler)
       - [HTTP Request Handler](#http-request-handler)
+  - [CLI Stability](#cli-stability-table)
 
 ## Spin
 
-This page documents the Spin Command Line Interface (CLI). Specifically, all of the available Spin Options and Subcommands. You can reproduce this documentation on your machine by using the `--help` For example:
+This page documents the Spin Command Line Interface (CLI). Specifically, all of the available Spin Options and Subcommands. For more information on command stability, see the [CLI stability table](#cli-stability-table). You can reproduce the Spin CLI documentation on your machine by using the `--help` flag. For example:
 
 {{ tabs "spin-version" }}
 
@@ -1204,6 +1205,35 @@ TRIGGER OPTIONS:
             
             [env: SPIN_TLS_KEY=]
 ```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+### CLI Stability Table
+
+CLI commands have four phases that indicate levels of stability:
+
+- `Experimental`: These commands are experiments and may or may not be available in later versions of the CLI.
+- `Stabilizing`: These commands have moved out of the `experimental` phase and we are now in the active process of stabilizing them. This includes updating flags, command output, errors, and more.
+- `Stable`: These commands have moved out of the `stablizing` phase and will not change in backwards incompatible ways until the next major version release.
+- `Deprecated`: Support for these commands will be removed in a future release.
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v0.10.0"}}
+
+| Command                                                    | Stability   |
+| ---------------------------------------------------------- | ----------- |
+| `spin add`                                                 | Stable      |
+| `spin build`                                               | Stable      |
+| `spin new`                                                 | Stable      |
+| `spin plugins <install\|list\|uninstall\|update\|upgrade>` | Stable      |
+| `spin templates <install\|list\|uninstall\|upgrade>`       | Stable      |
+| `spin up`                                                  | Stable      |
+| `spin cloud <deploy\|login>`                               | Stabilizing |
+| `spin registry`                                            | Stabilizing |
+| `spin bindle <prepare\|push>`                              | Deprecated  |
 
 {{ blockEnd }}
 
