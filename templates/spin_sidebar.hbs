@@ -52,6 +52,8 @@
             Tutorials
         </p>
         <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/managing-templates" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-templates">Managing Templates</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/managing-plugins" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-plugins">Managing Plugins</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/url-shortener">Building a URL Shortener With Spin</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/spin-oci">Hosting Spin Apps in OCI Registries</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/kv-store" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/kv-store">Persisting Data With Spin</a></li>
