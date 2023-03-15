@@ -1,6 +1,8 @@
 title = "Spin Architecture and Internals"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
+[extra]
+url = "https://github.com/fermyon/developer/blob/main//content/spin/architecture.md"
 
 ---
 - [How Spin Runs an Application](#how-spin-runs-an-application)

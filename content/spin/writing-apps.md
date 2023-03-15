@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/writing-apps.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/writing-apps.md"
 
 ---
 - [Writing an Application Manifest](#writing-an-application-manifest)

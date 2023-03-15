@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/rdbms-storage.md"
+url = "https://github.com/fermyon/developer/blob/main//content/spin/rdbms-storage.md"
 
 ---
 - [Using MySQL and PostgreSQL From Applications](#using-mysql-and-postgresql-from-applications)
