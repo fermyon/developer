@@ -11,10 +11,12 @@ keywords = "install"
 
 ### Housekeeping
 
-Please go ahead and [install](https://www.notion.so/Spin-9bbab5a75a46449390a2795ddac39f02) (or update to) the latest version of Spin. The Spin version information is available via the following command:
+Please go ahead and [install](/spin/install) (or update) Spin. The Spin version information is available via the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin --version
 ```
+
+### How to Install Plugins
