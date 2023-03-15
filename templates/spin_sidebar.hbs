@@ -58,6 +58,13 @@
         </ul>
 
         <p class="menu-label">
+            Tools
+        </p>
+        <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/template-managing" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/template-managing">Managing Templates</a></li>
+        </ul>
+
+        <p class="menu-label">
             References
         </p>
         <ul class="menu-list">
