@@ -1,4 +1,4 @@
-title = "Language Guide Overview"
+title = "Language Support Overview"
 template = "common_main"
 date = "2022-01-01T00:00:01Z"
 enable_shortcodes = true
@@ -6,91 +6,91 @@ enable_shortcodes = true
 
 ---
 
-The following code block outlines, in the context of the Spin framework, what languages have SDK support, and what SDK features are available in each of those languages:
+This page contains information about language support for Spin features:
 
 {{ tabs "sdk-type" }}
 
-{{ startTab "C#/.NET"}}
+{{ startTab "Rust"}}
 
 **SDK: Outbound HTTP**
 
-Local:
+Local: Yes
 
-Cloud:
+Cloud: Yes
 
-Documentation:
+Documentation: [https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests)
 
-Code Examples:
+Code Examples: [https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http](https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http)
 
 Blog Article[s]:
 
 **SDK: Key/Value**
 
-Local:
+Local: Yes
 
-Cloud:
+Cloud: Soon
 
-Documentation:
+Documentation: [https://developer.fermyon.com/spin/kv-store.md](https://developer.fermyon.com/spin/kv-store.md)
 
-Code Examples:
+Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-key-value](https://github.com/fermyon/spin/tree/main/examples/rust-key-value)
 
 Blog Article[s]:
 
 **SDK: Outbound MySQL**
 
-Local:
+Local: Yes
 
-Cloud:
+Cloud: Yes (non-hosted)
 
-Documentation:
+Documentation: Soon
 
-Code Examples:
+Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-mysql](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-mysql)
 
 Blog Article[s]:
 
 **SDK: Outbound Postgres**
 
-Local:
+Local: Yes
 
-Cloud:
+Cloud: Yes (non-hosted)
 
-Documentation:
+Documentation: Soon
 
-Code Examples:
+Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-pg](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-pg)
 
 Blog Article[s]:
 
 **SDK: Outbound Redis**
 
-Local:
+Local: Yes
 
-Cloud:
+Cloud: Yes (non-hosted)
 
-Documentation:
+Documentation: [https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components)
 
-Code Examples:
+Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis)]
 
 Blog Article[s]:
 
 **Trigger: Custom (Cron)**
 
-Local:
+Local: Yes
 
-Cloud:
+Cloud: No
 
-Documentation:
+Documentation: [https://developer.fermyon.com/spin/extending-and-embedding](https://developer.fermyon.com/spin/extending-and-embedding)
 
-Code Examples:
+Code Examples: Soon
 
 Blog Article[s]:
 
 **Trigger: HTTP**
 
-Local:
+Local: Yes
 
-Cloud:
+Cloud: Yes
 
-Documentation:
+Documentation: [https://developer.fermyon.com/spin/http-trigger](https://developer.fermyon.com/spin/http-trigger)
 
 Code Examples:
 
@@ -98,13 +98,13 @@ Blog Article[s]:
 
 **Trigger: Redis**
 
-Local:
+Local: Yes
 
-Cloud:
+Cloud: No
 
-Documentation:
+Documentation: [https://developer.fermyon.com/spin/redis-trigger](https://developer.fermyon.com/spin/redis-trigger)
 
-Code Examples:
+Code Examples: [https://github.com/fermyon/spin/tree/main/examples/redis-rust](https://github.com/fermyon/spin/tree/main/examples/redis-rust)
 
 Blog Article[s]:
 
@@ -112,119 +112,7 @@ Blog Article[s]:
 
 {{ blockEnd }}
 
-{{ startTab "Go"}}
-
-**SDK: Outbound HTTP**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-**SDK: Key/Value**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-**SDK: Outbound MySQL**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-**SDK: Outbound Postgres**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-**SDK: Outbound Redis**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-**Trigger: Custom (Cron)**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-**Trigger: HTTP**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-**Trigger: Redis**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-**Feedback**
-
-Local:
-
-Cloud:
-
-Documentation:
-
-Code Examples:
-
-Blog Article[s]:
-
-{{ blockEnd }}
-
-{{ startTab "Javascript/Typescript"}}
+{{ startTab "TypeScript"}}
 
 **SDK: Outbound HTTP**
 
@@ -428,87 +316,87 @@ Blog Article[s]:
 
 {{ blockEnd }}
 
-{{ startTab "Rust"}}
+{{ startTab "TinyGo"}}
 
 **SDK: Outbound HTTP**
 
-Local: Yes
+Local:
 
-Cloud: Yes
+Cloud:
 
-Documentation: [https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests)
+Documentation:
 
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http](https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http)
+Code Examples:
 
 Blog Article[s]:
 
 **SDK: Key/Value**
 
-Local: Yes
+Local:
 
-Cloud: Soon
+Cloud:
 
-Documentation: [https://developer.fermyon.com/spin/kv-store.md](https://developer.fermyon.com/spin/kv-store.md)
+Documentation:
 
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-key-value](https://github.com/fermyon/spin/tree/main/examples/rust-key-value)
+Code Examples:
 
 Blog Article[s]:
 
 **SDK: Outbound MySQL**
 
-Local: Yes
+Local:
 
-Cloud: Yes (non-hosted)
+Cloud:
 
-Documentation: Soon
+Documentation:
 
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-mysql](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-mysql)
+Code Examples:
 
 Blog Article[s]:
 
 **SDK: Outbound Postgres**
 
-Local: Yes
+Local:
 
-Cloud: Yes (non-hosted)
+Cloud:
 
-Documentation: Soon
+Documentation:
 
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-pg](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-pg)
+Code Examples:
 
 Blog Article[s]:
 
 **SDK: Outbound Redis**
 
-Local: Yes
+Local:
 
-Cloud: Yes (non-hosted)
+Cloud:
 
-Documentation: [https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components)
+Documentation:
 
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis)]
+Code Examples:
 
 Blog Article[s]:
 
 **Trigger: Custom (Cron)**
 
-Local: Yes
+Local:
 
-Cloud: No
+Cloud:
 
-Documentation: [https://developer.fermyon.com/spin/extending-and-embedding](https://developer.fermyon.com/spin/extending-and-embedding)
+Documentation:
 
-Code Examples: Soon
+Code Examples:
 
 Blog Article[s]:
 
 **Trigger: HTTP**
 
-Local: Yes
+Local:
 
-Cloud: Yes
+Cloud:
 
-Documentation: [https://developer.fermyon.com/spin/http-trigger](https://developer.fermyon.com/spin/http-trigger)
+Documentation:
 
 Code Examples:
 
@@ -516,13 +404,125 @@ Blog Article[s]:
 
 **Trigger: Redis**
 
-Local: Yes
+Local:
 
-Cloud: No
+Cloud:
 
-Documentation: [https://developer.fermyon.com/spin/redis-trigger](https://developer.fermyon.com/spin/redis-trigger)
+Documentation:
 
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/redis-rust](https://github.com/fermyon/spin/tree/main/examples/redis-rust)
+Code Examples:
+
+Blog Article[s]:
+
+**Feedback**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
+
+Blog Article[s]:
+
+{{ blockEnd }}
+
+{{ startTab "C#"}}
+
+**SDK: Outbound HTTP**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
+
+Blog Article[s]:
+
+**SDK: Key/Value**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
+
+Blog Article[s]:
+
+**SDK: Outbound MySQL**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
+
+Blog Article[s]:
+
+**SDK: Outbound Postgres**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
+
+Blog Article[s]:
+
+**SDK: Outbound Redis**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
+
+Blog Article[s]:
+
+**Trigger: Custom (Cron)**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
+
+Blog Article[s]:
+
+**Trigger: HTTP**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
+
+Blog Article[s]:
+
+**Trigger: Redis**
+
+Local:
+
+Cloud:
+
+Documentation:
+
+Code Examples:
 
 Blog Article[s]:
 
