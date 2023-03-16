@@ -136,7 +136,9 @@ By default, Spin will only _upgrade_ plugins. If you want to allow Spin to roll 
 
 ## Refreshing the Catalogue
 
-The first time you install a plugin from the catalogue, Spin creates a local cache of the catalogue. It continues to use this local cache for future install, list and upgrade commands; this is similar to OS package managers such as `apt`, and avoids rate limiting on the catalogue. However, this means that in order to see new catalogue entries - new plugins or new versions - you must first update the cache. To do this, run `spin plugins update`.
+The first time you install a plugin from the catalogue, Spin creates a local cache of the catalogue. It continues to use this local cache for future install, list and upgrade commands; this is similar to OS package managers such as `apt`, and avoids rate limiting on the catalogue. However, this means that in order to see new catalogue entries - new plugins or new versions - you must first update the cache. 
+
+To update your local cache of the catalogue, run `spin plugins update`.
 
 ## Next Steps
 
