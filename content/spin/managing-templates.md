@@ -8,7 +8,6 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/template-managing.
 ---
 - [Installing Templates](#installing-templates)
   - [Installing From the Spin Git Repository](#installing-from-the-spin-git-repository)
-    - [Installing as Part of a Specific Language SDK](#installing-as-part-of-a-specific-language-sdk)
   - [Installing From a Specific Branch](#installing-from-a-specific-branch)
   - [Installing From a Local Directory](#installing-from-a-local-directory)
 - [Viewing Your Installed Templates](#viewing-your-installed-templates)
@@ -37,19 +36,7 @@ $ spin templates install --git https://github.com/fermyon/spin
 
 The above command installs _all_ templates in the repository.
 
-#### Installing as Part of a Specific Language SDK
-
-As mentioned in the [Introducing the Spin JavaScript and TypeScript SDK](https://www.fermyon.com/blog/spin-js-sdk) blog article, you can install a template relating to a specific language SDK. For example, the template relating specifically to the [Spin JS SDK](https://github.com/fermyon/spin-js-sdk) can be installed using the following command:
-
-<!-- @nocpy -->
-
-```bash
-spin templates install --git https://github.com/fermyon/spin-js-sdk
-```
-
-> Note: Building Spin components in JavaScript is experimental and requires more than just the template. Please see the [Javascript Components](https://developer.fermyon.com/spin/javascript-components) section of the documentation for more information. Similarly, if interested in building Spin components in Python (also currently experimental) see the ([spin-python-sdk](https://github.com/fermyon/spin-python-sdk) Git repository, [blog article](https://www.fermyon.com/blog/spin-python-sdk) and [technical documentation](https://developer.fermyon.com/spin/python-components) for more information).
->
-> [WebAssembly for .NET Developers: Introducing the Spin .NET SDK](https://www.fermyon.com/blog/webassembly-for-dotnet-developers-spin-sdk-intro)
+> Language SDKs often ship templates in their repositories; see the relevant language guide to find out where to get its templates.
 
 ### Installing From a Specific Branch
 
