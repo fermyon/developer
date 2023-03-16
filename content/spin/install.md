@@ -13,7 +13,7 @@ keywords = "install"
 
 ## Installing Spin
 
-Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windows with WSL2 (amd64).
+Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windows (amd64).
 
 {{ tabs "os" }}
 
@@ -79,7 +79,9 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "Windows"}}
 
-On Windows systems, you can download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a>.
+If you want to use WSL (Windows Subsystem for Linux), please follow the instructions for using Linux.
+
+If using Windows natively (PowerShell / cmd.exe), you can download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a>.
 
 Simply unzip the binary release and place the `spin.exe` in your system path.
 
