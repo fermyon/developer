@@ -12,103 +12,18 @@ This page contains information about language support for Spin features:
 
 {{ startTab "Rust"}}
 
-**SDK: Outbound HTTP**
-
-Local: Yes
-
-Cloud: Yes
-
-Documentation: [https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests)
-
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http](https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http)
-
-Blog Article[s]:
-
-**SDK: Key/Value**
-
-Local: Yes
-
-Cloud: Soon
-
-Documentation: [https://developer.fermyon.com/spin/kv-store.md](https://developer.fermyon.com/spin/kv-store.md)
-
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-key-value](https://github.com/fermyon/spin/tree/main/examples/rust-key-value)
-
-Blog Article[s]:
-
-**SDK: Outbound MySQL**
-
-Local: Yes
-
-Cloud: Yes (non-hosted)
-
-Documentation: Soon
-
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-mysql](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-mysql)
-
-Blog Article[s]:
-
-**SDK: Outbound Postgres**
-
-Local: Yes
-
-Cloud: Yes (non-hosted)
-
-Documentation: Soon
-
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-pg](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-pg)
-
-Blog Article[s]:
-
-**SDK: Outbound Redis**
-
-Local: Yes
-
-Cloud: Yes (non-hosted)
-
-Documentation: [https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components)
-
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis)]
-
-Blog Article[s]:
-
-**Trigger: Custom (Cron)**
-
-Local: Yes
-
-Cloud: No
-
-Documentation: [https://developer.fermyon.com/spin/extending-and-embedding](https://developer.fermyon.com/spin/extending-and-embedding)
-
-Code Examples: Soon
-
-Blog Article[s]:
-
-**Trigger: HTTP**
-
-Local: Yes
-
-Cloud: Yes
-
-Documentation: [https://developer.fermyon.com/spin/http-trigger](https://developer.fermyon.com/spin/http-trigger)
-
-Code Examples:
-
-Blog Article[s]:
-
-**Trigger: Redis**
-
-Local: Yes
-
-Cloud: No
-
-Documentation: [https://developer.fermyon.com/spin/redis-trigger](https://developer.fermyon.com/spin/redis-trigger)
-
-Code Examples: [https://github.com/fermyon/spin/tree/main/examples/redis-rust](https://github.com/fermyon/spin/tree/main/examples/redis-rust)
-
-Blog Article[s]:
-
-**Feedback**
+| Feature | SDK Supported? | Learn More |
+|-----|-----|-------|
+| **Triggers** |
+| HTTP | Supported | [Documentation](https://developer.fermyon.com/spin/http-trigger)<br/> [Code example](https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http)<br/>Blog|
+| Redis | Supported | [Documentation](https://developer.fermyon.com/spin/redis-trigger)<br/> [Code example](https://github.com/fermyon/spin/tree/main/examples/redis-rust)<br/>Blog|
+| Custom | Supported | [Documentation](https://developer.fermyon.com/spin/extending-and-embedding)<br/>Code example<br/>Blog|
+| **APIs** |
+| Outbound HTTP | Supported | [Documentation](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests)<br/>[Code example](https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http)<br/>Blog|
+| Key Value Storage | Supported | [Documentation](https://developer.fermyon.com/spin/kv-store.md)<br/>[Code example](https://github.com/fermyon/spin/tree/main/examples/rust-key-value)<br/>Blog|
+| Outbound MySQL | Supported | [Documentation](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications)<br/>[Code example](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-mysql)<br/>[Blog](https://www.fermyon.com/blog/building-a-social-app-with-spin-1) |
+| Outbound PostgreSQL | Supported | [Documentation](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications)<br/>[Code example](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-pg)<br/>Blog|
+| Outbound Redis | Supported | [Documentation](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components)<br/>[Code example](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis)<br/>Blog|
 
 {{ blockEnd }}
 
