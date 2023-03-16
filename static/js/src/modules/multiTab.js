@@ -60,6 +60,13 @@ class multiTabContentHandler {
         this.selectedTab = JSON.parse(localStorage.getItem("toggleTabSelections")) || {
             os: null,
         }
+        // Set defaults specified in the query parameter
+        let queryParamSelectors = filterMultitabQuery()
+        Object.keys(queryParamSelectors).map(k => {
+            this.selectedTab[k] = queryParamSelectors[k]
+        })
+
+        // If no OS preference set, try detect the user OS
         if (this.selectedTab.os == null ) {
             this.selectedTab.os = detectOS()
         }
@@ -129,6 +136,19 @@ function detectOS() {
             break
     }
     return OS
+}
+
+function filterMultitabQuery() {
+    let queryString = window.location.search
+    let urlParams = new URLSearchParams(queryString)
+    let query = Object.fromEntries(urlParams.entries())
+    let multitabQuery = Object.keys(query).filter(k => {
+        return k.indexOf("multitab_") == 0
+    }).reduce((obj, key) => {
+        obj[key.replace("multitab_", "")] = query[key];
+        return obj;
+      }, {});
+    return multitabQuery
 }
 
 export { multiTabContentHandler }
