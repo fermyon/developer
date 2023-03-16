@@ -1,24 +1,132 @@
 title = "Managing Templates"
 template = "spin_main"
-date = "2023-01-01T00:00:00Z"
+date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-keywords = "install"
+url = "https://github.com/fermyon/spin/blob/main/docs/content/template-managing.md"
 
 ---
+- [Installing Templates](#installing-templates)
+  - [Installing From the Spin Git Repository](#installing-from-the-spin-git-repository)
+    - [Installing as Part of a Specific Language SDK](#installing-as-part-of-a-specific-language-sdk)
+  - [Installing From a Specific Branch](#installing-from-a-specific-branch)
+  - [Installing From a Local Directory](#installing-from-a-local-directory)
+- [Viewing Your Installed Templates](#viewing-your-installed-templates)
+- [Uninstalling Templates](#uninstalling-templates)
+- [Upgrading Templates](#upgrading-templates)
+  - [Upgrading Templates From a Local Directory](#upgrading-templates-from-a-local-directory)
+- [Next Steps](#next-steps)
 
-## Managing Templates
+Templates are a Spin tool for scaffolding new applications and components. You can use them via the `spin new` and `spin add` commands. For more information about creating applications with templates, see [Writing Spin Applications](writing-apps).
 
-Spin templates are designed to allow application developers to create the skeleton of an application or component via the `spin` command. You can start learning about how to manage Spin templates by reading [the template section](/common/cli-reference#templates) of the Spin Command Line Interface (CLI) documentation. If you are interested, there is documentation about [creating Spin templates](/spin/template-authoring) for advanced users and alternate use cases. For now, let’s focus on managing and using Spin’s existing templates.
+## Installing Templates
 
-### Housekeeping
+> This section covers general principles for installing templates. For information about installing templates for specific languages, see [Writing Spin Applications](writing-apps).
 
-Please go ahead and [install](/spin/install) (or update) Spin. The Spin version information is available via the following command:
+To install templates, use the `spin templates install` command. You can install templates from a Git repository, or while [authoring templates](template-authoring) you can install them from a local directory.
+
+### Installing From the Spin Git Repository
+
+To install templates from the Spin Git repository, run `spin templates install --git`.
+
+<!-- @nocpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin
+```
+
+The above command installs _all_ templates in the repository.
+
+#### Installing as Part of a Specific Language SDK
+
+As mentioned in the [Introducing the Spin JavaScript and TypeScript SDK](https://www.fermyon.com/blog/spin-js-sdk) blog article, you can install a template relating to a specific language SDK. For example, the template relating specifically to the [Spin JS SDK](https://github.com/fermyon/spin-js-sdk) can be installed using the following command:
+
+<!-- @nocpy -->
+
+```bash
+spin templates install --git https://github.com/fermyon/spin-js-sdk
+```
+
+> Note: Building Spin components in JavaScript is experimental and requires more than just the template. Please see the [Javascript Components](https://developer.fermyon.com/spin/javascript-components) section of the documentation for more information. Similarly, if interested in building Spin components in Python (also currently experimental) see the ([spin-python-sdk](https://github.com/fermyon/spin-python-sdk) Git repository, [blog article](https://www.fermyon.com/blog/spin-python-sdk) and [technical documentation](https://developer.fermyon.com/spin/python-components) for more information).
+>
+> [WebAssembly for .NET Developers: Introducing the Spin .NET SDK](https://www.fermyon.com/blog/webassembly-for-dotnet-developers-spin-sdk-intro)
+
+### Installing From a Specific Branch
+
+By default, if you install templates from a Git repository, Spin tries to find a repo tag that matches the version of Spin, and installs from that tag.  Failing this, it installs from `HEAD`.  If you would like to install from a specific tag or branch, pass the `--branch` option:
+
+<!-- @nocpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin --branch spin/templates/v0.8
+```
+
+### Installing From a Local Directory
+
+To install templates from your local file system, run `spin templates install --dir`.
+
+> The directory you pass must be one that _contains_ a `templates` directory.  Don't pass the `templates` directory itself!
+
+<!-- @nocpy -->
+
+```bash
+# Expects to find a directory ~/dev/spin-befunge-sdk/templates
+$ spin templates install --dir ~/dev/spin-befunge-sdk
+```
+
+See [Template Authoring](template-authoring) for more details on this layout.
+
+## Viewing Your Installed Templates
+
+To see what templates you have installed, run `spin templates list`.
+
+You can use the `--verbose` option to see additional information such as where they were installed from.
+
+## Uninstalling Templates
+
+You can uninstall templates using `spin templates uninstall` with the template name:
+
+<!-- @nocpy -->
+
+```bash
+$ spin templates uninstall redis-befunge
+```
+
+> Spin doesn't currently support uninstalling a whole repo-worth of templates, only individual templates.
+
+## Upgrading Templates
+
+When you upgrade Spin, you will typically want to upgrade your templates to match.  This means new applications and components will get dependencies that match the Spin version you are using.  To do this, run `spin templates upgrade`:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin --version
+$ spin templates upgrade
+Select repos to upgrade. Use Space to select/deselect and Enter to confirm selection.
+  [x] https://github.com/fermyon/spin-python-sdk
+  [ ] https://github.com/fermyon/spin (at spin/templates/v1.0)
+> [x] https://github.com/fermyon/spin-js-sdk
 ```
 
-### How to Install Templates
+Use the cursor keys and the space bar to select the repositories you want to upgrade, then hit Enter to upgrade the selected repositories.
+
+> Upgrading happens at the repo level, not the individual template level.  If you've uninstalled templates, upgrading the repo they came from will bring them back.
+
+If you want to upgrade _all_ repositories without being prompted, run `spin templates upgrade --all`.
+
+As mentioned above, if you want to check which templates come from which repositories use `--verbose` i.e. `spin templates list --verbose`.
+
+### Upgrading Templates From a Local Directory
+
+`spin templates upgrade` only upgrades from Git repositories.  If you want to upgrade and your templates are in a local directory, run the `spin templates install` command with the `--upgrade` flag:
+
+<!-- @nocpy -->
+
+```bash
+$ spin templates install --dir ~/dev/spin-befunge-sdk --upgrade
+```
+
+## Next Steps
+
+- [Install the templates for your language](quickstart)
+- [Use your language templates to create an application](writing-apps)
