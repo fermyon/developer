@@ -96,7 +96,7 @@ $ spin plugin install py2wasm
 $ spin templates install --git https://github.com/fermyon/spin-python-sdk
 # Create the new http-py application
 $ spin new --accept-defaults http-py hello
-# Install toml
+# Install toml, using pipenv (Note: "pip3 install pipenv" will install pipenv if necessary).
 $ pipenv install toml
 
 # Reference: https://www.fermyon.com/blog/spin-python-sdk
