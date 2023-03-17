@@ -214,7 +214,7 @@ With all Node dependencies installed, you can now check for broken links (which 
 $ npm run test
 ```
 
-**Hint:** To save time, by not checking for broken URLs during each **local** change, use the optional `npx` linting only approach:
+**Hint:** Optionally you can run only the linter with the following command:
 
 <!-- @nocpy -->
 
