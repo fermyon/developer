@@ -1,5 +1,5 @@
 title = "Language Support Overview"
-template = "common_main"
+template = "spin_main"
 date = "2022-01-01T00:00:01Z"
 enable_shortcodes = true
 [extra]
