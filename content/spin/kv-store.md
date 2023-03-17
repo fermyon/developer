@@ -85,6 +85,25 @@ $ spin new http-ts spin-key-value
 
 {{ blockEnd }}
 
+{{ startTab "Python" }}
+
+<!-- @selectiveCpy -->
+
+```bash
+# Install the py2wasm plugin
+$ spin plugin install py2wasm
+# Install the http-py template
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk
+# Create the new http-py application
+$ spin new --accept-defaults http-py hello
+# Install toml
+$ pipenv install toml
+
+# Reference: https://www.fermyon.com/blog/spin-python-sdk
+```
+
+{{ blockEnd }}
+
 {{ startTab "TinyGo" }}
 
 <!-- @selectiveCpy -->
@@ -153,6 +172,39 @@ key_value_stores = ["default"]
 route = "/..."
 [component.build]
 command = "npm run build"
+```
+
+{{ blockEnd }}
+
+{{ startTab "Python" }}
+
+```toml
+spin_version = "1"
+authors = ["Dev Eloper <dev.eloper@example.com>"]
+description = "hello"
+name = "hello"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "python-sdk-example"
+source = "app.wasm"
+
+# Set an environment variable to tell the code where to fetch the TOML file from:
+environment = { URL = "https://raw.githubusercontent.com/fermyon/spin/main/Cargo.toml" }
+
+# For security, components don't have permission to make outbound HTTP requests by default.
+# Here we grant permission to access the host specified in the URL above:
+allowed_http_hosts = ["https://raw.githubusercontent.com"]
+
+# Again for security, components don't have access to any key-value stores by default.
+# Here we grant permission to the default store for this application:
+key_value_stores = ["default"]
+
+[component.trigger]
+route = "/..."
+[component.build]
+command = "spin py2wasm app -o app.wasm"
 ```
 
 {{ blockEnd }}
@@ -291,6 +343,55 @@ fn handle_request(req: Request) -> Result<Response> {
 {{ blockEnd }}
 
 {{ startTab "TypeScript"}}
+
+<!-- @nocpy -->
+
+```typescript
+import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+
+const encoder = new TextEncoder()
+const decoder = new TextDecoder()
+
+export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+
+  let store = spinSdk.kv.openDefault()
+  let status = 200
+  let body
+
+  switch (request.method) {
+    case "POST":
+      store.set(request.uri, request.body || (new Uint8Array()).buffer)
+      break;
+    case "GET":
+      let val
+      try {
+        val = store.get(request.uri)
+        body = decoder.decode(val)
+      } catch (error) {
+        status = 404
+      }
+      break;
+    case "DELETE":
+      store.delete(request.uri)
+      break;
+    case "HEAD":
+      if (!store.exists(request.uri)) {
+        status = 404
+      }
+      break;
+    default:
+  }
+
+  return {
+    status: status,
+    body: body
+  }
+}
+```
+
+{{ blockEnd }}
+
+{{ startTab "Python"}}
 
 <!-- @nocpy -->
 
