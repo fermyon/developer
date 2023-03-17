@@ -1,104 +1,138 @@
-title = "Packaging and Distributing Spin Applications Using OCI"
+title = "Publishing and Distribution"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
+enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/spin/blob/main/docs/content/distributing-apps.md"
 
 ---
-- [The Open Container Initiative (OCI)](#the-open-container-initiative-oci)
-- [Distributing Spin Applications Based on the OCI Distribution Specification](#distributing-spin-applications-based-on-the-oci-distribution-specification)
-  - [Signing Spin Applications and Verifying Signatures](#signing-spin-applications-and-verifying-signatures)
-- [Distributing Spin Applications Using Bindle](#distributing-spin-applications-using-bindle)
+- [Logging Into a Registry](#logging-into-a-registry)
+  - [Logging In Using a Token](#logging-in-using-a-token)
+  - [Fallback Credentials](#fallback-credentials)
+- [Publishing a Spin Application to a Registry](#publishing-a-spin-application-to-a-registry)
+- [Running Published Applications](#running-published-applications)
+  - [Running Published Applications by Digest](#running-published-applications-by-digest)
+  - [Pulling a Published Application](#pulling-a-published-application)
+- [Signing Spin Applications and Verifying Signatures](#signing-spin-applications-and-verifying-signatures)
 
-## The Open Container Initiative (OCI)
+If you would like to publish a Spin application, so that other users can run it, you can do so using a _container registry_.
 
-The [OCI](https://opencontainers.org/) is an open governance structure for the express purpose of creating open industry standards around container formats and runtimes. In this tutorial, we show you how to distribute a Spin application, by leveraging the OCI. This exciting new feature is built on top of the [OCI registry artifacts project](https://github.com/opencontainers/artifacts).
+{{ details "What's all this about containers?" "The registry protocol was originally created to publish and distribute Docker containers. Over time, registries have evolved to host other kinds of artifact - see [the OCI registry artifacts project](https://github.com/opencontainers/artifacts) for more information. However, the term remains, in services such as GitHub Container Registry or AWS Elastic Container Registry, and in the generic description _OCI (Open Container Initiative) registries_. When you use a 'container' registry to publish and distribute Spin applications, there are no actual containers involved at all!" }}
 
-## Distributing Spin Applications Based on the OCI Distribution Specification
+Many cloud services offer public registries.  Examples include GitHub Container Registry, Docker Hub, or Amazon Elastic Container Registry.  These support both public and private distribution.  You can also run your own registry using open source software.
 
-Starting with [v0.8.0](https://github.com/fermyon/spin/releases/tag/v0.8.0), Spin supports distributing applications using existing container registry services such as GitHub Container Registry, Docker Hub, Azure ACR, or AWS ECR. This feature is experimental and will continue to evolve in future versions of Spin.
+## Logging Into a Registry
 
-While this feature is still in the experimental phase, the CLI will reuse the container registry authentication used by the Docker CLI, so you first have to log in to the registry service using an existing tool (such as `docker login`, or using the instructions provided by the registry service). In a future version, this will be improved using a Spin login command for the target registry.
+Before you can publish to a registry, or run applications whose registry artifacts are private, you must log in to the registry.  This example shows logging into the GitHub Container Registry, `ghcr.io`:
 
-Pushing an application to a registry:
+<!-- @selectiveCpy -->
+
+```bash
+$ spin registry login ghcr.io
+```
+
+If you don't provide any options to `spin registry login`, it prompts you for a username and password.
+
+### Logging In Using a Token
+
+In a non-interactive environment such as GitHub Actions, you will typically log in using a token configured in the environment settings, rather than a password.  To do this, use the `--password-stdin` flag, and `echo` the token value to the login command's standard input.  This example shows logging into GHCR from a GitHub action:
+
+<!-- @noCpy -->
+
+```bash
+$ echo "$\{{ secrets.GITHUB_TOKEN }}" | spin registry login ghcr.io --username $\{{ github.actor }} --password-stdin
+```
+
+Other environments will have different ways of referring to the token and user but the pattern remains the same.
+
+### Fallback Credentials
+
+If you have logged into a registry using `docker login`, but not using `spin registry login`, Spin will fall back to your Docker credentials.
+
+## Publishing a Spin Application to a Registry
+
+To publish an application to a registry, use the `spin registry push` command.  You must provide a _reference_ for the published application.  This is a string whose format is defined by the registry standard, and generally consists of `<registry>/<username>/<application-name>:<version>`.  (In specific circumstances you may be able to omit the username and/or the version.  If you want more detail on references, see the OCI documentation.)
+
+> Remember you will (usually) need to be logged in to publish to a registry.
+
+Here is an example of pushing an application to GHCR:
 
 <!-- @nocpy -->
 
 ```bash
-$ spin registry push ghcr.io/radu-matei/spin-hello-world:v1
-Pushed "https://ghcr.io/v2/radu-matei/spin-hello-world/manifests/sha256:06b19f4394c59fe943140c9b59f083aefd4b53c6b632758523a2800d819a1575"
+$ spin registry push ghcr.io/alyssa-p-hacker/hello-world:v1
+Pushed with digest sha256:06b19
 ```
 
-Then run the application using the registry reference:
+Notice that the username is part of the reference; the registry does not infer it from the login.  Also notice that the version is specified explicitly; Spin does not infer it from the `spin.toml` file.
+
+> Whether newly uploaded artifacts are private or public depends on the registry.  See your registry documentation.  This will also tell you how to change the visibility if the default is not what you want.
+
+## Running Published Applications
+
+To run a published application from a registry, use `spin up -f` and pass the registry reference:
 
 <!-- @nocpy -->
 
 ```bash
-$ spin registry run ghcr.io/radu-matei/spin-hello-world:v1
+$ spin up -f ghcr.io/alyssa-p-hacker/hello-world:v1
 ```
 
-### Signing Spin Applications and Verifying Signatures
+> Remember that if the artifact is private you will need to be logged in, with permission to access it.
 
-Since Spin is now using existing container registries to distribute applications, it can also take advantage of the state of the art in terms of signing and verifying artifacts distributed using OCI registries. Here is an example of signing and verifying a Spin application using [Cosign and Sigstore](https://docs.sigstore.dev/cosign/overview/):
+### Running Published Applications by Digest
+
+Registry versions are mutable; that is, the owner of an application can change which build the `:v1` label points to at any time.  If you want to run a specific build of the package, you can refer to it by _digest_.  This is similar to a Git commit hash: it is immutable, meaning the same digest always gets the exact same data, no matter what the package owner does.  To do this, use the `@sha256:...` syntax instead of the `:v...` syntax:
+
+<!-- @nocpy -->
+
+```bash
+$ spin up -f ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
+```
+
+### Pulling a Published Application
+
+`spin up` automatically downloads the application from the registry. If you want to manually download the application, without running it, use the `spin registry pull` command:
+
+<!-- @nocpy -->
+
+```bash
+$ spin registry pull ghcr.io/alyssa-p-hacker/hello-world:v1
+$ spin registry pull ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
+```
+
+> Downloaded applications are cached. When run, or pulled again, Spin checks to see if they have changed from the cached copy, and downloads only the changes if any.
+
+## Signing Spin Applications and Verifying Signatures
+
+Because Spin uses the container registry standards to distribute applications, it can also take advantage of tooling built around those standards.  Here is an example of using [Cosign and Sigstore](https://docs.sigstore.dev/cosign/overview/) to sign and verify a Spin application:
 
 <!-- @nocpy -->
 
 ```bash
 # Push your Spin application to any registry that supports the OCI registry artifacts,
 # such as the GitHub Container Registry, Docker Hub, Azure ACR, or AWS ECR.
-$ spin registry push ghcr.io/radu-matei/spin-hello-world:v1
-Pushed "https://ghcr.io/v2/radu-matei/spin-hello-world/manifests/sha256:06b19"
+$ spin registry push ghcr.io/alyssa-p-hacker/hello-world:v1
 
-# You can now sign your Spin app using Cosign (or any other tool that can sign OCI registry objects)
-$ COSIGN_EXPERIMENTAL=1 cosign sign ghcr.io/radu-matei/spin-hello-world@sha256:06b19
+# You can now sign your Spin app using Cosign (or any other tool that can sign
+# OCI registry objects).
+$ cosign sign ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
 Generating ephemeral keys...
 Retrieving signed certificate...
 tlog entry created with index: 12519542
-Pushing signature to: ghcr.io/radu-matei/spin-hello-world
+Pushing signature to: ghcr.io/alyssa-p-hacker/hello-world
 
-# You can use cosign to now verify the signature before running the application.
-$ COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/radu-matei/spin-hello-world@sha256:06b19
-Verification for ghcr.io/radu-matei/spin-hello-world@sha256:06b19 --
+# Someone interested in your application can now use Cosign to verify the signature
+# before running the application.
+$ cosign verify ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
+Verification for ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19 --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - Existence of the claims in the transparency log was verified offline
   - Any certificates were verified against the Fulcio roots.
 
-# You can now point Spin to the application in the registry and run it.
-$ spin registry run ghcr.io/radu-matei/spin-hello-world:v1
+# The consumer of your app can now run it from the registry.
+$ spin up -f ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
 ```
 
-## Distributing Spin Applications Using Bindle
-
-Packaging and distributing Spin applications can be done using [Bindle](https://github.com/deislabs/bindle), an open source aggregate object storage system. This allows the packaging of the application manifest, components, and static assets together, and takes advantage of the features of a modern object storage system.
-
-To distribute applications, we first need a Bindle registry. You can [install Bindle v0.8 release](https://github.com/deislabs/bindle/tree/main/docs#from-the-binary-releases), or use the [`autobindle`](https://marketplace.visualstudio.com/items?itemName=fermyon.autobindle) VS Code extension (through the `Bindle: Start` command):
-
-<!-- @nocpy -->
-
-```bash
-$ bindle-server --address 127.0.0.1:8000 --directory . --unauthenticated
-```
-
-Let's push the application from the [quickstart](./quickstart.md) to the registry:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ export BINDLE_URL=http://localhost:8000/v1
-$ spin bindle push --file spin.toml
-pushed: spin-hello-world/1.0.0
-```
-
-Now we can run the application using `spin up` directly from the registry:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin up --bindle spin-hello-world/1.0.0
-```
-
-> A known error when running an application (with a high number of static assets) from Bindle on macOS is around [too many open files](https://github.com/fermyon/spin/issues/180). This issue can be worked around by setting a higher `ulimit -n` for the current shell
-> session.
-
-The application can also be prepared in a local directory before pushing to the registry by running `spin bindle prepare`.
+> You'll need Cosign 2.0 or above to verify Spin artifacts.

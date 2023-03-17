@@ -171,8 +171,11 @@ TABLE OF CONTENTS
 			padding: 0 !important;
 
 			code {
-				padding: 1.125em 1.25rem !important;
-				margin-right: 2.75rem;
+				padding: 1.125em 3.875rem 1.25rem 1.25rem !important;
+
+				.hljs-comment {
+					color: #bbb !important;
+				  }
 			}
 		}
 
@@ -696,15 +699,15 @@ html.dark-theme {
 					width: 100vw;
 					height: 100vw;
 					opacity: 0;
-					transition: backdrop-filter ease-in-out 1s 0.1s; 
 				}
-
+				
 				&:hover {
 					+.overlay {
 						// display: block;
 						left: 0;
 						opacity: 1;
 						backdrop-filter: blur(6px);
+						transition: backdrop-filter ease-in-out 1s 0.1s; 
 					}
 				}
 
