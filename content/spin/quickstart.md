@@ -802,6 +802,6 @@ Congratulations! You just created, built and ran your first Spin application!
 
 ## Next Steps
 
-- Learn more about [writing Spin components and manifests](writing-apps)
-- Learn how to [build your Spin application code](build)
+- Learn more about [writing Spin components and manifests](/spin/writing-apps)
+- Learn how to [build your Spin application code](/spin/build)
 - Try deploying a Spin application to the [Fermyon Cloud](/cloud/quickstart)
