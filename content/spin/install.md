@@ -79,11 +79,11 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "Windows"}}
 
-If you want to use WSL (Windows Subsystem for Linux), please follow the instructions for using Linux.
-
-If using Windows natively (PowerShell / cmd.exe), you can download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a>.
+If using Windows (PowerShell / cmd.exe), you can download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a>.
 
 Simply unzip the binary release and place the `spin.exe` in your system path.
+
+If you want to use WSL2 (Windows Subsystem for Linux 2), please follow the instructions for using Linux.
 
 {{ blockEnd }}
 {{ blockEnd }}
