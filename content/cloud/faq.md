@@ -6,6 +6,8 @@ enable_shortcodes = true
 ---
 - [Service Limits](#service-limits)
 - [Known Limitations](#known-limitations)
+  - [Spin Limitations](#spin-limitations)
+  - [Other Limitations](#other-limitations)
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Next Steps](#next-steps)
 
@@ -41,7 +43,7 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [PostgreSQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
 | **Extensibility** |
-| [Authoring Custom Triggers](https://developer.fermyon.com/spin/extending-and-embedding) | Not supported |
+| [Custom Triggers](https://developer.fermyon.com/spin/extending-and-embedding) | Not supported |
 
 To learn more about what feature support looks like for various programming languages, visit the [Spin Language Support Guide](https://developer.fermyon.com/spin/language-support-overview.md).
 
@@ -68,7 +70,7 @@ To learn more about what feature support looks like for various programming lang
 11:08:29 : Hello from Rust - updated
 ```
 
-- **How do I report a security concern, or concerns with content hosted on the Fermyon Cloud?**
+- **How do I report a security concern, or concerns, with content hosted on the Fermyon Cloud?**
   - Please go to our [Feedback repo - Report Security Concern](https://github.com/fermyon/feedback/security/policy) for instructions on how to report any concerns.
 
 ## Next Steps
