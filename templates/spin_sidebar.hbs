@@ -44,6 +44,7 @@
             API Guides
         </p>
         <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/api-guides-overview" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/api-guides-overview">API Guides Overview</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/http-outbound" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-outbound">Making HTTP Requests</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/redis-outbound" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-outbound">Redis Storage</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/rdbms-storage" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/rdbms-storage">Relational Database Storage</a></li>
