@@ -6,6 +6,8 @@ enable_shortcodes = true
 ---
 - [Service Limits](#service-limits)
 - [Known Limitations](#known-limitations)
+  - [Spin Limitations](#spin-limitations)
+  - [Other Limitations](#other-limitations)
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Next Steps](#next-steps)
 
@@ -25,12 +27,30 @@ The following are the limits of the Fermyon Cloud
 
 ## Known Limitations
 
-The following are known limitations of the Fermyon Cloud
+### Spin Limitations
 
-- You cannot use Redis triggers
-- [Runtime configuration and secrets](https://developer.fermyon.com/spin/dynamic-configuration#runtime-configuration) are not yet supported
+Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are certain Spin SDK triggers and APIs that are not yet supported on Fermyon Cloud. Please review the table below to see what is supported today on Fermyon Cloud: 
+
+| Feature | SDK Supported? |
+|-----|-----|
+| **Triggers** |
+| [HTTP](https://developer.fermyon.com/spin/http-trigger) | Supported |
+| [Redis](https://developer.fermyon.com/spin/redis-trigger) | Not supported |
+| **APIs** |
+| [Outbound HTTP](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests) | Supported |
+| [Key Value Storage](https://developer.fermyon.com/spin/kv-store.md) | Coming soon |
+| [MySQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [PostgreSQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [Outbound Redis](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
+| **Extensibility** |
+| [Custom Triggers](https://developer.fermyon.com/spin/extending-and-embedding) | Not supported |
+
+To learn more about what feature support looks like for various programming languages, visit the [Spin Language Support Guide](https://developer.fermyon.com/spin/language-support-overview.md).
+
+### Other Limitations
+
 - You cannot communicate between Spin applications using local name resolution
-- You cannot use a Spin SDK or Spin CLI with a version before v0.6.0
+- [Runtime configuration and secrets](https://developer.fermyon.com/spin/dynamic-configuration#runtime-configuration) are not supported at this time
 
 ## Frequently Asked Questions
 
@@ -50,7 +70,7 @@ The following are known limitations of the Fermyon Cloud
 11:08:29 : Hello from Rust - updated
 ```
 
-- **How do I report a security concern, or concerns with content hosted on the Fermyon Cloud?**
+- **How do I report a security concern, or concerns, with content hosted on the Fermyon Cloud?**
   - Please go to our [Feedback repo - Report Security Concern](https://github.com/fermyon/feedback/security/policy) for instructions on how to report any concerns.
 
 ## Next Steps
