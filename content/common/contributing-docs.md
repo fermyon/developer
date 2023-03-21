@@ -221,7 +221,7 @@ The documentation site implements in-house search and therefore it is recommende
 <!-- @selectiveCpy -->
 
 ```bash
-npm run build-index
+$ npm run build-index
 ```
 
 ### 6.3 How To Properly Edit CSS Styles
@@ -233,7 +233,7 @@ Directly editing `.css` files is not recommended, because `.css` files are overw
 <!-- @selectiveCpy -->
 
 ```bash
-npm run styles
+$ npm run styles
 ```
 
 The above command is designed to be run in the background; enabling you to view your design changes (that are reflected in the `.css`) while you are editing the `.scss` in real-time. If you are not running this command in the background (i.e. just deliberately regenerating the `.css` files once), then the above command can be stopped by pressing `Ctrl` + `C`.
