@@ -78,7 +78,7 @@ const addCopyButtons = (clipboard) => {
 const addAnchorLinks = () => {
     document.querySelectorAll(".content h1, .content h2, .content h3, .content h4").forEach(heading => {
         let id = heading.innerText.toLowerCase()
-            .replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
+            .replace(/[`~!@#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/gi, '')
             .replace(/ +/g, '-');
         heading.setAttribute("id", id);
         heading.classList.add("heading-anchor");

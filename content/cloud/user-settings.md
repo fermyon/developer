@@ -2,6 +2,8 @@ title = "The User Settings Screen"
 template = "cloud_main"
 date = "2023-02-28T00:00:00Z"
 enable_shortcodes = true
+[extra]
+url = "https://github.com/fermyon/developer/blob/main//content/cloud/user-settings.md"
 
 ---
 - [Fermyon Cloud Account Settings](#fermyon-cloud-account-settings)

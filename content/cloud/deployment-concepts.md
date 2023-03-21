@@ -2,6 +2,8 @@ title = "Deployment Concepts"
 template = "cloud_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
+[extra]
+url = "https://github.com/fermyon/developer/blob/main//content/cloud/deployment-concepts.md"
 
 ---
 
