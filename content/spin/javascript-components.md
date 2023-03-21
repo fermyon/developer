@@ -2,6 +2,8 @@ title = "Building Spin Components in JavaScript"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
+[extra]
+url = "https://github.com/fermyon/developer/blob/main//content/spin/javascript-components.md"
 
 ---
 - [Installing Templates](#installing-templates)
@@ -11,6 +13,7 @@ enable_shortcodes = true
 - [HTTP Components](#http-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
+- [Routing in a Component](#routing-in-a-component)
 - [Using External NPM Libraries](#using-external-npm-libraries)
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
 - [Caveats](#caveats)
@@ -331,6 +334,39 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 This HTTP component demonstrates fetching a value from Redis by key, setting a key with a value, and publishing a message to a Redis channel. The component is triggered by an HTTP request served on the route configured in the `spin.toml`:
 
 > When using Redis databases hosted on the internet (i.e) not on localhost, the `redisAddress` must be of the format "redis://\<USERNAME\>:\<PASSWORD\>@\<REDIS_URL\>" (e.g) `redis://myUsername:myPassword@redis-database.com`
+
+## Routing in a Component
+
+The JavaScript/TypeScript SDK provides a router that makes it easier to handle routing within a component. The router is based on [`itty-router`](https://www.npmjs.com/package/itty-router). An additional function `handleRequest` has been implemented in the router to allow passing in the Spin HTTP request directly. For a more complete documentation on the route, checkout the documentationa at [itty-router](https://github.com/kwhitley/itty-router). An example usage of the router is given below:
+
+```javascript
+import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
+
+let router = utils.Router()
+
+function handleDefaultRoute() {
+  return {
+    status: 200,
+      headers: { "content-type": "text/html" },
+    body: "Hello from Default Route"
+  }
+}
+
+function handleHomeRoute(id: string) {
+  return {
+    status: 200,
+      headers: { "content-type": "text/html" },
+    body: "Hello from Home Route with id:" + id
+  }
+}
+
+router.get("/", handleDefaultRoute)
+router.get("/home/:id", ({params}) => handleHomeRoute(params.id))
+
+export const handleRequest: HandleRequest = async function(request: HttpRequest): Promise<HttpResponse> {
+    return await router.handleRequest(request)
+}
+```
 
 ## Using External NPM Libraries
 
