@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/template-managing.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/managing-templates.md"
 
 ---
 - [Installing Templates](#installing-templates)
