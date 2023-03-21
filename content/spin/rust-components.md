@@ -406,9 +406,9 @@ If you bump into issues building and running your Rust component, here are some 
 ## Manually Creating New Projects With Cargo
 
 The recommended way of creating new Spin projects is by starting from a template.
-This section shows how to  manually create a new project with Cargo.
+This section shows how to manually create a new project with Cargo.
 
-When creating a new Spin projects with Cargo, you should use the `--lib` flag:
+When creating a new Spin project with Cargo, you should use the `--lib` flag:
 
 <!-- @selectiveCpy -->
 
