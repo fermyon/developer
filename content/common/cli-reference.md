@@ -21,7 +21,7 @@ enable_shortcodes = true
     - [Uninstall (Plugins)](#uninstall-plugins)
     - [Update (Plugins)](#update-plugins)
     - [Upgrade (Plugins)](#upgrade-plugins)
-  - [OCI Registry - Experimental](#oci-registry---experimental)
+  - [OCI Registry](#oci-registry)
     - [Login (OCI Registry)](#login-oci-registry)
     - [Pull (OCI Registry)](#pull-oci-registry)
     - [Push (OCI Registry)](#push-oci-registry)
@@ -179,8 +179,6 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 #### Deploy (Cloud)
-
-Please note: the previous `spin deploy` command (from versions before Spin v0.9.0) has been kept to ensure backward compatibility (for existing scripts). In the Spin v0.9.0 release, both the `spin deploy --help` and `spin cloud deploy --help` commands will produce the same output, which is as follows:
 
 {{ tabs "spin-version" }}
 
@@ -710,7 +708,7 @@ OPTIONS:
 
 **Note:** For additional information, please see the [Managing Plugins](https://developer.fermyon.com/spin/managing-plugins) and/or [Creating Plugins](https://developer.fermyon.com/spin/plugin-authoring) sections of the documentation.
 
-### OCI Registry - Experimental 
+### OCI Registry
 
 {{ tabs "spin-version" }}
 
@@ -722,8 +720,7 @@ OPTIONS:
 $ spin registry --help
 
 spin-registry 
-Commands for working with OCI registries to distribute applications. The set of commands for OCI is
-EXPERIMENTAL, and may change in future versions of Spin. Currently, the OCI commands are reusing the
+Commands for working with OCI registries to distribute applications. Currently, the OCI commands are reusing the
 credentials from ~/.docker/config.json to authenticate to registries
 
 USAGE:
@@ -1243,15 +1240,15 @@ CLI commands have four phases that indicate levels of stability:
 
 | Command                                                    | Stability   |
 | ---------------------------------------------------------- | ----------- |
-| `spin add`                                                 | Stable      |
-| `spin build`                                               | Stable      |
-| `spin new`                                                 | Stable      |
-| `spin plugins <install\|list\|uninstall\|update\|upgrade>` | Stable      |
-| `spin templates <install\|list\|uninstall\|upgrade>`       | Stable      |
-| `spin up`                                                  | Stable      |
-| `spin cloud <deploy\|login>`                               | Stabilizing |
-| `spin registry`                                            | Stabilizing |
-| `spin bindle <prepare\|push>`                              | Deprecated  |
+| <code>spin add</code>                                                 | Stable      |
+| <code>spin build</code>                                               | Stable      |
+| <code>spin new</code>                                                 | Stable      |
+| <code>spin plugins <install&vert;list&vert;uninstall&vert;update&vert;upgrade></code> | Stable      |
+| <code>spin templates <install&vert;list&vert;uninstall&vert;upgrade></code>       | Stable      |
+| <code>spin up</code>                                                  | Stable      |
+| <code>spin cloud <deploy&vert;login></code>                               | Stabilizing |
+| <code>spin registry</code>                                            | Stabilizing |
+| <code>spin bindle <prepare&vert;push></code>                              | Deprecated  |
 
 {{ blockEnd }}
 
