@@ -103,11 +103,11 @@ for an overview of the HTTP headers present in Spin components), selects the
 corresponding destination from the router configuration, then sends the
 HTTP redirect to the new location.
 
-At this point, we can build the module with `cargo` and run it with Spin:
+At this point, we can build and run the module with Spin:
 
 ```bash
-$ cargo build --target wasm32-wasi --release
-$ spin up --file spin.toml
+$ spin build
+$ spin up
 ```
 
 And the component can now handle incoming requests:
@@ -139,14 +139,14 @@ Not Found
 > Notice that you can use the `--listen` option for `spin up` to start the
 > web server on a specific host and port, which you can then bind to a domain.
 
-We can now [publish the application to the registry](./distributing-apps.md) (together
+We can now [publish the application to an OCI registry](./distributing-apps.md) (together
 with router configuration file):
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin bindle push --file spin.toml
-pushed: url-shortener/1.0.0
+$ spin registry push ghcr.io/alyssa-p-hacker/url-shortener:v1
+Pushed with digest sha256:3c408a1b29b3098286c7ea5ab22f47248ccfadcc63ad5596ca0d85e3f522c43d
 ```
 
 And now we can run the application directly from the registry:
@@ -154,7 +154,11 @@ And now we can run the application directly from the registry:
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin up --bindle url-shortener/1.0.0
+$ spin up -f ghcr.io/alyssa-p-hacker/url-shortener:v1
+
+Serving http://127.0.0.1:3000
+Available Routes:
+  shortener: http://127.0.0.1:3000 (wildcard)
 ```
 
 ## Conclusion
