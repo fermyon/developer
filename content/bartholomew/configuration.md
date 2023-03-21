@@ -3,11 +3,12 @@ date = "2022-05-09T19:32:09.579913Z"
 template = "bartholomew_main"
 enable_shortcodes = true
 [extra]
+url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/configuration.md"
 keywords = "install"
 
 ---
 - [Configuration Using TOML](#configuration-using-toml)
-- [Site Header A.K.A. Frontmatter](#site-header-aka-frontmatter)
+- [Your Site's Header; A.K.A. Frontmatter](#your-sites-header-aka-frontmatter)
 - [Extras](#extras)
 - [Next Steps - Using Themes](#next-steps---using-themes)
 

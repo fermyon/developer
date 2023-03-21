@@ -2,10 +2,12 @@ title = "Introducing Bartholomew"
 template = "bartholomew_main"
 date = "2022-05-07T00:22:56Z"
 [extra]
+url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/index.md"
 
 ---
 
 - [Overview](#overview)
+- [Taking Bartholomew for a Spin](#taking-bartholomew-for-a-spin)
 
 Bartholomew is a simple CMS-like (Content Management System) tool for managing a
 website. It is compiled to WebAssembly, and can run in any [Spin](https://developer.fermyon.com/spin)
