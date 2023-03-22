@@ -206,13 +206,26 @@ If you have not done so already, please go ahead and perform the `npm install` c
 $ npm install
 ```
 
-With all Node dependencies installed, you can now check for broken links and also lint your markdown files. Simply run the following command, from the root of the developer repository. Note, this does take several minutes to complete; as it literally checks all URLs in the entire site:
+With all Node dependencies installed, you can now check for broken links (which takes several minutes) and also lint your markdown files. Simply run the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ npm run test
 ```
+
+**Hint:** Optionally you can run only the linter with the following command:
+
+<!-- @nocpy -->
+
+```bash
+# Example of how to lint all Markdown files in a local folder (in this case the spin folder) 
+npx markdownlint-cli2 content/spin/*.md \"#node_modules\"
+# Example of how to lint a local Markdown file
+npx markdownlint-cli2 content/spin/install.md \"#node_modules\"
+```
+
+**Note:** Whilst the `npm run test` command (which lints and also programmatically checks all URLs) does take extra time to complete it **must** be utilized before you [push changes](/common/contributing-docs#10-push-changes); preventing the potential pushing of broken URLs to the developer documentation site.
 
 ### 6.2 Generating Indexing For Your Content
 
@@ -221,7 +234,7 @@ The documentation site implements in-house search and therefore it is recommende
 <!-- @selectiveCpy -->
 
 ```bash
-npm run build-index
+$ npm run build-index
 ```
 
 ### 6.3 How To Properly Edit CSS Styles
@@ -233,7 +246,7 @@ Directly editing `.css` files is not recommended, because `.css` files are overw
 <!-- @selectiveCpy -->
 
 ```bash
-npm run styles
+$ npm run styles
 ```
 
 The above command is designed to be run in the background; enabling you to view your design changes (that are reflected in the `.css`) while you are editing the `.scss` in real-time. If you are not running this command in the background (i.e. just deliberately regenerating the `.css` files once), then the above command can be stopped by pressing `Ctrl` + `C`.

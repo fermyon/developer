@@ -294,9 +294,9 @@ For the most part, you'll build HTTP component modules using a language SDK (see
 
 > The WebAssembly component model is in its early stages, and over time the triggers and application entry points will undergo changes, both in the definitions of functions and types, and in the binary representations of those definitions and of primitive types (the so-called Application Binary Interface or ABI).  However, Spin ensures binary compatibility over the course of any given major release.  For example, a component built using the Spin 1.0 SDK will work on any version of Spin in the 1.x range.
 
-The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin HTTP components at https://github.com/fermyon/spin/blob/main/wit/ephemeral.
+The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/blob/main/wit/ephemeral](https://github.com/fermyon/spin/blob/main/wit/ephemeral).
 
-The core HTTP types are defined in https://github.com/fermyon/spin/blob/main/wit/ephemeral/http-types.wit:
+The core HTTP types are defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/http-types.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/http-types.wit):
 
 <!-- @nocpy -->
 
@@ -337,7 +337,7 @@ record response {
 
 > The same HTTP types are also used to model the API for sending outbound HTTP requests.
 
-The entry point for Spin HTTP components is then defined in https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-http.wit:
+The entry point for Spin HTTP components is then defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-http.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-http.wit):
 
 <!-- @nocpy -->
 
@@ -358,10 +358,10 @@ This interface (`spin-http.wit`) can be directly used together with the
 [Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen)
 to build a component that the Spin HTTP executor can invoke.
 
-This is exactly how Spin SDKs, such as the [Rust](rust-components), [JavaScript](javascript-components) and [Go](go-components) SDKs, are built.
+This is exactly how Spin SDKs, such as the [Rust](rust-components), [JavaScript](javascript-components), [Python](python-components) and [Go](go-components) SDKs, are built.
 As more languages add support for the component model, we plan to add support for them in the same way.
 
-> WIT and the ABI are evolving standards.  The latest version of `wit-bindgen` creates binary implementations that do not work with current language implementation of the WebAssembly System Interface (WASI).  Spin remains pinned to an older implementation of `wit-bindgen` until the next generation of the component model stabilizes and achieves language-level support.
+> WIT and the ABI are evolving standards.  The latest version of `wit-bindgen` creates binary implementations that do not work with current language implementations of the WebAssembly System Interface (WASI).  Spin remains pinned to an older implementation of `wit-bindgen` until the next generation of the component model stabilizes and achieves language-level support.
 
 ## HTTP With Wagi (WebAssembly Gateway Interface)
 
@@ -460,12 +460,12 @@ Array.forEach(print, Process.argv());
 Wagi passes request metadata to the program through well-known environment variables. The key path-related request variables are:
 
 - `X_FULL_URL` - the full URL of the request —
-  `http://localhost:3000/test/wagi/abc/def?foo=bar`
+  `http://localhost:3000/test/hello/abc/def?foo=bar`
 - `PATH_INFO` - the path info, relative to both the base application path _and_
   component route — in our example, where the base path is `/test`, and the
   component route is `/hello`, this is `/abc/def`.
 - `X_MATCHED_ROUTE` - the base path and route pattern matched (including the
-  wildcard pattern, if applicable) (this updates the header set in Wagi to
+  wildcard pattern, if applicable; this updates the header set in Wagi to
   include the base path) — in our case `"/test/hello/..."`.
 - `X_RAW_COMPONENT_ROUTE` - the route pattern matched (including the wildcard
   pattern, if applicable) — in our case `/hello/...`.
