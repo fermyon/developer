@@ -7,14 +7,13 @@ enable_shortcodes = true
 ---
 - [Spin](#spin)
   - [Add](#add)
-  - [Bindle](#bindle)
-    - [Prepare (Bindle)](#prepare-bindle)
-    - [Push (Bindle)](#push-bindle)
   - [Build](#build)
   - [Cloud](#cloud)
     - [Deploy (Cloud)](#deploy-cloud)
     - [Login (Cloud)](#login-cloud)
+  - [Deploy](#deploy)
   - [Help](#help)
+  - [Login](#login)
   - [New](#new)
   - [Plugins](#plugins)
     - [Install (Plugins)](#install-plugins)
@@ -22,7 +21,7 @@ enable_shortcodes = true
     - [Uninstall (Plugins)](#uninstall-plugins)
     - [Update (Plugins)](#update-plugins)
     - [Upgrade (Plugins)](#upgrade-plugins)
-  - [OCI Registry - Experimental](#oci-registry---experimental)
+  - [OCI Registry](#oci-registry)
     - [Login (OCI Registry)](#login-oci-registry)
     - [Pull (OCI Registry)](#pull-oci-registry)
     - [Push (OCI Registry)](#push-oci-registry)
@@ -35,14 +34,15 @@ enable_shortcodes = true
     - [Trigger Options](#trigger-options)
       - [Redis Request Handler](#redis-request-handler)
       - [HTTP Request Handler](#http-request-handler)
+  - [CLI Stability Table](#cli-stability-table)
 
 ## Spin
 
-This page documents the Spin Command Line Interface (CLI). Specifically, all of the available Spin Options and Subcommands. You can reproduce this documentation on your machine by using the `--help` For example:
+This page documents the Spin Command Line Interface (CLI). Specifically, all of the available Spin Options and Subcommands. For more information on command stability, see the [CLI stability table](#cli-stability-table). You can reproduce the Spin CLI documentation on your machine by using the `--help` flag. For example:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -58,16 +58,14 @@ OPTIONS:
 
 SUBCOMMANDS:
     add          Scaffold a new component into an existing application
-    bindle       Commands for publishing applications as bindles
     build        Build the Spin application
     cloud        Commands for publishing applications to the Fermyon Platform
+    deploy       Package and upload an application to the Fermyon Platform
     help         Print this message or the help of the given subcommand(s)
+    login        Log into the Fermyon Platform
     new          Scaffold a new application based on a template
     plugins      Install/uninstall Spin plugins
-    registry     Commands for working with OCI registries to distribute applications. The set of
-                     commands for OCI is EXPERIMENTAL, and may change in future versions of Spin.
-                     Currently, the OCI commands are reusing the credentials from
-                     ~/.docker/config.json to authenticate to registries
+    registry     Commands for working with OCI registries to distribute applications
     templates    Commands for working with WebAssembly component templates
     up           Start the Spin application
 ```
@@ -82,7 +80,7 @@ Adding a subcommand (and again issuing the `--help` command) will provide inform
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -104,7 +102,7 @@ OPTIONS:
         --accept-defaults              An optional argument that allows to skip prompts for the
                                        manifest file by accepting the defaults if available on the
                                        template
-    -f, --file <APP_CONFIG_FILE>       Path to spin.toml
+    -f, --file <APP_MANIFEST_FILE>     Path to spin.toml
     -h, --help                         Print help information
     -o, --output <OUTPUT_PATH>         The directory in which to create the new application or
                                        component. The default is the name argument
@@ -120,120 +118,11 @@ OPTIONS:
 
 {{ blockEnd }}
 
-### Bindle
-
-Adding a subcommand (and again issuing the `--help` command) will provide information specific to that particular subcommand. For example:
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v0.10.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin bindle --help
-
-spin-bindle 
-Commands for publishing applications as bindles
-
-USAGE:
-    spin bindle <SUBCOMMAND>
-
-OPTIONS:
-    -h, --help    Print help information
-
-SUBCOMMANDS:
-    help       Print this message or the help of the given subcommand(s)
-    prepare    Create a standalone bindle for subsequent publication
-    push       Publish an application as a bindle
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-#### Prepare (Bindle)
-
-Again, adding another related subcommand provides even more specific information. For example:
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v0.10.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin bindle prepare --help
-
-spin-bindle-prepare 
-Create a standalone bindle for subsequent publication
-
-USAGE:
-    spin bindle prepare [OPTIONS] --staging-dir <STAGING_DIR>
-
-OPTIONS:
-        --buildinfo <BUILDINFO>        Build metadata to append to the bindle version
-    -d, --staging-dir <STAGING_DIR>    Path to create standalone bindle
-    -f, --file <APP_CONFIG_FILE>       Path to spin.toml
-    -h, --help                         Print help information
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-#### Push (Bindle)
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v0.10.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin bindle push --help
-
-spin-bindle-push 
-Publish an application as a bindle
-
-USAGE:
-    spin bindle push [OPTIONS] --bindle-server <BINDLE_SERVER_URL>
-
-OPTIONS:
-        --bindle-password <BINDLE_PASSWORD>
-            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
-
-        --bindle-server <BINDLE_SERVER_URL>
-            URL of bindle server [env: BINDLE_URL=]
-
-        --bindle-username <BINDLE_USERNAME>
-            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
-
-        --buildinfo <BUILDINFO>
-            Build metadata to append to the bindle version
-
-    -d, --staging-dir <STAGING_DIR>
-            Path to assemble the bindle before pushing (defaults to temporary directory)
-
-    -f, --file <APP_CONFIG_FILE>
-            Path to spin.toml
-
-    -h, --help
-            Print help information
-
-    -k, --insecure
-            Ignore server certificate errors
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
 ### Build
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -250,9 +139,9 @@ ARGS:
     <UP_ARGS>...    
 
 OPTIONS:
-    -f, --file <APP_CONFIG_FILE>    Path to spin.toml
-    -h, --help                      Print help information
-    -u, --up                        Run the application after building
+    -f, --from <APP_MANIFEST_FILE>    Path to application manifest. The default is "spin.toml"
+    -h, --help                        Print help information
+    -u, --up                          Run the application after building
 ```
 
 {{ blockEnd }}
@@ -263,7 +152,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -291,11 +180,9 @@ SUBCOMMANDS:
 
 #### Deploy (Cloud)
 
-Please note: the previous `spin deploy` command (from versions before Spin v0.9.0) has been kept to ensure backward compatibility (for existing scripts). In the Spin v0.9.0 release, both the `spin deploy --help` and `spin cloud deploy --help` commands will produce the same output, which is as follows:
-
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -322,11 +209,15 @@ OPTIONS:
             Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
             to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
 
-    -f, --file <APP_CONFIG_FILE>
+    -f, --file <APP_MANIFEST_FILE>
             Path to spin.toml [default: spin.toml]
 
     -h, --help
             Print help information
+
+        --key-value <KEY_VALUES>
+            Pass a key/value (key=value) to all components of the application. Can be used multiple
+            times
 
         --no-buildinfo
             Disable attaching buildinfo [env: SPIN_DEPLOY_NO_BUILDINFO=]
@@ -346,7 +237,7 @@ Please note: the previous `spin login` command (from versions before Spin v0.9.0
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -361,7 +252,7 @@ USAGE:
 
 OPTIONS:
         --auth-method <auth-method>
-            [env: AUTH_METHOD=] [possible values: github, username]
+            [env: AUTH_METHOD=] [possible values: github, username, token]
 
         --bindle-password <BINDLE_PASSWORD>
             Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
@@ -392,6 +283,9 @@ OPTIONS:
         --status
             Display login status
 
+        --token <TOKEN>
+            Auth Token [env: SPIN_AUTH_TOKEN=]
+
         --url <HIPPO_SERVER_URL>
             URL of hippo server [env: HIPPO_URL=] [default: https://cloud.fermyon.com/]
 
@@ -403,11 +297,63 @@ OPTIONS:
 
 {{ blockEnd }}
 
+### Deploy
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v1.0.0"}}
+
+<!-- @selectiveCpy -->
+```console
+$ spin deploy --help
+
+spin-deploy 
+Package and upload an application to the Fermyon Platform
+
+USAGE:
+    spin deploy [OPTIONS]
+
+OPTIONS:
+        --buildinfo <BUILDINFO>
+            Build metadata to append to the bindle version
+
+    -d, --staging-dir <STAGING_DIR>
+            Path to assemble the bindle before pushing (defaults to a temporary directory)
+
+    -e, --deploy-existing-bindle
+            Deploy existing bindle if it already exists on bindle server
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -f, --file <APP_MANIFEST_FILE>
+            Path to spin.toml [default: spin.toml]
+
+    -h, --help
+            Print help information
+
+        --key-value <KEY_VALUES>
+            Pass a key/value (key=value) to all components of the application. Can be used multiple
+            times
+
+        --no-buildinfo
+            Disable attaching buildinfo [env: SPIN_DEPLOY_NO_BUILDINFO=]
+
+        --readiness-timeout <READINESS_TIMEOUT_SECS>
+            How long in seconds to wait for a deployed HTTP application to become ready. The default
+            is 60 seconds. Set it to 0 to skip waiting for readiness [default: 60]
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
 ### Help
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -417,25 +363,20 @@ $ spin help
 spin 0.9.0 (a99ed51 2023-02-16)
 The Spin CLI
 
-USAGE:
-    spin <SUBCOMMAND>
-
 OPTIONS:
     -h, --help       Print help information
     -V, --version    Print version information
 
 SUBCOMMANDS:
     add          Scaffold a new component into an existing application
-    bindle       Commands for publishing applications as bindles
     build        Build the Spin application
     cloud        Commands for publishing applications to the Fermyon Platform
+    deploy       Package and upload an application to the Fermyon Platform
     help         Print this message or the help of the given subcommand(s)
+    login        Log into the Fermyon Platform
     new          Scaffold a new application based on a template
     plugins      Install/uninstall Spin plugins
-    registry     Commands for working with OCI registries to distribute applications. The set of
-                     commands for OCI is EXPERIMENTAL, and may change in future versions of Spin.
-                     Currently, the OCI commands are reusing the credentials from
-                     ~/.docker/config.json to authenticate to registries
+    registry     Commands for working with OCI registries to distribute applications
     templates    Commands for working with WebAssembly component templates
     up           Start the Spin application
 ```
@@ -446,11 +387,75 @@ SUBCOMMANDS:
 
 > Please note: Spin `help` is a convenient way to access help using a subcommand, instead of using the `--help` option. For example, `spin help cloud` will give you the same output as `spin cloud --help`. Similarly, `spin help build` will give you the same output as `spin build --help` and so forth.
 
+### Login
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v1.0.0"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin login --help
+
+spin-login 
+Log into the Fermyon Platform
+
+USAGE:
+    spin login [OPTIONS]
+
+OPTIONS:
+        --auth-method <auth-method>
+            [env: AUTH_METHOD=] [possible values: github, username, token]
+
+        --bindle-password <BINDLE_PASSWORD>
+            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
+
+        --bindle-server <BINDLE_SERVER_URL>
+            URL of bindle server [env: BINDLE_URL=]
+
+        --bindle-username <BINDLE_USERNAME>
+            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
+
+        --environment-name <environment-name>
+            Save the login details under the specified name instead of making them the default. Use
+            named environments with `spin deploy --environment-name <name>` [env:
+            FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -k, --insecure
+            Ignore server certificate errors from bindle and hippo
+
+        --list
+            List saved logins
+
+        --password <HIPPO_PASSWORD>
+            Hippo password [env: HIPPO_PASSWORD=]
+
+        --status
+            Display login status
+
+        --token <TOKEN>
+            Auth Token [env: SPIN_AUTH_TOKEN=]
+
+        --url <HIPPO_SERVER_URL>
+            URL of hippo server [env: HIPPO_URL=] [default: https://cloud.fermyon.com/]
+
+        --username <HIPPO_USERNAME>
+            Hippo username [env: HIPPO_USERNAME=]
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
 ### New
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -496,7 +501,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -529,7 +534,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -576,7 +581,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -602,7 +607,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -630,7 +635,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -655,7 +660,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -701,11 +706,13 @@ OPTIONS:
 
 {{ blockEnd }}
 
-### OCI Registry - Experimental 
+**Note:** For additional information, please see the [Managing Plugins](https://developer.fermyon.com/spin/managing-plugins) and/or [Creating Plugins](https://developer.fermyon.com/spin/plugin-authoring) sections of the documentation.
+
+### OCI Registry
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -713,8 +720,7 @@ OPTIONS:
 $ spin registry --help
 
 spin-registry 
-Commands for working with OCI registries to distribute applications. The set of commands for OCI is
-EXPERIMENTAL, and may change in future versions of Spin. Currently, the OCI commands are reusing the
+Commands for working with OCI registries to distribute applications. Currently, the OCI commands are reusing the
 credentials from ~/.docker/config.json to authenticate to registries
 
 USAGE:
@@ -738,7 +744,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -769,7 +775,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -798,7 +804,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -815,9 +821,9 @@ ARGS:
     <REFERENCE>    Reference of the Spin application
 
 OPTIONS:
-    -f, --file <APP_CONFIG_FILE>    Path to spin.toml
-    -h, --help                      Print help information
-    -k, --insecure                  Ignore server certificate errors
+    -f, --file <APP_MANIFEST_FILE>    Path to spin.toml
+    -h, --help                        Print help information
+    -k, --insecure                    Ignore server certificate errors
 ```
 
 {{ blockEnd }}
@@ -828,7 +834,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -860,7 +866,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -902,7 +908,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -931,7 +937,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -959,7 +965,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -996,13 +1002,15 @@ OPTIONS:
 
 {{ blockEnd }}
 
+**Note:** For additional information, please see the [Managing Templates](https://developer.fermyon.com/spin/managing-templates) and/or [Creating Templates](https://developer.fermyon.com/spin/template-authoring) sections of the documentation.
+
 ### Up
 
 The following options are available in relation to running your Spin application. Additionally, depending on the type of trigger that your application uses (i.e. HTTP or Redis trigger), there are trigger-specific options available. Details of the trigger options can be found in the next section (below).
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1070,7 +1078,7 @@ Below, please see the available trigger options for the Redis request handler.
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1079,9 +1087,6 @@ $ spin up --help
 
 spin-up 
 Start the Spin application
-
-USAGE:
-    spin up [OPTIONS]
 
 OPTIONS:
         --direct-mounts         For local apps with directory mounts and no excluded files, mount
@@ -1122,6 +1127,13 @@ TRIGGER OPTIONS:
             Configuration file for config providers and wasmtime config
             
             [env: RUNTIME_CONFIG_FILE=]
+
+        --state-dir <STATE_DIR>
+            Set the application state directory path. This is used in the default locations for
+            logs, key value stores, etc.
+            
+            For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
+            apps, this has no default (unset). Passing an empty value forces the value to be unset.
 ```
 
 {{ blockEnd }}
@@ -1134,7 +1146,7 @@ Below, please see the available trigger options for the HTTP request handler. No
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.0.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1143,9 +1155,6 @@ $ spin up --help
 
 spin-up 
 Start the Spin application
-
-USAGE:
-    spin up [OPTIONS]
 
 OPTIONS:
         --direct-mounts         For local apps with directory mounts and no excluded files, mount
@@ -1192,6 +1201,13 @@ TRIGGER OPTIONS:
             
             [env: RUNTIME_CONFIG_FILE=]
 
+        --state-dir <STATE_DIR>
+            Set the application state directory path. This is used in the default locations for
+            logs, key value stores, etc.
+            
+            For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
+            apps, this has no default (unset). Passing an empty value forces the value to be unset.
+
         --tls-cert <TLS_CERT>
             The path to the certificate to use for https, if this is not set, normal http will be
             used. The cert should be in PEM format
@@ -1204,6 +1220,35 @@ TRIGGER OPTIONS:
             
             [env: SPIN_TLS_KEY=]
 ```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+### CLI Stability Table
+
+CLI commands have four phases that indicate levels of stability:
+
+- `Experimental`: These commands are experiments and may or may not be available in later versions of the CLI.
+- `Stabilizing`: These commands have moved out of the `experimental` phase and we are now in the active process of stabilizing them. This includes updating flags, command output, errors, and more.
+- `Stable`: These commands have moved out of the `stablizing` phase and will not change in backwards incompatible ways until the next major version release.
+- `Deprecated`: Support for these commands will be removed in a future release.
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v1.0.0"}}
+
+| Command                                                    | Stability   |
+| ---------------------------------------------------------- | ----------- |
+| <code>spin add</code>                                                 | Stable      |
+| <code>spin build</code>                                               | Stable      |
+| <code>spin new</code>                                                 | Stable      |
+| <code>spin plugins <install&vert;list&vert;uninstall&vert;update&vert;upgrade></code> | Stable      |
+| <code>spin templates <install&vert;list&vert;uninstall&vert;upgrade></code>       | Stable      |
+| <code>spin up</code>                                                  | Stable      |
+| <code>spin cloud <deploy&vert;login></code>                               | Stabilizing |
+| <code>spin registry</code>                                            | Stabilizing |
+| <code>spin bindle <prepare&vert;push></code>                              | Deprecated  |
 
 {{ blockEnd }}
 

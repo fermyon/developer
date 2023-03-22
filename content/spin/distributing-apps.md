@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/distributing-apps.md"
+url = "https://github.com/fermyon/developer/blob/main//content/spin/distributing-apps.md"
 
 ---
 - [Logging Into a Registry](#logging-into-a-registry)
@@ -61,6 +61,7 @@ Here is an example of pushing an application to GHCR:
 
 ```bash
 $ spin registry push ghcr.io/alyssa-p-hacker/hello-world:v1
+Pushed with digest sha256:06b19
 ```
 
 Notice that the username is part of the reference; the registry does not infer it from the login.  Also notice that the version is specified explicitly; Spin does not infer it from the `spin.toml` file.
@@ -82,6 +83,8 @@ $ spin up -f ghcr.io/alyssa-p-hacker/hello-world:v1
 ### Running Published Applications by Digest
 
 Registry versions are mutable; that is, the owner of an application can change which build the `:v1` label points to at any time.  If you want to run a specific build of the package, you can refer to it by _digest_.  This is similar to a Git commit hash: it is immutable, meaning the same digest always gets the exact same data, no matter what the package owner does.  To do this, use the `@sha256:...` syntax instead of the `:v...` syntax:
+
+<!-- @nocpy -->
 
 ```bash
 $ spin up -f ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19

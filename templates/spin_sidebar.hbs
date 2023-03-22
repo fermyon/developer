@@ -24,6 +24,7 @@
             Language Guides
         </p>
         <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/language-support-overview" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/language-support-overview">Language Support Overview</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/rust-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/rust-components">Rust</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/go-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/go-components">Go</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/javascript-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/javascript-components">Javascript</a></li>
@@ -43,6 +44,7 @@
             API Guides
         </p>
         <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/api-guides-overview" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/api-guides-overview">API Support Overview</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/http-outbound" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-outbound">Making HTTP Requests</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/redis-outbound" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-outbound">Redis Storage</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/rdbms-storage" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/rdbms-storage">Relational Database Storage</a></li>
@@ -55,6 +57,14 @@
             <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/url-shortener">Building a URL Shortener With Spin</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/spin-oci">Hosting Spin Apps in OCI Registries</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/kv-store" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/kv-store">Persisting Data With Spin</a></li>
+        </ul>
+
+        <p class="menu-label">
+            Tools
+        </p>
+        <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/managing-templates" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-templates">Managing Templates</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/managing-plugins" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-plugins">Managing Plugins</a></li>
         </ul>
 
         <p class="menu-label">
@@ -87,7 +97,7 @@
         </ul>
 
         <ul class-"menu-list">
-            <li><a href="https://github.com/fermyon/developer/blob/main/content{{{request.spin-path-info}}}.md" class="button is-round is-outlined is-size-6 is-medium">
+            <li><a href="{{page.head.extra.url}}" class="button is-round is-outlined is-size-6 is-medium">
                     <svg width="0.825em" height="0.825em" viewBox="0 0 32 32" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
