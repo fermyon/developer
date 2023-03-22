@@ -44,6 +44,10 @@ TABLE OF CONTENTS
 	.content {
 		padding-top: 3.333rem;
 
+		h4 {
+			margin: 1.3333em 0 0.6666em 0;
+		}
+
 		section {
 			margin-left: auto !important;
 			margin-right: auto !important;
@@ -95,6 +99,9 @@ TABLE OF CONTENTS
 								display: none;
 							}
 						}
+					}
+					ul {
+						margin: 0;
 					}
 				}
 			}
