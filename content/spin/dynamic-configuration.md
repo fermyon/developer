@@ -61,12 +61,12 @@ variable provider and vault config provider.
 
 The environment variable provider which gets config values from the `spin` process's
 environment (_not_ the component `environment`). Config keys are translated
-to environment variables by upper-casing and prepending with `SPIN_APP_`:
+to environment variables by upper-casing and prepending with `SPIN_CONFIG_`:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ export SPIN_APP_API_KEY = "1234"  # Sets the `api_key` value.
+$ export SPIN_CONFIG_API_KEY = "1234"  # Sets the `api_key` value.
 $ spin up
 ```
 
