@@ -25,9 +25,9 @@ See the relevant sections below, for instructions on how to perform these action
 
 #### Create a PAT
 
-[Personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) are an alternative to using passwords for authentication to GitHub when using the GitHub API or the command line. 
+Personal access tokens (PAT) enable continuous integration workflows by providing an alternative to using the standard login procedure which requires you to go through Fermyon Cloud to activate the device code
 
-To deploy your Spin applications in a streamlined manner, you may want to create a PAT to use with a continuous integration pipeline such as GitHub Actions. Let's walk through the steps required to create a PAT.
+Examples of this include deploying your Spin applications to Fermyon Cloud using the [`fermyon/action/spin/deploy` GitHub Action](https://github.com/fermyon/actions#fermyonactionspindeploy). Let's walk through the steps required to create a PAT.
 
 First, [log into](/cloud/quickstart#log-in-to-the-fermyon-cloud) Fermyon Cloud. Hover over your username in the top right corner and select 'User Settings' from the down options.
 
