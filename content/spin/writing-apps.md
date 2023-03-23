@@ -270,6 +270,30 @@ If your files list would match some files or directories that you _don't_ want i
 
 > By default, Spin takes a snapshot of your included files, and components access that snapshot. This ensures that when you test your application, you are checking it with the set of files it will be deployed with. However, it also means that your component does not pick up changes to the files while it is running. When testing a Web site, you might want to be able to edit a HTML or CSS file, and see the changes reflected without restarting Spin. You can tell Spin to give components access to the original, "live" files by passing the `--direct-mounts` flag to `spin up`.
 
+## Adding Environment Variables to Components
+
+Environment variables can be provided to components via the Spin application manifest.
+
+To do this, use the `environment` field in the component manifest:
+```toml
+[component]
+environment = { ANIMAL = "CAT", FOOD = "WATERMELON" }
+```
+The field accepts a map of environment variable key/value pairs. They are mapped inside the component at runtime.
+
+The environment variables can then be accessed inside the component. For example, in Rust:
+
+```rs
+#[http_component]
+fn handle_hello_rust(req: Request) -> Result<Response> {
+    let response format!("My {} likes to eat {}", std::env::var("PET")?, std::env::var("FOOD")?);
+    Ok(http::Response::builder()
+        .status(200)
+        .header("foo", "bar")
+        .body(Some(response.into()))?)
+}
+```
+
 ## Granting Networking Permissions to Components
 
 By default, Spin components are not allowed to make outgoing HTTP requests.  This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing.  To grant a component permission to make HTTP requests to a particular host, use the `allowed_http_hosts` field in the component manifest:
