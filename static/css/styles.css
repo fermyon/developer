@@ -1758,6 +1758,10 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   padding-top: 3.333rem;
 }
 
+.documentation .content h4 {
+  margin: 1.3333em 0 .6666em;
+}
+
 .documentation .content section {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -1810,6 +1814,10 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 
 .documentation .content section h1:first-of-type + ul li a:hover:after {
   display: none;
+}
+
+.documentation .content section h1:first-of-type + ul li ul {
+  margin: 0;
 }
 
 .documentation .content section blockquote p {
