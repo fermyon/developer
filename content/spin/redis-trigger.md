@@ -7,6 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/redis-trigge
 
 ---
 - [Specifying an Application as Redis](#specifying-an-application-as-redis)
+- [Authenticating with Redis](#authenticating-with-redis)
 - [Mapping a Channel to a Component](#mapping-a-channel-to-a-component)
 - [Redis Components](#redis-components)
 	- [The Message Handler](#the-message-handler)
@@ -34,11 +35,17 @@ The Redis trigger also requires an `address` field.  This is the address of the 
 
 > If you create an application from a Redis template, the trigger will be already set up for you.
 
-By default, Spin does not authenticate to Redis. You can work around this by providing a password in the `redis://` URL.  For example: `address = "redis://:p4ssw0rd@localhost:6379"`
+## Authenticating with Redis
 
-> Do not use passwords in code committed to version control systems.
+By default, Spin does not authenticate to Redis. However, you can authenticate, using Spin's:
+- [config at the application level](https://developer.fermyon.com/spin/dynamic-configuration.md#custom-config-variables),
+- [config at the individual component level](https://developer.fermyon.com/spin/dynamic-configuration.md#component-custom-config),
+- [environment variable convention](https://developer.fermyon.com/spin/dynamic-configuration.md#environment-variable-provider),
+- [HashiCorp Vault integration](https://developer.fermyon.com/spin/dynamic-configuration.md#vault-config-provider),
+- [runtime configuration file](https://developer.fermyon.com/spin/dynamic-configuration.md#runtime-configuration), trigger option, (see `spin up --help` for more information), or
+- provide a password in the `redis://` URL.  For example: `address = "redis://:p4ssw0rd@localhost:6379"`
 
-> We plan to offer secrets-based authentication in future versions of Spin.
+> **Note:** Do not use passwords in code committed to version control systems.
 
 In addition, each component must have Redis-specific configuration in its `[component.trigger]` table.
 
