@@ -2,7 +2,7 @@ title = "Deploying Spin Apps Using GitHub Action"
 template = "cloud_main"
 date = "2023-03-27T21:00:01Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/cloud/deploying-with-github-action.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/github-actions.md"
 
 ---
 - [Deploying Spin Apps With Github Actions](#deploying-spin-apps-with-github-actions)
@@ -30,7 +30,7 @@ This tutorial will focus specifically on `fermyon/actions/spin/deploy`. Upon com
 
 To ensure the tutorial goes smoothly, please check you have the following:
 * Spin (v0.6.0 or newer) [installed](/spin/quickstart#install-spin). You can check the version using `spin --version`.
-* Spin templates [installed](./spin/managing-templates#installing-from-the-spin-git-repository). You can check with `spin templates list`.
+* Spin templates [installed](/spin/managing-templates#installing-from-the-spin-git-repository). You can check with `spin templates list`.
 * A Fermyon Cloud account; that is set up via your preferred [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email) (and optionally [GitHub CLI](https://cli.github.com/manual/) installed).
 * A working Fermyon Cloud [Personal Access Token (PAT)](/cloud/user-settings#create-and-manage-a-personal-access-token-pat), that is stored in an accessible location.
 
@@ -144,7 +144,7 @@ jobs:
 
 Since this tutorial is using Python, we've provided `py2wasm` as a required plugin in the `plugins` field. You can learn more about how to [manage plugins](/spin/managing-plugins), however, if you are using a Spin language that does not require a plugin, please disregard plugins and just leave this field blank.
 
-> To learn more about language support for Spin features, please visit our [Language Support Overview](.spin/language-support-overview.md).
+> To learn more about language support for Spin features, please visit our [Language Support Overview](/spin/language-support-overview.md).
 
 ### Configuring GitHub Actions 
 
