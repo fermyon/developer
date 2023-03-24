@@ -63,6 +63,7 @@ TABLE OF CONTENTS
 				padding: 0.5rem 1rem 0.725rem;
 				border-radius: 0.333rem;
 				list-style: none;
+				line-height: 1;
 
 				&:before {
 					content: "Contents:";
@@ -78,15 +79,16 @@ TABLE OF CONTENTS
 
 				li {
 					list-style: none;
-					margin: 0.175rem 0;
+					margin: 0.05rem 0;
 					padding: 0;
+					line-height: 1;
 
 					a {
-						border-left: 4px solid darken($lightlavender, 2.5%);
+						border-left: 4px solid rgba(125,125,125,0.125);
 						border-radius: 1px;
 						margin: 0;
-						padding: 0.2rem 0 0.2rem 0.5rem;
-						line-height: 1.2;
+						padding: 0.15rem 0 0.15rem 0.5rem;
+						line-height: 1.25;
 						display: inline-block;
 						@include transition;
 
@@ -135,8 +137,8 @@ TABLE OF CONTENTS
 			@media screen and (min-width: 1661px) {
 				h1:first-of-type+ul {
 					position: fixed;
-					top: 112px;
-					right: 6.125rem;
+					top: 86px;
+					right: 90px;
 					width: 15vw;
 					background: $lightlavender;
 					padding: 0.825rem 1rem;
@@ -1568,6 +1570,28 @@ html.dark-theme {
 
 		.external {
 			background: url('../image/arrowexternal-dark.svg') no-repeat 0 0;
+		}
+	}
+
+	.documentation {
+
+		.content {
+			section {
+				h1:first-of-type + ul {
+					li {
+						a {
+							color: $lightplum;
+							opacity: 0.75;
+						}
+					}
+
+					&:hover {
+						li a {
+							opacity: 1;
+						}
+					}
+				}
+			}
 		}
 	}
 }
