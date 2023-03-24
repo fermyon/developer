@@ -7,7 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/user-settin
 
 ---
 - [Fermyon Cloud Account Settings](#fermyon-cloud-account-settings)
-  - [Create and Manage a Personal Access Token (PAT)](#create-and-manage-a-personal-access-token)
+  - [Create and Manage a Personal Access Token](#create-and-manage-a-personal-access-token)
     - [Create a PAT](#create-a-pat)
     - [Delete a PAT](#delete-a-pat)
   - [Delete Your Fermyon Cloud Account](#delete-your-fermyon-cloud-account)
