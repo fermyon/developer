@@ -201,14 +201,6 @@ INFO spin_redis_engine: Received message on channel "messages"
 Hello, there!
 ```
 
-If you would also like to see the `println!` messages echoed to the console as they happen, please include the additional `--follow-all` option, when starting the spin application. For example:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin up --file spin.toml --follow-all
-```
-
 > You can find a complete example for a Redis triggered component in the
 > [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/redis-rust).
 
