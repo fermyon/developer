@@ -154,9 +154,11 @@ Make sure to modify the `manifest_file` field in the `spin-deploy-action.yaml` f
 
 ### Set a Github Repository Secret With Your Fermyon Cloud Personal Access Token (PAT)
 
-Grab your Personal Access Token (PAT) you made note of in the [Prerequisites section](#prerequisites). Once you have the PAT handy, follow [GitHub's instructions](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for adding encrypted secrets for a repository. Make sure the secret name you use matches the name you provided for the `manifest_file` parameter, and you supply your PAT as your secret. You should see the following screen once you have added your secret successfully:
+Grab your Personal Access Token (PAT) you made note of in the [Prerequisites section](#prerequisites). Once you have the PAT handy, follow [GitHub's instructions](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for adding encrypted secrets for a repository. For example, press the green "New repository secret" button in the GitHub UI (under the repo's "Settings", "Secrets and variables" and "Actions" menu items).
 
 ![Registry Secret View](/static/image/github-reg-secret-success.png)
+
+When creating the new secret (and pasting in your PAT) ensure that the secret's name (that you use in the GitHub UI) matches the actual name you provide for the `fermyon_token` value in the `spin-deploy-action.yaml` file. For example, if the GitHub UI has a secret named `FERMYON_CLOUD_TOKEN` (as shown in the screen capture above) then the `spin-deploy-action.yaml` file will have a line such as `fermyon_token: ${{ secrets.FERMYON_CLOUD_TOKEN }}`).
 
 ### Push Changes to Your Registry to Deploy Spin App
 
