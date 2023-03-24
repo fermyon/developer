@@ -1773,6 +1773,7 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   background: #ece5ee;
   border-radius: .333rem;
   padding: .5rem 1rem .725rem;
+  line-height: 1;
   list-style: none;
   display: inline-block;
   overflow-y: auto;
@@ -1791,17 +1792,18 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 }
 
 .documentation .content section h1:first-of-type + ul li {
-  margin: .175rem 0;
+  margin: .05rem 0;
   padding: 0;
+  line-height: 1;
   list-style: none;
 }
 
 .documentation .content section h1:first-of-type + ul li a {
-  border-left: 4px solid #e6dde9;
+  border-left: 4px solid #7d7d7d20;
   border-radius: 1px;
   margin: 0;
-  padding: .2rem 0 .2rem .5rem;
-  line-height: 1.2;
+  padding: .15rem 0 .15rem .5rem;
+  line-height: 1.25;
   transition: all .3s ease-in-out;
   display: inline-block;
 }
@@ -1852,8 +1854,8 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
     border-radius: .333rem;
     padding: .825rem 1rem;
     position: fixed;
-    top: 112px;
-    right: 6.125rem;
+    top: 86px;
+    right: 90px;
   }
 }
 
@@ -3108,6 +3110,15 @@ html.dark-theme .developer-home-wrap .external {
   background: url("arrowexternal-dark.ac3a9a36.svg") no-repeat;
 }
 
+html.dark-theme .documentation .content section h1:first-of-type + ul li a {
+  color: #d3c3d9;
+  opacity: .75;
+}
+
+html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a {
+  opacity: 1;
+}
+
 .cc-window {
   opacity: 1;
   transition: opacity 1s;
@@ -3235,8 +3246,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-right-radius: .5em;
   border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
   top: 0;
   left: 3em;
 }
