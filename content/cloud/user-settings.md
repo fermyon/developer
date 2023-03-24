@@ -7,7 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/user-settin
 
 ---
 - [Fermyon Cloud Account Settings](#fermyon-cloud-account-settings)
-  - [Create and Manage a Personal Access Token (PAT)](#create-and-manage-a-personal-access-token-pat)
+  - [Create and Manage a Personal Access Token (PAT)](#create-and-manage-a-personal-access-token)
     - [Create a PAT](#create-a-pat)
     - [Delete a PAT](#delete-a-pat)
   - [Delete Your Fermyon Cloud Account](#delete-your-fermyon-cloud-account)
@@ -21,11 +21,11 @@ User settings empower you to take control of your Fermyon Cloud experience. Toda
 
 See the relevant sections below, for instructions on how to perform these actions.
 
-### Create and Manage a Personal Access Token (PAT)
+### Create and Manage a Personal Access Token
 
 #### Create a PAT
 
-Personal access tokens (PAT) enable continuous integration workflows by providing an alternative to using the standard login procedure which requires you to go through Fermyon Cloud to activate the device code
+A Personal Access Tokens (PAT) enable continuous integration workflows by providing an alternative to the standard login procedure, which requires you to go through Fermyon Cloud to activate the device code.
 
 Examples of this include deploying your Spin applications to Fermyon Cloud using the [`fermyon/action/spin/deploy` GitHub Action](https://github.com/fermyon/actions#fermyonactionspindeploy). Let's walk through the steps required to create a PAT.
 
