@@ -257,7 +257,7 @@ You can include files with a component.  This means that:
 To do this, use the `files` field in the component manifest:
 
 ```toml
-[component]
+[[component]]
 files = [ "images/**/*.jpg", { source = "styles/dist", destination = "/styles" } ]
 ```
 
@@ -276,8 +276,8 @@ Environment variables can be provided to components via the Spin application man
 
 To do this, use the `environment` field in the component manifest:
 ```toml
-[component]
-environment = { ANIMAL = "CAT", FOOD = "WATERMELON" }
+[[component]]
+environment = { PET = "CAT", FOOD = "WATERMELON" }
 ```
 The field accepts a map of environment variable key/value pairs. They are mapped inside the component at runtime.
 
@@ -299,7 +299,7 @@ fn handle_hello_rust(req: Request) -> Result<Response> {
 By default, Spin components are not allowed to make outgoing HTTP requests.  This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing.  To grant a component permission to make HTTP requests to a particular host, use the `allowed_http_hosts` field in the component manifest:
 
 ```toml
-[component]
+[[component]]
 allowed_http_hosts = [ "dog-facts.example.com", "api.example.com:8080" ]
 ```
 
@@ -312,7 +312,7 @@ For development-time convenience, you can also pass the string `"insecure:allow-
 By default, Spin components are not allowed to access Spin's storage services.  This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing.  To grant a component permission to use a Spin-provided store, use the `key_value_stores` field in the component manifest:
 
 ```toml
-[component]
+[[component]]
 key_value_stores = [ "default" ]
 ```
 
