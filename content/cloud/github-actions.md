@@ -24,7 +24,7 @@ Fermyon's Spin uses three GitHub Actions. For example:
 * `fermyon/actions/spin/push` - enables users to push their Spin applications to an OCI registry, and
 * `fermyon/actions/spin/deploy` - enables users to deploy their Spin applications to Fermyon Cloud.
 
-This tutorial will focus specifically on `fermyon/actions/spin/deploy`. Upon completing this tutorial, you should have a GitHub repository that builds and deploys a Spin application to Fermyon Cloud every time you commit a pull request. Let's get started!
+This tutorial will focus specifically on `fermyon/actions/spin/deploy`. Upon completing this tutorial, you should have a GitHub repository that builds and deploys a Spin application to Fermyon Cloud every time you merge a pull request. Let's get started!
 
 ### Prerequisites 
 
@@ -132,7 +132,6 @@ jobs:
       - name: Setup `spin`
         uses: fermyon/actions/spin/setup@v1
         with:
-          version: canary
           plugins: py2wasm
 
       - name: build and deploy
