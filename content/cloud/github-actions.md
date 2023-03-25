@@ -1,6 +1,6 @@
 title = "Deploying Spin Apps Using GitHub Action"
 template = "cloud_main"
-date = "2023-03-27T21:00:01Z"
+date = "2023-03-24T21:00:01Z"
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/github-actions.md"
 
