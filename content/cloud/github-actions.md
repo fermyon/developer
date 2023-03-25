@@ -141,7 +141,7 @@ jobs:
           fermyon_token: ${{ secrets.FERMYON_CLOUD_TOKEN }}
 ```
 
-Since this tutorial is using Python, we've provided `py2wasm` as a required plugin in the `plugins` field. You can learn more about how to [manage plugins](/spin/managing-plugins), however, if you are using a Spin language that does not require a plugin, please disregard plugins and just leave this field blank.
+Since this tutorial is using Python, we've provided `py2wasm` as a required plugin in the `plugins` field. You can learn more about how to [manage plugins](/spin/managing-plugins), however, if you are using a Spin language that does not require a plugin, please disregard plugins and just remove this field.
 
 > To learn more about language support for Spin features, please visit our [Language Support Overview](/spin/language-support-overview.md).
 
