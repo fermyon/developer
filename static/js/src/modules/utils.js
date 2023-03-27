@@ -147,4 +147,35 @@ function removeExpiredEvents() {
     }
 }
 
-export { scrollSideMenu, addCopyButtons, addAnchorLinks, removeExpiredEvents, header, blogAd }
+function changelogFilter() {
+    let changelogItems = Array.from(document.querySelectorAll(".changelog-item-title"))
+    if (changelogItems.length) {
+        let changelogTags = new Set(["all_features"])
+        changelogItems.map(k => {
+            JSON.parse(k.dataset.tags).forEach(item => changelogTags.add(item))
+        })
+        changelogTags = Array.from(changelogTags)
+        let changelogSelect = document.getElementById("changelog-select")
+
+        changelogTags.map(k => {
+                let opt = document.createElement('option');
+                opt.value = k;
+                opt.innerHTML = k;
+                changelogSelect.appendChild(opt);
+        })
+
+        changelogSelect.addEventListener("change", () => {
+            let selected = changelogSelect.value
+            changelogItems.map(k => {
+                if (selected != "all_features" && !k.dataset.tags.includes(selected)) {
+                    console.log(k.parentElement)
+                    k.parentElement.style.display = "none"
+                } else {
+                    k.parentElement.style.display = "flex"
+                }
+            })
+        })
+    }
+}
+
+export { scrollSideMenu, addCopyButtons, addAnchorLinks, changelogFilter, removeExpiredEvents, header, blogAd }

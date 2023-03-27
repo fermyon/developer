@@ -111,11 +111,13 @@ TABLE OF CONTENTS
 				th {
 					background-color: rgba($lightlavender, 1);
 				}
-				
-				th, td {
+
+				th,
+				td {
 					padding: 0.67rem 0.5rem;
 					font-size: 0.825rem;
 				}
+
 				code {
 					display: inline-block;
 					margin: 0 !important;
@@ -175,11 +177,16 @@ TABLE OF CONTENTS
 
 				.hljs-comment {
 					color: #bbb !important;
-				  }
+				}
 			}
 		}
 
-		h1, h2, h3, h4, h5, h6 {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
 			code {
 				font-size: 0.825em !important;
 				font-weight: 600;
@@ -435,18 +442,21 @@ html.dark-theme {
 
 		.content {
 			table {
-				th{
+				th {
 					background-color: #0a1931;
 					border-bottom: 1px solid #0d203f;
 					color: #fff;
 				}
+
 				td {
 					border-bottom-color: #0d203f;
 				}
+
 				code {
 					background-color: rgba($oxfordblue, 0.5);
 				}
 			}
+
 			details {
 				background: #1b2c4f;
 				border-left: 4px solid #243c6c;
@@ -515,7 +525,7 @@ html.dark-theme {
 			}
 
 			blockquote p {
-				background-color: rgba(0,0,0,0.25);
+				background-color: rgba(0, 0, 0, 0.25);
 			}
 		}
 	}
@@ -700,14 +710,14 @@ html.dark-theme {
 					height: 100vw;
 					opacity: 0;
 				}
-				
+
 				&:hover {
 					+.overlay {
 						// display: block;
 						left: 0;
 						opacity: 1;
 						backdrop-filter: blur(6px);
-						transition: backdrop-filter ease-in-out 1s 0.1s; 
+						transition: backdrop-filter ease-in-out 1s 0.1s;
 					}
 				}
 
@@ -1223,10 +1233,10 @@ html.dark-theme {
 		padding-right: 2.5vw !important;
 	}
 
-	.menu-wrap + article.content {
+	.menu-wrap+article.content {
 		max-width: 95vw !important;
 	}
-	
+
 	.documentation {
 		.content {
 			padding-top: 2rem;
@@ -1941,4 +1951,199 @@ screen and (max-width:736px) and (orientation:landscape) {
 
 .cc-floating.cc-theme-edgeless .cc-btn+.cc-btn {
 	margin-left: 0
+}
+
+.changelog {
+	&-wrapper {
+		width: 100%;
+		max-width: 1200px;
+		padding: 3rem;
+	}
+
+	&-header {
+		position: relative;
+		padding-bottom: 2rem;
+		
+		&::after {
+			width: 25%;
+			content: " ";
+			height: 0.33rem;
+			background: #bea7e5;
+			border-radius: 0.33rem;
+			margin: 2.5rem 0 0;
+			display: inline-block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	&-select-box {
+		height: 40px;
+		overflow-y: auto;
+		width: 200px;
+		margin: 5rem 0rem 2rem 0rem;
+		padding: 0.4rem;
+		outline: none;
+		border-radius: 0.33rem;
+		background-color: $lightlavender;
+		color: $midblue;
+
+		option {
+			overflow-y: scroll;
+		}
+	}
+
+	&-animation {
+		.terminal {
+			width: 100%;
+			height: 10rem;
+			background: black;
+			border-radius: 0.67rem 0.67rem 0.33rem 0.33rem;
+			margin: auto;
+			overflow-wrap: break-word;
+
+			.control {
+				width: 100%;
+				height: 1rem;
+				background-color: white;
+				border-radius: 0.33rem 0.33rem 0 0;
+				display: flex;
+				align-items: center;
+				padding-left: 0.5rem;
+
+				.circle {
+					display: inline-block;
+					height: 10px;
+					width: 10px;
+					border-radius: 100%;
+					background: #f96256;
+					margin-right: 0.4rem;
+
+					&:nth-child(2) {
+						background-color: #fdbc3d;
+					}
+
+					&:nth-child(3) {
+						background-color: #33c948;
+					}
+				}
+			}
+
+			.prompts {
+				padding: 0.75rem;
+				color: white;
+				font-size: 0.8rem;
+				;
+
+				.prompt-sign {
+					color: $midgreen;
+				}
+			}
+		}
+	}
+
+	&-content {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: "";
+			top: 4rem;
+			border-left: 2px solid $lavender;
+			height: calc(100% - 10rem);
+		}
+
+		.columns {
+			margin: 0;
+		}
+	}
+
+	&-item {
+		&-title {
+			padding: 2rem 2rem 2rem 2.5rem;
+			position: sticky;
+			top: 6.75rem;
+			align-self: flex-start;
+
+			&::before {
+				content: "+";
+				position: absolute;
+				height: 2rem;
+				width: 2rem;
+				padding: 0.2rem;
+				border-radius: 50%;
+				background-color: #f7f4f8;
+				left: -0.9rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2rem;
+			}
+		}
+
+		&-date {
+			font-size: 1rem;
+		}
+
+		&-tags {
+			span {
+				font-size: 0.8rem;
+				border-radius: 0.337rem;
+				padding: 0.2rem;
+				background-color: $lightlavender;
+			}
+		}
+
+		&-content-summary {
+			padding: 1rem 1rem 1rem 2.5rem;
+			margin-bottom: 3rem;
+
+			hr {
+				width: 80%;
+				margin: auto;
+				background-color: $lavender;
+			}
+		}
+	}
+}
+
+html.dark-theme {
+	.changelog {
+		&-wrapper {
+			width: 100%;
+			max-width: 1200px;
+			padding: 3rem;
+		}
+
+		&-select-box {
+			background-color: $midblue;
+			color: $lightlavender;
+		}
+
+		&-item {
+			&-title:before {
+				background-color: $oxfordblue;
+			}
+
+			&-tags {
+				span {
+					background-color: $midblue;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.changelog-item {
+		&-title {
+			position: static;
+			top: 0;
+
+			&::before {
+				left: -1rem;
+			}
+		}
+	}
 }

@@ -1,6 +1,6 @@
 const { el, mount, text, list, setChildren, setStyle, setAttr } = redom
 import {setupSearch, searchButton, searchModal} from "./modules/search"
-import {addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents} from "./modules/utils"
+import {addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents, changelogFilter} from "./modules/utils"
 import { multiTabContentHandler} from "./modules/multiTab"
 
 document.querySelectorAll('.modal-button').forEach(function (el) {
@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   removeExpiredEvents()
   addAnchorLinks()
   scrollSideMenu()
+  changelogFilter()
   new multiTabContentHandler()
   if (window.location.hash.length > 0) {
     setTimeout(function () {
