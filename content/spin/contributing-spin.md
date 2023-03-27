@@ -28,8 +28,9 @@ soon as possible. First, make sure you have the following prerequisites
 configured:
 
 - [Rust](https://www.rust-lang.org/) at
-  [1.66+](https://www.rust-lang.org/tools/install) with the `wasm32-wasi` target configured
-  (`rustup target add wasm32-wasi`)
+  [1.68+](https://www.rust-lang.org/tools/install) with the `wasm32-wasi` and
+  `wasm32-unknown-unknown` targets configured
+  (`rustup target add wasm32-wasi && rustup target add wasm32-unknown-unknown`)
 - [`rustfmt`](https://github.com/rust-lang/rustfmt) and
   [`clippy`](https://github.com/rust-lang/rust-clippy) configured for your Rust
   installation
