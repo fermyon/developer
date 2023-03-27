@@ -34,6 +34,7 @@ enable_shortcodes = true
     - [Trigger Options](#trigger-options)
       - [Redis Request Handler](#redis-request-handler)
       - [HTTP Request Handler](#http-request-handler)
+  - [Watch](#watch)
   - [CLI Stability Table](#cli-stability-table)
 
 ## Spin
@@ -68,6 +69,37 @@ SUBCOMMANDS:
     registry     Commands for working with OCI registries to distribute applications
     templates    Commands for working with WebAssembly component templates
     up           Start the Spin application
+```
+
+{{ blockEnd }}
+
+{{ startTab "v1.1.0"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin --help
+
+USAGE:
+    spin <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    add          Scaffold a new component into an existing application
+    build        Build the Spin application
+    cloud        Commands for publishing applications to the Fermyon Platform
+    deploy       Package and upload an application to the Fermyon Platform
+    help         Print this message or the help of the given subcommand(s)
+    login        Log into the Fermyon Platform
+    new          Scaffold a new application based on a template
+    plugins      Install/uninstall Spin plugins
+    registry     Commands for working with OCI registries to distribute applications
+    templates    Commands for working with WebAssembly component templates
+    up           Start the Spin application
+    watch        Rebuild and restart the Spin application when files changes
 ```
 
 {{ blockEnd }}
@@ -1224,6 +1256,57 @@ TRIGGER OPTIONS:
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+### Watch
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v1.1.0"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin watch --help
+
+spin-watch
+Build and run the Spin application, rebuilding and restarting it when files change
+
+USAGE:
+    spin watch [OPTIONS] [UP_ARGS]...
+
+ARGS:
+    <UP_ARGS>...    Arguments to be passed through to spin up
+
+OPTIONS:
+    -c, --clear                       Clear the screen before each run
+    -d, --debounce <DEBOUNCE>         Set the timeout between detected change and re-execution, in
+                                      milliseconds [default: 100]
+    -f, --file <APP_MANIFEST_FILE>    Path to spin.toml [default: spin.toml]
+    -h, --help                        Print help information
+        --skip-build                  Only run the Spin application, restarting it when build
+                                      artifacts change
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+`spin watch` relies on configuration in your application manifest to know what files it should watch. For each component you should set the `component.build.watch` parameter with a list of glob patterns that your source files will match.
+
+```toml
+[component.build]
+# Example watch configuration for a Rust application
+watch = ["src/**/*.rs", "Cargo.toml"]
+```
+
+The table below outlines exactly which files `spin watch` will monitor for changes depending on how you run the command. `spin watch` uses the configuration found on every component in your application.
+
+| Files                   | `spin watch` monitors for changes              | `spin watch --skip-build` monitors for changes |
+| ----------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Application manifest    | Yes                                            | Yes                                            |
+| `component.build.watch` | Yes                                            | No                                             |
+| `component.files`       | Yes                                            | Yes                                            |
+| `component.source`      | No (Yes if the component has no build command) | Yes                                            |
 
 ### CLI Stability Table
 
