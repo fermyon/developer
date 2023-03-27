@@ -275,10 +275,12 @@ If your files list would match some files or directories that you _don't_ want i
 Environment variables can be provided to components via the Spin application manifest.
 
 To do this, use the `environment` field in the component manifest:
+
 ```toml
 [[component]]
 environment = { PET = "CAT", FOOD = "WATERMELON" }
 ```
+
 The field accepts a map of environment variable key/value pairs. They are mapped inside the component at runtime.
 
 The environment variables can then be accessed inside the component. For example, in Rust:
