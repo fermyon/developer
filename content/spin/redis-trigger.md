@@ -37,17 +37,11 @@ The Redis trigger also requires an `address` field.  This is the address of the 
 
 ## Authenticating with Redis
 
-By default, Spin does not authenticate to Redis. However, you can authenticate, using Spin's:
-- [config at the application level](https://developer.fermyon.com/spin/dynamic-configuration.md#custom-config-variables),
-- [config at the individual component level](https://developer.fermyon.com/spin/dynamic-configuration.md#component-custom-config),
-- [environment variable convention](https://developer.fermyon.com/spin/dynamic-configuration.md#environment-variable-provider),
-- [HashiCorp Vault integration](https://developer.fermyon.com/spin/dynamic-configuration.md#vault-config-provider),
-- [runtime configuration file](https://developer.fermyon.com/spin/dynamic-configuration.md#runtime-configuration), trigger option, (see `spin up --help` for more information), or
-- provide a password in the `redis://` URL.  For example: `address = "redis://:p4ssw0rd@localhost:6379"`
+By default, Spin does not authenticate to Redis. However, the appropriate configuration can be achieved using Spin's [Dynamic and Runtime Application Configuration](https://developer.fermyon.com/spin/dynamic-configuration.md) options.
 
 > **Note:** Do not use passwords in code committed to version control systems.
 
-In addition, each component must have Redis-specific configuration in its `[component.trigger]` table.
+Each component must have Redis-specific configuration in its `[component.trigger]` table.
 
 ## Mapping a Channel to a Component
 
