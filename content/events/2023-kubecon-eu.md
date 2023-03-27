@@ -7,6 +7,6 @@ type = "event"
 eventdates = "Apr 18-21 2023"
 eventexpires = "2023-04-22T01:01:01Z"
 url = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe"
-image = "static/image/events/TODO"
+image = "static/image/events/kubeconeu.png"
 
 ---
