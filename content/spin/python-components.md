@@ -320,7 +320,7 @@ date: Mon, 27 Feb 2023 05:16:03 GMT
 Executed outbound Redis commands: /hello
 ```
 
-If we go into our Redis CLI on locahost we can see that the value `foo` which was set in the Python source code ( `redis_set(redis_address, "foo", b"bar")` ) is now correctly set to the value of `bar`:
+If we go into our Redis CLI on localhost we can see that the value `foo` which was set in the Python source code ( `redis_set(redis_address, "foo", b"bar")` ) is now correctly set to the value of `bar`:
 
 <!-- @nocpy -->
 
