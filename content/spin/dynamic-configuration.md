@@ -108,8 +108,8 @@ $ vault kv put secret/password value="test_password"
 $ vault kv get secret/password
 ```
 
-4. Go to [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-config-test) folder.
-5. Start `vault-config-test` app:
+4. Go to the [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-config-test) folder.
+5. Build and run the `vault-config-test` app:
 
 <!-- @selectiveCpy -->
 
@@ -133,5 +133,5 @@ Got password test_password
 
 ## Runtime Configuration
 
-Runtime configuration contains config provider information like [vault config provider](#vault-config-provider).
-You can use the runtime configuration by giving `--runtime-config-file` in `spin up` command.
+Runtime configuration contains information for the selected config provider, such as the [Vault config provider](#vault-config-provider).
+You can supply runtime configuration by providing a value for the `--runtime-config-file` flag when invoking the `spin up` command.
