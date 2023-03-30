@@ -32,7 +32,7 @@
             
             <div class="columns changelog-content is-flex-wrap-wrap">
                 {{#each (content_filter site.pages "/content/cloud/changelog/" "changelog_post")}}
-                <div class="columns is-fullwidth">
+                <div class="columns">
                     <div class="column is-half is-full-mobile changelog-item-title"
                         data-tags='[{{#each this.page.head.tags}}{{#if @last}}"{{this}}" {{else}} "{{this}}",{{/if}}{{/each}}]''>
                         <h3><a href="{{this.uri}}">{{this.page.head.title}}</a></h3>
@@ -45,7 +45,7 @@
                             {{/each}}
                         </div> --}}
                     </div>
-                    <div class="column is-half is-full-mobile changelog-item-content-summary">
+                    <div class="column is-half is-hidden-mobile changelog-item-content-summary">
                         {{{truncate_post this.page.body}}}
                     </div>
                 </div>

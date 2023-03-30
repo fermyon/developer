@@ -9,13 +9,13 @@
         <article class="column content content-docs content-docs-wide">
             <section id="type">
 
-            {{#if (eq page.head.title "Not Found")}}
+                {{#if (eq page.head.title "Not Found")}}
                 {{> 404 }}
-            {{else}}
-                <a href="{{site.info.base_url}}/cloud/changelog" class="back-arrow">← Back</a>
+                {{else}}
                 <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
                 {{{page.body}}}
-            {{/if}}
+                {{/if}}
+                <div class="back-arrow"><a href="{{site.info.base_url}}/cloud/changelog" class="back-arrow">← Back to Changelog</a></div>
             </section>
         </article>
 
@@ -26,4 +26,5 @@
 {{> content_bottom }}
 
 </body>
+
 </html>

@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"dbYla":[function(require,module,exports) {
+})({"fJjES":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 37347;
+var HMR_PORT = 33469;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "42036d7a98ade5a7";
 module.bundle.HMR_BUNDLE_ID = "2a29ff2311f401cb";
@@ -590,7 +590,7 @@ document.addEventListener("DOMContentLoaded", function() {
     (0, _utils.removeExpiredEvents)();
     (0, _utils.addAnchorLinks)();
     (0, _utils.scrollSideMenu)();
-    (0, _utils.changelogFilter)();
+    // changelogFilter()
     new (0, _multiTab.multiTabContentHandler)();
     if (window.location.hash.length > 0) {
         setTimeout(function() {
@@ -1287,5 +1287,5 @@ function filterMultitabQuery() {
     return multitabQuery;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["dbYla","e9rxa"], "e9rxa", "parcelRequire252c")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["fJjES","e9rxa"], "e9rxa", "parcelRequire252c")
 

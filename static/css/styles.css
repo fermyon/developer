@@ -3227,8 +3227,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  border-bottom-left-radius: .5em;
   top: 0;
   left: 3em;
 }
@@ -3494,10 +3494,10 @@ html.dark-theme .developer-home-wrap .external {
 
 .changelog-content:before {
   content: "";
-  height: calc(100% - 10rem);
+  height: calc(100% - 8rem);
   border-left: 2px solid #bea7e5;
   position: absolute;
-  top: 4rem;
+  top: 3rem;
 }
 
 .changelog-content .columns {
@@ -3512,10 +3512,10 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .changelog-item-title:before {
-  content: "+";
-  height: 2rem;
-  width: 2rem;
-  background-color: #f7f4f8;
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  background-color: #bea7e5;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -3523,7 +3523,8 @@ html.dark-theme .developer-home-wrap .external {
   font-size: 2rem;
   display: flex;
   position: absolute;
-  left: -.9rem;
+  top: 2.5rem;
+  left: -.45rem;
 }
 
 .changelog-item-title h3 a {
@@ -3564,9 +3565,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .changelog .back-arrow {
-  margin-top: .75rem;
-  position: absolute;
-  left: -130px;
+  text-align: right;
+  margin-top: 3rem;
 }
 
 html.dark-theme .changelog-wrapper {
@@ -3584,10 +3584,6 @@ html.dark-theme .changelog-select-box {
   background-color: #345995;
 }
 
-html.dark-theme .changelog-item-title:before {
-  background-color: #0d203f;
-}
-
 html.dark-theme .changelog-item-title h3.heading-anchor a {
   color: #fff !important;
 }
@@ -3601,11 +3597,16 @@ html.dark-theme .changelog-item-tags span {
 }
 
 @media screen and (max-width: 768px) {
-  .changelog-content:before {
-    display: none;
+  .changelog-animation .terminal {
+    height: 12.5rem;
+    margin-top: 1rem;
   }
 
-  .changelog .changelog.back-arrow {
+  .changelog-content:before {
+    height: calc(100% - 6rem);
+  }
+
+  .changelog back-arrow {
     margin: 15px 0 0;
     position: relative;
     left: auto;
@@ -3618,7 +3619,7 @@ html.dark-theme .changelog-item-tags span {
   }
 
   .changelog .changelog-item-title:before {
-    left: -1rem;
+    left: -2rem;
   }
 }
 

@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   removeExpiredEvents()
   addAnchorLinks()
   scrollSideMenu()
-  changelogFilter()
+  // changelogFilter()
   new multiTabContentHandler()
   if (window.location.hash.length > 0) {
     setTimeout(function () {
