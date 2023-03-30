@@ -1,5 +1,5 @@
 title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur adipiscing elit."
-template = "cloud_main"
+template = "changelog_item"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 tags = ["feature", "auth", "crypto"]

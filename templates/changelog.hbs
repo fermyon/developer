@@ -9,9 +9,9 @@
         <article class="column content content-docs content-docs-wide changelog-wrapper">
             <div class="columns is-flex-wrap-wrap changelog-header">
                 <div class="column is-half is-full-mobile">
-                    <h4>Changelog</h4>
+                    <h1>Changelog</h1>
                     <div>
-                        The place to find the latest and greatest weather updates about events on the fermyon cloud.
+                        What's new in the Fermyon Cloud &dash; features, fixes and updates. Follow <a href="https://twitter.com/fermyontech" target="_blank">@fermyontech</a> for more.
                     </div>
                 </div>
                 <div class="column is-half is-full-mobile changelog-animation">
@@ -24,15 +24,12 @@
                         <div class="prompts">
                             <div><span class="prompt-sign">(main) $</span> curl
                                 https://developer.fermyon.com/cloud/changelog</div>
-                            <div>Getting the latest weather updates from the fermyon cloud!</div>
+                            <div>Getting the latest weather updates from the Fermyon Cloud!</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <select id="changelog-select" class="changelog-select-box">
-                </select>
-            </div>
+            
             <div class="columns changelog-content is-flex-wrap-wrap">
                 {{#each (content_filter site.pages "/content/cloud/changelog/" "changelog_post")}}
                 <div class="columns is-fullwidth">
@@ -42,15 +39,14 @@
                         <div class="changelog-item-date">
                             {{#if this.page.head.date}}{{date_format "%B %d, %Y" this.page.head.date}}{{/if}}
                         </div>
-                        <div class="changelog-item-tags">
+                        {{!-- <div class="changelog-item-tags">
                             {{#each this.page.head.tags}}
                             <span>{{this}}</span>
                             {{/each}}
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="column is-half is-full-mobile changelog-item-content-summary">
                         {{{truncate_post this.page.body}}}
-                        <hr>
                     </div>
                 </div>
                 {{/each}}

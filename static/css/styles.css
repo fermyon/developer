@@ -3227,8 +3227,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-right-radius: .5em;
   border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
   top: 0;
   left: 3em;
 }
@@ -3421,21 +3421,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .changelog-header {
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
   position: relative;
-}
-
-.changelog-header:after {
-  width: 25%;
-  content: " ";
-  height: .33rem;
-  background: #bea7e5;
-  border-radius: .33rem;
-  margin: 2.5rem 0 0;
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 
 .changelog-select-box {
@@ -3460,7 +3447,7 @@ html.dark-theme .developer-home-wrap .external {
   overflow-wrap: break-word;
   background: #000;
   border-radius: .67rem .67rem .33rem .33rem;
-  margin: auto;
+  margin: 8.25rem auto 0;
 }
 
 .changelog-animation .terminal .control {
@@ -3491,13 +3478,14 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .changelog-animation .terminal .prompts {
-  color: #fff;
-  padding: .75rem;
-  font-size: .8rem;
+  color: #ece5ee;
+  padding: .75rem 1.5rem;
+  font-size: .925rem;
+  line-height: 1.6;
 }
 
 .changelog-animation .terminal .prompts .prompt-sign {
-  color: #1fbca0;
+  color: #bea7e5;
 }
 
 .changelog-content {
@@ -3538,26 +3526,47 @@ html.dark-theme .developer-home-wrap .external {
   left: -.9rem;
 }
 
+.changelog-item-title h3 a {
+  color: #040b15;
+}
+
+.changelog-item-title h3 a:hover:after {
+  display: none;
+}
+
 .changelog-item-date {
+  letter-spacing: .05rem;
+  color: #0d203f;
+  margin: 0 0 1rem;
   font-size: 1rem;
 }
 
 .changelog-item-tags span {
-  background-color: #ece5ee;
-  border-radius: .337rem;
-  padding: .2rem;
+  letter-spacing: .07rem;
+  text-transform: uppercase;
+  background: #9696961a;
+  border-radius: 2rem;
+  margin: .1rem .1rem .1rem 0;
+  padding: .2rem .5rem;
   font-size: .8rem;
+  display: inline-block;
 }
 
 .changelog-item-content-summary {
   margin-bottom: 3rem;
-  padding: 1rem 1rem 1rem 2.5rem;
+  padding-top: 1rem;
 }
 
 .changelog-item-content-summary hr {
   width: 80%;
   background-color: #bea7e5;
   margin: auto;
+}
+
+.changelog .back-arrow {
+  margin: 15px 0 0 -500px;
+  position: absolute;
+  left: 50%;
 }
 
 html.dark-theme .changelog-wrapper {
@@ -3575,17 +3584,36 @@ html.dark-theme .changelog-item-title:before {
   background-color: #0d203f;
 }
 
+html.dark-theme .changelog-item-title h3.heading-anchor a {
+  color: #fff !important;
+}
+
+html.dark-theme .changelog-item-date {
+  color: #6f93cd;
+}
+
 html.dark-theme .changelog-item-tags span {
   background-color: #345995;
 }
 
-@media (max-width: 768px) {
-  .changelog-item-title {
-    position: static;
-    top: 0;
+@media screen and (max-width: 768px) {
+  .changelog-content:before {
+    display: none;
   }
 
-  .changelog-item-title:before {
+  .changelog .changelog.back-arrow {
+    margin: 15px 0 0;
+    position: relative;
+    left: auto;
+  }
+
+  .changelog .changelog-item-title {
+    padding: 2rem 0 !important;
+    position: relative !important;
+    top: auto !important;
+  }
+
+  .changelog .changelog-item-title:before {
     left: -1rem;
   }
 }

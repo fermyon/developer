@@ -1,0 +1,29 @@
+{{! This adds the HTML head section and the beginning of the body. See content_top.hbs. }}
+{{> content_top }}
+
+<main class="container is-fullwidth is-widescreen page-wrap changelog changelog-wrapper">
+    <div class="columns">
+
+        {{! This adds the sidebar }}
+
+        <article class="column content content-docs content-docs-wide">
+            <section id="type">
+
+            {{#if (eq page.head.title "Not Found")}}
+                {{> 404 }}
+            {{else}}
+                <a href="{{site.info.base_url}}/cloud/changelog" class="back-arrow">← Back</a>
+                <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
+                {{{page.body}}}
+            {{/if}}
+            </section>
+        </article>
+
+    </div>
+</main>
+
+{{! This closes the body. See content_bottom.hbs. }}
+{{> content_bottom }}
+
+</body>
+</html>

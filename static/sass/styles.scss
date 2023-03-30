@@ -1962,20 +1962,7 @@ screen and (max-width:736px) and (orientation:landscape) {
 
 	&-header {
 		position: relative;
-		padding-bottom: 2rem;
-		
-		&::after {
-			width: 25%;
-			content: " ";
-			height: 0.33rem;
-			background: #bea7e5;
-			border-radius: 0.33rem;
-			margin: 2.5rem 0 0;
-			display: inline-block;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-		}
+		padding-bottom: 5rem;
 	}
 
 	&-select-box {
@@ -2000,7 +1987,7 @@ screen and (max-width:736px) and (orientation:landscape) {
 			height: 10rem;
 			background: black;
 			border-radius: 0.67rem 0.67rem 0.33rem 0.33rem;
-			margin: auto;
+			margin: 8.25rem auto 0;
 			overflow-wrap: break-word;
 
 			.control {
@@ -2031,13 +2018,13 @@ screen and (max-width:736px) and (orientation:landscape) {
 			}
 
 			.prompts {
-				padding: 0.75rem;
-				color: white;
-				font-size: 0.8rem;
-				;
+				padding: 0.75rem 1.5rem;
+				color: $lightlavender;
+				font-size: 0.925rem;
+				line-height: 1.6;
 
 				.prompt-sign {
-					color: $midgreen;
+					color: $lavender;
 				}
 			}
 		}
@@ -2080,23 +2067,44 @@ screen and (max-width:736px) and (orientation:landscape) {
 				justify-content: center;
 				font-size: 2rem;
 			}
+
+			h3 {
+				a {
+					color: darken($oxfordblue, 10%);
+
+					&:hover {
+						&:after {
+							display: none;
+						}
+
+					} 
+				}
+			}
 		}
 
 		&-date {
 			font-size: 1rem;
+			letter-spacing: 0.05rem;
+			color: $oxfordblue;
+			margin: 0 0 1rem;
 		}
 
 		&-tags {
 			span {
 				font-size: 0.8rem;
 				border-radius: 0.337rem;
-				padding: 0.2rem;
-				background-color: $lightlavender;
+				padding: 0.2rem 0.5rem;
+				border-radius: 2rem;
+				background: rgba(150,150,150,0.1);
+				letter-spacing: 0.07rem;
+				text-transform: uppercase;
+				display: inline-block;
+				margin: 0.1rem 0.1rem 0.1rem 0;
 			}
 		}
 
 		&-content-summary {
-			padding: 1rem 1rem 1rem 2.5rem;
+			padding-top: 1rem;
 			margin-bottom: 3rem;
 
 			hr {
@@ -2105,6 +2113,12 @@ screen and (max-width:736px) and (orientation:landscape) {
 				background-color: $lavender;
 			}
 		}
+	}
+
+	.back-arrow {
+		position: absolute;
+		left: 50%;
+		margin: 15px 0 0 -500px;
 	}
 }
 
@@ -2122,8 +2136,18 @@ html.dark-theme {
 		}
 
 		&-item {
-			&-title:before {
-				background-color: $oxfordblue;
+			&-title {
+				&:before {
+					background-color: $oxfordblue;
+				}
+
+				h3.heading-anchor a {
+					color: white !important;
+				}
+			}
+
+			&-date {
+				color: lighten($midblue, 22.5%);
 			}
 
 			&-tags {
@@ -2135,11 +2159,23 @@ html.dark-theme {
 	}
 }
 
-@media (max-width: 768px) {
-	.changelog-item {
-		&-title {
-			position: static;
-			top: 0;
+@media screen and (max-width: 768px) {
+	.changelog {
+
+		&-content:before {
+			display: none;
+		}
+
+		.changelog.back-arrow {
+			position: relative;
+			left: auto;
+			margin: 15px 0 0 0;
+		}
+
+		.changelog-item-title {
+			position: relative !important;
+			top: auto !important;
+			padding: 2rem 0 !important;
 
 			&::before {
 				left: -1rem;
