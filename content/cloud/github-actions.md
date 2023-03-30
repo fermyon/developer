@@ -20,7 +20,7 @@ Fermyon provides a set of actions for working with Spin. For example:
 
 * `fermyon/actions/spin/setup` - installs the Spin CLI and necessary plugins
 * `fermyon/actions/spin/push` - pushes a Spin application to a registry
-* `fermyon/actions/spin/deploy` - deploys a Spin applications to Fermyon Cloud
+* `fermyon/actions/spin/deploy` - deploys a Spin application to Fermyon Cloud
 
 In this tutorial, you'll create an application and deploy it from GitHub to Fermyon Cloud using the `fermyon/actions/spin/deploy` action. Upon completing this tutorial, you should have a GitHub repository that builds and deploys a Spin application to Fermyon Cloud every time you merge a pull request to `main`. Let's get started!
 
