@@ -288,7 +288,7 @@ The environment variables can then be accessed inside the component. For example
 ```rs
 #[http_component]
 fn handle_hello_rust(req: Request) -> Result<Response> {
-    let response format!("My {} likes to eat {}", std::env::var("PET")?, std::env::var("FOOD")?);
+    let response = format!("My {} likes to eat {}", std::env::var("PET")?, std::env::var("FOOD")?);
     Ok(http::Response::builder()
         .status(200)
         .header("foo", "bar")
