@@ -2036,9 +2036,9 @@ screen and (max-width:736px) and (orientation:landscape) {
 		&::before {
 			position: absolute;
 			content: "";
-			top: 4rem;
+			top: 3rem;
 			border-left: 2px solid $lavender;
-			height: calc(100% - 10rem);
+			height: calc(100% - 8rem);
 		}
 
 		.columns {
@@ -2054,14 +2054,15 @@ screen and (max-width:736px) and (orientation:landscape) {
 			align-self: flex-start;
 
 			&::before {
-				content: "+";
+				content: "";
 				position: absolute;
-				height: 2rem;
-				width: 2rem;
+				height: 1rem;
+				width: 1rem;
 				padding: 0.2rem;
 				border-radius: 50%;
-				background-color: #f7f4f8;
-				left: -0.9rem;
+				background-color: $lavender;
+				left: -0.45rem;
+				top: 2.5rem;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -2077,7 +2078,7 @@ screen and (max-width:736px) and (orientation:landscape) {
 							display: none;
 						}
 
-					} 
+					}
 				}
 			}
 		}
@@ -2095,7 +2096,7 @@ screen and (max-width:736px) and (orientation:landscape) {
 				border-radius: 0.337rem;
 				padding: 0.2rem 0.5rem;
 				border-radius: 2rem;
-				background: rgba(150,150,150,0.1);
+				background: rgba(150, 150, 150, 0.1);
 				letter-spacing: 0.07rem;
 				text-transform: uppercase;
 				display: inline-block;
@@ -2116,9 +2117,8 @@ screen and (max-width:736px) and (orientation:landscape) {
 	}
 
 	.back-arrow {
-		position: absolute;
-		left: -130px;
-		margin-top: 0.75rem;
+		margin-top: 3rem;
+		text-align: right;
 	}
 }
 
@@ -2141,9 +2141,6 @@ html.dark-theme {
 
 		&-item {
 			&-title {
-				&:before {
-					background-color: $oxfordblue;
-				}
 
 				h3.heading-anchor a {
 					color: white !important;
@@ -2165,12 +2162,18 @@ html.dark-theme {
 
 @media screen and (max-width: 768px) {
 	.changelog {
-
-		&-content:before {
-			display: none;
+		&-animation {
+			.terminal {
+				margin-top: 1rem;
+				height: 12.5rem;
+			}
 		}
 
-		.changelog.back-arrow {
+		&-content:before {
+			height: calc(100% - 6rem);
+		}
+
+		back-arrow {
 			position: relative;
 			left: auto;
 			margin: 15px 0 0 0;
@@ -2182,7 +2185,7 @@ html.dark-theme {
 			padding: 2rem 0 !important;
 
 			&::before {
-				left: -1rem;
+				left: -2rem;
 			}
 		}
 	}
