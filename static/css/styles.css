@@ -3564,15 +3564,19 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .changelog .back-arrow {
-  margin: 15px 0 0 -500px;
+  margin-top: .75rem;
   position: absolute;
-  left: 50%;
+  left: -130px;
 }
 
 html.dark-theme .changelog-wrapper {
   width: 100%;
   max-width: 1200px;
   padding: 3rem;
+}
+
+html.dark-theme .changelog section {
+  position: relative;
 }
 
 html.dark-theme .changelog-select-box {

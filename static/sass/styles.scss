@@ -2117,8 +2117,8 @@ screen and (max-width:736px) and (orientation:landscape) {
 
 	.back-arrow {
 		position: absolute;
-		left: 50%;
-		margin: 15px 0 0 -500px;
+		left: -130px;
+		margin-top: 0.75rem;
 	}
 }
 
@@ -2128,6 +2128,10 @@ html.dark-theme {
 			width: 100%;
 			max-width: 1200px;
 			padding: 3rem;
+		}
+
+		section {
+			position: relative;
 		}
 
 		&-select-box {
