@@ -1953,11 +1953,15 @@ screen and (max-width:736px) and (orientation:landscape) {
 	margin-left: 0
 }
 
+.menu-wrap + article.content.changelog-wrapper {
+	padding-left: 0.75rem !important;
+}
+
 .changelog {
 	&-wrapper {
 		width: 100%;
 		max-width: 1200px;
-		padding: 3rem;
+		padding: 3rem 0.75rem !important;
 	}
 
 	&-header {
