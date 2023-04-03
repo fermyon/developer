@@ -54,7 +54,7 @@ npm run spin >/dev/null 2>&1 &
 
 ## wait for portal to be up and running
 export RESP_CODE="$(mktemp)"
-timeout 10s bash -c 'until curl -o /dev/null -s -w "%{http_code}\n" http://localhost:3000 > $RESP_CODE; do sleep 2; done'
+timeout 60s bash -c 'until curl -o /dev/null -s -w "%{http_code}\n" http://localhost:3000 > $RESP_CODE; do sleep 2; done'
 
 echo "checking website health via http://localhost:3000"
 
