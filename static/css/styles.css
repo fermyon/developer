@@ -3433,4 +3433,244 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   margin-left: 0;
 }
 
+.menu-wrap + article.content.changelog-wrapper {
+  padding-left: .75rem !important;
+}
+
+.changelog-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 3rem .75rem !important;
+}
+
+.changelog-header {
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+.changelog-select-box {
+  height: 40px;
+  width: 200px;
+  color: #345995;
+  background-color: #ece5ee;
+  border-radius: .33rem;
+  outline: none;
+  margin: 5rem 0 2rem;
+  padding: .4rem;
+  overflow-y: auto;
+}
+
+.changelog-select-box option {
+  overflow-y: scroll;
+}
+
+.changelog-animation .terminal {
+  width: 100%;
+  height: 10rem;
+  overflow-wrap: break-word;
+  background: #000;
+  border-radius: .67rem .67rem .33rem .33rem;
+  margin: 8.25rem auto 0;
+}
+
+.changelog-animation .terminal .control {
+  width: 100%;
+  height: 1rem;
+  background-color: #fff;
+  border-radius: .33rem .33rem 0 0;
+  align-items: center;
+  padding-left: .5rem;
+  display: flex;
+}
+
+.changelog-animation .terminal .control .circle {
+  height: 10px;
+  width: 10px;
+  background: #f96256;
+  border-radius: 100%;
+  margin-right: .4rem;
+  display: inline-block;
+}
+
+.changelog-animation .terminal .control .circle:nth-child(2) {
+  background-color: #fdbc3d;
+}
+
+.changelog-animation .terminal .control .circle:nth-child(3) {
+  background-color: #33c948;
+}
+
+.changelog-animation .terminal .prompts {
+  color: #ece5ee;
+  padding: .75rem 1.5rem;
+  font-size: .925rem;
+  line-height: 1.6;
+}
+
+.changelog-animation .terminal .prompts .prompt-sign {
+  color: #bea7e5;
+}
+
+.changelog-content {
+  position: relative;
+}
+
+.changelog-content:before {
+  content: "";
+  height: calc(100% - 8rem);
+  border-left: 2px solid #bea7e5;
+  position: absolute;
+  top: 3rem;
+}
+
+.changelog-content .columns {
+  margin: 0;
+}
+
+.changelog-item-title {
+  align-self: flex-start;
+  padding: 2rem 2rem 2rem 2.5rem;
+  position: sticky;
+  top: 6.75rem;
+}
+
+.changelog-item-title:before {
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  background-color: #bea7e5;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: .2rem;
+  font-size: 2rem;
+  display: flex;
+  position: absolute;
+  top: 2.5rem;
+  left: -.45rem;
+}
+
+.changelog-item-title h3 a {
+  color: #040b15;
+}
+
+.changelog-item-title h3 a:hover:after {
+  display: none;
+}
+
+.changelog-item-date {
+  letter-spacing: .05rem;
+  color: #0d203f;
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.changelog-item-tags span {
+  letter-spacing: .07rem;
+  text-transform: uppercase;
+  background: #9696961a;
+  border-radius: 2rem;
+  margin: .1rem .1rem .1rem 0;
+  padding: .2rem .5rem;
+  font-size: .8rem;
+  display: inline-block;
+}
+
+.changelog-item-content-summary {
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+.changelog-item-content-summary hr {
+  width: 80%;
+  background-color: #bea7e5;
+  margin: auto;
+}
+
+.changelog .back-arrow {
+  margin-bottom: 1.333rem;
+  font-size: .825rem;
+}
+
+html.dark-theme .changelog section {
+  position: relative;
+}
+
+html.dark-theme .changelog-select-box {
+  color: #ece5ee;
+  background-color: #345995;
+}
+
+html.dark-theme .changelog-item-title h3.heading-anchor a {
+  color: #fff !important;
+}
+
+html.dark-theme .changelog-item-date {
+  color: #6f93cd;
+}
+
+html.dark-theme .changelog-item-tags span {
+  background-color: #345995;
+}
+
+@media screen and (max-width: 768px) {
+  .documentation .developer-home-wrap .content.content-docs.content-docs-wide h1 {
+    font-size: 1.75rem;
+  }
+
+  .documentation .developer-home-wrap .content.content-docs.content-docs-wide p.lead {
+    font-size: 1.25rem;
+    padding: 0 !important;
+  }
+
+  .documentation .changelog-header {
+    padding-bottom: 2rem;
+  }
+
+  .documentation .changelog-header h1 {
+    margin: 0 0 1.5rem !important;
+    padding-bottom: .5rem !important;
+  }
+
+  .documentation .changelog-content {
+    padding-left: 3rem !important;
+  }
+
+  .documentation .changelog-content:before {
+    height: calc(100% - 6rem);
+    left: 1.425rem;
+  }
+
+  .documentation .changelog-wrapper {
+    max-width: 92vw !important;
+    padding: 4.5rem 4vw 2rem !important;
+  }
+
+  .documentation .changelog-wrapper h1 {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem !important;
+  }
+
+  .documentation .changelog-wrapper .back-arrow {
+    margin: 15px 0 0;
+    position: relative;
+    left: auto;
+  }
+
+  .documentation .changelog-wrapper .changelog-item-title {
+    margin-top: -1.333rem;
+    padding: 2rem 0 !important;
+    position: relative !important;
+    top: auto !important;
+  }
+
+  .documentation .changelog-wrapper .changelog-item-title h3 {
+    font-size: 1.33rem;
+  }
+
+  .documentation .changelog-wrapper .changelog-item-title:before {
+    left: -2rem;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
