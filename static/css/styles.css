@@ -3414,10 +3414,14 @@ html.dark-theme .developer-home-wrap .external {
   margin-left: 0;
 }
 
+.menu-wrap + article.content.changelog-wrapper {
+  padding-left: .75rem !important;
+}
+
 .changelog-wrapper {
   width: 100%;
   max-width: 1200px;
-  padding: 3rem;
+  padding: 3rem .75rem !important;
 }
 
 .changelog-header {
