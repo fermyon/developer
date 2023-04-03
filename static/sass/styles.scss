@@ -2117,18 +2117,15 @@ screen and (max-width:736px) and (orientation:landscape) {
 	}
 
 	.back-arrow {
-		margin-top: 3rem;
-		text-align: right;
+		// margin-top: 3rem;
+		// text-align: right;
+		font-size: 0.825rem;
+		margin-bottom: 1.333rem;
 	}
 }
 
 html.dark-theme {
 	.changelog {
-		&-wrapper {
-			width: 100%;
-			max-width: 1200px;
-			padding: 3rem;
-		}
 
 		section {
 			position: relative;
@@ -2161,31 +2158,69 @@ html.dark-theme {
 }
 
 @media screen and (max-width: 768px) {
-	.changelog {
-		&-animation {
-			.terminal {
-				margin-top: 1rem;
-				height: 12.5rem;
+
+	.documentation {
+		.developer-home-wrap {
+			.content.content-docs.content-docs-wide {
+				h1 {
+					font-size: 1.75rem;
+				}
+				
+				p.lead {
+					font-size: 1.25rem;
+					padding: 0 !important;
+				}
 			}
 		}
 
-		&-content:before {
-			height: calc(100% - 6rem);
-		}
+		.changelog {
+			&-header {
+				h1 {
+					margin: 0 0 1.5rem !important;
+					padding-bottom: 0.5rem !important;
+				}
 
-		back-arrow {
-			position: relative;
-			left: auto;
-			margin: 15px 0 0 0;
-		}
+				padding-bottom: 2rem;
+			}
 
-		.changelog-item-title {
-			position: relative !important;
-			top: auto !important;
-			padding: 2rem 0 !important;
+			&-content {
+				padding-left: 3rem !important;
 
-			&::before {
-				left: -2rem;
+				&:before {
+					height: calc(100% - 6rem);
+					left: 1.425rem;
+				}
+			}
+
+			&-wrapper {
+				padding: 4.5rem 4vw 2rem !important;
+				max-width: 92vw !important;
+
+				h1 {
+					margin-bottom: 1.25rem;
+					padding-bottom: 1rem !important;
+				}
+
+				.back-arrow {
+					position: relative;
+					left: auto;
+					margin: 15px 0 0 0;
+				}
+
+				.changelog-item-title {
+					position: relative !important;
+					top: auto !important;
+					padding: 2rem 0 !important;
+					margin-top: -1.333rem;
+
+					h3 {
+						font-size: 1.33rem;
+					}
+
+					&::before {
+						left: -2rem;
+					}
+				}
 			}
 		}
 	}

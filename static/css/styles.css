@@ -3227,8 +3227,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-right-radius: .5em;
   border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
   top: 0;
   left: 3em;
 }
@@ -3565,14 +3565,8 @@ html.dark-theme .developer-home-wrap .external {
 }
 
 .changelog .back-arrow {
-  text-align: right;
-  margin-top: 3rem;
-}
-
-html.dark-theme .changelog-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  padding: 3rem;
+  margin-bottom: 1.333rem;
+  font-size: .825rem;
 }
 
 html.dark-theme .changelog section {
@@ -3597,28 +3591,61 @@ html.dark-theme .changelog-item-tags span {
 }
 
 @media screen and (max-width: 768px) {
-  .changelog-animation .terminal {
-    height: 12.5rem;
-    margin-top: 1rem;
+  .documentation .developer-home-wrap .content.content-docs.content-docs-wide h1 {
+    font-size: 1.75rem;
   }
 
-  .changelog-content:before {
+  .documentation .developer-home-wrap .content.content-docs.content-docs-wide p.lead {
+    font-size: 1.25rem;
+    padding: 0 !important;
+  }
+
+  .documentation .changelog-header {
+    padding-bottom: 2rem;
+  }
+
+  .documentation .changelog-header h1 {
+    margin: 0 0 1.5rem !important;
+    padding-bottom: .5rem !important;
+  }
+
+  .documentation .changelog-content {
+    padding-left: 3rem !important;
+  }
+
+  .documentation .changelog-content:before {
     height: calc(100% - 6rem);
+    left: 1.425rem;
   }
 
-  .changelog back-arrow {
+  .documentation .changelog-wrapper {
+    max-width: 92vw !important;
+    padding: 4.5rem 4vw 2rem !important;
+  }
+
+  .documentation .changelog-wrapper h1 {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem !important;
+  }
+
+  .documentation .changelog-wrapper .back-arrow {
     margin: 15px 0 0;
     position: relative;
     left: auto;
   }
 
-  .changelog .changelog-item-title {
+  .documentation .changelog-wrapper .changelog-item-title {
+    margin-top: -1.333rem;
     padding: 2rem 0 !important;
     position: relative !important;
     top: auto !important;
   }
 
-  .changelog .changelog-item-title:before {
+  .documentation .changelog-wrapper .changelog-item-title h3 {
+    font-size: 1.33rem;
+  }
+
+  .documentation .changelog-wrapper .changelog-item-title:before {
     left: -2rem;
   }
 }

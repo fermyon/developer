@@ -4,7 +4,23 @@
     <div class="columns is-justify-content-center">
 
         {{! This adds the sidebar }}
-        {{!-- {{> cloud_sidebar }} --}}
+        <div class="menu-wrap is-narrow is-hidden-desktop" id="docsMenu">
+            <aside class="menu">
+
+                <div id="search-button-container" class="search-button-container"></div>
+
+                <p class="menu-label">
+                    Projects
+                </p>
+                <ul class="menu-list">
+                    <li><a href="/spin/index">Spin</a></li>
+                    <li><a href="/cloud/index">Fermyon Cloud</a></li>
+                    <li><a href="/bartholomew/index">Bartholomew</a></li>
+                </ul>
+
+                <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/" target="_blank">Login to Cloud</a>
+            </aside>
+        </div>
 
         <article class="column content content-docs content-docs-wide changelog-wrapper">
             <div class="columns is-flex-wrap-wrap changelog-header">
@@ -14,7 +30,7 @@
                         What's new in the Fermyon Cloud &dash; features, fixes and updates. Follow <a href="https://twitter.com/fermyontech" target="_blank">@fermyontech</a> for more.
                     </div>
                 </div>
-                <div class="column is-half is-full-mobile changelog-animation">
+                <div class="column is-half is-full-mobile changelog-animation is-hidden-touch">
                     <div class="terminal">
                         <div class="control">
                             <div class="circle"></div>

@@ -12,10 +12,11 @@
                 {{#if (eq page.head.title "Not Found")}}
                 {{> 404 }}
                 {{else}}
-                <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
-                {{{page.body}}}
+                    <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
+                    <div class="back-arrow"><a href="{{site.info.base_url}}/cloud/changelog" class="back-arrow">← Back to Changelog</a></div>
+                    
+                    {{{page.body}}}
                 {{/if}}
-                <div class="back-arrow"><a href="{{site.info.base_url}}/cloud/changelog" class="back-arrow">← Back to Changelog</a></div>
             </section>
         </article>
 
