@@ -1,4 +1,4 @@
-title = "Persistent Data: Spin"
+title = "Persistent Data with Spin"
 template = "spin_main"
 date = "2023-02-21T00:00:00Z"
 enable_shortcodes = true
@@ -6,9 +6,10 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main//content/spin/kv-store.md"
 
 ---
-- [Key Value Storage With Spin Applications](#key-value-storage-with-spin-applications)
+
+- [Built in Key Value Storage With Spin Applications](#built-in-key-value-storage-with-spin-applications)
 - [SQLite](#sqlite)
-  - [Redis, PostgreSQL \& SQLite](#redis-postgresql--sqlite)
+  - [Redis and PostgreSQL Support](#redis-and-postgresql-support)
 - [Tutorial Prerequisites](#tutorial-prerequisites)
 - [Creating a New Application](#creating-a-new-application)
 - [Configuration](#configuration)
@@ -22,25 +23,27 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/kv-store.md"
 - [Conclusion](#conclusion)
 - [Next Steps](#next-steps)
 
-## Key Value Storage With Spin Applications
+## Built in Key Value Storage With Spin Applications
 
-Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times during an application’s execution. [Spin](https://www.fermyon.com/blog/spin-v09) has support for applications that need data in the form of key/value pairs and are satisfied by a BASE consistency model. Workload examples include general value caching, session caching, counters, and serialized application state.
+Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times during an application’s execution. Spin has support for applications that need data in the form of key/value pairs and are satisfied by a BASE consistency model. Workload examples include general value caching, session caching, counters, and serialized application state.
 
 ## SQLite
 
-SQLite is an integral part of Spin's key/value API. As of Spin v0.9.0 onwards, users can easily access a built-in, _local_ key/value SQLite database in every Spin application. This persistent storage feature is available by default and with minimal configuration. [Supported language SDKs](https://developer.fermyon.com/spin/language-support-overview) currently include Go, JavaScript/TypeScript, Python and Rust.
+Under the hood, Spin is using SQLite to support its key/value API. As of Spin v0.9.0 onwards, users can easily access a built-in, _local_ key/value SQLite database in every Spin application. This persistent storage feature is available by default and with minimal configuration. Key/value storage is currently supported in multiple [language SDKs](https://developer.fermyon.com/spin/language-support-overview) including Go, JavaScript/TypeScript, Python and Rust.
 
 > Spin users can now persist and retrieve non-relational data from a key/value store across multiple requests to and from the same application; written in any of these languages.
 
-### Redis, PostgreSQL & SQLite
+### Redis and PostgreSQL Support
 
-A while back, around the Spin v0.5.0 version, we published an article on [Persistent Storage in Webassembly Applications](https://www.fermyon.com/blog/persistent-storage-in-webassembly-applications). In that previous article, we showed the Spin framework's capabilities of providing WebAssembly executables with access to different levels of on-disk persistence. We demonstrated manually installing Redis from source, running our Redis server on localhost and then reading and writing from Redis via both the Redis CLI itself and also via the Spin SDK. Our current documentation also has examples of using both [Redis](https://developer.fermyon.com/cloud/data-redis) and [PostgreSQL](https://developer.fermyon.com/cloud/data-postgres), via [Redis Labs](https://redis.com/) and [ElephantSQL](https://www.elephantsql.com/plans.html) services respectively. 
+Below are examples of using Redis or PostgreSQL for data persistence with Spin
 
-In all of these previous examples, to persist data within your application, a separate data storage layer is a requirement. These methods of data persistence are perfectly fine and sound to use as part of your application, if you choose to do so.
+- See [Persistent Storage in Webassembly Applications](https://www.fermyon.com/blog/persistent-storage-in-webassembly-applications) for an in depth tutorial on how to use a local Redis instance for persistence from a Spin application.
+- See the [Redis documentation](https://developer.fermyon.com/cloud/data-redis) for an example of a Spin application using [Redis Labs](https://redis.com/).
+- See the [PostgreSQL documentation](https://developer.fermyon.com/cloud/data-postgres) for documentation on how to build a Spin application with PostgreSQL using the [ElephantSQL](https://www.elephantsql.com/plans.html) service.
 
-However, from Spin v0.9.0 onwards, you are no longer required to install any on-disk persistence outside of just installing Spin itself. SQLite is embedded inside Spin in a way that is analogous to how one would imagine using a software library. When you run your Spin application using the [spin up](https://developer.fermyon.com/common/cli-reference#up) command, SQLite is available to your application. When your application is no longer running, neither is SQLite. Your data will continue to persist at all times (including during restarts) and will support the running of your application.
+In these examples, to persist data within your application, a separate data storage layer is a requirement. From v0.9 onwards, Spin has built in support for key/value storage backed by SQLite under the hood.
 
-In the future, it may be possible to embed other database technologies into Spin. For example, future Spin SDK updates may target other databases such as Redis, which would allow you to build applications using Redis via minimal Spin configuration without the need to locally install and maintain your own Redis instance.
+SQLite is embedded inside Spin in a way that is analogous to how one would imagine using a software library. When you run your Spin application using the [spin up](https://developer.fermyon.com/common/cli-reference#up) command, SQLite is available to your application. When your application is no longer running, neither is SQLite. Your data will continue to persist at all times (including during restarts) and will support the running of your application.
 
 Let's get started with creating and deploying your first Spin application that uses this new key/value storage mechanism.
 
@@ -58,7 +61,7 @@ $ spin --version
 
 ## Creating a New Application
 
-As previously documented, you can go ahead and [create a new Spin application from a template](https://developer.fermyon.com/spin/quickstart#creating-a-new-spin-application-from-a-template). Before you do though, please go ahead and read the [spin template](https://developer.fermyon.com/common/cli-reference#templates) and [spin new](https://developer.fermyon.com/common/cli-reference#new) sections of the Spin Command Line Interface (CLI) documentation. You will learn how to use the commands effectively and also see many handy options to [install](https://developer.fermyon.com/common/cli-reference#install-templates) and [upgrade](https://developer.fermyon.com/common/cli-reference#upgrade-templates) templates and so forth. When you are ready, go ahead and create your new application using commands similar to the ones shown below:
+Use the [`spin new`](https://developer.fermyon.com/common/cli-reference#new) command to create a new http application called `spin-key-value` from a language specific template.
 
 {{ tabs "sdk-type" }}
 
