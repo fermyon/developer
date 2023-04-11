@@ -16,9 +16,9 @@ keywords = "install"
   - [Merged](#merged)
   - [Thank You](#thank-you)
 
-We are delighted that you are interested in making Bartholomew better! Thank you! This document will guide you through making your first contribution to the project.
+We are delighted that you are interested in making Bartholomew better! Thank you! We welcome and appreciate contributions of all types — opening issues, fixing typos, adding examples, one-liner code fixes, tests, or complete features. This document will guide you through making your first contribution to the project.
 
-First, any contribution and interaction on any Fermyon project MUST follow our [code of conduct](https://www.fermyon.com/code-of-conduct). Thank you for being part of an inclusive and open community! We welcome and appreciate contributions of all types — opening issues, fixing typos, adding examples, one-liner code fixes, tests, or complete features.
+Any contribution and interaction on any Fermyon project MUST follow our [code of conduct](https://www.fermyon.com/code-of-conduct). Thank you for being part of an inclusive and open community!
 
 To contribute to the Bartholomew project, please follow these steps.
 

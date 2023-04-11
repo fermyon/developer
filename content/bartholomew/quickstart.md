@@ -137,7 +137,7 @@ Wrote new post in file content/blog/protons.md
 
 ## Validate Your Content
 
-If you would like to check the validity of your content, you can run the following `bart check` command; notice how we specify the location of the content we want to check. In this case, we are checking all of the Markdown files in the blog directory:
+If you would like to check the validity of your content, you can run the following `bart check` command. Notice how we specify the location of the content we want to check. In this case, we are checking all of the Markdown files in the blog directory:
 
 <!-- @selectiveCpy -->
 
@@ -201,8 +201,6 @@ tree .
     ├── content_top.hbs
     └── main.hbs
 ```
-
-The above command is useful to illustrate the hierarchy of blog articles i.e. `./content/blog/protons.md` etc.
 
 ## Viewing Your Changes
 
