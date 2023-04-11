@@ -16,6 +16,10 @@ keywords = "install"
   - [Merged](#merged)
   - [Thank You](#thank-you)
 
+We are delighted that you are interested in making Bartholomew better! Thank you! This document will guide you through making your first contribution to the project.
+
+First, any contribution and interaction on any Fermyon project MUST follow our [code of conduct](https://www.fermyon.com/code-of-conduct). Thank you for being part of an inclusive and open community! We welcome and appreciate contributions of all types — opening issues, fixing typos, adding examples, one-liner code fixes, tests, or complete features.
+
 To contribute to the Bartholomew project, please follow these steps.
 
 > These steps will seperately install (from source) all of the software components that make up a Bartholomew Content Management System (CMS) deployment on localhost. Whilst this page is aimed at showing you how to contribute to Bartholomew, it also demonstrates how all of the different components work together. This is a great way to learn about Spin, Bartholomew, Spin File Server and in addition how the WebAssembly binary files contribute to the workings of this system.

@@ -10,8 +10,8 @@ date = "2022-01-01T00:00:01Z"
   - [3. Reference](#3-reference)
   - [4. Explanation](#4-explanation)
 - [Documents Relevant to Two or More Projects](#documents-relevant-to-two-or-more-projects)
-- [Technical Documentation Procedure (Video - Brief Explanation)](#technical-documentation-procedure-video---brief-explaination)
-- [Technical Documentation Procedure (Text - Detailed Explanation)](#technical-documentation-procedure-text---detailed-explaination)
+- [Technical Documentation Procedure (Video - Brief Explanation)](#technical-documentation-procedure-video---brief-explanation)
+- [Technical Documentation Procedure (Text - Detailed Explanation)](#technical-documentation-procedure-text---detailed-explanation)
   - [1. Fork the Repository](#1-fork-the-repository)
   - [2. Clone the Fork](#2-clone-the-fork)
   - [3. Create New Branch](#3-create-new-branch)
@@ -27,7 +27,11 @@ date = "2022-01-01T00:00:01Z"
   - [10. Push Changes](#10-push-changes)
   - [11. Create a Pull Request](#11-create-a-pull-request)
 
-Thank you for your interest in contributing to the Fermyon documentation. Below are a few pointers designed to help you contribute.
+We are delighted that you are interested in making our developer documentation better. Thank you!
+
+First, any contribution and interaction on any Fermyon project MUST follow our [code of conduct](https://www.fermyon.com/code-of-conduct). Thank you for being part of an inclusive and open community! We welcome and appreciate contributions of all types — opening issues, fixing typos, adding examples, one-liner code fixes, tests, or complete features.
+
+Below are a few pointers designed to help you contribute.
 
 ## Technical Documentation Types
 
