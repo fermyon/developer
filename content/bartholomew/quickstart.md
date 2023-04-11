@@ -74,7 +74,7 @@ Available Routes:
   fileserver: http://127.0.0.1:3000/static (wildcard)
 ```
 
-As shown in the output above, when you navigate to `http://127.0.0.1:3000`, you should see the website running.
+As shown in the output above when you navigate to `http://127.0.0.1:3000`, you should see the website running.
 
 ## Creating Your Content
 
@@ -163,43 +163,6 @@ If some of your documents use shortcodes, then the shortcodes directory must be 
 
 ```bash
 $ bart check content/blog/* --shortcodes ./shortcodes
-```
-
-If you are curious about where certain files are within the blog template, you can use the `tree` command from within the root directory, as shown below:
-
-<!-- @selectiveCpy -->
-
-```bash
-tree .
-.
-├── LICENSE.txt
-├── README.md
-├── config
-│   └── site.toml
-├── content
-│   ├── blog
-│   │   └── protons.md
-│   ├── blog.md
-│   └── index.md
-├── modules
-│   ├── LICENSE.bartholomew
-│   ├── LICENSE.spin_static_fs
-│   ├── bartholomew.wasm
-│   └── spin_static_fs.wasm
-├── scripts
-│   ├── blogs.rhai
-│   └── get_page.rhai
-├── shortcodes
-│   └── alert.rhai
-├── spin.toml
-├── static
-│   └── example.txt
-└── templates
-    ├── blog.hbs
-    ├── content_bottom.hbs
-    ├── content_sidebar.hbs
-    ├── content_top.hbs
-    └── main.hbs
 ```
 
 ## Viewing Your Changes
