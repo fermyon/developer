@@ -65,7 +65,7 @@ Issue the following `spin up` command to launch your site on localhost:
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin up --follow-all
+$ spin up
 ```
 
 When you navigate to `http://localhost:3000`, you should see the website running.
@@ -89,6 +89,14 @@ $ make bart
 ```
 
 ## Create Your First Blog Post
+
+First, navigate back to your site template repository:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ cd <your-repo-name>
+```
 
 You are now ready to start adding content to your new website. You will recall that we installed the `bart` CLI in a previous step. We can use this CLI to create a new blog post page.
 
@@ -139,7 +147,7 @@ If some of your documents uses shortcodes, then directory from which the shortco
 <!-- @selectiveCpy -->
 
 ```bash
-$ bart check content/blog/* --shortcode ./shortcodes
+$ bart check content/blog/* --shortcodes ./shortcodes
 ```
 
 ## Viewing Your Changes
