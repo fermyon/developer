@@ -74,7 +74,7 @@ Available Routes:
   fileserver: http://127.0.0.1:3000/static (wildcard)
 ```
 
-As shown in the output, above, when you navigate to `http://127.0.0.1:3000`, you should see the website running.
+As shown in the output above, when you navigate to `http://127.0.0.1:3000`, you should see the website running.
 
 ## Creating Your Content
 
