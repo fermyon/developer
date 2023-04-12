@@ -1,21 +1,30 @@
 <div class="menu-wrap is-narrow is-fixed-desktop" id="docsMenu">
     <aside class="menu">
         <p class="menu-label">
-            Using Spin
+            Get Started
         </p>
         <ul class="menu-list">
             <li><a {{#if (active_content request.spin-path-info "/spin/index" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/">Introduction</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/install" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/install">Install</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/quickstart" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/quickstart">Quickstart</a></li>
+        </ul>
+
+        <p class="menu-label">
+            Applications
+        </p>
+        <ul class="menu-list">
             <li><a {{#if (active_content request.spin-path-info "/spin/writing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/writing-apps">Writing Applications</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/build" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/build">Building Application Code</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/running-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/running-apps">Running Applications</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Publishing and Distribution</a></li>                
         </ul>
+
 
         <p class="menu-label">
             Language Guides
         </p>
         <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/language-support-overview" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/language-support-overview">Language Support Overview</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/rust-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/rust-components">Rust</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/go-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/go-components">Go</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/javascript-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/javascript-components">Javascript</a></li>
@@ -32,12 +41,30 @@
         </ul>
 
         <p class="menu-label">
+            API Guides
+        </p>
+        <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/api-guides-overview" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/api-guides-overview">API Support Overview</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/http-outbound" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-outbound">Making HTTP Requests</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/redis-outbound" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-outbound">Redis Storage</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/rdbms-storage" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/rdbms-storage">Relational Database Storage</a></li>
+        </ul>
+
+        <p class="menu-label">
             Tutorials
         </p>
         <ul class="menu-list">
             <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/url-shortener">Building a URL Shortener With Spin</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/spin-oci">Hosting Spin Apps in OCI Registries</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/kv-store" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/kv-store">Persisting Data With Spin</a></li>
+        </ul>
+
+        <p class="menu-label">
+            Tools
+        </p>
+        <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/managing-templates" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-templates">Managing Templates</a></li>
+            <li><a {{#if (active_content request.spin-path-info "/spin/managing-plugins" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-plugins">Managing Plugins</a></li>
         </ul>
 
         <p class="menu-label">
@@ -52,7 +79,6 @@
             Advanced
         </p>
         <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Packaging and Distribution</a></li>                
             <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending and Embedding Spin</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/deploying-to-fermyon" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/deploying-to-fermyon">Deploying to Fermyon</a></li>
             {{!--  <li><a href="{{site.info.base_url}}/spin/architecture/">Architecture</a></li> --}}
@@ -71,7 +97,7 @@
         </ul>
 
         <ul class-"menu-list">
-            <li><a href="https://github.com/fermyon/developer/blob/main/content{{{request.spin-path-info}}}.md" class="button is-round is-outlined is-size-6 is-medium">
+            <li><a href="{{page.head.extra.url}}" class="button is-round is-outlined is-size-6 is-medium">
                     <svg width="0.825em" height="0.825em" viewBox="0 0 32 32" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"

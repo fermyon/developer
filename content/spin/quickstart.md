@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/quickstart.md"
+url = "https://github.com/fermyon/developer/blob/main//content/spin/quickstart.md"
 keywords = "quickstart"
 
 ---
@@ -18,7 +18,7 @@ keywords = "quickstart"
 
 Let's get Spin and take it from nothing to a "hello world" application!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sDiQV5RHorE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GqpZ9Kw0K3E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Install Spin
 

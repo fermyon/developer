@@ -1,0 +1,25 @@
+name: deploy docs preview
+on:
+  pull_request:
+    branches: "main"
+    types: ['opened', 'synchronize', 'reopened', 'closed']
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.head.repo.fork }}
+    name: Build and deploy
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup `spin`
+        uses: fermyon/actions/spin/setup@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: build and deploy preview
+        uses: fermyon/actions/spin/preview@v1
+        with:
+          fermyon_token: ${{ secrets.FERMYON_CLOUD_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          undeploy: ${{ github.event.pull_request && github.event.action == 'closed' }}

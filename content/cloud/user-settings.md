@@ -2,10 +2,12 @@ title = "The User Settings Screen"
 template = "cloud_main"
 date = "2023-02-28T00:00:00Z"
 enable_shortcodes = true
+[extra]
+url = "https://github.com/fermyon/developer/blob/main//content/cloud/user-settings.md"
 
 ---
 - [Fermyon Cloud Account Settings](#fermyon-cloud-account-settings)
-  - [Create and Manage a Personal Access Token (PAT)](#create-and-manage-a-personal-access-token-pat)
+  - [Create and Manage a Personal Access Token](#create-and-manage-a-personal-access-token)
     - [Create a PAT](#create-a-pat)
     - [Delete a PAT](#delete-a-pat)
   - [Delete Your Fermyon Cloud Account](#delete-your-fermyon-cloud-account)
@@ -19,13 +21,13 @@ User settings empower you to take control of your Fermyon Cloud experience. Toda
 
 See the relevant sections below, for instructions on how to perform these actions.
 
-### Create and Manage a Personal Access Token (PAT)
+### Create and Manage a Personal Access Token
 
 #### Create a PAT
 
-[Personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) are an alternative to using passwords for authentication to GitHub when using the GitHub API or the command line. 
+A Personal Access Tokens (PAT) enable continuous integration workflows by providing an alternative to the standard login procedure, which requires you to go through Fermyon Cloud to activate the device code.
 
-To deploy your Spin applications in a streamlined manner, you may want to create a PAT to use with a continuous integration pipeline such as GitHub Actions. Let's walk through the steps required to create a PAT.
+Examples of this include deploying your Spin applications to Fermyon Cloud using the [`fermyon/action/spin/deploy` GitHub Action](https://github.com/fermyon/actions#fermyonactionspindeploy). Let's walk through the steps required to create a PAT.
 
 First, [log into](/cloud/quickstart#log-in-to-the-fermyon-cloud) Fermyon Cloud. Hover over your username in the top right corner and select 'User Settings' from the down options.
 

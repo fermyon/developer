@@ -1,8 +1,8 @@
 title = "Bartholomew templates"
 date = "2022-05-09T19:23:07.490818Z"
 template = "bartholomew_main"
-
 [extra]
+url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/templates.md"
 
 ---
 - [A Simple Template](#a-simple-template)
