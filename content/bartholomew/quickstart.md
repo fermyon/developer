@@ -99,7 +99,7 @@ $ cd bartholomew
 $ make bart
 ```
 
-> NOTE: The procedure, in the example code block above, will create the `bart` executable binary file inside the `~/bartholomew/target/release/` directory. Please ensure that this new binary executable is added to your system path.
+> NOTE: The procedure in the example code block above will create the `bart` executable binary file inside the `~/bartholomew/target/release/` directory. Please ensure that this new binary executable is added to your system path.
 
 ## Create Your First Blog Post
 
