@@ -21,7 +21,8 @@ async function setupSearch() {
         this.field('title')
         this.field('subheading')
         this.field('content')
-        this.field('keywords', { boost: 10 })
+        this.field('keywords', { boost: 100 })
+        this.field('subsectionKeywords', { boost: 100 })
         this.ref('url')
 
         documents.forEach(function (doc) {
@@ -51,8 +52,14 @@ class SearchResultSubHeading {
         this.el = el("a.result-subitem", { onclick: function (e) { searchModal.close() } }, [this.itemIcon, this.link])
     }
     update(data) {
-        this.link.textContent = data.subheading
-        this.el.href = data.url
+            this.link.textContent = data.subheading
+            this.el.href = data.url
+            // Hide listing where the subheading is empty
+            if(data.subheading == ""){
+                setStyle(this.el, {display: "none"})
+            } else {
+                setStyle(this.el, {display: "flex"})
+            }
     }
 }
 
@@ -234,7 +241,7 @@ class SearchModal {
         }
         let updatedQuery = query
             .split(" ")
-            .map(word => word + '^2 ' + word + '* ')
+            .map(word => word + '^2 ' + word + '* ' + word + '~2')
             .join(' ');
         let result = idx.search(updatedQuery)
         let matches = {}
@@ -251,7 +258,6 @@ class SearchModal {
             }
             if (data.subheading == "") {
                 matches[key].url = data.url
-                return
             } else {
                 matches[key].url = data.url.slice(0, data.url.indexOf("#"))
             }
