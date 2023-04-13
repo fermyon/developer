@@ -2,6 +2,8 @@ title = "Spin on Kubernetes"
 template = "spin_main"
 date = "2023-03-01T00:01:01Z"
 enable_shortcodes = true
+[extra]
+url = "https://github.com/fermyon/developer/blob/main//content/spin/kubernetes.md"
 
 ---
 
@@ -110,11 +112,11 @@ Create a file wasm-runtimeclass.yml and populate with the following information
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
-  name: "wasmtime-spin-v1"
+  name: "wasmtime-spin"
 handler: "spin"
 scheduling:
   nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin-v1": "true"
+    "kubernetes.azure.com/wasmtime-spin": "true"
 ```
 
 Then register the runtime class with the cluster
@@ -125,25 +127,26 @@ kubectl apply -f wasm-runtimeclass.yaml
 
 {{ blockEnd }}
 
-{{ startTab "K3s"}}
+{{ startTab "K3d"}}
 
 ## Setup K8s for Spin
 
 ### Introduction
 
-[K3s](https://k3s.io/) is a lightweight Kubernetes installation.
+[K3d](https://k3d.io/) is a lightweight Kubernetes installation.
 
 ### Known Limitations
 
-- ?
+- Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
+- You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
 
 ### Setup
 
-Ensure both Docker and k3s are installed. Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
+Ensure both Docker and k3d are installed. Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0b572381-09cc-4baf-b210-88c6e88cbc5f/Untitled.png)
 
-Deis Labs provides a preconfigured K3s environment that can be run using this command
+Deis Labs provides a preconfigured K3d environment that can be run using this command
 
 ```bash
 k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.3.3 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
@@ -155,11 +158,11 @@ Create a file wasm-runtimeclass.yml and populate with the following information
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
-  name: "wasmtime-spin-v1"
+  name: "wasmtime-spin"
 handler: "spin"
 scheduling:
   nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin-v1": "true"
+    "kubernetes.azure.com/wasmtime-spin": "true"
 ```
 
 Then register the runtime class with the cluster
@@ -169,17 +172,40 @@ kubectl apply -f wasm-runtimeclass.yaml
 
 {{ blockEnd }}
 
+{{ startTab "Docker Desktop"}}
+
+## Setup Docker Desktop for Spin
+
+### Introduction
+
+Docker Desktop provides both an easy way to run Spin apps in containers directly and it's own Kuberentes option.
+
+### Known Limitations
+
+- Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
+- You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
+- Docker also supports running Spin apps directly with `docker run --runtime=io.containerd.spin.v1 --platform=wasi/wasm -p <port>:<port> <image>:<version>`. If there is not command specified in the Dockerfile, one will need to be passed at the command line. Since Spin doesn't need this, "/" can be passed.
+
+### Setup
+
+Install approproiate Preview Version of Docker Desktop+Wasm Technical Preview 2 from [here](https://www.docker.com/blog/announcing-dockerwasm-technical-preview-2/). Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
+
+Next Enable Kubernetes under Settings → Experimental → Enable Kubernetes, then hit “Apply & Restart”
+
+{{ blockEnd }}
+
 {{ startTab "Generic Kubernetes"}}
 
 ## Setup Generic Kubernetes for Spin
 
 ### Introduction
 
-Docker Desktop 
+These instructions are provided for a self-managed or other Kubernetes service that isn't documented elsewhere.
 
 ### Known Limitations
 
-- ?
+- Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
+- You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
 
 ### Setup
 
@@ -204,11 +230,11 @@ Create a file wasm-runtimeclass.yml and populate with the following information
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
-  name: "wasmtime-spin-v1"
+  name: "wasmtime-spin"
 handler: "spin"
 scheduling:
   nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin-v1": "true"
+    "kubernetes.azure.com/wasmtime-spin": "true"
 ```
 
 Then register the runtime class with the cluster
@@ -216,34 +242,6 @@ Then register the runtime class with the cluster
 kubectl apply -f wasm-runtimeclass.yaml
 ```
 
-{{ blockEnd }}
-
-{{ startTab "Docker Desktop"}}
-
-## Setup Docker Desktop for Spin
-
-### Introduction
-
-Docker Desktop 
-
-### Known Limitations
-
-- ?
-
-### Setup
-
-Ensure both Docker is installed. Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0b572381-09cc-4baf-b210-88c6e88cbc5f/Untitled.png)
-
-Next Enable Kubernetes under Settings → Experimental → Enable Kubernetes, then hit “Apply & Restart”
-
-![Screenshot 2023-02-28 at 3.52.34 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96406f4b-7df0-4e00-8c08-03696e6f0347/Screenshot_2023-02-28_at_3.52.34_PM.png)
-
-Apply the kwasm installer daemon set
-```bash
-kubectl apply -f https://raw.githubusercontent.com/KWasm/kwasm-node-installer/docker-desktop/example/daemonset.yaml
-```
 {{ blockEnd }}
 
 ## Run a Spin workload on Kubernetes
@@ -276,8 +274,6 @@ spin plugin install -u https://raw.githubusercontent.com/chrismatteson/spin-plug
 The workflow is very similar to the workflow for Fermyon Cloud. 
 
 The k8s plugin handles all of the tasks necessary to build the docker container, push it to a repository and deploy it into production.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a1f9e936-c805-40e5-871d-af5cc0f69a1e/Untitled.png)
 
 Just like with Fermyon Cloud, when something changes with the application, the workflow is to iterate the version in the spin.toml file, and restart the sequence from spin build.
 
@@ -330,7 +326,7 @@ spec:
       labels:
         app: test
     spec:
-      runtimeClassName: wasmtime-spin-v1
+      runtimeClassName: wasmtime-spin
       containers:
         - name: test
           image: chrismatteson/test:0.1.5
