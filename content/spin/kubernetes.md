@@ -43,38 +43,50 @@ Azure AKS provides a straightforward and officially [documented](https://learn.m
 
 To get spin working on an AKS cluster, a few setup steps are required. First Add the aks-preview extension
 
-```bash
-az extension add --name aks-preview
+<!-- @selectiveCpy -->
+
+```console
+$ az extension add --name aks-preview
 ```
 
 Next update to the latest version:
 
-```bash
-az extension update --name aks-preview
+<!-- @selectiveCpy -->
+
+```console
+$ az extension update --name aks-preview
 ```
 
 Register the WasmNodePoolPreview feature
 
-```bash
-az feature register --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
+<!-- @selectiveCpy -->
+
+```console
+$ az feature register --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
 ```
 
 This will take a few minutes to complete. You can verify it’s done when this command returns *Registered*
 
-```bash
-az feature show --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
+<!-- @selectiveCpy -->
+
+```console
+$ az feature show --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
 ```
 
 Finally refresh the registration of the ContainerService
 
-```bash
-az provider register --namespace Microsoft.ContainerService
+<!-- @selectiveCpy -->
+
+```console
+$ az provider register --namespace Microsoft.ContainerService
 ```
 
 Once the service is registered, the next step is to add a Wasm/WASI nodepool to an existing AKS cluster. If a cluster doesn’t already exist, follow Azure’s [documentation](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli) to create a new cluster.
 
-```bash
-az aks nodepool add \
+<!-- @selectiveCpy -->
+
+```console
+$ az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mywasipool \
@@ -84,25 +96,33 @@ az aks nodepool add \
 
 You can verify the workloadRuntime using the following command
 
-```bash
-az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipool --query workloadRuntime
+<!-- @selectiveCpy -->
+
+```console
+$ az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipool --query workloadRuntime
 ```
 
 The next set of commands uses kubectl to create the necessary runtimeClass. If you don’t already have kubectl configured with the appropriate credentials, you can retrieve them with this command
 
-```bash
-az aks get-credentials -n myakscluster -g myresourcegroup
+<!-- @selectiveCpy -->
+
+```console
+$ az aks get-credentials -n myakscluster -g myresourcegroup
 ```
 
 Find the name of the nodepool
 
-```bash
-kubectl get nodes -o wide
+<!-- @selectiveCpy -->
+
+```console
+$ kubectl get nodes -o wide
 ```
 
 Then retrieve detailed information on the appropriate nodepool and verify among it’s labels is “kubernetes.azure.com/wasmtime-spin-v1=true”
 
-```bash
+<!-- @selectiveCpy -->
+
+```console
 kubectl describe node aks-mywasipool-12456878-vmss000000
 ```
 
@@ -144,12 +164,12 @@ kubectl apply -f wasm-runtimeclass.yaml
 
 Ensure both Docker and k3d are installed. Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0b572381-09cc-4baf-b210-88c6e88cbc5f/Untitled.png)
-
 Deis Labs provides a preconfigured K3d environment that can be run using this command
 
-```bash
-k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.3.3 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
+<!-- @selectiveCpy -->
+
+```console
+$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.3.3 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
 ```
 
 Create a file wasm-runtimeclass.yml and populate with the following information
@@ -185,13 +205,24 @@ Docker Desktop provides both an easy way to run Spin apps in containers directly
 
 - Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
 - You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
-- Docker also supports running Spin apps directly with `docker run --runtime=io.containerd.spin.v1 --platform=wasi/wasm -p <port>:<port> <image>:<version>`. If there is not command specified in the Dockerfile, one will need to be passed at the command line. Since Spin doesn't need this, "/" can be passed.
 
 ### Setup
 
 Install approproiate Preview Version of Docker Desktop+Wasm Technical Preview 2 from [here](https://www.docker.com/blog/announcing-dockerwasm-technical-preview-2/). Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
 
 Next Enable Kubernetes under Settings → Experimental → Enable Kubernetes, then hit “Apply & Restart”
+
+### Using Docker Desktop With Spin
+
+Docker Desktop can be used with spin as a Kubernetes target per the instructions in the below in this document. However Docker can also run the containers directly with the following command:
+
+<!-- @selectiveCpy -->
+
+```console
+$ docker run --runtime=io.containerd.spin.v1 --platform=wasi/wasm -p <port>:<port> <image>:<version>
+```
+
+If there is not command specified in the Dockerfile, one will need to be passed at the command line. Since Spin doesn't need this, "/" can be passed.
 
 {{ blockEnd }}
 
@@ -212,10 +243,12 @@ These instructions are provided for a self-managed or other Kubernetes service t
 
 Clone containerd shim repository. Cd into the directory and run make
 
-```bash
-git clone [https://github.com/deislabs/containerd-wasm-shims](https://github.com/deislabs/containerd-wasm-shims)
-cd containerd-wasm-shims
-make
+<!-- @selectiveCpy -->
+
+```console
+$ git clone [https://github.com/deislabs/containerd-wasm-shims](https://github.com/deislabs/containerd-wasm-shims)
+$ cd containerd-wasm-shims
+$ make
 ```
 
 Copy the `containerd-shim-spin-v1` to the `/bin` directory of kubernetes node image. Then add the following lines to the config.toml for containerd.
@@ -284,27 +317,33 @@ Just like with Fermyon Cloud, when something changes with the application, the w
 
 #### Spin New
 
-```bash
-spin new
-```
+An optional command to use a template to create a new Spin App:
 
-Optional step to use a template to create a new Spin App
+<!-- @selectiveCpy -->
+
+```console
+$ spin new
+```
 
 #### Spin Build
 
-```bash
+The following command builds a spin app:
+
+<!-- @selectiveCpy -->
+
+```console
 spin build
 ```
 
-Builds spin app
-
 #### Spin K8s Scaffold
 
-```bash
+The following command creates two files necessary for a Spin app to run on Kubernetes. A Dockerfile and deploy.yaml. Scaffold takes in a namespace as a mandatory argument. This can either be a username if using the Docker hub, or can be the entire address if using a separate repository such as ghcr:
+
+<!-- @selectiveCpy -->
+
+```console
 spin k8s scaffold
 ```
-
-This step creates two files necessary for a Spin app to run on Kubernetes. A Dockerfile and deploy.yaml. Scaffold takes in a namespace as a mandatory argument. This can either be a username if using the Docker hub, or can be the entire address if using a separate repository such as ghcr.
 
 An example Dockerfile is below. The only things which end up in the final image are wasm and other files mentioned as sources in the spin.toml. 
 
@@ -382,32 +421,40 @@ spec:
 
 #### Spin K8s Build
 
-```bash
-spin k8s build
-```
+The following command uses the Dockerfile to locally build a Spin Docker Container. The container is tagged as latest and with the version from the spin.toml:
 
-This uses the Dockerfile to locally build a Spin Docker Container. The container is tagged as latest and with the version from the spin.toml.
+<!-- @selectiveCpy -->
+
+```console
+$ spin k8s build
+```
 
 #### Spin K8s Push
 
-```bash
-spin k8s push
-```
+The following command pushes the Dockerfile to the appropriate repository:
 
-This pushes the Dockerfile to the appropriate repository.
+<!-- @selectiveCpy -->
+
+```console
+$ spin k8s push
+```
 
 #### Spin K8s Deploy
 
-```bash
-spin k8s deploy
-```
+The following command deploys the application to Kubernetes:
 
-This deploys the application to Kubernetes
+<!-- @selectiveCpy -->
+
+```console
+$ spin k8s deploy
+```
 
 #### Spin K8s Getsvc
 
-```bash
-spin k8s getsvc
-```
+The following command retrieves information about the service that gets deployed (such as it’s external IP):
 
-This retrieves information about the service that gets deployed (such as it’s external IP)
+<!-- @selectiveCpy -->
+
+```console
+$ spin k8s getsvc
+```
