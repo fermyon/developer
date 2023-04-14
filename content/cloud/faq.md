@@ -1,6 +1,6 @@
 title = "FAQ and Known Limitations"
 template = "cloud_main"
-date = "2022-10-05T00:00:00Z"
+date = "2023-04-18T00:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main//content/cloud/faq.md"
@@ -40,7 +40,7 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Redis](https://developer.fermyon.com/spin/redis-trigger) | Not supported |
 | **APIs** |
 | [Outbound HTTP](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests) | Supported |
-| [Key Value Storage](https://developer.fermyon.com/spin/kv-store.md) | Coming soon |
+| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-api-guide) | Supported (only default store) |
 | [MySQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
