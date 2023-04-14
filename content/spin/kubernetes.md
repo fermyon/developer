@@ -13,7 +13,7 @@ In addition to `spin up` Fermyon also offers Fermyon Cloud to deploy spin apps i
 
 ## How Does It Work?
 
-For Kubernetes to run Spin workloads, it needs to be taught about a new runtime class. To do this, there is a shim for containerd. This compiles to a binary which must be places on the Kubernetes nodes which will host Shim pods. That binary then needs to be registered with Kubernetes as a new RuntimeClass. After that, wasm containers can be deployed to Kubernetes using spin k8s plugin.
+For Kubernetes to run Spin workloads, it needs to be taught about a new runtime class. To do this, there is a shim for containerd. This compiles to a binary that must be placed on the Kubernetes nodes that host Shim pods. That binary then needs to be registered with Kubernetes as a new RuntimeClass. After that, wasm containers can be deployed to Kubernetes using the Spin k8s plugin.
 
 ## Next Steps
 
