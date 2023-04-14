@@ -6,7 +6,7 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/kubernetes.md"
 
 ---
-- [Why Use Spin with Kubernetes?](#why-use-spin-with-kubernetes)
+- [Why Use Spin With Kubernetes?](#why-use-spin-with-kubernetes)
 - [How Does It Work?](#how-does-it-work)
 - [Next Steps](#next-steps)
 - [Setup Azure AKS for Spin](#setup-azure-aks-for-spin)
@@ -175,8 +175,10 @@ scheduling:
 
 Then register the runtime class with the cluster
 
-```yaml
-kubectl apply -f wasm-runtimeclass.yaml
+<!-- @selectiveCpy -->
+
+```console
+$ kubectl apply -f wasm-runtimeclass.yaml
 ```
 
 {{ blockEnd }}
@@ -221,9 +223,10 @@ scheduling:
 
 Then register the runtime class with the cluster
 
+<!-- @selectiveCpy -->
 
-```yaml
-kubectl apply -f wasm-runtimeclass.yaml
+```console
+$ kubectl apply -f wasm-runtimeclass.yaml
 ```
 
 {{ blockEnd }}
@@ -240,12 +243,34 @@ Docker Desktop provides both an easy way to run Spin apps in containers directly
 
 - Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
 - You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
+- The Kubernetes commands are only required if you want to use the Kubernetes instance included as Experimental with Docker Desktop. The instructions to use spin with Docker Desktop directly are available at the bottom of this section.
 
 ### Setup
 
 Install approproiate Preview Version of Docker Desktop+Wasm Technical Preview 2 from [here](https://www.docker.com/blog/announcing-dockerwasm-technical-preview-2/). Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
 
 Next Enable Kubernetes under Settings → Experimental → Enable Kubernetes, then hit “Apply & Restart”
+
+Create a file wasm-runtimeclass.yml and populate with the following information
+
+```yaml
+apiVersion: node.k8s.io/v1
+kind: RuntimeClass
+metadata:
+  name: "wasmtime-spin"
+handler: "spin"
+scheduling:
+  nodeSelector:
+    "kubernetes.azure.com/wasmtime-spin": "true"
+```
+
+Then register the runtime class with the cluster
+
+<!-- @selectiveCpy -->
+
+```console
+$ kubectl apply -f wasm-runtimeclass.yaml
+```
 
 ### Using Docker Desktop With Spin
 
@@ -261,42 +286,7 @@ If there is not command specified in the Dockerfile, one will need to be passed 
 
 {{ blockEnd }}
 
-{{ startTab "Generic Kubernetes"}}- [Why Use Spin with Kubernetes?](#why-use-spin-with-kubernetes)
-- [Why Use Spin with Kubernetes?](#why-use-spin-with-kubernetes)
-- [How Does It Work?](#how-does-it-work)
-- [Next Steps](#next-steps)
-- [Setup Azure AKS for Spin](#setup-azure-aks-for-spin)
-  - [Introduction](#introduction)
-  - [Known Limitations](#known-limitations)
-  - [Setup](#setup)
-- [Setup K8s for Spin](#setup-k8s-for-spin)
-  - [Introduction](#introduction-1)
-  - [Known Limitations](#known-limitations-1)
-  - [Setup](#setup-1)
-- [Setup Docker Desktop for Spin](#setup-docker-desktop-for-spin)
-  - [Introduction](#introduction-2)
-  - [Known Limitations](#known-limitations-2)
-  - [Setup](#setup-2)
-  - [Using Docker Desktop With Spin](#using-docker-desktop-with-spin)
-- [Setup Generic Kubernetes for Spin](#setup-generic-kubernetes-for-spin)
-  - [Introduction](#introduction-3)
-  - [Known Limitations](#known-limitations-3)
-  - [Setup](#setup-3)
-- [Run a Spin Workload on Kubernetes](#run-a-spin-workload-on-kubernetes)
-  - [Introduction](#introduction-4)
-  - [Concepts](#concepts)
-  - [Requirements](#requirements)
-  - [Install Plugin](#install-plugin)
-  - [Workflow](#workflow)
-  - [Detailed Explanation of Steps](#detailed-explanation-of-steps)
-    - [Spin New](#spin-new)
-    - [Spin Build](#spin-build)
-    - [Spin K8s Scaffold](#spin-k8s-scaffold)
-    - [Spin K8s Build](#spin-k8s-build)
-    - [Spin K8s Push](#spin-k8s-push)
-    - [Spin K8s Deploy](#spin-k8s-deploy)
-    - [Spin K8s Getsvc](#spin-k8s-getsvc)
-
+{{ startTab "Generic Kubernetes"}}
 
 ## Setup Generic Kubernetes for Spin
 
@@ -343,9 +333,10 @@ scheduling:
 
 Then register the runtime class with the cluster
 
+<!-- @selectiveCpy -->
 
-```yaml
-kubectl apply -f wasm-runtimeclass.yaml
+```console
+$ kubectl apply -f wasm-runtimeclass.yaml
 ```
 
 {{ blockEnd }}
