@@ -11,7 +11,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/kubernetes.m
 
 In addition to `spin up` Fermyon also offers Fermyon Cloud to deploy spin apps into production, so why use Spin with Kubernetes? For users that have made existing investments into Kubernetes or have requirements that their applications stay within certain clouds, not be on shared infrastructure, or run on-premise, Kubernetes provides a robust solution.
 
-## How does it work?
+## How Does It Work?
 
 For Kubernetes to run Spin workloads, it needs to be taught about a new runtime class. To do this, there is a shim for containerd. This compiles to a binary which must be places on the Kubernetes nodes which will host Shim pods. That binary then needs to be registered with Kubernetes as a new RuntimeClass. After that, wasm containers can be deployed to Kubernetes using spin k8s plugin.
 
@@ -166,6 +166,7 @@ scheduling:
 ```
 
 Then register the runtime class with the cluster
+
 ```yaml
 kubectl apply -f wasm-runtimeclass.yaml
 ```
@@ -238,13 +239,15 @@ scheduling:
 ```
 
 Then register the runtime class with the cluster
+
 ```yaml
 kubectl apply -f wasm-runtimeclass.yaml
 ```
 
 {{ blockEnd }}
 
-## Run a Spin workload on Kubernetes
+## Run a Spin Workload on Kubernetes
+
 ### Introduction
 
 This guide demonstrates the commands to run a Spin workload in Kubernetes. It should apply to all Kubernetes varients which have been properly configured using one of the Setup guides.
@@ -279,15 +282,27 @@ Just like with Fermyon Cloud, when something changes with the application, the w
 
 ### Detailed Explanation of Steps
 
-#### spin new
+#### Spin New
+
+```bash
+spin new
+```
 
 Optional step to use a template to create a new Spin App
 
-#### spin build
+#### Spin Build
+
+```bash
+spin build
+```
 
 Builds spin app
 
-#### spin k8s scaffold
+#### Spin K8s Scaffold
+
+```bash
+spin k8s scaffold
+```
 
 This step creates two files necessary for a Spin app to run on Kubernetes. A Dockerfile and deploy.yaml. Scaffold takes in a namespace as a mandatory argument. This can either be a username if using the Docker hub, or can be the entire address if using a separate repository such as ghcr.
 
@@ -365,18 +380,34 @@ spec:
                   number: 80
 ```
 
-#### spin k8s build
+#### Spin K8s Build
+
+```bash
+spin k8s build
+```
 
 This uses the Dockerfile to locally build a Spin Docker Container. The container is tagged as latest and with the version from the spin.toml.
 
-#### spin k8s push
+#### Spin K8s Push
+
+```bash
+spin k8s push
+```
 
 This pushes the Dockerfile to the appropriate repository.
 
-#### spin k8s deploy
+#### Spin K8s Deploy
+
+```bash
+spin k8s deploy
+```
 
 This deploys the application to Kubernetes
 
-#### spin k8s getsvc
+#### Spin K8s Getsvc
+
+```bash
+spin k8s getsvc
+```
 
 This retrieves information about the service that gets deployed (such as it’s external IP)
