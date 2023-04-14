@@ -7,7 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/kubernetes.md
 
 ---
 
-## Why Use Spin with Kubernetes?
+## Why Use Spin With Kubernetes?
 
 In addition to `spin up` Fermyon also offers Fermyon Cloud to deploy spin apps into production, so why use Spin with Kubernetes? For users that have made existing investments into Kubernetes or have requirements that their applications stay within certain clouds, not be on shared infrastructure, or run on-premise, Kubernetes provides a robust solution.
 
