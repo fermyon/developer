@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-03-01T00:01:01Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/spin/kubernetes.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/kubernetes.md"
 
 ---
 - [Why Use Spin with Kubernetes?](#why-use-spin-with-kubernetes)
@@ -41,13 +41,13 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/kubernetes.m
     - [Spin K8s Deploy](#spin-k8s-deploy)
     - [Spin K8s Getsvc](#spin-k8s-getsvc)
 
-## Why Use Spin with Kubernetes?
+## Why Use Spin With Kubernetes?
 
 In addition to `spin up` Fermyon also offers Fermyon Cloud to deploy spin apps into production, so why use Spin with Kubernetes? For users that have made existing investments into Kubernetes or have requirements that their applications stay within certain clouds, not be on shared infrastructure, or run on-premise, Kubernetes provides a robust solution.
 
 ## How Does It Work?
 
-For Kubernetes to run Spin workloads, it needs to be taught about a new runtime class. To do this, there is a shim for containerd. This compiles to a binary which must be places on the Kubernetes nodes which will host Shim pods. That binary then needs to be registered with Kubernetes as a new RuntimeClass. After that, wasm containers can be deployed to Kubernetes using spin k8s plugin.
+For Kubernetes to run Spin workloads, it needs to be taught about a new runtime class. To do this, there is a shim for containerd. This compiles to a binary that must be placed on the Kubernetes nodes that host Shim pods. That binary then needs to be registered with Kubernetes as a new RuntimeClass. After that, wasm containers can be deployed to Kubernetes using the Spin k8s plugin.
 
 ## Next Steps
 
@@ -221,6 +221,7 @@ scheduling:
 
 Then register the runtime class with the cluster
 
+
 ```yaml
 kubectl apply -f wasm-runtimeclass.yaml
 ```
@@ -342,6 +343,7 @@ scheduling:
 
 Then register the runtime class with the cluster
 
+
 ```yaml
 kubectl apply -f wasm-runtimeclass.yaml
 ```
@@ -349,6 +351,7 @@ kubectl apply -f wasm-runtimeclass.yaml
 {{ blockEnd }}
 
 ## Run a Spin Workload on Kubernetes
+
 
 ### Introduction
 
