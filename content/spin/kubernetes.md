@@ -13,15 +13,15 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/kubernetes.md
   - [Introduction](#introduction)
   - [Known Limitations](#known-limitations)
   - [Setup](#setup)
-- [Setup K8s for Spin](#setup-k8s-for-spin)
+- [Setup Docker Desktop for Spin](#setup-docker-desktop-for-spin)
   - [Introduction](#introduction-1)
   - [Known Limitations](#known-limitations-1)
   - [Setup](#setup-1)
-- [Setup Docker Desktop for Spin](#setup-docker-desktop-for-spin)
+  - [Using Docker Desktop With Spin](#using-docker-desktop-with-spin)
+- [Setup K8s for Spin](#setup-k8s-for-spin)
   - [Introduction](#introduction-2)
   - [Known Limitations](#known-limitations-2)
   - [Setup](#setup-2)
-  - [Using Docker Desktop With Spin](#using-docker-desktop-with-spin)
 - [Setup Generic Kubernetes for Spin](#setup-generic-kubernetes-for-spin)
   - [Introduction](#introduction-3)
   - [Known Limitations](#known-limitations-3)
@@ -183,54 +183,6 @@ $ kubectl apply -f wasm-runtimeclass.yaml
 
 {{ blockEnd }}
 
-{{ startTab "K3d"}}
-
-## Setup K8s for Spin
-
-### Introduction
-
-[K3d](https://k3d.io/) is a lightweight Kubernetes installation.
-
-### Known Limitations
-
-- Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
-- You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
-
-### Setup
-
-Ensure both Docker and k3d are installed. Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
-
-Deis Labs provides a preconfigured K3d environment that can be run using this command
-
-<!-- @selectiveCpy -->
-
-```console
-$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.3.3 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
-```
-
-Create a file wasm-runtimeclass.yml and populate with the following information
-
-```yaml
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: "wasmtime-spin"
-handler: "spin"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin": "true"
-```
-
-Then register the runtime class with the cluster
-
-<!-- @selectiveCpy -->
-
-```console
-$ kubectl apply -f wasm-runtimeclass.yaml
-```
-
-{{ blockEnd }}
-
 {{ startTab "Docker Desktop"}}
 
 ## Setup Docker Desktop for Spin
@@ -283,6 +235,54 @@ $ docker run --runtime=io.containerd.spin.v1 --platform=wasi/wasm -p <port>:<por
 ```
 
 If there is not command specified in the Dockerfile, one will need to be passed at the command line. Since Spin doesn't need this, "/" can be passed.
+
+{{ blockEnd }}
+
+{{ startTab "K3d"}}
+
+## Setup K8s for Spin
+
+### Introduction
+
+[K3d](https://k3d.io/) is a lightweight Kubernetes installation.
+
+### Known Limitations
+
+- Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
+- You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
+
+### Setup
+
+Ensure both Docker and k3d are installed. Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
+
+Deis Labs provides a preconfigured K3d environment that can be run using this command
+
+<!-- @selectiveCpy -->
+
+```console
+$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.3.3 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
+```
+
+Create a file wasm-runtimeclass.yml and populate with the following information
+
+```yaml
+apiVersion: node.k8s.io/v1
+kind: RuntimeClass
+metadata:
+  name: "wasmtime-spin"
+handler: "spin"
+scheduling:
+  nodeSelector:
+    "kubernetes.azure.com/wasmtime-spin": "true"
+```
+
+Then register the runtime class with the cluster
+
+<!-- @selectiveCpy -->
+
+```console
+$ kubectl apply -f wasm-runtimeclass.yaml
+```
 
 {{ blockEnd }}
 
