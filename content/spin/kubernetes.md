@@ -343,7 +343,6 @@ $ kubectl apply -f wasm-runtimeclass.yaml
 
 ## Run a Spin Workload on Kubernetes
 
-
 ### Introduction
 
 This guide demonstrates the commands to run a Spin workload in Kubernetes. It should apply to all Kubernetes varients which have been properly configured using one of the Setup guides.
