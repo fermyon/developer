@@ -37,5 +37,3 @@ key_value_stores = ["<store 1>", "<store 2>", ...]
 ```
 
 For example, a component could be given access to the default store using `key_value_stores = ["default"]`.
-
-
