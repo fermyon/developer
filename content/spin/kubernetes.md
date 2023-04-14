@@ -167,6 +167,7 @@ scheduling:
 
 Then register the runtime class with the cluster
 
+
 ```yaml
 kubectl apply -f wasm-runtimeclass.yaml
 ```
