@@ -198,6 +198,21 @@ The important things to note in the implementation above:
   entry point for the Spin component.
 - the component returns `HttpResponse`.
 
+Please note: If you need to decode a request body (which is either an `ArrayBuffer` or `ArrayBufferView`) into plain text or JSON please consider using the following:
+
+<!-- @nocpy -->
+
+```javascript
+// Create new TextDecoder instance
+let decoder = new TextDecoder()
+
+// Then decode request body to text
+let text = decoder.decode(request.body)
+
+// Or decode request body to JSON
+let text = JSON.parse(decoder.decode(request.body))
+```
+
 ## Sending Outbound HTTP Requests
 
 If allowed, Spin components can send outbound HTTP requests.

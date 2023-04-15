@@ -136,14 +136,15 @@ If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installati
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-source-cargo"><code>$ git clone https://github.com/fermyon/spin -b v0.10.0
+<pre class="bash spin-install" id="spin-install-source-cargo"><code>$ git clone https://github.com/fermyon/spin -b v1.1.0
 $ cd spin
 $ rustup target add wasm32-wasi
+$ rustup target add wasm32-unknown-unknown
 $ cargo install --locked --path .
 $ spin --help
 </code></pre>
 
-> Please note: Spin v0.10.0 requires `wasmtime v5.0.0` which requires rustc 1.66.0 or newer. You can update Rust using the following command:
+> Please note: Installing Spin v1.1.0 from source requires Rust 1.68.0 or newer. You can update Rust using the following command:
 
 <!-- @selectiveCpy -->
 
