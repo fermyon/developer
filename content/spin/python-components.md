@@ -1,6 +1,8 @@
 title = "Building Spin Components in Python"
 template = "spin_main"
 date = "2023-02-28T02:00:00Z"
+[extra]
+url = "https://github.com/fermyon/developer/blob/main//content/spin/python-components.md"
 
 ---
 - [Spin's Python Plugin](#spins-python-plugin)
@@ -16,6 +18,8 @@ date = "2023-02-28T02:00:00Z"
   - [Building and Running the Application](#building-and-running-the-application-2)
 
 With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
+
+> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Python templates, installing required tools, and creating Python applications.
 
 > This guide assumes you are familiar with the Python programming language, but if you are just getting started, be sure to check out <a href="https://docs.python.org/3/" target="_blank">the official Python documentation</a> and comprehensive <a href="https://docs.python.org/3/reference/" target="_blank">language reference</a>.
 
@@ -90,7 +94,7 @@ The `spin.toml` file will look similar to the following:
 <!-- @nocpy -->
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
 name = "hello-world"
@@ -191,7 +195,7 @@ def handle_request(request):
 The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `some-random-api.ml` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_http_hosts`:
 
 ```
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
 name = "hello-world"
@@ -244,7 +248,7 @@ After installing Redis on localhost, we simply add the `config = { redis_address
 <!-- @nocpy -->
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
 name = "hello-world"
@@ -316,7 +320,7 @@ date: Mon, 27 Feb 2023 05:16:03 GMT
 Executed outbound Redis commands: /hello
 ```
 
-If we go into our Redis CLI on locahost we can see that the value `foo` which was set in the Python source code ( `redis_set(redis_address, "foo", b"bar")` ) is now correctly set to the value of `bar`:
+If we go into our Redis CLI on localhost we can see that the value `foo` which was set in the Python source code ( `redis_set(redis_address, "foo", b"bar")` ) is now correctly set to the value of `bar`:
 
 <!-- @nocpy -->
 

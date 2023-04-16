@@ -1,8 +1,8 @@
 title = "Bartholomew themes"
 date = "2022-07-20T22:44:01.300319091Z"
 template = "bartholomew_main"
-
 [extra]
+url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/themes.md"
 
 ---
 - [Adding a Theme](#adding-a-theme)

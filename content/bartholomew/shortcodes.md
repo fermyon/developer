@@ -2,8 +2,8 @@ title = "Bartholomew Shortcodes"
 date = "2022-05-09T19:23:07.490818Z"
 enable_shortcodes = true
 template = "bartholomew_main"
-
 [extra]
+url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/shortcodes.md"
 
 ---
 - [The Basic](#the-basic)

@@ -34,7 +34,7 @@ function parseMdFile(file, filepath) {
         .parse(content.body);
 
     // Create default document index for the page
-    let documentIndex = { project: file.split("/")[2], title: content.attributes["title"], subheading: "", content: "", keywords: content.attributes["keywords"], url: "/" + file.replace(filepath, "").replace(".md", "") }
+    let documentIndex = { project: file.split("/")[2], title: content.attributes["title"], subheading: "", content: "", keywords: content.attributes["keywords"], subsectionKeywords: "", url: "/" + file.replace(filepath, "").replace(".md", "") }
     let searchIndex = []
 
     // For each heading create a new search index
@@ -43,7 +43,16 @@ function parseMdFile(file, filepath) {
             // If inline element just append content
             if (inlineElements.includes(k.type)) {
                 documentIndex.content = documentIndex.content.concat(k.value)
-            } else {
+            }
+            // Add in content search terms
+            else if (k.type == "html") {
+                let text = k.value.trim()
+                if (text.includes("@searchTerm")) {
+                    text = text.replace("<!-- @searchTerm", "").replace("-->", "").replaceAll("\"","")
+                    documentIndex.subsectionKeywords = documentIndex.subsectionKeywords.concat(" ", text)
+                }
+            }
+            else {
                 if (blockElements.includes(k.type)) {
                     k.children.map(inlineElement => {
                         documentIndex.content = documentIndex.content.concat(inlineElement.value)
@@ -64,8 +73,8 @@ function parseMdFile(file, filepath) {
 
             documentIndex = {
                 project: file.split("/")[2],
-                title: content.attributes["title"], subheading: subtitle, content: "", keywords: content.attributes["keywords"],
-                url: "/" + file.replace(filepath, "") + "#" + subtitle.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, '')
+                title: content.attributes["title"], subheading: subtitle, content: "", keywords: "", subsectionKeywords: "",
+                url: "/" + file.replace(filepath, "") + "#" + subtitle.toLowerCase().replace(/[`~!@#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/g, '')
                     .replace(/ +/g, '-')
             }
         }

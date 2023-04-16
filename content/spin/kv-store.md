@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2023-02-21T00:00:00Z"
 enable_shortcodes = true
 [extra]
+url = "https://github.com/fermyon/developer/blob/main//content/spin/kv-store.md"
 
 ---
 - [Key Value Storage With Spin Applications](#key-value-storage-with-spin-applications)
@@ -23,11 +24,11 @@ enable_shortcodes = true
 
 ## Key Value Storage With Spin Applications
 
-Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times; during an application’s execution. [Spin](https://www.fermyon.com/blog/spin-v09) has support for applications that need data in the form of key/value pairs and are satisfied by a BASE consistency model. Workload examples include general value caching, session caching, counters, and serialized application state.
+Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times during an application’s execution. [Spin](https://www.fermyon.com/blog/spin-v09) has support for applications that need data in the form of key/value pairs and are satisfied by a BASE consistency model. Workload examples include general value caching, session caching, counters, and serialized application state.
 
 ## SQLite
 
-SQLite is an integral part of Spin's key/value API. As of Spin v0.9.0 onwards, users can easily access, a built-in, _local_ key/value SQLite database in every Spin application. This persistent storage feature is available by default and with minimal configuration. Supported language SDKs currently include Go, JavaScript/TypeScript, and Rust. With these new changes implemented.
+SQLite is an integral part of Spin's key/value API. As of Spin v0.9.0 onwards, users can easily access a built-in, _local_ key/value SQLite database in every Spin application. This persistent storage feature is available by default and with minimal configuration. [Supported language SDKs](https://developer.fermyon.com/spin/language-support-overview) currently include Go, JavaScript/TypeScript, Python and Rust.
 
 > Spin users can now persist and retrieve non-relational data from a key/value store across multiple requests to and from the same application; written in any of these languages.
 
@@ -35,11 +36,11 @@ SQLite is an integral part of Spin's key/value API. As of Spin v0.9.0 onwards, u
 
 A while back, around the Spin v0.5.0 version, we published an article on [Persistent Storage in Webassembly Applications](https://www.fermyon.com/blog/persistent-storage-in-webassembly-applications). In that previous article, we showed the Spin framework's capabilities of providing WebAssembly executables with access to different levels of on-disk persistence. We demonstrated manually installing Redis from source, running our Redis server on localhost and then reading and writing from Redis via both the Redis CLI itself and also via the Spin SDK. Our current documentation also has examples of using both [Redis](https://developer.fermyon.com/cloud/data-redis) and [PostgreSQL](https://developer.fermyon.com/cloud/data-postgres), via [Redis Labs](https://redis.com/) and [ElephantSQL](https://www.elephantsql.com/plans.html) services respectively. 
 
-In all of these previous examples, to persist data within your application, a separate data storage layer is a requirement. These methods of data persistence are perfectly fine and sound to use, as part of your application, if you choose to do so.
+In all of these previous examples, to persist data within your application, a separate data storage layer is a requirement. These methods of data persistence are perfectly fine and sound to use as part of your application, if you choose to do so.
 
-However, from Spin v0.9.0 onwards, you are no longer required to install any on-disk persistence; outside of just installing Spin itself. SQLite exists inside Spin. SQLite is embedded in a way that is analogous to how one would imagine using a software library i.e. SQLite is designed to be used in this manner and therefore, for all intents and purposes, you could say that SQLite does not exist outside of Spin. When you run your Spin application using the [spin up](https://developer.fermyon.com/common/cli-reference#up) command SQLite is available to your application. When your application is no longer running, neither is SQLite. Your data will continue to persist at all times (including during restarts) and will support the running of your application.
+However, from Spin v0.9.0 onwards, you are no longer required to install any on-disk persistence outside of just installing Spin itself. SQLite is embedded inside Spin in a way that is analogous to how one would imagine using a software library. When you run your Spin application using the [spin up](https://developer.fermyon.com/common/cli-reference#up) command, SQLite is available to your application. When your application is no longer running, neither is SQLite. Your data will continue to persist at all times (including during restarts) and will support the running of your application.
 
-In the future, it may be possible to embed other database technologies into Spin. For example, future Spin SDK updates may target other databases such as Redis; which may allow you to build applications using Redis via minimal Spin configuration without the need to locally install and maintain your own Redis instance.
+In the future, it may be possible to embed other database technologies into Spin. For example, future Spin SDK updates may target other databases such as Redis, which would allow you to build applications using Redis via minimal Spin configuration without the need to locally install and maintain your own Redis instance.
 
 Let's get started with creating and deploying your first Spin application that uses this new key/value storage mechanism.
 
@@ -114,7 +115,7 @@ In this section we begin by configuring the application's `spin.toml` to use a d
 {{ startTab "Rust"}}
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"
@@ -137,7 +138,7 @@ command = "cargo build --target wasm32-wasi --release"
 {{ startTab "TypeScript" }}
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"
@@ -160,7 +161,7 @@ command = "npm run build"
 {{ startTab "TinyGo" }}
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"
@@ -183,7 +184,7 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 ## Using the Spin SDK
 
-In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. As mentioned above the store is essentially an embedding of [SQLite](https://www.sqlite.org/index.html) within the Spin framework. 
+In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. As mentioned above, the store is essentially an embedding of [SQLite](https://www.sqlite.org/index.html) within the Spin framework.
 
 ### The Spin SDK Version
 
@@ -458,7 +459,7 @@ Content-Type: application/json
 HTTP/1.1 200 OK
 ```
 
-We can now use a `HEAD` request to confirm that our component is holding data for us. Essentially, all we want to see here is a `200 OK` response; when calling our components endpoint (`/test`). Let's give it a try:
+We can now use a `HEAD` request to confirm that our component is holding data for us. Essentially, all we want to see here is a `200 OK` response when calling our components endpoint (`/test`). Let's give it a try:
 
 <!-- @selectiveCpy -->
 
@@ -472,7 +473,7 @@ Host: localhost:3000
 HTTP/1.1 200 OK
 ```
 
-Perfect, `200 OK`, now, let's create a `GET` request that fetches the data from our component:
+Perfect, `200 OK`. Now, let's create a `GET` request that fetches the data from our component:
 
 <!-- @selectiveCpy -->
 
@@ -505,7 +506,7 @@ Lastly, we show how to create a `DELETE` request that removes the data for this 
 <!-- @selectiveCpy -->
 
 ```bash
-curl -X DELETE localhost:3000/test -v
+$ curl -X DELETE localhost:3000/test -v
 
 Trying 127.0.0.1:3000...
 Connected to localhost (127.0.0.1) port 3000
@@ -521,7 +522,7 @@ Interestingly there is one more request we can re-run before wrapping up this tu
 <!-- @selectiveCpy -->
 
 ```bash
-curl -I HEAD localhost:3000/test -v
+$ curl -I HEAD localhost:3000/test -v
 
 Trying 127.0.0.1:3000...
 Connected to localhost (127.0.0.1) port 3000
@@ -538,7 +539,7 @@ We want to get feedback on the ergonomics of the key/value API. We are curious a
 
 ## Next Steps
 
-You can read the [improvement proposal for key/value support](https://github.com/fermyon/spin/pull/1045) as well as the implementation for the [current feature](https://github.com/fermyon/spin/pull/1035). Please feel free to ask questions and also share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
+You can read the [improvement proposal for key/value support](https://github.com/fermyon/spin/blob/main/docs/content/sips/010-key-value.md) as well as the implementation for the [current feature](https://github.com/fermyon/spin/pull/1035). Please feel free to ask questions and also share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
 
 <script type="application/ld+json">
 {

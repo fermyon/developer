@@ -2,7 +2,7 @@ title = "Deploying Spin Applications to Fermyon"
 template = "spin_main"
 date = "2022-05-20T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/deploying-to-fermyon.md"
+url = "https://github.com/fermyon/developer/blob/main//content/spin/deploying-to-fermyon.md"
 
 ---
 - [Deploying Microservices \& Web Apps](#deploying-microservices--web-apps)

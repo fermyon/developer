@@ -2,7 +2,7 @@ title = "Contributing to Spin"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/contributing.md"
+url = "https://github.com/fermyon/developer/blob/main//content/spin/contributing-spin.md"
 
 ---
 - [Making Code Contributions to Spin](#making-code-contributions-to-spin)
@@ -28,17 +28,14 @@ soon as possible. First, make sure you have the following prerequisites
 configured:
 
 - [Rust](https://www.rust-lang.org/) at
-  [1.56+](https://www.rust-lang.org/tools/install) with the `wasm32-wasi` target configured
-  (`rustup target add wasm32-wasi`)
+  [1.68+](https://www.rust-lang.org/tools/install) with the `wasm32-wasi` and
+  `wasm32-unknown-unknown` targets configured
+  (`rustup target add wasm32-wasi && rustup target add wasm32-unknown-unknown`)
 - [`rustfmt`](https://github.com/rust-lang/rustfmt) and
   [`clippy`](https://github.com/rust-lang/rust-clippy) configured for your Rust
   installation
 - `make`
-- [Bindle server v0.8.0](https://github.com/deislabs/bindle/releases/tag/v0.8.0)
-  in your system path.
-- if you are a VS Code user, we recommend the
-  [`rust-analyzer`](https://rust-analyzer.github.io/) and
-  [`autobindle`](https://github.com/fermyon/autobindle) extensions.
+- if you are a VS Code user, we recommend the [`rust-analyzer`](https://rust-analyzer.github.io/) extension.
 - please ensure you
   [configure adding a GPG signature to your commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)
   as well as appending a sign-off message (`git commit -S -s`)

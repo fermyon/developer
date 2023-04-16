@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/writing-apps.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/writing-apps.md"
 
 ---
 - [Writing an Application Manifest](#writing-an-application-manifest)
@@ -45,7 +45,7 @@ This example is the manifest for a simple HTTP application with a single compone
 
 ```toml
 # General identification information
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-hello-world"
 version = "1.0.0"
 description = "A simple application that returns hello world."
@@ -129,7 +129,7 @@ route = "/hello"
 
 At the Wasm level, a Spin component is a Wasm module that exports a handler for the application trigger.  At the developer level, a Spin component is a library or program that implements your event handling logic, and uses Spin interfaces, libraries, or tools to associate that with the events handled by Spin.
 
-See the Language Guides section for how to do this in your preferred language.  As an example, this is a component written in the Rust language.  The `hello_world` function uses an attribute to identify the function as handling a Spin HTTP event.  The function takes a `Request` and returns a `Result<Response>`:
+See the Language Guides section for how to do this in your preferred language. As an example, this is a component written in the Rust language. The `hello_world` function uses an attribute `#[http_component]` to identify the function as handling a Spin HTTP event. The function takes a `Request` and returns a `Result<Response>`:
 
 <!-- @nocpy -->
 
@@ -257,25 +257,51 @@ You can include files with a component.  This means that:
 To do this, use the `files` field in the component manifest:
 
 ```toml
-[component]
+[[component]]
 files = [ "images/**/*.jpg", { source = "styles/dist", destination = "/styles" } ]
 ```
 
 The `files` field is an array listing the files, patterns and directories you want to include. Each element of the array can be:
 
-* A glob pattern, such as `images/**/*.jpg`.  In this case, the files that match the pattern are available to the Wasm code, at the same paths as they are in your file system. For example, if the glob pattern matches `images/photos/lake.jpg`, the Wasm module can access it using the path `/images/photos/lake.jpg`.  Glob patterns are relative to the directory containing `spin.toml`, and must be within that directory.
+* A glob pattern, such as `images/**/*.jpg`.  In this case, the files that match the pattern are available to the Wasm code, at the same paths as they are in your file system. For example, if the glob pattern matches `images/photos/lake.jpg`, the Wasm module can access it using the path `images/photos/lake.jpg`.  Glob patterns are relative to the directory containing `spin.toml`, and must be within that directory.
 * A mapping from a `source` directory to a `destination` directory, such as `{ source = "styles/dist", destination = "/styles" }`.  In this case, the entire contents of the source directory are available to the Wasm code at the destination directory.  In this example, if you have a file named `styles/dist/list/exciting.css`, the Wasm module can access it using the path `/styles/list/exciting.css`.  Source directories are relative to the directory containing `spin.toml`; destination directories must be absolute.
 
 If your files list would match some files or directories that you _don't_ want included, you can use the `exclude_files` field to omit them.
 
 > By default, Spin takes a snapshot of your included files, and components access that snapshot. This ensures that when you test your application, you are checking it with the set of files it will be deployed with. However, it also means that your component does not pick up changes to the files while it is running. When testing a Web site, you might want to be able to edit a HTML or CSS file, and see the changes reflected without restarting Spin. You can tell Spin to give components access to the original, "live" files by passing the `--direct-mounts` flag to `spin up`.
 
+## Adding Environment Variables to Components
+
+Environment variables can be provided to components via the Spin application manifest.
+
+To do this, use the `environment` field in the component manifest:
+
+```toml
+[[component]]
+environment = { PET = "CAT", FOOD = "WATERMELON" }
+```
+
+The field accepts a map of environment variable key/value pairs. They are mapped inside the component at runtime.
+
+The environment variables can then be accessed inside the component. For example, in Rust:
+
+```rs
+#[http_component]
+fn handle_hello_rust(req: Request) -> Result<Response> {
+    let response = format!("My {} likes to eat {}", std::env::var("PET")?, std::env::var("FOOD")?);
+    Ok(http::Response::builder()
+        .status(200)
+        .header("foo", "bar")
+        .body(Some(response.into()))?)
+}
+```
+
 ## Granting Networking Permissions to Components
 
 By default, Spin components are not allowed to make outgoing HTTP requests.  This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing.  To grant a component permission to make HTTP requests to a particular host, use the `allowed_http_hosts` field in the component manifest:
 
 ```toml
-[component]
+[[component]]
 allowed_http_hosts = [ "dog-facts.example.com", "api.example.com:8080" ]
 ```
 
@@ -288,7 +314,7 @@ For development-time convenience, you can also pass the string `"insecure:allow-
 By default, Spin components are not allowed to access Spin's storage services.  This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing.  To grant a component permission to use a Spin-provided store, use the `key_value_stores` field in the component manifest:
 
 ```toml
-[component]
+[[component]]
 key_value_stores = [ "default" ]
 ```
 

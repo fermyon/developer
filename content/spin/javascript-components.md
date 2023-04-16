@@ -2,6 +2,8 @@ title = "Building Spin Components in JavaScript"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
+[extra]
+url = "https://github.com/fermyon/developer/blob/main//content/spin/javascript-components.md"
 
 ---
 - [Installing Templates](#installing-templates)
@@ -11,11 +13,14 @@ enable_shortcodes = true
 - [HTTP Components](#http-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
+- [Routing in a Component](#routing-in-a-component)
 - [Using External NPM Libraries](#using-external-npm-libraries)
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
 - [Caveats](#caveats)
 
 With JavaScript being a very popular language, Spin provides support for building components with it using the experimental SDK. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. 
+
+> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the JavaScript templates, installing required tools, and creating JavaScript and TypeScript applications.
 
 > This guide assumes you are familiar with the JavaScript programming language,
 > but if you are just getting started, be sure to check [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide).
@@ -193,6 +198,21 @@ The important things to note in the implementation above:
   entry point for the Spin component.
 - the component returns `HttpResponse`.
 
+Please note: If you need to decode a request body (which is either an `ArrayBuffer` or `ArrayBufferView`) into plain text or JSON please consider using the following:
+
+<!-- @nocpy -->
+
+```javascript
+// Create new TextDecoder instance
+let decoder = new TextDecoder()
+
+// Then decode request body to text
+let text = decoder.decode(request.body)
+
+// Or decode request body to JSON
+let text = JSON.parse(decoder.decode(request.body))
+```
+
 ## Sending Outbound HTTP Requests
 
 If allowed, Spin components can send outbound HTTP requests.
@@ -234,7 +254,7 @@ domains the component is allowed to make HTTP requests to:
 
 ```toml
 # spin.toml
-spin_version = "1"
+spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 name = "spin-http-js"
 trigger = { type = "http", base = "/" }
@@ -330,6 +350,39 @@ This HTTP component demonstrates fetching a value from Redis by key, setting a k
 
 > When using Redis databases hosted on the internet (i.e) not on localhost, the `redisAddress` must be of the format "redis://\<USERNAME\>:\<PASSWORD\>@\<REDIS_URL\>" (e.g) `redis://myUsername:myPassword@redis-database.com`
 
+## Routing in a Component
+
+The JavaScript/TypeScript SDK provides a router that makes it easier to handle routing within a component. The router is based on [`itty-router`](https://www.npmjs.com/package/itty-router). An additional function `handleRequest` has been implemented in the router to allow passing in the Spin HTTP request directly. For a more complete documentation on the route, checkout the documentationa at [itty-router](https://github.com/kwhitley/itty-router). An example usage of the router is given below:
+
+```javascript
+import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
+
+let router = utils.Router()
+
+function handleDefaultRoute() {
+  return {
+    status: 200,
+      headers: { "content-type": "text/html" },
+    body: "Hello from Default Route"
+  }
+}
+
+function handleHomeRoute(id: string) {
+  return {
+    status: 200,
+      headers: { "content-type": "text/html" },
+    body: "Hello from Home Route with id:" + id
+  }
+}
+
+router.get("/", handleDefaultRoute)
+router.get("/home/:id", ({params}) => handleHomeRoute(params.id))
+
+export const handleRequest: HandleRequest = async function(request: HttpRequest): Promise<HttpResponse> {
+    return await router.handleRequest(request)
+}
+```
+
 ## Using External NPM Libraries
 
 > Not all the NPM packages are guaranteed to work with the SDK as it is not fully compatible with the browser or `Node.js`. It implements only a subset of the API.
@@ -340,7 +393,11 @@ Some NPM packages can be installed and used in the component. If a popular libra
 
 These are some of the suggested libraries that have been tested and confired to work with the SDK for common tasks.
 
+{{ details "HTML parsers" "- [node-html-parser](https://www.npmjs.com/package/node-html-parser)" }}
+
 {{ details "Parsing formdata" "- [parse-multipart-data](https://www.npmjs.com/package/parse-multipart-data)" }} 
+
+{{ details "Runtime schema validation" "- [zod](https://www.npmjs.com/package/zod)" }} 
 
 {{ details "Unique ID generator" "- [nanoid](https://www.npmjs.com/package/nanoid)\n- [ulidx](https://www.npmjs.com/package/ulidx)\n- [uuid](https://www.npmjs.com/package/uuid)" }} 
 

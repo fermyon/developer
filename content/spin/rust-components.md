@@ -2,13 +2,18 @@ title = "Building Spin components in Rust"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/rust-components.md"
+url = "https://github.com/fermyon/developer/blob/main//content/spin/rust-components.md"
 
 ---
+- [Prerequisites](#prerequisites)
+  - [Install the Templates](#install-the-templates)
+  - [Install the Tools](#install-the-tools)
 - [HTTP Components](#http-components)
-- [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Redis Components](#redis-components)
+- [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Storing Data in Redis From Rust Components](#storing-data-in-redis-from-rust-components)
+- [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
+- [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
 - [Troubleshooting](#troubleshooting)
 - [Manually Creating New Projects With Cargo](#manually-creating-new-projects-with-cargo)
@@ -16,20 +21,51 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/rust-components.md
 Spin aims to have best-in-class support for building components in Rust, and
 writing such components should be familiar for Rust developers.
 
+> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Rust templates, installing required tools, and creating Rust applications.
+
 > This guide assumes you are familiar with the Rust programming language,
 > but if you are just getting started, be sure to check [the
 official resources for learning Rust](https://www.rust-lang.org/learn).
 
 > All examples from this page can be found in [the Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples).
 
-In order to compile Rust programs to Spin components, you also need the
-`wasm32-wasi` target. You can add it using `rustup`:
+## Prerequisites
+
+### Install the Templates
+
+You don't need the Spin Rust templates to work on Rust components, but they speed up creating new applications and components.  You can install them as follows:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin --update
+Copying remote template source
+Installing template redis-rust...
+Installing template http-rust...
+... other templates omitted ...
++------------------------------------------------------------------------+
+| Name                Description                                        |
++========================================================================+
+| ... other templates omitted ...                                        |
+| http-rust           HTTP request handler using Rust                    |
+| redis-rust          Redis message handler using Rust                   |
+| ... other templates omitted ...                                        |
++------------------------------------------------------------------------+
+```
+
+Note: The Rust templates are in a repo that contains several other languages; they will all be installed together.
+
+### Install the Tools
+
+To build Spin components, you'll need the `wasm32-wasi` target for Rust.
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ rustup target add wasm32-wasi
 ```
+
+> If you get a lot of strange errors when you try to build your first Rust component, check that you have this target installed by running `rustup target list --installed`. This is the most common source of problems when starting out with Rust in Spin!
 
 ## HTTP Components
 
@@ -75,88 +111,6 @@ The important things to note in the implementation above:
   are optionally using [`bytes::Bytes`](https://crates.io/crates/bytes)
   (`spin_sdk::http::Request` is a type alias for `http::Request<Option<Bytes>>`)
 - the component returns a Rust `anyhow::Result`, so if there is an error processing the request, it returns an `anyhow::Error`.
-
-## Sending Outbound HTTP Requests
-
-If allowed, Spin components can send outbound HTTP requests.
-Let's see an example of a component that makes a request to
-[an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
-inserts a custom header into the response before returning:
-
-<!-- @nocpy -->
-
-```rust
-#[http_component]
-fn hello_world(_req: Request) -> Result<Response> {
-    let mut res = spin_sdk::http::send(
-        http::Request::builder()
-            .method("GET")
-            .uri("https://some-random-api.ml/facts/dog")
-            .body(None)?,
-    )?;
-
-    res.headers_mut()
-        .insert(http::header::SERVER, "spin/0.1.0".try_into()?);
-
-    Ok(res)
-}
-```
-
-> The `http::Request::builder()` method is provided by the Rust `http` crate. The `http` crate is already added to projects using the Spin `http-rust` template. If you create a project without using this template, you'll need to add the `http` crate yourself via `cargo add http`.
-
-Before we can execute this component, we need to add the `some-random-api.ml`
-domain to the application manifest `allowed_http_hosts` list containing the list of
-domains the component is allowed to make HTTP requests to:
-
-<!-- @nocpy -->
-
-```toml
-# spin.toml
-spin_version = "1"
-name = "spin-hello-world"
-trigger = { type = "http", base = "/" }
-version = "1.0.0"
-
-[[component]]
-id = "hello"
-source = "target/wasm32-wasi/release/spinhelloworld.wasm"
-allowed_http_hosts = [ "some-random-api.ml" ]
-[component.trigger]
-route = "/outbound"
-```
-
-Running the application using `spin up --file spin.toml` will start the HTTP
-listener locally (by default on `localhost:3000`), and our component can
-now receive requests in route `/outbound`:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ curl -i localhost:3000/outbound
-HTTP/1.1 200 OK
-date: Fri, 18 Mar 2022 03:54:36 GMT
-content-type: application/json; charset=utf-8
-content-length: 185
-server: spin/0.1.0
-
-{"fact":"It's rumored that, at the end of the Beatles song, 
-\"A Day in the Life,\" Paul McCartney recorded an ultrasonic whistle, 
-audible only to dogs, just for his Shetland sheepdog."}
-```
-
-> Without the `allowed_http_hosts` field populated properly in `spin.toml`,
-> the component would not be allowed to send HTTP requests, and sending the
-> request would result in a "Destination not allowed" error.
-
-> You can set `allowed_http_hosts = ["insecure:allow-all"]` if you want to allow
-> the component to make requests to any HTTP host. This is **NOT** recommended
-> for any production or publicly-accessible application.
-
-We just built a WebAssembly component that sends an HTTP request to another
-service, manipulates that result, then responds to the original request.
-This can be the basis for building components that communicate with external
-databases or storage accounts, or even more specialized components like HTTP
-proxies or URL shorteners.
 
 ## Redis Components
 
@@ -204,7 +158,7 @@ instance the trigger must connect to:
 <!-- @nocpy -->
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-redis"
 trigger = { type = "redis", address = "redis://localhost:6379" }
 version = "0.1.0"
@@ -247,16 +201,90 @@ INFO spin_redis_engine: Received message on channel "messages"
 Hello, there!
 ```
 
-If you would also like to see the `println!` messages echoed to the console as they happen, please include the additional `--follow-all` option, when starting the spin application. For example:
+> You can find a complete example for a Redis triggered component in the
+> [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/redis-rust).
+
+## Sending Outbound HTTP Requests
+
+If allowed, Spin components can send outbound HTTP requests.
+Let's see an example of a component that makes a request to
+[an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
+inserts a custom header into the response before returning:
+
+<!-- @nocpy -->
+
+```rust
+#[http_component]
+fn hello_world(_req: Request) -> Result<Response> {
+    let mut res = spin_sdk::http::send(
+        http::Request::builder()
+            .method("GET")
+            .uri("https://some-random-api.ml/facts/dog")
+            .body(None)?,
+    )?;
+
+    res.headers_mut()
+        .insert(http::header::SERVER, "spin/0.1.0".try_into()?);
+
+    Ok(res)
+}
+```
+
+> The `http::Request::builder()` method is provided by the Rust `http` crate. The `http` crate is already added to projects using the Spin `http-rust` template. If you create a project without using this template, you'll need to add the `http` crate yourself via `cargo add http`.
+
+Before we can execute this component, we need to add the `some-random-api.ml`
+domain to the application manifest `allowed_http_hosts` list containing the list of
+domains the component is allowed to make HTTP requests to:
+
+<!-- @nocpy -->
+
+```toml
+# spin.toml
+spin_manifest_version = "1"
+name = "spin-hello-world"
+trigger = { type = "http", base = "/" }
+version = "1.0.0"
+
+[[component]]
+id = "hello"
+source = "target/wasm32-wasi/release/spinhelloworld.wasm"
+allowed_http_hosts = [ "some-random-api.ml" ]
+[component.trigger]
+route = "/outbound"
+```
+
+Running the application using `spin up --file spin.toml` will start the HTTP
+listener locally (by default on `localhost:3000`), and our component can
+now receive requests in route `/outbound`:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin up --file spin.toml --follow-all
+$ curl -i localhost:3000/outbound
+HTTP/1.1 200 OK
+date: Fri, 18 Mar 2022 03:54:36 GMT
+content-type: application/json; charset=utf-8
+content-length: 185
+server: spin/0.1.0
+
+{"fact":"It's rumored that, at the end of the Beatles song, 
+\"A Day in the Life,\" Paul McCartney recorded an ultrasonic whistle, 
+audible only to dogs, just for his Shetland sheepdog."}
 ```
 
-> You can find a complete example for a Redis triggered component in the
-> [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/redis-rust).
+> Without the `allowed_http_hosts` field populated properly in `spin.toml`,
+> the component would not be allowed to send HTTP requests, and sending the
+> request would result in a "Destination not allowed" error.
+
+> You can set `allowed_http_hosts = ["insecure:allow-all"]` if you want to allow
+> the component to make requests to any HTTP host. This is **NOT** recommended
+> for any production or publicly-accessible application.
+
+We just built a WebAssembly component that sends an HTTP request to another
+service, manipulates that result, then responds to the original request.
+This can be the basis for building components that communicate with external
+databases or storage accounts, or even more specialized components like HTTP
+proxies or URL shorteners.
 
 ## Storing Data in Redis From Rust Components
 
@@ -335,6 +363,14 @@ messages on the `messages` Redis channel.
 > You can find a complete example for using outbound Redis from an HTTP component
 > in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis).
 
+## Storing Data in the Spin Key-Value Store
+
+Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store).
+
+## Storing Data in Relational Databases
+
+Spin provides clients for MySQL and PostgreSQL. For information about using them from Rust, see [Relational Databases](rdbms-storage).
+
 ## Using External Crates in Rust Components
 
 In Rust, Spin components are regular libraries that contain a function
@@ -345,28 +381,26 @@ be used when implementing the component.
 
 ## Troubleshooting
 
-Sometimes things can go wrong, especially such early projects. If you bump into
-issues building and running your Rust component:
+If you bump into issues building and running your Rust component, here are some common causes of problems:
 
-- ensure `cargo` is present in your path
-- ensure your [Rust](https://www.rust-lang.org/) version is recent, via `rustup check`
-- ensure `wasm32-wasi` target is configured for your Rust installation —
-you can add it by running `rustup target add wasm32-wasi`
-- build a `release` version of the component — all Spin application definitions
-(`spin.toml` files) reference build configuration for Rust, so make sure to
-run `cargo build --release --target wasm32-wasi` when building your components
-(you can validate modules are correctly being built by checking the contents of
-the `target/wasm32-wasi/release` directory and looking for `.wasm` files)
-- make sure the path and name of the Wasm module in `target/wasm32-wasi/release`
-match `source` field in the component configuration (the `source` field contains
-the path to the Wasm module, relative to `spin.toml`)
+- Make sure `cargo` is present in your path
+- Make sure the [Rust](https://www.rust-lang.org/) version is recent.
+  - To check: run  `cargo --version`.  The Spin SDK needs Rust 1.64 or above.
+  - To update: run `rustup update`.
+- Make sure the `wasm32-wasi` compiler target is installed.
+  - To check: run `rustup target list --installed` and check that `wasm32-wasi` is on the list.
+  - To install: run `rustup target add wasm32-wasi`.
+- Make sure you are building in `release` mode.  Spin manifests refer to your Wasm file by a path, and the default path corresponds to `release` builds.
+  - To build manually: run `cargo build --release --target wasm32-wasi`.
+  - If you're using `spin build` and the templates, this should be set up correctly for you.
+- Make sure that the `source` field in the component manifest match the path and name of the Wasm file in `target/wasm32-wasi/release`. These could get out of sync if you renamed the Rust package in its `Cargo.toml`.
 
 ## Manually Creating New Projects With Cargo
 
 The recommended way of creating new Spin projects is by starting from a template.
-This section shows how to  manually create a new project with Cargo.
+This section shows how to manually create a new project with Cargo.
 
-When creating a new Spin projects with Cargo, you should use the `--lib` flag:
+When creating a new Spin project with Cargo, you should use the `--lib` flag:
 
 <!-- @selectiveCpy -->
 
@@ -401,5 +435,4 @@ spin-sdk = { git = "https://github.com/fermyon/spin" }
 wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", rev = "cb871cfa1ee460b51eb1d144b175b9aab9c50aba" }
 ```
 
-At the time of this writing, `wit-bindgen` must be pinned to a specific `rev`.
-This will change in the future.
+> `wit-bindgen` evolves rapidly to track draft standards.  Very recent versions of `wit-bindgen` are unlikely to work correctly with Spin.  So the dependency must be pinned to a specific `rev`.  Over time, Spin expects to track "peninsulas of stability" in the evolving standards.

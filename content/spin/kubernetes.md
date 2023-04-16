@@ -67,7 +67,7 @@ Azure AKS provides a straightforward and officially [documented](https://learn.m
 ### Known Limitations
 
 - Node pools default to 100 max pods. When a node pool is configured it can be increased up to 250 pods.
-- Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
+- Each Pod will constantly run its own HTTP listener, which adds overhead vs Fermyon Cloud.
 - You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
 - The WASM/WASI node pools can't be used for system node pool.
 - The *os-type* for WASM/WASI node pools must be Linux.

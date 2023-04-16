@@ -2,7 +2,7 @@ title = "Building Spin components in Go"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/spin/blob/main/docs/content/go-components.md"
+url = "https://github.com/fermyon/developer/blob/main//content/spin/go-components.md"
 
 ---
 
@@ -12,6 +12,8 @@ url = "https://github.com/fermyon/spin/blob/main/docs/content/go-components.md"
 - [Redis Components](#redis-components)
 - [Storing Data in Redis From Go Components](#storing-data-in-redis-from-go-components)
 - [Using Go Packages in Spin Components](#using-go-packages-in-spin-components)
+
+> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Go templates, installing required tools, and creating Go applications.
 
 > This guide assumes you are familiar with the Go programming language, and that
 > you have
@@ -129,7 +131,7 @@ requests to:
 
 ```toml
 # spin.toml
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-hello-tinygo"
 trigger = { type = "http", base = "/" }
 version = "1.0.0"
@@ -208,7 +210,7 @@ The manifest for a Redis application must contain the address of the Redis insta
 <!-- @nocpy -->
 
 ```toml
-spin_version = "1"
+spin_manifest_version = "1"
 name = "spin-redis"
 trigger = { type = "redis", address = "redis://localhost:6379" }
 version = "0.1.0"
