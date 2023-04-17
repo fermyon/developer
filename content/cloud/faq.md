@@ -25,7 +25,12 @@ The following are the limits of the Fermyon Cloud
 - A user account can execute a maximum of 10 deployments in a minute
 - A user account can execute a maximum of 100 deployments in an hour
 - A user can execute a maximum of 3,000 requests per hour toward the Cloud API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
+- A key value store key can have a maximum size of 255 bytes
+- A key value store value can have a maximum size of 1 MB
+- A key value store can have a maximum of 1,024 keys 
+- A Spin application can have a maximum of 1 key value store
 - The device and browser token lifetime is 7 days
+
 
 ## Known Limitations
 
