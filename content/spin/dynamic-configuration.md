@@ -149,7 +149,7 @@ path = ".spin/sqlite_key_value.db"
 
 ```
 
-To instead use Redis, update the configuration to use the `redis` store `type` and set the `url` to your Redis host:
+The following is an example of how an application's `runtime-config.toml` file can be configured to use Redis instead. Note the `type` and `url` values, which are set to `redis` and the URL of the Redis host, respectively:
 
 ```rust
 [key_value_store.default]
