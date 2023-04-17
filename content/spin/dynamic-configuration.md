@@ -161,13 +161,19 @@ Whilst a single default store may be sufficient for certain application use case
 
 > **Note:** At present, when deploying an application to Fermyon Cloud only the single "default" key-value store is supported. To see more about Spin support on Fermyon Cloud, visit the [limitations documentation](http://localhost:3000/cloud/faq#spin-limitations).
 
+> **Note** 
+
 ```toml
 [key_value_store.default]
 type = "spin"
+# This path is optional when you are using default as the store. 
 path = ".spin/sqlite_key_value.db"
 
+# Please note the name has been updated here. This is required to connect to your custom store, 
+# as there is no separate name of ID field we can point to.
 [key_value_store.user_data]
 type = "spin"
+# This path is required because you are using a custom named store. 
 path = ".spin/user_data.db"
 
 [key_value_store.other_data]
@@ -175,4 +181,4 @@ type = "redis"
 url = "redis://localhost"
 ```
 
-Components can then be configured to use multiple stores in the `spin.toml`. See [Spin Key Value Store](kv-store-api-guide.md) for more details. 
+You must individually grant each component access to the stores that it needs to use. To do this, use the `component.key_value_stores` entry in component manifest within `spin.toml`. See [Spin Key Value Store](kv-store-api-guide.md) for more details. 
