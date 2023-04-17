@@ -11,7 +11,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/kv-store-tut
 - [Creating a New Application](#creating-a-new-application)
 - [Configuration](#configuration)
   - [The Spin TOML File](#the-spin-toml-file)
-- [Using the Spin SDK](#using-the-spin-sdk)
+- [Write Code to Save and Load Data](#write-code-to-save-and-load-data)
   - [The Spin SDK Version](#the-spin-sdk-version)
 - [Quick Overview - Video](#quick-overview---video)
 - [Source Code](#source-code)
@@ -22,9 +22,10 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/kv-store-tut
 
 ## Key Value Store With Spin Applications
 
-Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times during an application’s execution. [Spin](https://www.fermyon.com/blog/spin-v09) has support for applications that need data in the form of key/value pairs and are satisfied by a BASE consistency model. Workload examples include general value caching, session caching, counters, and serialized application state. In this tutorial, you will learn how to do the following:
+Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times during an application’s execution. [Spin](https://www.fermyon.com/blog/spin-v09) has support for applications that need data in the form of key/value pairs and are satisfied by a Basically Available, Soft State, and Eventually Consistent (BASE) model. Workload examples include general value caching, session caching, counters, and serialized application state. In this tutorial, you will learn how to do the following:
 
-* Use the key value store SDK to get, set, and retrieve key value pairs
+* Create a Spin application with `spin new`
+* Use the key value store SDK to get, set, and list key value pairs
 * Configure your application manifest (`spin.toml`) to use the default key value store
 * Run your key value store enlighted Spin application locally with `spin up`
 
@@ -38,11 +39,11 @@ First, follow [this guide](./install.md) to install Spin. To ensure you have the
 $ spin --version
 ```
 
-> Please ensure you're on version 0.9 or later.
+> Please ensure you're on version 1.0 or newer.
 
 ## Creating a New Spin Application
 
-To begin, create a new Spin application from a template using the following commands ([learn more](https://developer.fermyon.com/spin/quickstart#creating-a-new-spin-application-from-a-template)):
+Let's create a Spin application that will send and retreive data from a key value store. To make things easy, we'll start from a template using the following commands ([learn more](https://developer.fermyon.com/spin/quickstart#creating-a-new-spin-application-from-a-template)):
 
 {{ tabs "sdk-type" }}
 
@@ -88,11 +89,13 @@ $ spin new http-go spin-key-value
 
 Good news - Spin will take care of setting up your key value store. However, in order to make sure your Spin application has permission to access the key value store, you must add the `key_value_stores = ["default"]` line in the `[[component]]` area of the `spin.toml` file. This line is necessary to communicate to Spin that a given component has access to the default key value store. A newly scaffolded Spin application will not have this line; you will need to add it. 
 
+>> Tip: You can choose between various store implementations by modifying [the runtime configuration](dynamic-configuration.md#key-value-store-runtime-configuration). The default implementation uses [SQLite](https://www.sqlite.org/index.html) within the Spin framework.
+
 Each Spin application's `key_value_stores` instances are implemented on a per-component basis across the entire Spin application. This means that within a multi-component Spin application (which has the same `key_value_stores = ["default"]` configuration line), each `[[component]]` will access that same data store. If one of your application's components creates a new key/value pair, another one of your application's components can update/overwrite that initial key/value after the fact.
 
 ### The Spin TOML File
 
-In this section we begin by configuring the application's `spin.toml` to use a default key/value store by adding the `key_value_stores` configuration before proceeding, as demonstrated below:
+We will give our components access to the key value store by adding the `key_value_stores = ["default"]` in the `[[component manifest]]` as shown below:
 
 {{ tabs "sdk-type" }}
 
@@ -110,6 +113,7 @@ version = "0.1.0"
 id = "spin-key-value"
 source = "target/wasm32-wasi/release/spin-key-value.wasm"
 allowed_http_hosts = []
+# Gives this component access to the default key value store
 key_value_stores = ["default"]
 [component.trigger]
 route = "/..."
@@ -133,6 +137,7 @@ version = "0.1.0"
 id = "spin-key-value"
 source = "target/spin-key-value.wasm"
 exclude_files = ["**/node_modules"]
+# Gives this component access to the default key value store
 key_value_stores = ["default"]
 [component.trigger]
 route = "/..."
@@ -155,6 +160,7 @@ version = "1.0.0"
 [[component]]
 id = "spin-key-value"
 source = "main.wasm"
+# Gives this component access to the default key value store
 key_value_stores = ["default"]
 [component.trigger]
 route = "/..."
@@ -166,9 +172,9 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 {{ blockEnd }}
 
-## Using the Spin SDK
+## Write Code to Save and Load Data
 
-In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. You can choose between various store implementations by modifying [the runtime configuration](dynamic-configuration.md#key-value-store-runtime-configuration). The default implementation uses [SQLite](https://www.sqlite.org/index.html) within the Spin framework.
+In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. 
 
 ### The Spin SDK Version
 
@@ -417,14 +423,6 @@ Now let's build and deploy our Spin Application locally. Run the following comma
 $ spin build
 ```
 
-Now, we have the option to add a key value pair to our store at application deployment time using the command `spin up --key-value`. This feature is helpful when you need to pass in data that's used in the initialization process. If you aren't interested in pre-seeding your key value store, then please use the `spin up` feature as usual. 
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin up --key-value connectionstring,34e5d0-42sd54-45c4a5-4a5s32
-```
-
 ## Storing and Retrieving Data From Your Default Key/Value Store
 
 Once you have completed this minimal configuration and deployed your application, data will be persisted across requests. Let's begin by creating a `POST` request that stores a JSON key/value object:
@@ -519,7 +517,7 @@ As we can see above, there is currently no data found at the `/test` endpoint of
 
 ## Conclusion
 
-We want to get feedback on the ergonomics of the key/value API. We are curious about what new APIs you would suggest we implement and are also interested in learning about what backing stores you would like to see. In the next iterations for this feature, we will focus on configuring multiple KV stores with multiple backing services (such as cloud services).
+We want to get feedback on the ergonomics of the key value API. We are curious about what new APIs you would suggest we implement and are also interested in learning about what backing stores you would like to see. In the next iterations for this feature, we will focus on configuring multiple KV stores with multiple backing services (such as cloud services).
 
 ## Next Steps
 
