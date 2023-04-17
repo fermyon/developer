@@ -1,9 +1,9 @@
-title = "Spin Key Value Store"
+title = "Key Value Store"
 template = "spin_main"
-date = "2022-04-14T00:22:56Z"
+date = "2023-04-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/spin/kv-store-api-guide.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/kv-store-api-guide.md"
 
 ---
 - [Using  Store From Applications](#using-key-value-store-from-applications)
@@ -39,24 +39,19 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
-
 {{ blockEnd }}
 
 {{ startTab "Typescript"}}
-
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
 
-
 {{ blockEnd }}
-
 
 {{ blockEnd }}
 
