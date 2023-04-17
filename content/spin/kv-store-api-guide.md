@@ -51,6 +51,22 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "TinyGo"}}
 
+Key value functions are provided by the `github.com/fermyon/spin/sdk/go/key_value` module. [![Go Reference](https://pkg.go.dev/badge/github.com/fermyon/spin/sdk/go/key_value.svg)](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/key_value)
+
+```go
+import "github.com/fermyon/spin/sdk/go/key_value"
+
+func example() error {
+    store, err := key_value.Open("default")
+    if err != nil {
+        return err
+    }
+    defer key_value.Close(store)
+    return key_value.Set(store, "mykey", []byte("myvalue"))
+}
+
+```
+
 {{ blockEnd }}
 
 {{ blockEnd }}
