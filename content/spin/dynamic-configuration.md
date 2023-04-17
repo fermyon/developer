@@ -172,7 +172,7 @@ path = ".spin/user_data.db"
 
 [key_value_store.other_data]
 type = "redis"
-url = "redis://localhost
+url = "redis://localhost"
 ```
 
 Components can then be configured to use multiple stores in the `spin.toml`. See [Spin Key Value Store](kv-store-api-guide.md) for more details. 
