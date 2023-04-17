@@ -88,7 +88,7 @@ $ spin new http-go spin-key-value
 
 Good news - Spin will take care of setting up your key value store. However, in order to make sure your Spin application has permission to access the key value store, you must add the `key_value_stores = ["default"]` line in the `[[component]]` area of the `spin.toml` file. This line is necessary to communicate to Spin that a given component has access to the deafult key value store. A newly scaffolded Spin application will not have this line; you will need to add it. 
 
-Each Spin application's `key_value_stores` instances are implemented on a per-component basis across the entire Spin application. This means that within a multi-component Spin application (which has the same `key_value_stores = ["default"]` configuration line), each `[[component]]` will be equally able to access that same data store. If one of your application's components creates a new key/value pair, another one of your application's components can update/overwrite that initial key/value after the fact.
+Each Spin application's `key_value_stores` instances are implemented on a per-component basis across the entire Spin application. This means that within a multi-component Spin application (which has the same `key_value_stores = ["default"]` configuration line), each `[[component]]` will access that same data store. If one of your application's components creates a new key/value pair, another one of your application's components can update/overwrite that initial key/value after the fact.
 
 ### The Spin TOML File
 
