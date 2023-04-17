@@ -159,7 +159,7 @@ url = "redis://localhost"
 
 As of v1.0.1, Spin also supports having more than a single “default” key value store per application. Multiple stores of any `type` can be configured in the `runtime-config.toml` .
 
-> Note that Fermyon Cloud only supports "default" key value stores today. To see more about Spin support on Cloud, visit the limitations document.
+> **Note:** At present, when deploying an application to Fermyon Cloud only the single "default" key-value store is supported. To see more about Spin support on Fermyon Cloud, visit the [limitations documentation](http://localhost:3000/cloud/faq#spin-limitations).
 
 ```toml
 [key_value_store.default]
