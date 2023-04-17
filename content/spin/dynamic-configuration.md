@@ -154,7 +154,7 @@ To instead use Redis, update the configuration to use the `redis` store `type` a
 ```rust
 [key_value_store.default]
 type = "redis"
-url = "redis://localhost
+url = "redis://localhost"
 ```
 
 As of v1.0.1, Spin also supports having more than a single “default” key value store per application. Multiple stores of any `type` can be configured in the `runtime-config.toml` .
