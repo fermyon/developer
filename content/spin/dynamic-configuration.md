@@ -139,7 +139,7 @@ You can supply runtime configuration by providing a value for the `--runtime-con
 
 ### Key Value Store Runtime Configuration
 
-By default, keys and values will be stored in a SQLite database embedded in Spin. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use an different backing store. Right now, the only store options are the embedded SQLite database or an external Redis database. The following is the default `runtime-config.toml` for the default key-value store.
+Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The only store options are the embedded SQLite database or an external Redis database. The following is an example of how an application's `runtime-config.toml` file can be configured for the single default key-value store option.
 
 ```toml
 
