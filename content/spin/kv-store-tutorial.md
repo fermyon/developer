@@ -42,7 +42,7 @@ $ spin --version
 
 ## Creating a New Spin Application
 
-As previously documented, you can go ahead and [create a new Spin application from a template](https://developer.fermyon.com/spin/quickstart#creating-a-new-spin-application-from-a-template). To do so, please use the commands similar to the ones shown below:
+To begin, create a new Spin application from a template using the following commands ([learn more](https://developer.fermyon.com/spin/quickstart#creating-a-new-spin-application-from-a-template)):
 
 {{ tabs "sdk-type" }}
 
