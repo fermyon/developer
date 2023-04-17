@@ -38,7 +38,7 @@ First, follow [this guide](./install.md) to install Spin. To ensure you have the
 $ spin --version
 ```
 
-> Please ensure you're on version is 0.9 or later.
+> Please ensure you're on version 0.9 or later.
 
 ## Creating a New Spin Application
 
