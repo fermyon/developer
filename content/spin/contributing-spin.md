@@ -6,15 +6,17 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/contributing
 
 ---
 - [Making Code Contributions to Spin](#making-code-contributions-to-spin)
+- [Before You Commit](#before-you-commit)
+- [Committing and Pushing Your Changes](#committing-and-pushing-your-changes)
 
 We are delighted that you are interested in making Spin better! Thank you! This
 document will guide you through making your first contribution to the project.
+We welcome and appreciate contributions of all types — opening issues, fixing
+typos, adding examples, one-liner code fixes, tests, or complete features.
 
 First, any contribution and interaction on any Fermyon project MUST follow our
 [code of conduct](https://www.fermyon.com/code-of-conduct). Thank you for being
 part of an inclusive and open community!
-We welcome and appreciate contributions of all types — opening issues, fixing
-typos, adding examples, one-liner code fixes, tests, or complete features.
 
 If you plan on contributing anything complex, please go through the issue and PR
 queues first to make sure someone else has not started working on it. If it
@@ -53,9 +55,6 @@ $ git remote add fork https://github.com/<your-username>/spin
 # create a new branch for your work
 $ git checkout -b <your-branch>
 
-# if you are making a documentation contribution,
-# you can skip compiling and running the tests.
-
 # build a release version of the Spin CLI
 $ cargo build --release
 # make sure compilation is successful
@@ -69,25 +68,40 @@ Now you should be ready to start making your contribution. To familiarize
 yourself with the Spin project, please read the
 [document about extending Spin](./extending-and-embedding.md). Since most of Spin is implemented in
 Rust, we try to follow the common Rust coding conventions (keep an eye on the
-recommendations from Clippy!) If applicable, add unit or integration tests to
+recommendations from Clippy!). If applicable, add unit or integration tests to
 ensure your contribution is correct.
 
-Build the project and run the tests (`make build test`), and if everything is
-successful, you should be ready to commit your changes. We try to follow the
-[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-guidelines for writing commit messages:
+## Before You Commit
+
+* Format the code (`cargo fmt`)
+* Run Clippy (`cargo clippy`)
+* Run the `lint` task (`make lint`)
+* Build the project and run the tests (`make test`)
+
+Spin enforces lints and tests as part of continuous integration - running them locally will save you a round-trip to your pull request!
+
+If everything works locally, you're ready to commit your changes.
+
+## Committing and Pushing Your Changes
+
+We require commits to be signed both with an email address and with a GPG signature.
+
+> Because of the way GitHub runs enforcement, the GPG signature isn't checked until _after_ all tests have run.  Be sure to GPG sign up front, as it can be a bit frustrating to wait for all the tests and _then_ get blocked on the signature!
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ git commit -S -s -m "<your commit message that follows https://www.conventionalcommits.org/en/v1.0.0/>"
+$ git commit -S -s -m "<your commit message>"
 ```
+
+> Some contributors like to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) convention for commit messages.
 
 We try to only keep useful changes as separate commits — if you prefer to commit
 often, please
 [cleanup the commit history](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
-before opening a pull request. Once you are happy with your changes you can push
-the branch to your fork:
+before opening a pull request.
+
+Once you are happy with your changes you can push the branch to your fork:
 
 <!-- @selectiveCpy -->
 
