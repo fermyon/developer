@@ -26,7 +26,7 @@ Spin applications are best suited for event-driven, stateless workloads that hav
 
 * Use the key value store SDK to get, set, and retrieve key value pairs
 * Configure your application manifest (`spin.toml`) to use the default key value store
-* Run your ke value store enlighted Spin application locally with `spin up`
+* Run your key value store enlighted Spin application locally with `spin up`
 
 ## Tutorial Prerequisites
 
