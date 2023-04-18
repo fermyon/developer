@@ -62,7 +62,7 @@ fn handle_request(req: Request) -> Result<Response> {
 
 {{ startTab "Typescript"}}
 
-With Typescript, the key value functions can be accessed after opening a store using either the `spinSdk.kv.opn` or the `spinSdk.kv.openDefault` methods which returns a handle to the store. For example:
+With Typescript, the key value functions can be accessed after opening a store using either the `spinSdk.kv.open` or the `spinSdk.kv.openDefault` methods which returns a handle to the store. For example:
 
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
