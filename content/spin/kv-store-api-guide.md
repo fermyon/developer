@@ -54,7 +54,7 @@ fn handle_request(req: Request) -> Result<Response> {
     let store = Store::open_default()?;
     store.set("mykey", "myvalyue")?;
     let value = store.get("mykey")?;
-     Ok(http::Response::builder().status(200).body(Some(value.into()))?)
+    Ok(http::Response::builder().status(200).body(Some(value.into()))?)
 }
 ```
 
