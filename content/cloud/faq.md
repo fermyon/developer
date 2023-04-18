@@ -31,7 +31,6 @@ The following are the limits of the Fermyon Cloud
 - A Spin application can have a maximum of 1 key value store
 - The device and browser token lifetime is 7 days
 
-
 ## Known Limitations
 
 ### Spin Limitations

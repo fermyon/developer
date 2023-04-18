@@ -41,7 +41,6 @@ The exact detail of calling these operations from your application depends on yo
 
 Key value functions are available in the `spin_sdk::key_value` module. The function names match the operations above. For example:
 
-
 ```rust
 use anyhow::Result;
 use spin_sdk::{
