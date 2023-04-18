@@ -15,6 +15,6 @@ The following table shows the status of the interfaces Spin provides to applicat
 | [Dynamic Configuration](https://developer.fermyon.com/spin/dynamic-configuration)                         | Experimental | No |
 | [PostgreSQL](https://developer.fermyon.com/spin/rdbms-storage)                             | Experimental | Yes |
 | [MySQL](https://developer.fermyon.com/spin/rdbms-storage)                                  | Experimental | Yes |
-| [Key-value Storage](https://developer.fermyon.com/spin/kv-store.md)                      | Stabilizing | No |
+| [Key-value Storage](https://developer.fermyon.com/spin/kv-store-api-guide)                      | Stabilizing | Yes |
 
 For more information about what is possible in the programming language of your choice, please see our [Language Support Overview](https://developer.fermyon.com/spin/language-support-overview).

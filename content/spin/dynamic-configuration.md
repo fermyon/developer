@@ -12,6 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/dynamic-conf
   - [Vault Config Provider](#vault-config-provider)
     - [Vault Config Provider Example](#vault-config-provider-example)
 - [Runtime Configuration](#runtime-configuration)
+   - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
 
 Spin applications may define custom configuration which can be looked up by
 component code via the [spin-config interface](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-config.wit).
@@ -135,3 +136,33 @@ Got password test_password
 
 Runtime configuration contains information for the selected config provider, such as the [Vault config provider](#vault-config-provider).
 You can supply runtime configuration by providing a value for the `--runtime-config-file` flag when invoking the `spin up` command.
+
+### Key Value Store Runtime Configuration
+
+Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The only store options are the embedded SQLite database or an external Redis database.
+
+The following is an example of how an application's `runtime-config.toml` file can be configured to use Redis instead. Note the `type` and `url` values, which are set to `redis` and the URL of the Redis host, respectively:
+
+```toml
+[key_value_store.default]
+type = "redis"
+url = "redis://localhost"
+```
+
+Whilst a single default store may be sufficient for certain application use cases, each Spin application can be configured to support multiple stores of any `type`, as shown in the `runtime-config.toml` file below:
+
+> **Note:** At present, when deploying an application to Fermyon Cloud only the single "default" key-value store is supported. To see more about Spin support on Fermyon Cloud, visit the [limitations documentation](http://localhost:3000/cloud/faq#spin-limitations):
+
+```toml
+# This defines a new store named user_data
+[key_value_store.user_data]
+type = "spin" 
+path = ".spin/user_data.db"
+
+# This defines a new store named other_data backed by a Redis database
+[key_value_store.other_data]
+type = "redis"
+url = "redis://localhost"
+```
+
+You must individually grant each component access to the stores that it needs to use. To do this, use the `component.key_value_stores` entry in the component manifest within `spin.toml`. See [Spin Key Value Store](kv-store-api-guide.md) for more details. 
