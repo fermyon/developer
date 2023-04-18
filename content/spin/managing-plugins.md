@@ -46,7 +46,7 @@ To install a specific version of a plugin, pass the `--version` flag:
 <!-- @nocpy -->
 
 ```bash
-$ spin plugins install js2wasm --version 0.3.0
+$ spin plugins install js2wasm --version 0.4.0
 ```
 
 ### Installing a Plugin From a URL
