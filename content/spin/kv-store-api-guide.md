@@ -39,19 +39,86 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
+Key value functions are available in the `spin_sdk::key_value` module. The function names match the operations above. For example:
+
+
+```rust
+use anyhow::Result;
+use spin_sdk::{
+    http::{Request, Response},
+    http_component,
+    key_value::{Error, Store},
+};
+#[http_component]
+fn handle_request(req: Request) -> Result<Response> {
+    let store = Store::open_default()?;
+    store.set("mykey", "myvalyue")?;
+    let value = store.get("mykey")?;
+     Ok(http::Response::builder().status(200).body(Some(value.into()))?)
+}
+```
+
 {{ blockEnd }}
 
 {{ startTab "Typescript"}}
+
+With Typescript, the key value functions can be accessed after opening a store using either the `spinSdk.kv.opn` or the `spinSdk.kv.openDefault` methods which returns a handle to the store. For example:
+
+```javascript
+import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+
+export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+    let store = spinSdk.kv.openDefault()
+    store.set("mykey", "myvalue")
+    return {
+            status: 200,
+            headers: {"content-type":"text/plain"},
+            body: store.get("mykey")
+    }
+}
+
+```
+
+**General Notes**
+- The spinSdk object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the @fermyon/spin-sdk package. For example: 
+
+`set` **Operation**
+- The value argument is of the type `ArrayBuffer | string`
+
+`get` **Operation**
+- If a key does not exist, it returns null
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
+The key value functions are provided through the `spin_key_value` module in the Python SDK. For example:
+
+```python
+from spin_http import Response
+from spin_key_value import kv_open_default
+
+
+def handle_request(request):
+
+    store = kv_open_default()
+    store.set("mykey", "myvalue")
+    value = store.get()
+    //
+    return Response(status, [("content-type", "text/plain")], value)   
+
+```
+
+**General Notes**
+
+`get` **Operation**
+- If a key does not exist, it returns null
+
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
 
-Key value functions are provided by the `github.com/fermyon/spin/sdk/go/key_value` module. [![Go Reference](https://pkg.go.dev/badge/github.com/fermyon/spin/sdk/go/key_value.svg)](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/key_value)
+Key value functions are provided by the `github.com/fermyon/spin/sdk/go/key_value` module. Here is the reference [![Go Reference](https://pkg.go.dev/badge/github.com/fermyon/spin/sdk/go/key_value.svg)](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/key_value). For example: 
 
 ```go
 import "github.com/fermyon/spin/sdk/go/key_value"
