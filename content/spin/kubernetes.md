@@ -211,9 +211,6 @@ kind: RuntimeClass
 metadata:
   name: "wasmtime-spin"
 handler: "spin"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin": "true"
 ```
 
 Then register the runtime class with the cluster
@@ -271,9 +268,6 @@ kind: RuntimeClass
 metadata:
   name: "wasmtime-spin"
 handler: "spin"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin": "true"
 ```
 
 Then register the runtime class with the cluster
@@ -326,9 +320,6 @@ kind: RuntimeClass
 metadata:
   name: "wasmtime-spin"
 handler: "spin"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin": "true"
 ```
 
 Then register the runtime class with the cluster
