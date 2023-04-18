@@ -27,7 +27,7 @@ Spin applications are best suited for event-driven, stateless workloads that hav
 * Create a Spin application with `spin new`
 * Use the key value store SDK to get, set, and list key value pairs
 * Configure your application manifest (`spin.toml`) to use the default key value store
-* Run your key value store enlighted Spin application locally with `spin up`
+* Run your key value store Spin application locally with `spin up`
 
 ## Tutorial Prerequisites
 
@@ -95,7 +95,7 @@ Each Spin application's `key_value_stores` instances are implemented on a per-co
 
 ### The Spin TOML File
 
-We will give our components access to the key value store by adding the `key_value_stores = ["default"]` in the `[[component]]` manifest as shown below:
+We will give our components access to the key value store by adding the `key_value_stores = ["default"]` in the `[[component manifest]]` as shown below:
 
 {{ tabs "sdk-type" }}
 
@@ -517,7 +517,7 @@ As we can see above, there is currently no data found at the `/test` endpoint of
 
 ## Conclusion
 
-We want to get feedback on the ergonomics of the key value API. We are curious about what new APIs you would suggest we implement and are also interested in learning about what backing stores you would like to see. In the next iterations for this feature, we will focus on configuring multiple KV stores with multiple backing services (such as cloud services).
+We want to get feedback on the ergonomics of the key value API. We are curious about what new APIs you would suggest we implement and are also interested in learning about what backing stores you would like to see.
 
 ## Next Steps
 
