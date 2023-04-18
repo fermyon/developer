@@ -139,19 +139,11 @@ You can supply runtime configuration by providing a value for the `--runtime-con
 
 ### Key Value Store Runtime Configuration
 
-Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The only store options are the embedded SQLite database or an external Redis database. The following is an example of how an application's `runtime-config.toml` file can be configured for the single default key-value store option.
-
-```toml
-
-[key_value_store.default]
-type = "spin"
-path = ".spin/sqlite_key_value.db"
-
-```
+Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The only store options are the embedded SQLite database or an external Redis database.
 
 The following is an example of how an application's `runtime-config.toml` file can be configured to use Redis instead. Note the `type` and `url` values, which are set to `redis` and the URL of the Redis host, respectively:
 
-```rust
+```toml
 [key_value_store.default]
 type = "redis"
 url = "redis://localhost"
@@ -159,7 +151,7 @@ url = "redis://localhost"
 
 Whilst a single default store may be sufficient for certain application use cases, each Spin application can be configured to support multiple stores of any `type`, as shown in the `runtime-config.toml` file below:
 
-> **Note:** At present, when deploying an application to Fermyon Cloud only the single "default" key-value store is supported. To see more about Spin support on Fermyon Cloud, visit the [limitations documentation](http://localhost:3000/cloud/faq#spin-limitations).
+> **Note:** At present, when deploying an application to Fermyon Cloud only the single "default" key-value store is supported. To see more about Spin support on Fermyon Cloud, visit the [limitations documentation](http://localhost:3000/cloud/faq#spin-limitations):
 
 ```toml
 # This defines a new store named user_data
