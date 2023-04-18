@@ -95,7 +95,7 @@ Each Spin application's `key_value_stores` instances are implemented on a per-co
 
 ### The Spin TOML File
 
-We will give our components access to the key value store by adding the `key_value_stores = ["default"]` in the `[[component manifest]]` as shown below:
+We will give our components access to the key value store by adding the `key_value_stores = ["default"]` in the `[[component]]` manifest as shown below:
 
 {{ tabs "sdk-type" }}
 
