@@ -16,7 +16,7 @@ Fermyon Cloud now supports [Key Value Store](https://developer.fermyon.com/spin/
 
 References:
 
-- [Spin Key Value API Guide](https://developer.fermyon.com/spin/kv-api-guide) 
-- [Spin Key Value Tutorial](https://developer.fermyon.com/spin/kv-tutorial)
+- [Spin Key Value API Guide](https://developer.fermyon.com/spin/kv-store-api-guide) 
+- [Spin Key Value Tutorial](https://developer.fermyon.com/spin/kv-store-tutorial)
 - [Introducing Fermyon Cloud Key Store](https://www.fermyon.com/blog/introducing-fermyon-cloud-key-value-store)
 - [Cloud Limitations](https://developer.fermyon.com/cloud/faq)
