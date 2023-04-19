@@ -2,8 +2,11 @@ title = "Contributing to Docs"
 template = "common_main"
 date = "2022-01-01T00:00:01Z"
 [extra]
+url = "https://github.com/fermyon/developer/blob/main/content/common/contributing-docs.md"
+keywords = "contribute contributing"
 
 ---
+
 - [Technical Documentation Types](#technical-documentation-types)
   - [1. Tutorials](#1-tutorials)
   - [2. How-To Guides](#2-how-to-guides)
@@ -19,8 +22,10 @@ date = "2022-01-01T00:00:01Z"
   - [5. Code Blocks, Annotations and Table of Contents (ToC)](#5-code-blocks-annotations-and-table-of-contents-toc)
   - [6.1 Checking Your Content - Using NPM](#61-checking-your-content---using-npm)
   - [6.2 Generating Indexing For Your Content](#62-generating-indexing-for-your-content)
-  - [6.3 How To Properly Edit CSS Styles](#63-how-to-properly-edit-css-styles)
-  - [6.4 Checking Your Content - Using Bartholomew's CLI](#64-checking-your-content---using-bartholomews-cli)
+  - [6.3 Increasing Search Visibility For Your Content](#63-increasing-search-visibility-for-your-content)
+  - [6.4 The Edit On GitHub Button](#64-the-edit-on-github-button)
+  - [6.5 How To Properly Edit CSS Styles](#65-how-to-properly-edit-css-styles)
+  - [6.6 Checking Your Content - Using Bartholomew's CLI](#66-checking-your-content---using-bartholomews-cli)
   - [7. Checking Web Pages](#7-checking-web-pages)
   - [8. Add Changes](#8-add-changes)
   - [9. Commit Changes](#9-commit-changes)
@@ -233,7 +238,7 @@ npx markdownlint-cli2 content/spin/install.md \"#node_modules\"
 
 ### 6.2 Generating Indexing For Your Content
 
-The documentation site implements in-house search and therefore it is recommended to generate a new index each time you update and push changes to the developer documentation repository. This is done simply by using the following command; in the developer directory:
+The developer documentation site implements in-house search and therefore it is recommended to generate a new index each time you update and push changes to the developer documentation repository. This is done simply by using the following command; in the developer directory:
 
 <!-- @selectiveCpy -->
 
@@ -241,7 +246,55 @@ The documentation site implements in-house search and therefore it is recommende
 $ npm run build-index
 ```
 
-### 6.3 How To Properly Edit CSS Styles
+### 6.3 Increasing Search Visibility For Your Content
+
+The in-house search functionality is based on the indexing of individual words in each markdown file, which works well most of the time. However, there are a couple of scenarios where you _may_ want to deliberately increase search visibility for your content.
+
+**Word Mismatch**
+
+The words in your markdown file (that may help a user) may not be words that a user is actually searching for. For example, you may write about "different HTTP listening options" whereas a user may only ever try to find that specific content using a search phrase like "request alternate port". In this case (if/when you are aware of user search patterns), it is recommended that you reword your content to include the potential user's search phrase. If this is not possible (there is a mismatch between words in your content and works a user searches for) then you can alternatively use the `keywords` string in the `[extra]` section of your document's frontmatter. For example, the following show frontmatter that helps a user find your page (when using `port` in their search phrase):
+
+```markdown
+[extra]
+keywords = "port ports"
+```
+
+Adding a word to the `keywords` string of a page overrides the in-house search functionality by at least one order of magnitude. Adding a word to the `keywords` string may displace other content, so please use it only if necessary.
+
+The `keywords` string is designed to draw users to the start of a page. In some cases, this is not ideal. You may want to hone in on specific content to resolve a search query.
+
+**Honing in on specific content**
+
+As we just mentioned the in-house search works most of the time. However, if you know that a user will be searching for a specific phrase and you want to hone in on specific content (when a user clicks a search result) you may use the following syntax; anywhere in the body of your markdown file and the user's search action will direct them straight to the previous heading (nearest heading above the `@searchTerm` syntax).
+
+```markdown
+<!-- @searchTerm "honing" -->
+```
+
+<!-- @searchTerm "honing" -->
+
+When using the above `@searchTerm` feature, please note the following:
+- the words must be separated by a space.
+- these keywords will be boosted in the search results by at least one order of magnitude; so please use them with caution, so as not to displace other valid pages containing similar content.
+
+Example: If you search for the word "honing", the results will point you to the previous heading in this specific section of the developer documentation.
+
+![honing example](/static/image/honing.png)
+
+### 6.4 The Edit On GitHub Button
+
+Each markdown file in the developer documentation requires a link to its GitHub page for the site to correctly render the "Edit on GitHub" button for that page.
+
+![edit on github](/static/image/edit-on-github.png)
+
+If you create a new markdown file and/or you notice a file without the explicit GitHub URL please attend to this. For example, the following `url` is required for this page that you are reading (you can check the raw markdown contents to see this example):
+
+```
+[extra]
+url = "https://github.com/fermyon/developer/blob/main/content/common/contributing-docs.md"
+```
+
+### 6.5 How To Properly Edit CSS Styles
 
 > The following section (the running of the `npm run styles` command) is not necessary unless you are editing styles i.e. updating `.scss` files, in order to generate new `.css` files, as part of your contribution.
 
@@ -255,7 +308,7 @@ $ npm run styles
 
 The above command is designed to be run in the background; enabling you to view your design changes (that are reflected in the `.css`) while you are editing the `.scss` in real-time. If you are not running this command in the background (i.e. just deliberately regenerating the `.css` files once), then the above command can be stopped by pressing `Ctrl` + `C`.
 
-### 6.4 Checking Your Content - Using Bartholomew's CLI
+### 6.6 Checking Your Content - Using Bartholomew's CLI
 
 The Bartholomew Command Line Interface (CLI) Tool is called `bart`. The `bart` CLI is a tool that simplifies working with Bartholomew projects (by now you probably already know that [Bartholomew](https://www.fermyon.com/blog/introducing-bartholomew) is our in-house WebAssembly (Wasm) content management system (CMS) that powers [our official Website](https://www.fermyon.com/)). And this (our official documentation) site. The `bart` CLI is handy to ensure quality assurance of new and existing content. Installing the CLI is a cinch, so please go ahead and use it when contributing.
 
