@@ -37,7 +37,7 @@ This page contains information about language support for Spin features:
 | Redis | Not Supported |
 | **APIs** |
 | [Outbound HTTP](https://developer.fermyon.com/spin/javascript-components#sending-outbound-http-requests) | Supported |
-| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-tutorial) | Supported |
+| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL| Not Supported |
 | [Outbound Redis](https://developer.fermyon.com/spin/javascript-components#storing-data-in-redis-from-jsts-components) | Supported |
