@@ -263,7 +263,7 @@ Adding a word to the `keywords` string of a page overrides the built-in search f
 
 The `keywords` string is designed to draw users to the start of a page. In some cases, this is not ideal. You may want to hone in on specific content to resolve a search query.
 
-**Honing in on specific content**
+**Homing in on specific content**
 
 As we just mentioned the built-in search works most of the time. However, if you know that a user will be searching for a specific phrase and you want to hone in on specific content (when a user clicks a search result) you may use the following syntax; anywhere in the body of your markdown file and the user's search action will direct them straight to the previous heading (nearest heading above the `@searchTerm` syntax).
 
