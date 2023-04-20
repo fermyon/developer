@@ -268,18 +268,18 @@ The `keywords` string takes users to the start of a page. In some cases, this is
 If a search term relates to a specific part of a page, you may use the following syntax anywhere in the body of your markdown file, and the user's search action will direct them straight to the previous heading (nearest heading above the `@searchTerm` syntax).
 
 ```markdown
-<!-- @searchTerm "honing" -->
+<!-- @searchTerm "homing" -->
 ```
 
-<!-- @searchTerm "honing" -->
+<!-- @searchTerm "homing" -->
 
 When using the above `@searchTerm` feature, please note the following:
 - the words must be separated by a space i.e. <!-- @searchTerm "port listen request" -->
 - these keywords will be boosted in the search results by at least one order of magnitude; so please use them with caution, so as not to displace other valid pages containing similar content.
 
-Example: If you search for the word "honing", the results will point you to the previous heading in this specific section of the developer documentation.
+Example: If you search for the word "homing", the results will point you to the previous heading in this specific section of the developer documentation.
 
-![honing example](/static/image/honing.png)
+![homing example](/static/image/homing.png)
 
 ### 6.4 The Edit On GitHub Button
 
