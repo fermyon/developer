@@ -261,7 +261,7 @@ keywords = "port ports"
 
 Adding a word to the `keywords` string of a page overrides the built-in search functionality by at least one order of magnitude. Adding a word to the `keywords` string may displace other content, so please use it only if necessary.
 
-The `keywords` string is designed to draw users to the start of a page. In some cases, this is not ideal. You may want to hone in on specific content to resolve a search query.
+The `keywords` string takes users to the start of a page. In some cases, this is not ideal. You may want to home in on specific content to resolve a search query.
 
 **Homing in on specific content**
 
