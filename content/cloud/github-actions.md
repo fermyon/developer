@@ -257,6 +257,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.66
+          targets: wasm32-wasi
+
       # TypeScript/JavaScript build requires the js2wasm plugin
       - name: Install Spin
         uses: fermyon/actions/spin/setup@v1
@@ -291,6 +297,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.66
+          targets: wasm32-wasi
+
       # Python build requires the py2wasm plugin
       - name: Install Spin
         uses: fermyon/actions/spin/setup@v1
@@ -324,6 +336,12 @@ jobs:
     name: Build and deploy
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.66
+          targets: wasm32-wasi
 
       - name: "Install Go"
         uses: actions/setup-go@v3
