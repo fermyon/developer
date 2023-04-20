@@ -3,6 +3,7 @@ template = "common_main"
 date = "2022-01-01T00:00:01Z"
 enable_shortcodes = true
 [extra]
+url = "https://github.com/fermyon/developer/blob/main/content/common/cli-reference.md"
 
 ---
 - [Spin](#spin)

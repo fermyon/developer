@@ -248,24 +248,24 @@ $ npm run build-index
 
 ### 6.3 Increasing Search Visibility For Your Content
 
-The in-house search functionality is based on the indexing of individual words in each markdown file, which works well most of the time. However, there are a couple of scenarios where you _may_ want to deliberately increase search visibility for your content.
+The built-in search functionality is based on the indexing of individual words in each markdown file, which works well most of the time. However, there are a couple of scenarios where you _may_ want to deliberately increase search visibility for your content.
 
 **Word Mismatch**
 
-The words in your markdown file (that may help a user) may not be words that a user is actually searching for. For example, you may write about "different HTTP listening options" whereas a user may only ever try to find that specific content using a search phrase like "request alternate port". In this case (if/when you are aware of user search patterns), it is recommended that you reword your content to include the potential user's search phrase. If this is not possible (there is a mismatch between words in your content and works a user searches for) then you can alternatively use the `keywords` string in the `[extra]` section of your document's frontmatter. For example, the following show frontmatter that helps a user find your page (when using `port` in their search phrase):
+Words in a documentation markdown file may not be words that are searched for by a user. For example, you may write about "different HTTP listening options" whereas a user may only ever try to find that specific content using a search phrase like "alternate port". If you are aware of typical user search phrases it is always recommended to craft your content to include any predictable user search phrases. However, in the rare case of a mismatch between words in your content and the words a user searches for, you can utilize use the `keywords` string in the `[extra]` section of your document's frontmatter to increase visibility. For example, the following code block shows frontmatter that helps a user find your documentation page (when the user searches for `port`):
 
 ```markdown
 [extra]
 keywords = "port ports"
 ```
 
-Adding a word to the `keywords` string of a page overrides the in-house search functionality by at least one order of magnitude. Adding a word to the `keywords` string may displace other content, so please use it only if necessary.
+Adding a word to the `keywords` string of a page overrides the built-in search functionality by at least one order of magnitude. Adding a word to the `keywords` string may displace other content, so please use it only if necessary.
 
 The `keywords` string is designed to draw users to the start of a page. In some cases, this is not ideal. You may want to hone in on specific content to resolve a search query.
 
 **Honing in on specific content**
 
-As we just mentioned the in-house search works most of the time. However, if you know that a user will be searching for a specific phrase and you want to hone in on specific content (when a user clicks a search result) you may use the following syntax; anywhere in the body of your markdown file and the user's search action will direct them straight to the previous heading (nearest heading above the `@searchTerm` syntax).
+As we just mentioned the built-in search works most of the time. However, if you know that a user will be searching for a specific phrase and you want to hone in on specific content (when a user clicks a search result) you may use the following syntax; anywhere in the body of your markdown file and the user's search action will direct them straight to the previous heading (nearest heading above the `@searchTerm` syntax).
 
 ```markdown
 <!-- @searchTerm "honing" -->
@@ -274,7 +274,7 @@ As we just mentioned the in-house search works most of the time. However, if you
 <!-- @searchTerm "honing" -->
 
 When using the above `@searchTerm` feature, please note the following:
-- the words must be separated by a space.
+- the words must be separated by a space i.e. <!-- @searchTerm "port listen request" -->
 - these keywords will be boosted in the search results by at least one order of magnitude; so please use them with caution, so as not to displace other valid pages containing similar content.
 
 Example: If you search for the word "honing", the results will point you to the previous heading in this specific section of the developer documentation.
@@ -287,7 +287,7 @@ Each markdown file in the developer documentation requires a link to its GitHub 
 
 ![edit on github](/static/image/edit-on-github.png)
 
-If you create a new markdown file and/or you notice a file without the explicit GitHub URL please attend to this. For example, the following `url` is required for this page that you are reading (you can check the raw markdown contents to see this example):
+If you create a new markdown file and/or you notice a file without the explicit GitHub URL, please add a URL entry to the [extra] section. For example, the following `url` is required for this page that you are reading (you can check the raw markdown contents of this page to see this example):
 
 ```
 [extra]
