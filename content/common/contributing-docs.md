@@ -265,7 +265,7 @@ The `keywords` string takes users to the start of a page. In some cases, this is
 
 **Homing in on specific content**
 
-As we just mentioned the built-in search works most of the time. However, if you know that a user will be searching for a specific phrase and you want to hone in on specific content (when a user clicks a search result) you may use the following syntax; anywhere in the body of your markdown file and the user's search action will direct them straight to the previous heading (nearest heading above the `@searchTerm` syntax).
+If a search term relates to a specific part of a page, you may use the following syntax anywhere in the body of your markdown file, and the user's search action will direct them straight to the previous heading (nearest heading above the `@searchTerm` syntax).
 
 ```markdown
 <!-- @searchTerm "honing" -->
