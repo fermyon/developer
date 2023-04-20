@@ -1,6 +1,8 @@
 title = "API Support Overview"
 template = "spin_main"
 date = "2023-03-03T03:03:03Z"
+[extra]
+url = "https://github.com/fermyon/developer/blob/main/content/spin/api-guides-overview.md"
 
 ---
 
