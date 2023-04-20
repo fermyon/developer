@@ -261,9 +261,9 @@ keywords = "port ports"
 
 Adding a word to the `keywords` string of a page overrides the built-in search functionality by at least one order of magnitude. Adding a word to the `keywords` string may displace other content, so please use it only if necessary.
 
-The `keywords` string takes users to the start of a page. In some cases, this is not ideal. You may want to home in on specific content to resolve a search query.
-
 **Homing in on specific content**
+
+The `keywords` string takes users to the start of a page. In some cases, this is not ideal. You may want to home in on specific content to resolve a search query.
 
 If a search term relates to a specific part of a page, you may use the following syntax anywhere in the body of your markdown file, and the user's search action will direct them straight to the previous heading (nearest heading above the `@searchTerm` syntax).
 
