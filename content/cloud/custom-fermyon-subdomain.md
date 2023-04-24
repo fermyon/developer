@@ -11,6 +11,8 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/custom-ferm
 
 Every Spin application running on Fermyon Cloud receives a domain name that has the following format: `<your-App-Name-randomlyAssignedString>.fermyon.app`. For a more easily recognizable domain name, you may want to change your Spin application's domain name from `slats-the-cat-o7jecuug.fermyon.app` to `slatsthecat.fermyon.app`. 
 
+Custom Fermyon subdomain names allow you to rename the `<your-App-Name-randomyAssignedString>` subdomain. This custom Fermyon subdomain will be combined with the `.fermyon.app` apex domain to give your application a complete domain name. 
+
 ## Prerequisites
 
 Log into [Fermyon Cloud](www.cloud.fermyon.com) and ensure you have an Spin application running on Fermyon Cloud. If you do not have a Spin application yet, follow our [quickstart guide](quickstart.md) to deploy one. 
