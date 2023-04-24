@@ -17,6 +17,13 @@ Log into [Fermyon Cloud](www.cloud.fermyon.com) and ensure you have an Spin appl
 
 [Cloud UI with 1 application](../../static/image/cloud-dash-w-quickstart-app.png)
 
+## Select Your Spin Application
+Select the application whose domain name you intend to modify. Then select the *Edit Subdomain Name* button in the top right corner.
+
+[Cloud UI with app panel view open](../../static/image/app-panel-view-w-edit-subdomain-button.png)
+
+## Choose And
+
 ## Next Steps
 
 - [Delete an application](delete)
