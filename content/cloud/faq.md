@@ -1,6 +1,6 @@
 title = "FAQ and Known Limitations"
 template = "cloud_main"
-date = "2022-10-05T00:00:00Z"
+date = "2023-04-18T00:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main//content/cloud/faq.md"
@@ -25,6 +25,10 @@ The following are the limits of the Fermyon Cloud
 - A user account can execute a maximum of 10 deployments in a minute
 - A user account can execute a maximum of 100 deployments in an hour
 - A user can execute a maximum of 3,000 requests per hour toward the Cloud API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
+- A key value store key can have a maximum size of 255 bytes
+- A key value store value can have a maximum size of 1 MB
+- A key value store can have a maximum of 1,024 keys 
+- A Spin application can have a maximum of 1 key value store
 - The device and browser token lifetime is 7 days
 
 ## Known Limitations
@@ -40,7 +44,7 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Redis](https://developer.fermyon.com/spin/redis-trigger) | Not supported |
 | **APIs** |
 | [Outbound HTTP](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests) | Supported |
-| [Key Value Storage](https://developer.fermyon.com/spin/kv-store.md) | Coming soon |
+| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-api-guide) | Supported (only default store) |
 | [MySQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |

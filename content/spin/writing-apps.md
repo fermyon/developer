@@ -15,6 +15,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/writing-apps.
 - [Creating an Application From a Template](#creating-an-application-from-a-template)
 - [Adding a New Component to an Application](#adding-a-new-component-to-an-application)
 - [Including Files with Components](#including-files-with-components)
+- [Adding Environment Variables to Components](#adding-environment-variables-to-components)
 - [Granting Networking Permissions to Components](#granting-networking-permissions-to-components)
 - [Granting Storage Permissions to Components](#granting-storage-permissions-to-components)
 - [Example Manifests](#example-manifests)

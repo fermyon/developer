@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-01-01T00:00:01Z"
 enable_shortcodes = true
 [extra]
+url = "https://github.com/fermyon/developer/blob/main/content/spin/language-support-overview.md"
 
 ---
 
@@ -19,7 +20,7 @@ This page contains information about language support for Spin features:
 | [Redis](https://developer.fermyon.com/spin/redis-trigger) | Supported |
 | **APIs** |
 | [Outbound HTTP](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests) | Supported |
-| [Key Value Storage](https://developer.fermyon.com/spin/kv-store.md) | Supported |
+| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-api-guide) | Supported |
 | [MySQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
@@ -37,7 +38,7 @@ This page contains information about language support for Spin features:
 | Redis | Not Supported |
 | **APIs** |
 | [Outbound HTTP](https://developer.fermyon.com/spin/javascript-components#sending-outbound-http-requests) | Supported |
-| [Key Value Storage](https://developer.fermyon.com/spin/kv-store.md) | Supported |
+| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL| Not Supported |
 | [Outbound Redis](https://developer.fermyon.com/spin/javascript-components#storing-data-in-redis-from-jsts-components) | Supported |
@@ -55,7 +56,7 @@ This page contains information about language support for Spin features:
 | Redis | Not Supported |
 | **APIs** |
 | [Outbound HTTP](https://developer.fermyon.com/spin/python-components#an-outbound-http-example) | Supported |
-| [Key Value Storage](https://developer.fermyon.com/spin/kv-store.md) | Supported |
+| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](https://developer.fermyon.com/spin/python-components#an-outbound-redis-example) | Supported |
@@ -73,7 +74,7 @@ This page contains information about language support for Spin features:
 | [Redis](https://developer.fermyon.com/spin/go-components#redis-components) | Supported |
 | **APIs** |
 | [Outbound HTTP](https://developer.fermyon.com/spin/go-components#sending-outbound-http-requests) | Supported |
-| [Key Value Storage](https://developer.fermyon.com/spin/kv-store.md) | Supported |
+| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](https://developer.fermyon.com/spin/go-components#storing-data-in-redis-from-go-components) | Supported |

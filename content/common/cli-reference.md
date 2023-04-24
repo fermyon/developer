@@ -3,6 +3,7 @@ template = "common_main"
 date = "2022-01-01T00:00:01Z"
 enable_shortcodes = true
 [extra]
+url = "https://github.com/fermyon/developer/blob/main/content/common/cli-reference.md"
 
 ---
 - [Spin](#spin)
@@ -2298,6 +2299,23 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin cloud <deploy&vert;login></code>                               | Stabilizing |
 | <code>spin registry</code>                                            | Stabilizing |
 | <code>spin bindle <prepare&vert;push></code>                              | Deprecated  |
+
+{{ blockEnd }}
+
+{{ startTab "v1.1.0"}}
+
+| Command                                                                               | Stability    |
+| ------------------------------------------------------------------------------------- | ------------ |
+| <code>spin add</code>                                                                 | Stable       |
+| <code>spin build</code>                                                               | Stable       |
+| <code>spin new</code>                                                                 | Stable       |
+| <code>spin plugins <install&vert;list&vert;uninstall&vert;update&vert;upgrade></code> | Stable       |
+| <code>spin templates <install&vert;list&vert;uninstall&vert;upgrade></code>           | Stable       |
+| <code>spin up</code>                                                                  | Stable       |
+| <code>spin cloud <deploy&vert;login></code>                                           | Stabilizing  |
+| <code>spin registry</code>                                                            | Stabilizing  |
+| <code>spin watch</code>                                                               | Experimental |
+| <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
 
 {{ blockEnd }}
 
