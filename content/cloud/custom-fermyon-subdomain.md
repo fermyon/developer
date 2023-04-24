@@ -42,6 +42,7 @@ Then click save to apply your changes.
 ![Custom subdomain panel with new subdomain](../../static/image/custom-subdomain-panel-renamed.png)
 
 ## Validate Custom Fermyon Subdomain Name
+
 If you view the application's domain name in the panel view, you should see it has been updated to reflect your custom Fermyon subdomain name:
 ![App panel view with custom subdomain name](../../static/image/custom-subdomain-app-panel-view.png)
 
@@ -54,6 +55,7 @@ $ curl quickstart.fermyon.app
 ![Spin app responding at quickstart.fermyon.app](../../static/image/quickstart-custom-subdomain.png)
 
 ## Next Steps
+
 Congratulations, you've successfully applied a custom Fermyon subdomain to your Spin application. 
 
 - [Delete an application](delete)
