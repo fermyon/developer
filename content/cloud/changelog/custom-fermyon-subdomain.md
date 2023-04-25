@@ -1,6 +1,6 @@
 title = "Custom Fermyon Subdomains"
 template = "changelog_item"
-date = "2022-04-26T07:00:00Z"
+date = "2022-04-25T07:00:00Z"
 enable_shortcodes = true
 tags = ["networking"]
 [extra]
