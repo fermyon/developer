@@ -14,5 +14,5 @@ Fermyon Cloud users can now apply custom Fermyon subdomains to their Spin applic
 
 References:
 
-- [Custom Fermyon Subdomain Tutorial](https://developer.fermyon.com/cloud/custom-fermyon-domain) 
+- [Custom Fermyon Subdomain Tutorial](https://developer.fermyon.com/cloud/custom-fermyon-subdomain) 
 - [Cloud Limitations](https://developer.fermyon.com/cloud/faq)
