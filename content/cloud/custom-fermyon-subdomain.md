@@ -6,8 +6,12 @@ enable_shortcodes = false
 url = "https://github.com/fermyon/developer/blob/main//content/cloud/custom-fermyon-subdomain.md"
 
 ---
-- [Log Into Cloud UI](#upgrade-your-application)
-- [Select Application]
+
+- [Prerequisites](#prerequisites)
+- [Select Your Spin Application](#select-your-spin-application)
+- [Apply New Custom Fermyon Domain](#apply-new-custom-fermyon-domain)
+- [Validate Custom Fermyon Subdomain Name](#validate-custom-fermyon-subdomain-name)
+- [Next Steps](#next-steps)
 
 Every Spin application running on Fermyon Cloud receives a domain name that has the following format: `<your-App-Name-randomlyAssignedString>.fermyon.app`. For a more easily recognizable domain name, you may want to change your Spin application's domain name from `slats-the-cat-o7jecuug.fermyon.app` to `slatsthecat.fermyon.app`. 
 
