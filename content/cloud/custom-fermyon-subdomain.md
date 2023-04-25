@@ -19,7 +19,7 @@ Custom Fermyon subdomain names allow you to rename the `<your-App-Name-randomyAs
 
 ## Prerequisites
 
-Log into [Fermyon Cloud](www.cloud.fermyon.com) and ensure you have an Spin application running on Fermyon Cloud. If you do not have a Spin application yet, follow our [quickstart guide](quickstart.md) to deploy one. 
+Log into [Fermyon Cloud](https://cloud.fermyon.com) and ensure you have a Spin application running on Fermyon Cloud. If you do not have a Spin application yet, follow our [quickstart guide](quickstart.md) to deploy one. 
 
 ![Cloud UI with 1 application](../../static/image/cloud-dash-w-quickstart-app.png)
 
