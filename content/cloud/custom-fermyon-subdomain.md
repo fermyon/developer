@@ -1,7 +1,7 @@
 title = "Apply Custom Fermyon Subdomain"
 template = "cloud_main"
 date = "2022-04-26T00:22:56Z"
-enable_shortcodes = true
+enable_shortcodes = false
 [extra]
 url = "https://github.com/fermyon/developer/blob/main//content/cloud/custom-fermyon-subdomain.md"
 
@@ -55,9 +55,11 @@ $ curl quickstart.fermyon.app
 
 ![Spin app responding at quickstart.fermyon.app](/static/image/quickstart-custom-subdomain.png)
 
+```
+
 ## Next Steps
 
-Congratulations, you've successfully applied a custom Fermyon subdomain to your Spin application. 
+Congratulations, you have successfully applied a custom Fermyon subdomain to your Spin application. 
 
 - [Delete an application](delete)
 - Find known issues and file new ones with on the [Fermyon Cloud Feedback GitHub repository](https://github.com/fermyon/feedback)
