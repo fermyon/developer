@@ -48,11 +48,12 @@ If you view the application's domain name in the panel view, you should see it h
 
 Visit the application's domain name to validate the change has been applied successfully.
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ curl quickstart.fermyon.app
-```
 
-![Spin app responding at quickstart.fermyon.app](../../static/image/quickstart-custom-subdomain.png)
+![Spin app responding at quickstart.fermyon.app](/static/image/quickstart-custom-subdomain.png)
 
 ## Next Steps
 
