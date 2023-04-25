@@ -1,6 +1,6 @@
 title = "Apply Custom Fermyon Subdomain"
 template = "cloud_main"
-date = "2022-04-26T00:22:56Z"
+date = "2022-04-26T17:00:00Z"
 enable_shortcodes = false
 [extra]
 url = "https://github.com/fermyon/developer/blob/main//content/cloud/custom-fermyon-subdomain.md"
