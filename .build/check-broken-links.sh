@@ -75,6 +75,8 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email'    \
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification'                                                        \
     --exclude 'https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template'                                                            \
+    --exclude 'https://twitter.com/fermyontech'                                                                                                                                             \
+    --exclude 'https://twitter.com/fermyontech/status/1641537393818738710'                                                                                                                  \
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
