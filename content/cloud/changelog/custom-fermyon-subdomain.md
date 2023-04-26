@@ -5,6 +5,8 @@ enable_shortcodes = true
 tags = ["networking"]
 [extra]
 type= "changelog_post"
+twitter_card_type = "summary_large_image"
+image = "/static/image/twc-custom-subdomains-in-cloud.jpg"
 
 ---
 
