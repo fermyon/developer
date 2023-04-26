@@ -263,6 +263,9 @@ jobs:
         with:
           plugins: js2wasm
 
+      - name: Run npm install
+        run: npm install
+
       - name: Build and deploy
         uses: fermyon/actions/spin/deploy@v1
         with:
