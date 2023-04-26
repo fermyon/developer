@@ -202,6 +202,7 @@ test.sh
 **tabs**:
 - `gh-interact`
 - `os`
+- `platforms`
 - `sdk-type`
 - `spin-version`
 
