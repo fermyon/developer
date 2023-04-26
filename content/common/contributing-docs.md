@@ -152,7 +152,7 @@ The first step to implementing multi-tab code blocks is placing the `enable_shor
 The markup to create tabs in markdown is as follows 
 
 ```
-{{ tabs "Os" }}
+{{ tabs "os" }}
 
 {{ startTab "Windows"}}
 
@@ -196,6 +196,35 @@ test.sh
 {{ blockEnd }}
 {{ blockEnd }}
 ```
+
+**Note**: Existing documentation will already be using class names for code block `tabs` and `startTab` i.e. `{{ tabs "os" }}` and `{{ startTab "Windows"}}` respectively. Please consult the following `tabs` and `startTab` class names that are already in use (before creating your own). If you need to create a new class name (because one does not already exist) please add it to the list below as part of the pull request that contains your code block contribution.
+
+**tabs**:
+- `gh-interact`
+- `os`
+- `platforms`
+- `sdk-type`
+- `spin-version`
+
+**startTab**
+- `Azure AKS`
+- `C#`
+- `Docker Desktop`
+- `Generic Kubernetes`
+- `GitHub CLI`
+- `GitHub UI`
+- `K3d`
+- `Linux`
+- `macOS`
+- `Python`
+- `Rust`
+- `TinyGo`
+- `TypeScript`
+- `v0.9.0`
+- `v0.10.0`
+- `v1.0.0`
+- `v1.1.0`
+- `Windows`
 
 The next section covers the highly recommended use of ToCs.
 
