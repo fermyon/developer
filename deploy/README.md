@@ -4,7 +4,7 @@ The [Developer](https://developer.fermyon.com) website is deployed via the [depl
 
 ## Publishing
 
-In advance of deployment, the Spin app for this website is [published]((../.github/workflows/publish.yml)) to an OCI registry.
+In advance of deployment, the Spin app for this website is published to an OCI registry.
 
 In the case of publishing from the `main` branch, both a mutable tag and an immutable tag is pushed: `latest` and `main-<commit sha>` respectively.
 
@@ -14,8 +14,8 @@ The production version of the website is deployed whenever commits are pushed to
 
 ## Manual Deploys
 
-Deployments may also be [triggered manually](https://github.com/fermyon/developer/actions/workflows/deploy.yml), providing a choice of OCI
-reference name and tag (`oci_ref_name`, `oci_ref_tag`) and `environment` (eg canary or prod).
+Deployments may also be [triggered manually](https://github.com/fermyon/developer/actions/workflows/deploy.yml), providing a choice of git
+`ref`, `commit` and `environment` (eg canary or prod).
 
 ## Nomad job
 

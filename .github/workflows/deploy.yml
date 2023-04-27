@@ -83,6 +83,7 @@ jobs:
             echo "${{ secrets.GITHUB_TOKEN }}" | spin registry login ghcr.io -u ${{ github.actor }} --password-stdin
 
         - name: Publish Spin app - mutable tag
+          if: ${{ github.ref == 'refs/heads/main' }}
           run: |
             spin registry push {{ env.OCI_REF_NAME }}:latest
 
