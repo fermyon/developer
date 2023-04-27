@@ -7,12 +7,11 @@ on:
 
   workflow_dispatch:
     inputs:
-      oci_ref_name:
-        description: 'OCI reference name for the Fermyon Developer Spin app'
-        default: 'ghcr.io/fermyon/developer'
-      oci_ref_tag:
-        description: 'OCI reference tag for the Fermyon Developer Spin app'
-        default: 'latest'
+      ref:
+        description: 'Git ref to deploy from (refs/tags/v* for tag)'
+        default: 'refs/heads/main'
+      commit:
+        description: 'Commit SHA to deploy from (optional)'
       environment:
         type: choice
         description: 'Environment to deploy to (Default: canary)'
@@ -30,7 +29,7 @@ permissions:
   id-token: write # Allow the workflow to create a JWT for AWS auth
 
 env:
-  JOB: fermyon-developer
+  OCI_REF_NAME: ghcr.io/fermyon/developer
 
 jobs:
   echo-inputs:
@@ -39,9 +38,65 @@ jobs:
     steps:
       - name: Echo Inputs
         run: |
-          echo ref: ${{ github.event.inputs.oci_ref_name }}
-          echo commit: ${{ github.event.oci_ref_tag }}
-          echo environment: ${{ github.event.inputs.environment }}
+          echo ref: ${{ inputs.ref }}
+          echo commit: ${{ inputs.commit }}
+          echo environment: ${{ inputs.environment }}
+
+  publish:
+      runs-on: ubuntu-latest
+      # TODO: uncomment
+      # if: ${{ github.repository_owner == 'fermyon' }}
+      steps:
+        - uses: actions/checkout@v3
+
+        - name: Check out specific ref
+          if: ${{ github.event_name == 'workflow_dispatch' }} && ${{ inputs.ref != ''}}
+          run: git checkout ${{ inputs.ref }}
+
+        - name: Check out specific commit
+          if: ${{ github.event_name == 'workflow_dispatch' }} && ${{ inputs.commit != ''}}
+          run: git checkout ${{ inputs.commit }}
+
+        - name: Setup Node
+          uses: actions/setup-node@v3
+          with:
+            node-version: 16
+
+        - name: Install spin
+          uses: engineerd/configurator@v0.0.8
+          with:
+            name: "spin"
+            # Note: if using ghcr.io, we'll need a future version of Spin with, minimally, https://github.com/fermyon/spin/pull/1296
+            url: "https://github.com/fermyon/spin/releases/download/v1.1.0/spin-v1.1.0-linux-amd64.tar.gz"
+            pathInArchive: "spin"
+
+        - name: Install npm packages
+          run: |
+            npm ci
+
+        # TODO: any other node-y things to do prior to publish? 'npm run styles', etc.?
+
+        - name: Create search index
+          run: |
+            npm run build-index
+
+        - name: Spin registry login
+          run: |
+            echo "${{ secrets.GITHUB_TOKEN }}" | spin registry login ghcr.io -u ${{ github.actor }} --password-stdin
+
+        - name: Publish Spin app - mutable tag
+          run: |
+            spin registry push {{ env.OCI_REF_NAME }}:latest
+
+        - name: Publish Spin app - immutable tag
+          run: |
+            echo "OCI_REF=${{ env.OCI_REF_NAME }}:${{ github.ref_name }}-${{ github.sha }}" >> $GITHUB_ENV
+            spin registry push ${{ env.OCI_REF }}
+
+        - name: cleanup auth dir
+          if: always()
+          run: |
+            rm -rf /home/runner/.config/fermyon
 
   deploy:
     runs-on: ubuntu-latest
@@ -57,10 +112,8 @@ jobs:
           unzip nomad_${NOMAD_VERSION}_linux_$(dpkg --print-architecture).zip -d /usr/local/bin
           chmod +x /usr/local/bin/nomad
 
-      # This action currently generates a warning due to using deprecated features.
-      # https://github.com/aws-actions/configure-aws-credentials/issues/521 tracks the new behaviour.
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.INFRA_NAMESPACE }}-${{ secrets.AWS_REGION }}-gha-certs
           role-session-name: fermyon-developer-deploy
@@ -93,9 +146,6 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         shell: bash
         run: |
-          echo "OCI_REF_NAME=${{ github.event.inputs.oci_ref_name }}" >> $GITHUB_ENV
-          echo "OCI_REF_TAG=${{ github.event.oci_ref_tag }}" >> $GITHUB_ENV
-          
           if [[ "${{ github.event.inputs.environment }}" == "prod" ]]; then
             echo "PRODUCTION=true" >> $GITHUB_ENV
             echo "NOMAD_NAMESPACE=prod" >> $GITHUB_ENV
@@ -108,9 +158,6 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         shell: bash
         run: |
-          echo "OCI_REF_NAME=ghcr.io/${{ github.repository_owner }}/developer" >> $GITHUB_ENV
-          echo "OCI_REF_TAG=${{ github.ref_name }}-${{ github.sha }}" >> $GITHUB_ENV
-
           echo "PRODUCTION=true" >> $GITHUB_ENV
           echo "NOMAD_NAMESPACE=prod" >> $GITHUB_ENV
 
@@ -120,5 +167,5 @@ jobs:
           nomad run \
             -var "region=${{ secrets.AWS_REGION }}" \
             -var "production=${{ env.PRODUCTION }}" \
-            -var "oci_ref=${{ env.OCI_REF_NAME }}:${{ env.OCI_REF_TAG }}" \
-            deploy/${{ env.JOB }}.nomad
+            -var "oci_ref=${{ env.OCI_REF }}" \
+            deploy/fermyon-developer.nomad
