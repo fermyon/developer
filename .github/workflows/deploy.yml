@@ -62,13 +62,11 @@ jobs:
           with:
             node-version: 16
 
-        - name: Install spin
-          uses: engineerd/configurator@v0.0.8
+        # Note: if using ghcr.io, we'll need a future version of Spin with, minimally, https://github.com/fermyon/spin/pull/1296
+        - name: Setup Spin
+          uses: fermyon/actions/spin/setup@v1
           with:
-            name: "spin"
-            # Note: if using ghcr.io, we'll need a future version of Spin with, minimally, https://github.com/fermyon/spin/pull/1296
-            url: "https://github.com/fermyon/spin/releases/download/v1.1.0/spin-v1.1.0-linux-amd64.tar.gz"
-            pathInArchive: "spin"
+            github_token: ${{ secrets.GITHUB_TOKEN }}
 
         - name: Install npm packages
           run: |
