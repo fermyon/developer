@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/spin-oci.md"
 ---
 - [Spin Open Container Initiative (OCI) Support](#spin-open-container-initiative-oci-support)
 - [Prerequisites](#prerequisites)
+- [Building and Running Spin Applications With Docker (Video)](#building-and-running-spin-applications-with-docker-video)
 - [Set Up Your GHCR Instance](#set-up-your-ghcr-instance)
 - [Push a Spin App to GHCR](#push-a-spin-app-to-ghcr)
 - [Pull a Spin App From GHCR](#pull-a-spin-app-from-ghcr)
@@ -17,11 +18,11 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/spin-oci.md"
 
 ## Spin Open Container Initiative (OCI) Support
 
-From [Spin v0.8.0](https://www.fermyon.com/blog/spin-v08) onwards, you can store and run Spin applications stored in an OCI compatible registry. Spin developers now have a powerful workflow that enables them to use idiomatic infrastructure tooling, such as [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/), to store, deploy, and share their Spin applications. 
+With Spin's Open Container Initiative (OCI) support, you can package and save your Spin application as an OCI artifact in a registry like [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/).
 
 ## Prerequisites
 
-First, follow [this guide](./install.md) to install Spin v0.8.0 or later. To ensure you have the correct version, you can check with this command:
+First, follow [this guide](https://developer.fermyon.com/spin/install) to ensure you have the latest version of Spin installed. You can check the Spin version using the following command:
 
 <!-- @selectiveCpy -->
 
@@ -29,9 +30,17 @@ First, follow [this guide](./install.md) to install Spin v0.8.0 or later. To ens
 $ spin --version
 ```
 
+## Building and Running Spin Applications With Docker (Video)
+
+The following video shows you how to push a Spin app to GHCR, and then run that artifact with Docker. The video also contains additional information about signing and verifying your GHCR artifacts.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ijTEf8wDkqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+The following section shows you how to use OCI-compliant GHCR artifacts locally with Spin. 
+
 ## Set Up Your GHCR Instance
 
-To use a GHCR instance, you need to set up authentication. In this tutorial, we will use a personal access token (classic). Follow [these steps](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic) to generate a personal access token and then use it to sign into your GHCR. You should see the following message to confirm your login attempt to GHCR was successful:
+To use a GHCR instance, you need to set up authentication. Follow [these steps](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic) to generate a personal access token and then use it to sign into your GHCR. You should see the following message to confirm your login attempt to GHCR was successful:
 
 <!-- @nocpy -->
 
@@ -60,21 +69,11 @@ $ cd spin-react-fullstack
 $ spin build
 ```
 
-Now we're ready to push the application. Run the `spin oci push` command (for Spin v0.8.0) or the `spin registry push` command (for Spin v0.9.0 onwards); to push your application to the registry: 
+Now we're ready to push the application. Run the `spin registry push` command to push your application to the registry: 
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
-
- <!-- @selectiveCpy -->
-
- ```bash
-$ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
-```
-
-{{ blockEnd }}
-
-{{ startTab "v0.9.0"}}
+{{ startTab "v1.1.0"}}
 
  <!-- @selectiveCpy -->
 
@@ -85,6 +84,8 @@ $ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+> **Note:** You can find more information on `spin registry` options and subcommands in the [Spin CLI Reference documentation](https://developer.fermyon.com/common/cli-reference#oci-registry).
 
 You now have a Spin application stored in your registry. You can see the artifact under packages in the [GitHub UI](https://docs.github.com/en/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages).
 
@@ -94,17 +95,7 @@ Now that we've successfully pushed a Spin app, let's see if we can pull it. To d
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
-
- <!-- @selectiveCpy -->
- 
- ```bash
-$ spin registry pull ghcr.io/USERNAME/spin-react-fullstack:v1
-```
-
-{{ blockEnd }}
-
-{{ startTab "v0.9.0"}}
+{{ startTab "v1.1.0"}}
 
  <!-- @selectiveCpy -->
  
@@ -122,22 +113,12 @@ Lastly, let's run this Spin application.
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v0.10.0"}}
+{{ startTab "v1.1.0"}}
 
 <!-- @selectiveCpy -->
 
  ```bash
 $ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
-```
-
-{{ blockEnd }}
-
-{{ startTab "v0.9.0"}}
-
-<!-- @selectiveCpy -->
-
- ```bash
-$ spin up --from-registry ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
 {{ blockEnd }}
@@ -151,3 +132,17 @@ Congratulations on completing this tutorial! You have now successfully built, pu
 ## Next Steps
 
 - If you're interested in shaping how registry support will look in the next version, please share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf)
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Building & Running Spin Applications with Docker",
+  "description": "Since Spin 1.0, you can build and share your Spin applications as fully compliant OCI images; even allowing Docker and Docker Compose to pull and run them.",
+  "thumbnailUrl": "https://www.fermyon.com/static/image/twc-spin.png",
+  "uploadDate": "2023-04-27T08:00:00+00:00",
+  "duration": "PT8M07S",
+  "contentUrl": "https://www.youtube.com/watch?v=ijTEf8wDkqU",
+  "embedUrl": "https://www.youtube.com/embed/ijTEf8wDkqU"
+}
+</script>
