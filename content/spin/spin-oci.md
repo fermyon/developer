@@ -8,7 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/spin-oci.md"
 ---
 - [Spin Open Container Initiative (OCI) Support](#spin-open-container-initiative-oci-support)
 - [Prerequisites](#prerequisites)
-- [Building and Running Spin Applications With Docker (Video)](#building-and-running-spin-applications-with-docker-video)
+- [Publishing and Running Spin Applications Using Registries (Video)](#publishing-and-running-spin-applications-using-registries-video)
 - [Set Up Your GHCR Instance](#set-up-your-ghcr-instance)
 - [Push a Spin App to GHCR](#push-a-spin-app-to-ghcr)
 - [Pull a Spin App From GHCR](#pull-a-spin-app-from-ghcr)
@@ -18,11 +18,11 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/spin-oci.md"
 
 ## Spin Open Container Initiative (OCI) Support
 
-With Spin's Open Container Initiative (OCI) support, you can package and save your Spin application as an OCI artifact in a registry like [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/).
+With Spin's Open Container Initiative (OCI) support, you can package and save your Spin application as an OCI artifact in a registry like [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/) and then run your Spin app from these registries.
 
 ## Prerequisites
 
-First, follow [this guide](https://developer.fermyon.com/spin/install) to ensure you have the latest version of Spin installed. You can check the Spin version using the following command:
+First, follow [this guide](https://developer.fermyon.com/spin/install) to ensure you have the latest version of Spin installed (this tutorial refers to Spin 1.0 and above). You can check the Spin version using the following command:
 
 <!-- @selectiveCpy -->
 
@@ -30,13 +30,13 @@ First, follow [this guide](https://developer.fermyon.com/spin/install) to ensure
 $ spin --version
 ```
 
-## Building and Running Spin Applications With Docker (Video)
+## Publishing and Running Spin Applications Using Registries (Video)
 
-The following video shows you how to push a Spin app to GHCR, and then run that artifact with Docker. The video also contains additional information about signing and verifying your GHCR artifacts.
+The following video shows you how to push a Spin app to GHCR, and then run that artifact with Spin or with Docker. The video also contains additional information about signing and verifying your GHCR artifacts.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ijTEf8wDkqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-The following section shows you how to use OCI-compliant GHCR artifacts locally with Spin. 
+The rest of this page shows you how to use OCI-compliant GHCR artifacts locally with Spin. 
 
 ## Set Up Your GHCR Instance
 
@@ -71,19 +71,11 @@ $ spin build
 
 Now we're ready to push the application. Run the `spin registry push` command to push your application to the registry: 
 
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.1.0"}}
-
  <!-- @selectiveCpy -->
 
  ```bash
 $ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
 
 > **Note:** You can find more information on `spin registry` options and subcommands in the [Spin CLI Reference documentation](https://developer.fermyon.com/common/cli-reference#oci-registry).
 
@@ -93,37 +85,21 @@ You now have a Spin application stored in your registry. You can see the artifac
 
 Now that we've successfully pushed a Spin app, let's see if we can pull it. To do so, run the following command: 
 
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.1.0"}}
-
  <!-- @selectiveCpy -->
  
  ```bash
 $ spin registry pull ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
-{{ blockEnd }}
-
-{{ blockEnd }}
-
 ## Run a Spin App From GHCR
 
-Lastly, let's run this Spin application. 
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.1.0"}}
+Lastly, let's run this Spin application:
 
 <!-- @selectiveCpy -->
 
  ```bash
 $ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
 
 ## Conclusion
 
