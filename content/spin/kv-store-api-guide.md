@@ -7,6 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/kv-store-api-
 
 ---
 - [Using Key Value Store From Applications](#using-key-value-store-from-applications)
+- [Custom Key Value Stores](#custom-key-value-stores)
 - [Granting Key Value Store Permissions to Components](#granting-key-value-store-permissions-to-components)
 
 Spin provides an interface for you to persist data in a key value store managed by Spin. This key value store allows Spin developers to persist non-relational data across application envocations. To learn more about key value store use cases and how to enable your Spin application to use a key value store, check out our [key value tutorial](./kv-store-tutorial.md).
@@ -143,6 +144,10 @@ func example() error {
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+## Custom Key Value Stores
+
+Spin defines a key-value store named `"default"` and provides automatic backing storage.  If you need to customise Spin with additional stores, or to change the backing storage for the default store, you can do so via the `--runtime-config-file` flag and the `runtim-config.toml` file.  See [Key Value Store Runtime Configuration](/spin/dynamic-configuration#key-value-store-runtime-configuration) for details.
 
 ## Granting Key Value Store Permissions to Components
 
