@@ -64,6 +64,7 @@
             Tools
         </p>
         <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/managing-cache" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-cache">Managing Cache</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/managing-templates" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-templates">Managing Templates</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/managing-plugins" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-plugins">Managing Plugins</a></li>
         </ul>
