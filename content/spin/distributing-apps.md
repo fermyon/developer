@@ -80,6 +80,8 @@ $ spin up -f ghcr.io/alyssa-p-hacker/hello-world:v1
 
 > Remember that if the artifact is private you will need to be logged in, with permission to access it.
 
+Please note that Spin maintains a local [registry cache](https://developer.fermyon.com/spin/cache).
+
 ### Running Published Applications by Digest
 
 Registry versions are mutable; that is, the owner of an application can change which build the `:v1` label points to at any time.  If you want to run a specific build of the package, you can refer to it by _digest_.  This is similar to a Git commit hash: it is immutable, meaning the same digest always gets the exact same data, no matter what the package owner does.  To do this, use the `@sha256:...` syntax instead of the `:v...` syntax:

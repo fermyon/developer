@@ -1,21 +1,21 @@
-title = "Managing Cache"
+title = "Spin Cache"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/spin/managing-cache.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/cache.md"
 
 ---
 
-- [The Spin Cache](#the-spin-cache)
-- [Viewing Cached Files](#viewing-cached-files)
-- [Clearing Cached Files](#clearing-cached-files)
+- [The Spin Registry Cache](#the-spin-registry-cache)
+- [Viewing Registry Cache Files](#viewing-registry-cache-files)
+- [Clearing Registry Cache Files](#clearing-registry-cache-files)
 
-## The Spin Cache
+## The Spin Registry Cache
 
 A running Spin application can [fetch resources from remote registries](https://developer.fermyon.com/spin/spin-oci) and individual component sources via HTTP endpoints. These resources naturally consume network bandwidth. To ensure network efficiency, and to prevent waiting to download the same files every time an application is started, Spin automatically maintains a local `spin/registry` cache.
 
-## Viewing Cached Files
+## Viewing Registry Cache Files
 
 All downloadable application files that are automatically cached can be found in the following file paths, depending on the operating system being used to run the Spin application:
 
@@ -34,8 +34,6 @@ $ tree ~/Library/Caches/spin/registry/
 
 ├── data
 │   ├── sha256:41a4649a8a8c176133792119cb45a7686767d3fa376ffd656e2ff76a6071fb07
-│   ├── sha256:6c8b84dfebb8bbf484d731f0498bb0ab648cfb6e3acf1721781cf5e9341e0bb0
-│   ├── sha256:b8fb9684e9446647675f1d0bafb1d9d6dcc22be86c6c339cf6da81ea0b02bbbf
 │   └── sha256:da3fda2db338a73483068072e22f7e7eef27afdbae3db824e130932adce703ba
 ├── manifests
 │   └── ghcr.io
@@ -44,23 +42,12 @@ $ tree ~/Library/Caches/spin/registry/
 │           │   └── latest
 │           │       ├── config.json
 │           │       └── manifest.json
-│           ├── hello-spin
-│           │   ├── latest
-│           │   │   ├── config.json
-│           │   │   └── manifest.json
-│           │   └── v2
-│           │       ├── config.json
-│           │       └── manifest.json
 │           └── spin-openai-demo
 │               └── v1
 │                   ├── config.json
 │                   └── manifest.json
 └── wasm
     ├── sha256:0b985e7d43e719f34cbb54849759a2f8e7913c0f9b17bf7cb2b3d2458d33859e
-    ├── sha256:37745ebba2d8cbc68ea9dbf72c8d0a00b6d13fef095a111b9dd004cdfe9d9d3a
-    ├── sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375
-    ├── sha256:7a167f19abe1c6ade55a2905b6fedce111ca1d31264ca26141b86aebe3c4f698
-    ├── sha256:84bea9d49bfde0bbd2b1be9c2ae5ef4a4da09cbbf02a3f5276dd6bbdc93b7e10
     └── sha256:d5f9e1f6b61b90f7404e3800285f7860fe2cfc7d0116023efc370adbb403fe87
 ```
 
@@ -72,6 +59,6 @@ The `manifests` directory contains the registry manifests for entire apps distri
 
 > When running an application from a remote registry, even if the application has already been pulled, Spin will first contact the registry to fetch the manifest.
 
-## Clearing Cached Files
+## Clearing Registry Cache Files
 
-Clearing the cache directory can be done by removing the `registry` directory entirely, or by removing the `registry`'s parent directory (`spin`). The only direct effect of these actions is that Spin will have to pull again all component sources and static assets.
+Clearing the registry cache directory can be done by removing the `registry` directory entirely, or by removing the `registry`'s parent directory (`spin`). The only direct effect of these actions is that Spin will have to pull again all component sources and static assets.
