@@ -40,4 +40,15 @@ for item in keys {
    
 }
 
+fn sort_by_date(a, b) {
+    if a.page.head.extra.eventexpires < b.page.head.extra.eventexpires {
+        -1
+    } else {
+        1
+    }
+}
+
+// Sort by the value of the page date.
+blog_pages.sort(Fn("sort_by_date"));
+
 blog_pages
