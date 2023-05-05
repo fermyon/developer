@@ -29,7 +29,7 @@ permissions:
   id-token: write # Allow the workflow to create a JWT for AWS auth
 
 env:
-  OCI_REF_NAME: ghcr.io/fermyon/developer
+  OCI_REF_NAME: ghcr.io/${{ github.repository_owner }}/developer
 
 jobs:
   echo-inputs:
@@ -62,11 +62,12 @@ jobs:
           with:
             node-version: 16
 
-        # Note: if using ghcr.io, we'll need a future version of Spin with, minimally, https://github.com/fermyon/spin/pull/1296
         - name: Setup Spin
           uses: fermyon/actions/spin/setup@v1
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
+            # TODO: update to next release version that includes https://github.com/fermyon/spin/pull/1296
+            version: canary
 
         - name: Install npm packages
           run: |
@@ -85,7 +86,7 @@ jobs:
         - name: Publish Spin app - mutable tag
           if: ${{ github.ref == 'refs/heads/main' }}
           run: |
-            spin registry push {{ env.OCI_REF_NAME }}:latest
+            spin registry push ${{ env.OCI_REF_NAME }}:latest
 
         - name: Publish Spin app - immutable tag
           run: |
