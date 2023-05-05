@@ -26,6 +26,7 @@ concurrency: ${{ github.workflow }}
 
 permissions:
   contents: read
+  packages: write # Allow the workflow to push packages/images
   id-token: write # Allow the workflow to create a JWT for AWS auth
 
 env:
@@ -90,8 +91,7 @@ jobs:
 
         - name: Publish Spin app - immutable tag
           run: |
-            echo "OCI_REF=${{ env.OCI_REF_NAME }}:${{ github.ref_name }}-${{ github.sha }}" >> $GITHUB_ENV
-            spin registry push ${{ env.OCI_REF }}
+            spin registry push ${{ env.OCI_REF_NAME }}:${{ github.ref_name }}-${{ github.sha }}
 
         - name: cleanup auth dir
           if: always()
@@ -167,5 +167,5 @@ jobs:
           nomad run \
             -var "region=${{ secrets.AWS_REGION }}" \
             -var "production=${{ env.PRODUCTION }}" \
-            -var "oci_ref=${{ env.OCI_REF }}" \
+            -var "oci_ref=${{ env.OCI_REF_NAME }}:${{ github.ref_name }}-${{ github.sha }}" \
             deploy/fermyon-developer.nomad
