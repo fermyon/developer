@@ -1,7 +1,6 @@
 title = "Markdown guide"
 date = "2022-05-08T14:05:02.118466Z"
 template = "bartholomew_main"
-enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/markdown.md"
 keywords = "install"
