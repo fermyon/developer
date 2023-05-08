@@ -35,10 +35,17 @@ EOF
     error_message = "The Let's Encrypt env must be either 'staging' or 'prod'."
   }
 }
+
 variable "oci_ref" {
   type        = string
   default     = "fermyon/developer:latest"
   description = "The OCI reference of the Spin app for the Fermyon Developer website"
+}
+
+variable "commit_sha" {
+  type        = string
+  default     = ""
+  description = "The git commit sha that the website is published from"
 }
 
 locals {
@@ -55,6 +62,12 @@ job "fermyon-developer" {
     "${var.region}e",
     "${var.region}f"
   ]
+
+  # Add unique metadata to support recreating the job even if var.oci_ref
+  # represents a mutable tag (eg latest).
+  meta {
+    commit_sha = var.commit_sha
+  }
 
   group "fermyon-developer" {
     count = 3

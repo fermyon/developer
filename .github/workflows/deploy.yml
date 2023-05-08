@@ -30,7 +30,7 @@ permissions:
   id-token: write # Allow the workflow to create a JWT for AWS auth
 
 env:
-  OCI_REGISTRY: docker.io
+  OCI_REGISTRY: index.docker.io
   OCI_IMAGE: fermyon/developer
 
 jobs:
@@ -47,8 +47,6 @@ jobs:
   publish:
       runs-on: ubuntu-latest
       if: ${{ github.repository_owner == 'fermyon' }}
-      outputs:
-        oci_ref: ${{ steps.publish-immutable.outputs.oci_ref }}
       steps:
         - uses: actions/checkout@v3
 
@@ -82,27 +80,18 @@ jobs:
           run: |
             npm run build-index
 
-        - name: Log in to ${{ env.OCI_REGISTRY }}
-          uses: docker/login-action@v2.1.0
+        - name: Login and Publish Spin app
+          uses: fermyon/actions/spin/push@v1
           with:
             registry: ${{ env.OCI_REGISTRY }}
-            username: fermyon
-            password: ${{ secrets.DOCKERHUB_PAT }}
+            registry_username: fermyon
+            registry_password: ${{ secrets.DOCKERHUB_PAT }}
+            registry_reference: "${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE }}:latest"
 
-        - name: Publish Spin app - mutable tag
-          if: ${{ github.ref == 'refs/heads/main' }}
+        - name: Cleanup login
+          if: ${{ always() }}
           run: |
-            spin registry push ${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE }}:latest
-
-        - name: Publish Spin app - immutable tag
-          id: publish-immutable
-          shell: bash
-          run: |
-            image_tag="${{ github.ref_name }}-${{ github.sha }}"
-            sanitized_tag="${image_tag/\//-}"
-            export OCI_REF="${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE }}:${sanitized_tag}"
-            echo "oci_ref=${OCI_REF}" >> $GITHUB_OUTPUT
-            spin registry push ${OCI_REF}
+            rm -rf /home/runner/fermyon
 
   deploy:
     runs-on: ubuntu-latest
@@ -153,7 +142,7 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         shell: bash
         run: |
-          if [[ "${{ github.event.inputs.environment }}" == "prod" ]]; then
+          if [[ "${{ inputs.environment }}" == "prod" ]]; then
             echo "PRODUCTION=true" >> $GITHUB_ENV
             echo "NOMAD_NAMESPACE=prod" >> $GITHUB_ENV
           else
@@ -168,8 +157,8 @@ jobs:
           # TODO: change back to prod defaults
           # echo "PRODUCTION=true" >> $GITHUB_ENV
           # echo "NOMAD_NAMESPACE=prod" >> $GITHUB_ENV
-            echo "PRODUCTION=false" >> $GITHUB_ENV
-            echo "NOMAD_NAMESPACE=staging" >> $GITHUB_ENV
+          echo "PRODUCTION=false" >> $GITHUB_ENV
+          echo "NOMAD_NAMESPACE=staging" >> $GITHUB_ENV
 
       - name: Deploy
         shell: bash
@@ -177,5 +166,6 @@ jobs:
           nomad run \
             -var "region=${{ secrets.AWS_REGION }}" \
             -var "production=${{ env.PRODUCTION }}" \
-            -var "oci_ref=${{ needs.publish.outputs.oci_ref }}" \
+            -var "commit_sha=$(git rev-parse HEAD)" \
+            -var "oci_ref=${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE }}:latest" \
             deploy/fermyon-developer.nomad
