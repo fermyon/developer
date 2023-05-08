@@ -31,7 +31,7 @@ permissions:
 
 env:
   OCI_REGISTRY: index.docker.io
-  OCI_IMAGE: fermyon/developer
+  OCI_IMAGE_NAME: fermyon/developer
 
 jobs:
   echo-inputs:
@@ -47,6 +47,8 @@ jobs:
   publish:
       runs-on: ubuntu-latest
       if: ${{ github.repository_owner == 'fermyon' }}
+      outputs:
+        oci_ref: ${{ steps.oci_ref.outputs.oci_ref }}
       steps:
         - uses: actions/checkout@v3
 
@@ -80,13 +82,22 @@ jobs:
           run: |
             npm run build-index
 
+        - name: Construct OCI image reference
+          id: oci_ref
+          run: |
+            tag=latest
+            if [[ "${{ github.event_name }}" != "push" ]]; then
+              tag=canary
+            fi
+            echo "oci_ref=${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE_NAME }}:${tag}" >> $GITHUB_OUTPUT
+
         - name: Login and Publish Spin app
           uses: fermyon/actions/spin/push@v1
           with:
             registry: ${{ env.OCI_REGISTRY }}
             registry_username: fermyon
             registry_password: ${{ secrets.DOCKERHUB_PAT }}
-            registry_reference: "${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE }}:latest"
+            registry_reference: ${{ steps.oci_ref.outputs.oci_ref }}
 
         - name: Cleanup login
           if: ${{ always() }}
@@ -167,5 +178,5 @@ jobs:
             -var "region=${{ secrets.AWS_REGION }}" \
             -var "production=${{ env.PRODUCTION }}" \
             -var "commit_sha=$(git rev-parse HEAD)" \
-            -var "oci_ref=${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE }}:latest" \
+            -var "oci_ref=${{ needs.publish.outputs.oci_ref }}" \
             deploy/fermyon-developer.nomad
