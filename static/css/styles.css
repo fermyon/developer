@@ -3673,4 +3673,63 @@ html.dark-theme .changelog-item-tags span {
   }
 }
 
+input {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.accordion-tabs {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tab {
+  width: 100%;
+  overflow: hidden;
+}
+
+.tab-label {
+  cursor: pointer;
+  justify-content: space-between;
+  margin: 0;
+  padding: 1em;
+  font-weight: bold;
+  display: flex;
+}
+
+.tab-label:after {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+}
+
+.tab-content {
+  max-height: 0;
+  padding: 0 1em 0 .2rem;
+  overflow: hidden;
+}
+
+.tab-close {
+  cursor: pointer;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: .75em;
+  display: flex;
+}
+
+input:checked + .tab-label:after {
+  transform: rotate(90deg);
+}
+
+input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding: 1em;
+}
+
+aside.menu ul {
+  margin-bottom: 0;
+}
+
 /*# sourceMappingURL=styles.css.map */

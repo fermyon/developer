@@ -84,7 +84,7 @@ TABLE OF CONTENTS
 					line-height: 1;
 
 					a {
-						border-left: 4px solid rgba(125,125,125,0.125);
+						border-left: 4px solid rgba(125, 125, 125, 0.125);
 						border-radius: 1px;
 						margin: 0;
 						padding: 0.15rem 0 0.15rem 0.5rem;
@@ -102,6 +102,7 @@ TABLE OF CONTENTS
 							}
 						}
 					}
+
 					ul {
 						margin: 0;
 					}
@@ -1587,7 +1588,7 @@ html.dark-theme {
 
 		.content {
 			section {
-				h1:first-of-type + ul {
+				h1:first-of-type+ul {
 					li {
 						a {
 							color: $lightplum;
@@ -1984,7 +1985,7 @@ screen and (max-width:736px) and (orientation:landscape) {
 	margin-left: 0
 }
 
-.menu-wrap + article.content.changelog-wrapper {
+.menu-wrap+article.content.changelog-wrapper {
 	padding-left: 0.75rem !important;
 }
 
@@ -2200,7 +2201,7 @@ html.dark-theme {
 				h1 {
 					font-size: 1.75rem;
 				}
-				
+
 				p.lead {
 					font-size: 1.25rem;
 					padding: 0 !important;
@@ -2259,4 +2260,73 @@ html.dark-theme {
 			}
 		}
 	}
+}
+
+input {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+.accordion-tabs {
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.tab {
+	width: 100%;
+	overflow: hidden;
+
+	&-label {
+		display: flex;
+		justify-content: space-between;
+		padding: 1em;
+		font-weight: bold;
+		cursor: pointer;
+		margin: 0;
+
+		&::after {
+			content: "\276F";
+			width: 1em;
+			height: 1em;
+			text-align: center;
+		}
+	}
+
+	&-content {
+		max-height: 0;
+		padding: 0 1em;
+		overflow: hidden;
+		padding-left: 0.2rem;
+	}
+
+	&-close {
+		display: flex;
+		justify-content: flex-end;
+		padding: 1em;
+		font-size: 0.75em;
+		cursor: pointer;
+	}
+}
+
+// :checked
+input:checked {
+	+.tab-label {
+
+		&::after {
+			transform: rotate(90deg);
+		}
+	}
+
+	~.tab-content {
+		max-height: 100vh;
+		padding: 1em;
+	}
+}
+
+
+element.style {
+}
+aside.menu ul {
+    margin-bottom: 0rem;
 }
