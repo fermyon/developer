@@ -59,6 +59,6 @@ The `manifests` directory contains the registry manifests for entire apps distri
 
 > When running an application from a remote registry, even if the application has already been pulled, Spin will first contact the registry to fetch the manifest.
 
-## Clearing Registry Cache Files
+## Clearing the Registry Cache
 
 Clearing the registry cache directory can be done by removing the `registry` directory entirely, or by removing the `registry`'s parent directory (`spin`). The only direct effect of these actions is that Spin will have to pull again all component sources and static assets.
