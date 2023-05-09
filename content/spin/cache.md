@@ -57,10 +57,10 @@ $ tree ~/Library/Caches/spin/registry/
     └── sha256:d5f9e1f6b61b90f7404e3800285f7860fe2cfc7d0116023efc370adbb403fe87
 ```
 
-The `data` directory contains all static assets referenced from applications distributed with remote registries. The `wasm` directory contains all component sources referenced either in applications distributed with remote registries, or component sources from HTTP endpoints, directly referenced in `spin.toml` (for example, the static file server, or the KV explorer). 
+The `data` directory contains all static assets referenced from applications distributed with remote registries. The `wasm` directory contains all component sources referenced either in applications distributed with remote registries, or component sources from HTTP endpoints, directly referenced in `spin.toml`.
 
 > The `data` and `wasm` directories are content addressable. This means that if multiple applications reference the same static file or component source, Spin will be able to determine if it has already been pulled (on that users operating system), based on its digest. This also means that if an application has an update, Spin will only pull the changes in the component sources and static assets.
 
-The `manifests` directory contains the registry manifests for entire apps distributed with remote registries. They are placed in subdirectories that identify the application based on the registry, repository, and digest (or tag). The schema is aligned with the documentation on [distributing Spin apps using the OCI format](https://developer.fermyon.com/spin/distributing-apps).
+The `manifests` directory contains the registry manifests for entire apps distributed with remote registries. They are placed in subdirectories that identify the application based on the registry, repository, and digest (or tag).
 
 > When running an application from a remote registry, even if the application has already been pulled, Spin will first contact the registry to fetch the manifest.
