@@ -388,7 +388,7 @@ channel = "messages"
 ```
 
 ## Next Steps
-- Discover how Spin application authors [design](designing-spin-apps) and organise their applications
+- Discover how Spin application authors [design and organise applications](designing-spin-apps)
 - Learn about how to [build your Spin application code](build)
 - Try [running your application locally](running-apps)
 - Learn about how to [configure your application at runtime](dynamic-configuration)
