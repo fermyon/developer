@@ -12,7 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/designing-spi
 
 ## Built With Spin
 
-Spin can be used to build many different types of applications. The following, is a list of blog articles that show how different applications are built with Spin.
+Spin can be used to build many different types of applications. The following blog articles show how different applications are built with Spin:
 
 [How I Built a Like Button for My Blog with Spin](https://www.fermyon.com/blog/how-i-built-a-like-button-for-my-blog-with-spin)
 
