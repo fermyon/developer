@@ -21,7 +21,7 @@ The 'Building a Social App with Spin' series covers the process and decision-mak
 * [Part 2: Vue.js App and Token Verification](https://www.fermyon.com/blog/building-a-social-app-with-spin-2)
 * [Part 3: Post API and Spin SDK Bindings](https://www.fermyon.com/blog/building-a-social-app-with-spin-3)
 * [Part 3.5: Go Postgres Usage](https://www.fermyon.com/blog/building-a-social-app-with-spin-3-5)
-* [Part 4: Key-Value Storage and Fermyon Cloud](https://www.fermyon.com/blog/building-a-social-app-with-spin-4)"
+* [Part 4: Key-Value Storage and Fermyon Cloud](https://www.fermyon.com/blog/building-a-social-app-with-spin-4)
 
 [Serving Static Content via WebAssembly](https://www.fermyon.com/blog/serving-static-content-via-webassembly)
 
