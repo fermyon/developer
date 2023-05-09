@@ -13,6 +13,7 @@
             Applications
         </p>
         <ul class="menu-list">
+            <li><a {{#if (active_content request.spin-path-info "/spin/designing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/designing-apps">Designing Spin Applications</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/writing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/writing-apps">Writing Applications</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/build" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/build">Building Application Code</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/running-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/running-apps">Running Applications</a></li>
