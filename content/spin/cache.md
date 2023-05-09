@@ -1,4 +1,4 @@
-title = "Spin Cache"
+title = "The Spin Registry Cache"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
@@ -8,14 +8,20 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cache.md"
 ---
 
 - [The Spin Registry Cache](#the-spin-registry-cache)
-- [Viewing Registry Cache Files](#viewing-registry-cache-files)
-- [Clearing Registry Cache Files](#clearing-registry-cache-files)
+- [Clearing the Registry Cache](#clearing-the-registry-cache)
+  - [Viewing Registry Cache Files](#viewing-registry-cache-files)
 
 ## The Spin Registry Cache
 
 A running Spin application can [fetch resources from remote registries](https://developer.fermyon.com/spin/spin-oci) and individual component sources via HTTP endpoints. These resources naturally consume network bandwidth. To ensure network efficiency, and to prevent waiting to download the same files every time an application is started, Spin automatically maintains a local `spin/registry` cache.
 
-## Viewing Registry Cache Files
+## Clearing the Registry Cache
+
+Clearing the registry cache directory can be done by removing the `registry` directory entirely. The only direct effect of these actions is that Spin will have to pull again all component sources and static assets.
+
+### Viewing Registry Cache Files
+
+> **Note:** The registry cache contains no user-serviceable parts; the only safe way to make changes to the contents of the cache is through the Spin command line. The only operation a user can safely undertake is to delete the `registry` directory.
 
 All downloadable application files that are automatically cached can be found in the following file paths, depending on the operating system being used to run the Spin application:
 
@@ -58,7 +64,3 @@ The `data` directory contains all static assets referenced from applications dis
 The `manifests` directory contains the registry manifests for entire apps distributed with remote registries. They are placed in subdirectories that identify the application based on the registry, repository, and digest (or tag). The schema is aligned with the documentation on [distributing Spin apps using the OCI format](https://developer.fermyon.com/spin/distributing-apps).
 
 > When running an application from a remote registry, even if the application has already been pulled, Spin will first contact the registry to fetch the manifest.
-
-## Clearing the Registry Cache
-
-Clearing the registry cache directory can be done by removing the `registry` directory entirely, or by removing the `registry`'s parent directory (`spin`). The only direct effect of these actions is that Spin will have to pull again all component sources and static assets.
