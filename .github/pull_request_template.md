@@ -13,3 +13,4 @@ This documentation has been checked to ensure that:
 - [ ] Headings are using Title Case
 - [ ] Code blocks have the programming language set to properly highlight syntax and the proper copy directive
 - [ ] Have tested with `npm run test` and resolved all errors
+- [ ] Relates to an existing (potentially outdated) blog article? If so please add URL in blog to point to this content.
