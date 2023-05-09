@@ -388,9 +388,9 @@ channel = "messages"
 ```
 
 ## Next Steps
-- Discover how Spin application authors [design and organise applications](designing-spin-apps)
 - Learn about how to [build your Spin application code](build)
 - Try [running your application locally](running-apps)
+- Discover how Spin application authors [design and organise applications](designing-spin-apps)
 - Learn about how to [configure your application at runtime](dynamic-configuration)
 - Look up details in the [application manifest reference](manifest-reference)
 - Try deploying a Spin application to the [Fermyon Cloud](/cloud/quickstart)
