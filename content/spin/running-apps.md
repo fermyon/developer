@@ -11,6 +11,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/running-apps
 - [Application Output](#application-output)
 - [Persistent Logs](#persistent-logs)
 - [Trigger-Specific Options](#trigger-specific-options)
+- [The Spin Watch Feature](#the-spin-watch-feature)
 - [Next Steps](#next-steps)
 
 Once you have created and built your application, it's ready to run.  To run an application, use the `spin up` command.
@@ -73,6 +74,45 @@ $ spin up --log-dir ~/dev/bugbash
 ## Trigger-Specific Options
 
 Some trigger types support additional `spin up` flags.  For example, HTTP applications can have a `--listen` flag to specify an address and port to listen on.  See the [HTTP trigger](http-trigger) and [Redis trigger](redis-trigger) pages for more details.
+
+## The Spin Watch Feature
+
+Spin's `watch` feature can rebuild and restart Spin applications whenever files change. You can use the `spin watch` [command](https://developer.fermyon.com/common/cli-reference#watch) in place of the `spin build` and `spin up` commands, to build, run and then keep your Spin application running without manual intervention.
+
+> The initial Spin `watch` command accepts valid Spin [up](https://developer.fermyon.com/common/cli-reference#up) options and passes them through to `spin up` for you, when running/rerunning the Spin application.
+
+By default, Spin watch monitors the application manifest (`spin.toml` file) and will rebuild the running application if the manifest changes. Spin watch also monitors any files specified in the `component.build.watch` section of the `spin.toml` file. For example, the following configuration (belonging to a Spin `http-rust` application) will be rebuilt via `cargo build --target wasm32-wasi --release` and then rerun using the initial `spin up` command whenever changes occur in either Rust (`.rs`) source files or the `Cargo.toml` file. Glob patterns (i.e. the use of the `*` wildcard) are accepted, as shown below:
+
+```toml
+[[component]]
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
+```
+ If you would prefer Spin watch to only rerun the application (without a rebuild) when changes occur, you can use the `--skip-build` option when running the initial `spin watch` command.
+
+ Spin watch can will also monitor any changes to files specified in the `spin.toml`'s `component.files` areas and will rerun the application when changes occur. For example, any changes to `changing-file.txt` in the `my-files` directory will cause Spin watch to rerun the application:
+
+ ```toml
+[[component]]
+// -- snip
+files = ["my-files/changing-file.txt"]
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
+```
+
+Spin watch will respond to filesystem events every 100 milliseconds, by default. This interval can be overridden by passing in the `--debounce` option i.e. `spin watch --debounce 1000` will make Spin watch respond to filesystem events once per second.
+
+> Note: Action is only taken after the `--debounce` time has elapsed. For example, when a watched file is changed using a `--debounce` value of 10000 (10 seconds) no effect will be seen in the application, until a full 10 seconds has elapsed; at which point rebuild and/or rerun may occur.
+
+> Note: If the build step (`spin build`) fails, `spin up` will not be run.
+
+Passing the `--clear` flag will clear the screen anytime a rebuild or rerun occurs. Spin watch will not clear the screen between rebuild and rerun as this provides you with an opportunity to see any warnings.
+
+> Note: Spin watch will always rebuild every component in your Spin application. It does not discern which individual component changed.
+
+Spin watch does not consider changes a file's metadata (when it was last modified) as a change
 
 ## Next Steps
 
