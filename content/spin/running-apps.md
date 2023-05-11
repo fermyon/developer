@@ -108,7 +108,7 @@ Spin watch waits up to 100 milliseconds before responding to filesystem events, 
 
 > Note: If the build step (`spin build`) fails, `spin up` will not be run.
 
-Passing the `--clear` flag will clear the screen anytime a rebuild or rerun occurs. Spin watch will not clear the screen between rebuild and rerun as this provides you with an opportunity to see any warnings.
+Passing the `--clear` flag clears the screen anytime a rebuild or rerun occurs. Spin watch does not clear the screen between rebuild and rerun as this provides you with an opportunity to see any warnings.
 
 > Note: Spin watch will always rebuild every component in your Spin application. It does not discern which individual component changed.
 
