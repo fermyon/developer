@@ -79,7 +79,7 @@ Some trigger types support additional `spin up` flags.  For example, HTTP applic
 
 Spin's `watch` command rebuilds and restarts Spin applications whenever files change. You can use the `spin watch` [command](https://developer.fermyon.com/common/cli-reference#watch) in place of the `spin build` and `spin up` commands, to build, run and then keep your Spin application running without manual intervention while staying on the latest code and files.
 
-> The initial Spin `watch` command accepts valid Spin [up](https://developer.fermyon.com/common/cli-reference#up) options and passes them through to `spin up` for you, when running/rerunning the Spin application.
+> The `watch` command accepts valid Spin [up](https://developer.fermyon.com/common/cli-reference#up) options and passes them through to `spin up` for you when running/rerunning the Spin application.
 
 By default, Spin watch monitors the application manifest (`spin.toml` file) and will rebuild the running application if the manifest changes. Spin watch also monitors any files specified in the `component.build.watch` section of the `spin.toml` file. For example, the following configuration (belonging to a Spin `http-rust` application) will be rebuilt via `cargo build --target wasm32-wasi --release` and then rerun using the initial `spin up` command whenever changes occur in either Rust (`.rs`) source files or the `Cargo.toml` file. Glob patterns (i.e. the use of the `*` wildcard) are accepted, as shown below:
 
