@@ -77,7 +77,7 @@ Some trigger types support additional `spin up` flags.  For example, HTTP applic
 
 ## The Spin Watch Feature
 
-Spin's `watch` feature can rebuild and restart Spin applications whenever files change. You can use the `spin watch` [command](https://developer.fermyon.com/common/cli-reference#watch) in place of the `spin build` and `spin up` commands, to build, run and then keep your Spin application running without manual intervention.
+Spin's `watch` command rebuilds and restarts Spin applications whenever files change. You can use the `spin watch` [command](https://developer.fermyon.com/common/cli-reference#watch) in place of the `spin build` and `spin up` commands, to build, run and then keep your Spin application running without manual intervention while staying on the latest code and files.
 
 > The initial Spin `watch` command accepts valid Spin [up](https://developer.fermyon.com/common/cli-reference#up) options and passes them through to `spin up` for you, when running/rerunning the Spin application.
 
