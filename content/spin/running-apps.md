@@ -89,7 +89,7 @@ By default, Spin watch monitors the application manifest (`spin.toml` file) and 
 command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
- If you would prefer Spin watch to only rerun the application (without a rebuild) when changes occur, you can use the `--skip-build` option when running the initial `spin watch` command.
+If you would prefer Spin watch to only rerun the application (without a rebuild) when changes occur, you can use the `--skip-build` option when running the `spin watch` command.  In this case, Spin will ignore the `component.build.watch` section, and monitor only the `spin.toml`, `component.source` and `component.files`.
 
  Spin watch can will also monitor any changes to files specified in the `spin.toml`'s `component.files` areas and will rerun the application when changes occur. For example, any changes to `changing-file.txt` in the `my-files` directory will cause Spin watch to rerun the application:
 
