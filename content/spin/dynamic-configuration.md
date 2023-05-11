@@ -6,18 +6,19 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/dynamic-confi
 
 ---
 - [Custom Config Variables](#custom-config-variables)
-- [Component Custom Config](#component-custom-config)
+  - [Component Custom Config](#component-custom-config)
 - [Custom Config Providers](#custom-config-providers)
   - [Environment Variable Provider](#environment-variable-provider)
   - [Vault Config Provider](#vault-config-provider)
     - [Vault Config Provider Example](#vault-config-provider-example)
 - [Runtime Configuration](#runtime-configuration)
-   - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
+  - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
+  - [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
 
 Spin applications may define custom configuration which can be looked up by
 component code via the [spin-config interface](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-config.wit).
 
-### Custom Config Variables
+## Custom Config Variables
 
 Application-global custom config variables are defined in the top-level `[variables]`
 section. These entries aren't accessed directly by components but are referenced
@@ -52,13 +53,13 @@ api_base_url = "https://{{ api_host }}/v1"
 api_key = "{{ api_key }}"
 ```
 
-### Custom Config Providers
+## Custom Config Providers
 
 [Custom config variables](#custom-config-variables) values may be set at runtime by
 config "providers". Currently, there are two providers: the environment
 variable provider and vault config provider.
 
-#### Environment Variable Provider
+### Environment Variable Provider
 
 The environment variable provider which gets config values from the `spin` process's
 environment (_not_ the component `environment`). Config keys are translated
@@ -71,7 +72,7 @@ $ export SPIN_CONFIG_API_KEY = "1234"  # Sets the `api_key` value.
 $ spin up
 ```
 
-#### Vault Config Provider
+### Vault Config Provider
 
 The Vault config provider gets secret values from [HashiCorp Vault](https://www.vaultproject.io/).
 Currently, only [KV Secrets Engine - Version 2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2) is supported.
@@ -87,7 +88,7 @@ token = "root"
 mount = "secret"
 ```
 
-##### Vault Config Provider Example
+#### Vault Config Provider Example
 
 1. [Install Vault](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install).
 2. Start Vault:
@@ -179,3 +180,50 @@ url = "redis://localhost"
 ```
 
 You must individually grant each component access to the stores that it needs to use. To do this, use the `component.key_value_stores` entry in the component manifest within `spin.toml`. See [Spin Key Value Store](kv-store-api-guide.md) for more details. 
+
+### SQLite Storage Runtime Configuration
+
+Spin provides built-in SQLite storage. By default, this is backed by a database that Spin creates for you. However, you can use the Spin runtime configuration file (`runtime-config.toml`) to add and customize SQLite databases.
+
+The following example `runtime-config.toml` tells Spin to map the `default` database to an SQLite database elsewhere in the file system:
+
+```toml
+[sqlite_database.default]
+path = "/planning/todo.db"
+```
+
+If you need more than one database, you can configure multiple databases, each with its own name:
+
+```toml
+# This defines a new store named todo
+[sqlite_database.todo]
+path = "/planning/todo.db"
+
+# This defines a new store named finance
+[sqlite_database.finance]
+path = "/super/secret/monies.db"
+```
+
+Spin creates any database files that don't exist.
+
+Spin can also use [libSQL](https://libsql.org/) databases accessed over HTTPS.  libSQL is fully compatible with SQLite but provides additional features including remote, distributed databases.
+
+> Spin does not provide libSQL access to file-based databases, only databases served over HTTPS.
+
+To use libSQL, set `type = "libsql"` in your `runtime-config.toml` entry.  You must then provide a `url` and authentication `token` instead of a file path.  For example, this entry tells Spin to map the `default` database to a libSQL service running on `libsql.example.com`:
+
+```toml
+# This tells Spin to use the remote host as its default database
+[sqlite_database.default]
+type = "libsql"
+url = "sensational-penguin-ahacker.libsql.example.com"
+token = "a secret"
+```
+
+Spin does _not_ create libSQL databases.  Use your hosting service's tools, or the `libsql` command line, to create them.  You can still set up tables and data in a libSQL database via `spin up --sqlite`.
+
+> Some libSQL service documentation shows URLs with a `libsql://` scheme.  Don't include a scheme in the `runtime-config.toml` `url` field.  Include only the host name.
+
+The `default` database will still be defined, even if you add other databases.
+
+By default, components will not have access to any of these databases (even the default one). You must grant each component access to the databases that it needs to use. To do this, use the `component.sqlite_databases` entry in the component manifest within `spin.toml`. See [SQLite Database](/spin/sqlite-api-guide.md) for more details. 

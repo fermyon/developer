@@ -26,8 +26,8 @@ The set of operations is common across all SDKs:
 
 | Operation  | Parameters | Returns | Behavior |
 |------------|------------|---------|----------|
-| `open`  | name | store  | Open the store with the specified name. If `name` is the string "default", the default store is opened for the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](./dynamic-configuration.md#key-value-store-runtime-configuration) supplied with the application.|
-| `get` | store, key | key | Get the value associated with the specified `key` from the specified `store`. |
+| `open`  | name | store  | Open the store with the specified name. If `name` is the string "default", the default store is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](./dynamic-configuration.md#key-value-store-runtime-configuration) supplied with the application.|
+| `get` | store, key | value | Get the value associated with the specified `key` from the specified `store`. |
 | `set` | store, key, value | - | Set the `value` associated with the specified `key` in the specified `store`, overwriting any existing value. |
 | `delete` | store, key | - | Delete the tuple with the specified `key` from the specified `store`. `error::invalid-store` will be raised if `store` is not a valid handle to an open store.  No error is raised if a tuple did not previously exist for `key`.|
 | `exists` | store, key | boolean | Return whether a tuple exists for the specified `key` in the specified `store`.|

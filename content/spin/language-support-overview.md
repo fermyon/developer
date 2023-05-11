@@ -22,6 +22,7 @@ This page contains information about language support for Spin features:
 | [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
+| [SQLite Storage](/spin/sqlite-api-guide) | Supported |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
@@ -41,6 +42,7 @@ This page contains information about language support for Spin features:
 | [Outbound HTTP](/spin/javascript-components#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
+| SQLite Storage | Not supported |
 | MySQL | Not Supported |
 | PostgreSQL| Not Supported |
 | [Outbound Redis](/spin/javascript-components#storing-data-in-redis-from-jsts-components) | Supported |
@@ -60,6 +62,7 @@ This page contains information about language support for Spin features:
 | [Outbound HTTP](/spin/python-components#an-outbound-http-example) | Supported |
 | [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
+| SQLite Storage | Not supported |
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](/spin/python-components#an-outbound-redis-example) | Supported |
@@ -79,6 +82,7 @@ This page contains information about language support for Spin features:
 | [Outbound HTTP](/spin/go-components#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
+| SQLite Storage | Not supported |
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](/spin/go-components#storing-data-in-redis-from-go-components) | Supported |
@@ -98,6 +102,7 @@ This page contains information about language support for Spin features:
 | [Outbound HTTP](https://github.com/fermyon/spin-dotnet-sdk#making-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | Key Value Storage | Not Supported |
+| SQLite Storage | Not supported |
 | MySQL | Not Supported |
 | [PostgreSQL](https://github.com/fermyon/spin-dotnet-sdk#working-with-postgres) | Supported |
 | [Outbound Redis](https://github.com/fermyon/spin-dotnet-sdk#making-redis-requests) | Supported |
