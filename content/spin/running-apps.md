@@ -102,7 +102,7 @@ command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
-Spin watch will respond to filesystem events every 100 milliseconds, by default. This interval can be overridden by passing in the `--debounce` option i.e. `spin watch --debounce 1000` will make Spin watch respond to filesystem events once per second.
+Spin watch waits up to 100 milliseconds before responding to filesystem events, then processes all events that occurred in that interval together. This is so that if you make several changes close together (for example, using a Save All command), you get them all processed in one rebuild/reload cycle, rather than going through a cycle for each one. You can override the interval by passing in the `--debounce` option; e.g. `spin watch --debounce 1000` will make Spin watch respond to filesystem events at most once per second.
 
 > Note: Action is only taken after the `--debounce` time has elapsed. For example, when a watched file is changed using a `--debounce` value of 10000 (10 seconds) no effect will be seen in the application, until a full 10 seconds has elapsed; at which point rebuild and/or rerun may occur.
 
