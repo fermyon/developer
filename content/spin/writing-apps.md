@@ -391,7 +391,6 @@ channel = "messages"
 
 - Learn about how to [build your Spin application code](build)
 - Try [running your application locally](running-apps)
-- Learn how the `spin watch` [command](https://developer.fermyon.com/common/cli-reference#watch) can [monitor changes in your application](https://developer.fermyon.com/spin/running-apps#monitoring-applications-for-changes)
 - Discover how Spin application authors [design and organise applications](designing-spin-apps)
 - Learn about how to [configure your application at runtime](dynamic-configuration)
 - Look up details in the [application manifest reference](manifest-reference)
