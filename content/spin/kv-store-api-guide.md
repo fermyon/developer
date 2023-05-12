@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/kv-store-api-
 - [Custom Key Value Stores](#custom-key-value-stores)
 - [Granting Key Value Store Permissions to Components](#granting-key-value-store-permissions-to-components)
 
-Spin provides an interface for you to persist data in a key value store managed by Spin. This key value store allows Spin developers to persist non-relational data across application envocations. To learn more about key value store use cases and how to enable your Spin application to use a key value store, check out our [key value tutorial](./kv-store-tutorial.md).
+Spin provides an interface for you to persist data in a key value store managed by Spin. This key value store allows Spin developers to persist non-relational data across application invocations. To learn more about key value store use cases and how to enable your Spin application to use a key value store, check out our [key value tutorial](./kv-store-tutorial.md).
 
 {{ details "Why do I need a Spin interface? Why can't I just use my own external store?" "You can absolutely still use your own external store either with the Redis or Postgres APIs, or outbound HTTP. However, if you're interested in quick, non-relational local storage without any infrastructure set-up then Spin's key value store is a great option." }}
 
@@ -52,7 +52,7 @@ use spin_sdk::{
 #[http_component]
 fn handle_request(req: Request) -> Result<Response> {
     let store = Store::open_default()?;
-    store.set("mykey", "myvalyue")?;
+    store.set("mykey", "myvalue")?;
     let value = store.get("mykey")?;
     Ok(http::Response::builder().status(200).body(Some(value.into()))?)
 }
@@ -147,7 +147,7 @@ func example() error {
 
 ## Custom Key Value Stores
 
-Spin defines a key-value store named `"default"` and provides automatic backing storage.  If you need to customise Spin with additional stores, or to change the backing storage for the default store, you can do so via the `--runtime-config-file` flag and the `runtim-config.toml` file.  See [Key Value Store Runtime Configuration](/spin/dynamic-configuration#key-value-store-runtime-configuration) for details.
+Spin defines a key-value store named `"default"` and provides automatic backing storage.  If you need to customize Spin with additional stores, or to change the backing storage for the default store, you can do so via the `--runtime-config-file` flag and the `runtime-config.toml` file.  See [Key Value Store Runtime Configuration](/spin/dynamic-configuration#key-value-store-runtime-configuration) for details.
 
 ## Granting Key Value Store Permissions to Components
 
