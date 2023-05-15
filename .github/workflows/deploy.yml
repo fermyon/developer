@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'vdice/oci-deploy' # TODO: remove after testing
 
   workflow_dispatch:
     inputs:
@@ -69,14 +68,11 @@ jobs:
           uses: fermyon/actions/spin/setup@v1
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            # TODO: update to next release version that includes https://github.com/fermyon/spin/pull/1296
             version: canary
 
         - name: Install npm packages
           run: |
             npm ci
-
-        # TODO: any other node-y things to do prior to publish? 'npm run styles', etc.?
 
         - name: Create search index
           run: |
@@ -165,11 +161,8 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         shell: bash
         run: |
-          # TODO: change back to prod defaults
-          # echo "PRODUCTION=true" >> $GITHUB_ENV
-          # echo "NOMAD_NAMESPACE=prod" >> $GITHUB_ENV
-          echo "PRODUCTION=false" >> $GITHUB_ENV
-          echo "NOMAD_NAMESPACE=staging" >> $GITHUB_ENV
+          echo "PRODUCTION=true" >> $GITHUB_ENV
+          echo "NOMAD_NAMESPACE=prod" >> $GITHUB_ENV
 
       - name: Deploy
         shell: bash

@@ -21,8 +21,6 @@ jobs:
         run: |
           npm ci
 
-      # TODO: any other node-y things to do prior to build/deploy? 'npm run styles', etc.?
-
       - name: Create search index
         run: |
           npm run build-index
