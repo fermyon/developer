@@ -11,12 +11,18 @@ var blogAd = new Headroom(document.querySelector("#blogSlogan"), {
 function scrollSideMenu() {
     let sidemenu = document.querySelector("aside.menu")
     if (sidemenu) {
-        sidemenu.querySelector(".active")?.scrollIntoView({
-            behavior: 'auto',
-            block: 'center',
-            inline: 'center',
-            behavior: 'smooth'
-        })
+        let active = sidemenu.querySelector(".active")
+        if (active) {
+            active.parentElement.parentElement.parentElement.firstElementChild.checked = true
+            active.parentElement.parentElement.classList.add("stay-open")
+            active.parentElement.parentElement.previousElementSibling.classList.add("stay-open")
+            active.scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center',
+                behavior: 'smooth'
+            })
+        }
     }
 }
 

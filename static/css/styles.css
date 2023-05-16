@@ -1768,20 +1768,81 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   padding: 1rem 1vw 0;
 }
 
-.documentation aside.menu .accordion-tabs .menu-label {
+.documentation aside.menu .accordion-tabs {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label {
   text-transform: none;
   color: #0d203f;
   letter-spacing: .033rem;
   border-radius: 2rem;
+  justify-content: space-between;
   font-size: 1rem;
   font-weight: normal;
   transition: all .3s ease-in-out;
+  display: flex;
   margin: .333rem 0 !important;
   padding: .333rem .75vw !important;
 }
 
-.documentation aside.menu .accordion-tabs .menu-label:hover {
+.documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label:after {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  opacity: .25;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label:hover {
   color: #345995;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item-content {
+  max-height: 0;
+  padding: 0 1em 0 .2rem;
+  overflow: hidden;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item-content.stay-open {
+  max-height: 100vh;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label.stay-open:after, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked + .menu-label:after {
+  transform: rotate(90deg);
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content {
+  max-height: 100vh;
+  padding: .25em .75rem .755rem;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a {
+  position: relative;
+  background: none !important;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a:before, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a:before {
+  content: " ";
+  min-height: 2rem;
+  width: 2px;
+  background: #9696961a;
+  transition: all .3s ease-in-out;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -.175rem;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a:hover:before, .documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a.active:before, .documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a .is-active:before, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a:hover:before, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a.active:before, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a .is-active:before {
+  background: #34e8bd;
 }
 
 .documentation .menu-wrap {
@@ -3293,8 +3354,8 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 }
 
 .cc-revoke.cc-top {
-  border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  border-bottom-left-radius: .5em;
   top: 0;
   left: 3em;
 }
@@ -3726,76 +3787,12 @@ input {
   position: absolute;
 }
 
-.accordion-tabs {
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.tab {
-  width: 100%;
-  overflow: hidden;
-}
-
-.tab-label {
-  cursor: pointer;
-  justify-content: space-between;
-  margin: 0;
-  padding: 1em;
-  font-weight: bold;
-  display: flex;
-}
-
-.tab-label:after {
-  content: "❯";
-  width: 1em;
-  height: 1em;
-  text-align: center;
-  opacity: .25;
-}
-
-.tab-content {
-  max-height: 0;
-  padding: 0 1em 0 .2rem;
-  overflow: hidden;
-}
-
 .tab-close {
   cursor: pointer;
   justify-content: flex-end;
   padding: 1em;
   font-size: .75em;
   display: flex;
-}
-
-input:checked + .tab-label:after {
-  transform: rotate(90deg);
-}
-
-input:checked ~ .tab-content {
-  max-height: 100vh;
-  padding: .25em .75rem .755rem;
-}
-
-input:checked ~ .tab-content li a {
-  position: relative;
-  background: none !important;
-}
-
-input:checked ~ .tab-content li a:before {
-  content: " ";
-  min-height: 2rem;
-  width: 2px;
-  background: #9696961a;
-  transition: all .3s ease-in-out;
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -.175rem;
-}
-
-input:checked ~ .tab-content li a:hover:before, input:checked ~ .tab-content li a .active:before, input:checked ~ .tab-content li a .is-active:before {
-  background: #34e8bd;
 }
 
 aside.menu ul {

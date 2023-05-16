@@ -1,12 +1,12 @@
 <div class="menu-wrap is-narrow is-fixed-desktop" id="docsMenu">
     <aside class="menu">
         <div class="accordion-tabs">
-            <div class="tab">
-                <input type="radio" id="rd0" name="rd">
-                <label for="rd0" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd0" name="rd">
+                <label for="rd0" class="accordion-menu-item-label menu-label">
                     Get Started
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/index" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/">Introduction</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/install" )}} class="active" {{/if}}
@@ -15,12 +15,12 @@
                             href="{{site.info.base_url}}/spin/quickstart">Quickstart</a></li>
                 </ul>
             </div>
-            <div class="tab">
-                <input type="radio" id="rd2" name="rd">
-                <label for="rd2" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd2" name="rd">
+                <label for="rd2" class="accordion-menu-item-label menu-label">
                     Applications
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/writing-apps" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/writing-apps">Writing Applications</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/build" )}} class="active" {{/if}}
@@ -33,12 +33,12 @@
                 </ul>
             </div>
 
-            <div class="tab">
-                <input type="radio" id="rd12" name="rd">
-                <label for="rd12" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd12" name="rd">
+                <label for="rd12" class="accordion-menu-item-label menu-label">
                     Language Guides
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/language-support-overview" )}}
                             class="active" {{/if}} href="{{site.info.base_url}}/spin/language-support-overview">Language
                             Support
@@ -55,24 +55,24 @@
                             {{/if}} href="{{site.info.base_url}}/spin/other-languages">Other Languages</a></li>
                 </ul>
             </div>
-            <div class="tab">
-                <input type="radio" id="rd3" name="rd">
-                <label for="rd3" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd3" name="rd">
+                <label for="rd3" class="accordion-menu-item-label menu-label">
                     Triggers
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/redis-trigger">The Redis Trigger</a></li>
                 </ul>
             </div>
-            <div class="tab">
-                <input type="radio" id="rd4" name="rd">
-                <label for="rd4" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd4" name="rd">
+                <label for="rd4" class="accordion-menu-item-label menu-label">
                     API Guides
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/api-guides-overview" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/spin/api-guides-overview">API Support Overview</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/http-outbound" )}} class="active" {{/if}}
@@ -85,12 +85,12 @@
                             {{/if}} href="{{site.info.base_url}}/spin/kv-store-api-guide">Key Value Store</a></li>
                 </ul>
             </div>
-            <div class="tab">
-                <input type="radio" id="rd5" name="rd">
-                <label for="rd5" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd5" name="rd">
+                <label for="rd5" class="accordion-menu-item-label menu-label">
                     Tutorials
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/url-shortener">Building a URL Shortener With Spin</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}}
@@ -101,38 +101,38 @@
                             Store</a></li>
                 </ul>
             </div>
-            <div class="tab">
-                <input type="radio" id="rd6" name="rd">
-                <label for="rd6" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd6" name="rd">
+                <label for="rd6" class="accordion-menu-item-label menu-label">
                     Tools
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/managing-templates" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/spin/managing-templates">Managing Templates</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/managing-plugins" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/spin/managing-plugins">Managing Plugins</a></li>
                 </ul>
             </div>
-            <div class="tab">
-                <input type="radio" id="rd7" name="rd">
-                <label for="rd7" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd7" name="rd">
+                <label for="rd7" class="accordion-menu-item-label menu-label">
                     References
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/common/cli-reference" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/common/cli-reference">CLI Reference</a></li>
-                    <li><a {{#if (active_content request.spin-path-info "/common/manifest-reference" )}} class="active"
+                    <li><a {{#if (active_content request.spin-path-info "/spin/manifest-reference" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/spin/manifest-reference">Application Manifest
                             Reference</a>
                     </li>
                 </ul>
             </div>
-            <div class="tab">
-                <input type="radio" id="rd8" name="rd">
-                <label for="rd8" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd8" name="rd">
+                <label for="rd8" class="accordion-menu-item-label menu-label">
                     Advanced
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}}
                             class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending
                             and Embedding
@@ -159,12 +159,12 @@
                             href="{{site.info.base_url}}/spin/kubernetes">Spin on Kubernetes</a></li>
                 </ul>
             </div>
-            <div class="tab">
-                <input type="radio" id="rd9" name="rd">
-                <label for="rd9" class="tab-label menu-label">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd9" name="rd">
+                <label for="rd9" class="accordion-menu-item-label menu-label">
                     Contributing
                 </label>
-                <ul class="menu-list tab-content">
+                <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/common/contributing-docs" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/common/contributing-docs">Contributing to Docs</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/contributing-spin" )}} class="active"
@@ -173,7 +173,7 @@
             </div>
         </div>
 
-        <ul class-"menu-list tab-content">
+        <ul class-"menu-list accordion-menu-item-content">
             <li><a href="{{page.head.extra.url}}" class="button is-round is-outlined is-size-6 is-medium">
                     <svg width="0.825em" height="0.825em" viewBox="0 0 32 32" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
