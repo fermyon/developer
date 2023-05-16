@@ -47,10 +47,10 @@ use anyhow::Result;
 use spin_sdk::{
     http::{Request, Response},
     http_component,
-    key_value::{Error, Store},
+    key_value::{Store},
 };
 #[http_component]
-fn handle_request(req: Request) -> Result<Response> {
+fn handle_request(_req: Request) -> Result<Response> {
     let store = Store::open_default()?;
     store.set("mykey", "myvalue")?;
     let value = store.get("mykey")?;
