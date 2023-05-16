@@ -59,6 +59,7 @@ fn handle_request(_req: Request) -> Result<Response> {
 ```
 
 **General Notes** 
+
 `set` **Operation**
 - For set, the value argument can be of any type that implements AsRef<[u8]>
 
@@ -67,6 +68,9 @@ fn handle_request(_req: Request) -> Result<Response> {
 
 `open` **Operation**
 - The close operation is not surfaced; it is called automatically when the store is dropped.
+
+`set_json` and `get_json` **Operation**
+- Rust applications can [store and retrieve Rust data structures](spin/rust-components#storing-data-in-the-spin-key-value-store).
 
 {{ blockEnd }}
 

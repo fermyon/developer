@@ -367,6 +367,61 @@ messages on the `messages` Redis channel.
 
 Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store).
 
+If you want to go beyond just inserting values in a certain spot, Spin's Rust SDK provides an optional feature for using [Serde](https://docs.rs/serde/latest/serde). The Rust code below shows how to store and retrieve serializable objects from the key-value store:
+
+```rust
+use anyhow::Result;
+use spin_sdk::{
+    http::{Request, Response},
+    http_component,
+    key_value::{Store},
+};
+use serde::{Serialize, Deserialize};
+
+#[http_component]
+fn handle_request(_req: Request) -> Result<Response> {
+    // Open the default key-value store
+    let store = Store::open_default()?;
+    // Define a User object using serde derive
+    #[derive(Serialize, Deserialize, Debug)]
+    struct User {
+        fingerprint: String,
+        location: String,
+    }
+    // Create an instance of a user object and populate the values
+    let user = User{fingerprint:"0x1234".to_owned(), location:"Brisbane".to_owned()};
+    // Store the user object using the "my_json" key
+    store.set_json(String::from("my_json"), &user)?;
+    // Retrieve the user object from the key-value store, using the "my_json" key
+    let retrieved_user: User = store.get_json("my_json")?;
+    // Respond to the request by revealing the user's fingerprint as the response body
+    Ok(http::Response::builder().status(200).body(Some(retrieved_user.fingerprint.into()))?)
+}
+```
+
+The above example requires some additional configuration. Specifically, enabling the Spin SDK's optional `json` feature (from v1.2.0 onwards) and adding Serde's optional `derive` feature in the `dependencies` section of the application's `Cargo.toml` file:
+
+```
+[dependencies]
+// --snip --
+serde = {version = "1.0.163", features = ["derive"]}
+spin-sdk = {git = "https://github.com/fermyon/spin", version = "1.2.0", features = ["json"]}
+// --snip --
+```
+
+Once built and running (using `spin build` and `spin up`) you can test the above example in your browser (by visiting localhost:3000) or via curl, as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -i localhost:3000
+HTTP/1.1 200 OK
+content-length: 6
+date: Tue, 16 May 2023 05:26:01 GMT
+
+0x1234
+```
+
 ## Storing Data in Relational Databases
 
 Spin provides clients for MySQL and PostgreSQL. For information about using them from Rust, see [Relational Databases](rdbms-storage).
