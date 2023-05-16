@@ -13,7 +13,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cache.md"
 
 ## The Spin Registry Cache
 
-A running Spin application can [fetch resources from remote registries](https://developer.fermyon.com/spin/spin-oci) and individual component sources via HTTP endpoints. These resources naturally consume network bandwidth. To ensure network efficiency, and to prevent waiting to download the same files every time an application is started, Spin automatically maintains a local `spin/registry` cache.
+A running Spin application can [fetch resources from remote registries](/spin/spin-oci) and individual component sources via HTTP endpoints. These resources naturally consume network bandwidth. To ensure network efficiency, and to prevent waiting to download the same files every time an application is started, Spin automatically maintains a local `spin/registry` cache.
 
 ## Clearing the Registry Cache
 

@@ -19,11 +19,11 @@ keywords = "install"
   - [Validating Content With Shortcodes](#validating-content-with-shortcodes)
 - [Viewing Your Changes](#viewing-your-changes)
 
-This is a quickstart example of using Spin to deploy a Bartholomew CMS instance, locally on your machine. In this quickstart session, we use a Bartholomew site template which contains some pre-built parts (for your convenience). If you would like to build all of the parts separately from source (Spin, Bartholomew, File Server), please see the [contributing section](https://developer.fermyon.com/bartholomew/contributing-bartholomew) which dives a lot deeper than this quickstart example.
+This is a quickstart example of using Spin to deploy a Bartholomew CMS instance, locally on your machine. In this quickstart session, we use a Bartholomew site template which contains some pre-built parts (for your convenience). If you would like to build all of the parts separately from source (Spin, Bartholomew, File Server), please see the [contributing section](/bartholomew/contributing-bartholomew) which dives a lot deeper than this quickstart example.
 
 ## Getting the `spin` Binary
 
-For Spin, follow [the Spin quickstart guide](https://developer.fermyon.com/spin/quickstart) which details how to either:
+For Spin, follow [the Spin quickstart guide](/spin/quickstart) which details how to either:
 - download the latest Spin binary release,
 - clone and build Spin using cargo, or
 - clone and build Spin from source.

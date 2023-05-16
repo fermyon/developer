@@ -42,23 +42,23 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | Feature | SDK Supported? |
 |-----|-----|
 | **Triggers** |
-| [HTTP](https://developer.fermyon.com/spin/http-trigger) | Supported |
-| [Redis](https://developer.fermyon.com/spin/redis-trigger) | Not supported |
+| [HTTP](/spin/http-trigger) | Supported |
+| [Redis](/spin/redis-trigger) | Not supported |
 | **APIs** |
-| [Outbound HTTP](https://developer.fermyon.com/spin/rust-components.md#sending-outbound-http-requests) | Supported |
-| [Key Value Storage](https://developer.fermyon.com/spin/kv-store-api-guide) | Supported (only default store) |
-| [MySQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
-| [PostgreSQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
-| [Outbound Redis](https://developer.fermyon.com/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
+| [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
+| [Key Value Storage](/spin/kv-store-api-guide) | Supported (only default store) |
+| [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
 | **Extensibility** |
-| [Custom Triggers](https://developer.fermyon.com/spin/extending-and-embedding) | Not supported |
+| [Custom Triggers](/spin/extending-and-embedding) | Not supported |
 
-To learn more about what feature support looks like for various programming languages, visit the [Spin Language Support Guide](https://developer.fermyon.com/spin/language-support-overview.md).
+To learn more about what feature support looks like for various programming languages, visit the [Spin Language Support Guide](/spin/language-support-overview.md).
 
 ### Other Limitations
 
 - You cannot communicate between Spin applications using local name resolution
-- [Runtime configuration and secrets](https://developer.fermyon.com/spin/dynamic-configuration#runtime-configuration) are not supported at this time
+- [Runtime configuration and secrets](/spin/dynamic-configuration#runtime-configuration) are not supported at this time
 
 ## Frequently Asked Questions
 

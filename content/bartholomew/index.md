@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/index
 - [Taking Bartholomew for a Spin](#taking-bartholomew-for-a-spin)
 
 Bartholomew is a simple CMS-like (Content Management System) tool for managing a
-website. It is compiled to WebAssembly, and can run in any [Spin](https://developer.fermyon.com/spin)
+website. It is compiled to WebAssembly, and can run in any [Spin](/spin)
 environment.
 
 At a glance, with Bartholomew you can:
@@ -29,7 +29,7 @@ one you might find in AWS Lambda or Azure Functions. The CMS is only running whe
 it needs to handle incoming requests, reducing the load on the servers
 running it.
 
-Bartholomew is a [Spin](https://developer.fermyon.com/spin) component, and
+Bartholomew is a [Spin](/spin) component, and
 websites built with Bartholomew are Spin applications that can run in any
 environment that is capable of running Spin. At Fermyon, we run all of our
 websites using Bartholomew and Spin, on our [Fermyon Platform, running on Nomad](https://www.fermyon.com/blog/spin-nomad).
