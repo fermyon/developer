@@ -1749,9 +1749,43 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   background-color: #0000;
 }
 
+.documentation aside.menu a {
+  padding: .6rem 1vw;
+  font-weight: normal;
+}
+
 .documentation aside.menu a.active {
   color: #213762;
   background-color: #ece5ee;
+}
+
+.documentation aside.menu a.button {
+  padding: 0 1.333vw;
+}
+
+.documentation aside.menu .menu-label {
+  color: #2356a9;
+  padding: 1rem 1vw 0;
+}
+
+.documentation aside.menu .accordion-tabs .menu-label {
+  text-transform: none;
+  color: #0d203f;
+  letter-spacing: .033rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: normal;
+  transition: all .3s ease-in-out;
+  margin: .333rem 0 !important;
+  padding: .333rem .75vw !important;
+}
+
+.documentation aside.menu .accordion-tabs .menu-label:hover {
+  color: #345995;
+}
+
+.documentation .menu-wrap {
+  padding: 0 1.75vw !important;
 }
 
 .documentation .content {
@@ -2089,6 +2123,18 @@ html.dark-theme body aside.menu a.active {
   background-color: #213762;
 }
 
+html.dark-theme body aside.menu .menu-label {
+  color: #bea7e5;
+}
+
+html.dark-theme body aside.menu .accordion-tabs .menu-label {
+  color: #fff !important;
+}
+
+html.dark-theme body aside.menu .accordion-tabs .menu-label:hover {
+  color: #bea7e5 !important;
+}
+
 html.dark-theme body #topbar.navbar .navbar-menu .button.is-secondary {
   border-width: .125rem;
   color: #fff !important;
@@ -2248,6 +2294,7 @@ html.dark-theme .multitab-content {
 
 #topbar.navbar .logo-wrap {
   border-right: 2px solid #1e1e1e06;
+  margin-left: -1.333vw;
   margin-right: 1.333vw;
   padding-right: 1vw;
 }
@@ -3246,8 +3293,8 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 }
 
 .cc-revoke.cc-top {
-  border-bottom-right-radius: .5em;
   border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
   top: 0;
   left: 3em;
 }
@@ -3703,6 +3750,7 @@ input {
   width: 1em;
   height: 1em;
   text-align: center;
+  opacity: .25;
 }
 
 .tab-content {
@@ -3725,7 +3773,29 @@ input:checked + .tab-label:after {
 
 input:checked ~ .tab-content {
   max-height: 100vh;
-  padding: 1em;
+  padding: .25em .75rem .755rem;
+}
+
+input:checked ~ .tab-content li a {
+  position: relative;
+  background: none !important;
+}
+
+input:checked ~ .tab-content li a:before {
+  content: " ";
+  min-height: 2rem;
+  width: 2px;
+  background: #9696961a;
+  transition: all .3s ease-in-out;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -.175rem;
+}
+
+input:checked ~ .tab-content li a:hover:before, input:checked ~ .tab-content li a .active:before, input:checked ~ .tab-content li a .is-active:before {
+  background: #34e8bd;
 }
 
 aside.menu ul {

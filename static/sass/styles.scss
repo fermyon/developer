@@ -34,11 +34,45 @@ TABLE OF CONTENTS
 .documentation {
 	aside.menu {
 		a {
+			padding: 0.6rem 1vw;
+			font-weight: normal;
+
 			&.active {
 				color: $darkspace;
 				background-color: $lightlavender;
 			}
+
+			&.button {
+				padding: 0 1.333vw;
+			}
 		}
+
+		.menu-label {
+			padding:1rem 1vw 0;
+			color: lighten($oxfordblue, 25%);
+		}
+
+		.accordion-tabs {
+			.menu-label {
+				text-transform: none;
+				font-size: 1rem;
+				color: $oxfordblue;
+				letter-spacing: 0.033rem;
+				margin: 0.333rem 0 !important;
+				padding: 0.333rem 0.75vw !important;
+				font-weight: normal;
+				border-radius: 2rem;
+				@include transition;
+	
+				&:hover {
+					color: $midblue;
+				}
+			}
+		}
+	}
+
+	.menu-wrap {
+		padding: 0 1.75vw !important;
 	}
 
 	.content {
@@ -436,6 +470,20 @@ html.dark-theme {
 					background-color: $darkspace;
 				}
 			}
+
+			.menu-label {
+				color: $lavender;
+			}
+
+			.accordion-tabs {
+				.menu-label {
+					color: white !important;
+	
+					&:hover {
+						color: $lavender !important;
+					}
+				}
+			}
 		}
 
 		#topbar.navbar .navbar-menu .button {
@@ -624,6 +672,7 @@ html.dark-theme {
 		border-right: 2px solid rgba(30, 30, 30, 0.025);
 		padding-right: 1vw;
 		margin-right: 1.333vw;
+		margin-left: -1.333vw;
 
 		.logo-subdomain {
 			font-weight: 400;
@@ -2290,6 +2339,7 @@ input {
 			width: 1em;
 			height: 1em;
 			text-align: center;
+			opacity: 0.25;
 		}
 	}
 
@@ -2320,7 +2370,34 @@ input:checked {
 
 	~.tab-content {
 		max-height: 100vh;
-		padding: 1em;
+		padding: 0.25em 0.75rem 0.755rem 0.75rem;
+
+		li a {
+			position: relative;
+			background: transparent !important;
+
+			&:before {
+				background: rgba(150, 150, 150, 0.1);
+				display: block;
+				content: " ";
+				min-height: 2rem;
+				width: 2px;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: -0.175rem;
+				@include transition;
+
+			}
+
+			&:hover,
+			.active,
+			.is-active {
+				&:before {
+					background: $seagreen;
+				}
+			}
+		}
 	}
 }
 
