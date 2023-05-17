@@ -1,5 +1,5 @@
 title = "Colorado Kubernetes & Cloud Native Meet-Up"
-date = "2023-05-23T00:00:01Z"
+date = "2023-05-17T00:00:01Z"
 description = "While we're around for GlueCon, you can find Justin Pflueger at the local Colorado Kubernetes & Cloud Native meet-up where he'll be presenting \"Running WebAssembly functions in Kubernetes using Spin\"."
 
 [extra]
