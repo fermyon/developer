@@ -390,7 +390,7 @@ fn handle_request(_req: Request) -> Result<Response> {
     }
     // Create an instance of a User object and populate the values
     let user = User{fingerprint:"0x1234".to_owned(), location:"Brisbane".to_owned()};
-    // Store the user object using the "my_json" key
+    // Store the User object using the "my_json" key
     store.set_json("my_json", &user)?;
     // Retrieve the user object from the key-value store, using the "my_json" key
     let retrieved_user: User = store.get_json("my_json")?;
