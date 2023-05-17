@@ -367,7 +367,7 @@ messages on the `messages` Redis channel.
 
 Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store).
 
-If you want to go beyond just inserting values in a certain spot, Spin's Rust SDK provides an optional feature for using [Serde](https://docs.rs/serde/latest/serde). The Rust code below shows how to store and retrieve serializable objects from the key-value store:
+The Spin key-value API stores and retrieves only lists of bytes.  The Rust SDK provides helper functions that allow you to store and retrieve [Serde](https://docs.rs/serde/latest/serde) serializable values in a typed way.  The underlying storage format is JSON. The Rust code below shows how to store and retrieve serializable objects from the key-value store:
 
 ```rust
 use anyhow::Result;
