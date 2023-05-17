@@ -399,7 +399,7 @@ fn handle_request(_req: Request) -> Result<Response> {
 }
 ```
 
-The above example requires some additional configuration. Specifically, enabling the Spin SDK's optional `json` feature (from v1.2.0 onwards) and adding Serde's optional `derive` feature in the `dependencies` section of the application's `Cargo.toml` file:
+To use the `get_json` and `set_json` helpers, you must enable the Spin SDK's optional `json` feature in your `Cargo.toml` file.  To make your objects serialisable, you will also need a reference to `serde`; the example above also requires Serde's `derive` feature.  The relevant `Cargo.toml` entries look like this:
 
 ```
 [dependencies]
