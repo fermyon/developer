@@ -208,7 +208,7 @@ Hello, there!
 
 If allowed, Spin components can send outbound HTTP requests.
 Let's see an example of a component that makes a request to
-[an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
+[an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json) and
 inserts a custom header into the response before returning:
 
 <!-- @nocpy -->
@@ -219,7 +219,7 @@ fn hello_world(_req: Request) -> Result<Response> {
     let mut res = spin_sdk::http::send(
         http::Request::builder()
             .method("GET")
-            .uri("https://some-random-api.ml/facts/dog")
+            .uri("https://random-data-api.fermyon.app/animals/json")
             .body(None)?,
     )?;
 
@@ -267,9 +267,7 @@ content-type: application/json; charset=utf-8
 content-length: 185
 server: spin/0.1.0
 
-{"fact":"It's rumored that, at the end of the Beatles song, 
-\"A Day in the Life,\" Paul McCartney recorded an ultrasonic whistle, 
-audible only to dogs, just for his Shetland sheepdog."}
+{"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}   
 ```
 
 > Without the `allowed_http_hosts` field populated properly in `spin.toml`,

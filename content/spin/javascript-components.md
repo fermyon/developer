@@ -217,7 +217,7 @@ let text = JSON.parse(decoder.decode(request.body))
 
 If allowed, Spin components can send outbound HTTP requests.
 Let's see an example of a component that makes a request to
-[an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
+[an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json) and
 inserts a custom header into the response before returning:
 
 <!-- @nocpy -->
@@ -230,13 +230,13 @@ const decoder = new TextDecoder()
 
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
 
-    const dogFact = await fetch("https://some-random-api.ml/facts/dog")
+    const animalFact = await fetch("https://random-data-api.fermyon.app/animals/json")
 
-    const dogFactBody = await dogFact.text()
+    const animalFactBody = await animalFact.text()
 
     const env = JSON.stringify(process.env)
 
-    const body = `Here's a dog fact: ${dogFactBody}\n`
+    const body = `Here's an animal fact: ${animalFactBody}\n`
 
     return {
         status: 200,
@@ -246,7 +246,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 }
 ```
 
-Before we can execute this component, we need to add the `some-random-api.ml`
+Before we can execute this component, we need to add the `fermyon.app`
 domain to the application manifest `allowed_http_hosts` list containing the list of
 domains the component is allowed to make HTTP requests to:
 
@@ -266,7 +266,7 @@ object = { default = "teapot" }
 [[component]]
 id = "hello"
 source = "target/spin-http-js.wasm"
-allowed_http_hosts = ["https://some-random-api.ml"]
+allowed_http_hosts = ["https://fermyon.app"]
 [component.trigger]
 route = "/hello"
 [component.build]
@@ -287,7 +287,7 @@ content-type: application/json; charset=utf-8
 content-length: 185
 server: spin/0.1.0
 
-Here's a dog fact: {"fact":"It's a myth that dogs only see in black and white. In fact, it's believed that dogs see primarily in blue, greenish-yellow, yellow and various shades of gray."}
+Here's an animal fact: {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}
 ```
 
 > Without the `allowed_http_hosts` field populated properly in `spin.toml`,
