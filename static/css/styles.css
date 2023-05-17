@@ -1749,6 +1749,10 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   background-color: #0000;
 }
 
+.documentation aside.menu ul {
+  margin-bottom: 0;
+}
+
 .documentation aside.menu a {
   padding: .6rem 1vw;
   font-weight: normal;
@@ -1771,6 +1775,12 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 .documentation aside.menu .accordion-tabs {
   border-radius: 8px;
   overflow: hidden;
+}
+
+.documentation aside.menu .accordion-tabs input {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
 }
 
 .documentation aside.menu .accordion-tabs .accordion-menu-item {
@@ -3779,24 +3789,6 @@ html.dark-theme .changelog-item-tags span {
   .documentation .changelog-wrapper .changelog-item-title:before {
     left: -2rem;
   }
-}
-
-input {
-  opacity: 0;
-  z-index: -1;
-  position: absolute;
-}
-
-.tab-close {
-  cursor: pointer;
-  justify-content: flex-end;
-  padding: 1em;
-  font-size: .75em;
-  display: flex;
-}
-
-aside.menu ul {
-  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
