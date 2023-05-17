@@ -224,6 +224,7 @@ test.sh
 - `v0.10.0`
 - `v1.0.0`
 - `v1.1.0`
+- `v1.2.0`
 - `Windows`
 
 The next section covers the highly recommended use of ToCs.
