@@ -1,106 +1,179 @@
 <div class="menu-wrap is-narrow is-fixed-desktop" id="docsMenu">
     <aside class="menu">
-        <p class="menu-label">
-            Get Started
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/index" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/">Introduction</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/install" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/install">Install</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/quickstart" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/quickstart">Quickstart</a></li>
-        </ul>
+        <div class="accordion-tabs">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd0" name="rd">
+                <label for="rd0" class="accordion-menu-item-label menu-label">
+                    Get Started
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/index" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/">Introduction</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/install" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/install">Install</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/quickstart" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/quickstart">Quickstart</a></li>
+                </ul>
+            </div>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd2" name="rd">
+                <label for="rd2" class="accordion-menu-item-label menu-label">
+                    Applications
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/writing-apps" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/writing-apps">Writing Applications</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/build" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/build">Building Application Code</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/running-apps" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/running-apps">Running Applications</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Publishing and Distribution</a>
+                    </li>
+                </ul>
+            </div>
 
-        <p class="menu-label">
-            Applications
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/writing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/writing-apps">Writing Applications</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/build" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/build">Building Application Code</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/running-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/running-apps">Running Applications</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/designing-spin-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/designing-spin-apps">Designing Applications</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/distributing-apps" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/distributing-apps">Publishing and Distribution</a></li>                
-        </ul>
-
-
-        <p class="menu-label">
-            Language Guides
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/language-support-overview" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/language-support-overview">Language Support Overview</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/rust-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/rust-components">Rust</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/go-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/go-components">Go</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/javascript-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/javascript-components">Javascript</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/python-components" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/python-components">Python</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/other-languages" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/other-languages">Other Languages</a></li>
-        </ul>
-
-        <p class="menu-label">
-            Triggers
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-trigger">The Redis Trigger</a></li>
-        </ul>
-
-        <p class="menu-label">
-            API Guides
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/api-guides-overview" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/api-guides-overview">API Support Overview</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/http-outbound" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/http-outbound">Making HTTP Requests</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/redis-outbound" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/redis-outbound">Redis Storage</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/rdbms-storage" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/rdbms-storage">Relational Database Storage</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/kv-store-api-guide" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/kv-store-api-guide">Key Value Store</a></li>
-        </ul>
-
-        <p class="menu-label">
-            Tutorials
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/url-shortener">Building a URL Shortener With Spin</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/spin-oci">Hosting Spin Apps in OCI Registries</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/kv-store-tutorial" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/kv-store-tutorial">Persistent Data Locally With Key Value Store</a></li>
-        </ul>
-
-        <p class="menu-label">
-            Tools
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/managing-templates" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-templates">Managing Templates</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/managing-plugins" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/managing-plugins">Managing Plugins</a></li>
-        </ul>
-
-        <p class="menu-label">
-            Advanced
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending and Embedding Spin</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/deploying-to-fermyon" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/deploying-to-fermyon">Deploying to Fermyon</a></li>
-            {{!--  <li><a href="{{site.info.base_url}}/spin/architecture/">Architecture</a></li> --}}
-            <li><a href="https://github.com/fermyon/spin/blob/main/docs/content/sips/index.md" target="_blank">Spin Improvement Proposals <img src="{{site.info.base_url}}/static/image/arrowexternal.svg" width="15" height="15"></a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/dynamic-configuration" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/dynamic-configuration">Dynamic Application Configuration</a></li>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd12" name="rd">
+                <label for="rd12" class="accordion-menu-item-label menu-label">
+                    Language Guides
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/language-support-overview" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/spin/language-support-overview">Language
+                            Support
+                            Overview</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/rust-components" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/rust-components">Rust</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/go-components" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/go-components">Go</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/javascript-components" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/javascript-components">Javascript</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/python-components" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/python-components">Python</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/other-languages" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/other-languages">Other Languages</a></li>
+                </ul>
+            </div>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd3" name="rd">
+                <label for="rd3" class="accordion-menu-item-label menu-label">
+                    Triggers
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/redis-trigger">The Redis Trigger</a></li>
+                </ul>
+            </div>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd4" name="rd">
+                <label for="rd4" class="accordion-menu-item-label menu-label">
+                    API Guides
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/api-guides-overview" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/api-guides-overview">API Support Overview</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/http-outbound" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/http-outbound">Making HTTP Requests</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/redis-outbound" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/redis-outbound">Redis Storage</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/rdbms-storage" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/rdbms-storage">Relational Database Storage</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/kv-store-api-guide" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/kv-store-api-guide">Key Value Store</a></li>
+                </ul>
+            </div>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd5" name="rd">
+                <label for="rd5" class="accordion-menu-item-label menu-label">
+                    Tutorials
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/url-shortener">Building a URL Shortener With Spin</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/spin-oci">Hosting Spin Apps in OCI Registries</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/kv-store-tutorial" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/kv-store-tutorial">Persistent Data Locally With
+                            Key Value
+                            Store</a></li>
+                </ul>
+            </div>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd6" name="rd">
+                <label for="rd6" class="accordion-menu-item-label menu-label">
+                    Tools
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/managing-templates" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/managing-templates">Managing Templates</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/managing-plugins" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/managing-plugins">Managing Plugins</a></li>
+                </ul>
+            </div>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd7" name="rd">
+                <label for="rd7" class="accordion-menu-item-label menu-label">
+                    References
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/common/cli-reference" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/common/cli-reference">CLI Reference</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/manifest-reference" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/manifest-reference">Application Manifest
+                            Reference</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd8" name="rd">
+                <label for="rd8" class="accordion-menu-item-label menu-label">
+                    Advanced
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending
+                            and Embedding
+                            Spin</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/deploying-to-fermyon" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/deploying-to-fermyon">Deploying to Fermyon</a>
+                    </li>
+                    {{!-- <li><a href="{{site.info.base_url}}/spin/architecture/">Architecture</a></li> --}}
+                    <li><a href="https://github.com/fermyon/spin/blob/main/docs/content/sips/index.md"
+                            target="_blank">Spin
+                            Improvement Proposals <img src="{{site.info.base_url}}/static/image/arrowexternal.svg"
+                                width="15" height="15"></a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/dynamic-configuration" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/dynamic-configuration">Dynamic Application
+                            Configuration</a></li>
             <li><a {{#if (active_content request.spin-path-info "/spin/cache" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/cache">Spin Cache</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/template-authoring" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/template-authoring">Creating Spin Templates</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/plugin-authoring" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/plugin-authoring">Creating Spin Plugins</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/kubernetes" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/kubernetes">Spin on Kubernetes</a></li>
-        </ul>
+                    
+                    <li><a {{#if (active_content request.spin-path-info "/spin/template-authoring" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/template-authoring">Creating Spin Templates</a>
+                    </li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/plugin-authoring" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/plugin-authoring">Creating Spin Plugins</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/kubernetes" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/kubernetes">Spin on Kubernetes</a></li>
+                </ul>
+            </div>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd9" name="rd">
+                <label for="rd9" class="accordion-menu-item-label menu-label">
+                    Contributing
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/common/contributing-docs" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/common/contributing-docs">Contributing to Docs</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/contributing-spin" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/contributing-spin">Contributing to Spin</a></li>
+                </ul>
+            </div>
+        </div>
 
-        <p class="menu-label">
-            References
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/common/cli-reference" )}} class="active" {{/if}} href="{{site.info.base_url}}/common/cli-reference">CLI Reference</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/common/manifest-reference" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/manifest-reference">Application Manifest Reference</a></li>
-        </ul>
-
-        <p class="menu-label">
-            Contributing
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/common/contributing-docs" )}} class="active" {{/if}} href="{{site.info.base_url}}/common/contributing-docs">Contributing to Docs</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/spin/contributing-spin" )}} class="active" {{/if}} href="{{site.info.base_url}}/spin/contributing-spin">Contributing to Spin</a></li>
-        </ul>
-
-        <ul class-"menu-list">
+        <ul class-"menu-list accordion-menu-item-content">
             <li><a href="{{page.head.extra.url}}" class="button is-round is-outlined is-size-6 is-medium">
                     <svg width="0.825em" height="0.825em" viewBox="0 0 32 32" fill="none"
                         xmlns="http://www.w3.org/2000/svg">

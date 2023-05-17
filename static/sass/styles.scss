@@ -34,11 +34,123 @@ TABLE OF CONTENTS
 .documentation {
 	aside.menu {
 		a {
+			padding: 0.6rem 1vw;
+			font-weight: normal;
+
 			&.active {
 				color: $darkspace;
 				background-color: $lightlavender;
 			}
+
+			&.button {
+				padding: 0 1.333vw;
+			}
 		}
+
+		.menu-label {
+			padding: 1rem 1vw 0;
+			color: lighten($oxfordblue, 25%);
+		}
+
+		.accordion-tabs {
+			border-radius: 8px;
+			overflow: hidden;
+
+			.accordion-menu-item {
+				width: 100%;
+				overflow: hidden;
+
+				.menu-label {
+					text-transform: none;
+					display: flex;
+
+					font-size: 1rem;
+					color: $oxfordblue;
+					letter-spacing: 0.033rem;
+					margin: 0.333rem 0 !important;
+					padding: 0.333rem 0.75vw !important;
+					font-weight: normal;
+					border-radius: 2rem;
+					justify-content: space-between;
+					@include transition;
+
+					&::after {
+						content: "\276F";
+						width: 1em;
+						height: 1em;
+						text-align: center;
+						opacity: 0.25;
+					}
+
+					&:hover {
+						color: $midblue;
+					}
+				}
+
+				&-content {
+					max-height: 0;
+					padding: 0 1em;
+					overflow: hidden;
+					padding-left: 0.2rem;
+
+					&.stay-open {
+						max-height: 100vh;
+					}
+				}
+
+				.menu-label.stay-open {
+					&::after {
+						transform: rotate(90deg);
+					}
+				}
+
+				input:checked {
+					+.menu-label {
+
+						&::after {
+							transform: rotate(90deg);
+						}
+					}
+				}
+
+				.accordion-menu-item-content.stay-open,
+				input:checked~.accordion-menu-item-content {
+					max-height: 100vh;
+					padding: 0.25em 0.75rem 0.755rem 0.75rem;
+
+					li a {
+						position: relative;
+						background: transparent !important;
+
+						&:before {
+							background: rgba(150, 150, 150, 0.1);
+							display: block;
+							content: " ";
+							min-height: 2rem;
+							width: 2px;
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: -0.175rem;
+							@include transition;
+
+						}
+
+						&:hover,
+						&.active,
+						.is-active {
+							&:before {
+								background: $seagreen;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.menu-wrap {
+		padding: 0 1.75vw !important;
 	}
 
 	.content {
@@ -84,7 +196,7 @@ TABLE OF CONTENTS
 					line-height: 1;
 
 					a {
-						border-left: 4px solid rgba(125,125,125,0.125);
+						border-left: 4px solid rgba(125, 125, 125, 0.125);
 						border-radius: 1px;
 						margin: 0;
 						padding: 0.15rem 0 0.15rem 0.5rem;
@@ -102,6 +214,7 @@ TABLE OF CONTENTS
 							}
 						}
 					}
+
 					ul {
 						margin: 0;
 					}
@@ -435,6 +548,20 @@ html.dark-theme {
 					background-color: $darkspace;
 				}
 			}
+
+			.menu-label {
+				color: $lavender;
+			}
+
+			.accordion-tabs {
+				.menu-label {
+					color: white !important;
+
+					&:hover {
+						color: $lavender !important;
+					}
+				}
+			}
 		}
 
 		#topbar.navbar .navbar-menu .button {
@@ -623,6 +750,7 @@ html.dark-theme {
 		border-right: 2px solid rgba(30, 30, 30, 0.025);
 		padding-right: 1vw;
 		margin-right: 1.333vw;
+		margin-left: -1.333vw;
 
 		.logo-subdomain {
 			font-weight: 400;
@@ -1587,7 +1715,7 @@ html.dark-theme {
 
 		.content {
 			section {
-				h1:first-of-type + ul {
+				h1:first-of-type+ul {
 					li {
 						a {
 							color: $lightplum;
@@ -1984,7 +2112,7 @@ screen and (max-width:736px) and (orientation:landscape) {
 	margin-left: 0
 }
 
-.menu-wrap + article.content.changelog-wrapper {
+.menu-wrap+article.content.changelog-wrapper {
 	padding-left: 0.75rem !important;
 }
 
@@ -2200,7 +2328,7 @@ html.dark-theme {
 				h1 {
 					font-size: 1.75rem;
 				}
-				
+
 				p.lead {
 					font-size: 1.25rem;
 					padding: 0 !important;
@@ -2259,4 +2387,32 @@ html.dark-theme {
 			}
 		}
 	}
+}
+
+input {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+.tab {
+
+
+	&-close {
+		display: flex;
+		justify-content: flex-end;
+		padding: 1em;
+		font-size: 0.75em;
+		cursor: pointer;
+	}
+}
+
+// :checked
+
+
+
+element.style {}
+
+aside.menu ul {
+	margin-bottom: 0rem;
 }

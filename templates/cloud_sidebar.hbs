@@ -1,79 +1,125 @@
 <div class="menu-wrap is-narrow is-fixed-desktop" id="docsMenu">
     <aside class="menu">
-        <p class="menu-label">
-            Get Started
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/cloud/index" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/">Introduction</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/quickstart" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/quickstart">Quickstart</a></li>
-        </ul>
+        <div class="accordion-tabs">
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd0" name="rd">
+                <label for="rd0" class="accordion-menu-item-label menu-label">
+                    Get Started
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/index" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/">Introduction</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/quickstart" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/quickstart">Quickstart</a></li>
+                </ul>
+            </div>
 
-        <p class="menu-label">
-            Applications
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/cloud/develop" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/develop">Develop a Spin Application</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/deploy" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/deploy">Deploy an Application</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/upgrade" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/upgrade">Upgrade an Application</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/delete" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/delete">Delete an Application</a></li>
-        </ul>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd1" name="rd">
+                <label for="rd1" class="accordion-menu-item-label menu-label">
+                    Applications
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/develop" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/develop">Develop a Spin Application</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/deploy" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/deploy">Deploy an Application</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/upgrade" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/upgrade">Upgrade an Application</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/delete" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/delete">Delete an Application</a></li>
+                </ul>
+            </div>
 
-        <p class="menu-label">
-            Concepts
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/cloud/fermyon-cloud" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/fermyon-cloud">The Fermyon Cloud</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/deployment-concepts" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/deployment-concepts">Deployment Concepts</a></li>
-        </ul>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd2" name="rd">
+                <label for="rd2" class="accordion-menu-item-label menu-label">
+                    Concepts
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/fermyon-cloud" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/fermyon-cloud">The Fermyon Cloud</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/deployment-concepts" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/deployment-concepts">Deployment Concepts</a></li>
+                </ul>
+            </div>
 
-        <p class="menu-label">
-            Tutorials
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/cloud/spin-vs-code-extension" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/spin-vs-code-extension">Using VS Code Extension</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/data-redis" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/data-redis">Persisting Data With Redis</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/data-postgres" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/data-postgres">Persisting Data With PostgreSQL</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/github-actions" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/github-actions">Deploying Spin Apps Using GitHub Action</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/custom-fermyon-subdomain" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/custom-fermyon-subdomain">Apply Custom Fermyon Subdomain</a></li>
-        </ul>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd3" name="rd">
+                <label for="rd3" class="accordion-menu-item-label menu-label">
+                    Tutorials
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/spin-vs-code-extension" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/cloud/spin-vs-code-extension">Using VS
+                            Code Extension</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/data-redis" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/data-redis">Persisting Data With Redis</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/data-postgres" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/data-postgres">Persisting Data With
+                            PostgreSQL</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/github-actions" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/github-actions">Deploying Spin Apps Using GitHub
+                            Action</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/custom-fermyon-subdomain" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/cloud/custom-fermyon-subdomain">Apply
+                            Custom Fermyon Subdomain</a></li>
+                </ul>
+            </div>
 
-        <p class="menu-label">
-            References
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/cloud/rest-api" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/rest-api">REST API</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/common/cli-reference" )}} class="active" {{/if}} href="{{site.info.base_url}}/common/cli-reference">CLI Reference</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/common/cli-reference" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/changelog">Changelog</a></li>
-        </ul>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd4" name="rd">
+                <label for="rd4" class="accordion-menu-item-label menu-label">
+                    References
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/rest-api" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/rest-api">REST API</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/common/cli-reference" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/common/cli-reference">CLI Reference</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/common/cli-reference" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/changelog">Changelog</a></li>
+                </ul>
+            </div>
 
-        <p class="menu-label">
-            Support
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/cloud/user-settings" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/user-settings">The User Settings Screen</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/faq" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/faq">FAQ and Known Limitations</a></li>
-            <li><a {{#if (active_content request.spin-path-info "/cloud/support" )}} class="active" {{/if}} href="{{site.info.base_url}}/cloud/support">How to Get Help?</a></li>
-        </ul>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd5" name="rd">
+                <label for="rd5" class="accordion-menu-item-label menu-label">
+                    Support
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/user-settings" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/user-settings">The User Settings Screen</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/faq" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/faq">FAQ and Known Limitations</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/support" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/cloud/support">How to Get Help?</a></li>
+                </ul>
+            </div>
 
-        <p class="menu-label">
-            Contributing
-        </p>
-        <ul class="menu-list">
-            <li><a {{#if (active_content request.spin-path-info "/common/contributing-docs" )}} class="active" {{/if}} href="{{site.info.base_url}}/common/contributing-docs">Contributing to Docs</a></li>
-        </ul>
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd6" name="rd">
+                <label for="rd6" class="accordion-menu-item-label menu-label">
+                    Contributing
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/common/contributing-docs" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/common/contributing-docs">Contributing to Docs</a></li>
+                </ul>
+            </div>
 
-        <ul class-"menu-list">
-            <li><a href="{{page.head.extra.url}}"  class="button is-round is-outlined is-size-6 is-medium">
-                    <svg width="0.825em" height="0.825em" viewBox="0 0 32 32" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M16 0C7.16 0 0 7.16 0 16C0 23.08 4.58 29.06 10.94 31.18C11.74 31.32 12.04 30.84 12.04 30.42C12.04 30.04 12.02 28.78 12.02 27.44C8 28.18 6.96 26.46 6.64 25.56C6.46 25.1 5.68 23.68 5 23.3C4.44 23 3.64 22.26 4.98 22.24C6.24 22.22 7.14 23.4 7.44 23.88C8.88 26.3 11.18 25.62 12.1 25.2C12.24 24.16 12.66 23.46 13.12 23.06C9.56 22.66 5.84 21.28 5.84 15.16C5.84 13.42 6.46 11.98 7.48 10.86C7.32 10.46 6.76 8.82 7.64 6.62C7.64 6.62 8.98 6.2 12.04 8.26C13.32 7.9 14.68 7.72 16.04 7.72C17.4 7.72 18.76 7.9 20.04 8.26C23.1 6.18 24.44 6.62 24.44 6.62C25.32 8.82 24.76 10.46 24.6 10.86C25.62 11.98 26.24 13.4 26.24 15.16C26.24 21.3 22.5 22.66 18.94 23.06C19.52 23.56 20.02 24.52 20.02 26.02C20.02 28.16 20 29.88 20 30.42C20 30.84 20.3 31.34 21.1 31.18C27.42 29.06 32 23.06 32 16C32 7.16 24.84 0 16 0V0Z"
-                            fill="#24292E" />
-                    </svg>
-                    Edit on GitHub
-                </a>
-            </li>
-        </ul>
+            <ul class-"menu-list accordion-menu-item-content">
+                <li><a href="{{page.head.extra.url}}" class="button is-round is-outlined is-size-6 is-medium">
+                        <svg width="0.825em" height="0.825em" viewBox="0 0 32 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16 0C7.16 0 0 7.16 0 16C0 23.08 4.58 29.06 10.94 31.18C11.74 31.32 12.04 30.84 12.04 30.42C12.04 30.04 12.02 28.78 12.02 27.44C8 28.18 6.96 26.46 6.64 25.56C6.46 25.1 5.68 23.68 5 23.3C4.44 23 3.64 22.26 4.98 22.24C6.24 22.22 7.14 23.4 7.44 23.88C8.88 26.3 11.18 25.62 12.1 25.2C12.24 24.16 12.66 23.46 13.12 23.06C9.56 22.66 5.84 21.28 5.84 15.16C5.84 13.42 6.46 11.98 7.48 10.86C7.32 10.46 6.76 8.82 7.64 6.62C7.64 6.62 8.98 6.2 12.04 8.26C13.32 7.9 14.68 7.72 16.04 7.72C17.4 7.72 18.76 7.9 20.04 8.26C23.1 6.18 24.44 6.62 24.44 6.62C25.32 8.82 24.76 10.46 24.6 10.86C25.62 11.98 26.24 13.4 26.24 15.16C26.24 21.3 22.5 22.66 18.94 23.06C19.52 23.56 20.02 24.52 20.02 26.02C20.02 28.16 20 29.88 20 30.42C20 30.84 20.3 31.34 21.1 31.18C27.42 29.06 32 23.06 32 16C32 7.16 24.84 0 16 0V0Z"
+                                fill="#24292E" />
+                        </svg>
+                        Edit on GitHub
+                    </a>
+                </li>
+            </ul>
 
     </aside>
 </div>

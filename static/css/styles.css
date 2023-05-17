@@ -1749,9 +1749,104 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   background-color: #0000;
 }
 
+.documentation aside.menu a {
+  padding: .6rem 1vw;
+  font-weight: normal;
+}
+
 .documentation aside.menu a.active {
   color: #213762;
   background-color: #ece5ee;
+}
+
+.documentation aside.menu a.button {
+  padding: 0 1.333vw;
+}
+
+.documentation aside.menu .menu-label {
+  color: #2356a9;
+  padding: 1rem 1vw 0;
+}
+
+.documentation aside.menu .accordion-tabs {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label {
+  text-transform: none;
+  color: #0d203f;
+  letter-spacing: .033rem;
+  border-radius: 2rem;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: normal;
+  transition: all .3s ease-in-out;
+  display: flex;
+  margin: .333rem 0 !important;
+  padding: .333rem .75vw !important;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label:after {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  opacity: .25;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label:hover {
+  color: #345995;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item-content {
+  max-height: 0;
+  padding: 0 1em 0 .2rem;
+  overflow: hidden;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item-content.stay-open {
+  max-height: 100vh;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label.stay-open:after, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked + .menu-label:after {
+  transform: rotate(90deg);
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content {
+  max-height: 100vh;
+  padding: .25em .75rem .755rem;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a {
+  position: relative;
+  background: none !important;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a:before, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a:before {
+  content: " ";
+  min-height: 2rem;
+  width: 2px;
+  background: #9696961a;
+  transition: all .3s ease-in-out;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -.175rem;
+}
+
+.documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a:hover:before, .documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a.active:before, .documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a .is-active:before, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a:hover:before, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a.active:before, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a .is-active:before {
+  background: #34e8bd;
+}
+
+.documentation .menu-wrap {
+  padding: 0 1.75vw !important;
 }
 
 .documentation .content {
@@ -2089,6 +2184,18 @@ html.dark-theme body aside.menu a.active {
   background-color: #213762;
 }
 
+html.dark-theme body aside.menu .menu-label {
+  color: #bea7e5;
+}
+
+html.dark-theme body aside.menu .accordion-tabs .menu-label {
+  color: #fff !important;
+}
+
+html.dark-theme body aside.menu .accordion-tabs .menu-label:hover {
+  color: #bea7e5 !important;
+}
+
 html.dark-theme body #topbar.navbar .navbar-menu .button.is-secondary {
   border-width: .125rem;
   color: #fff !important;
@@ -2248,6 +2355,7 @@ html.dark-theme .multitab-content {
 
 #topbar.navbar .logo-wrap {
   border-right: 2px solid #1e1e1e06;
+  margin-left: -1.333vw;
   margin-right: 1.333vw;
   padding-right: 1vw;
 }
@@ -3671,6 +3779,24 @@ html.dark-theme .changelog-item-tags span {
   .documentation .changelog-wrapper .changelog-item-title:before {
     left: -2rem;
   }
+}
+
+input {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.tab-close {
+  cursor: pointer;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: .75em;
+  display: flex;
+}
+
+aside.menu ul {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
