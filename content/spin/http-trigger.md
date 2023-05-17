@@ -287,6 +287,7 @@ As well as any headers passed by the client, Spin sets several headers on the re
 | `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/...` |
 | `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users` |
 | `spin-base-path`             | The application base path | `/shop` |
+| `spin-client-addr`           | The IP address and port of the client | `127.0.0.1:53152` |
 
 ### Inside HTTP Components
 
