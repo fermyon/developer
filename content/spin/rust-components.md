@@ -394,7 +394,7 @@ fn handle_request(_req: Request) -> Result<Response> {
     store.set_json("my_json", &user)?;
     // Retrieve the user object from the key-value store, using the "my_json" key
     let retrieved_user: User = store.get_json("my_json")?;
-    // Respond to the request by revealing the user's fingerprint as the response body
+    // Return the user's fingerprint as the response body
     Ok(http::Response::builder().status(200).body(Some(retrieved_user.fingerprint.into()))?)
 }
 ```
