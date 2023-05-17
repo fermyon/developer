@@ -17,6 +17,14 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install npm packages
+        run: |
+          npm ci
+
+      - name: Create search index
+        run: |
+          npm run build-index
+
       - name: build and deploy preview
         uses: fermyon/actions/spin/preview@v1
         with:

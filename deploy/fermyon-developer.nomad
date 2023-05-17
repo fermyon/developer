@@ -36,10 +36,16 @@ EOF
   }
 }
 
-variable "bindle_id" {
+variable "oci_ref" {
   type        = string
-  default     = "fermyon-developer/0.1.0"
-  description = "A bindle id, such as foo/bar/1.2.3"
+  default     = "fermyon/developer:latest"
+  description = "The OCI reference of the Spin app for the Fermyon Developer website"
+}
+
+variable "commit_sha" {
+  type        = string
+  default     = ""
+  description = "The git commit sha that the website is published from"
 }
 
 locals {
@@ -56,6 +62,12 @@ job "fermyon-developer" {
     "${var.region}e",
     "${var.region}f"
   ]
+
+  # Add unique metadata to support recreating the job even if var.oci_ref
+  # represents a mutable tag (eg latest).
+  meta {
+    commit_sha = var.commit_sha
+  }
 
   group "fermyon-developer" {
     count = 3
@@ -99,15 +111,14 @@ job "fermyon-developer" {
       driver = "exec"
 
       artifact {
-        source = "https://github.com/fermyon/spin/releases/download/v0.10.1/spin-v0.10.1-linux-amd64.tar.gz"
+        source = "https://github.com/fermyon/spin/releases/download/v1.1.0/spin-v1.1.0-linux-amd64.tar.gz"
         options {
-          checksum = "sha256:105054335fd76b3d2a1b76a705dbdb3b83d7e4093b302a7816ce7f922893f29d"
+          checksum = "sha256:13ecd7be7fb3a054f41b72d65fd6648cd8221e5df57c6694f1a8e5532b79040d"
         }
       }
 
       env {
         RUST_LOG   = "spin=trace"
-        BINDLE_URL = "http://bindle.service.consul:3030/v1"
         BASE_URL   = "https://${local.hostname}"
       }
 
@@ -115,8 +126,8 @@ job "fermyon-developer" {
         command = "spin"
         args = [
           "up",
+          "--from", var.oci_ref,
           "--listen", "${NOMAD_IP_http}:${NOMAD_PORT_http}",
-          "--bindle", var.bindle_id,
           "--log-dir", "${NOMAD_ALLOC_DIR}/logs",
           "--temp", "${NOMAD_ALLOC_DIR}/tmp",
 
