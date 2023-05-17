@@ -3373,7 +3373,7 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin up</code>                                                                  | Stable       |
 | <code>spin cloud <deploy&vert;login></code>                                           | Stabilizing  |
 | <code>spin registry</code>                                                            | Stabilizing  |
-| <code>spin watch</code>                                                               | Experimental |
+| <code>spin watch</code>                                                               | Stabilizing |
 | <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
 
 {{ blockEnd }}
