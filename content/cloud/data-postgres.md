@@ -50,7 +50,7 @@ Installed 1 template(s)
 
 ## Creating Our New Spin Application
 
-The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://developer.fermyon.com/cloud/cli-reference#new), from an existing template. Using the docs as a reference, we can perform the following:
+The official Spin CLI documentation also has instructions on how to [create a new Spin application](/cloud/cli-reference#new), from an existing template. Using the docs as a reference, we can perform the following:
 
 <!-- @selectiveCpy -->
 

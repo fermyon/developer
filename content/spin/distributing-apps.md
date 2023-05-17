@@ -80,7 +80,7 @@ $ spin up -f ghcr.io/alyssa-p-hacker/hello-world:v1
 
 > Remember that if the artifact is private you will need to be logged in, with permission to access it.
 
-> Spin optimises downloads using a local [registry cache](https://developer.fermyon.com/spin/cache).
+> Spin optimises downloads using a local [registry cache](/spin/cache).
 
 ### Running Published Applications by Digest
 

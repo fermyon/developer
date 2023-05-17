@@ -10,7 +10,7 @@ image = "/static/image/twc-custom-subdomains-in-cloud.jpg"
 
 ---
 
-Fermyon Cloud users can now apply custom Fermyon subdomains to their Spin applications. By default, every Spin application recieves a domain name that has the following format: `<app-name>-<randomstring>.fermyon.app`. With custom Fermyon subdomains, users can choose their preferred subdomain name to be appended to the `.fermyon.app` apex domain. To learn more, follow the [custom Fermyon subdomain tutorial](https://developer.fermyon.com/cloud/custom-fermyon-subdomain). 
+Fermyon Cloud users can now apply custom Fermyon subdomains to their Spin applications. By default, every Spin application recieves a domain name that has the following format: `<app-name>-<randomstring>.fermyon.app`. With custom Fermyon subdomains, users can choose their preferred subdomain name to be appended to the `.fermyon.app` apex domain. To learn more, follow the [custom Fermyon subdomain tutorial](/cloud/custom-fermyon-subdomain). 
 
 <img src="/static/image/changelog/twc-custom-subdomains-in-cloud.jpg" alt="Custom Fermyon Subdomains">
 
@@ -18,5 +18,5 @@ Fermyon Cloud users can now apply custom Fermyon subdomains to their Spin applic
 
 References:
 
-- [Custom Fermyon Subdomain Tutorial](https://developer.fermyon.com/cloud/custom-fermyon-subdomain) 
-- [Cloud Limitations](https://developer.fermyon.com/cloud/faq)
+- [Custom Fermyon Subdomain Tutorial](/cloud/custom-fermyon-subdomain) 
+- [Cloud Limitations](/cloud/faq)

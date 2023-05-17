@@ -8,7 +8,7 @@ type= "changelog_post"
 
 ---
 
-Fermyon Cloud now supports [Key Value Store](https://developer.fermyon.com/spin/kv-store-api-guide). While Spin applications are well suited for event-driven, stateless workloads, these serverless workloads often rely on external services to persist state beyond the lifespan of a single request. With the introduction of [Fermyon Cloud Key Value Store](https://www.fermyon.com/blog/introducing-fermyon-cloud-key-value-store), you can now persist non-relational data in a key/value store that is always available for your serverless application (within milliseconds and without cold starts). No infrastructure provisioning or maintenance is required. Developers can now deploy their Fermyon Cloud Key Value Store applications simply by running `spin cloud deploy`.
+Fermyon Cloud now supports [Key Value Store](/spin/kv-store-api-guide). While Spin applications are well suited for event-driven, stateless workloads, these serverless workloads often rely on external services to persist state beyond the lifespan of a single request. With the introduction of [Fermyon Cloud Key Value Store](https://www.fermyon.com/blog/introducing-fermyon-cloud-key-value-store), you can now persist non-relational data in a key/value store that is always available for your serverless application (within milliseconds and without cold starts). No infrastructure provisioning or maintenance is required. Developers can now deploy their Fermyon Cloud Key Value Store applications simply by running `spin cloud deploy`.
 
 <img src="https://www.fermyon.com/static/image/twc-introducing-fermyon-cloud-key-value-store.jpg" alt="Key Value Store">
 
@@ -16,7 +16,7 @@ Fermyon Cloud now supports [Key Value Store](https://developer.fermyon.com/spin/
 
 References:
 
-- [Spin Key Value API Guide](https://developer.fermyon.com/spin/kv-store-api-guide) 
-- [Spin Key Value Tutorial](https://developer.fermyon.com/spin/kv-store-tutorial)
+- [Spin Key Value API Guide](/spin/kv-store-api-guide) 
+- [Spin Key Value Tutorial](/spin/kv-store-tutorial)
 - [Introducing Fermyon Cloud Key Store](https://www.fermyon.com/blog/introducing-fermyon-cloud-key-value-store)
-- [Cloud Limitations](https://developer.fermyon.com/cloud/faq)
+- [Cloud Limitations](/cloud/faq)

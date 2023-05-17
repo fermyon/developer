@@ -6,9 +6,9 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/kv-store-tutorial.md"
 
 ---
-- [Key Value Storage With Spin Applications](#key-value-storage-with-spin-applications)
+- [Key Value Store With Spin Applications](#key-value-store-with-spin-applications)
 - [Tutorial Prerequisites](#tutorial-prerequisites)
-- [Creating a New Application](#creating-a-new-application)
+- [Creating a New Spin Application](#creating-a-new-spin-application)
 - [Configuration](#configuration)
   - [The Spin TOML File](#the-spin-toml-file)
 - [Write Code to Save and Load Data](#write-code-to-save-and-load-data)
@@ -43,7 +43,7 @@ $ spin --version
 
 ## Creating a New Spin Application
 
-Let's create a Spin application that will send and retreive data from a key value store. To make things easy, we'll start from a template using the following commands ([learn more](https://developer.fermyon.com/spin/quickstart#creating-a-new-spin-application-from-a-template)):
+Let's create a Spin application that will send and retreive data from a key value store. To make things easy, we'll start from a template using the following commands ([learn more](/spin/quickstart#creating-a-new-spin-application-from-a-template)):
 
 {{ tabs "sdk-type" }}
 
