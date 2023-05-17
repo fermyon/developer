@@ -33,6 +33,10 @@ TABLE OF CONTENTS
 
 .documentation {
 	aside.menu {
+		ul {
+			margin-bottom: 0rem;
+		}
+
 		a {
 			padding: 0.6rem 1vw;
 			font-weight: normal;
@@ -55,6 +59,12 @@ TABLE OF CONTENTS
 		.accordion-tabs {
 			border-radius: 8px;
 			overflow: hidden;
+
+			input {
+				position: absolute;
+				opacity: 0;
+				z-index: -1;
+			}
 
 			.accordion-menu-item {
 				width: 100%;
@@ -2387,32 +2397,4 @@ html.dark-theme {
 			}
 		}
 	}
-}
-
-input {
-	position: absolute;
-	opacity: 0;
-	z-index: -1;
-}
-
-.tab {
-
-
-	&-close {
-		display: flex;
-		justify-content: flex-end;
-		padding: 1em;
-		font-size: 0.75em;
-		cursor: pointer;
-	}
-}
-
-// :checked
-
-
-
-element.style {}
-
-aside.menu ul {
-	margin-bottom: 0rem;
 }
