@@ -266,7 +266,7 @@ object = { default = "teapot" }
 [[component]]
 id = "hello"
 source = "target/spin-http-js.wasm"
-allowed_http_hosts = ["https://fermyon.app"]
+allowed_http_hosts = ["random-data-api.fermyon.app"]
 [component.trigger]
 route = "/hello"
 [component.build]
