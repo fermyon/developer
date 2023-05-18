@@ -85,7 +85,7 @@ By default, Spin watch monitors:
 
 * The application manifest (`spin.toml` file)
 * Any files specified in the `component.build.watch` sections of the `spin.toml` file
-* Any files specified in the `component.files` section of the `spin.toml` file
+* Any files specified in the `component.files` sections of the `spin.toml` file
 * The files specified in the `component.source` section of the `spin.toml` file
 
 If any of these change, Spin will rebuild the application if necessary, then restart the application with the new files.
