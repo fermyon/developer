@@ -393,7 +393,7 @@ use spin_sdk::{
     key_value::Store,
 };
 
-// Define a User object using serde derive
+// Define a serializable User type
 #[derive(Serialize, Deserialize)]
 struct User {
     fingerprint: String,
