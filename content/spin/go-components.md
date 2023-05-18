@@ -123,7 +123,7 @@ $ tinygo build -wasm-abi=generic -target=wasi -no-debug -o main.wasm main.go
 ```
 
 Before we can execute this component, we need to add the
-`fermyon.app` domain to the application manifest `allowed_http_hosts`
+`random-data-api.fermyon.app` domain to the application manifest `allowed_http_hosts`
 list containing the list of domains the component is allowed to make HTTP
 requests to:
 
