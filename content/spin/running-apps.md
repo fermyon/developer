@@ -84,7 +84,7 @@ Spin's `watch` command rebuilds and restarts Spin applications whenever files ch
 By default, Spin watch monitors:
 
 * The application manifest (`spin.toml` file)
-* Any files specified in the `component.build.watch` section of the `spin.toml` file
+* Any files specified in the `component.build.watch` sections of the `spin.toml` file
 * Any files specified in the `component.files` section of the `spin.toml` file
 * The files specified in the `component.source` section of the `spin.toml` file
 
