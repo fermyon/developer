@@ -88,7 +88,6 @@ inserts a custom header into the response before returning:
 package main
 
 import (
- "bytes"
  "fmt"
  "net/http"
  "os"
@@ -98,10 +97,10 @@ import (
 
 func init() {
  spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
-  r, _ := spinhttp.Get("https://random-data-api.fermyon.app/animals/json")
+    resp, _ := spinhttp.Get("https://random-data-api.fermyon.app/animals/json")
 
-  fmt.Fprintln(w, r.Body)
-  fmt.Fprintln(w, r.Header.Get("content-type"))
+  fmt.Fprintln(w, resp.Body)
+  fmt.Fprintln(w, resp.Header.Get("content-type"))
 
   // `spin.toml` is not configured to allow outbound HTTP requests to this host,
   // so this request will fail.

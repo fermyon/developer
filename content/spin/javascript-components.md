@@ -223,16 +223,13 @@ inserts a custom header into the response before returning:
 <!-- @nocpy -->
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+const encoder = new TextEncoder("utf-8")
+const decoder = new TextDecoder("utf-8")
 
-const encoder = new TextEncoder()
-const decoder = new TextDecoder()
-
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-
+export async function handleRequest(request) {
     const animalFact = await fetch("https://random-data-api.fermyon.app/animals/json")
 
-    const animalFactBody = await animalFact.text()
+    const animalFactBody = decoder.decode(await animalFact.arrayBuffer() || new Uint8Array())
 
     const env = JSON.stringify(process.env)
 

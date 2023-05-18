@@ -205,7 +205,7 @@ version = "0.1.0"
 [[component]]
 id = "hello-world"
 source = "app.wasm"
-allowed_http_hosts = ["https://random-data-api.fermyon.app"]
+allowed_http_hosts = ["random-data-api.fermyon.app"]
 [component.trigger]
 route = "/..."
 [component.build]
