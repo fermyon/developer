@@ -34,6 +34,7 @@ It's highly recommended to add Spin to a folder, which is on your path, e.g.:
 ```bash
 $ sudo mv spin /usr/local/bin/
 ```
+> **Hint:** If you already have Spin installed (i.e. via cargo) you can use `which spin` to check which folder to add the binary to. For example if `which spin` `returns /home/user/.cargo/bin` then you would `sudo mv spin /home/user/.cargo/bin` instead of the `/usr/local/bin` example above. Note: You can use `spin --version` to confirm the version.
 
 To install a specific version, you can pass arguments to the install script this way:
 
@@ -64,6 +65,7 @@ It's highly recommended to add Spin to a folder, which is on your path, e.g.:
 ```bash
 $ sudo mv spin /usr/local/bin/
 ```
+> **Hint:** If you already have Spin installed (i.e. via cargo) you can use `which spin` to check which folder to add the binary to. For example if `which spin` `returns /home/user/.cargo/bin` then you would `sudo mv spin /home/user/.cargo/bin` instead of the `/usr/local/bin` example above. Note: You can use `spin --version` to confirm the version.
 
 To install a specific version, you can pass arguments to the install script this way:
 
