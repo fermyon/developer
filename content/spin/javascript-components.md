@@ -246,7 +246,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 }
 ```
 
-Before we can execute this component, we need to add the `fermyon.app`
+Before we can execute this component, we need to add the `random-data-api.fermyon.app`
 domain to the application manifest `allowed_http_hosts` list containing the list of
 domains the component is allowed to make HTTP requests to:
 
