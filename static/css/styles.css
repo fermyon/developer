@@ -3583,7 +3583,7 @@ footer.footer-links .footer-logo:hover:after {
 }
 
 .documentation .content section h1:first-of-type + ul {
-  max-height: 80%;
+  max-height: 70%;
   min-width: 15vw;
   background: #ece5ee;
   border-radius: .333rem;
