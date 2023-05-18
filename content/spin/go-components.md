@@ -139,7 +139,7 @@ version = "1.0.0"
 [[component]]
 id = "tinygo-hello"
 source = "main.wasm"
-allowed_http_hosts = [ "fermyon.app" ]
+allowed_http_hosts = [ "random-data-api.fermyon.app" ]
 [component.trigger]
 route = "/hello"
 ```
