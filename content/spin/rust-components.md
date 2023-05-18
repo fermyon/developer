@@ -13,6 +13,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/rust-compone
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Storing Data in Redis From Rust Components](#storing-data-in-redis-from-rust-components)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
+  - [Serializing Objects to the Key-Value Store](#serializing-objects-to-the-key-value-store)
 - [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
 - [Troubleshooting](#troubleshooting)
@@ -366,6 +367,70 @@ messages on the `messages` Redis channel.
 ## Storing Data in the Spin Key-Value Store
 
 Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store).
+
+### Serializing Objects to the Key-Value Store
+
+The Spin key-value API stores and retrieves only lists of bytes. The Rust SDK provides helper functions that allow you to store and retrieve [Serde](https://docs.rs/serde/latest/serde) serializable values in a typed way. The underlying storage format is JSON (and is accessed via the `get_json` and `set_json` helpers). 
+
+To use the `get_json` and `set_json` helpers, you must enable the Spin SDK's optional `json` feature in your `Cargo.toml` file. To make your objects serializable, you will also need a reference to `serde`. The relevant `Cargo.toml` entries look like this:
+
+```
+[dependencies]
+// --snip --
+serde = {version = "1.0.163", features = ["derive"]}
+spin-sdk = {git = "https://github.com/fermyon/spin", version = "1.2.0", features = ["json"]}
+// --snip --
+```
+
+The Rust code below shows how to store and retrieve serializable objects from the key-value store (note how the example below implements Serde's `derive` feature):
+
+```rust
+use anyhow::Result;
+use serde::{Deserialize, Serialize};
+use spin_sdk::{
+    http::{Request, Response},
+    http_component,
+    key_value::Store,
+};
+
+// Define a serializable User type
+#[derive(Serialize, Deserialize)]
+struct User {
+    fingerprint: String,
+    location: String,
+}
+
+#[http_component]
+fn handle_request(_req: Request) -> Result<Response> {
+    // Open the default key-value store
+    let store = Store::open_default()?;
+
+    // Create an instance of a User object and populate the values
+    let user = User {
+        fingerprint: "0x1234".to_owned(),
+        location: "Brisbane".to_owned(),
+    };
+    // Store the User object using the "my_json" key
+    store.set_json("my_json", &user)?;
+    // Retrieve the user object from the key-value store, using the "my_json" key
+    let retrieved_user: User = store.get_json("my_json")?;
+    // Return the user's fingerprint as the response body
+    Ok(http::Response::builder()
+        .status(200)
+        .body(Some(retrieved_user.fingerprint.into()))?)
+}
+```
+
+Once built and running (using `spin build` and `spin up`) you can test the above example in your browser (by visiting localhost:3000) or via curl, as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl localhost:3000
+HTTP/1.1 200 OK
+
+0x1234
+```
 
 ## Storing Data in Relational Databases
 

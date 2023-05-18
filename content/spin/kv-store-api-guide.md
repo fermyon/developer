@@ -47,10 +47,10 @@ use anyhow::Result;
 use spin_sdk::{
     http::{Request, Response},
     http_component,
-    key_value::{Error, Store},
+    key_value::{Store},
 };
 #[http_component]
-fn handle_request(req: Request) -> Result<Response> {
+fn handle_request(_req: Request) -> Result<Response> {
     let store = Store::open_default()?;
     store.set("mykey", "myvalue")?;
     let value = store.get("mykey")?;
@@ -59,6 +59,7 @@ fn handle_request(req: Request) -> Result<Response> {
 ```
 
 **General Notes** 
+
 `set` **Operation**
 - For set, the value argument can be of any type that implements AsRef<[u8]>
 
@@ -67,6 +68,9 @@ fn handle_request(req: Request) -> Result<Response> {
 
 `open` **Operation**
 - The close operation is not surfaced; it is called automatically when the store is dropped.
+
+`set_json` and `get_json` **Operation**
+- Rust applications can [store and retrieve serializable Rust types](spin/rust-components#storing-data-in-the-spin-key-value-store).
 
 {{ blockEnd }}
 
