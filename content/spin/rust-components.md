@@ -428,8 +428,6 @@ Once built and running (using `spin build` and `spin up`) you can test the above
 ```bash
 $ curl localhost:3000
 HTTP/1.1 200 OK
-content-length: 6
-date: Tue, 16 May 2023 05:26:01 GMT
 
 0x1234
 ```
