@@ -176,7 +176,7 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. 
 
-> Please note: Spin applications written in Rust can [store and retrieve Rust data structures](spin/rust-components#storing-data-in-the-spin-key-value-store) in the application's data store.
+> Please note: Spin applications written in Rust can [store and retrieve Rust data structures](/spin/rust-components#storing-data-in-the-spin-key-value-store) in the application's data store.
 
 ### The Spin SDK Version
 

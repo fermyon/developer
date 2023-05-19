@@ -102,6 +102,7 @@ if [ -s broken_links ]; then
     if curl --retry 5 --retry-all-errors --retry-delay 1 --output /dev/null --silent --head --fail "$url"; then
       echo "$url is not broken"
     else
+      
       echo "$line" >> final_broken
     fi
   done <broken_links
