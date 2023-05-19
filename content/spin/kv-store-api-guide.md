@@ -70,7 +70,7 @@ fn handle_request(_req: Request) -> Result<Response> {
 - The close operation is not surfaced; it is called automatically when the store is dropped.
 
 `set_json` and `get_json` **Operation**
-- Rust applications can [store and retrieve serializable Rust types](spin/rust-components#storing-data-in-the-spin-key-value-store).
+- Rust applications can [store and retrieve serializable Rust types](/spin/rust-components#storing-data-in-the-spin-key-value-store).
 
 {{ blockEnd }}
 
