@@ -12,6 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/see-what-peop
 - [URL Shortner and QR Code Generator](#url-shortner-and-qr-code-generator)
 - [Content Management System (CMS)](#content-management-system-cms)
 - [The Finicky Whiskers Game](#the-finicky-whiskers-game)
+- [Accessing External APIs](#accessing-external-apis)
 - [Next Steps](#next-steps)
 
 Spin can be used to build many different types of applications. The following blog articles show how different applications are built with Spin.
@@ -56,6 +57,8 @@ The 'Finicky Whiskers' series covers the journey of creating a game with an arch
 * [Part 2: Serving the HTML, CSS, and Static Assets](https://www.fermyon.com/blog/finicky-whiskers-part-2-fileserver)
 * [Part 3: The Microservices](https://www.fermyon.com/blog/finicky-whiskers-part-3-microservices)
 * [Part 4: Spin, Containers, Nomad, and Infrastructure](https://www.fermyon.com/blog/finicky-whiskers-part-4-infrastructure)
+
+## Accessing External APIs
 
 - [Accessing external APIs from Spin applications](https://www.fermyon.com/blog/spin-rest-apis)
 
