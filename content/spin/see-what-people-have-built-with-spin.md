@@ -1,19 +1,27 @@
-title = "Designing Spin Applications"
+title = "Built With Spin"
 template = "spin_main"
 date = "2023-05-05T00:01:01Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/designing-spin-apps.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/see-what-people-have-built-with-spin.md"
 
 ---
-
-- [Built With Spin](#built-with-spin)
+- [Like Button](#like-button)
+- [Social App](#social-app)
+- [Static Content Server](#static-content-server)
+- [Bots](#bots)
+- [URL Shortener and QR Code Generator](#url-shortener-and-qr-code-generator)
+- [Content Management System (CMS)](#content-management-system-cms)
+- [The Finicky Whiskers Game](#the-finicky-whiskers-game)
+- [Accessing External APIs](#accessing-external-apis)
 - [Next Steps](#next-steps)
 
-## Built With Spin
+Spin can be used to build many different types of applications. The following blog articles show how different applications are built with Spin.
 
-Spin can be used to build many different types of applications. The following blog articles show how different applications are built with Spin:
+## Like Button
 
 [How I Built a Like Button for My Blog with Spin](https://www.fermyon.com/blog/how-i-built-a-like-button-for-my-blog-with-spin)
+
+## Social App
 
 The 'Building a Social App with Spin' series covers the process and decision-making of building an authenticated, dynamic, database-backed application and API, right the way from downloading Spin and setting up the project to deploying the finished application to the cloud.
 
@@ -23,13 +31,23 @@ The 'Building a Social App with Spin' series covers the process and decision-mak
 * [Part 3.5: Go Postgres Usage](https://www.fermyon.com/blog/building-a-social-app-with-spin-3-5)
 * [Part 4: Key-Value Storage and Fermyon Cloud](https://www.fermyon.com/blog/building-a-social-app-with-spin-4)
 
+## Static Content Server
+
 [Serving Static Content via WebAssembly](https://www.fermyon.com/blog/serving-static-content-via-webassembly)
+
+## Bots
 
 [Bots With Spin and Fermyon Cloud](https://www.fermyon.com/blog/bots-with-spin-and-fermyon-cloud)
 
+## URL Shortener and QR Code Generator
+
 [Shortlink and QR Code Generator](https://www.fermyon.com/blog/component-reuse)
 
+## Content Management System (CMS)
+
 [Build Your Own Content Management System (CMS) From a Template](https://www.fermyon.com/blog/build-you-own-cms-from-a-template)
+
+## The Finicky Whiskers Game
 
 The 'Finicky Whiskers' series covers the journey of creating a game with an architecture designed to [re-think microservices](https://www.fermyon.com/blog/rethinking-microservices) and showcase how WebAssembly modules can be started, executed, and shut down in the blink of an eye.
 
@@ -40,7 +58,11 @@ The 'Finicky Whiskers' series covers the journey of creating a game with an arch
 * [Part 3: The Microservices](https://www.fermyon.com/blog/finicky-whiskers-part-3-microservices)
 * [Part 4: Spin, Containers, Nomad, and Infrastructure](https://www.fermyon.com/blog/finicky-whiskers-part-4-infrastructure)
 
-- [Accessing external APIs from Spin applications](https://www.fermyon.com/blog/spin-rest-apis)
+## Accessing External APIs
+
+Chances are whatever you are building will want to talk to other endpoints on the web. If so, Spin's HTTP library can help. The following article explains how to access external APIs from within Spin applications.
+
+- [Accessing external APIs](https://www.fermyon.com/blog/spin-rest-apis)
 
 ## Next Steps
 
