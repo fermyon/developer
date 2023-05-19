@@ -39,7 +39,7 @@ The 'Building a Social App with Spin' series covers the process and decision-mak
 
 [Bots With Spin and Fermyon Cloud](https://www.fermyon.com/blog/bots-with-spin-and-fermyon-cloud)
 
-## URL Shortner and QR Code Generator
+## URL Shortener and QR Code Generator
 
 [Shortlink and QR Code Generator](https://www.fermyon.com/blog/component-reuse)
 
