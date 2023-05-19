@@ -149,7 +149,7 @@ type = "redis"
 url = "redis://localhost"
 ```
 
-Similarly, to implement Azure CosmosDB as a backend for Spin's key/value store (instead of SQlite), change the type to `azure_cosmos` and specify your database account details:
+Similarly, to implement Azure CosmosDB as a backend for Spin's key/value store, change the type to `azure_cosmos` and specify your database account details:
 
 ```toml
 [key_value_store.default]
