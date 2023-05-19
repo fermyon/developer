@@ -60,7 +60,7 @@ The 'Finicky Whiskers' series covers the journey of creating a game with an arch
 
 ## Accessing External APIs
 
-Chances are whatever you are building will want to talk to other endpoints on the web. If so, the high-level HTTP library (with the permissions-based capability to keep your app safe) can help. The following article explains how to access external APIs from within Spin applications.
+Chances are whatever you are building will want to talk to other endpoints on the web. If so, Spin's HTTP library can help. The following article explains how to access external APIs from within Spin applications.
 
 - [Accessing external APIs](https://www.fermyon.com/blog/spin-rest-apis)
 
