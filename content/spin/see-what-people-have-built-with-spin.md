@@ -9,7 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/see-what-peop
 - [Social App](#social-app)
 - [Static Content Server](#static-content-server)
 - [Bots](#bots)
-- [URL Shortner and QR Code Generator](#url-shortner-and-qr-code-generator)
+- [URL Shortener and QR Code Generator](#url-shortener-and-qr-code-generator)
 - [Content Management System (CMS)](#content-management-system-cms)
 - [The Finicky Whiskers Game](#the-finicky-whiskers-game)
 - [Accessing External APIs](#accessing-external-apis)
@@ -60,7 +60,9 @@ The 'Finicky Whiskers' series covers the journey of creating a game with an arch
 
 ## Accessing External APIs
 
-- [Accessing external APIs from Spin applications](https://www.fermyon.com/blog/spin-rest-apis)
+Chances are whatever you are building will want to talk to other endpoints on the web. If so, the high-level HTTP library (with the permissions-based capability to keep your app safe) can help. The following article explains how to access external APIs from within Spin applications.
+
+- [Accessing external APIs](https://www.fermyon.com/blog/spin-rest-apis)
 
 ## Next Steps
 
