@@ -139,7 +139,7 @@ You can supply runtime configuration by providing a value for the `--runtime-con
 
 ### Key Value Store Runtime Configuration
 
-Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The only store options are the embedded SQLite database or an external Redis database.
+Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The only store options are the embedded SQLite database, an external Redis database or Azure CosmosDB.
 
 The following is an example of how an application's `runtime-config.toml` file can be configured to use Redis instead. Note the `type` and `url` values, which are set to `redis` and the URL of the Redis host, respectively:
 
@@ -148,6 +148,19 @@ The following is an example of how an application's `runtime-config.toml` file c
 type = "redis"
 url = "redis://localhost"
 ```
+
+Similarly, to implement Azure CosmosDB as a backend for Spin's key/value store (instead of SQlite), change the type to `azure_cosmos` and specify your database account details:
+
+```toml
+[key_value_store.default]
+type = "azure_cosmos"
+key = "<key>"
+account = "<cosmos-account>"
+database = "<cosmos-database>"
+container = "<cosmos-container>"
+```
+
+> Note: The CosmosDB container must be created with the default partition key, `/id`.
 
 Whilst a single default store may be sufficient for certain application use cases, each Spin application can be configured to support multiple stores of any `type`, as shown in the `runtime-config.toml` file below:
 
