@@ -14,7 +14,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/see-what-peop
 - [The Finicky Whiskers Game](#the-finicky-whiskers-game)
 - [Next Steps](#next-steps)
 
-Spin can be used to build many different types of applications. The following blog articles show how different applications are built with Spin:
+Spin can be used to build many different types of applications. The following blog articles show how different applications are built with Spin.
 
 ## Like Button
 
