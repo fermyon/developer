@@ -171,7 +171,7 @@ Hello from the Python SDK
 
 ## An Outbound HTTP Example
 
-This next example will create an outbound request, to obtain a random fact about dogs, which will be returned to the calling code. If you would like to try this out, you can go ahead and update your existing `app.py` file from the previous step; using the following source code:
+This next example will create an outbound request, to obtain a random fact about animals, which will be returned to the calling code. If you would like to try this out, you can go ahead and update your existing `app.py` file from the previous step; using the following source code:
 
 <!-- @nocpy -->
 
@@ -183,16 +183,16 @@ from os import environ
 def handle_request(request):
 
     response = http_send(
-        Request("GET", "https://some-random-api.ml/facts/dog", [], None))
+        Request("GET", "https://random-data-api.fermyon.app/animals/json", [], None))
 
     return Response(200,
                     [("content-type", "text/plain")],
-                    bytes(f"Here is a dog fact: {str(response.body, 'utf-8')}, the environment: {environ}", "utf-8"))
+                    bytes(f"Here is an animal fact: {str(response.body, 'utf-8')}, the environment: {environ}", "utf-8"))
 ```
 
 ### Configuration
 
-The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `some-random-api.ml` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_http_hosts`:
+The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `random-data-api.fermyon.app` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_http_hosts`:
 
 ```
 spin_manifest_version = "1"
@@ -205,7 +205,7 @@ version = "0.1.0"
 [[component]]
 id = "hello-world"
 source = "app.wasm"
-allowed_http_hosts = ["https://some-random-api.ml"]
+allowed_http_hosts = ["random-data-api.fermyon.app"]
 [component.trigger]
 route = "/..."
 [component.build]
@@ -214,7 +214,7 @@ command = "spin py2wasm app -o app.wasm"
 
 ### Building and Running the Application
 
-If we re-build the application with this new configuration and re-run, we will get our new dog fact:
+If we re-build the application with this new configuration and re-run, we will get our new animal fact:
 
 <!-- @selectiveCpy -->
 
@@ -223,7 +223,7 @@ $ spin build
 $ spin up
 ```
 
-A new request now correctly returns a dog fact from the some-random API endpoint.
+A new request now correctly returns an animal fact from the API endpoint.
 
 <!-- @selectiveCpy -->
 
@@ -234,7 +234,7 @@ HTTP/1.1 200 OK
 content-type: text/plain
 content-length: 130
 
-Here is a dog fact: {"fact":"Dogs and wolves split from a common ancestor around 34,000 years ago."}    
+Here is an animal fact: {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}   
 ```
 
 ## An Outbound Redis Example

@@ -93,7 +93,7 @@ HTTP functions and classes are available in the `spin_http` module. The function
 from spin_http import Request, Response, http_send
 
 response = http_send(
-    Request("GET", "https://some-random-api.ml/facts/dog", [], None))
+    Request("GET", "https://random-data-api.fermyon.app/animals/json", [], None))
 ```
 
 **Notes**
@@ -115,7 +115,7 @@ import (
 	spinhttp "github.com/fermyon/spin/sdk/go/http"
 )
 
-res1, err1 := spinhttp.Get("https://some-random-api.ml/facts/dog")
+res1, err1 := spinhttp.Get("https://random-data-api.fermyon.app/animals/json")
 res2, err2 := spinhttp.Post("https://example.com/users", "application/json", json)
 
 request, err := http.NewRequest("PUT", "https://example.com/users/1", bytes.NewBufferString(user1))
@@ -142,7 +142,7 @@ By default, Spin components are not allowed to make outgoing HTTP requests. This
 
 ```toml
 [component]
-allowed_http_hosts = [ "dog-facts.example.com", "api.example.com:8080" ]
+allowed_http_hosts = [ "random-data-api.fermyon.app", "api.example.com:8080" ]
 ```
 
 The Wasm module can make HTTP requests _only_ to the specified hosts. If a port is specified, the module can make requests only to that port; otherwise, the module can make requests only on the default HTTP and HTTPS ports. Requests to other hosts (or ports) will fail with an error.

@@ -76,19 +76,18 @@ familiar if you are a Go developer
 
 If allowed, Spin components can send outbound requests to HTTP endpoints. Let's
 see an example of a component that makes a request to
-[an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
+[an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json) and
 inserts a custom header into the response before returning:
 
 <!-- @nocpy -->
 
 ```go
 // A Spin component written in Go that sends a request to an API
-// with random dog facts.
+// with random animal facts.
 
 package main
 
 import (
- "bytes"
  "fmt"
  "net/http"
  "os"
@@ -98,10 +97,10 @@ import (
 
 func init() {
  spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
-  r, _ := spinhttp.Get("https://some-random-api.ml/facts/dog")
+    resp, _ := spinhttp.Get("https://random-data-api.fermyon.app/animals/json")
 
-  fmt.Fprintln(w, r.Body)
-  fmt.Fprintln(w, r.Header.Get("content-type"))
+  fmt.Fprintln(w, resp.Body)
+  fmt.Fprintln(w, resp.Header.Get("content-type"))
 
   // `spin.toml` is not configured to allow outbound HTTP requests to this host,
   // so this request will fail.
@@ -123,7 +122,7 @@ $ tinygo build -wasm-abi=generic -target=wasi -no-debug -o main.wasm main.go
 ```
 
 Before we can execute this component, we need to add the
-`some-random-api.ml` domain to the application manifest `allowed_http_hosts`
+`random-data-api.fermyon.app` domain to the application manifest `allowed_http_hosts`
 list containing the list of domains the component is allowed to make HTTP
 requests to:
 
@@ -139,7 +138,7 @@ version = "1.0.0"
 [[component]]
 id = "tinygo-hello"
 source = "main.wasm"
-allowed_http_hosts = [ "some-random-api.ml" ]
+allowed_http_hosts = [ "random-data-api.fermyon.app" ]
 [component.trigger]
 route = "/hello"
 ```
@@ -160,7 +159,7 @@ server: spin/0.1.0
 content-length: 85
 date: Fri, 18 Mar 2022 23:27:33 GMT
 
-{{"fact":"Seventy percent of people sign their dog's name on their holiday cards."}}
+{"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}
 ```
 
 > Without the `allowed_http_hosts` field populated properly in `spin.toml`,

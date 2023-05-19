@@ -209,31 +209,37 @@ Hello, there!
 
 If allowed, Spin components can send outbound HTTP requests.
 Let's see an example of a component that makes a request to
-[an API that returns random dog facts](https://some-random-api.ml/facts/dog) and
+[an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json) and
 inserts a custom header into the response before returning:
 
 <!-- @nocpy -->
 
 ```rust
+use anyhow::Result;
+use spin_sdk::{
+    http::{Request, Response},
+    http_component,
+};
+
+/// Send an HTTP request and return the response.
 #[http_component]
-fn hello_world(_req: Request) -> Result<Response> {
-    let mut res = spin_sdk::http::send(
+fn send_outbound(_req: Request) -> Result<Response> {
+    let mut res = spin_sdk::outbound_http::send_request(
         http::Request::builder()
             .method("GET")
-            .uri("https://some-random-api.ml/facts/dog")
+            .uri("https://random-data-api.fermyon.app/animals/json")
             .body(None)?,
     )?;
-
     res.headers_mut()
-        .insert(http::header::SERVER, "spin/0.1.0".try_into()?);
-
+        .insert("spin-component", "rust-outbound-http".try_into()?);
+    println!("{:?}", res);
     Ok(res)
 }
 ```
 
 > The `http::Request::builder()` method is provided by the Rust `http` crate. The `http` crate is already added to projects using the Spin `http-rust` template. If you create a project without using this template, you'll need to add the `http` crate yourself via `cargo add http`.
 
-Before we can execute this component, we need to add the `some-random-api.ml`
+Before we can execute this component, we need to add the `random-data-api.fermyon.app`
 domain to the application manifest `allowed_http_hosts` list containing the list of
 domains the component is allowed to make HTTP requests to:
 
@@ -249,7 +255,7 @@ version = "1.0.0"
 [[component]]
 id = "hello"
 source = "target/wasm32-wasi/release/spinhelloworld.wasm"
-allowed_http_hosts = [ "some-random-api.ml" ]
+allowed_http_hosts = ["random-data-api.fermyon.app"]
 [component.trigger]
 route = "/outbound"
 ```
@@ -268,9 +274,7 @@ content-type: application/json; charset=utf-8
 content-length: 185
 server: spin/0.1.0
 
-{"fact":"It's rumored that, at the end of the Beatles song, 
-\"A Day in the Life,\" Paul McCartney recorded an ultrasonic whistle, 
-audible only to dogs, just for his Shetland sheepdog."}
+{"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}   
 ```
 
 > Without the `allowed_http_hosts` field populated properly in `spin.toml`,
