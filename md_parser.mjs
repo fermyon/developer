@@ -74,7 +74,7 @@ function parseMdFile(file, filepath) {
             documentIndex = {
                 project: file.split("/")[2],
                 title: content.attributes["title"], subheading: subtitle, content: "", keywords: "", subsectionKeywords: "",
-                url: "/" + file.replace(filepath, "") + "#" + subtitle.toLowerCase().replace(/[`~!@#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/g, '')
+                url: "/" + file.replace(filepath, "").replace(".md", "") + "#" + subtitle.toLowerCase().replace(/[`~!@#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/g, '')
                     .replace(/ +/g, '-')
             }
         }
