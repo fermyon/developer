@@ -993,6 +993,12 @@ html.dark-theme {
 		padding-top: 4.25rem;
 	}
 
+	.card-link {
+		&::after {
+			display: none;
+		}
+	}
+
 	.card.project {
 		background: $lightlavender;
 		min-height: 460px;
@@ -1032,7 +1038,7 @@ html.dark-theme {
 			color: $darkplum;
 		}
 
-		a {
+		span {
 			color: white !important;
 
 			&:after {

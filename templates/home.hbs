@@ -14,12 +14,16 @@
                     Projects
                 </p>
                 <ul class="menu-list">
-                    <li><a href="/spin/index" {{#if (active_project request.spin-path-info "/spin/" )}} class="is-active" {{/if}}>Spin</a></li>
-                    <li><a href="/cloud/index" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Fermyon Cloud</a></li>
-                    <li><a href="/bartholomew/index" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active" {{/if}}>Bartholomew</a></li>
+                    <li><a href="/spin/index" {{#if (active_project request.spin-path-info "/spin/" )}}
+                            class="is-active" {{/if}}>Spin</a></li>
+                    <li><a href="/cloud/index" {{#if (active_project request.spin-path-info "/cloud/" )}}
+                            class="is-active" {{/if}}>Fermyon Cloud</a></li>
+                    <li><a href="/bartholomew/index" {{#if (active_project request.spin-path-info "/cloud/" )}}
+                            class="is-active" {{/if}}>Bartholomew</a></li>
                 </ul>
 
-                <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/" target="_blank">Login to Cloud</a>
+                <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/"
+                    target="_blank">Login to Cloud</a>
             </aside>
         </div>
 
@@ -30,76 +34,92 @@
             </section>
 
             <section id="projects">
-                <div  class="columns is-multiline">
-                    
+                <div class="columns is-multiline">
+
                     <!-- projects here -->
                     <div class="column is-one-third-desktop is-full-touch">
-                        <div class="card card-one project">
-                            <div class="card-image dark">
-                                <figure class="image">
-                                    <a href="/cloud/index"><img src="{{site.info.base_url}}/static/image/project-left-cloud-dark.png" alt="Fermyon Cloud" /></a>
-                                </figure>
-                            </div>
-                            <div class="card-image light">
-                                <figure class="image">
-                                    <a href="/cloud/index"><img src="{{site.info.base_url}}/static/image/project-left-cloud-light.png" alt="Fermyon Cloud" /></a>
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <h3><a href="/cloud/index">Deploy &amp; manage cloud native WebAssembly apps</a></h3>
-                                <p>Go from blinking cursor to deployed app in two minutes.</p>
+                        <a class="card-link" href="/cloud/index" target="self">
+                            <div class="card card-one project">
+                                <div class="card-image dark">
+                                    <figure class="image">
+                                        <img src="{{site.info.base_url}}/static/image/project-left-cloud-dark.png"
+                                            alt="Fermyon Cloud" />
+                                    </figure>
+                                </div>
+                                <div class="card-image light">
+                                    <figure class="image"><img
+                                            src="{{site.info.base_url}}/static/image/project-left-cloud-light.png"
+                                            alt="Fermyon Cloud" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h3><span>Deploy &amp; manage cloud native WebAssembly apps</span>
+                                    </h3>
+                                    <p>Go from blinking cursor to deployed app in two minutes.</p>
 
-                                <a class="button is-rounded is-primary" href="/cloud/index"><strong>Learn More</strong></a>
+                                    <span class="button is-rounded is-primary" href="/spin/index"><strong>Learn
+                                            More</strong></span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="column is-one-third-desktop is-full-touch">
-                        <div class="card card-two project">
-                            <div class="card-image dark">
-                                <figure class="image">
-                                    <a href="/spin/index"><img src="{{site.info.base_url}}/static/image/project-left-spin-dark.png" alt="Spin" /></a>
-                                </figure>
-                            </div>
-                            <div class="card-image light">
-                                <figure class="image">
-                                    <a href="/spin/index"><img src="{{site.info.base_url}}/static/image/project-left-spin-light.png" alt="Spin" /></a>
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <h3><a href="/spin/index">Developer tool for serverless WebAssembly apps</a></h3>
-                                <p>Compose serverless applications and quickly deploy to Fermyon Cloud.</p>
+                        <a class="card-link" href="/spin/index" target="self">
+                            <div class="card card-two project">
+                                <div class="card-image dark">
+                                    <figure class="image">
+                                        <img src="{{site.info.base_url}}/static/image/project-left-spin-dark.png"
+                                            alt="Spin" />
+                                    </figure>
+                                </div>
+                                <div class="card-image light">
+                                    <figure class="image">
+                                        <img src="{{site.info.base_url}}/static/image/project-left-spin-light.png"
+                                            alt="Spin" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h3><span>Developer tool for serverless WebAssembly apps</span></h3>
+                                    <p>Compose serverless applications and quickly deploy to Fermyon Cloud.</p>
 
-                                <a class="button is-rounded is-primary" href="/spin/index"><strong>Learn More</strong></a>
+                                    <span class="button is-rounded is-primary"><strong>Learn
+                                            More</strong></span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="column is-one-third-desktop is-full-touch">
-                        <div class="card card-one project">
-                            <div class="card-image dark">
-                                <figure class="image">
-                                    <a href="/bartholomew/index" target="self"><img src="{{site.info.base_url}}/static/image/project-left-bart-dark.png" alt="Bartholemew" /></a>
-                                </figure>
-                            </div>
-                            <div class="card-image light">
-                                <figure class="image">
-                                    <a href="/bartholomew/index" target="self"><img src="{{site.info.base_url}}/static/image/project-left-bart-light.png" alt="Bartholemew" /></a>
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <h3><a href="/bartholomew/index" target="self">A micro-CMS for WebAssembly &amp; Spin</a></h3>
-                                <p>Compiled to WebAssembly, Bartholomew can run in any Spin environment.</p>
+                        <a class="card-link" href="/bartholomew/index" target="self">
+                            <div class="card card-one project">
+                                <div class="card-image dark">
+                                    <figure class="image">
+                                        <img src="{{site.info.base_url}}/static/image/project-left-bart-dark.png"
+                                            alt="Bartholemew" />
+                                    </figure>
+                                </div>
+                                <div class="card-image light">
+                                    <figure class="image">
+                                        <img src="{{site.info.base_url}}/static/image/project-left-bart-light.png"
+                                            alt="Bartholemew" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h3><span>A micro-CMS for WebAssembly &amp;
+                                            Spin</span></h3>
+                                    <p>Compiled to WebAssembly, Bartholomew can run in any Spin environment.</p>
 
-                                <a class="button is-rounded is-primary" href="/bartholomew/index" target="self"><strong>Learn More</strong></a>
+                                    <span class="button is-rounded is-primary"><strong>Learn More</strong></span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                 </div>
             </section>
 
-            <section id="community">
+            <section id=" community">
                 <div class="columns is-multiline">
                     <div class="column is-two-thirds-desktop is-full-touch is-">
                         <h2>Where to find us next</h2>
@@ -145,25 +165,32 @@
 
                         <ul class="connect-links">
                             <li>
-                                <a href="{{site.info.base_url}}/cloud/changelog">Changelog <span class="external"></span></a>
+                                <a href="{{site.info.base_url}}/cloud/changelog">Changelog <span
+                                        class="external"></span></a>
                             </li>
                             <li>
-                                <a href="https://discord.gg/AAFNfS7NGf" target="_blank">Discord <span class="external"></span></a>
+                                <a href="https://discord.gg/AAFNfS7NGf" target="_blank">Discord
+                                    <span class="external"></span></a>
                             </li>
                             <li>
-                                <a href="https://github.com/fermyon" target="_blank">GitHub <span class="external"></span></a>
+                                <a href="https://github.com/fermyon" target="_blank">GitHub
+                                    <span class="external"></span></a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/fermyontech/" target="_blank">Instagram <span class="external"></span></a>
-                            </li>
-                             <li>
-                                <a href="https://www.linkedin.com/company/fermyon/" target="_blank">LinkedIn <span class="external"></span></a>
+                                <a href="https://www.instagram.com/fermyontech/" target="_blank">Instagram <span
+                                        class="external"></span></a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/fermyontech" target="_blank">Twitter <span class="external"></span></a>
+                                <a href="https://www.linkedin.com/company/fermyon/" target="_blank">LinkedIn <span
+                                        class="external"></span></a>
                             </li>
                             <li>
-                                <a href="https://www.youtube.com/channel/UCGgsMYwLxmIgv1lXaActZqw" target="_blank">YouTube <span class="external"></span></a>
+                                <a href="https://twitter.com/fermyontech" target="_blank">Twitter <span
+                                        class="external"></span></a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/channel/UCGgsMYwLxmIgv1lXaActZqw"
+                                    target="_blank">YouTube <span class="external"></span></a>
                             </li>
                         </ul>
                     </div>
@@ -180,4 +207,5 @@
 {{> content_bottom }}
 
 </body>
+
 </html>

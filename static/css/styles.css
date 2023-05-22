@@ -2585,6 +2585,10 @@ html.dark-theme .multitab-content {
   padding-top: 4.25rem;
 }
 
+.documentation > .developer-home-wrap .card-link:after {
+  display: none;
+}
+
 .documentation > .developer-home-wrap .card.project {
   min-height: 460px;
   background: #ece5ee;
@@ -2625,15 +2629,15 @@ html.dark-theme .multitab-content {
   color: #525776;
 }
 
-.documentation > .developer-home-wrap .card.project a {
+.documentation > .developer-home-wrap .card.project span {
   color: #fff !important;
 }
 
-.documentation > .developer-home-wrap .card.project a:after {
+.documentation > .developer-home-wrap .card.project span:after {
   display: none !important;
 }
 
-.documentation > .developer-home-wrap .card.project a:hover {
+.documentation > .developer-home-wrap .card.project span:hover {
   background: none !important;
 }
 
