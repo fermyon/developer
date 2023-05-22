@@ -2630,7 +2630,7 @@ html.dark-theme .multitab-content {
 }
 
 .documentation > .developer-home-wrap .card.project span {
-  color: #fff !important;
+  color: darkplum !important;
 }
 
 .documentation > .developer-home-wrap .card.project span:after {
@@ -3204,7 +3204,7 @@ html.dark-theme .developer-home-wrap .card.project figure.image {
   border-bottom: none;
 }
 
-html.dark-theme .developer-home-wrap .card.project h3 a {
+html.dark-theme .developer-home-wrap .card.project h3 span {
   color: #fff !important;
 }
 
