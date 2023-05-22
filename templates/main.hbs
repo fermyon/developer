@@ -5,16 +5,27 @@
     <div class="columns">
 
         {{! This adds the sidebar }}
-
+        {{#if (active_project request.spin-path-info "/spin/" )}}
+        {{> spin_sidebar }}
+        {{else}}
+        {{#if (active_project request.spin-path-info "/cloud/" )}}
+        {{> cloud_sidebar }}
+        {{else}}
+        {{#if (active_project request.spin-path-info "/bartholomew/" )}}
+        {{> bartholomew_sidebar }}
+        {{/if}}
+        {{/if}}
+        {{/if}}
+        
         <article class="column content content-docs content-docs-wide">
             <section id="type">
 
-            {{#if (eq page.head.title "Not Found")}}
+                {{#if (eq page.head.title "Not Found")}}
                 {{> 404 }}
-            {{else}}
+                {{else}}
                 <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
                 {{{page.body}}}
-            {{/if}}
+                {{/if}}
             </section>
         </article>
 
@@ -25,4 +36,5 @@
 {{> content_bottom }}
 
 </body>
+
 </html>
