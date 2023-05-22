@@ -6,6 +6,15 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/upgrade.md"
 
 ---
+- [Check Spin Version](#check-spin-version)
+- [Upgrade Spin Version](#upgrade-spin-version)
+  - [Upgrade From Source](#upgrade-from-source)
+  - [Upgrading Using Cargo](#upgrading-using-cargo)
+  - [Upgrading Using OS Package Managers](#upgrading-using-os-package-managers)
+- [Upgrade Spin Templates](#upgrade-spin-templates)
+  - [Upgrading Using OS Package Managers](#upgrading-using-os-package-managers-1)
+- [Upgrade Spin Plugins](#upgrade-spin-plugins)
+  - [Upgrading Using OS Package Managers](#upgrading-using-os-package-managers-2)
 
 ## Check Spin Version
 
@@ -47,8 +56,31 @@ If you originally used the installer, you will likely see that Spin is being run
 /usr/local/bin/spin
 ```
 
-## Upgrade From Source
+### Upgrade From Source
 
-## Upgrading Using Cargo
+Todo
 
+### Upgrading Using Cargo
+
+Todo
+
+### Upgrading Using OS Package Managers
+
+Todo
+
+## Upgrade Spin Templates
+
+Todo ... [the Spin CLI](/common/cli-reference#upgrade-templates) ... [upgrade templates](/spin/managing-templates#upgrading-templates) ...
+
+### Upgrading Using OS Package Managers
+
+Todo `apt` and/or `brew`?
+
+## Upgrade Spin Plugins
+
+Todo ... [the Spin CLI](/common/cli-reference#update-plugins) ... [the Spin CLI](/cli-reference#upgrade-plugins) ... [upgrade plugins](/spin/managing-plugins#upgrading-plugins)
+
+### Upgrading Using OS Package Managers
+
+Todo `apt` and/or `brew`?
 
