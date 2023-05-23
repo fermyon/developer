@@ -26,7 +26,7 @@ To check which version of Spin you have, run `spin --version`:
 $ spin --version
 ```
 
-You can compare the output of the above command with the version listed by the [latest](https://github.com/fermyon/spin/releases/latest) tag endpoint, in the [Spin GitHub repository](https://github.com/fermyon/spin).
+To find out if an upgrade is available, compare this version with the [latest release version](https://github.com/fermyon/spin/releases/latest) listed in the Spin GitHub repository.
 
 ## Upgrade Spin Version
 
