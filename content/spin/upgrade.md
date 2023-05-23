@@ -18,7 +18,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/upgrade.md"
 
 ## Check Spin Version
 
-Your existing version of Spin can be checked using the [Spin Command Line Interface (CLI)](/common/cli-reference) command `spin --version`, as shown below:
+To check which version of Spin you have, run `spin --version`:
 
 <!-- @selectiveCpy -->
 
