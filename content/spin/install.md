@@ -11,6 +11,7 @@ keywords = "install"
 - [Verifying the Release Signature](#verifying-the-release-signature)
 - [Building Spin From Source](#building-spin-from-source)
 - [Using Cargo to Install Spin](#using-cargo-to-install-spin)
+- [Install Default Templates and Plugins](#installing-default-templates-and-plugins)
 - [Next Steps](#next-steps)
 
 ## Installing Spin
@@ -21,7 +22,7 @@ Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windo
 
 {{ startTab "Linux"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site:
+There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with [default templates and plugins](#installing-default-templates-and-plugins).
 
 <!-- @selectiveCpy -->
 
@@ -51,7 +52,7 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "macOS"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site:
+There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with [default templates and plugins](#installing-default-templates-and-plugins).
 
 <!-- @selectiveCpy -->
 
@@ -84,6 +85,8 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 If using Windows (PowerShell / cmd.exe), you can download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a>.
 
 Simply unzip the binary release and place the `spin.exe` in your system path.
+
+Next, follow the steps to install the [default templates and plugins](#installing-default-templates-and-plugins).
 
 If you want to use WSL2 (Windows Subsystem for Linux 2), please follow the instructions for using Linux.
 
@@ -150,6 +153,27 @@ $ spin --help
 
 ```bash
 $ rustup update
+```
+
+## Installing Default Templates and Plugins
+
+Spin has a variety of templates and plugins to make it easier to create Spin applications in your favorite programming language. 
+While the install script automatically installs these, if you used a different installation method, the following is a recommended post-installation step:
+
+```sh
+spin templates install --git "https://github.com/fermyon/spin" --upgrade
+spin templates install --git "https://github.com/fermyon/spin-python-sdk" --upgrade
+spin templates install --git "https://github.com/fermyon/spin-js-sdk" --upgrade
+spin plugins update
+spin plugins install js2wasm --yes
+spin plugins install py2wasm --yes
+```
+
+To list installed templates and plugins, run:
+
+```sh
+spin templates list
+spin plugins list
 ```
 
 ## Next Steps

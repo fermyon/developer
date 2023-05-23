@@ -26,7 +26,7 @@ Let's get Spin and take it from nothing to a "hello world" application!
 
 {{ startTab "Linux"}}
 
-Download the `spin` binary using the `install.sh` script hosted on this site:
+Download the `spin` binary along with [default templates and plugins](install.md#installing-default-templates-and-plugins) using the `install.sh` script hosted on this site:
 
 <!-- @selectiveCpy -->
 
@@ -45,7 +45,7 @@ $ sudo mv ./spin /usr/local/bin/spin
 
 {{ startTab "macOS"}}
 
-Download the `spin` binary using the `install.sh` script hosted on this site:
+Download the `spin` binary along with [default templates and plugins](install.md#installing-default-templates-and-plugins) using the `install.sh` script hosted on this site:
 
 <!-- @selectiveCpy -->
 
@@ -68,6 +68,8 @@ Download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-i
 
 Unzip the binary release and place the `spin.exe` in your system path.
 
+Next, follow the steps to install the [default templates and plugins](#installing-default-templates-and-plugins).
+
 {{ blockEnd }}
 {{ blockEnd }}
 
@@ -75,9 +77,13 @@ Unzip the binary release and place the `spin.exe` in your system path.
 
 ## Install the Prerequisites
 
+> If you installed Spin with the install script, you can skip these steps, as the script installs the [default templates and plugins](install.md#installing-default-templates-and-plugins). List installed templates and plugins by running `spin templates list` and `spin plugins list`.
+
 ### Install a Template
 
-The quickest and most convenient way to start a new application is to use a Spin template.  Let's install the templates for your preferred language.
+The quickest and most convenient way to start a new application is to use a Spin template.
+
+Let's install the templates for your preferred language.
 
 {{ tabs "sdk-type" }}
 
