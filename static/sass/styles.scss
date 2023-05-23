@@ -32,6 +32,21 @@ TABLE OF CONTENTS
 */
 
 .documentation {
+	article.content-docs {
+		section#type {
+
+			img {
+				margin-top: 1.333em;
+				margin-bottom: 1.333em;
+				background: rgb(168, 124, 230);
+				background: linear-gradient(50deg, rgba(168, 124, 230, 1) 0%, rgba(230, 210, 241, 1) 100%);
+				padding: 0.3rem;
+				border-radius: 0.75rem;
+				box-shadow: 0 0 67px rgba(25, 25, 25, 0.5);
+			}
+		}
+	}
+
 	aside.menu {
 		ul {
 			margin-bottom: 0rem;
@@ -1039,7 +1054,7 @@ html.dark-theme {
 		}
 
 		span {
-			color: darkplum !important;
+			color: $darkplum !important;
 
 			&:after {
 				display: none !important;

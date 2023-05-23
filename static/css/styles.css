@@ -1749,6 +1749,15 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   background-color: #0000;
 }
 
+.documentation article.content-docs section#type img {
+  background: linear-gradient(50deg, #a87ce6 0%, #e6d2f1 100%);
+  border-radius: .75rem;
+  margin-top: 1.333em;
+  margin-bottom: 1.333em;
+  padding: .3rem;
+  box-shadow: 0 0 67px #19191980;
+}
+
 .documentation aside.menu ul {
   margin-bottom: 0;
 }
@@ -2630,7 +2639,7 @@ html.dark-theme .multitab-content {
 }
 
 .documentation > .developer-home-wrap .card.project span {
-  color: darkplum !important;
+  color: #525776 !important;
 }
 
 .documentation > .developer-home-wrap .card.project span:after {
