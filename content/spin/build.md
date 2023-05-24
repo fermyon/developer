@@ -146,7 +146,7 @@ The [Spin new](/common/cli-reference#new) command automatically configures an ap
 
 {{ startTab "Rust"}}
 
-[Upgrade](/spin/upgrade) to the latest version of Spin. Then ensure that the application's `Cargo.toml` file reflects your Spin version in its `tag` value:
+Upgrade to the latest version of Spin. Then ensure that the application's `Cargo.toml` file reflects your Spin version in its `tag` value:
 
 <!-- @selectiveCpy -->
 
