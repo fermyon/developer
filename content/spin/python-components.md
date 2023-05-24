@@ -332,6 +332,7 @@ redis-cli
 127.0.0.1:6379> get foo
 "bar"
 ```
+
 ## Troubleshooting
 
 If you bump into issues building and running your Python component, here are some common causes of problems.
