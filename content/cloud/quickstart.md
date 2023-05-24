@@ -17,15 +17,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/quickstart.
 
 This guide will get you up and running in the Fermyon Cloud in less than two minutes. To do so, we've already made a Spin application ready for you to deploy to the cloud.
 
-<p style="
-    padding: 15px;
-    background: black;
-">
-<img src="/static/image/cloud-video.png" style="
-    /* margin-left: -50px; */
-    /* margin-right: -50px; */
-">
-</p>
+<p><img src="/static/image/cloud-video.png"></p>
 
 ## Install Spin
 
