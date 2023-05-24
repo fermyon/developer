@@ -1,6 +1,8 @@
 title = "Building Spin components in Go"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
+enable_shortcodes = true
+enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main//content/spin/go-components.md"
 
@@ -12,6 +14,8 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/go-component
 - [Redis Components](#redis-components)
 - [Storing Data in Redis From Go Components](#storing-data-in-redis-from-go-components)
 - [Using Go Packages in Spin Components](#using-go-packages-in-spin-components)
+- [Troubleshooting](#troubleshooting)
+  - [SDK Version](#sdk-version)
 
 > This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Go templates, installing required tools, and creating Go applications.
 
@@ -343,3 +347,34 @@ WASI can be used when implementing a Spin component.
 
 > Make sure to read [the page describing the HTTP trigger](./http-trigger.md) for more
 > details about building HTTP applications.
+
+## Troubleshooting
+
+If you bump into issues building and running your Go component, here are some common causes of problems.
+
+### SDK Version
+
+{{ tabs "sdk-type" }}
+
+{{ startTab "TinyGo" }}
+
+Upgrade to the latest version of Spin. Then ensure that the application's `go.mod` file reflects your Spin version:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin --version
+spin 1.1.0
+```
+
+Go.mod file example:
+
+```
+// -- snip --
+require github.com/fermyon/spin/sdk/go v1.1.0
+// -- snip --
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}

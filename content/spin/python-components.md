@@ -1,6 +1,7 @@
 title = "Building Spin Components in Python"
 template = "spin_main"
 date = "2023-02-28T02:00:00Z"
+enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main//content/spin/python-components.md"
 
@@ -16,6 +17,8 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/python-compo
 - [An Outbound Redis Example](#an-outbound-redis-example)
   - [Configuration](#configuration-1)
   - [Building and Running the Application](#building-and-running-the-application-2)
+- [Troubleshooting](#troubleshooting)
+  - [SDK Version](#sdk-version)
 
 With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
 
@@ -329,3 +332,18 @@ redis-cli
 127.0.0.1:6379> get foo
 "bar"
 ```
+## Troubleshooting
+
+If you bump into issues building and running your Python component, here are some common causes of problems.
+
+### SDK Version
+
+{{ tabs "sdk-type" }}
+
+{{ startTab "Python" }}
+
+Spin applications written in Python do not require explicit SDK version configuration. Just ensure that you have the latest version of the `http-py` template and `py2wasm` plugin installed. For information please see the [Python section](/spin/python-components) of the language guide, as well as the [managing templates](/spin/managing-templates) and [managing plugins](/spin/managing-plugins) documentation.
+
+{{ blockEnd }}
+
+{{ blockEnd }}

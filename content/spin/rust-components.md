@@ -1,6 +1,7 @@
 title = "Building Spin components in Rust"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
+enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main//content/spin/rust-components.md"
 
@@ -16,8 +17,9 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/rust-compone
   - [Serializing Objects to the Key-Value Store](#serializing-objects-to-the-key-value-store)
 - [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
-- [Troubleshooting](#troubleshooting)
 - [Manually Creating New Projects With Cargo](#manually-creating-new-projects-with-cargo)
+- [Troubleshooting](#troubleshooting)
+  - [SDK Version](#sdk-version)
 
 Spin aims to have best-in-class support for building components in Rust, and
 writing such components should be familiar for Rust developers.
@@ -448,22 +450,6 @@ annotated using the `http_component` macro, compiled to the
 This means that any [crate](https://crates.io) that compiles to `wasm32-wasi` can
 be used when implementing the component.
 
-## Troubleshooting
-
-If you bump into issues building and running your Rust component, here are some common causes of problems:
-
-- Make sure `cargo` is present in your path
-- Make sure the [Rust](https://www.rust-lang.org/) version is recent.
-  - To check: run  `cargo --version`.  The Spin SDK needs Rust 1.64 or above.
-  - To update: run `rustup update`.
-- Make sure the `wasm32-wasi` compiler target is installed.
-  - To check: run `rustup target list --installed` and check that `wasm32-wasi` is on the list.
-  - To install: run `rustup target add wasm32-wasi`.
-- Make sure you are building in `release` mode.  Spin manifests refer to your Wasm file by a path, and the default path corresponds to `release` builds.
-  - To build manually: run `cargo build --release --target wasm32-wasi`.
-  - If you're using `spin build` and the templates, this should be set up correctly for you.
-- Make sure that the `source` field in the component manifest match the path and name of the Wasm file in `target/wasm32-wasi/release`. These could get out of sync if you renamed the Rust package in its `Cargo.toml`.
-
 ## Manually Creating New Projects With Cargo
 
 The recommended way of creating new Spin projects is by starting from a template.
@@ -505,3 +491,48 @@ wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", re
 ```
 
 > `wit-bindgen` evolves rapidly to track draft standards.  Very recent versions of `wit-bindgen` are unlikely to work correctly with Spin.  So the dependency must be pinned to a specific `rev`.  Over time, Spin expects to track "peninsulas of stability" in the evolving standards.
+
+## Troubleshooting
+
+If you bump into issues building and running your Rust component, here are some common causes of problems:
+
+- Make sure `cargo` is present in your path
+- Make sure the [Rust](https://www.rust-lang.org/) version is recent.
+  - To check: run  `cargo --version`.  The Spin SDK needs Rust 1.64 or above.
+  - To update: run `rustup update`.
+- Make sure the `wasm32-wasi` compiler target is installed.
+  - To check: run `rustup target list --installed` and check that `wasm32-wasi` is on the list.
+  - To install: run `rustup target add wasm32-wasi`.
+- Make sure the `wasm32-unknown-unknown` compiler target is installed.
+  - To check: run `rustup target list --installed` and check that `wasm32-unknown-unknown` is on the list.
+  - To install: run `rustup target add wasm32-unknown-unknown`.
+- Make sure you are building in `release` mode.  Spin manifests refer to your Wasm file by a path, and the default path corresponds to `release` builds.
+  - To build manually: run `cargo build --release --target wasm32-wasi`.
+  - If you're using `spin build` and the templates, this should be set up correctly for you.
+- Make sure that the `source` field in the component manifest match the path and name of the Wasm file in `target/wasm32-wasi/release`. These could get out of sync if you renamed the Rust package in its `Cargo.toml`.
+
+### SDK Version
+
+{{ tabs "sdk-type" }}
+
+{{ startTab "Rust"}}
+
+Upgrade to the latest version of Spin. Then ensure that the application's `Cargo.toml` file reflects your Spin version in its `tag` value:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin --version
+spin 1.1.0
+```
+
+Cargo.toml example:
+
+```toml
+# The Spin SDK.
+spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v1.1.0" }
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}

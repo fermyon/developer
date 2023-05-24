@@ -17,6 +17,8 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/javascript-c
 - [Using External NPM Libraries](#using-external-npm-libraries)
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
 - [Caveats](#caveats)
+- [Troubleshooting](#troubleshooting)
+  - [SDK Version](#sdk-version)
 
 With JavaScript being a very popular language, Spin provides support for building components with it using the experimental SDK. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. 
 
@@ -403,3 +405,39 @@ These are some of the suggested libraries that have been tested and confired to 
 - All `spinSdk` related functions and methods can be called only inside the `handleRequest` function. This includes the usage of `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
 - Only a subset of the browser and `Node.js` APIs are implemented.
 - The support for Crypto  module is limited. The methods currently supported are `crypto.getRandomValues`, `crypto.subtle.digest`, `cryto.createHash` and `crypto.createHmac`
+
+## Troubleshooting
+
+If you bump into issues building and running your Javascript component, here are some common causes of problems.
+
+### SDK Version
+
+{{ tabs "sdk-type" }}
+
+{{ startTab "TypeScript" }}
+
+Run the Spin CLIs [plugin update](/common/cli-reference#update-plugins) and [plugin upgrade](/common/cli-reference#upgrade-plugins) commands. Then check the plugin version via the Spin CLIs [spin plugins list](https://developer.fermyon.com/common/cli-reference#list-plugins) command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins list  
+js2wasm 0.1.0
+js2wasm 0.2.0
+js2wasm 0.3.0
+js2wasm 0.4.0 [installed]
+// -- snip --
+```
+
+Ensure that the application's `package.json` file reflects the above version:
+
+```json
+// -- snip --
+  "devDependencies": {
+    "@fermyon/spin-sdk": "^0.4.0",
+// -- snip --
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
