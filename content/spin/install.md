@@ -11,7 +11,7 @@ keywords = "install"
 - [Verifying the Release Signature](#verifying-the-release-signature)
 - [Building Spin From Source](#building-spin-from-source)
 - [Using Cargo to Install Spin](#using-cargo-to-install-spin)
-- [Install Default Templates and Plugins](#installing-default-templates-and-plugins)
+- [Installing Templates and Plugins](#installing-templates-and-plugins)
 - [Next Steps](#next-steps)
 
 ## Installing Spin
@@ -22,7 +22,7 @@ Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windo
 
 {{ startTab "Linux"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with [default templates and plugins](#installing-default-templates-and-plugins).
+There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins.
 
 <!-- @selectiveCpy -->
 
@@ -52,7 +52,7 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "macOS"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with [default templates and plugins](#installing-default-templates-and-plugins).
+There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of templates and plugins.
 
 <!-- @selectiveCpy -->
 
@@ -86,7 +86,7 @@ If using Windows (PowerShell / cmd.exe), you can download <a href="https://githu
 
 Simply unzip the binary release and place the `spin.exe` in your system path.
 
-Next, follow the steps to install the [default templates and plugins](#installing-default-templates-and-plugins).
+Next, we recommend following the steps to install a starter set of [templates and plugins](#installing-templates-and-plugins).
 
 If you want to use WSL2 (Windows Subsystem for Linux 2), please follow the instructions for using Linux.
 
@@ -133,6 +133,8 @@ $ ./target/release/spin --help
 $ sudo apt-get install build-essential libssl-dev pkg-config
 ```
 
+This does not install any Spin templates or plugins. For a starter list, see the [Installing Templates and Plugins section](#installing-templates-and-plugins).
+
 ## Using Cargo to Install Spin
 
 If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installation.html), you can clone the repo and install it to your path:
@@ -155,10 +157,12 @@ $ spin --help
 $ rustup update
 ```
 
-## Installing Default Templates and Plugins
+This does not install any Spin templates or plugins. For a starter list, see the [Installing Templates and Plugins section](#installing-templates-and-plugins).
+
+## Installing Templates and Plugins
 
 Spin has a variety of templates and plugins to make it easier to create Spin applications in your favorite programming language. 
-While the install script automatically installs these, if you used a different installation method, the following is a recommended post-installation step:
+The install script automatically installs a starter set of templates and plugins, namely templates from the Spin repository and JavaScript and Python toolchain plugins. If you used a different installation method, the following is a recommended post-installation step:
 
 ```sh
 spin templates install --git "https://github.com/fermyon/spin" --upgrade
@@ -169,10 +173,15 @@ spin plugins install js2wasm --yes
 spin plugins install py2wasm --yes
 ```
 
-To list installed templates and plugins, run:
+To list installed templates, run:
 
 ```sh
 spin templates list
+```
+
+To list installed and available plugins, run:
+
+```sh
 spin plugins list
 ```
 
