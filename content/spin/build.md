@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/spin/build.md"
 ---
 
 - [Setting Up for `spin build`](#setting-up-for-spin-build)
+- [Spin SDK Version](#spin-sdk-version)
 - [Running `spin build`](#running-spin-build)
 - [Running the Application After Build](#running-the-application-after-build)
 - [Overriding the Working Directory](#overriding-the-working-directory)
@@ -136,6 +137,87 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 {{ blockEnd }}
 
 > The output of the build command _must_ match the component's `source` path.  If you change the `build` or `source` attributes, make sure to keep them in sync.
+
+## Spin SDK Version
+
+The [Spin new](/common/cli-reference#new) command automatically configures an application to use the latest SDK for a given language. If you are revisiting an application, please ensure that your existing application's SDK references are up to date. See examples below:
+
+{{ tabs "sdk-type" }}
+
+{{ startTab "Rust"}}
+
+[Upgrade](/spin/upgrade) to the latest version of Spin. Then ensure that the application's `Cargo.toml` file reflects your Spin version in its `tag` value:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin --version
+spin 1.1.0
+```
+
+Cargo.toml example:
+
+```toml
+# The Spin SDK.
+spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v1.1.0" }
+```
+
+{{ blockEnd }}
+
+{{ startTab "TypeScript" }}
+
+Run the Spin CLIs [plugin update](/common/cli-reference#update-plugins) and [plugin upgrade](/common/cli-reference#upgrade-plugins) commands. Then check the plugin version via the Spin CLIs [spin plugins list](https://developer.fermyon.com/common/cli-reference#list-plugins) command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins list  
+js2wasm 0.1.0
+js2wasm 0.2.0
+js2wasm 0.3.0
+js2wasm 0.4.0 [installed]
+// -- snip --
+```
+
+Ensure that the application's `package.json` file reflects the above version:
+
+```json
+// -- snip --
+  "devDependencies": {
+    "@fermyon/spin-sdk": "^0.4.0",
+// -- snip --
+```
+
+{{ blockEnd }}
+
+{{ startTab "Python" }}
+
+Spin applications written in Python do not require explicit SDK version configuration. Just ensure that you have the latest version of the `http-py` template and `py2wasm` plugin installed. For information please see the [Python section](/spin/python-components) of the language guide, as well as the [managing templates](/spin/managing-templates) and [managing plugins](/spin/managing-plugins) documentation.
+
+{{ blockEnd }}
+
+{{ startTab "TinyGo" }}
+
+[Upgrade](/spin/upgrade) to the latest version of Spin. Then ensure that the application's `go.mod` file reflects your Spin version:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin --version
+spin 1.1.0
+```
+
+Go.mod file example:
+
+```
+// -- snip --
+require github.com/fermyon/spin/sdk/go v1.1.0
+// -- snip --
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 ## Running `spin build`
 
