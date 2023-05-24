@@ -198,7 +198,7 @@ Spin applications written in Python do not require explicit SDK version configur
 
 {{ startTab "TinyGo" }}
 
-[Upgrade](/spin/upgrade) to the latest version of Spin. Then ensure that the application's `go.mod` file reflects your Spin version:
+Upgrade to the latest version of Spin. Then ensure that the application's `go.mod` file reflects your Spin version:
 
 <!-- @selectiveCpy -->
 
