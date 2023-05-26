@@ -86,7 +86,7 @@ If using Windows (PowerShell / cmd.exe), you can download <a href="https://githu
 
 Simply unzip the binary release and place the `spin.exe` in your system path.
 
-Next, we recommend you [install a starter set of templates and plugins](#installing-templates-and-plugins).
+This does not install any Spin templates or plugins. For a starter list, see the [Installing Templates and Plugins section](#installing-templates-and-plugins).
 
 If you want to use WSL2 (Windows Subsystem for Linux 2), please follow the instructions for using Linux.
 
