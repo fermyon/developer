@@ -168,7 +168,7 @@ Note: The Go templates are in a repo that contains several other languages; they
 
 ### Install the Tools
 
-Some languages require additional tool support for Wasm.
+Some languages require additional tool support for Wasm:
 
 {{ tabs "sdk-type" }}
 
@@ -228,7 +228,7 @@ You'll need the TinyGo compiler, as the standard Go compiler does not yet suppor
 
 ## Create Your First Application
 
-Now you are ready to create your first Spin application.
+Now you are ready to create your first Spin application:
 
 {{ tabs "sdk-type" }}
 
@@ -334,7 +334,7 @@ fn handle_hello_rust(req: Request) -> Result<Response> {
 
 {{ startTab "TypeScript"}}
 
-Use the `spin new` command and the `http-ts` template to scaffold a new Spin application.  (If you prefer JavaScript to TypeScript, the `http-js` template is very similar.)
+Use the `spin new` command and the `http-ts` template to scaffold a new Spin application.  (If you prefer JavaScript to TypeScript, the `http-js` template is very similar.):
 
 <!-- @selectiveCpy -->
 
@@ -366,7 +366,7 @@ $ tree
 └── webpack.config.js
 ```
 
-The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route.
+The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route:
 
 <!-- @nocpy -->
 
@@ -401,7 +401,7 @@ code for a Spin HTTP component written in TypeScript — a regular function name
 takes an HTTP request as a parameter and returns an HTTP response.  (The
 JavaScript version looks slightly different, but is still a function with
 the same signature.)  The Spin `js2wasm` plugin looks for the `handleRequest` function
-by name when building your application into a Wasm module.
+by name when building your application into a Wasm module:
 
 <!-- @nocpy -->
 
@@ -597,7 +597,7 @@ func main() {}
 
 ## Build Your Application
 
-The Spin template creates starter source code.  Now you need to turn that into a Wasm module.  The template puts build instructions for each component into the manifest.  Use the `spin build` command to run them!
+The Spin template creates starter source code.  Now you need to turn that into a Wasm module.  The template puts build instructions for each component into the manifest.  Use the `spin build` command to run them:
 
 {{ tabs "sdk-type" }}
 
