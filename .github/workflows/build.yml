@@ -16,12 +16,10 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install spin
-        uses: engineerd/configurator@v0.0.8
+      - name: Setup Spin
+        uses: fermyon/actions/spin/setup@v1
         with:
-          name: "spin"
-          url: "https://github.com/fermyon/spin/releases/download/v0.10.1/spin-v0.10.1-linux-amd64.tar.gz"
-          pathInArchive: "spin"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install bart
         run: |
@@ -36,6 +34,10 @@ jobs:
       - name: Install npm packages
         run: |
           npm ci
+
+      - name: Build app
+        run: |
+          spin build
 
       - name: Run npm tests
         run: |
