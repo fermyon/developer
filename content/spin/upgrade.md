@@ -6,19 +6,17 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/upgrade.md"
 
 ---
-- [Check Spin Version](#check-spin-version)
-- [Upgrade Spin Version](#upgrade-spin-version)
-  - [Upgrade From Source](#upgrade-from-source)
-  - [Upgrading Using Cargo](#upgrading-using-cargo)
-  - [Upgrading Using OS Package Managers](#upgrading-using-os-package-managers)
-- [Upgrade Spin Templates](#upgrade-spin-templates)
-  - [Upgrading Using OS Package Managers](#upgrading-using-os-package-managers-1)
-- [Upgrade Spin Plugins](#upgrade-spin-plugins)
-  - [Upgrading Using OS Package Managers](#upgrading-using-os-package-managers-2)
+- [Are You on the Latest Version?](#are-you-on-the-latest-version)
+- [Upgrade Spin](#upgrade-spin)
+  - [Cargo](#cargo)
+  - [Installer](#installer)
+  - [Source](#source)
+- [Troubleshooting](#troubleshooting)
+  - [Not Seeing the Latest Version?](#not-seeing-the-latest-version)
 
-## Check Spin Version
+## Are You on the Latest Version?
 
-To check which version of Spin you have, run `spin --version`:
+The best way to know if you're on the latest version of Spin is to run `spin --version`:
 
 <!-- @selectiveCpy -->
 
@@ -26,13 +24,15 @@ To check which version of Spin you have, run `spin --version`:
 $ spin --version
 ```
 
-To find out if an upgrade is available, compare this version with the [latest release version](https://github.com/fermyon/spin/releases/latest) listed in the Spin GitHub repository.
+You can compare the output from the above command with the [latest release version](https://github.com/fermyon/spin/releases/latest) listed in the Spin GitHub repository.
 
-## Upgrade Spin Version
+## Upgrade Spin
 
-As Spin can be installed in many ways, and therefore the upgrade procedure can differ between users. Here are a few suggested ways to upgrade Spin to the latest version.
+Spin can be installed in many ways, and therefore the upgrade procedure can differ between users. Here are a few suggested ways to upgrade Spin to the latest version. If you're not sure how or where you installed your current version of Spin try using the `which` command on [Linux and macOS](https://linux.die.net/man/1/which) and the `where` command on [Windows](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/where), as shown below:
 
-Firstly you might want to confirm where Spin is being run from, on your system. On Linux and macOS systems this can be done by using the `which` command, as shown below:
+{{ tabs "os" }}
+
+{{ startTab "Linux"}}
 
 <!-- @selectiveCpy -->
 
@@ -40,15 +40,47 @@ Firstly you might want to confirm where Spin is being run from, on your system. 
 $ which spin
 ```
 
-If you originally installed Spin using cargo, the above command will return something like the following:
+{{ blockEnd }}
+
+{{ startTab "macOS"}}
+
+<!-- @selectiveCpy -->
+
+```bash
+$ which spin
+```
+
+{{ blockEnd }}
+
+{{ startTab "Windows"}}
+
+<!-- @selectiveCpy -->
+
+```bash
+$ where spin
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+### Cargo
+
+If you originally followed the documentation's [Cargo install method](/spin/install#using-cargo-to-install-spin), please revisit to reinstall.
+
+> Hint: Your Spin executable will likely be in the following location:
 
 <!-- @nocpy -->
 
 ```bash
-
+~/.cargo/bin/spin
 ```
 
-If you originally used the installer, you will likely see that Spin is being run from a local `bin` directory. For example:
+### Installer 
+
+If you originally followed the documentation's [installer script method](/spin/install#installing-spin), please revisit to reinstall.
+
+> Hint: Your Spin executable will likely be in the following location:
 
 <!-- @nocpy -->
 
@@ -56,31 +88,33 @@ If you originally used the installer, you will likely see that Spin is being run
 /usr/local/bin/spin
 ```
 
-### Upgrade From Source
+### Source
 
-Todo
+If you followed the documentation's [install from source method](/spin/install#building-spin-from-source) please revisit to reinstall.
 
-### Upgrading Using Cargo
+> Hint: Your Spin executable will likely be in the following location (where you originally cloned the Spin repository):
 
-Todo
+```bash
+~/spin/target/release/spin
+```
 
-### Upgrading Using OS Package Managers
+## Troubleshooting
 
-Todo
+If you have upgraded Spin and don't see the newer version, please consider the following.
 
-## Upgrade Spin Templates
+### Not Seeing the Latest Version?
 
-Todo ... [the Spin CLI](/common/cli-reference#upgrade-templates) ... [upgrade templates](/spin/managing-templates#upgrading-templates) ...
+It may be possible that you have installed Spin **using more than one** of the above methods. In this case, the Spin executable that runs is the one that is listed first in your `PATH` system variable. 
 
-### Upgrading Using OS Package Managers
+If you may have upgraded Spin yet still see the old version using `spin --version`, this can be due to the order of precedence in your `PATH`. Try echoing your path to the screen and checking to see whether the location of your intended Spin executable is listed before or after other pre-existing installation paths:
 
-Todo `apt` and/or `brew`?
+```bash
+echo $PATH
+/Users/my_user/.cargo/bin:/usr/local/bin
+```
 
-## Upgrade Spin Plugins
+> Paths are separated by the `:` (colon)
 
-Todo ... [the Spin CLI](/common/cli-reference#update-plugins) ... [the Spin CLI](/cli-reference#upgrade-plugins) ... [upgrade plugins](/spin/managing-plugins#upgrading-plugins)
+In the above case, the [Cargo install method](/spin/install#using-cargo-to-install-spin)'s installation will take precedence over the [installer script method](/spin/install#installing-spin)'s installation. 
 
-### Upgrading Using OS Package Managers
-
-Todo `apt` and/or `brew`?
-
+In this case, you can either remove the Cargo installation of Spin using `cargo uninstall spin-cli` or update your system path to prioritize the Spin binary path that you prefer.
