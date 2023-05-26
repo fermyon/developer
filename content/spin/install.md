@@ -16,13 +16,13 @@ keywords = "install"
 
 ## Installing Spin
 
-Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windows (amd64).
+Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windows (amd64):
 
 {{ tabs "os" }}
 
 {{ startTab "Linux"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins.
+There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins:
 
 <!-- @selectiveCpy -->
 
@@ -52,7 +52,7 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "macOS"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of templates and plugins.
+There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of templates and plugins:
 
 <!-- @selectiveCpy -->
 
