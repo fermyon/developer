@@ -47,7 +47,7 @@ jobs:
       runs-on: ubuntu-latest
       if: ${{ github.repository_owner == 'fermyon' }}
       outputs:
-        oci_ref: ${{ steps.oci_ref.outputs.oci_ref }}
+        oci_ref: ${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE_NAME }}@${{ steps.push.outputs.digest }}
       steps:
         - uses: actions/checkout@v3
 
@@ -78,22 +78,21 @@ jobs:
           run: |
             npm run build-index
 
-        - name: Construct OCI image reference
-          id: oci_ref
+        - name: Construct OCI image tag
+          shell: bash
           run: |
-            tag=latest
-            if [[ "${{ github.event_name }}" != "push" ]]; then
-              tag=canary
-            fi
-            echo "oci_ref=${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE_NAME }}:${tag}" >> $GITHUB_OUTPUT
+            [[ "${{ github.event_name }}" == "push" ]] && \
+              echo "IMAGE_TAG=latest" >> $GITHUB_ENV || \
+              echo "IMAGE_TAG=canary" >> $GITHUB_ENV
 
         - name: Login and Publish Spin app
+          id: push
           uses: fermyon/actions/spin/push@v1
           with:
             registry: ${{ env.OCI_REGISTRY }}
             registry_username: fermyon
             registry_password: ${{ secrets.DOCKERHUB_PAT }}
-            registry_reference: ${{ steps.oci_ref.outputs.oci_ref }}
+            registry_reference: ${{ env.OCI_REGISTRY }}/${{ env.OCI_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
         - name: Cleanup login
           if: ${{ always() }}
