@@ -165,7 +165,7 @@ Spin has a variety of templates and plugins to make it easier to create Spin app
 The install script automatically installs a starter set of templates and plugins, namely templates from the Spin repository and JavaScript and Python toolchain plugins. If you used a different installation method, the following is a recommended post-installation step:
 
 ```sh
-spin templates install --git "https://github.com/fermyon/spin" --upgrade
+spin templates install --git https://github.com/fermyon/spin --upgrade
 spin templates install --git "https://github.com/fermyon/spin-python-sdk" --upgrade
 spin templates install --git "https://github.com/fermyon/spin-js-sdk" --upgrade
 spin plugins update
