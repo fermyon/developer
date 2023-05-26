@@ -77,9 +77,7 @@ Unzip the binary release and place the `spin.exe` in your system path.
 
 ### Install a Template
 
-The quickest and most convenient way to start a new application is to use a Spin template.
-
-Let's install the templates for your preferred language.
+The quickest and most convenient way to start a new application is to install and use a Spin template for your preferred language:
 
 {{ tabs "sdk-type" }}
 
@@ -176,7 +174,7 @@ Some languages require additional tool support for Wasm.
 
 {{ startTab "Rust"}}
 
-You'll need the `wasm32-wasi` target for Rust.
+You'll need the `wasm32-wasi` target for Rust:
 
 <!-- @selectiveCpy -->
 
@@ -190,7 +188,7 @@ $ rustup target add wasm32-wasi
 
 {{ startTab "TypeScript" }}
 
-You'll need the Spin `js2wasm` plugin.
+You'll need the Spin `js2wasm` plugin:
 
 <!-- @selectiveCpy -->
 
@@ -205,7 +203,7 @@ $ spin plugins install js2wasm --yes
 
 {{ startTab "Python" }}
 
-You'll need the Spin `py2wasm` plugin.
+You'll need the Spin `py2wasm` plugin:
 
 <!-- @selectiveCpy -->
 
@@ -236,7 +234,7 @@ Now you are ready to create your first Spin application.
 
 {{ startTab "Rust"}}
 
-Use the `spin new` command and the `http-rust` template to scaffold a new Spin application.
+Use the `spin new` command and the `http-rust` template to scaffold a new Spin application:
 
 <!-- @selectiveCpy -->
 
@@ -276,7 +274,7 @@ $ tree
     └── lib.rs
 ```
 
-The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route.
+The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route:
 
 <!-- @nocpy -->
 
