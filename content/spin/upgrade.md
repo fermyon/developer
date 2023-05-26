@@ -24,7 +24,9 @@ The best way to know if you're on the latest version of Spin is to run `spin --v
 $ spin --version
 ```
 
-You can compare the output from the above command with the [latest release version](https://github.com/fermyon/spin/releases/latest) listed in the Spin GitHub repository.
+You can compare the output from the above command with the [latest release release](https://github.com/fermyon/spin/releases/latest) listed in the Spin GitHub repository (which is also shown in the image below):
+
+![spin version image](https://img.shields.io/github/v/release/fermyon/spin)
 
 ## Upgrade Spin
 
