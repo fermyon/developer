@@ -106,7 +106,7 @@ If you have upgraded Spin and don't see the newer version, please consider the f
 
 It may be possible that you have installed Spin **using more than one** of the above methods. In this case, the Spin executable that runs is the one that is listed first in your `PATH` system variable. 
 
-If you may have upgraded Spin yet still see the old version using `spin --version`, this can be due to the order of precedence in your `PATH`. Try echoing your path to the screen and checking to see whether the location of your intended Spin executable is listed before or after other pre-existing installation paths:
+If you have upgraded Spin, yet still see the old version, using `spin --version`, this can be due to the order of precedence in your `PATH`. Try echoing your path to the screen and checking to see whether the location of your intended Spin executable is listed before or after other pre-existing installation paths:
 
 ```bash
 echo $PATH
