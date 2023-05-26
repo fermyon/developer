@@ -26,7 +26,7 @@ Let's get Spin and take it from nothing to a "hello world" application!
 
 {{ startTab "Linux"}}
 
-Download the `spin` binary along with a starter set pf templates and plugins using the `install.sh` script hosted on this site:
+Download the `spin` binary along with a starter set of templates and plugins using the `install.sh` script hosted on this site:
 
 <!-- @selectiveCpy -->
 
