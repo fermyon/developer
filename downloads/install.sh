@@ -125,6 +125,18 @@ fancy_print 0 "Step 3: Removing the downloaded tarball"
 rm $FILE
 fancy_print 0 "Done...\n"
 
+# Install default templates
+fancy_print 0 "Step 4: Install default templates"
+./spin templates install --git "https://github.com/fermyon/spin" --upgrade
+./spin templates install --git "https://github.com/fermyon/spin-python-sdk" --upgrade
+./spin templates install --git "https://github.com/fermyon/spin-js-sdk" --upgrade
+
+# Install default plugins
+fancy_print 0 "Step 5: Install default plugins"
+./spin plugins update
+./spin plugins install js2wasm --yes
+./spin plugins install py2wasm --yes
+
 # Direct to quicks-start doc
 fancy_print 0 "You're good to go. Check here for the next steps: https://developer.fermyon.com/spin/quickstart"
 fancy_print 0 "Run './spin' to get started"

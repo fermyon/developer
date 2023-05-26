@@ -26,7 +26,7 @@ Let's get Spin and take it from nothing to a "hello world" application!
 
 {{ startTab "Linux"}}
 
-Download the `spin` binary using the `install.sh` script hosted on this site:
+Download the `spin` binary along with a starter set of templates and plugins using the `install.sh` script hosted on this site:
 
 <!-- @selectiveCpy -->
 
@@ -45,7 +45,7 @@ $ sudo mv ./spin /usr/local/bin/spin
 
 {{ startTab "macOS"}}
 
-Download the `spin` binary using the `install.sh` script hosted on this site:
+Download the `spin` binary along with a starter set of templates and plugins using the `install.sh` script hosted on this site:
 
 <!-- @selectiveCpy -->
 
@@ -77,7 +77,7 @@ Unzip the binary release and place the `spin.exe` in your system path.
 
 ### Install a Template
 
-The quickest and most convenient way to start a new application is to use a Spin template.  Let's install the templates for your preferred language.
+The quickest and most convenient way to start a new application is to install and use a Spin template for your preferred language:
 
 {{ tabs "sdk-type" }}
 
@@ -168,13 +168,13 @@ Note: The Go templates are in a repo that contains several other languages; they
 
 ### Install the Tools
 
-Some languages require additional tool support for Wasm.
+Some languages require additional tool support for Wasm:
 
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
 
-You'll need the `wasm32-wasi` target for Rust.
+You'll need the `wasm32-wasi` target for Rust:
 
 <!-- @selectiveCpy -->
 
@@ -188,7 +188,7 @@ $ rustup target add wasm32-wasi
 
 {{ startTab "TypeScript" }}
 
-You'll need the Spin `js2wasm` plugin.
+You'll need the Spin `js2wasm` plugin:
 
 <!-- @selectiveCpy -->
 
@@ -203,7 +203,7 @@ $ spin plugins install js2wasm --yes
 
 {{ startTab "Python" }}
 
-You'll need the Spin `py2wasm` plugin.
+You'll need the Spin `py2wasm` plugin:
 
 <!-- @selectiveCpy -->
 
@@ -228,13 +228,13 @@ You'll need the TinyGo compiler, as the standard Go compiler does not yet suppor
 
 ## Create Your First Application
 
-Now you are ready to create your first Spin application.
+Now you are ready to create your first Spin application:
 
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
 
-Use the `spin new` command and the `http-rust` template to scaffold a new Spin application.
+Use the `spin new` command and the `http-rust` template to scaffold a new Spin application:
 
 <!-- @selectiveCpy -->
 
@@ -274,7 +274,7 @@ $ tree
     └── lib.rs
 ```
 
-The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route.
+The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route:
 
 <!-- @nocpy -->
 
@@ -334,7 +334,7 @@ fn handle_hello_rust(req: Request) -> Result<Response> {
 
 {{ startTab "TypeScript"}}
 
-Use the `spin new` command and the `http-ts` template to scaffold a new Spin application.  (If you prefer JavaScript to TypeScript, the `http-js` template is very similar.)
+Use the `spin new` command and the `http-ts` template to scaffold a new Spin application.  (If you prefer JavaScript to TypeScript, the `http-js` template is very similar.):
 
 <!-- @selectiveCpy -->
 
@@ -366,7 +366,7 @@ $ tree
 └── webpack.config.js
 ```
 
-The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route.
+The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route:
 
 <!-- @nocpy -->
 
@@ -401,7 +401,7 @@ code for a Spin HTTP component written in TypeScript — a regular function name
 takes an HTTP request as a parameter and returns an HTTP response.  (The
 JavaScript version looks slightly different, but is still a function with
 the same signature.)  The Spin `js2wasm` plugin looks for the `handleRequest` function
-by name when building your application into a Wasm module.
+by name when building your application into a Wasm module:
 
 <!-- @nocpy -->
 
@@ -597,7 +597,7 @@ func main() {}
 
 ## Build Your Application
 
-The Spin template creates starter source code.  Now you need to turn that into a Wasm module.  The template puts build instructions for each component into the manifest.  Use the `spin build` command to run them!
+The Spin template creates starter source code.  Now you need to turn that into a Wasm module.  The template puts build instructions for each component into the manifest.  Use the `spin build` command to run them:
 
 {{ tabs "sdk-type" }}
 
