@@ -167,7 +167,7 @@ The install script automatically installs a starter set of templates and plugins
 ```sh
 spin templates install --git https://github.com/fermyon/spin --upgrade
 spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
-spin templates install --git "https://github.com/fermyon/spin-js-sdk" --upgrade
+spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 spin plugins update
 spin plugins install js2wasm --yes
 spin plugins install py2wasm --yes
