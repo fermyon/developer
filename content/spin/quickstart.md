@@ -45,7 +45,7 @@ $ sudo mv ./spin /usr/local/bin/spin
 
 {{ startTab "macOS"}}
 
-Download the `spin` binary along with language templates and plugins using the `install.sh` script hosted on this site:
+Download the `spin` binary along with a starter set of templates and plugins using the `install.sh` script hosted on this site:
 
 <!-- @selectiveCpy -->
 
