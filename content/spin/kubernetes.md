@@ -166,11 +166,11 @@ Create a file wasm-runtimeclass.yml and populate with the following information
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
-  name: "wasmtime-spin"
+  name: "wasmtime-spin-v1"
 handler: "spin"
 scheduling:
   nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin": "true"
+    "kubernetes.azure.com/wasmtime-spin-v1": "true"
 ```
 
 Then register the runtime class with the cluster
@@ -209,7 +209,7 @@ Create a file wasm-runtimeclass.yml and populate with the following information
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
-  name: "wasmtime-spin"
+  name: "wasmtime-spin-v1"
 handler: "spin"
 ```
 
@@ -266,7 +266,7 @@ Create a file wasm-runtimeclass.yml and populate with the following information
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
-  name: "wasmtime-spin"
+  name: "wasmtime-spin-v1"
 handler: "spin"
 ```
 
@@ -300,7 +300,7 @@ Clone containerd shim repository. Cd into the directory and run make
 <!-- @selectiveCpy -->
 
 ```console
-$ git clone [https://github.com/deislabs/containerd-wasm-shims](https://github.com/deislabs/containerd-wasm-shims)
+$ git clone https://github.com/deislabs/containerd-wasm-shims
 $ cd containerd-wasm-shims
 $ make
 ```
@@ -318,7 +318,7 @@ Create a file wasm-runtimeclass.yml and populate with the following information
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
-  name: "wasmtime-spin"
+  name: "wasmtime-spin-v1"
 handler: "spin"
 ```
 
@@ -433,7 +433,7 @@ spec:
       labels:
         app: test
     spec:
-      runtimeClassName: wasmtime-spin
+      runtimeClassName: wasmtime-spin-v1
       containers:
         - name: test
           image: chrismatteson/test:0.1.5
