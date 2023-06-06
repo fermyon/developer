@@ -166,7 +166,7 @@ This does not install any Spin templates or plugins. For a starter list, see the
 ## Installing Templates and Plugins
 
 Spin has a variety of templates and plugins to make it easier to create Spin applications in your favorite programming language. 
-The install script automatically installs a starter set of templates and plugins, namely templates from the Spin repository and JavaScript and Python toolchain plugins. If you used a different installation method, we recommend you install these templates and plugins manually, as follows:
+The install script automatically installs a starter set of templates and plugins, namely templates from the Spin repository and JavaScript and Python toolchain plugins and the Fermyon Cloud plugin. If you used a different installation method, we recommend you install these templates and plugins manually, as follows:
 
 ```sh
 spin templates install --git https://github.com/fermyon/spin --upgrade
@@ -175,6 +175,7 @@ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 spin plugins update
 spin plugins install js2wasm --yes
 spin plugins install py2wasm --yes
+spin plugins install cloud --yes
 ```
 
 To list installed templates, run:
