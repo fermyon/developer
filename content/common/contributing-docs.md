@@ -21,7 +21,7 @@ keywords = "contribute contributing"
   - [4. Add Upstream](#4-add-upstream)
   - [5. Code Blocks, Annotations and Table of Contents (ToC)](#5-code-blocks-annotations-and-table-of-contents-toc)
   - [6.1 Checking Your Content - Using NPM](#61-checking-your-content---using-npm)
-  - [6.2 Generating Indexing For Your Content](#62-generating-indexing-for-your-content)
+  - [6.2 Indexing Your Content](#62-indexing-your-content)
   - [6.3 Increasing Search Visibility For Your Content](#63-increasing-search-visibility-for-your-content)
   - [6.4 The Edit On GitHub Button](#64-the-edit-on-github-button)
   - [6.5 How To Properly Edit CSS Styles](#65-how-to-properly-edit-css-styles)
@@ -266,15 +266,9 @@ npx markdownlint-cli2 content/spin/install.md \"#node_modules\"
 
 **Note:** Whilst the `npm run test` command (which lints and also programmatically checks all URLs) does take extra time to complete it **must** be utilized before you [push changes](/common/contributing-docs#10-push-changes); preventing the potential pushing of broken URLs to the developer documentation site.
 
-### 6.2 Generating Indexing For Your Content
+### 6.2 Indexing Your Content
 
-The developer documentation site implements in-house search and therefore it is recommended to generate a new index each time you update and push changes to the developer documentation repository. This is done simply by using the following command; in the developer directory:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ npm run build-index
-```
+The developer documentation site implements in-house search. A new index is automatically generated for you when your contribution is merged into the developer documentation repository. This is done via a GitHub action. The following section explains how to alter content to increase search visibility for your content.
 
 ### 6.3 Increasing Search Visibility For Your Content
 
