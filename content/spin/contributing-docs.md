@@ -70,7 +70,18 @@ The resulting output would be as follows.
 
 ## Documents Relevant to Two or More Projects
 
-If a document is relevant to two or more projects it is advised to place it in the new [common](https://github.com/fermyon/developer/tree/main/content/common) folder area (i.e. as opposed to just placing it in the [spin](https://github.com/fermyon/developer/tree/main/content/spin) folder or just placing it in [cloud](https://github.com/fermyon/developer/tree/main/content/cloud) folder). Items in the common area can still be linked to from any of the menu templates i.e. [spin_main](https://github.com/fermyon/developer/blob/main/templates/spin_sidebar.hbs#L59), [cloud_main](https://github.com/fermyon/developer/blob/main/templates/common_sidebar.hbs#L23) and [common_main](https://github.com/fermyon/developer/blob/main/templates/common_sidebar.hbs#L23) `.hbs` templates all link to this how-to-contribute document; which you are currently reading.
+If a document is relevant to two or more projects, the dynamic body feature of bartholomew is to be used. Create the document in one of the projects with the content. In the other project(s) create a file with only the fron matter. Then add the following field to the frontmatter:
+
+```toml
+.
+.
+body_source = "<path to the content>"
+
+[extra]
+
+```
+
+The value for the key `body_source` should be the path from which the content should be shared relative to the `content` folder.
 
 ## Technical Documentation Procedure (Video)
 

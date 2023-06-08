@@ -5,6 +5,6 @@ enable_shortcodes = true
 body_source = "/spin/cli-reference"
 
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/common/cli-reference.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/cli-reference.md"
 
 ---
