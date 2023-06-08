@@ -9,7 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-plugin
 - [Spin Cloud Command](#cloud)
   - [Deploy](#deploy)
   - [Login](#login)
-  - [Variables](#cloud)
+  - [Variables](#variables)
     - [Set (Variables)](#set-variables)
     - [Delete (Variables)](#delete-variables)
     - [List (Variables)](#list-variables)
