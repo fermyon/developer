@@ -15,7 +15,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/variables.m
 
 Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
 
-These variables are defined in a Spin application manifest (in the `[variables]` section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables. You can refer to the [dynamic configuration documentation](../spin/dynamic-configuration.md) to learn how to configure variables locally. In Fermyon Cloud, you can set and update variables for Spin applications using the spin cloud variables CLI.
+These variables are defined in a Spin application manifest (in the `[variables]` section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables. You can refer to the [dynamic configuration documentation](../spin/dynamic-configuration.md) to learn how to configure variables locally. In Fermyon Cloud, you can set and update variables for Spin applications using the [`spin cloud variables`](./cloud-plugin.md#variables) command.
 
 This tutorial will guide you through the process of creating a simple application that validates passwords.
 
@@ -23,12 +23,13 @@ This tutorial will guide you through the process of creating a simple applicatio
 
 Before starting, ensure that you have Spin installed on your computer. You can follow the official Fermyon Cloud Quickstart guide to [install Spin](/cloud/quickstart#install-spin) and [log into Fermyon Cloud](/cloud/quickstart#log-in-to-the-fermyon-cloud).
 
-Since this example is written in Python, make sure you have the required tools installed for Python Spin applications. The Spin CLI facilitates the creation of new Spin applications using application [templates](/cloud/cli-reference#templates). In this tutorial, we will use the `http-py` template. Install it along with the `py2wasm` Spin plugin, which enables compiling Python apps to Wasm, using the following commands:
+Since this example is written in Python, make sure you have the required tools installed in order to write Spin applications in Python. The Spin CLI facilitates the creation of new Spin applications using application [templates](/cloud/cli-reference#templates). In this tutorial, we will use the `http-py` template. Install it along with the `py2wasm` Spin plugin, which enables compiling Python apps to Wasm, using the following commands:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
+$ spin plugins update
 $ spin plugins install py2wasm --yes
 ```
 
@@ -75,9 +76,22 @@ Our application receives a password via the HTTP request body, compares it to an
 
 In reality, you'd have multiple usernames and password hashes in a database, but for this tutorial we will configure the expected password using a Spin application variable. We'll name the variable `password` and set `required = true` since there is no reasonable default value. To do this, add a top-level `[variables]` section to the application manifest (`spin.toml`) and declare the variable within it.
 
-To surface the variable to the `pw-checker` component, add a `[component.config]` section in the component and specify the variable within it. Instead of statically assigning the value of the config variable, we are referencing the dynamic variable with [mustache](https://mustache.github.io/)-inspired string templates. The resulting application manifest should look similar to the following:
+<!-- @selectiveCpy -->
+```toml
+# Add this above the [component] section
+[variables]
+password = { required = true }
+```
 
-> Note: only components that explicitly use the variables in their configuration section will get access to them. This enables only exposing variables and secrets to the desired components of an application.
+To surface the variable to the `pw-checker` component, add a `[component.config]` section in the component and specify the variable within it. Instead of statically assigning the value of the config variable, we are referencing the dynamic variable with [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use the variables in their configuration section will get access to them. This enables only exposing variables and secrets to the desired components of an application.
+
+```toml
+# Add this below the [component.build] section
+[component.config]
+password = "{{ password }}"
+```
+
+The resulting application manifest should look similar to the following:
 
 <!-- @selectiveCpy -->
 ```toml
@@ -129,7 +143,7 @@ Build and run the application locally to test it out. We will use the [environme
 <!-- @selectiveCpy -->
 ```bash
 $ spin build
-$ SPIN_CONFIG_EXPECTED_PASSWORD="123" SPIN_CONFIG_PASSWORD="123" spin up
+$ SPIN_CONFIG_PASSWORD="123" spin up
 Logging component stdio to ".spin/logs/"
 
 Serving http://127.0.0.1:3000
@@ -151,7 +165,7 @@ Let's deploy our application to the cloud with initial values for our variables.
 
 <!-- @selectiveCpy -->
 ```bash
-$ spin deploy --variable expected_password="123" --variable password="123"
+$ spin deploy --variable password="123"
 Uploading pw_checker version 0.1.0+r7123456...
 Deploying...
 Waiting for application to become ready........... ready
@@ -167,7 +181,7 @@ $ curl -d "123" https://pw-checker-abcdefg.fermyon.app
 {"authentication": "accepted"}
 ```
 
-We're in! Now, let's update one of the variables and observe how it dynamically changes. Spin provides a `cloud` plugin for managing Spin applications in Fermyon Cloud. The `variables` subcommand allows you to `set`, `list`, and `delete` application variables.
+We're in! Now, let's update one of the variables and observe how it dynamically changes. Fermyon provides `cloud` plugin for the Spin CLI, for you to manage Spin applications in Fermyon Cloud. The `variables` subcommand allows you to `set`, `list`, and `delete` application variables.
 
 Set a new password and observe that access is now denied:
 
@@ -178,7 +192,7 @@ $ curl -d "123" https://pw-checker-abcdefg.fermyon.app
 {"authentication": "denied"}
 ```
 
-The `cloud variables` CLI can also be used to list application variables. Only names are listed, as values remain secret.
+The `spin cloud variables` command can also be used to list application variables. Only names are listed, as values remain secret.
 
 <!-- @selectiveCpy -->
 ```bash
