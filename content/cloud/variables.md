@@ -15,13 +15,13 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/variables.m
 
 Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
 
-These variables are defined in a Spin application manifest (in the `[variables]` section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables. You can refer to the [dynamic configuration documentation](../spin/dynamic-configuration.md) to learn how to configure variables locally. In Fermyon Cloud, you can set and update variables for Spin applications using the [`spin cloud variables`](./cloud-plugin.md#variables) command.
+These variables are defined in a Spin application manifest (in the `[variables]` section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables. You can refer to the [dynamic configuration documentation](/spin/dynamic-configuration.md) to learn how to configure variables locally. In Fermyon Cloud, you can set and update variables for Spin applications using the [`spin cloud variables`](/cloud/cloud-plugin.md#variables) command.
 
 This tutorial will guide you through the process of creating a simple application that validates passwords.
 
 ## Prerequisites
 
-Before starting, ensure that you have Spin installed on your computer. You can follow the official Fermyon Cloud Quickstart guide to [install Spin](/cloud/quickstart#install-spin) and [log into Fermyon Cloud](/cloud/quickstart#log-in-to-the-fermyon-cloud).
+Before starting, ensure that you have Spin v1.3.0 or greater installed on your computer. You can follow the official Fermyon Cloud Quickstart guide to [install Spin](/cloud/quickstart#install-spin) and [log into Fermyon Cloud](/cloud/quickstart#log-in-to-the-fermyon-cloud).
 
 Since this example is written in Python, make sure you have the required tools installed in order to write Spin applications in Python. The Spin CLI facilitates the creation of new Spin applications using application [templates](/cloud/cli-reference#templates). In this tutorial, we will use the `http-py` template. Install it along with the `py2wasm` Spin plugin, which enables compiling Python apps to Wasm, using the following commands:
 
@@ -96,7 +96,7 @@ The resulting application manifest should look similar to the following:
 <!-- @selectiveCpy -->
 ```toml
 spin_manifest_version = "1"
-description = "A Spin app with a dynamically updatable "
+description = "A Spin app with a dynamically updatable variable"
 name = "pw_checker"
 trigger = { type = "http", base = "/" }
 version = "0.1.0"
@@ -138,7 +138,7 @@ def handle_request(request):
 
 ```
 
-Build and run the application locally to test it out. We will use the [environment variable provider](../spin/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_CONFIG_`.
+Build and run the application locally to test it out. We will use the [environment variable provider](/spin/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_CONFIG_`.
 
 <!-- @selectiveCpy -->
 ```bash
@@ -202,4 +202,4 @@ $ spin cloud variables list --app "pw_checker"
 
 Congratulations 🎉! You've built and deployed your first dynamically configurable Spin application.
 
-If you want to do more with your Spin applications, check out tutorials on persisting data in Fermyon Cloud, whether with the [built-in key/value service](../spin/kv-store-tutorial.md), [Redis](./data-redis.md), or [PostgreSQL](./data-postgres.md).
+If you want to do more with your Spin applications, check out tutorials on persisting data in Fermyon Cloud, whether with the [built-in key/value service](/spin/kv-store-tutorial.md), [Redis](/cloud/data-redis.md), or [PostgreSQL](/cloud/data-postgres.md).
