@@ -216,6 +216,7 @@ test.sh
 - `platforms`
 - `sdk-type`
 - `spin-version`
+- `cloud-plugin-version`
 
 **startTab**
 - `Azure AKS`
@@ -236,6 +237,8 @@ test.sh
 - `v1.0.0`
 - `v1.1.0`
 - `v1.2.0`
+- `v0.1.0`
+- `v0.1.1`
 - `Windows`
 
 The next section covers the highly recommended use of ToCs.
