@@ -2143,14 +2143,25 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
   padding-bottom: 7.5rem;
 }
 
-.documentation .multitab-content {
+.documentation .multitab-content-wrapper {
+  padding-top: 4.55rem;
+  animation: .5s ease-out opacityOnAppear;
+  position: relative;
+}
+
+.documentation .multitab-content-wrapper div.tabs {
+  position: absolute;
+  top: 0;
+}
+
+.documentation .multitab-content-wrapper .multitab-content {
   max-width: 800px;
   background-color: #ece5ee;
   border-radius: .33em;
   padding: .67rem 1.25rem;
 }
 
-.documentation .multitab-content pre:last-of-type {
+.documentation .multitab-content-wrapper .multitab-content pre:last-of-type {
   margin-bottom: 1rem !important;
 }
 
@@ -3801,6 +3812,16 @@ html.dark-theme .changelog-item-tags span {
 
   .documentation .changelog-wrapper .changelog-item-title:before {
     left: -2rem;
+  }
+}
+
+@keyframes opacityOnAppear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 

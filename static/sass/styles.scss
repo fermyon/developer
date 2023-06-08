@@ -508,14 +508,25 @@ TABLE OF CONTENTS
 		padding-bottom: 7.5rem;
 	}
 
-	.multitab-content {
-		max-width: 800px;
-		padding: 0.67rem 1.25rem;
-		background-color: $lightlavender;
-		border-radius: 0.33em;
+	.multitab-content-wrapper {
+		position: relative;
+		padding-top: 4.55rem;
+		animation: 0.5s ease-out 0s 1 opacityOnAppear;
 
-		pre:last-of-type {
-			margin-bottom: 1rem !important;
+		div.tabs {
+			position: absolute;
+			top: 0;
+		}
+
+		.multitab-content {
+			max-width: 800px;
+			padding: 0.67rem 1.25rem;
+			background-color: $lightlavender;
+			border-radius: 0.33em;
+
+			pre:last-of-type {
+				margin-bottom: 1rem !important;
+			}
 		}
 	}
 
@@ -2417,5 +2428,15 @@ html.dark-theme {
 				}
 			}
 		}
+	}
+}
+
+@keyframes opacityOnAppear {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }
