@@ -129,7 +129,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-Key value functions are provided by the `github.com/fermyon/spin/sdk/go/key_value` module. Here is the reference [![Go Reference](https://pkg.go.dev/badge/github.com/fermyon/spin/sdk/go/key_value.svg)](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/key_value). For example: 
+Key value functions are provided by the `github.com/fermyon/spin/sdk/go/key_value` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/key_value). For example: 
 
 ```go
 import "github.com/fermyon/spin/sdk/go/key_value"
