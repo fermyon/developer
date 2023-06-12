@@ -237,7 +237,8 @@ test.sh
 - `v1.0.0`
 - `v1.1.0`
 - `v1.2.0`
-- `v0.1.0 (Spin >= v1.3)`
+- `v0.1.0`
+- `v0.1.1`
 - `Windows`
 
 The next section covers the highly recommended use of ToCs.
