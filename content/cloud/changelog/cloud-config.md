@@ -5,7 +5,6 @@ enable_shortcodes = true
 tags = ["variable"]
 [extra]
 type= "changelog_post"
-
 ---
 
 Fermyon Cloud now supports setting application variables through the API. Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. These variables are defined in a Spin application manifest (in the [variables] section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables.
