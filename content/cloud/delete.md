@@ -29,7 +29,7 @@ It’s super easy to delete your application with Fermyon Cloud. This can be don
 
 ![Fermyon Cloud application drawer](/static/image/drawer.png)
 
-3. Confirm that you want to delete the application, by typing in the application name, and click **Delete**. Note this is a permanent action and cannot be undone. 
+3. Confirm that you want to delete the application, by typing in the application name, and click **Delete**. Note this is a permanent action and cannot be undone. The default key/value store and all application variables will also be deleted.
 
 ![Fermyon Cloud delete application confirmation dialog](/static/image/delete.png)
 
