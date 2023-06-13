@@ -88,7 +88,7 @@ To surface the variable to the `pw-checker` component, add a `[component.config]
 ```toml
 # Add this below the [component.build] section
 [component.config]
-password = "{{ password }}"
+password = "\{{ password }}"
 ```
 
 The resulting application manifest should look similar to the following:
@@ -112,7 +112,7 @@ route = "/..."
 [component.build]
 command = "spin py2wasm app -o app.wasm"
 [component.config]
-password = "{{ password }}"
+password = "\{{ password }}"
 ```
 
 ## Using Variables in a Spin Application
@@ -130,7 +130,7 @@ def handle_request(request):
     access = "denied"
     if expected == password:
         access = "accepted"
-    response = f'{{"authentication": "{access}"}}'
+    response = f'\{{"authentication": "{access}"}}'
     return Response(200,
                     {"content-type": "application/json"},
                     bytes(response, "utf-8"))
