@@ -6,14 +6,14 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-plugin.md"
 
 ---
-- [Spin Cloud Command](#cloud)
+- [Spin Cloud Command](#spin-cloud-command)
   - [Deploy](#deploy)
   - [Login](#login)
   - [Variables](#variables)
     - [Set (Variables)](#set-variables)
     - [Delete (Variables)](#delete-variables)
     - [List (Variables)](#list-variables)
-  - [Subcommands Stability Table](#subcommands-stability-table)
+  - [Subcommand Stability Table](#subcommand-stability-table)
 
 ## Spin Cloud Command
 
@@ -113,7 +113,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-## Login
+### Login
 
 {{ tabs "cloud-plugin-version" }}
 
@@ -193,6 +193,123 @@ SUBCOMMANDS:
     help      Print this message or the help of the given subcommand(s)
     list      List all variables of an application
     set       Set variable pairs
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+#### Set (Variables)
+
+{{ tabs "cloud-plugin-version" }} 
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables set --help
+
+cloud-variables-set 0.1.1
+Set variables
+
+USAGE:
+    cloud variables set [OPTIONS] --app <app> [VARIABLES_TO_SET]...
+
+ARGS:
+    <VARIABLES_TO_SET>...    Variable pair to set
+
+OPTIONS:
+        --app <app>
+            Name of Spin app
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+#### Delete (Variables)
+
+{{ tabs "cloud-plugin-version" }} 
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables delete --help
+
+cloud-variables-delete 0.1.1
+Delete variables
+
+USAGE:
+    cloud variables delete [OPTIONS] --app <app> [VARIABLES_TO_DELETE]...
+
+ARGS:
+    <VARIABLES_TO_DELETE>...    Variable pair to set
+
+OPTIONS:
+        --app <app>
+            Name of Spin app
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+#### List (Variables)
+
+{{ tabs "cloud-plugin-version" }} 
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables list --help
+
+cloud-variables-list 0.1.1
+List all variables of an application
+
+USAGE:
+    cloud variables list [OPTIONS] --app <app>
+
+OPTIONS:
+        --app <app>
+            Name of Spin app
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
 ```
 
 {{ blockEnd }}
