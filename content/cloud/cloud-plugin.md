@@ -6,14 +6,14 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-plugin.md"
 
 ---
-- [Spin Cloud Command](#cloud)
+- [Spin Cloud Command](#spin-cloud-command)
   - [Deploy](#deploy)
   - [Login](#login)
   - [Variables](#variables)
-    - [Set (Variables)](#variables-set)
-    - [Delete (Variables)](#variables-delete)
-    - [List (Variables)](#variables-list)
-  - [Subcommands Stability Table](#subcommands-stability-table)
+    - [Set (Variables)](#set-variables)
+    - [Delete (Variables)](#delete-variables)
+    - [List (Variables)](#list-variables)
+  - [Subcommand Stability Table](#subcommand-stability-table)
 
 ## Spin Cloud Command
 
@@ -199,7 +199,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-#### Variables (Set)
+#### Set (Variables)
 
 {{ tabs "cloud-plugin-version" }} 
 
@@ -239,7 +239,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Variables (Delete)
+#### Delete (Variables)
 
 {{ tabs "cloud-plugin-version" }} 
 
@@ -279,7 +279,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Variables (List)
+#### List (Variables)
 
 {{ tabs "cloud-plugin-version" }} 
 
