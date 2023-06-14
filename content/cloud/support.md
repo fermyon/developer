@@ -20,6 +20,10 @@ For support related to **Spin**, **Bartholomew**, and other projects, please use
 
 To see any know issues and report a specific issue, feel free to use the [feedback repository](https://github.com/fermyon/feedback)
 
+## Growth and Enterprise Plan users
+
+Please reach out to [support@fermyon.com](mailto:support@fermyon.com) for assistance. We also have a [Support FAQ available here](./pricing-and-billing.md#support)
+
 ## Report Abuse
 
 To report suspected abuse of the Fermyon Cloud service, please e-mail abuse@fermyon.com.
