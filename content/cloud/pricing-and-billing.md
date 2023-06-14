@@ -15,13 +15,13 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/payment-and
 - [Next Steps](#next-steps)
 
 ## Fermyon Cloud Pricing
-Fermyon Cloud offers subscription plans to help you increase the limits of your Fermyon Cloud usage. This page covers general information about subscription plans and answers frequently asked questions around [payment](#payment), [refunds](#refund), [support](#support), and [quota](#quota).
+Fermyon Cloud offers subscription plans to help you increase the limits of your Fermyon Cloud usage. This page covers general information about subscription plans and answers frequently asked questions around [payment](#payment), [refunds](#refund), [support](#support), and [quotas](#quota).
 
 As described in detail on the [Fermyon Pricing page](fermyon.com/pricing), there are 3 different plans crafted to fit your workloads' requirements: Starter, Growth, and Enterprise. 
 
-The Starter Plan provides a broad range of Fermyon Cloud services for you to try out, free of charger, forever. If you find that you're hitting the upper limits of the Starer Plan, we recommend promoting your account to the Growth Plan, where you can enjoy the same services with a higher quota limit. Lastly, if the serives offered don't quite meet your needs in the Growth Plan, [reach out](mailto:sales@fermyon.com) to the Fermyon team and we'll work to create a customized Enterprise Plan that will best meet your requirements. 
+"broad range of Fermyon Cloud services for you to try out, that you can continually run free of charge, within certain usage limits. If you find that you're hitting the upper limits of the Starter Plan, we recommend upgrading your account to the Growth Plan, where you can enjoy the same services with a higher quota limit. Lastly, if the services offered don't quite meet your needs in the Growth Plan, [reach out](mailto:sales@fermyon.com) to the Fermyon team and we'll work to create a customized Enterprise Plan that will best meet your requirements. 
 
-> Please note that Growth and Enterprise Plans are billed on a monthly reoccuring basis. Start Plan is a free subscription, without an expiration date. 
+> Please note that Growth and Enterprise Plans are billed on a monthly reoccuring basis. Starter Plan is a free subscription, without an expiration date. 
 
 ## General Information
 
@@ -29,9 +29,9 @@ The Starter Plan provides a broad range of Fermyon Cloud services for you to try
 
 **I just signed up for the Growth Plan, when should I expect my first charge?**
 
-You should receive your first charge immediately after signing up for the Growth Plan. You can expect your second charge on the monthly anniversary of your signup.
+You should receive your first charge shortly after after signing up for the Growth Plan. You can expect your second charge on the monthly anniversary of your signup.
 
-**What payment methods for you accept?**
+**What payment methods do you accept?**
 
 Most. One of the main reasons we chose to work with industry leader Stripe is because of the huge scope of payment options they offer, starting with the normal credit / debit card options, but extending to ACH, SEPA, Apple Pay / Google Pay and many more including a larger variety of global options. For more details and a list to all Stripe payment options see this Stripe Resource. 
 
@@ -41,7 +41,7 @@ No, at this time Fermyon Cloud only accepts reoccuring payments. If at any point
 
 **What happens if there's an issue with my payment method during a reoccuring charge?**
 
-You will receive an email from Fermyon informing you that the payment method is invalid and requesting an updated, valid form of payment. If the payment method is not updated by the next billing date, your limits will be reverted to the Starter Subscription.
+If payment method is not updated by the next billing date **_or your account is in arrears_**, you will receive an email from Fermyon informing you that the payment method is invalid and requesting an updated, valid form of payment. If the payment method is not updated by the next billing date, your limits will be reverted to the Starter Plan.
 
 **How do I change my credit card used for billing by Fermyon Cloud?**
 This can be done online on the [Fermyon Cloud Dashboard](cloud.fermyon.com) under _Account Settings --> Billing_. 
@@ -73,9 +73,9 @@ We hope you do not have a problem, but if you do as a Growth or Enterprise Plan 
 **How do I report a problem with Fermyon Cloud?**
 We hope you do not have a problem, but if you do as a Growth or Enterprise Plan user, please contact [support@fermyon.com](mailto:support@fermyon.com). For our Starter users, we recommend reaching out to our [Discord community](https://discord.gg/AAFNfS7NGf) for assistance. 
 
-**What support is offered with Gthe Growth Plan?**
+**What support is offered with the Growth Plan?**
 
-We offer support with a one business day response time via email and a best-effort response time via online chat Monday through Friday. In addition, we offer a vibrant [Discord community](https://discord.gg/AAFNfS7NGf) where common technical questions are often answered faster than one business day, including occasional weekend answers.
+We offer support with a one business day response time via email and a best-effort response time via online chat Monday through Friday from 8am to 6pm Eastern Time Zone. In addition, we offer a vibrant [Discord community](https://discord.gg/AAFNfS7NGf) where common technical questions are often answered faster than one business day, including occasional weekend answers.
 
 **Can I purchase a better level of support?**
 
@@ -94,10 +94,10 @@ No. Spin remains 100% open source and we remain highly committed to both the Spi
 
 For an up-to-date list of Fermyon’s data subprocessors please visit https://www.fermyon.com/sub-processors.
 
-**Can I purchase a Service Level Agreement?**
+**Can I purchase a Support Service Level Agreement?**
 
 As part of Fermyon Cloud's Starter Plan you have access to our vibrant discord community and as part of the Growth Plan you have access to next business day support through [support@fermyon.com](mailto:support@fermyon.com)
-If these do not meet your needs, call us at xxx.xxx.xxxx and we can discuss your situation in greater detail to see if we can develop a custom solution that fits.
+If these do not meet your needs, either email [slaes@fermyon.com](mailto:sales@fermyon.com) or call us at (+1) 303-309-6872 and we can discuss your situation in greater detail to see if we can develop a custom solution that fits.
 
 ### Quota
 
@@ -109,6 +109,6 @@ Fermyon will notify you via email when you reach 75%, 90%, and 100% usage for yo
 
 Please reach out to [our team](mailto:sales@fermyon.com) and we'll create a customized solution to meet your current needs. 
 
-**I'm interested in increase a quota limit on a resource not listed in Fermyon's pricing plan, can you help?**
+**I'm interested in increasing a quota limit on a resource not listed in Fermyon's pricing plan, can you help?**
 
-Fermyon will happily consider the request! Please reach out to [our team](mailto:sales@fermyon.com) sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of Fermyon Cloud quopta limits [here](https://developer.fermyon.com/cloud/faq#quota-limits).
+Fermyon will happily consider the request! Please reach out to [our team](mailto:sales@fermyon.com) sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of Fermyon Cloud quota limits [here](https://developer.fermyon.com/cloud/faq#quota-limits).
