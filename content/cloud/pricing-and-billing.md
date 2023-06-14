@@ -15,11 +15,13 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/payment-and
 - [Next Steps](#next-steps)
 
 ## Fermyon Cloud Pricing
-Fermyon Cloud supports a subscription plans to help you increase the limits of your Fermyon Cloud usage. This page covers general information about subscription plans as well as helpful billing information. 
+Fermyon Cloud offers subscription plans to help you increase the limits of your Fermyon Cloud usage. This page covers general information about subscription plans and answers frequently asked questions around [payment](#payment), [refunds](#refund), [support](#support), and [quota](#quota).
 
-As described on the [Fermyon Pricing page](fermyon.com/pricing), there are 3 different plans crafted to fit your workloads' requirements: Starter, Growth, and Enterprise.
+As described in detail on the [Fermyon Pricing page](fermyon.com/pricing), there are 3 different plans crafted to fit your workloads' requirements: Starter, Growth, and Enterprise. 
 
->> Note that Growth and Enterprise Plans are billed on a monthly reoccuring basis. Start Plan is a free subscription, without an expiration date. 
+The Starter Plan provides a broad range of Fermyon Cloud services for you to try out, free of charger, forever. If you find that you're hitting the upper limits of the Starer Plan, we recommend promoting your account to the Growth Plan, where you can enjoy the same services with a higher quota limit. Lastly, if the serives offered don't quite meet your needs in the Growth Plan, [reach out](mailto:sales@fermyon.com) to the Fermyon team and we'll work to create a customized Enterprise Plan that will best meet your requirements. 
+
+> Please note that Growth and Enterprise Plans are billed on a monthly reoccuring basis. Start Plan is a free subscription, without an expiration date. 
 
 ## General Information
 
@@ -109,7 +111,4 @@ Please reach out to [our team](mailto:sales@fermyon.com) and we'll create a cust
 
 **I'm interested in increase a quota limit on a resource not listed in Fermyon's pricing plan, can you help?**
 
-Fermyon will happily consider the request! Please reach out to [our team](mailto:sales@fermyon.com) sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of [Fermyon Cloud service quotas](https://developer.fermyon.com/cloud/faq#service-limits) here.
-
-## Next Steps
-
+Fermyon will happily consider the request! Please reach out to [our team](mailto:sales@fermyon.com) sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of Fermyon Cloud quopta limits [here](https://developer.fermyon.com/cloud/faq#quota-limits).

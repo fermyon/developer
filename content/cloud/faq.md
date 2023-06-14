@@ -1,4 +1,4 @@
-title = "FAQ and Known Limitations"
+title = "Quotas, Limitations, and Technical FAQ"
 template = "cloud_main"
 date = "2023-04-18T00:00:00Z"
 enable_shortcodes = true
@@ -11,7 +11,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/faq.md"
   - [Fermyon Cloud](#fermyon-cloud)
   - [Spin Limitations](#spin-limitations)
   - [Other Limitations](#other-limitations)
-- [Frequently Asked Questions](#frequently-asked-questions)
+- [Technical Frequently Asked Questions](#technical-frequently-asked-questions)
 - [Next Steps](#next-steps)
 
 ## Quota Limits
@@ -20,25 +20,31 @@ The following are the service limits of the Fermyon Cloud (Starter tier)
 
 | | Starter Plan | Growth Plan | Enterprise Plan
 |-----|-----|-----|-----|
-| **Feature** |
+| **Application Quota** |
 | Spin application count | 5 | 100 | Contact us 
+| Spin application package size (MB)* | 100 | 100 | Contact us
+| Spin application deployments per minute* | 10 | 10 | Contact us
+| Request handler duration (seconds)* | 10  | 10  | Contact us
+| **Rate Limiting Quota** |
 | Request execution count | 100,000  | 1,000,000  | Contact us
 | Request executions per second* | 1,000 | 1,000 | Contact us 
-| Outbound requests per hour per Spin app* | 500 | 500 | Contact us
-| Request handler duration (seconds)* | 10  | 10  | Contact us10 
-| Spin application package size (MB)* | 100 | 100 | Contact us
-| Custom Fermyon subdomain character count* | 62 | 62 | Contact us
-| Spin application deployments per minute* | 10 | 10 | Contact us
 | Spin application deployments per hour* | 100 | 100 | Contact us
+| Outbound requests per hour per Spin app* | 500 | 500 | Contact us
+| **Networking** |
+| Custom Fermyon subdomain character count* | 62 | 62 | Contact us
+| Bandwidth egress (GB) | 5 | 50 | Contact us
+| **Storage** |
 | Key value store key size (bytes)* | 255 | 255 | Contact us
 | Key value store storage size (GB) | 1 | 2 | Contact us
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
+| **Regions** |
+| Region count| 1 | 1 | Contact us
 
->> \* Signals a quota limit that is eligable for increase for Growth and Enterprise Plan users by reaching out to [support@fermyon.com](mailto:support@fermyon.com).
+> \* Signals a quota limit that not explicitly covered in [Fermyon Pricing](fermyon.com/pricing) but is eligable for increase for Growth and Enterprise Plan users. Please reach out to [Fermyon team](mailto:sales@fermyon.com) for assistance.
 
 ## Known Limitations
 
-### Fermyon Cloud
+### Fermyon Cloud Limitations
 
 - A custom Fermyon subdomain must be unique
 - A user can execute a maximum of 3,000 requests per hour toward the Cloud API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
@@ -87,9 +93,6 @@ To learn more about what feature support looks like for various programming lang
 11:08:27 : Bad Gateway
 11:08:29 : Hello from Rust - updated
 ```
-
-- **How do I report a security concern, or concerns, with content hosted on the Fermyon Cloud?**
-  - Please go to our [Feedback repo - Report Security Concern](https://github.com/fermyon/feedback/security/policy) for instructions on how to report any concerns.
 
 ## Next Steps
 
