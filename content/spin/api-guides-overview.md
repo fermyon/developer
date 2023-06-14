@@ -14,7 +14,8 @@ The following table shows the status of the interfaces Spin provides to applicat
 | [Redis Trigger](/spin/redis-trigger)                         | Stable   | No  |
 | [Outbound HTTP](/spin/http-outbound)                          | Stable   | Yes   |
 | [Outbound Redis](/spin/redis-outbound)                         | Stable  | Yes   |
-| [Dynamic Configuration](/spin/dynamic-configuration)                         | Experimental | No |
+| [Configuration Variables](/spin/variables)                      | Stable | Yes |
+| [Runtime Configuration](/spin/dynamic-configuration#runtime-configuration)  | Experimental | No |
 | [PostgreSQL](/spin/rdbms-storage)                             | Experimental | Yes |
 | [MySQL](/spin/rdbms-storage)                                  | Experimental | Yes |
 | [Key-value Storage](/spin/kv-store-api-guide)                      | Stabilizing | Yes |
