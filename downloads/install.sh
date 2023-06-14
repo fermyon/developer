@@ -136,6 +136,7 @@ fancy_print 0 "Step 5: Install default plugins"
 ./spin plugins update
 ./spin plugins install js2wasm --yes
 ./spin plugins install py2wasm --yes
+./spin plugins install cloud --yes
 
 # Direct to quicks-start doc
 fancy_print 0 "You're good to go. Check here for the next steps: https://developer.fermyon.com/spin/quickstart"

@@ -64,6 +64,8 @@
                     <li><a {{#if (active_content request.spin-path-info "/cloud/custom-fermyon-subdomain" )}}
                             class="active" {{/if}} href="{{site.info.base_url}}/cloud/custom-fermyon-subdomain">Apply
                             Custom Fermyon Subdomain</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/variables" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/cloud/variables">Configuring App Variables and Secrets</a></li>
                 </ul>
             </div>
 
@@ -76,7 +78,9 @@
                     <li><a {{#if (active_content request.spin-path-info "/cloud/rest-api" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/cloud/rest-api">REST API</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/cloud/cli-reference" )}} class="active"
-                            {{/if}} href="{{site.info.base_url}}/cloud/cli-reference">CLI Reference</a></li>
+                            {{/if}} href="{{site.info.base_url}}/cloud/cli-reference">Spin CLI Reference</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/cloud-plugin" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/cloud-plugin">Cloud Command Reference</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/cloud/changelog" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/cloud/changelog">Changelog</a></li>
                 </ul>
