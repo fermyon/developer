@@ -54,10 +54,9 @@ If payment method is not updated by the next billing date **_or your account is
 
 This can be done online on the [Fermyon Cloud Dashboard's Account Settings](https://cloud.fermyon.com/account-settingsm) under the _Billing_ tab.
 
-
 **How long is the Starter Plan available? Is there a time limit after which the free tier is unavailable to me?**
 
-At this time the Starter Plan has no time limit. As long as your resource utilization remains below the monthly limits you can use Fermyon Cloud, for free, as long as you want it to. We reserve the right to change that policy, but for now we’re thrilled to be able to provide this service to you completely free.
+At this time the Starter Plan has no time limit. As long as your resource utilization remains below the monthly limits, you can use Fermyon Cloud, for free, as long as you want it to. We reserve the right to change that policy, but for now we’re thrilled to be able to provide this service to you completely free.
 
 ### Invoice 
 
@@ -99,7 +98,7 @@ Fermyon Cloud is an Open Beta service, which currently does not guarentee any Se
 
 No. Spin remains 100% open source and we remain highly committed to both the Spin open source community and open source in general. You can read more about our Open Source Promise [here](https://www.fermyon.com/open-source-promise).
 
-**Do you use data subprocessors? If so, where can I see a list of those you rely on.**
+**You use data subprocessors so where can I see a list of those you rely on?**
 
 For an up-to-date list of Fermyon’s data subprocessors please visit <https://www.fermyon.com/sub-processors>.
 
