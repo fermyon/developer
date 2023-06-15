@@ -119,7 +119,7 @@ const decoder = new TextDecoder("utf-8")
 
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
   const expected = decoder.decode(request.body)
-  let password = spinSdk.config.get("openai_key")
+  let password = spinSdk.config.get("password")
   let access = "denied"
   if (expected === password) {
       access = "accepted"
