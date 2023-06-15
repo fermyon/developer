@@ -107,10 +107,6 @@ For an up-to-date list of Fermyon’s data subprocessors please visit <https://w
 As part of Fermyon Cloud's Starter Plan you have access to our [discord community](https://discord.gg/AAFNfS7NGf) and as part of the Growth Plan you have access to next business day support through [support@fermyon.com](mailto:support@fermyon.com)
 If these do not meet your needs, either email [sales@fermyon.com](mailto:sales@fermyon.com) or call us at (+1) 303-309-6872 and we can discuss your situation in greater detail to see if we can develop a custom solution that fits.
 
-**How do I report a security concern, or concerns, with content hosted on the Fermyon Cloud?**
-
-Please go to our [Feedback repo - Report Security Concern](https://github.com/fermyon/feedback/security/policy) for instructions on how to report any concerns.
-
 ### Quota
 
 **How can I tell if I’m approaching my plan’s current quota limits?**

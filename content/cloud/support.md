@@ -9,6 +9,7 @@ keywords = "abuse security concern"
 - [Engage on Discord](#engage-on-discord)
 - [Report Issues on GitHub](#report-issues-on-github)
 - [Report Abuse](#report-abuse)
+- [Report Security Coerns](#report-security-concerns)
 
 ## Engage on Discord
 
@@ -26,4 +27,8 @@ Please reach out to [support@fermyon.com](mailto:support@fermyon.com) for assist
 
 ## Report Abuse
 
-To report suspected abuse of the Fermyon Cloud service, please e-mail abuse@fermyon.com.
+To report suspected abuse of the Fermyon Cloud service, please e-mail abuse@fermyon.com. 
+
+## Report Security Concerns
+
+Please go to our [Feedback repo - Report Security Concern](https://github.com/fermyon/feedback/security/policy) for instructions on how to report any concerns.
