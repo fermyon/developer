@@ -46,6 +46,7 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Redis](/spin/redis-trigger) | Not supported |
 | **APIs** |
 | [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
+| [Configuration Variables](/spin/variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported (only default store) |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |

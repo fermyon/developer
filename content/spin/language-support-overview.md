@@ -20,6 +20,7 @@ This page contains information about language support for Spin features:
 | [Redis](/spin/redis-trigger) | Supported |
 | **APIs** |
 | [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
+| [Configuration Variables](/spin/variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
@@ -38,6 +39,7 @@ This page contains information about language support for Spin features:
 | Redis | Not Supported |
 | **APIs** |
 | [Outbound HTTP](/spin/javascript-components#sending-outbound-http-requests) | Supported |
+| [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL| Not Supported |
@@ -56,6 +58,7 @@ This page contains information about language support for Spin features:
 | Redis | Not Supported |
 | **APIs** |
 | [Outbound HTTP](/spin/python-components#an-outbound-http-example) | Supported |
+| [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
@@ -74,6 +77,7 @@ This page contains information about language support for Spin features:
 | [Redis](/spin/go-components#redis-components) | Supported |
 | **APIs** |
 | [Outbound HTTP](/spin/go-components#sending-outbound-http-requests) | Supported |
+| [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
@@ -92,6 +96,7 @@ This page contains information about language support for Spin features:
 | Redis | Not Supported |
 | **APIs** |
 | [Outbound HTTP](https://github.com/fermyon/spin-dotnet-sdk#making-outbound-http-requests) | Supported |
+| [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | Key Value Storage | Not Supported |
 | MySQL | Not Supported |
 | [PostgreSQL](https://github.com/fermyon/spin-dotnet-sdk#working-with-postgres) | Supported |
