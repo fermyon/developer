@@ -52,7 +52,7 @@ If payment method is not updated by the next billing date **_or your account is
 
 **How do I change my credit card used for billing by Fermyon Cloud?**
 
-This can be done online on the [Fermyon Cloud Dashboard](cloud.fermyon.com) under _Account Settings --> Billing_. 
+This can be done online on the [Fermyon Cloud Dashboard's Account Settings](https://cloud.fermyon.com/account-settingsm) under the _Billing_ tab.
 
 
 **How long is the Starter Plan available? Is there a time limit after which the free tier is unavailable to me?**
