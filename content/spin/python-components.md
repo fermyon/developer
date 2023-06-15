@@ -177,17 +177,16 @@ This next example will create an outbound request, to obtain a random fact about
 
 ```
 from spin_http import Request, Response, http_send
-from os import environ
 
 
 def handle_request(request):
 
     response = http_send(
-        Request("GET", "https://random-data-api.fermyon.app/animals/json", [], None))
+        Request("GET", "https://random-data-api.fermyon.app/animals/json", {}, None))
 
     return Response(200,
-                    [("content-type", "text/plain")],
-                    bytes(f"Here is an animal fact: {str(response.body, 'utf-8')}, the environment: {environ}", "utf-8"))
+                    {"content-type": "text/plain"},
+                    bytes(f"Here is an animal fact: {str(response.body, 'utf-8')}", "utf-8"))
 ```
 
 ### Configuration
