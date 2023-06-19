@@ -16,7 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/payment-and
 - [Next Steps](#next-steps)
 
 ## Fermyon Cloud Pricing
-Fermyon Cloud offers subscription plans to help you accomplish your workload goals which require an increase Fermyon Cloud usage. This page covers general information about subscription plans and answers frequently asked questions around [payment](#payment), [refunds](#refund), [support](#support), and [quotas](#quota).
+Fermyon Cloud offers subscription plans to help you accomplish your workload goals which require an increase Fermyon Cloud in your resource usage. This page covers general information about subscription plans and answers frequently asked questions around [payment](#payment), [refunds](#refund), [support](#support), and [quotas](#quota).
 
 As described in detail on the [Fermyon Pricing page](fermyon.com/pricing), there are 3 different plans we offer to fit your workloads' requirements: Starter, Growth, and Enterprise. 
 
