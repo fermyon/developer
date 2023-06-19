@@ -16,7 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/faq.md"
 
 ## Quota Limits
 
-The following are the service limits of the Fermyon Cloud (Starter tier)
+The following are the service limits of the Fermyon Cloud (Starter tier, which you can learn more about [here](https://www.fermyon.com/pricing)):
 
 | | Starter Plan | Growth Plan | Enterprise Plan
 |-----|-----|-----|-----|
