@@ -42,6 +42,11 @@ We accept all forms of payment supported by our payment partner Stripe. These in
 
 For a full list to accepted payment methods see this [Stripe resource](https://stripe.com/payments/features#payment-options).
 
+**Why am I charged tax, and where can I get a receipt of how much tax I am charged?**
+
+Fermyon charges the tax mandated by the local taxing authority. Your bill will include the tax charged and is available via invoices which are accessible on Fermyon Cloud dashboard under [Account settings](https://cloud.fermyon.com/account-settings) —> Billing information
+
+
 **Can I pay every month manually?**
 
 No, at this time Fermyon Cloud only accepts reoccurring payments. If at any point you decide you no longer want to continue with your paid plan, you are eligible to cancel your subscription. 
@@ -87,7 +92,7 @@ We offer support with a one business day response time via email and a best-effo
 
 **Can I purchase a better level of support?**
 
-Call us and we’ll work to understand the situation and see if we can create a solution to meet your needs.
+Please reach out to [support@fermyon.com](mailto:support@fermyon.com), and we’ll work to understand the situation and see if we can create a solution to meet your needs.
 
 
 **Does Fermyon Cloud Starter Plan or Growth Plan come with any Service Level Agreements and if so, what are they?**
@@ -97,10 +102,6 @@ Fermyon Cloud is an Open Beta service, which currently does not guarentee any Se
 **Does my use of Fermyon Cloud place any restrictions on the currently open-source Spin?**
 
 No. Spin remains 100% open source and we remain highly committed to both the Spin open source community and open source in general. You can read more about our Open Source Promise [here](https://www.fermyon.com/open-source-promise).
-
-**You use data subprocessors so where can I see a list of those you rely on?**
-
-For an up-to-date list of Fermyon’s data subprocessors please visit <https://www.fermyon.com/sub-processors>.
 
 **Can I purchase a Support Service Level Agreement?**
 
@@ -125,3 +126,13 @@ Please reach out to [our team](mailto:sales@fermyon.com) about our Enterprise Pl
 **I'm interested in increasing a quota limit on a resource not listed in Fermyon's pricing plan, can you help?**
 
 Fermyon will happily consider the request! Please reach out to [our team](mailto:sales@fermyon.com) sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of Fermyon Cloud quota limits [here](https://developer.fermyon.com/cloud/faq#quota-limits).
+
+### GDPR
+
+**I would like all my personal data removed from your systems; how do I go about doing that?**
+
+We are sorry to hear that you will no longer be using our services. Please reach out to [legal@fermyon.com](mailto:legal@fermyon.com) and we will of course remove your data from our systems as required by local requirements.
+
+**You use data subprocessors so where can I see a list of those you rely on?**
+
+For an up-to-date list of Fermyon’s data subprocessors please visit <https://www.fermyon.com/sub-processors>.
