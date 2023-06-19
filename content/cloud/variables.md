@@ -134,8 +134,6 @@ def handle_request(request):
     return Response(200,
                     {"content-type": "application/json"},
                     bytes(response, "utf-8"))
-
-
 ```
 
 Build and run the application locally to test it out. We will use the [environment variable provider](/spin/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_CONFIG_`.
