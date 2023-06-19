@@ -16,7 +16,9 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/faq.md"
 
 ## Quota Limits
 
-The following are the service limits of the Fermyon Cloud (Starter tier, which you can learn more about [here](https://www.fermyon.com/pricing)):
+The following are the quota for users based, stratified by the three [Subscription Plans](./pricing-and-billing.md) offered by Fermyon Cloud:
+
+> \* Signifies a resource that is not an explicit line item in the Fermyon Cloud [Subscription Plan](fermyon.com/pricing) but is eligable for a quota increase for Growth and Enterprise Plan users who can reach out to [Fermyon team](mailto:sales@fermyon.com) for assistance.
 
 | | Starter Plan | Growth Plan | Enterprise Plan
 |-----|-----|-----|-----|
@@ -39,8 +41,6 @@ The following are the service limits of the Fermyon Cloud (Starter tier, which y
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
 | **Regions** |
 | Region count| 1 | 1 | Contact us
-
-> \* Signals a quota limit that not explicitly covered in [Fermyon Pricing](fermyon.com/pricing) but is eligable for increase for Growth and Enterprise Plan users. Please reach out to [Fermyon team](mailto:sales@fermyon.com) for assistance.
 
 ## Known Limitations
 
