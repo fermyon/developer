@@ -1,23 +1,29 @@
-title = "Cloud Command Reference"
+title = "Fermyon Cloud Plugin Command Line Interface (CLI) Reference"
 date = "2023-06-07T22:41:02.478752Z"
 template = "cloud_main"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-plugin.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-plugin-reference.md"
 
 ---
 - [Spin Cloud Command](#spin-cloud-command)
-  - [Deploy](#deploy)
-  - [Login](#login)
-  - [Variables](#variables)
-    - [Set (Variables)](#set-variables)
-    - [Delete (Variables)](#delete-variables)
-    - [List (Variables)](#list-variables)
-  - [Subcommand Stability Table](#subcommand-stability-table)
+- [spin cloud](#spin-cloud)
+- [spin cloud deploy](#spin-cloud-deploy)
+- [spin cloud help](#spin-cloud-help)
+- [spin cloud login](#spin-cloud-login)
+- [spin cloud variables](#spin-cloud-variables)
+- [spin cloud variables delete](#spin-cloud-variables-delete)
+- [spin cloud variables help](#spin-cloud-variables-help)
+- [spin cloud variables list](#spin-cloud-variables-list)
+- [spin cloud variables set](#spin-cloud-variables-set)
+- [Subcommand Stability Table](#subcommand-stability-table)
 
 ## Spin Cloud Command
 
 Fermyon provides a [`cloud` plugin](https://github.com/fermyon/cloud-plugin) for the Spin CLI for you to manage Spin applications in Fermyon Cloud. This page documents the `spin cloud` command. Specifically, all of the available options and subcommands. For more information on subcommand stability, see the [subcommands stability table](#subcommand-stability-table). You can reproduce the Spin Cloud command documentation on your machine by using the `--help` flag. For example:
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud
 
 {{ tabs "cloud-plugin-version" }}
 
@@ -51,7 +57,8 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-### Deploy
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud deploy
 
 {{ tabs "cloud-plugin-version" }}
 
@@ -113,7 +120,40 @@ OPTIONS:
 
 {{ blockEnd }}
 
-### Login
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud help
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v0.1.1"}}
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud help
+
+cloud-plugin 0.1.1
+Fermyon Engineering <engineering@fermyon.com>
+
+USAGE:
+    cloud <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    deploy       Package and upload an application to the Fermyon Cloud
+    help         Print this message or the help of the given subcommand(s)
+    login        Login to Fermyon Cloud
+    variables    Manage Spin application variables
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud login
 
 {{ tabs "cloud-plugin-version" }}
 
@@ -166,7 +206,8 @@ OPTIONS:
 
 {{ blockEnd }}
 
-### Variables
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud variables
 
 {{ tabs "cloud-plugin-version" }} 
 
@@ -199,7 +240,122 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-#### Set (Variables)
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud variables delete
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables delete --help
+
+cloud-variables-delete 0.1.1
+Delete variables
+
+USAGE:
+    cloud variables delete [OPTIONS] --app <app> [VARIABLES_TO_DELETE]...
+
+ARGS:
+    <VARIABLES_TO_DELETE>...    Variable pair to set
+
+OPTIONS:
+        --app <app>
+            Name of Spin app
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud variables help
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin cloud variables help
+
+cloud-variables 0.1.1
+Manage Spin application variables
+
+USAGE:
+    cloud variables <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete variables
+    help      Print this message or the help of the given subcommand(s)
+    list      List all variables of an application
+    set       Set variables
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud variables list
+
+{{ tabs "cloud-plugin-version" }} 
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables list --help
+
+cloud-variables-list 0.1.1
+List all variables of an application
+
+USAGE:
+    cloud variables list [OPTIONS] --app <app>
+
+OPTIONS:
+        --app <app>
+            Name of Spin app
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud variables set
 
 {{ tabs "cloud-plugin-version" }} 
 
@@ -239,84 +395,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Delete (Variables)
-
-{{ tabs "cloud-plugin-version" }} 
-
-{{ startTab "v0.1.1"}}
-
-Spin compatibility: `>= v1.3`
-
-<!-- @selectiveCpy -->
-```console
-$ spin cloud variables delete --help
-
-cloud-variables-delete 0.1.1
-Delete variables
-
-USAGE:
-    cloud variables delete [OPTIONS] --app <app> [VARIABLES_TO_DELETE]...
-
-ARGS:
-    <VARIABLES_TO_DELETE>...    Variable pair to set
-
-OPTIONS:
-        --app <app>
-            Name of Spin app
-
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -h, --help
-            Print help information
-
-    -V, --version
-            Print version information
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-#### List (Variables)
-
-{{ tabs "cloud-plugin-version" }} 
-
-{{ startTab "v0.1.1"}}
-
-Spin compatibility: `>= v1.3`
-
-<!-- @selectiveCpy -->
-```console
-$ spin cloud variables list --help
-
-cloud-variables-list 0.1.1
-List all variables of an application
-
-USAGE:
-    cloud variables list [OPTIONS] --app <app>
-
-OPTIONS:
-        --app <app>
-            Name of Spin app
-
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -h, --help
-            Print help information
-
-    -V, --version
-            Print version information
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-### Subcommand Stability Table
+## Subcommand Stability Table
 
 CLI commands have four phases that indicate levels of stability:
 
@@ -333,9 +412,9 @@ Spin compatibility: `>= v1.3`
 
 | Command                                                    | Stability   |
 | ---------------------------------------------------------- | ----------- |
-| <code>cloud deploy</code>                                                 | Stabilizing      |
-| <code>cloud login</code>                                               | Stabilizing      |
-| <code>cloud variables</code>                                                 | Stabilizing      |
+| <code>cloud deploy</code>                                  | Stabilizing |
+| <code>cloud login</code>                                   | Stabilizing |
+| <code>cloud variables</code>                               | Stabilizing |
 
 {{ blockEnd }}
 
