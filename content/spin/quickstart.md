@@ -14,6 +14,9 @@ keywords = "quickstart"
 - [Create Your First Application](#create-your-first-application)
 - [Build Your Application](#build-your-application)
 - [Run Your Application](#run-your-application)
+- [Deploy Your Application to Fermyon Cloud](#deploy-your-application-to-fermyon-cloud)
+  - [Log in to Fermyon Cloud](#log-in-to-fermyon-cloud)
+  - [Deploy the Application](#deploy-the-application)
 - [Next Steps](#next-steps)
 
 Let's get Spin and take it from nothing to a "hello world" application!
@@ -800,8 +803,65 @@ Hello, Fermyon
 
 Congratulations! You just created, built and ran your first Spin application!
 
+## Deploy Your Application to Fermyon Cloud
+
+`spin up` runs your application locally. Now it's time to put it on the Web via [Fermyon Cloud](https://cloud.fermyon.com).
+
+> Fermyon Cloud's Starter tier is free, and doesn't require you to enter any kind of payment instrument. You only need a [GitHub account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email).
+
+### Log in to Fermyon Cloud
+
+Before deploying your application to Fermyon Cloud, you have to log in, using the `spin login` command. This generates a code to authorize your current device against the Fermyon Cloud, and prints a link that will take you to where you enter the code. (You will need to be logged into your GitHub account; if you're not, it will prompt you to log in.) Follow the instructions in the prompt to complete the authorization process.
+
+`spin login` prints a confirmation message when authorization completes:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin login
+
+Copy your one-time code:
+
+XXXXXXXX
+
+...and open the authorization page in your browser:
+
+https://cloud.fermyon.com/device-authorization
+
+Waiting for device authorization...
+Device authorized!
+```
+
+### Deploy the Application
+
+Now let's deploy the application:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin deploy
+```
+
+The deployment process prints progress information as your application uploads and is rolled out to the cloud:
+
+<!-- @nocpy -->
+
+```console
+Uploading hello_typescript version 0.1.0+XXXXXXXX...
+Deploying...
+Waiting for application to become ready... ready
+Available Routes:
+  hello-typescript: https://hello-typescript-XXXXXXXX.fermyon.app (wildcard)
+```
+
+You can Ctrl+Click on the link in the terminal to visit the web application you just deployed.
+
+> In the example output above, `hello_typescript` is a placeholder for your application name - you'll see whatever you entered as the application name when you ran `spin new` earlier. The `XXXXXXXX` fragment is randomly generated to make a unique URL.
+
+Congratulations again - you've now deployed your first Spin application to [Fermyon Cloud](https://cloud.fermyon.com)!
+
 ## Next Steps
 
 - Learn more about [writing Spin components and manifests](writing-apps)
 - Learn how to [build your Spin application code](build)
-- Try deploying a Spin application to the [Fermyon Cloud](/cloud/quickstart)
+- Learn more about [Fermyon Cloud](/cloud/index)
