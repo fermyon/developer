@@ -19,7 +19,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/pricing-and-
 
 Fermyon Cloud offers subscription plans to help you accomplish your workload goals that require an increase of resource usage in Fermyon Cloud. This page covers general information about subscription plans and answers frequently asked questions around [payment](#payment), [refunds](#refund), [support](#support), and [quotas](#quota).
 
-As described in detail on the [Fermyon Pricing page](fermyon.com/pricing), there are 3 different plans we offer to fit your workloads' requirements: Starter, Growth, and Enterprise. 
+As described in detail on the [Fermyon Pricing page](https://www.fermyon.com/pricing), there are 3 different plans we offer to fit your workloads' requirements: Starter, Growth, and Enterprise. 
 
 The Start Plan offers all of Fermyon Cloud services for you to try out, that you can continually run free of charge, within certain usage limits. If you find that you're hitting the upper limits of the Starter Plan, we recommend upgrading your account to the Growth Plan, where you can enjoy the same services with a higher quota limit. Lastly, if the services offered don't quite meet your needs in the Growth Plan, <a href="mailto:sales@fermyon.com">reach out</a> to the Fermyon team and we'll work to create a customized Enterprise Plan that will best meet your requirements. 
 
@@ -93,7 +93,7 @@ We offer support with a one business day response time via email and a best-effo
 
 **Can I purchase a better level of support?**
 
-Please reach out to < a href="mailto:support@fermyon.com">support@fermyon.com</a>, and we’ll work to understand the situation and see if we can create a solution to meet your needs.
+Please reach out to <a href="mailto:support@fermyon.com">support@fermyon.com</a>, and we’ll work to understand the situation and see if we can create a solution to meet your needs.
 
 **Does Fermyon Cloud Starter Plan or Growth Plan come with any Service Level Agreements and if so, what are they?**
 

@@ -18,7 +18,7 @@ url = "https://github.com/fermyon/developer/blob/main//content/cloud/faq.md"
 
 The following are the quota for users based, stratified by the three [Subscription Plans](./pricing-and-billing.md) offered by Fermyon Cloud:
 
-> \* Signifies a resource that is not an explicit line item in the Fermyon Cloud [Subscription Plan](fermyon.com/pricing) but is eligable for a quota increase for Growth and Enterprise Plan users who can reach out to <a href="mailto:sales@fermyon.com">Fermyon team</a> for assistance.
+> \* Signifies a resource that is not an explicit line item in the Fermyon Cloud [Subscription Plan](https://www.fermyon.com/pricing) but is eligable for a quota increase for Growth and Enterprise Plan users who can reach out to <a href="mailto:sales@fermyon.com">Fermyon team</a> for assistance.
 
 | | Starter Plan | Growth Plan | Enterprise Plan
 |-----|-----|-----|-----|
