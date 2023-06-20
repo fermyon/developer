@@ -1,6 +1,6 @@
 title = "Pricing Plans and Billing"
 template = "cloud_main"
-date = "2023-06-20T00:16:00Z"
+date = "2023-06-20T00:14:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/pricing-and-billing.md"
