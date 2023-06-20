@@ -16,6 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/pricing-and-
 - [Next Steps](#next-steps)
 
 ## Fermyon Cloud Pricing
+
 Fermyon Cloud offers subscription plans to help you accomplish your workload goals that require an increase of resource usage in Fermyon Cloud. This page covers general information about subscription plans and answers frequently asked questions around [payment](#payment), [refunds](#refund), [support](#support), and [quotas](#quota).
 
 As described in detail on the [Fermyon Pricing page](fermyon.com/pricing), there are 3 different plans we offer to fit your workloads' requirements: Starter, Growth, and Enterprise. 
@@ -46,7 +47,6 @@ For a full list to accepted payment methods see this [Stripe resource](https://s
 **Why am I charged tax, and where can I get a receipt of how much tax I am charged?**
 
 Fermyon charges the tax mandated by the local taxing authority. Your bill will include the tax charged and is available via invoices which are accessible on Fermyon Cloud dashboard under [Account settings](https://cloud.fermyon.com/account-settings) —> Billing information
-
 
 **Can I pay every month manually?**
 
@@ -95,7 +95,6 @@ We offer support with a one business day response time via email and a best-effo
 
 Please reach out to [support@fermyon.com](mailto:support@fermyon.com), and we’ll work to understand the situation and see if we can create a solution to meet your needs.
 
-
 **Does Fermyon Cloud Starter Plan or Growth Plan come with any Service Level Agreements and if so, what are they?**
 
 Fermyon Cloud is an Open Beta service, which currently does not guarentee any Service Level Agreement. 
@@ -114,7 +113,6 @@ If these do not meet your needs, either email [sales@fermyon.com](mailto:sales@f
 **How can I tell if I’m approaching my plan’s current quota limits?**
 
 Fermyon will notify you via email when you reach 75%, 90%, and 100% usage for your limits. In the future we will be adding in Fermyon Cloud UI notifications as well and the ability to configure alerts.
-
 
 **What happens when I reach my quota limits?**
 
