@@ -1,4 +1,4 @@
-title = "FAQ and Known Limitations"
+title = "Quotas, Limitations, and Technical FAQ"
 template = "cloud_main"
 date = "2023-04-18T00:00:00Z"
 enable_shortcodes = true
@@ -6,34 +6,50 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main//content/cloud/faq.md"
 
 ---
-- [Service Limits](#service-limits)
+- [Quota Limits](#quota-limits)
 - [Known Limitations](#known-limitations)
+  - [Fermyon Cloud](#fermyon-cloud)
   - [Spin Limitations](#spin-limitations)
   - [Other Limitations](#other-limitations)
-- [Frequently Asked Questions](#frequently-asked-questions)
+- [Technical Frequently Asked Questions](#technical-frequently-asked-questions)
 - [Next Steps](#next-steps)
 
-## Service Limits
+## Quota Limits
 
-The following are the limits of the Fermyon Cloud
+The following are the quota for users based, stratified by the three [Subscription Plans](./pricing-and-billing.md) offered by Fermyon Cloud:
 
-- A user account can have a maximum of 5 Spin applications deployed at any time
-- A Spin application can have no more than 1,000 executions (inbound HTTP requests) every second
-- A Spin application can have no more than 500 outbound requests per hour
-- A Spin application request handler can take no more than 10 seconds to complete
-- A Spin application package cannot exceed a total size of 100MB
-- A custom Fermyon subdomain must be greater than 3 characters and less than 63 characters in length
-- A custom Fermyon subdomain must be unique
-- A user account can execute a maximum of 10 deployments in a minute
-- A user account can execute a maximum of 100 deployments in an hour
-- A user can execute a maximum of 3,000 requests per hour toward the Cloud API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
-- A key value store key can have a maximum size of 255 bytes
-- A key value store value can have a maximum size of 1 MB
-- A key value store can have a maximum of 1,024 keys 
-- A Spin application can have a maximum of 1 key value store
-- The device and browser token lifetime is 7 days
+> \* Signifies a resource that is not an explicit line item in the Fermyon Cloud [Subscription Plan](fermyon.com/pricing) but is eligable for a quota increase for Growth and Enterprise Plan users who can reach out to [Fermyon team](mailto:sales@fermyon.com) for assistance.
+
+| | Starter Plan | Growth Plan | Enterprise Plan
+|-----|-----|-----|-----|
+| **Application Quota** |
+| Spin application count | 5 | 100 | Contact us 
+| Spin application package size (MB)* | 100 | 100 | Contact us
+| Spin application deployments per minute* | 10 | 10 | Contact us
+| Request handler duration (seconds)* | 10  | 10  | Contact us
+| **Rate Limiting Quota** |
+| Request execution count | 100,000  | 1,000,000  | Contact us
+| Request executions per second* | 1,000 | 1,000 | Contact us 
+| Spin application deployments per hour* | 100 | 100 | Contact us
+| Outbound requests per hour per Spin app* | 500 | 500 | Contact us
+| **Networking** |
+| Custom Fermyon subdomain character count* | 62 | 62 | Contact us
+| Bandwidth egress (GB) | 5 | 50 | Contact us
+| **Storage** |
+| Key value store key size (bytes)* | 255 | 255 | Contact us
+| Key value store storage size (GB) | 1 | 2 | Contact us
+| Key value maximum keys* | 1,024 | 1,024 | Contact us
+| **Regions** |
+| Region count| 1 | 1 | Contact us
 
 ## Known Limitations
+
+### Fermyon Cloud Limitations
+
+- A custom Fermyon subdomain must be unique
+- A user can execute a maximum of 3,000 requests per hour toward the Cloud API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
+- The device and browser token lifetime for Fermyon Cloud Dashboard authentication is 7 days
+- A Spin application can have a maximum of 1 key value store
 
 ### Spin Limitations
 
@@ -61,7 +77,7 @@ To learn more about what feature support looks like for various programming lang
 - You cannot communicate between Spin applications using local name resolution
 - [Runtime configuration and secrets](/spin/dynamic-configuration#runtime-configuration) are not supported at this time
 
-## Frequently Asked Questions
+## Technical Frequently Asked Questions
 
 - **Why do I see mixed replies from my service during an upgrade?**
   - When doing an upgrade of an application, there is a gradual roll-out happening. This means that requests will hit both the existing and new modules, as the upgrade completes. You will see a pattern like the one below, showing the body reply from an HTTP request:
@@ -78,9 +94,6 @@ To learn more about what feature support looks like for various programming lang
 11:08:27 : Bad Gateway
 11:08:29 : Hello from Rust - updated
 ```
-
-- **How do I report a security concern, or concerns, with content hosted on the Fermyon Cloud?**
-  - Please go to our [Feedback repo - Report Security Concern](https://github.com/fermyon/feedback/security/policy) for instructions on how to report any concerns.
 
 ## Next Steps
 
