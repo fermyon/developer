@@ -23,7 +23,7 @@ To see any know issues and report a specific issue, feel free to use the [feedba
 
 ## Growth and Enterprise Plan Users
 
-Please reach out to [support@fermyon.com](mailto:support@fermyon.com) for assistance. We also have a [Support FAQ available here](./pricing-and-billing.md#support)
+Please reach out to <a href="mailto:support@fermyon.com">support@fermyon.com</a> for assistance. We also have a [Support FAQ available here](./pricing-and-billing.md#support)
 
 ## Report Abuse
 
