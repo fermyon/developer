@@ -6,170 +6,43 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/cli-reference.md"
 
 ---
-- [Spin](#spin)
-  - [Add](#add)
-  - [Build](#build)
-  - [Cloud](#cloud)
-    - [Deploy (Cloud)](#deploy-cloud)
-    - [Login (Cloud)](#login-cloud)
-  - [Deploy](#deploy)
-  - [Help](#help)
-  - [Login](#login)
-  - [New](#new)
-  - [Plugins](#plugins)
-    - [Install (Plugins)](#install-plugins)
-    - [List (Plugins)](#list-plugins)
-    - [Uninstall (Plugins)](#uninstall-plugins)
-    - [Update (Plugins)](#update-plugins)
-    - [Upgrade (Plugins)](#upgrade-plugins)
-  - [OCI Registry](#oci-registry)
-    - [Login (OCI Registry)](#login-oci-registry)
-    - [Pull (OCI Registry)](#pull-oci-registry)
-    - [Push (OCI Registry)](#push-oci-registry)
-  - [Templates](#templates)
-    - [Install (Templates)](#install-templates)
-    - [List (Templates)](#list-templates)
-    - [Uninstall (Templates)](#uninstall-templates)
-    - [Upgrade (Templates)](#upgrade-templates)
-  - [Up](#up)
-    - [Trigger Options](#trigger-options)
-      - [Redis Request Handler](#redis-request-handler)
-      - [HTTP Request Handler](#http-request-handler)
-  - [Watch](#watch)
-  - [CLI Stability Table](#cli-stability-table)
+- [add](#add)
+- [build](#build)
+- [cloud](#cloud)
+- [deploy](#deploy)
+- [cloud deploy](#cloud-deploy)
+- [login](#login)
+- [cloud login](#cloud-login)
+- [cloud variables](#cloud-variables)
+- [help](#help)
+- [new](#new)
+- [plugin](#plugin)
+- [plugins](#plugins)
+- [plugins install](#plugins-install)
+- [plugins list](#plugins-list)
+- [plugins uninstall](#plugins-uninstall)
+- [plugins update](#plugins-update)
+- [plugins upgrade](#plugins-upgrade)
+- [oci](#oci)
+- [registry](#registry)
+- [registry login](#registry-login)
+- [registry pull](#registry-pull)
+- [registry push](#registry-push)
+- [template](#template)
+- [templates](#templates)
+- [templates install](#templates-install)
+- [templates list](#templates-list)
+- [templates uninstall](#templates-uninstall)
+- [templates upgrade](#templates-upgrade)
+- [up](#up)
+- [watch](#watch)
+- [CLI Stability Table](#cli-stability-table)
 
-## Spin
+This page documents the Spin Command Line Interface (CLI).
 
-This page documents the Spin Command Line Interface (CLI). Specifically, all of the available Spin Options and Subcommands. For more information on command stability, see the [CLI stability table](#cli-stability-table). You can reproduce the Spin CLI documentation on your machine by using the `--help` flag. For example:
+For information on command stability, see the [CLI stability table](#cli-stability-table).
 
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.0.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin --help
-
-USAGE:
-    spin <SUBCOMMAND>
-
-OPTIONS:
-    -h, --help       Print help information
-    -V, --version    Print version information
-
-SUBCOMMANDS:
-    add          Scaffold a new component into an existing application
-    build        Build the Spin application
-    cloud        Commands for publishing applications to the Fermyon Platform
-    deploy       Package and upload an application to the Fermyon Platform
-    help         Print this message or the help of the given subcommand(s)
-    login        Log into the Fermyon Platform
-    new          Scaffold a new application based on a template
-    plugins      Install/uninstall Spin plugins
-    registry     Commands for working with OCI registries to distribute applications
-    templates    Commands for working with WebAssembly component templates
-    up           Start the Spin application
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.1.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin --help
-
-USAGE:
-    spin <SUBCOMMAND>
-
-OPTIONS:
-    -h, --help       Print help information
-    -V, --version    Print version information
-
-SUBCOMMANDS:
-    add          Scaffold a new component into an existing application
-    build        Build the Spin application
-    cloud        Commands for publishing applications to the Fermyon Platform
-    deploy       Package and upload an application to the Fermyon Platform
-    help         Print this message or the help of the given subcommand(s)
-    login        Log into the Fermyon Platform
-    new          Scaffold a new application based on a template
-    plugins      Install/uninstall Spin plugins
-    registry     Commands for working with OCI registries to distribute applications
-    templates    Commands for working with WebAssembly component templates
-    up           Start the Spin application
-    watch        Rebuild and restart the Spin application when files changes
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.2.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin --help
-
-USAGE:
-    spin <SUBCOMMAND>
-
-OPTIONS:
-    -h, --help       Print help information
-    -V, --version    Print version information
-
-SUBCOMMANDS:
-    add          Scaffold a new component into an existing application
-    build        Build the Spin application
-    cloud        Commands for publishing applications to the Fermyon Platform
-    deploy       Package and upload an application to the Fermyon Platform
-    help         Print this message or the help of the given subcommand(s)
-    login        Log into the Fermyon Platform
-    new          Scaffold a new application based on a template
-    plugins      Install/uninstall Spin plugins
-    registry     Commands for working with OCI registries to distribute applications
-    templates    Commands for working with WebAssembly component templates
-    up           Start the Spin application
-    watch        Build and run the Spin application, rebuilding and restarting it when files
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.3.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin --help
-
-USAGE:
-    spin <SUBCOMMAND>
-
-OPTIONS:
-    -h, --help       Print help information
-    -V, --version    Print version information
-
-SUBCOMMANDS:
-    add          Scaffold a new component into an existing application
-    build        Build the Spin application
-    cloud        Commands for publishing applications to the Fermyon Platform
-    deploy       Package and upload an application to the Fermyon Platform
-    help         Print this message or the help of the given subcommand(s)
-    login        Log into the Fermyon Platform
-    new          Scaffold a new application based on a template
-    plugins      Install/uninstall Spin plugins
-    registry     Commands for working with OCI registries to distribute applications
-    templates    Commands for working with WebAssembly component templates
-    up           Start the Spin application
-    watch        Build and run the Spin application, rebuilding and restarting it when files
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-### Add
+### add
 
 Adding a subcommand (and again issuing the `--help` command) will provide information specific to that particular subcommand. For example:
 
@@ -247,7 +120,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -321,7 +194,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-### Build
+### build
 
 {{ tabs "spin-version" }}
 
@@ -373,7 +246,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -432,7 +305,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-### Cloud
+### cloud
 
 {{ tabs "spin-version" }}
 
@@ -484,7 +357,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -510,6 +383,8 @@ SUBCOMMANDS:
 
 {{ startTab "v1.3.0"}}
 
+The `cloud` command is implemented by the [cloud-plugin](https://github.com/fermyon/cloud-plugin).
+
 <!-- @selectiveCpy -->
 
 ```console
@@ -530,12 +405,17 @@ SUBCOMMANDS:
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
     variables    Manage Spin application variables
+```
 
 {{ blockEnd }}
 
 {{ blockEnd }}
 
-#### Deploy (Cloud)
+### deploy
+
+`spin deploy` is a shotcurt to [`spin cloud deploy`](#cloud-deploy).
+
+### cloud deploy
 
 {{ tabs "spin-version" }}
 
@@ -633,7 +513,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -682,6 +562,8 @@ OPTIONS:
 {{ blockEnd }}
 
 {{ startTab "v1.3.0"}}
+
+The `cloud deploy` command is implemented by the [cloud-plugin](https://github.com/fermyon/cloud-plugin).
 
 <!-- @selectiveCpy -->
 
@@ -738,9 +620,13 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Login (Cloud)
+### login
 
-Please note: the previous `spin login` command (from versions before Spin v0.9.0) has been kept to ensure backward compatibility. In the Spin v0.9.0 release, both the `spin login --help` and `spin cloud login --help` commands will produce the same output, which is as follows:
+Please note: the previous `spin login` command (from versions before Spin v0.9.0) has been kept to ensure backward compatibility. In the Spin v0.9.0 release, both the `spin login --help` and [`spin cloud login --help`](#cloud-login) commands will produce the same output.
+
+`spin login` is a shotcurt to [`spin cloud login`](#cloud-login).
+
+### cloud login
 
 {{ tabs "spin-version" }}
 
@@ -860,7 +746,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -919,6 +805,8 @@ OPTIONS:
 {{ blockEnd }}
 
 {{ startTab "v1.3.0"}}
+
+The `cloud login` command is implemented by the [cloud-plugin](https://github.com/fermyon/cloud-plugin).
 
 <!-- @selectiveCpy -->
 
@@ -966,11 +854,13 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Variables (Cloud)
+### cloud variables
 
 {{ tabs "spin-version" }}
 
 {{ startTab "v1.3.0"}}
+
+The `variables` command is implemented by the [cloud-plugin](https://github.com/fermyon/cloud-plugin).
 
 <!-- @selectiveCpy -->
 
@@ -999,206 +889,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-### Deploy
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.0.0"}}
-
-<!-- @selectiveCpy -->
-```console
-$ spin deploy --help
-
-spin-deploy 
-Package and upload an application to the Fermyon Platform
-
-USAGE:
-    spin deploy [OPTIONS]
-
-OPTIONS:
-        --buildinfo <BUILDINFO>
-            Build metadata to append to the bindle version
-
-    -d, --staging-dir <STAGING_DIR>
-            Path to assemble the bindle before pushing (defaults to a temporary directory)
-
-    -e, --deploy-existing-bindle
-            Deploy existing bindle if it already exists on bindle server
-
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -f, --file <APP_MANIFEST_FILE>
-            Path to spin.toml [default: spin.toml]
-
-    -h, --help
-            Print help information
-
-        --key-value <KEY_VALUES>
-            Pass a key/value (key=value) to all components of the application. Can be used multiple
-            times
-
-        --no-buildinfo
-            Disable attaching buildinfo [env: SPIN_DEPLOY_NO_BUILDINFO=]
-
-        --readiness-timeout <READINESS_TIMEOUT_SECS>
-            How long in seconds to wait for a deployed HTTP application to become ready. The default
-            is 60 seconds. Set it to 0 to skip waiting for readiness [default: 60]
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.1.0"}}
-
-<!-- @selectiveCpy -->
-```console
-$ spin deploy --help
-
-spin-deploy 
-Package and upload an application to the Fermyon Platform
-
-USAGE:
-    spin deploy [OPTIONS]
-
-OPTIONS:
-        --buildinfo <BUILDINFO>
-            Build metadata to append to the bindle version
-
-    -d, --staging-dir <STAGING_DIR>
-            Path to assemble the bindle before pushing (defaults to a temporary directory)
-
-    -e, --deploy-existing-bindle
-            Deploy existing bindle if it already exists on bindle server
-
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -f, --file <APP_MANIFEST_FILE>
-            Path to spin.toml [default: spin.toml]
-
-    -h, --help
-            Print help information
-
-        --key-value <KEY_VALUES>
-            Pass a key/value (key=value) to all components of the application. Can be used multiple
-            times
-
-        --no-buildinfo
-            Disable attaching buildinfo [env: SPIN_DEPLOY_NO_BUILDINFO=]
-
-        --readiness-timeout <READINESS_TIMEOUT_SECS>
-            How long in seconds to wait for a deployed HTTP application to become ready. The default
-            is 60 seconds. Set it to 0 to skip waiting for readiness [default: 60]
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.2.0"}}
-
-<!-- @selectiveCpy -->
-```console
-$ spin deploy --help
-
-spin-deploy 
-Package and upload an application to the Fermyon Platform
-
-USAGE:
-    spin deploy [OPTIONS]
-
-OPTIONS:
-        --buildinfo <BUILDINFO>
-            Build metadata to append to the bindle version
-
-    -d, --staging-dir <STAGING_DIR>
-            Path to assemble the bindle before pushing (defaults to a temporary directory)
-
-    -e, --deploy-existing-bindle
-            Deploy existing bindle if it already exists on bindle server
-
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -f, --from <APP_MANIFEST_FILE>
-            The application to deploy. This may be a manifest (spin.toml) file, or a directory
-            containing a spin.toml file. If omitted, it defaults to "spin.toml" [default: spin.toml]
-
-    -h, --help
-            Print help information
-
-        --key-value <KEY_VALUES>
-            Set a key/value pair (key=value) in the deployed application's default store. Any
-            existing value will be overwritten. Can be used multiple times
-
-        --no-buildinfo
-            Disable attaching buildinfo [env: SPIN_DEPLOY_NO_BUILDINFO=]
-
-        --readiness-timeout <READINESS_TIMEOUT_SECS>
-            How long in seconds to wait for a deployed HTTP application to become ready. The default
-            is 60 seconds. Set it to 0 to skip waiting for readiness [default: 60]
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.3.0"}}
-
-<!-- @selectiveCpy -->
-```console
-$ spin deploy --help
-
-cloud-deploy 0.1.1
-Package and upload an application to the Fermyon Cloud
-
-USAGE:
-    cloud deploy [OPTIONS]
-
-OPTIONS:
-        --buildinfo <BUILDINFO>
-            Build metadata to append to the bindle version
-
-    -d, --staging-dir <STAGING_DIR>
-            Path to assemble the bindle before pushing (defaults to a temporary directory)
-
-    -e, --deploy-existing-bindle
-            Deploy existing bindle if it already exists on bindle server
-
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -f, --from <APP_MANIFEST_FILE>
-            The application to deploy. This may be a manifest (spin.toml) file, or a directory
-            containing a spin.toml file. If omitted, it defaults to "spin.toml" [default: spin.toml]
-
-    -h, --help
-            Print help information
-
-        --key-value <KEY_VALUES>
-            Set a key/value pair (key=value) in the deployed application's default store. Any
-            existing value will be overwritten. Can be used multiple times
-
-        --no-buildinfo
-            Disable attaching buildinfo [env: SPIN_DEPLOY_NO_BUILDINFO=]
-
-        --readiness-timeout <READINESS_TIMEOUT_SECS>
-            How long in seconds to wait for a deployed HTTP application to become ready. The default
-            is 60 seconds. Set it to 0 to skip waiting for readiness [default: 60]
-
-    -V, --version
-            Print version information
-
-        --variable <VARIABLES>
-            Set a variable (variable=value) in the deployed application. Any existing value will be
-            overwritten. Can be used multiple times
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-### Help
+### help
 
 {{ tabs "spin-version" }}
 
@@ -1266,14 +957,14 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
 ```console
 $ spin help      
 
-spin 1.2.0 
+spin 1.2.0/1.2.1 
 The Spin CLI
 
 USAGE:
@@ -1341,233 +1032,7 @@ SUBCOMMANDS:
 
 > Please note: Spin `help` is a convenient way to access help using a subcommand, instead of using the `--help` option. For example, `spin help cloud` will give you the same output as `spin cloud --help`. Similarly, `spin help build` will give you the same output as `spin build --help` and so forth.
 
-### Login
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.0.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin login --help
-
-spin-login 
-Log into the Fermyon Platform
-
-USAGE:
-    spin login [OPTIONS]
-
-OPTIONS:
-        --auth-method <auth-method>
-            [env: AUTH_METHOD=] [possible values: github, username, token]
-
-        --bindle-password <BINDLE_PASSWORD>
-            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
-
-        --bindle-server <BINDLE_SERVER_URL>
-            URL of bindle server [env: BINDLE_URL=]
-
-        --bindle-username <BINDLE_USERNAME>
-            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
-
-        --environment-name <environment-name>
-            Save the login details under the specified name instead of making them the default. Use
-            named environments with `spin deploy --environment-name <name>` [env:
-            FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -h, --help
-            Print help information
-
-    -k, --insecure
-            Ignore server certificate errors from bindle and hippo
-
-        --list
-            List saved logins
-
-        --password <HIPPO_PASSWORD>
-            Hippo password [env: HIPPO_PASSWORD=]
-
-        --status
-            Display login status
-
-        --token <TOKEN>
-            Auth Token [env: SPIN_AUTH_TOKEN=]
-
-        --url <HIPPO_SERVER_URL>
-            URL of hippo server [env: HIPPO_URL=] [default: https://cloud.fermyon.com/]
-
-        --username <HIPPO_USERNAME>
-            Hippo username [env: HIPPO_USERNAME=]
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.1.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin login --help
-
-spin-login 
-Log into the Fermyon Platform
-
-USAGE:
-    spin login [OPTIONS]
-
-OPTIONS:
-        --auth-method <auth-method>
-            [env: AUTH_METHOD=] [possible values: github, username, token]
-
-        --bindle-password <BINDLE_PASSWORD>
-            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
-
-        --bindle-server <BINDLE_SERVER_URL>
-            URL of bindle server [env: BINDLE_URL=]
-
-        --bindle-username <BINDLE_USERNAME>
-            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
-
-        --environment-name <environment-name>
-            Save the login details under the specified name instead of making them the default. Use
-            named environments with `spin deploy --environment-name <name>` [env:
-            FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -h, --help
-            Print help information
-
-    -k, --insecure
-            Ignore server certificate errors from bindle and hippo
-
-        --list
-            List saved logins
-
-        --password <HIPPO_PASSWORD>
-            Hippo password [env: HIPPO_PASSWORD=]
-
-        --status
-            Display login status
-
-        --token <TOKEN>
-            Auth Token [env: SPIN_AUTH_TOKEN=]
-
-        --url <HIPPO_SERVER_URL>
-            URL of hippo server [env: HIPPO_URL=] [default: https://cloud.fermyon.com/]
-
-        --username <HIPPO_USERNAME>
-            Hippo username [env: HIPPO_USERNAME=]
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.2.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin login --help
-
-spin-login 
-Log into the Fermyon Platform
-
-USAGE:
-    spin login [OPTIONS]
-
-OPTIONS:
-        --auth-method <auth-method>
-            [env: AUTH_METHOD=] [possible values: github, username, token]
-
-        --bindle-password <BINDLE_PASSWORD>
-            Basic http auth password for the bindle server [env: BINDLE_PASSWORD=]
-
-        --bindle-server <BINDLE_SERVER_URL>
-            URL of bindle server [env: BINDLE_URL=]
-
-        --bindle-username <BINDLE_USERNAME>
-            Basic http auth username for the bindle server [env: BINDLE_USERNAME=]
-
-        --environment-name <environment-name>
-            Save the login details under the specified name instead of making them the default. Use
-            named environments with `spin deploy --environment-name <name>` [env:
-            FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -h, --help
-            Print help information
-
-    -k, --insecure
-            Ignore server certificate errors from bindle and hippo
-
-        --list
-            List saved logins
-
-        --password <HIPPO_PASSWORD>
-            Hippo password [env: HIPPO_PASSWORD=]
-
-        --status
-            Display login status
-
-        --token <TOKEN>
-            Auth Token [env: SPIN_AUTH_TOKEN=]
-
-        --url <HIPPO_SERVER_URL>
-            URL of hippo server [env: HIPPO_URL=] [default: https://cloud.fermyon.com/]
-
-        --username <HIPPO_USERNAME>
-            Hippo username [env: HIPPO_USERNAME=]
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.3.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin login --help
-
-cloud-login 0.1.1
-Login to Fermyon Cloud
-
-USAGE:
-    cloud login [OPTIONS]
-
-OPTIONS:
-        --auth-method <auth-method>
-            [env: AUTH_METHOD=] [possible values: github, token]
-
-        --environment-name <environment-name>
-            Save the login details under the specified name instead of making them the default. Use
-            named environments with `spin deploy --environment-name <name>` [env:
-            FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -h, --help
-            Print help information
-
-    -k, --insecure
-            Ignore server certificate errors
-
-        --list
-            List saved logins
-
-        --status
-            Display login status
-
-        --token <TOKEN>
-            Auth Token [env: SPIN_AUTH_TOKEN=]
-
-        --url <CLOUD_SERVER_URL>
-            URL of Fermyon Cloud Instance [env: CLOUD_URL=] [default: https://cloud.fermyon.com/]
-
-    -V, --version
-            Print version information
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-### New
+### new
 
 {{ tabs "spin-version" }}
 
@@ -1641,7 +1106,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1718,7 +1183,11 @@ OPTIONS:
 * `spin new` creates a _new_ application - that is, a new directory with a new `spin.toml` file.
 * `spin add` _adds_ a component to an _existing_ application - that is, it modifies an existing `spin.toml` file.
 
-### Plugins
+### plugin
+
+`spin plugin` is an alias for [`spin plugins`](#plugins)
+
+### plugins
 
 {{ tabs "spin-version" }}
 
@@ -1776,7 +1245,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1832,7 +1301,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-#### Install (Plugins)
+### plugins install
 
 {{ tabs "spin-version" }}
 
@@ -1918,7 +1387,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2002,7 +1471,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### List (Plugins)
+### plugins list
 
 {{ tabs "spin-version" }}
 
@@ -2046,7 +1515,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2088,7 +1557,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Uninstall (Plugins)
+### plugins uninstall
 
 {{ tabs "spin-version" }}
 
@@ -2136,7 +1605,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2182,7 +1651,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Update (Plugins)
+### plugins update
 
 {{ tabs "spin-version" }}
 
@@ -2224,7 +1693,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2264,7 +1733,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Upgrade (Plugins)
+### plugins upgrade
 
 {{ tabs "spin-version" }}
 
@@ -2356,7 +1825,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2448,7 +1917,11 @@ OPTIONS:
 
 **Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
 
-### OCI Registry
+### oci
+
+`spin oci` is an alias for  [`spin registry`](#registry)
+
+### registry
 
 {{ tabs "spin-version" }}
 
@@ -2504,7 +1977,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2556,7 +2029,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-#### Login (OCI Registry)
+### registry login
 
 {{ tabs "spin-version" }}
 
@@ -2610,7 +2083,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2662,7 +2135,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Pull (OCI Registry)
+### registry pull
 
 {{ tabs "spin-version" }}
 
@@ -2712,7 +2185,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2760,7 +2233,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Push (OCI Registry)
+### registry push
 
 {{ tabs "spin-version" }}
 
@@ -2812,7 +2285,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2840,7 +2313,11 @@ OPTIONS:
 
 {{ blockEnd }}
 
-### Templates
+### template
+
+`spin template` is an alias for [`spin templates'](#templates)
+
+### templates
 
 {{ tabs "spin-version" }}
 
@@ -2896,7 +2373,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2950,7 +2427,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
     
-#### Install (Templates)
+### templates install
 
 {{ tabs "spin-version" }}
 
@@ -3026,7 +2503,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -3100,7 +2577,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### List (Templates)
+### templates list
 
 {{ tabs "spin-version" }}
 
@@ -3146,7 +2623,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -3190,7 +2667,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Uninstall (Templates)
+### templates uninstall
 
 <!-- @selectiveCpy -->
 
@@ -3240,7 +2717,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -3286,7 +2763,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-#### Upgrade (Templates)
+### templates upgrade
 
 {{ tabs "spin-version" }}
 
@@ -3360,7 +2837,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -3434,9 +2911,11 @@ OPTIONS:
 
 **Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
 
-### Up
+### up
 
-The following options are available in relation to running your Spin application. Additionally, depending on the type of trigger that your application uses (i.e. HTTP or Redis trigger), there are trigger-specific options available. Details of the trigger options can be found in the next section (below).
+The following options are available in relation to running your Spin application.
+
+Note: There are three trigger options which only applies to the HTTP trigger (`--listen`, `--tls-cert` and `--tls-key`).
 
 {{ tabs "spin-version" }}
 
@@ -3484,6 +2963,12 @@ TRIGGER OPTIONS:
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
 
+        --listen <ADDRESS>
+            IP address and port to listen on
+            
+            [default: 127.0.0.1:3000]
+            Only appplies to HTTP triggers            
+
     -q, --quiet
             Silence all component output to stdout/stderr
 
@@ -3492,6 +2977,19 @@ TRIGGER OPTIONS:
             
             [env: RUNTIME_CONFIG_FILE=]
 
+        --tls-cert <TLS_CERT>
+            The path to the certificate to use for https, if this is not set, normal http will be
+            used. The cert should be in PEM format
+            
+            [env: SPIN_TLS_CERT=]
+            Only appplies to HTTP triggers
+
+        --tls-key <TLS_KEY>
+            The path to the certificate key to use for https, if this is not set, normal http will
+            be used. The key should be in PKCS#8 format
+            
+            [env: SPIN_TLS_KEY=]
+            Only appplies to HTTP triggers
 ```
 
 {{ blockEnd }}
@@ -3540,6 +3038,12 @@ TRIGGER OPTIONS:
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
 
+        --listen <ADDRESS>
+            IP address and port to listen on
+            
+            [default: 127.0.0.1:3000]
+            Only appplies to HTTP triggers
+
     -q, --quiet
             Silence all component output to stdout/stderr
 
@@ -3548,11 +3052,24 @@ TRIGGER OPTIONS:
             
             [env: RUNTIME_CONFIG_FILE=]
 
+        --tls-cert <TLS_CERT>
+            The path to the certificate to use for https, if this is not set, normal http will be
+            used. The cert should be in PEM format
+            
+            [env: SPIN_TLS_CERT=]
+            Only appplies to HTTP triggers
+
+        --tls-key <TLS_KEY>
+            The path to the certificate key to use for https, if this is not set, normal http will
+            be used. The key should be in PKCS#8 format
+            
+            [env: SPIN_TLS_KEY=]
+            Only appplies to HTTP triggers
 ```
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -3601,6 +3118,12 @@ TRIGGER OPTIONS:
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
 
+        --listen <ADDRESS>
+            IP address and port to listen on
+            
+            [default: 127.0.0.1:3000]
+            Only appplies to HTTP triggers
+
     -q, --quiet
             Silence all component output to stdout/stderr
 
@@ -3615,7 +3138,20 @@ TRIGGER OPTIONS:
             
             For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
             apps, this has no default (unset). Passing an empty value forces the value to be unset.
+        
+        --tls-cert <TLS_CERT>
+            The path to the certificate to use for https, if this is not set, normal http will be
+            used. The cert should be in PEM format
+            
+            [env: SPIN_TLS_CERT=]
+            Only appplies to HTTP triggers
 
+        --tls-key <TLS_KEY>
+            The path to the certificate key to use for https, if this is not set, normal http will
+            be used. The key should be in PKCS#8 format
+            
+            [env: SPIN_TLS_KEY=]
+            Only appplies to HTTP triggers
 ```
 
 {{ blockEnd }}
@@ -3673,6 +3209,7 @@ TRIGGER OPTIONS:
             IP address and port to listen on
             
             [default: 127.0.0.1:3000]
+            Only appplies to HTTP triggers
 
     -q, --quiet
             Silence all component output to stdout/stderr
@@ -3694,12 +3231,14 @@ TRIGGER OPTIONS:
             used. The cert should be in PEM format
             
             [env: SPIN_TLS_CERT=]
+            Only appplies to HTTP triggers
 
         --tls-key <TLS_KEY>
             The path to the certificate key to use for https, if this is not set, normal http will
             be used. The key should be in PKCS#8 format
             
             [env: SPIN_TLS_KEY=]
+            Only appplies to HTTP triggers
 
 ```
 
@@ -3709,450 +3248,7 @@ TRIGGER OPTIONS:
 
 > **Please note:** If the `-f` or `--from` options do not accurately infer the intended registry or `.toml` file for your application, then you can explicitly specify either the `--from-registry` or  `--from-file` options to clarify this.
 
-#### Trigger Options
-
-##### Redis Request Handler
-
-Below, please see the available trigger options for the Redis request handler.
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.0.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin up --help
-
-spin-up 
-Start the Spin application
-
-OPTIONS:
-        --direct-mounts         For local apps with directory mounts and no excluded files, mount
-                                them directly instead of using a temporary directory
-    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
-                                application
-    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
-                                directory containing a spin.toml file, or a remote registry
-                                reference. If omitted, it defaults to "spin.toml"
-    -h, --help                  
-    -k, --insecure              Ignore server certificate errors from bindle server or registry
-        --temp <TMP>            Temporary directory for the static assets of the components
-
-TRIGGER OPTIONS:
-        --allow-transient-write
-            Set the static assets of the components in the temporary directory as writable
-
-        --cache <WASMTIME_CACHE_FILE>
-            Wasmtime cache configuration file
-            
-            [env: WASMTIME_CACHE_FILE=]
-
-        --disable-cache
-            Disable Wasmtime cache
-            
-            [env: DISABLE_WASMTIME_CACHE=]
-
-        --follow <FOLLOW_ID>
-            Print output to stdout/stderr only for given component(s)
-
-    -L, --log-dir <APP_LOG_DIR>
-            Log directory for the stdout and stderr of components
-
-    -q, --quiet
-            Silence all component output to stdout/stderr
-
-        --runtime-config-file <RUNTIME_CONFIG_FILE>
-            Configuration file for config providers and wasmtime config
-            
-            [env: RUNTIME_CONFIG_FILE=]
-
-        --state-dir <STATE_DIR>
-            Set the application state directory path. This is used in the default locations for
-            logs, key value stores, etc.
-            
-            For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
-            apps, this has no default (unset). Passing an empty value forces the value to be unset.
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.1.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin up --help
-
-spin-up 
-Start the Spin application
-
-OPTIONS:
-        --direct-mounts         For local apps with directory mounts and no excluded files, mount
-                                them directly instead of using a temporary directory
-    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
-                                application
-    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
-                                directory containing a spin.toml file, or a remote registry
-                                reference. If omitted, it defaults to "spin.toml"
-    -h, --help                  
-    -k, --insecure              Ignore server certificate errors from bindle server or registry
-        --temp <TMP>            Temporary directory for the static assets of the components
-
-TRIGGER OPTIONS:
-        --allow-transient-write
-            Set the static assets of the components in the temporary directory as writable
-
-        --cache <WASMTIME_CACHE_FILE>
-            Wasmtime cache configuration file
-            
-            [env: WASMTIME_CACHE_FILE=]
-
-        --disable-cache
-            Disable Wasmtime cache
-            
-            [env: DISABLE_WASMTIME_CACHE=]
-
-        --follow <FOLLOW_ID>
-            Print output to stdout/stderr only for given component(s)
-
-    -L, --log-dir <APP_LOG_DIR>
-            Log directory for the stdout and stderr of components
-
-    -q, --quiet
-            Silence all component output to stdout/stderr
-
-        --runtime-config-file <RUNTIME_CONFIG_FILE>
-            Configuration file for config providers and wasmtime config
-            
-            [env: RUNTIME_CONFIG_FILE=]
-
-        --state-dir <STATE_DIR>
-            Set the application state directory path. This is used in the default locations for
-            logs, key value stores, etc.
-            
-            For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
-            apps, this has no default (unset). Passing an empty value forces the value to be unset.
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.2.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin up --help
-
-spin-up 
-Start the Spin application
-
-USAGE:
-    spin up [OPTIONS]
-
-OPTIONS:
-        --direct-mounts         For local apps with directory mounts and no excluded files, mount
-                                them directly instead of using a temporary directory
-    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
-                                application
-    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
-                                directory containing a spin.toml file, or a remote registry
-                                reference. If omitted, it defaults to "spin.toml"
-    -h, --help                  
-    -k, --insecure              Ignore server certificate errors from bindle server or registry
-        --temp <TMP>            Temporary directory for the static assets of the components
-
-TRIGGER OPTIONS:
-        --allow-transient-write
-            Set the static assets of the components in the temporary directory as writable
-
-        --cache <WASMTIME_CACHE_FILE>
-            Wasmtime cache configuration file
-            
-            [env: WASMTIME_CACHE_FILE=]
-
-        --disable-cache
-            Disable Wasmtime cache
-            
-            [env: DISABLE_WASMTIME_CACHE=]
-
-        --follow <FOLLOW_ID>
-            Print output to stdout/stderr only for given component(s)
-
-        --key-value <KEY_VALUES>
-            Set a key/value pair (key=value) in the application's default store. Any existing value
-            will be overwritten. Can be used multiple times
-
-    -L, --log-dir <APP_LOG_DIR>
-            Log directory for the stdout and stderr of components
-
-    -q, --quiet
-            Silence all component output to stdout/stderr
-
-        --runtime-config-file <RUNTIME_CONFIG_FILE>
-            Configuration file for config providers and wasmtime config
-            
-            [env: RUNTIME_CONFIG_FILE=]
-
-        --state-dir <STATE_DIR>
-            Set the application state directory path. This is used in the default locations for
-            logs, key value stores, etc.
-            
-            For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
-            apps, this has no default (unset). Passing an empty value forces the value to be unset.
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-##### HTTP Request Handler
-
-Below, please see the available trigger options for the HTTP request handler. Note the additional three trigger options that the HTTP request handler offers (`--listen`, `--tls-cert` and `--tls-key`).
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.0.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin up --help
-
-spin-up 
-Start the Spin application
-
-OPTIONS:
-        --direct-mounts         For local apps with directory mounts and no excluded files, mount
-                                them directly instead of using a temporary directory
-    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
-                                application
-    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
-                                directory containing a spin.toml file, or a remote registry
-                                reference. If omitted, it defaults to "spin.toml"
-    -h, --help                  
-    -k, --insecure              Ignore server certificate errors from bindle server or registry
-        --temp <TMP>            Temporary directory for the static assets of the components
-
-TRIGGER OPTIONS:
-        --allow-transient-write
-            Set the static assets of the components in the temporary directory as writable
-
-        --cache <WASMTIME_CACHE_FILE>
-            Wasmtime cache configuration file
-            
-            [env: WASMTIME_CACHE_FILE=]
-
-        --disable-cache
-            Disable Wasmtime cache
-            
-            [env: DISABLE_WASMTIME_CACHE=]
-
-        --follow <FOLLOW_ID>
-            Print output to stdout/stderr only for given component(s)
-
-    -L, --log-dir <APP_LOG_DIR>
-            Log directory for the stdout and stderr of components
-
-        --listen <ADDRESS>
-            IP address and port to listen on
-            
-            [default: 127.0.0.1:3000]
-
-    -q, --quiet
-            Silence all component output to stdout/stderr
-
-        --runtime-config-file <RUNTIME_CONFIG_FILE>
-            Configuration file for config providers and wasmtime config
-            
-            [env: RUNTIME_CONFIG_FILE=]
-
-        --state-dir <STATE_DIR>
-            Set the application state directory path. This is used in the default locations for
-            logs, key value stores, etc.
-            
-            For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
-            apps, this has no default (unset). Passing an empty value forces the value to be unset.
-
-        --tls-cert <TLS_CERT>
-            The path to the certificate to use for https, if this is not set, normal http will be
-            used. The cert should be in PEM format
-            
-            [env: SPIN_TLS_CERT=]
-
-        --tls-key <TLS_KEY>
-            The path to the certificate key to use for https, if this is not set, normal http will
-            be used. The key should be in PKCS#8 format
-            
-            [env: SPIN_TLS_KEY=]
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.1.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin up --help
-
-spin-up 
-Start the Spin application
-
-OPTIONS:
-        --direct-mounts         For local apps with directory mounts and no excluded files, mount
-                                them directly instead of using a temporary directory
-    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
-                                application
-    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
-                                directory containing a spin.toml file, or a remote registry
-                                reference. If omitted, it defaults to "spin.toml"
-    -h, --help                  
-    -k, --insecure              Ignore server certificate errors from bindle server or registry
-        --temp <TMP>            Temporary directory for the static assets of the components
-
-TRIGGER OPTIONS:
-        --allow-transient-write
-            Set the static assets of the components in the temporary directory as writable
-
-        --cache <WASMTIME_CACHE_FILE>
-            Wasmtime cache configuration file
-            
-            [env: WASMTIME_CACHE_FILE=]
-
-        --disable-cache
-            Disable Wasmtime cache
-            
-            [env: DISABLE_WASMTIME_CACHE=]
-
-        --follow <FOLLOW_ID>
-            Print output to stdout/stderr only for given component(s)
-
-    -L, --log-dir <APP_LOG_DIR>
-            Log directory for the stdout and stderr of components
-
-        --listen <ADDRESS>
-            IP address and port to listen on
-            
-            [default: 127.0.0.1:3000]
-
-    -q, --quiet
-            Silence all component output to stdout/stderr
-
-        --runtime-config-file <RUNTIME_CONFIG_FILE>
-            Configuration file for config providers and wasmtime config
-            
-            [env: RUNTIME_CONFIG_FILE=]
-
-        --state-dir <STATE_DIR>
-            Set the application state directory path. This is used in the default locations for
-            logs, key value stores, etc.
-            
-            For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
-            apps, this has no default (unset). Passing an empty value forces the value to be unset.
-
-        --tls-cert <TLS_CERT>
-            The path to the certificate to use for https, if this is not set, normal http will be
-            used. The cert should be in PEM format
-            
-            [env: SPIN_TLS_CERT=]
-
-        --tls-key <TLS_KEY>
-            The path to the certificate key to use for https, if this is not set, normal http will
-            be used. The key should be in PKCS#8 format
-            
-            [env: SPIN_TLS_KEY=]
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.2.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin up --help
-
-spin-up 
-Start the Spin application
-
-USAGE:
-    spin up [OPTIONS]
-
-OPTIONS:
-        --direct-mounts         For local apps with directory mounts and no excluded files, mount
-                                them directly instead of using a temporary directory
-    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
-                                application
-    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
-                                directory containing a spin.toml file, or a remote registry
-                                reference. If omitted, it defaults to "spin.toml"
-    -h, --help                  
-    -k, --insecure              Ignore server certificate errors from bindle server or registry
-        --temp <TMP>            Temporary directory for the static assets of the components
-
-TRIGGER OPTIONS:
-        --allow-transient-write
-            Set the static assets of the components in the temporary directory as writable
-
-        --cache <WASMTIME_CACHE_FILE>
-            Wasmtime cache configuration file
-            
-            [env: WASMTIME_CACHE_FILE=]
-
-        --disable-cache
-            Disable Wasmtime cache
-            
-            [env: DISABLE_WASMTIME_CACHE=]
-
-        --follow <FOLLOW_ID>
-            Print output to stdout/stderr only for given component(s)
-
-        --key-value <KEY_VALUES>
-            Set a key/value pair (key=value) in the application's default store. Any existing value
-            will be overwritten. Can be used multiple times
-
-    -L, --log-dir <APP_LOG_DIR>
-            Log directory for the stdout and stderr of components
-
-        --listen <ADDRESS>
-            IP address and port to listen on
-            
-            [default: 127.0.0.1:3000]
-
-    -q, --quiet
-            Silence all component output to stdout/stderr
-
-        --runtime-config-file <RUNTIME_CONFIG_FILE>
-            Configuration file for config providers and wasmtime config
-            
-            [env: RUNTIME_CONFIG_FILE=]
-
-        --state-dir <STATE_DIR>
-            Set the application state directory path. This is used in the default locations for
-            logs, key value stores, etc.
-            
-            For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
-            apps, this has no default (unset). Passing an empty value forces the value to be unset.
-
-        --tls-cert <TLS_CERT>
-            The path to the certificate to use for https, if this is not set, normal http will be
-            used. The cert should be in PEM format
-            
-            [env: SPIN_TLS_CERT=]
-
-        --tls-key <TLS_KEY>
-            The path to the certificate key to use for https, if this is not set, normal http will
-            be used. The key should be in PKCS#8 format
-            
-            [env: SPIN_TLS_KEY=]
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-### Watch
+### watch
 
 {{ tabs "spin-version" }}
 
@@ -4184,7 +3280,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -4245,23 +3341,6 @@ OPTIONS:
 {{ blockEnd }}
 
 {{ blockEnd }}
-
-`spin watch` relies on configuration in your application manifest to know what files it should watch. For each component you should set the `component.build.watch` parameter with a list of glob patterns that your source files will match:
-
-```toml
-[component.build]
-# Example watch configuration for a Rust application
-watch = ["src/**/*.rs", "Cargo.toml"]
-```
-
-The table below outlines exactly which files `spin watch` will monitor for changes depending on how you run the command. `spin watch` uses the configuration found on every component in your application.
-
-| Files                   | `spin watch` monitors for changes              | `spin watch --skip-build` monitors for changes |
-| ----------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Application manifest    | Yes                                            | Yes                                            |
-| `component.build.watch` | Yes                                            | No                                             |
-| `component.files`       | Yes                                            | Yes                                            |
-| `component.source`      | No (Yes if the component has no build command) | Yes                                            |
 
 ### CLI Stability Table
 
@@ -4302,12 +3381,12 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin up</code>                                                                  | Stable       |
 | <code>spin cloud <deploy&vert;login></code>                                           | Stabilizing  |
 | <code>spin registry</code>                                                            | Stabilizing  |
-| <code>spin watch</code>                                                               | Stabilizing |
+| <code>spin watch</code>                                                               | Experimental |
 | <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0"}}
+{{ startTab "v1.2.0/1.2.1"}}
 
 | Command                                                                               | Stability    |
 | ------------------------------------------------------------------------------------- | ------------ |

@@ -80,6 +80,7 @@ Some trigger types support additional `spin up` flags.  For example, HTTP applic
 Spin's `watch` command rebuilds and restarts Spin applications whenever files change. You can use the `spin watch` [command](https://developer.fermyon.com/common/cli-reference#watch) in place of the `spin build` and `spin up` commands, to build, run and then keep your Spin application running without manual intervention while staying on the latest code and files.
 
 > The `watch` command accepts valid Spin [up](https://developer.fermyon.com/common/cli-reference#up) options and passes them through to `spin up` for you when running/rerunning the Spin application.
+E.g., `spin watch --listen 127.0.0.1:3001`
 
 By default, Spin watch monitors:
 
@@ -101,10 +102,20 @@ files = ["my-files/changing-file.txt"]
 source = "target/wasm32-wasi/release/test.wasm"
 [component.build]
 command = "cargo build --target wasm32-wasi --release"
+# Example watch configuration for a Rust application
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
 If you would prefer Spin watch to only rerun the application (without a rebuild) when changes occur, you can use the `--skip-build` option when running the `spin watch` command.  In this case, Spin will ignore the `component.build.watch` section, and monitor only the `spin.toml`, `component.source` and `component.files`.
+
+The table below outlines exactly which files `spin watch` will monitor for changes depending on how you run the command. `spin watch` uses the configuration found on every component in your application.
+
+| Files                   | `spin watch` monitors for changes              | `spin watch --skip-build` monitors for changes |
+| ----------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Application manifest `spin.toml`   | Yes                                            | Yes                                            |
+| `component.build.watch` | Yes                                            | No                                             |
+| `component.files`       | Yes                                            | Yes                                            |
+| `component.source`      | No (Yes if the component has no build command) | Yes  
 
 Spin watch waits up to 100 milliseconds before responding to filesystem events, then processes all events that occurred in that interval together. This is so that if you make several changes close together (for example, using a Save All command), you get them all processed in one rebuild/reload cycle, rather than going through a cycle for each one. You can override the interval by passing in the `--debounce` option; e.g. `spin watch --debounce 1000` will make Spin watch respond to filesystem events at most once per second.
 
