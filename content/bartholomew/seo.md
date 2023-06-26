@@ -2,7 +2,7 @@ title = "Search Engine Optimization (SEO)"
 date = "2022-08-09T14:05:02.118466Z"
 template = "bartholomew_main"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/seo.md"
+url = "https://github.com/fermyon/developer/blob/main/content/bartholomew/seo.md"
 
 ---
 - [Google Verification Using Bartholomew](#google-verification-using-bartholomew)

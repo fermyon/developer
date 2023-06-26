@@ -3,7 +3,7 @@ date = "2022-05-09T19:32:09.579913Z"
 template = "bartholomew_main"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/configuration.md"
+url = "https://github.com/fermyon/developer/blob/main/content/bartholomew/configuration.md"
 keywords = "install"
 
 ---

@@ -3,7 +3,7 @@ date = "2023-06-05T16:40:01.672734Z"
 template = "cloud_main"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/cloud/variables.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/variables.md"
 
 ---
 

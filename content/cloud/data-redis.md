@@ -2,7 +2,7 @@ title = "Persistent Data: Redis"
 template = "cloud_main"
 date = "2022-01-01T00:00:01Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/cloud/data-redis.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/data-redis.md"
 
 ---
 - [Redis](#redis)

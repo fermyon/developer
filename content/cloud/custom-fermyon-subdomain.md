@@ -3,7 +3,7 @@ template = "cloud_main"
 date = "2022-04-26T17:00:00Z"
 enable_shortcodes = false
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/cloud/custom-fermyon-subdomain.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/custom-fermyon-subdomain.md"
 
 ---
 
