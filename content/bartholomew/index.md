@@ -2,7 +2,7 @@ title = "Introducing Bartholomew"
 template = "bartholomew_main"
 date = "2022-05-07T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/index.md"
+url = "https://github.com/fermyon/developer/blob/main/content/bartholomew/index.md"
 
 ---
 

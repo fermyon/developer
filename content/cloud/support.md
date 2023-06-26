@@ -2,7 +2,7 @@ title = "Support"
 template = "cloud_main"
 date = "2022-10-01T00:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/cloud/support.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/support.md"
 keywords = "abuse security concern"
 
 ---

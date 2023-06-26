@@ -69,6 +69,9 @@ report="$(mktemp)"
 blc_error=false
 blc --recursive http://127.0.0.1:3000                                                                                                                                                       \
                                                                                                                                                                                             \
+    `## Ignore searching Edit links`                                                                                                                                                        \
+    --exclude 'https://github.com/fermyon/developer/blob/main/content/*'                                                                                                                    \
+                                                                                                                                                                                            \
     `## returns 403`                                                                                                                                                                        \
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits'                                                                            \
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account'                                                    \

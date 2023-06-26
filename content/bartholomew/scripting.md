@@ -2,7 +2,7 @@ title = "Scripting guide"
 date = "2022-05-08T14:05:02.118466Z"
 template = "bartholomew_main"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/bartholomew/scripting.md"
+url = "https://github.com/fermyon/developer/blob/main/content/bartholomew/scripting.md"
 
 ---
 - [The Basic](#the-basic)

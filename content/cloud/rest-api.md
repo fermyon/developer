@@ -2,7 +2,7 @@ title = "Rest API"
 template = "cloud_main"
 date = "2022-01-01T00:00:01Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main//content/cloud/rest-api.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/rest-api.md"
 
 ---
 - [OpenAPI](#openapi)
