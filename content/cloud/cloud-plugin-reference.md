@@ -123,7 +123,7 @@ OPTIONS:
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud help
 
-{{ tabs "spin-version" }}
+{{ tabs "cloud-plugin-version" }}
 
 {{ startTab "v0.1.1"}}
 
@@ -243,7 +243,7 @@ SUBCOMMANDS:
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud variables delete
 
-{{ tabs "spin-version" }}
+{{ tabs "cloud-plugin-version" }}
 
 {{ startTab "v0.1.1"}}
 
@@ -284,7 +284,7 @@ OPTIONS:
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud variables help
 
-{{ tabs "spin-version" }}
+{{ tabs "cloud-plugin-version" }}
 
 {{ startTab "v0.1.1"}}
 

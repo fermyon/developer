@@ -16,19 +16,16 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cli-reference
 - [spin cloud variables](#spin-cloud-variables)
 - [spin help](#spin-help)
 - [spin new](#spin-new)
-- [spin plugin](#spin-plugin)
 - [spin plugins](#spin-plugins)
 - [spin plugins install](#spin-plugins-install)
 - [spin plugins list](#spin-plugins-list)
 - [spin plugins uninstall](#spin-plugins-uninstall)
 - [spin plugins update](#spin-plugins-update)
 - [spin plugins upgrade](#spin-plugins-upgrade)
-- [spin oci](#spin-oci)
 - [spin registry](#spin-registry)
 - [spin registry login](#spin-registry-login)
 - [spin registry pull](#spin-registry-pull)
 - [spin registry push](#spin-registry-push)
-- [spin template](#spin-template)
 - [spin templates](#spin-templates)
 - [spin templates install](#spin-templates-install)
 - [spin templates list](#spin-templates-list)
@@ -44,11 +41,9 @@ For information on command stability, see the [CLI stability table](#cli-stabili
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin add
 
-Adding a subcommand (and again issuing the `--help` command) will provide information specific to that particular subcommand. For example:
-
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -84,7 +79,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -120,7 +115,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -156,7 +151,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -199,7 +194,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -223,7 +218,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -247,7 +242,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -273,7 +268,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -311,7 +306,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -335,7 +330,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -359,7 +354,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -383,7 +378,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-plugin-reference).
 
@@ -401,7 +396,7 @@ The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/c
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -448,7 +443,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -495,7 +490,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -543,7 +538,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-plugin-reference#spin-cloud-deploy).
 
@@ -554,8 +549,6 @@ The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin login
 
-Please note: the previous `spin login` command (from versions before Spin v0.9.0) has been kept to ensure backward compatibility. In the Spin v0.9.0 release, both the `spin login --help` and [`spin cloud login --help`](#cloud-login) commands will produce the same output.
-
 `spin login` is a shotcurt to [`spin cloud login`](#cloud-login).
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -563,7 +556,7 @@ Please note: the previous `spin login` command (from versions before Spin v0.9.0
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -621,7 +614,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -679,7 +672,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -737,7 +730,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-plugin-reference#spin-cloud-login).
 
@@ -750,7 +743,7 @@ The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../c
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-plugin-reference#spin-cloud-variables).
 
@@ -763,7 +756,7 @@ The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -793,7 +786,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -827,14 +820,14 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
 ```console
 $ spin help      
 
-spin 1.2.0/1.2.1 
+spin 1.2.0
 The Spin CLI
 
 USAGE:
@@ -862,7 +855,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -907,7 +900,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -942,7 +935,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -977,7 +970,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1012,7 +1005,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -1055,16 +1048,11 @@ OPTIONS:
 * `spin add` _adds_ a component to an _existing_ application - that is, it modifies an existing `spin.toml` file.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
-## spin plugin
-
-`spin plugin` is an alias for [`spin plugins`](#plugins)
-
-<!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin plugins
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1091,7 +1079,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1118,7 +1106,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1145,7 +1133,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -1179,7 +1167,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1220,7 +1208,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1261,7 +1249,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1302,7 +1290,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -1350,7 +1338,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1370,7 +1358,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1390,7 +1378,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1410,7 +1398,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -1437,7 +1425,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1459,7 +1447,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1481,7 +1469,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1503,7 +1491,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -1532,7 +1520,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1551,7 +1539,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1570,7 +1558,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1589,7 +1577,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -1615,7 +1603,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1659,7 +1647,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1703,7 +1691,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1747,7 +1735,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -1796,16 +1784,11 @@ OPTIONS:
 **Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
-## spin oci
-
-`spin oci` is an alias for  [`spin registry`](#registry)
-
-<!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin registry
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1831,7 +1814,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1857,7 +1840,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1882,7 +1865,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -1914,7 +1897,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -1939,7 +1922,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -1964,7 +1947,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -1989,7 +1972,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -2021,7 +2004,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -2044,7 +2027,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2067,7 +2050,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -2090,7 +2073,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -2120,7 +2103,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -2144,7 +2127,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2168,7 +2151,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -2197,16 +2180,11 @@ OPTIONS:
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
-## spin template
-
-`spin template` is an alias for [`spin templates'](#templates)
-
-<!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin templates
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -2232,7 +2210,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2258,7 +2236,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -2284,7 +2262,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -2317,7 +2295,7 @@ SUBCOMMANDS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -2353,7 +2331,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2389,7 +2367,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -2425,7 +2403,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -2468,7 +2446,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -2489,7 +2467,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2510,7 +2488,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -2531,7 +2509,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -2561,7 +2539,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -2583,7 +2561,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2605,7 +2583,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -2627,7 +2605,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -2656,7 +2634,7 @@ OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -2691,7 +2669,42 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin templates upgrade --help1
+
+spin-templates-upgrade 
+Upgrade templates to match your current version of Spin.
+
+The files of the templates are copied to the local template store: a directory in your data or home
+directory.
+
+USAGE:
+    spin templates upgrade [OPTIONS]
+
+OPTIONS:
+        --all
+            By default, Spin displays the list of installed repositories and prompts you to choose
+            which to upgrade.  Pass this flag to upgrade all repositories without prompting
+
+        --branch <BRANCH>
+            The optional branch of the git repository, if a specific repository is given
+
+    -h, --help
+            Print help information
+
+        --repo <GIT_URL>
+            By default, Spin displays the list of installed repositories and prompts you to choose
+            which to upgrade.  Pass this flag to upgrade only the specified repository without
+            prompting
+```
+
+{{ blockEnd }}
+
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -2726,42 +2739,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin templates upgrade --help  
-
-spin-templates-upgrade 
-Upgrade templates to match your current version of Spin.
-
-The files of the templates are copied to the local template store: a directory in your data or home
-directory.
-
-USAGE:
-    spin templates upgrade [OPTIONS]
-
-OPTIONS:
-        --all
-            By default, Spin displays the list of installed repositories and prompts you to choose
-            which to upgrade.  Pass this flag to upgrade all repositories without prompting
-
-        --branch <BRANCH>
-            The optional branch of the git repository, if a specific repository is given
-
-    -h, --help
-            Print help information
-
-        --repo <GIT_URL>
-            By default, Spin displays the list of installed repositories and prompts you to choose
-            which to upgrade.  Pass this flag to upgrade only the specified repository without
-            prompting
-```
-
-{{ blockEnd }}
-
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -2809,7 +2787,7 @@ Note: There are three trigger options which only applies to the HTTP trigger (`-
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 <!-- @selectiveCpy -->
 
@@ -2884,7 +2862,7 @@ TRIGGER OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -2959,7 +2937,7 @@ TRIGGER OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -3046,7 +3024,7 @@ TRIGGER OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -3129,7 +3107,6 @@ TRIGGER OPTIONS:
             
             [env: SPIN_TLS_KEY=]
             Only appplies to HTTP triggers
-
 ```
 
 {{ blockEnd }}
@@ -3143,7 +3120,7 @@ TRIGGER OPTIONS:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 <!-- @selectiveCpy -->
 
@@ -3171,7 +3148,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 <!-- @selectiveCpy -->
 
@@ -3201,7 +3178,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 <!-- @selectiveCpy -->
 
@@ -3244,7 +3221,7 @@ CLI commands have four phases that indicate levels of stability:
 
 {{ tabs "spin-version" }}
 
-{{ startTab "v1.0.0"}}
+{{ startTab "v1.0"}}
 
 | Command                                                    | Stability   |
 | ---------------------------------------------------------- | ----------- |
@@ -3260,7 +3237,7 @@ CLI commands have four phases that indicate levels of stability:
 
 {{ blockEnd }}
 
-{{ startTab "v1.1.0"}}
+{{ startTab "v1.1"}}
 
 | Command                                                                               | Stability    |
 | ------------------------------------------------------------------------------------- | ------------ |
@@ -3277,7 +3254,7 @@ CLI commands have four phases that indicate levels of stability:
 
 {{ blockEnd }}
 
-{{ startTab "v1.2.0/1.2.1"}}
+{{ startTab "v1.2"}}
 
 | Command                                                                               | Stability    |
 | ------------------------------------------------------------------------------------- | ------------ |
@@ -3294,7 +3271,7 @@ CLI commands have four phases that indicate levels of stability:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3.0"}}
+{{ startTab "v1.3"}}
 
 | Command                                                                               | Stability    |
 | ------------------------------------------------------------------------------------- | ------------ |
