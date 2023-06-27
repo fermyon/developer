@@ -11,10 +11,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cli-reference
 - [spin cloud](#spin-cloud)
 - [spin deploy](#spin-deploy)
 - [spin cloud deploy](#spin-cloud-deploy)
-- [spin login](#spin-login)
 - [spin cloud login](#spin-cloud-login)
 - [spin cloud variables](#spin-cloud-variables)
 - [spin help](#spin-help)
+- [spin login](#spin-login)
 - [spin new](#spin-new)
 - [spin plugins](#spin-plugins)
 - [spin plugins install](#spin-plugins-install)
@@ -32,6 +32,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cli-reference
 - [spin templates uninstall](#spin-templates-uninstall)
 - [spin templates upgrade](#spin-templates-upgrade)
 - [spin up](#spin-up)
+  - [spin up (HTTP Trigger)](#spin-up-http-trigger)
 - [spin watch](#spin-watch)
 - [Stability Table](#stability-table)
 
@@ -380,7 +381,7 @@ SUBCOMMANDS:
 
 {{ startTab "v1.3"}}
 
-The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-plugin-reference).
+The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference).
 
 {{ blockEnd }}
 
@@ -540,16 +541,11 @@ OPTIONS:
 
 {{ startTab "v1.3"}}
 
-The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-plugin-reference#spin-cloud-deploy).
+The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-deploy).
 
 {{ blockEnd }}
 
 {{ blockEnd }}
-
-<!-- markdownlint-disable-next-line titlecase-rule -->
-## spin login
-
-`spin login` is a shotcurt to [`spin cloud login`](#cloud-login).
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud login
@@ -732,7 +728,7 @@ OPTIONS:
 
 {{ startTab "v1.3"}}
 
-The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-plugin-reference#spin-cloud-login).
+The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-login).
 
 {{ blockEnd }}
 
@@ -745,7 +741,7 @@ The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../c
 
 {{ startTab "v1.3"}}
 
-The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-plugin-reference#spin-cloud-variables).
+The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-variables).
 
 {{ blockEnd }}
 
@@ -894,6 +890,11 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 > Please note: Spin `help` is a convenient way to access help using a subcommand, instead of using the `--help` option. For example, `spin help cloud` will give you the same output as `spin cloud --help`. Similarly, `spin help build` will give you the same output as `spin build --help` and so forth.
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin login
+
+`spin login` is a shotcurt to [`spin cloud login`](#cloud-login).
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin new
@@ -2783,7 +2784,7 @@ OPTIONS:
 
 The following options are available in relation to running your Spin application.
 
-Note: There are three trigger options which only applies to the HTTP trigger (`--listen`, `--tls-cert` and `--tls-key`).
+Note: There are three trigger options which only applies to the [HTTP trigger](#spin-up-http-triggers) (`--listen`, `--tls-cert` and `--tls-key`).
 
 {{ tabs "spin-version" }}
 
@@ -3107,6 +3108,115 @@ TRIGGER OPTIONS:
             
             [env: SPIN_TLS_KEY=]
             Only appplies to HTTP triggers
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+### spin up (HTTP Trigger)
+
+The following additional trigger options are available for the [spin up](#spin-up) command, when using the HTTP trigger. E.g., `spin up --listen`
+
+{{ tabs "spin-version" }}
+
+{{ startTab "v1.0"}}
+
+<!-- @selectiveCpy -->
+
+```console
+    --listen <ADDRESS>
+        IP address and port to listen on
+
+        [default: 127.0.0.1:3000]
+
+    --tls-cert <TLS_CERT>
+        The path to the certificate to use for https, if this is not set, normal http will be
+        used. The cert should be in PEM format
+
+        [env: SPIN_TLS_CERT=]
+
+    --tls-key <TLS_KEY>
+        The path to the certificate key to use for https, if this is not set, normal http will
+        be used. The key should be in PKCS#8 format
+
+        [env: SPIN_TLS_KEY=]
+```
+
+{{ blockEnd }}
+
+{{ startTab "v1.1"}}
+
+<!-- @selectiveCpy -->
+
+```console
+    --listen <ADDRESS>
+        IP address and port to listen on
+
+        [default: 127.0.0.1:3000]
+
+    --tls-cert <TLS_CERT>
+        The path to the certificate to use for https, if this is not set, normal http will be
+        used. The cert should be in PEM format
+
+        [env: SPIN_TLS_CERT=]
+
+    --tls-key <TLS_KEY>
+        The path to the certificate key to use for https, if this is not set, normal http will
+        be used. The key should be in PKCS#8 format
+
+        [env: SPIN_TLS_KEY=]
+```
+
+{{ blockEnd }}
+
+{{ startTab "v1.2"}}
+
+<!-- @selectiveCpy -->
+
+```console
+    --listen <ADDRESS>
+        IP address and port to listen on
+
+        [default: 127.0.0.1:3000]
+
+    --tls-cert <TLS_CERT>
+        The path to the certificate to use for https, if this is not set, normal http will be
+        used. The cert should be in PEM format
+
+        [env: SPIN_TLS_CERT=]
+
+    --tls-key <TLS_KEY>
+        The path to the certificate key to use for https, if this is not set, normal http will
+        be used. The key should be in PKCS#8 format
+
+        [env: SPIN_TLS_KEY=]
+```
+
+{{ blockEnd }}
+
+{{ startTab "v1.3"}}
+
+<!-- @selectiveCpy -->
+
+```console
+    --listen <ADDRESS>
+        IP address and port to listen on
+
+        [default: 127.0.0.1:3000]
+
+    --tls-cert <TLS_CERT>
+        The path to the certificate to use for https, if this is not set, normal http will be
+        used. The cert should be in PEM format
+
+        [env: SPIN_TLS_CERT=]
+
+    --tls-key <TLS_KEY>
+        The path to the certificate key to use for https, if this is not set, normal http will
+        be used. The key should be in PKCS#8 format
+
+        [env: SPIN_TLS_KEY=]
 ```
 
 {{ blockEnd }}
