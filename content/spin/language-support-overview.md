@@ -42,7 +42,7 @@ This page contains information about language support for Spin features:
 | [Outbound HTTP](/spin/javascript-components#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
-| SQLite Storage | Not supported |
+| [SQLite Storage](/spin/sqlite-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL| Not Supported |
 | [Outbound Redis](/spin/javascript-components#storing-data-in-redis-from-jsts-components) | Supported |
@@ -62,7 +62,7 @@ This page contains information about language support for Spin features:
 | [Outbound HTTP](/spin/python-components#an-outbound-http-example) | Supported |
 | [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
-| SQLite Storage | Not supported |
+| [SQLite Storage](/spin/sqlite-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](/spin/python-components#an-outbound-redis-example) | Supported |

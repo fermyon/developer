@@ -84,8 +84,9 @@ struct ToDo {
 ```
 
 **General Notes** 
+* All functions are on the `spin_sdk::sqlite::Connection` type.
 * Parameters are instances of the `ValueParam` enum; you must wrap raw values in this type.
-* The `query` function returns a `QueryResult`. To iterate over the rows use the `rows()` function. This returns an iterator; use `collect()` if you want to load it all into a collection.
+* The `execute` function returns a `QueryResult`. To iterate over the rows use the `rows()` function. This returns an iterator; use `collect()` if you want to load it all into a collection.
 * The values in rows are instances of the `ValueResult` enum.  However, you can use `row.get(column_name)` to extract a specific column from a row.  `get` casts the database value to the target Rust type. If the compiler can't infer the target type, write `row.get::<&str>(column_name)` (or whatever the desired type is).
 * All functions wrap the return in `Result`, with the error type being `spin_sdk::sqlite::Error`.
 
@@ -93,13 +94,45 @@ struct ToDo {
 
 {{ startTab "Typescript"}}
 
-The JavaScript/TypeScript SDK doesn't currently surface the SQLite API.
+To use SQLite functions, use the `spinSdk.sqlite.open` or `spinSdk.sqlite.openDefault` function to obtain a `Connection` object. `Connection` provides the `execute` method as described above. For example:
+
+```javascript
+const conn = spinSdk.sqlite.openDefault();
+const result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1]);
+const json = JSON.stringify(result.rows);
+```
+
+**General Notes**
+* The `spinSdk` object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the `@fermyon/spin-sdk` package.
+* Parameters are JavaScript values (numbers, strings, byte arrays, or nulls). Spin infers the underlying SQL type.
+* The `execute` function returns an object with `rows` and `columns` properties. `columns` is an array of strings representing column names. `rows` is an array of rows, each of which is an array of JavaScript values (as above) in the same order as `columns`.
+* The `Connection` object doesn't surface the `close` function.
+* Errors are surfaced as exceptions.
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-The Python SDK doesn't currently surface the SQLite API.
+To use SQLite functions, use the `spin_sqlite` module in the Python SDK. The `sqlite_open` and `sqlite_open_default` functions return a connection object. The connection object provides the `execute` method as described above. For example:
+
+```python
+from spin_http import Response
+from spin_sqlite import sqlite_open_default
+
+def handle_request(request):
+    conn = sqlite_open_default()
+    result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1])
+    rows = result.rows()
+    return Response(200,
+                    {"content-type": "application/json"},
+                    bytes(str(rows), "utf-8"))
+```
+
+**General Notes**
+* Parameters are Python values (numbers, strings, and lists). Spin infers the underlying SQL type.
+* The `execute` method returns an object with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of Python values (as above) in the same order as `columns`.
+* The connection object doesn't surface the `close` function.
+* Errors are surfaced as exceptions.
 
 {{ blockEnd }}
 
