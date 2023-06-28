@@ -15,7 +15,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/variables.md
 
 Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
 
-These variables are defined in a Spin application manifest (in the `[variables]` section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables. You can refer to the [dynamic configuration documentation](/spin/dynamic-configuration.md) to learn how to configure variables locally. In Fermyon Cloud, you can set and update variables for Spin applications using the [`spin cloud variables`](/cloud/cloud-plugin.md#variables) command.
+These variables are defined in a Spin application manifest (in the `[variables]` section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables. You can refer to the [dynamic configuration documentation](/spin/dynamic-configuration.md) to learn how to configure variables locally. In Fermyon Cloud, you can set and update variables for Spin applications using the [`spin cloud variables`](/cloud/cloud-command-reference.md#spin-cloud-variables) command.
 
 This tutorial will guide you through the process of creating a simple application that validates passwords.
 
