@@ -801,6 +801,8 @@ date: Thu, 02 Mar 2023 00:05:42 GMT
 Hello, Fermyon
 ```
 
+> The `curl` output may vary based on which language SDK you use. 
+
 Congratulations! You just created, built and ran your first Spin application!
 
 ## Deploy Your Application to Fermyon Cloud
