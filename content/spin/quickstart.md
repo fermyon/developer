@@ -798,7 +798,7 @@ date: Thu, 02 Mar 2023 00:05:42 GMT
 Hello, Fermyon
 ```
 
-Note: The `curl` output may vary based on which language SDK you use. 
+> The `curl` output may vary based on which language SDK you use. 
 
 Congratulations! You just created, built and ran your first Spin application!
 
