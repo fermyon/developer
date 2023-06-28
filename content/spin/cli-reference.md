@@ -9,10 +9,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cli-reference
 - [spin add](#spin-add)
 - [spin build](#spin-build)
 - [spin cloud](#spin-cloud)
-- [spin deploy](#spin-deploy)
 - [spin cloud deploy](#spin-cloud-deploy)
 - [spin cloud login](#spin-cloud-login)
 - [spin cloud variables](#spin-cloud-variables)
+- [spin deploy](#spin-deploy)
 - [spin help](#spin-help)
 - [spin login](#spin-login)
 - [spin new](#spin-new)
@@ -388,11 +388,6 @@ The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/c
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
-## spin deploy
-
-`spin deploy` is a shotcurt to [`spin cloud deploy`](#cloud-deploy).
-
-<!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud deploy
 
 {{ tabs "spin-version" }}
@@ -748,6 +743,11 @@ The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
+## spin deploy
+
+`spin deploy` is a shortcut to [`spin cloud deploy`](#spin-cloud-deploy).
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin help
 
 {{ tabs "spin-version" }}
@@ -894,7 +894,7 @@ SUBCOMMANDS:
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin login
 
-`spin login` is a shotcurt to [`spin cloud login`](#cloud-login).
+`spin login` is a shortcut to [`spin cloud login`](#spin-cloud-login).
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin new
@@ -2178,6 +2178,32 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.3" }}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin registry push --help
+
+spin-registry-push
+Push a Spin application to a registry
+
+USAGE:
+    spin registry push [OPTIONS] <REFERENCE>
+
+ARGS:
+    <REFERENCE>    Reference of the Spin application
+
+OPTIONS:
+    -f, --from <APP_MANIFEST_FILE>    The application to push. This may be a manifest (spin.toml)
+                                      file, or a directory containing a spin.toml file. If omitted,
+                                      it defaults to "spin.toml" [default: spin.toml]
+    -h, --help                        Print help information
+    -k, --insecure                    Ignore server certificate errors
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2675,7 +2701,7 @@ OPTIONS:
 <!-- @selectiveCpy -->
 
 ```console
-$ spin templates upgrade --help1
+$ spin templates upgrade --help
 
 spin-templates-upgrade 
 Upgrade templates to match your current version of Spin.
@@ -2830,13 +2856,7 @@ TRIGGER OPTIONS:
             Print output to stdout/stderr only for given component(s)
 
     -L, --log-dir <APP_LOG_DIR>
-            Log directory for the stdout and stderr of components
-
-        --listen <ADDRESS>
-            IP address and port to listen on
-            
-            [default: 127.0.0.1:3000]
-            Only appplies to HTTP triggers            
+            Log directory for the stdout and stderr of components     
 
     -q, --quiet
             Silence all component output to stdout/stderr
@@ -2845,20 +2865,6 @@ TRIGGER OPTIONS:
             Configuration file for config providers and wasmtime config
             
             [env: RUNTIME_CONFIG_FILE=]
-
-        --tls-cert <TLS_CERT>
-            The path to the certificate to use for https, if this is not set, normal http will be
-            used. The cert should be in PEM format
-            
-            [env: SPIN_TLS_CERT=]
-            Only appplies to HTTP triggers
-
-        --tls-key <TLS_KEY>
-            The path to the certificate key to use for https, if this is not set, normal http will
-            be used. The key should be in PKCS#8 format
-            
-            [env: SPIN_TLS_KEY=]
-            Only appplies to HTTP triggers
 ```
 
 {{ blockEnd }}
@@ -2907,12 +2913,6 @@ TRIGGER OPTIONS:
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
 
-        --listen <ADDRESS>
-            IP address and port to listen on
-            
-            [default: 127.0.0.1:3000]
-            Only appplies to HTTP triggers
-
     -q, --quiet
             Silence all component output to stdout/stderr
 
@@ -2920,20 +2920,6 @@ TRIGGER OPTIONS:
             Configuration file for config providers and wasmtime config
             
             [env: RUNTIME_CONFIG_FILE=]
-
-        --tls-cert <TLS_CERT>
-            The path to the certificate to use for https, if this is not set, normal http will be
-            used. The cert should be in PEM format
-            
-            [env: SPIN_TLS_CERT=]
-            Only appplies to HTTP triggers
-
-        --tls-key <TLS_KEY>
-            The path to the certificate key to use for https, if this is not set, normal http will
-            be used. The key should be in PKCS#8 format
-            
-            [env: SPIN_TLS_KEY=]
-            Only appplies to HTTP triggers
 ```
 
 {{ blockEnd }}
@@ -2987,12 +2973,6 @@ TRIGGER OPTIONS:
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
 
-        --listen <ADDRESS>
-            IP address and port to listen on
-            
-            [default: 127.0.0.1:3000]
-            Only appplies to HTTP triggers
-
     -q, --quiet
             Silence all component output to stdout/stderr
 
@@ -3007,20 +2987,6 @@ TRIGGER OPTIONS:
             
             For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
             apps, this has no default (unset). Passing an empty value forces the value to be unset.
-        
-        --tls-cert <TLS_CERT>
-            The path to the certificate to use for https, if this is not set, normal http will be
-            used. The cert should be in PEM format
-            
-            [env: SPIN_TLS_CERT=]
-            Only appplies to HTTP triggers
-
-        --tls-key <TLS_KEY>
-            The path to the certificate key to use for https, if this is not set, normal http will
-            be used. The key should be in PKCS#8 format
-            
-            [env: SPIN_TLS_KEY=]
-            Only appplies to HTTP triggers
 ```
 
 {{ blockEnd }}
@@ -3074,12 +3040,6 @@ TRIGGER OPTIONS:
     -L, --log-dir <APP_LOG_DIR>
             Log directory for the stdout and stderr of components
 
-        --listen <ADDRESS>
-            IP address and port to listen on
-            
-            [default: 127.0.0.1:3000]
-            Only appplies to HTTP triggers
-
     -q, --quiet
             Silence all component output to stdout/stderr
 
@@ -3094,30 +3054,18 @@ TRIGGER OPTIONS:
             
             For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
             apps, this has no default (unset). Passing an empty value forces the value to be unset.
-
-        --tls-cert <TLS_CERT>
-            The path to the certificate to use for https, if this is not set, normal http will be
-            used. The cert should be in PEM format
-            
-            [env: SPIN_TLS_CERT=]
-            Only appplies to HTTP triggers
-
-        --tls-key <TLS_KEY>
-            The path to the certificate key to use for https, if this is not set, normal http will
-            be used. The key should be in PKCS#8 format
-            
-            [env: SPIN_TLS_KEY=]
-            Only appplies to HTTP triggers
 ```
 
 {{ blockEnd }}
 
 {{ blockEnd }}
 
+> **Please note:** If the `-f` or `--from` options do not accurately infer the intended registry or `.toml` file for your application, then you can explicitly specify either the `--from-registry` or  `--from-file` options to clarify this.
+
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ### spin up (HTTP Trigger)
 
-The following additional trigger options are available for the [spin up](#spin-up) command, when using the HTTP trigger. E.g., `spin up --listen`
+The following additional trigger options are available for the [spin up](#spin-up) command, when using the HTTP trigger. E.g. `spin up --listen`
 
 {{ tabs "spin-version" }}
 
@@ -3222,8 +3170,6 @@ The following additional trigger options are available for the [spin up](#spin-u
 {{ blockEnd }}
 
 {{ blockEnd }}
-
-> **Please note:** If the `-f` or `--from` options do not accurately infer the intended registry or `.toml` file for your application, then you can explicitly specify either the `--from-registry` or  `--from-file` options to clarify this.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin watch
