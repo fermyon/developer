@@ -1,6 +1,6 @@
 title = "Copenhagen Developers Festival"
 date = "2023-06-29T00:00:01Z"
-description = "Fermyon will be at Copenhange Developers Festival for the first time ever! Don't miss our \"Next generation microservices and serverless applications with WebAssembly and Spin\" session and "Getting started with serverless WebAssembly" workshop."
+description = "Fermyon will be at Copenhagen Developers Festival for the first time! Don't miss our \"Next generation microservices and serverless applications with WebAssembly and Spin\" session and \"Getting Started with Serverless WebAssembly\" (parts 1 and 2) workshops."
 
 [extra]
 type = "event"
