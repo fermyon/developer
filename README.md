@@ -11,7 +11,7 @@ Build and run the website locally:
 
 ```bash
 npm install
-npm run spin # Uses spin watch to run the website and reload when content changes
+spin watch # Uses spin watch to run the website and reload when content changes
 ```
 
 1. View the website at `http://localhost:3000`
