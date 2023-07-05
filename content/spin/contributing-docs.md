@@ -405,6 +405,21 @@ $ bart check content/about.md
 ✅ content/about.md
 ```
 
+If you are [using shortcodes](bartholomew/shortcodes) and need to tell the `bart check` command where to find them (i.e. if you have your reusable snippets, written in `.rhai` files, tucked away in a relative directory called `my-shortcodes`), you can use the `--shortcodes` option. For example:
+
+```bash
+<!-- @selectiveCpy -->
+
+```bash
+$ bart check --shortcodes ./my-shortcodes content/spin/variables.md
+shortcodes: registering alert
+shortcodes: registering details
+shortcodes: registering tabs
+shortcodes: registering startTab
+shortcodes: registering blockEnd
+✅ content/spin/variables.md
+```
+
 ### 8. Add Changes
 
 Once your changes have been checked, go ahead and add your changes by moving to a top-level directory, under which your changes exist i.e. `cd ~/developer`.
