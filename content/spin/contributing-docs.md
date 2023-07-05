@@ -52,7 +52,7 @@ How-to guides are oriented towards showing a user how to solve a problem, which 
 
 ### 3. Reference
 
-Reference resources are merely a dry description; describing the feature in its simplest form. A great example of a reference resource is the [Spin CLI Reference page](../common/cli-reference). You will notice that the CLI Reference page simply lists all of the commands and available options.
+Reference resources are merely a dry description; describing the feature in its simplest form. A great example of a reference resource is the [Spin CLI Reference page](/spin/cli-reference). You will notice that the CLI Reference page simply lists all of the commands and available options.
 
 ### 4. Explanation
 
@@ -70,7 +70,7 @@ The resulting output would be as follows.
 
 ## Documents Relevant to Two or More Projects
 
-If a document is relevant to two or more projects, the dynamic body feature of bartholomew is to be used. Create the document in one of the projects with the content. In the other project(s) create a file with only the fron matter. Then add the following field to the frontmatter:
+If a document is relevant to two or more projects, the dynamic body feature of bartholomew is to be used. Create the document in one of the projects with the content. In the other project(s) create a file with only the frontmatter. Then add the following field to the frontmatter:
 
 ```toml
 .
@@ -81,7 +81,22 @@ body_source = "<path to the content>"
 
 ```
 
-The value for the key `body_source` should be the path from which the content should be shared relative to the `content` folder.
+The value for the `body_source` key, should be the path from which the content is being shared (relative to the repository's `content` folder). For example if the Spin project's `developer/content/spin/contributing-docs.md` holds the sharable content (as the single source of truth), then the Cloud project can display that same content by using the following frontmatter:
+
+```toml
+title = "Contributing to Docs"
+template = "cloud_main"
+date = "2022-01-01T00:00:01Z"
+body_source = "/spin/contributing-docs"
+
+[extra]
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/contributing-docs.md"
+keywords = "contribute contributing"
+
+---
+```
+
+> Note: the `body_source = "/spin/contributing-docs"` part of the frontmatter does not need to include the `.md` file extention (as is also the case when hyperlinking via markdown anywhere in a developer documentation file's body).
 
 ## Technical Documentation Procedure (Video)
 
