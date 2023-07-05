@@ -65,7 +65,7 @@ let value = redis::get(&address, &key)?;
 
 * The arguments and results are enums, representing integers, binary payloads, and (for results) status and nil values.
 
-You can find a complete example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis).
+You can find a complete code example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis).
 
 {{ blockEnd }}
 
@@ -111,7 +111,7 @@ value = redis_get(address, key)
 * Lists are passed and returned as Python lists.
 * Errors are signalled through exceptions.
 
-You can find a complete example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outbound_redis).
+You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outbound_redis). Please also see this, related, [outbound Redis (using Python) section](https://developer.fermyon.com/spin/python-components#an-outbound-http-example).
 
 {{ blockEnd }}
 
