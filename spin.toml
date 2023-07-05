@@ -12,6 +12,9 @@ environment = { PREVIEW_MODE = "0" }
 files = [ "content/**/*" , "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 [component.trigger]
 route = "/..."
+[component.build]
+command = "npm run build-index"
+watch = [ "content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*", "static/*"]
 
 [[component]]
 source = "modules/spin_static_fs.wasm"

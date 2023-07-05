@@ -74,9 +74,9 @@ jobs:
           run: |
             npm ci
 
-        - name: Create search index
+        - name: Build app
           run: |
-            npm run build-index
+            spin build
 
         - name: Construct OCI image tag
           shell: bash
