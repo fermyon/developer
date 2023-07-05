@@ -411,7 +411,7 @@ If you are [using shortcodes](/bartholomew/shortcodes) and need to tell the `bar
 <!-- @selectiveCpy -->
 
 ```bash
-$ bart check --shortcodes ./my-shortcodes content/spin/variables.md
+$ bart check --shortcodes ./shortcodes content/spin/variables.md
 shortcodes: registering alert
 shortcodes: registering details
 shortcodes: registering tabs
