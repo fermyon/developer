@@ -29,7 +29,7 @@ jobs:
 
       - name: Check Docs
         run: |
-          bart check content/* && bart check content/**/*
+          bart check --shortcodes shortcodes content/* && bart check --shortcodes shortcodes content/**/*
       
       - name: Install npm packages
         run: |
