@@ -411,14 +411,21 @@ Let's take a quick look at how you can use the `bart` CLI to check any content t
 
 ### 7. Checking Web Pages
 
-The `bart` CLI can be used to check content by simply passing in the content as a parameter; as shown below:
+The `bart check` command can be used to check the content. Simply pass in the content as a parameter. The developer documentation [uses shortcodes](/bartholomew/shortcodes), so always pass `--shortcodes ./shortcodes` as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ bart check content/about.md
-✅ content/about.md
+$ bart check --shortcodes ./shortcodes content/spin/variables.md
+shortcodes: registering alert
+shortcodes: registering details
+shortcodes: registering tabs
+shortcodes: registering startTab
+shortcodes: registering blockEnd
+✅ content/spin/variables.md
 ```
+
+> Note: `using a wildcard `*` will check a whole directory via a single command. For example, running `bart check --shortcodes ./shortcodes content/spin/*` will check all markdown files in the Spin project's documentation section.
 
 ### 8. Add Changes
 
