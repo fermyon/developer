@@ -405,7 +405,7 @@ $ bart check content/about.md
 ✅ content/about.md
 ```
 
-If you are [using shortcodes](/bartholomew/shortcodes) and need to tell the `bart check` command where to find them (i.e. if you have your reusable snippets, written in `.rhai` files, tucked away in a relative directory called `my-shortcodes`), you can use the `--shortcodes` option. For example:
+The developer documentation [uses shortcodes](/bartholomew/shortcodes). Always pass `--shortcodes ./shortcodes` as shown below:
 
 ```bash
 <!-- @selectiveCpy -->
