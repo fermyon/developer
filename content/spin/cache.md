@@ -1,4 +1,4 @@
-title = "The Spin Registry Cache"
+title = "Spin Internal Data Layout"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
@@ -7,31 +7,62 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cache.md"
 
 ---
 
-- [The Spin Registry Cache](#the-spin-registry-cache)
-- [Clearing the Registry Cache](#clearing-the-registry-cache)
-  - [Viewing Registry Cache Files](#viewing-registry-cache-files)
+- [Base Directories](#base-directories)
+- [Plugins](#plugins)
+- [Templates](#templates)
+- [Application Cache](#application-cache)
+  - [Inside the Application Cache](#inside-the-application-cache)
 
-## The Spin Registry Cache
+This page describes how Spin lays out its internal data on disk.
 
-A running Spin application can [fetch resources from remote registries](/spin/spin-oci) and individual component sources via HTTP endpoints. These resources naturally consume network bandwidth. To ensure network efficiency, and to prevent waiting to download the same files every time an application is started, Spin automatically maintains a local `spin/registry` cache.
+> This document is provided as a reference for users wanting to diagnose problems or to reset Spin state. Don't modify the contents of these directories. Spin updates these directories as you issue the relevant commands on the command line.
 
-## Clearing the Registry Cache
+> No stability guarantees apply to the internal layout. It may change between Spin versions.
 
-Clearing the registry cache directory can be done by removing the `registry` directory entirely. The only direct effect of these actions is that Spin will have to pull again all component sources and static assets.
+## Base Directories
 
-### Viewing Registry Cache Files
+Spin uses similar layouts across Linux, MacOS and Windows platforms, but the paths to various areas of the user's home directory differ across the platforms. On this page, the following terms have the following meanings:
 
-> **Note:** The registry cache contains no user-serviceable parts; the only safe way to make changes to the contents of the cache is through the Spin command line. The only operation a user can safely undertake is to delete the `registry` directory.
+| Name          | Linux                                    | MacOS                                | Windows |
+|---------------------|------------------------------------------|--------------------------------------|-------------------|
+| `DATA_DIR`    | `$XDG_DATA_HOME` or `$HOME/.local/share` | `$HOME/Library/Application Support`, or `$HOMEBREW_PREFIX/etc/fermyon-spin` if installed using Homebrew  | `%LOCALAPPDATA%` or `%USERPROFILE%\AppData\Local` |
+| `CACHE_DIR`   | `$XDG_CACHE_HOME` or `$HOME/.cache`      | `$HOME/Library/Caches`               | `%LOCALAPPDATA%` or `%USERPROFILE%\AppData\Local` |
 
-All downloadable application files that are automatically cached can be found in the following file paths, depending on the operating system being used to run the Spin application:
+These directories are based on the [XDG specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html), and specifically on the cross-platform implementation in the [Rust `dirs` crate](https://docs.rs/dirs/latest/dirs/).
 
-| Platform | Value | Example |
-| :--- | :--- | :--- |
-| Linux | `$XDG_CACHE_HOME` or `$HOME/.cache/spin/registry` | `/home/alice/.cache/spin/registry` |
-| macOS | `$HOME/Library/Caches/spin/registry` | `/Users/Alice/Library/Caches/spin/registry` |
-| Windows | `{FOLDERID_LocalAppData}/spin/registry` | `C:\Users\Alice\AppData\Local/spin/registry` |
+> If Spin cannot resolve a base directory as listed above, it falls back to `$HOME/.spin` (`%USERPROFILE%\.spin` on Windows).
 
-For example inspecting the local `spin/registry` cache on macOS, (using the `tree` command) would look like this:
+## Plugins
+
+Installed plugins are stored in `(DATA_DIR)/spin/plugins`.  A snapshot of the plugins registry is also stored under that directory at `(DATA_DIR)/spin/plugins/.spin-plugins`; this is structured as a Git repository.
+
+If you delete the plugins directory, you will no longer be able to run your plugins (until you reinstall them), but other Spin operations will be unaffected.
+
+## Templates
+
+Installed templates are stored in `(DATA_DIR)/spin/templates`.
+
+If you delete the templates directory, you will lose access to your installed templates (until you reinstall them), but other Spin operations will be unaffected.
+
+## Application Cache
+
+Downloaded application data, such as applications downloaded from registries or Wasm modules downloaded from URLs, are stored in `(CACHE_DIR)/spin/registry`.
+
+If you delete the application cache directory, Spin will automatically re-download the files as needed.  Spin operations will be otherwise unaffected.
+
+### Inside the Application Cache
+
+> **Reminder:** This information is provided for diagnostic and entertainment purposes only, and may change across Spin versions. The only operation a user can safely undertake is to delete the entire `registry` directory.
+
+The application cache is divided into three subdirectories, `data`, `manifests`, and `wasm`.
+
+The `data` directory contains all static assets referenced from applications distributed with remote registries. The `wasm` directory contains all component sources referenced either in applications distributed with remote registries, or component sources from HTTP endpoints, directly referenced in `spin.toml`.
+
+> The `data` and `wasm` directories are content addressable. This means that if multiple applications reference the same static file or component source, Spin will be able to determine if it has already been pulled (on that users operating system), based on its digest. This also means that if an application has an update, Spin will only pull the changes in the component sources and static assets.
+
+The `manifests` directory contains the registry manifests for entire apps distributed with remote registries. They are placed in subdirectories that identify the application based on the registry, repository, and digest (or tag).
+
+The following `tree` command shows a typical (abbreviated) cache directory:
 
 <!-- @selectiveCpy -->
 
@@ -56,11 +87,3 @@ $ tree ~/Library/Caches/spin/registry/
     ├── sha256:0b985e7d43e719f34cbb54849759a2f8e7913c0f9b17bf7cb2b3d2458d33859e
     └── sha256:d5f9e1f6b61b90f7404e3800285f7860fe2cfc7d0116023efc370adbb403fe87
 ```
-
-The `data` directory contains all static assets referenced from applications distributed with remote registries. The `wasm` directory contains all component sources referenced either in applications distributed with remote registries, or component sources from HTTP endpoints, directly referenced in `spin.toml`.
-
-> The `data` and `wasm` directories are content addressable. This means that if multiple applications reference the same static file or component source, Spin will be able to determine if it has already been pulled (on that users operating system), based on its digest. This also means that if an application has an update, Spin will only pull the changes in the component sources and static assets.
-
-The `manifests` directory contains the registry manifests for entire apps distributed with remote registries. They are placed in subdirectories that identify the application based on the registry, repository, and digest (or tag).
-
-> When running an application from a remote registry, even if the application has already been pulled, Spin will first contact the registry to fetch the manifest.
