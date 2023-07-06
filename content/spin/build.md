@@ -153,6 +153,8 @@ $ RUST_LOG=spin=trace spin build
     Finished release [optimized] target(s) in 0.02s
 ```
 
+> If your build doesn't work, and your source code looks okay, you can [run `spin doctor`](/spin/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
+
 ## Running the Application After Build
 
 You can pass the `--up` option to `spin build` to start the application as soon as the build process completes successfully.

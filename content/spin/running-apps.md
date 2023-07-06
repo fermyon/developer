@@ -32,6 +32,8 @@ If your manifest is named something different, or isn't in your current director
 
 > If you see the error `failed to resolve content at "example.wasm"` (where `example.wasm` is the module file of a component), check that the application has been built.
 
+> If your application doesn't run, you can [run `spin doctor`](/spin/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
+
 ### Testing HTTP Applications
 
 By default, HTTP applications listen on `localhost:3000`.  You can override this with the `--listen` option.  Spin prints links to the application components to make it easy to open them in the browser or copy them to `curl` commands for testing.
