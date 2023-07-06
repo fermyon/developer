@@ -183,7 +183,7 @@ You must individually grant each component access to the stores that it needs to
 
 ### SQLite Storage Runtime Configuration
 
-Spin provides built-in SQLite storage. By default, this is backed by a database that Spin creates for you. However, you can use the Spin runtime configuration file (`runtime-config.toml`) to add and customize SQLite databases.
+Spin provides built-in SQLite storage. By default, this is backed by a database that Spin creates for you underneath your application directory (in the `.spin` subdirectory). However, you can use the Spin runtime configuration file (`runtime-config.toml`) to add and customize SQLite databases.
 
 The following example `runtime-config.toml` tells Spin to map the `default` database to an SQLite database elsewhere in the file system:
 
@@ -208,7 +208,7 @@ Spin creates any database files that don't exist.  However, it is up to you to d
 
 Spin can also use [libSQL](https://libsql.org/) databases accessed over HTTPS.  libSQL is fully compatible with SQLite but provides additional features including remote, distributed databases.
 
-> Spin does not provide libSQL access to file-based databases, only databases served over HTTPS.
+> Spin does not provide libSQL access to file-based databases, only databases served over HTTPS. Specifically, Spin supports [the `sqld` libSQL server](https://github.com/libsql/sqld).
 
 To use libSQL, set `type = "libsql"` in your `runtime-config.toml` entry.  You must then provide a `url` and authentication `token` instead of a file path.  For example, this entry tells Spin to map the `default` database to a libSQL service running on `libsql.example.com`:
 
@@ -220,7 +220,7 @@ url = "sensational-penguin-ahacker.libsql.example.com"
 token = "a secret"
 ```
 
-Spin does _not_ create libSQL databases.  Use your hosting service's tools, or the `libsql` command line, to create them.  You can still set up tables and data in a libSQL database via `spin up --sqlite`.
+Spin does _not_ create libSQL databases.  Use your hosting service's tools to create them (or `sqld` if you are self-hosting) .  You can still set up tables and data in a libSQL database via `spin up --sqlite`.
 
 > Some libSQL service documentation shows URLs with a `libsql://` scheme.  Don't include a scheme in the `runtime-config.toml` `url` field.  Include only the host name.
 
