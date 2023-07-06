@@ -204,7 +204,7 @@ path = "/planning/todo.db"
 path = "/super/secret/monies.db"
 ```
 
-Spin creates any database files that don't exist.
+Spin creates any database files that don't exist.  However, it is up to you to delete them when you no longer need them.
 
 Spin can also use [libSQL](https://libsql.org/) databases accessed over HTTPS.  libSQL is fully compatible with SQLite but provides additional features including remote, distributed databases.
 

@@ -13,7 +13,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/sqlite-api-gu
 
 Spin provides an interface for you to persist data in an SQLite database managed by Spin. This database allows Spin developers to persist relational data across application invocations.
 
-{{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the MySQL or Postgres APIs. However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite database is a great option." }}
+{{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the [MySQL or Postgres APIs](/spin/rdbms-storage). However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite database is a great option." }}
 
 ## Using SQLite Storage From Applications
 
@@ -146,9 +146,7 @@ The Go SDK doesn't currently surface the SQLite API.
 
 ## Preparing an SQLite Database
 
-Although Spin provides SQLite as a built-in database, SQLite still needs you to create its tables.  Although you can do this using Spin components and the SQLite API, this usually results in database setup getting uncomfortably mixed in with application logic.
-
-Instead, you can use the `spin up --sqlite` option to run whatever SQL statements you need before your application starts.  This is typically used to create or alter tables, but can be used for whatever other maintenance or troubleshooting tasks you need.
+Although Spin provides SQLite as a built-in database, SQLite still needs you to create its tables.  In most cases, the most convenient way to do this is to use the `spin up --sqlite` option to run whatever SQL statements you need before your application starts.  This is typically used to create or alter tables, but can be used for whatever other maintenance or troubleshooting tasks you need.
 
 You can run a SQL script from a file using the `@filename` syntax:
 
@@ -166,7 +164,9 @@ Or you can pass SQL statements directly on the command line as a (quoted) string
 spin up --sqlite "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT NOT NULL, due TEXT NOT NULL)"
 ```
 
-You can provide the `--sqlite` flag more than once; Spin runs the statements in the order you provide them.
+You can provide the `--sqlite` flag more than once; Spin runs the statements (or files) in the order you provide them, and waits for each to complete before running the next.
+
+> It's also possible to create tables from your Wasm components using the usual `execute` function. That can end up mingling your "hot path" application logic with database maintenance code; decide which approach is best based on your application's needs.
 
 ## Custom SQLite Databases
 
@@ -174,11 +174,28 @@ Spin defines a database named `"default"` and provides automatic backing storage
 
 ## Granting SQLite Database Permissions to Components
 
-By default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest:
+By default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
 
 ```toml
 [component]
-sqlite_databases = ["default", "sales"]
+sqlite_databases = ["default"]
 ```
 
-For example, a component could be given access to the default store using `sqlite_databases = ["default"]`.
+Components can be given access to different databases:
+
+```toml
+# c1 has no access to any databases
+[component]
+name = "c1"
+
+# c2 can use the default database, but no custom databases
+[component]
+name = "c2"
+sqlite_databases = ["default"]
+
+# c3 can use the custom databases "marketing" and "sales", which must be
+# defined in the runtime config file, but cannot use the default database
+[component]
+name = "c3"
+sqlite_databases = ["marketing", "sales"]
+```
