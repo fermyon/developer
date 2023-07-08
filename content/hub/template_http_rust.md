@@ -1,8 +1,8 @@
-title = "Static file server"
+title = "Rust HTTP trigger template"
 template = "render_body"
 date = "2022-10-15T00:22:56Z"
 content-type = "text/html"
-tags = ["test", "try"]
+tags = ["rust", "http"]
 
 [extra]
 author = "fermyon"
