@@ -216,13 +216,13 @@ To use libSQL, set `type = "libsql"` in your `runtime-config.toml` entry.  You m
 # This tells Spin to use the remote host as its default database
 [sqlite_database.default]
 type = "libsql"
-url = "sensational-penguin-ahacker.libsql.example.com"
+url = "https://sensational-penguin-ahacker.libsql.example.com"
 token = "a secret"
 ```
 
 Spin does _not_ create libSQL databases.  Use your hosting service's tools to create them (or `sqld` if you are self-hosting) .  You can still set up tables and data in a libSQL database via `spin up --sqlite`.
 
-> Some libSQL service documentation shows URLs with a `libsql://` scheme.  Don't include a scheme in the `runtime-config.toml` `url` field.  Include only the host name.
+> You must include the scheme in the `url` field. The scheme must be `http` or `https`. Non-HTTP libSQL protocols are not supported.
 
 The `default` database will still be defined, even if you add other databases.
 
