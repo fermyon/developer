@@ -1295,6 +1295,11 @@ html.dark-theme > body .content .pagination-link, html.dark-theme > body .conten
   }
 }
 
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: .1125rem;
+}
+
 .search-modal-container {
   box-sizing: border-box;
   width: 100%;
@@ -3388,8 +3393,8 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 }
 
 .cc-revoke.cc-top {
-  border-bottom-right-radius: .5em;
   border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
   top: 0;
   left: 3em;
 }

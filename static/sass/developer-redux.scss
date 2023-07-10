@@ -1,0 +1,32 @@
+
+/* Styleguide Refresh from fermyon.com (1.5 design refresh)
+*/
+
+
+$oxforddark: #0E092D;
+$vistablue: #8093F1;
+$lavenderfloral: #A87CE6;
+$thistle: #E7D3F2;
+$celeste: #C5FFF1;
+
+$spaceGro: 'Space Grotesk', sans-serif;
+$mono: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+
+@mixin upperCase {
+    text-transform: uppercase;
+    letter-spacing: 0.1125rem;
+}
+
+.uppercase {
+    @include upperCase;
+}
+
+@mixin button {
+    color: $oxforddark !important;
+    font-size: 1rem;
+    font-family: $spaceGro;
+    font-weight: 500;
+    padding: 0.333rem 1.5rem;
+    @include upperCase;
+    @include transition;
+}
