@@ -23,12 +23,19 @@ TABLE OF CONTENTS
     0.4. Typography
     0.5. Responsive Media Queries
 
-	1.1. Developer Styles
+	1.1 Styleguide Refresh
+	1.2. Developer Styles
 ================= */
+
+/* Styleguide Refresh
+Importing color and theme updates for the brand 1.5 refresh
+(these will be ported over to fermyon/styleguide for centralized  housekeeping)
+*/
+@import "developer-redux";
 @import "developer-search";
 
 
-/* 1.1 Developer Styles
+/* 1.2 Developer Styles
 */
 
 .documentation {
