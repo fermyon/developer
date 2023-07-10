@@ -7,7 +7,7 @@ tags = ["test", "try"]
 [extra]
 author = "karthik2804"
 type = "hub_document"
-category = "Example"
+category = "Tutorial"
 language = "Python"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"

@@ -31,5 +31,7 @@ body{
   width: 100%;
   overflow: hidden;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 </style>

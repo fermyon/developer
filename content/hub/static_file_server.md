@@ -1,5 +1,5 @@
 title = "Static file server"
-template = "render_body"
+template = "render_hub_content_body"
 date = "2022-10-15T00:22:56Z"
 content-type = "text/html"
 tags = ["test", "try"]
@@ -7,7 +7,7 @@ tags = ["test", "try"]
 [extra]
 author = "karthik2804"
 type = "hub_document"
-category = "Example"
+category = "Component"
 language = "JS/TS"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
@@ -17,4 +17,4 @@ url = "https://github.com/karthik2804/examples"
 
 ---
 
-This is a tutorial about url shortener
+This is a tutorial about static file server
