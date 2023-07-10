@@ -189,7 +189,7 @@ $ kubectl apply -f wasm-runtimeclass.yaml
 
 ### Introduction
 
-Docker Desktop provides both an easy way to run Spin apps in containers directly and it's own Kuberentes option.
+Docker Desktop provides both an easy way to run Spin apps in containers directly and it's own Kubernetes option.
 
 ### Known Limitations
 
