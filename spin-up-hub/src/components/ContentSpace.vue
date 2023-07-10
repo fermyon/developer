@@ -16,6 +16,7 @@ export default {
 .content-wrapper {
     width: 100%;
     display: flex;
+    flex-grow: 1;
     margin-top: 2rem;
     background-color: $darkspace;
 }

@@ -31,8 +31,9 @@ export default {
                 <div class="content-area">
                     <div class="main-content">
                         <div class="title">{{ modalData.title }}</div>
-                        <div class="description">
-                            <div v-if="!modalData.isloaded">loading...</div>{{ modalData.description }}
+                        <div class="description" v="">
+                            <div v-if="!modalData.isloaded">loading...</div>
+                            <div v-html="modalData.description"></div>
                         </div>
                         <div class="tags">
                             <span v-for="item in modalData.tags">
@@ -68,7 +69,7 @@ export default {
                             <div class="name">Minimum Spin version</div>
                             <div class="value badge">
                                 <img src="/image/spin-vector.png">
-                                v{{ modalData.spinVersion }}
+                                {{ modalData.spinVersion }}
                             </div>
                         </div>
                     </div>
@@ -189,7 +190,7 @@ export default {
                             img {
                                 height: 1rem;
                                 width: 1rem;
-                                margin-right: 0.2rem;
+                                margin-right: 0.5rem;
                             }
                         }
                     }

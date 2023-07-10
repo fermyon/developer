@@ -1,5 +1,5 @@
 title = "Rust HTTP trigger template"
-template = "render_body"
+template = "render_hub_content_body"
 date = "2022-10-15T00:22:56Z"
 content-type = "text/html"
 tags = ["rust", "http"]
