@@ -15,7 +15,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cli-reference
 - [spin deploy](#spin-deploy)
 - [spin doctor](#spin-doctor)
 - [spin help](#spin-help)
-- [spin js2wasm](#spin-js2wasm)
 - [spin login](#spin-login)
 - [spin new](#spin-new)
 - [spin plugins](#spin-plugins)
@@ -24,7 +23,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cli-reference
 - [spin plugins uninstall](#spin-plugins-uninstall)
 - [spin plugins update](#spin-plugins-update)
 - [spin plugins upgrade](#spin-plugins-upgrade)
-- [spin py2wasm](#spin-py2wasm)
 - [spin registry](#spin-registry)
 - [spin registry login](#spin-registry-login)
 - [spin registry pull](#spin-registry-pull)
@@ -40,6 +38,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/cli-reference
 - [Stability Table](#stability-table)
 
 This page documents the Spin Command Line Interface (CLI).
+
+> Please note: When using the `spin --help` command you may see additional commands (followed by an asterisk symbol). These additional commands that are visible on your machine will show up depending on what plugins you have installed locally.
 
 For information on command stability, see the [CLI stability table](#cli-stability-table).
 
@@ -1056,42 +1056,6 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 > Please note: Spin `help` is a convenient way to access help using a subcommand, instead of using the `--help` option. For example, `spin help cloud` will give you the same output as `spin cloud --help`. Similarly, `spin help build` will give you the same output as `spin build --help` and so forth.
-
-<!-- markdownlint-disable-next-line titlecase-rule -->
-## spin js2wasm
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.4"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin js2wasm --help
-
-js2wasm 0.4.0
-A spin plugin to convert javascript files to Spin compatible modules
-
-USAGE:
-    js2wasm [OPTIONS] <input>
-
-FLAGS:
-    -h, --help       Prints help information
-    -V, --version    Prints version information
-
-OPTIONS:
-    -o <output>         [default: index.wasm]
-
-ARGS:
-    <input> 
-
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-> As denoted by the `*` when using the `spin --help` command, [js2wasm](/spin/javascript-components) is implemented via plugin. This is why `spin js2wasm --help` above shows slightly different commands (relative to the other commands that see on this page).
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin login
@@ -2194,52 +2158,6 @@ OPTIONS:
 {{ blockEnd }}
 
 **Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
-
-<!-- markdownlint-disable-next-line titlecase-rule -->
-## spin py2wasm
-
-{{ tabs "spin-version" }}
-
-{{ startTab "v1.4"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin py2wasm --help
-
-A Spin plugin to convert Python apps to Spin-compatible WebAssembly modules
-
-Usage: py2wasm [OPTIONS] <APP_NAME>
-
-Arguments:
-  <APP_NAME>
-          The name of a Python module containing a `handle_request` function for handling Spin HTTP requests
-
-Options:
-  -p, --python-path <PYTHON_PATH>
-          `PYTHONPATH` for specifying directory containing the app and optionally other directories containing dependencies.
-          
-          If `pipenv` is in `$PATH` and `pipenv --venv` produces a path containing a `site-packages` subdirectory, that directory will be appended to this value as a convenience for `pipenv` users.
-          
-          [default: .]
-
-  -o, --output <OUTPUT>
-          Output file to write the resulting module to
-          
-          [default: index.wasm]
-
-  -h, --help
-          Print help (see a summary with '-h')
-
-  -V, --version
-          Print version
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
-
-> As denoted by the `*` when using the `spin --help` command, [py2wasm](/spin/python-components) is implemented via plugin. This is why `spin py2wasm --help` above shows slightly different commands (relative to the other commands that see on this page).
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin registry
