@@ -83,12 +83,14 @@
                             {{/if}} href="{{site.info.base_url}}/spin/api-guides-overview">API Support Overview</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/http-outbound" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/http-outbound">Making HTTP Requests</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/kv-store-api-guide" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/kv-store-api-guide">Key Value Store</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/sqlite-api-guide" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/sqlite-api-guide">SQLite Storage</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/redis-outbound" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/spin/redis-outbound">Redis Storage</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/rdbms-storage" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/rdbms-storage">Relational Database Storage</a></li>
-                    <li><a {{#if (active_content request.spin-path-info "/spin/kv-store-api-guide" )}} class="active"
-                            {{/if}} href="{{site.info.base_url}}/spin/kv-store-api-guide">Key Value Store</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/variables" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/spin/variables">Application Variables</a></li>
                 </ul>
