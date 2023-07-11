@@ -1,0 +1,276 @@
+// dark mode is activated via the class html.dark-theme
+
+html.dark-theme {
+
+    &:root {
+        color-scheme: dark;
+    }
+
+    body.documentation {
+        background: $oxforddark !important;
+
+        main {
+            position: relative;
+
+            &:after {
+                border-radius: 68.4375rem;
+                background: rgba(230, 210, 241, 0.20);
+                filter: blur(260px);
+                position: fixed;
+                right: -34rem;
+                bottom: -32rem; 
+                z-index: 0;
+                content: " ";
+                display: block;
+                width: 68.4375rem;
+                height: 68.4375rem;
+                opacity: 0.2;
+            }
+        }
+
+        #topbar.navbar {
+            border-bottom: 1px solid $bluedark;
+            background: $oxforddark !important;
+
+            .logo-wrap {
+                // border-right: 1px solid rgba($lavendermid, 0.125) !important;
+
+                .logo-developer a {
+                    color: $greenfoam !important;
+                }
+            }
+
+            .navbar-menu .button {
+                &.is-secondary {
+                    color: white !important;
+                    border-width: 0.125rem;
+    
+                    &:hover {
+                        color: $oxfordblue !important;
+                    }
+                }
+            }
+        }
+
+        .menu-wrap {
+            border-right: 1px solid #384687;
+            background: linear-gradient(47deg, rgba($oxforddark, 0.14) 0%, rgba(124, 109, 185, 0.12) 100%);
+        }
+
+        aside.menu {
+
+            a {
+                color: $lightlavender;
+
+                &.active {
+                    color: $seagreen;
+                    background-color: $darkspace;
+                }
+            }
+
+            .accordion-tabs {
+                .accordion-menu-item .accordion-menu-item-content.stay-open li a,
+                .accordion-menu-item input:checked ~ .accordion-menu-item-content li a {
+                    color: white !important;
+
+                    &:before {
+                        background: $lavenderdark;
+                        opacity: 0.25;
+                    }
+
+                    &:hover {
+                        &:before {
+                            // background: $lavenderdark;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .menu-label {
+                color: $lightlavender !important;
+            }
+            
+            .button-wrap {
+                background: transparent !important;
+                border-top: 1px solid rgba($bluedark, 0.2) !important;
+                border-right: 1px solid $bluedark;
+
+                a.button {
+                    &.is-primary {
+                        color: white !important;
+                    }
+
+                    &.is-secondary {
+                        background: #384687;
+                        color: $thistle !important;
+                    }
+                }
+            }
+
+            .accordion-tabs {
+                
+                .menu-label {
+                    color: $lavendermid !important;
+
+                    &:hover {
+                        color: $thistle !important;
+                        background-color: rgba($oxforddark, 0.67);
+                    }
+                }
+
+                .accordion-menu-item-content.stay-open,
+                input:checked~.accordion-menu-item-content {
+                    &:hover,
+                    &.active,
+                    .is-active {
+                        &:before {
+                            background: darken($lavenderdark, 20%);
+                        }
+                    }
+                }
+            }
+        }
+
+        .content {
+
+            a {
+                color: lighten($lavenderfloral, 12.5%)
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            li,
+            th,
+            td,
+            dd {
+                code {
+                    background: rgba($lavenderdark, 0.2);
+                }
+            }
+
+            pre {
+                margin: 1.67rem 0 2.33rem;
+
+                code {
+                    background: darken($oxforddark, 2.5%) !important;
+                    background: linear-gradient(52deg, lighten($oxforddark, 4.25%) 0%, desaturate(lighten($oxforddark, 6.25%), 22.5%) 100%)  !important;
+                }
+            }
+
+            table {
+                th {
+                    background-color: #0a1931;
+                    border-bottom: 1px solid #0d203f;
+                    color: #fff;
+                }
+
+                td {
+                    border-bottom-color: #0d203f;
+                }
+
+                code {
+                    background-color: rgba($oxfordblue, 0.5);
+                }
+            }
+
+            details {
+                background: #1b2c4f;
+                border-left: 4px solid #243c6c;
+
+                .summary-content {
+                    border-top: 1px solid #243c6c;
+                }
+
+                .summary-chevron-up,
+                .summary-chevron-down {
+                    background: #1b2c4f;
+                }
+            }
+
+            blockquote p {
+                background: lighten($oxforddark, 4.25%);
+                border-color: rgba($lavenderdark, 0.25) !important;
+                color: $thistle !important;
+            }
+
+            .note {
+                background: lighten($oxforddark, 4.25%);
+                color: white;
+
+                h4 {
+                    color: $lightlavender;
+                    font-family: $spaceGro;
+                }
+
+                .button {
+                    background-color: transparent;
+                    color: $seagreen;
+                }
+            }
+
+            .multitab-content {
+                background: none transparent !important;
+                border: 1px solid rgba($vistablue, 0.25);
+            }
+
+            .tabs {
+
+                &.is-boxed {
+                    a {
+                        color: lighten($lavender, 2.5%);
+                        background-color: transparent;
+                        position: relative;
+
+                        &:hover {
+                            color: $lightlemon;
+                            background: none transparent !important;
+                            border-bottom: 1px solid rgba($vistablue, 0.25);;
+                        }
+
+                        &.is-active {
+                            color: $lavender;
+                            background: $oxforddark !important;
+                            border: 1px solid rgba($vistablue, 0.25);
+                            border-bottom: none;
+                            line-height: 1.285;
+
+                            &:hover {
+                                background: $oxforddark !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            a.anchor-link {
+                &:hover {
+                    background: transparent !important;
+                }
+            }
+
+            a.anchor-link {
+                fill: #fff;
+            }
+
+            blockquote p {
+                background-color: rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+
+    .dropdown-content {
+        a {
+            color: #34e8bd;
+        }
+    }
+
+    .multitab-content {
+        background-color: $oxfordblue;
+    }
+}
