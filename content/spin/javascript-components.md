@@ -315,7 +315,7 @@ Let's see how we can use the JS/TS SDK to connect to Redis:
 <!-- @nocpy -->
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+import { HandleRequest, HttpRequest, HttpResponse, Redis } from "@fermyon/spin-sdk"
 
 const encoder = new TextEncoder()
 const decoder = new TextDecoder()
@@ -324,16 +324,16 @@ const redisAddress = "redis://localhost:6379/"
 
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
 
-    spinSdk.redis.incr(redisAddress, "test")
-    spinSdk.redis.incr(redisAddress, "test")
+    Redis.incr(redisAddress, "test")
+    Redis.incr(redisAddress, "test")
 
-    console.log(decoder.decode(spinSdk.redis.get(redisAddress, "test")))
+    console.log(decoder.decode(Redis.get(redisAddress, "test")))
 
-    spinSdk.redis.set(redisAddress, "test-set", encoder.encode("This is a test").buffer)
+    Redis.set(redisAddress, "test-set", encoder.encode("This is a test").buffer)
 
-    console.log(decoder.decode(spinSdk.redis.get(redisAddress, "test-set")))
+    console.log(decoder.decode(Redis.get(redisAddress, "test-set")))
 
-    spinSdk.redis.publish(redisAddress, "test", encoder.encode("This is a test").buffer)
+    Redis.publish(redisAddress, "test", encoder.encode("This is a test").buffer)
 
     return {
         status: 200,
@@ -352,9 +352,9 @@ This HTTP component demonstrates fetching a value from Redis by key, setting a k
 The JavaScript/TypeScript SDK provides a router that makes it easier to handle routing within a component. The router is based on [`itty-router`](https://www.npmjs.com/package/itty-router). An additional function `handleRequest` has been implemented in the router to allow passing in the Spin HTTP request directly. For a more complete documentation on the route, checkout the documentationa at [itty-router](https://github.com/kwhitley/itty-router). An example usage of the router is given below:
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
+import { HandleRequest, HttpRequest, HttpResponse, Router} from "@fermyon/spin-sdk"
 
-let router = utils.Router()
+let router = Router()
 
 function handleDefaultRoute() {
   return {
@@ -400,6 +400,6 @@ These are some of the suggested libraries that have been tested and confired to 
 
 ## Caveats
 
-- All `spinSdk` related functions and methods can be called only inside the `handleRequest` function. This includes the usage of `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
+- All `spin` related functions and methods (like `Config`, `Redis`, `Mysql`, `Pg`, `Kv` & `Sqlite`)can be called only inside the `handleRequest` function. This includes the usage of `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
 - Only a subset of the browser and `Node.js` APIs are implemented.
 - The support for Crypto  module is limited. The methods currently supported are `crypto.getRandomValues`, `crypto.subtle.digest`, `cryto.createHash` and `crypto.createHmac`

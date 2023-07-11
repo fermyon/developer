@@ -71,10 +71,12 @@ You can find a complete Rust code example for using outbound Redis from an HTTP 
 
 {{ startTab "TypeScript"}}
 
-Redis functions are available on the `spinSdk.redis` object. The function names match the operations above. For example:
+Redis functions are available on the `Redis` object. The function names match the operations above. For example:
 
 ```javascript
-const value = spinSdk.redis.get(address, key);
+import {Redis} from "@fermyon/spin-sdk"
+
+const value = Redis.get(address, key);
 ```
 
 **General Notes**

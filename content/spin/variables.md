@@ -112,16 +112,16 @@ fn handle_spin_example(req: Request) -> Result<Response> {
 
 {{ startTab "TypeScript"}}
 
-The config function is available in the `spinSdk.config` package and is named `get`.
+The config function is available in the `Config` package and is named `get`.
 
 ```ts
-import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+import { HandleRequest, HttpRequest, HttpResponse, Config } from "@fermyon/spin-sdk"
 
 const decoder = new TextDecoder("utf-8")
 
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
   const expected = decoder.decode(request.body)
-  let password = spinSdk.config.get("password")
+  let password = Config.get("password")
   let access = "denied"
   if (expected === password) {
       access = "accepted"

@@ -94,10 +94,12 @@ struct ToDo {
 
 {{ startTab "Typescript"}}
 
-To use SQLite functions, use the `spinSdk.sqlite.open` or `spinSdk.sqlite.openDefault` function to obtain a `Connection` object. `Connection` provides the `execute` method as described above. For example:
+To use SQLite functions, use the `Sqlite.open` or `Sqlite.openDefault` function to obtain a `Connection` object. `Connection` provides the `execute` method as described above. For example:
 
 ```javascript
-const conn = spinSdk.sqlite.openDefault();
+import {Sqlite} from "@fermyon/spin-sdk"
+
+const conn = Sqlite.openDefault();
 const result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1]);
 const json = JSON.stringify(result.rows);
 ```
