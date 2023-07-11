@@ -35,11 +35,18 @@
     
     .navbar-menu {
         padding-left: 1.33vw;
+        display: flex;
 
         a.navbar-item {
             font-family: $spaceGro;
             font-size: 1rem;
             letter-spacing: 0.05rem;
+            padding: 0.25rem 0.55rem;
+            background-color: transparent;
+
+            &:hover {
+                background-color: rgba(0,0,0,0.12);
+            }
         }
 
         a.navbar-item.button {
