@@ -1,0 +1,225 @@
+// offset in conjunction with headroom js
+.documentation main aside.menu {
+    padding-top: 6.5rem !important;   
+}
+
+.documentation header.headroom--unpinned + main aside.menu {
+    padding-top: 1.5rem !important;  
+}
+
+// sidebar width is fixed for desktop
+$sidebarWidth: 17.5vw;
+
+.menu-wrap {
+    padding: 0 1.5vw !important;
+}
+
+// sidebar layout
+.documentation aside.menu {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    border: none !important;
+    padding-bottom: 8rem !important;
+    padding-top: 0 !important;
+    background: transparent none !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: calc($sidebarWidth - 1.5vw);
+
+    .accordion-tabs {
+        flex-grow: 1;
+        z-index: 200;
+        padding-bottom: 3.25rem;
+        overflow: visible;
+        
+        .accordion-menu-item {
+
+            .menu-label {
+                font-size: 1rem;
+                color: $oxfordblue;
+                letter-spacing: 0.033rem;
+                margin: 0.25rem 0 !important;
+                padding: 0.25rem 0.75vw !important;
+                font-weight: normal;
+                border-radius: 0.67rem;
+                justify-content: space-between;
+                text-transform: none;
+                display: flex;
+                cursor: pointer;
+                @include transition;
+                width: calc($sidebarWidth - 2vw);
+
+                &::after {
+                    content: "\276F";
+                    width: 1em;
+                    height: 1em;
+                    text-align: center;
+                    opacity: 0;
+                    @include transition;
+                }
+
+                &:hover {
+                    background-color: rgba(255,255,255,0.333);
+
+                    &::after {
+                        opacity: 0.25;
+                    }
+                } 
+            }
+        }
+    }
+
+    .button-wrap {
+        min-height: 7.5rem;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        left: 0;
+        width: $sidebarWidth;
+        padding: 0 1.25vw !important;
+        flex-direction: column;
+        z-index: 500;
+        background: transparent;
+    }
+
+    a.button {
+        font-family: $spaceGro;
+        @include upperCase;
+        font-size: 0.775rem !important;
+        border: none !important;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 1rem 0 !important;
+        margin-top: 1.125rem;
+        
+        svg {
+            margin-right: 1rem;
+        }
+
+        &.is-primary {
+            border: 2px solid $seagreen !important;
+            background-color: transparent !important;
+        }
+        
+        &.is-secondary {
+            border: none !important;
+            box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.05);
+        }
+
+        &:hover {
+            path, svg {
+                fill: $seagreen;
+            }
+        }
+    }
+
+    // sidebar link styles
+    ul {
+        margin-bottom: 0rem;
+    }
+
+    ul.menu-list.accordion-menu-item-content {
+        li a {
+            font-size: 0.855rem;
+            transition: border-color ease-in-out 0.3s;
+            color: $bluedark;
+        }
+    }
+
+    a {
+        padding: 0.6rem 1vw;
+        font-weight: normal;
+
+        &.button {
+            padding: 0 1.333vw;
+        }
+    }
+
+    .menu-label {
+        padding: 1rem 1vw 0;
+    }
+
+    .accordion-tabs {
+        border-radius: 8px;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .accordion-menu-item {
+
+            &-content {
+                max-height: 0;
+                padding: 0 1em;
+                overflow: hidden;
+                padding-left: 0.2rem;
+
+                &.stay-open {
+                    max-height: 100vh;
+                }
+            }
+
+            .menu-label.stay-open {
+                cursor: auto;
+                &::after {
+                    transform: rotate(90deg);
+                    margin-top: 0.3rem !important;
+                }
+            }
+
+            input:checked {
+                +.menu-label {
+
+                    &::after {
+                        transform: rotate(90deg);
+                        margin-top: 0.3rem !important;
+                    }
+                }
+            }
+
+            .accordion-menu-item-content.stay-open,
+            input:checked~.accordion-menu-item-content {
+                max-height: 100vh;
+                padding: 0.25em 0.75rem 1.5rem 0.75rem;
+
+                li a {
+                    position: relative;
+                    background: transparent !important;
+                    line-height: 1.77;
+                    letter-spacing: 0.02rem;
+                    padding: 0.3rem 1vw;
+
+                    &:before {
+                        background: $thistle;
+                        display: block;
+                        content: " ";
+                        min-height: 2rem;
+                        width: 2px;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: -0.175rem;
+                        @include transition;
+                    }
+
+                    &:hover,
+                    &.active,
+                    .is-active {
+                        &:before {
+                            background: $lavenderfloral;
+                        }
+                    }
+
+                    &.active,
+                    .is-active {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }    
+    }
+}

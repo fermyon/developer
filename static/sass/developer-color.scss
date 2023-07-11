@@ -9,9 +9,21 @@ $lavenderfloral: #A87CE6;
 $thistle: #E7D3F2;
 $celeste: #C5FFF1;
 
+$docsbg1: #FDF8FF;
+$docsbg2: #FCF5FF;
+$greenfoam: #C5FFF1;
+$lavenderdark: #8967C2;
+$lavendermid: #E6D2F1;
+$lavenderlight: $thistle;
+$bluedark: #384687;
+$bluecallout: #282F55;
+
+
+//  fonts
 $spaceGro: 'Space Grotesk', sans-serif;
 $mono: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 
+// reusable mixins
 @mixin upperCase {
     text-transform: uppercase;
     letter-spacing: 0.1125rem;

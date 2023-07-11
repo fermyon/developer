@@ -2,7 +2,7 @@
     <div class="navbar-brand logo-wrap">
         <a class="navbar-item" href="/" title="Developer Home">
             <div class="logo">
-                <svg width="170" height="64" viewBox="0 0 685 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="99" height="12" viewBox="0 0 685 87" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M84.5571 18.574H16.4092V36.0591H63.5585V52.5029H16.4092V85H0V2.13016H1.86173H16.4092H84.5571V18.574Z"
                         fill="#0D203F" />
@@ -25,11 +25,10 @@
                         d="M668.591 2.13016H685V85H676.774H666.166L616.939 25.0821V85H600.529V2.13016H619.363L668.591 62.0481V2.13016Z"
                         fill="#0D203F" />
                 </svg>
-                <span class="spin-front"><em></em></span> <span class="spin-back"></span>
             </div>
         </a>
 
-        <div class="logo-project">
+        <div class="logo-developer">
             <a href="/" title="Developer Home">Developer</a>
         </div>
         <div class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="docsMenu">
@@ -57,6 +56,7 @@
                     {{/if}}
                     {{/if}}
                 </a>
+                
                 <div class="navbar-dropdown is-boxed">
                     <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-path-info "/spin/" )}}
                         is-active {{/if}}">
@@ -83,14 +83,12 @@
                 </div>
             </div>
             <div class="overlay"></div>
+
+            <a class="navbar-link is-active">Docs</a>
+            <a class="navbar-link">Hub</a>
         </div>
 
         <div class="navbar-end">
-
-            <a class="navbar-item button is-rounded is-outline is-secondary is-small"
-                href="https://github.com/fermyon/feedback" target="_blank">Give Feedback</a>
-
-            <a class="navbar-item button is-rounded is-small" href="https://cloud.fermyon.com/">Login to Cloud</a>
 
             <a class="dark-mode">
                 <svg width="1.5rem" height="1.5rem" viewBox="0 0 502 502" version="1.1"
@@ -131,6 +129,9 @@
                     </g>
                 </svg>
             </a>
+
+            <a class="navbar-item button is-outlined is-rounded is-medium cta-login-to-cloud btn-login" href="https://cloud.fermyon.com/login" target="_blank" aria-label="menuitem" title="Login to Cloud">Login</a>
+            <a class="navbar-item button is-primary is-rounded is-medium cta-login-to-cloud btn-signup" href="https://cloud.fermyon.com/?signup" target="_blank" aria-label="menuitem" title="Login to Cloud">Signup</a>
         </div>
 
         <div id="search-button-container" class="search-button-container"></div>

@@ -1,0 +1,49 @@
+#topbar.navbar{
+    display: flex;
+    align-items: center;
+
+    &.is-wide {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .logo-wrap {
+        display: flex;
+        align-items: center;
+        width: $sidebarWidth;
+        margin-right: -2px;
+        border-right: 1px solid rgba($lavenderlight, 0.5);
+        
+        .logo {
+            margin-top: -3px !important; 
+            
+            svg {
+                max-height: 0.75rem;
+                max-width: auto !important;
+                margin-left: 1vw;
+            }
+        }
+
+        .logo-developer {
+            margin: 0;
+            font-family: $spaceGro;
+            letter-spacing: 0.02rem;
+            font-size: 0.925rem;
+            @include upperCase;
+        }
+    }
+    
+    .navbar-menu {
+        padding-left: 1.33vw;
+
+        a.navbar-item {
+            font-family: $spaceGro;
+            font-size: 1rem;
+            letter-spacing: 0.05rem;
+        }
+
+        a.navbar-item.button {
+            margin-top: 0;
+        }
+    }
+}
