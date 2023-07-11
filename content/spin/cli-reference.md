@@ -1037,11 +1037,9 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud.
     doctor       Detect and fix problems with Spin applications
     help         Print this message or the help of the given subcommand(s)
-    js2wasm*     A plugin to convert js files to Spin compatible modules
     login        Log into the Fermyon Cloud.
     new          Scaffold a new application based on a template
     plugins      Install/uninstall Spin plugins
-    py2wasm*     A plugin to convert Python applications to Spin compatible modules
     registry     Commands for working with OCI registries to distribute applications
     templates    Commands for working with WebAssembly component templates
     up           Start the Spin application
