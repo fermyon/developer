@@ -288,14 +288,14 @@ fn handle_request(req: Request) -> Result<Response> {
 <!-- @nocpy -->
 
 ```typescript
-import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+import { HandleRequest, HttpRequest, HttpResponse, Kv } from "@fermyon/spin-sdk"
 
 const encoder = new TextEncoder()
 const decoder = new TextDecoder()
 
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
 
-  let store = spinSdk.kv.openDefault()
+  let store = Kv.openDefault()
   let status = 200
   let body
 
