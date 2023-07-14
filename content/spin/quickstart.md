@@ -740,6 +740,7 @@ If the build fails, check:
 * Are you in the `hello_go` directory?
 * Did you successfully [install TinyGo](#install-the-tools)?
 * Are your versions of Go and TinyGo up to date?  The Spin SDK needs TinyGo 0.27 or above.
+* Set Environment Variable `CGO_ENABLED=1`. (Since the Go SDK is built using CGO, it requires the CGO_ENABLED=1 environment variable to be set.)
 
 If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.build` section:
 
