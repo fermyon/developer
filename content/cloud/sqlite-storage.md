@@ -19,13 +19,87 @@ With SQLite support in Fermyon Cloud, you can persist relational data generated 
 
 ## Accessing Private Beta
 
-* SQLite Storage in Cloud is currently in private beta. To request access to the private beta, please fill out this short [sign-up form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx). 
->> Please note that the private beta is limited in space and all requests cannot be guaranteed. 
+SQLite Storage in Cloud is currently in private beta. To request access to the private beta, please fill out this short [sign-up form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx).
+ 
+> Please note that the private beta is limited in space and all requests cannot be guaranteed. 
 
-## Limitations For SQLite in Fermyon Cloud
+## Service Limitations and Quotas For SQLite in Fermyon Cloud
+
+*Service Limitations*
+* There is a 1:1 relationship between Spin application and SQLite Store
+* You must delete your Spin application before you can delete your SQLite Store
+* The `--sqlite` flag not supported on `spin cloud deploy`
+* Fermyon Cloud doesn't support "custom" SQLite Stores
+
+*Quotas* 
+* You can have a maximum of 1 "default" SQLite Store 
+* Your SQLite Store can hold up 1 GB of data
 
 ## How To:
 
-### Create a Table In Your SQLite database
+### Prepare a SQLite Database
 
-### Managed SQLite Database lifecycle
+Since `--sqlite` is not supported on `spin cloud deploy`, we recommend using the `execute` command in your application's source code to create a table. For example, in this routing function we use the Rust SDK to check if the table exists. If it doesn't, then we create one:
+
+```rust
+#[http_component]
+fn handle_todo(req: Request) -> anyhow::Result<Response> {
+    let connection = Connection::open_default()?;
+		connection.execute("CREATE TABLE IF NOT EXISTS todos (
+			  id INTEGER PRIMARY KEY AUTOINCREMENT,
+			  description TEXT NOT NULL,
+			  due_date DATE,
+			  starred BOOLEAN DEFAULT 0,
+			  is_completed BOOLEAN DEFAULT 0
+				);", &[])?;
+
+    let router = http_router! {
+<...>
+    };
+    router.handle(req)
+}
+```
+
+### Manage SQLite Database Lifecycle
+
+A SQLite Store is created when you deploy a Spin application that references a "default" SQLite database in it's component manifest. Multiple components in the same Spin application can be given access to the default database like so:
+
+```toml
+# c1 does not have access to the default database
+[component]
+name = "c1"
+
+# c2 can use the default database
+[component]
+name = "c2"
+sqlite_databases = ["default"]
+
+# c3 can use default database as well
+[component]
+name = "c3"
+sqlite_databases = ["default"]
+```
+
+The SQLite database will created when the Spin application is deployed. The data in between Spin application invocations and updates. 
+
+```bash
+$ spin cloud deploy
+Deploying app ..
+Creating database inspirational-pig (default) for app "quickstart"
+```
+
+You can check to see which Spin application is tied to your SQLite Store by using the `spin cloud sql` command:
+
+```bash
+$ spin cloud sql list
+inspirational-pig (default) (currenly used by "quickstart")
+```
+
+Lastly, after [deleting your Spin application](/delete.md) you can delete your default database with the following command:
+
+```bash
+$ spin cloud sql delete default
+inspirational-pig has been deleted
+```
+
+> The SQLite Store must be deleted before another Spin application can use the feature to prevent unintentional data sharing between Spin applications. 
