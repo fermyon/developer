@@ -1,4 +1,4 @@
-title = "Use SQLite Storage In Cloud"
+title = "SQLite Storage"
 template = "cloud_main"
 date = "2023-07-26T16:00:00Z"
 enable_shortcodes = false
