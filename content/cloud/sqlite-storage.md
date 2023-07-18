@@ -19,7 +19,7 @@ With SQLite support in Fermyon Cloud, you can persist relational data generated 
 
 ## Accessing Private Beta
 
-* SQLite Stoage in Cloud is currently in private beta. To request access to the private beta, please fill out this short [sign-up form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx). 
+* SQLite Storage in Cloud is currently in private beta. To request access to the private beta, please fill out this short [sign-up form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx). 
 >> Please note that the private beta is limited in space and all requests cannot be guarenteed. 
 
 ## Limitations For SQLite in Fermyon Cloud
