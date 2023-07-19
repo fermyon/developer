@@ -2571,6 +2571,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   width: 100%;
   align-items: center;
   margin-bottom: .67rem;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 1.25rem;
   display: flex;
   position: relative;
