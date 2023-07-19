@@ -28,9 +28,6 @@ export default {
                 return this.filteredContentTypes.includes(k.category) && this.filteredLanguages.includes(k.language)
             })
         }
-    },
-    mounted() {
-        this.$store.dispatch("getContentInfo")
     }
 }
 

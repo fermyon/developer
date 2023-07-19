@@ -7,7 +7,9 @@ export default {
     },
     methods: {
         OpenItem() {
-            this.$store.dispatch("openPreview", this.$props.item)
+            this.$store.commit("openPreview", this.$props.item.id)
+            this.$store.commit("loadModalMeta", this.$props.item.id)
+            this.$store.dispatch("getPreviewData")
         }
     },
     props: ["item"]
