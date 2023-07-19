@@ -40,7 +40,7 @@
 		height: 2rem;
 		width: 1px;
 		background: $lavendermid;
-		right: 18.5rem;
+		right: 30.5rem;
 		top: 1rem;
 		display: block;
 		content: " ";
@@ -57,14 +57,14 @@
 		width: 1.35rem;
 		content: " ";
 		top: 1.33rem;
-		right: 20.35rem;
+		right: 31.35rem;
 	}
 
 	.search-command {
 		opacity: 0;
 		position: absolute;
 		top: 2.35rem;
-		right: 24rem;
+		right: 34rem;
 		@include transition;
 	}
 
@@ -78,7 +78,7 @@
 		display: inline-block;
 		@include transition;
 		position: absolute;
-		right: 33.33rem;
+		right: 43.33rem;
 		top: 1.5rem;
 		text-align: left;
 	}

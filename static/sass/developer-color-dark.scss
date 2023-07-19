@@ -44,6 +44,14 @@ html.dark-theme {
 
             .navbar-menu {
 
+                a.navbar-item {
+                    color: white;
+        
+                    &:hover {
+                        background: rgba(124, 109, 185, 0.5) !important;
+                    }
+                }
+
                 a.navbar-link {
                     color: white !important;
 
@@ -65,7 +73,6 @@ html.dark-theme {
                             background: none transparent !important;
                         }
                     } 
-
                 }
 
                 .button {
@@ -103,13 +110,14 @@ html.dark-theme {
             .accordion-tabs {
                 .accordion-menu-item .accordion-menu-item-content.stay-open li a,
                 .accordion-menu-item input:checked ~ .accordion-menu-item-content li a {
-                    color: white !important;
+                    color: white !important; 
 
                     &:before {
                         background: $lavenderdark;
                         opacity: 0.25;
                     }
 
+                    &.active,
                     &:hover {
                         &:before {
                             // background: $lavenderdark;
@@ -121,6 +129,12 @@ html.dark-theme {
 
             .menu-label {
                 color: $lightlavender !important;
+
+                &.stay-open {
+                    &:after {
+                        opacity: 0.5;
+                    }
+                }
             }
             
             .button-wrap {
@@ -335,15 +349,6 @@ html.dark-theme {
                     }
                 }
             }
-
-            &:nth-child(2),
-            &:nth-child(3) {
-                background-color: $darkspace;
-
-                &::before {
-                    color: $lightplum;
-                }
-            }
 		}
 	}
 
@@ -356,7 +361,7 @@ html.dark-theme {
 
 		.is-hoverable {
 			.navbar-dropdown {
-				background-color: $darkspace;
+                background: #3D3368 !important;
 
 				.navbar-item {
 					.project-content {

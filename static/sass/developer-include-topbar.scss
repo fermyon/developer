@@ -55,6 +55,36 @@
         .has-dropdown {
             a.navbar-link {
                 padding-right: 2rem;
+
+                &:after {
+                    // dropdown caret
+                    border-color: $bluedark;
+                    width: .5rem;
+                    height: .5rem;
+                    opacity: .5;
+                    border-width: 1px;
+                    border-radius: 0;
+                    font-size: .5rem;
+                    right: 0.775rem;
+                    margin-top: -.67em;
+                }
+            }
+        }
+
+        a.navbar-item {
+            font-family: $spaceGro;
+            font-size: 1rem;
+            letter-spacing: 0.05rem;
+            padding: 0.333rem 0.925rem;
+            font-weight: normal;
+            margin-left: 1vw;
+            margin-right: 0.33vw;
+            color: $bluedark;
+            border-radius: 1.6875rem;
+            line-height: 1.5;
+
+            &:hover {
+                background: rgba($lavendermid, 0.33) !important;
             }
         }
 
@@ -73,17 +103,8 @@
                 background: rgba($lavendermid, 0.425) !important;
             }
 
-            &:not(.is-arrowless)::after {
-                // dropdown caret
-                border-color: $bluedark;
-                width: .5rem;
-                height: .5rem;
-                opacity: .5;
-                border-width: 1px;
-                border-radius: 0;
-                font-size: .5rem;
-                right: 0.775rem;
-                margin-top: -.67em;
+            .is-arrowless:after {
+                display: none;
             }
 
             &:hover {

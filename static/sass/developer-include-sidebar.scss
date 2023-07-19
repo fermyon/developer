@@ -80,6 +80,12 @@ $sidebarWidth: 17.5vw;
                         opacity: 0.25;
                     }
                 } 
+
+                &.stay-open {
+                    &::after {
+                        opacity: .5;
+                    }
+                }
             }
         }
     }

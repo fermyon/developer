@@ -42,22 +42,22 @@
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
                 {{#if (active_project request.spin-path-info "/spin/" )}}
-                <a class="navbar-link is-active" href="/spin/index">
+                <a class="navbar-link is-active">
                     Spin
                 </a>
                 {{else}}
                 {{#if (active_project request.spin-path-info "/cloud/" )}}
-                <a class="navbar-link is-active" href="/cloud/index">
+                <a class="navbar-link is-active">
                     Cloud
                 </a>
                 {{else}}
                 {{#if (active_project request.spin-path-info "/bartholomew/" )}}
-                <a class="navbar-link is-active" href="/bartholomew/index">
+                <a class="navbar-link is-active">
                     Bartholomew
                 </a>
                 {{else}}
                 <a class="navbar-link is-active">
-                    Projects
+                    Docs
                 </a>
                 {{/if}}
                 {{/if}}
@@ -91,7 +91,7 @@
             <div class="overlay"></div>
 
             {{#if (active_project request.spin-path-info "/cloud/" )}}
-            <a class="navbar-link" href="{{site.info.base_url}}/cloud/changelog">Changelog</a>
+            <a class="navbar-item" href="{{site.info.base_url}}/cloud/changelog">Changelog</a>
             {{/if}}
 
 
@@ -140,8 +140,8 @@
                 </svg>
             </a>
 
-            <a class="navbar-item button is-outlined is-rounded is-medium cta-login-to-cloud btn-login" href="https://cloud.fermyon.com/login" target="_blank" aria-label="menuitem" title="Login to Cloud">Login</a>
-            <a class="navbar-item button is-primary is-rounded is-medium cta-login-to-cloud btn-signup" href="https://cloud.fermyon.com/?signup" target="_blank" aria-label="menuitem" title="Login to Cloud">Signup</a>
+            <a class="navbar-item button is-outlined is-rounded is-medium cta-login-to-cloud btn-login" href="https://cloud.fermyon.com/login" target="_blank" aria-label="menuitem" title="Login to Fermyon Cloud">Login to Cloud</a>
+            <a class="navbar-item button is-primary is-rounded is-medium cta-login-to-cloud btn-signup" href="https://cloud.fermyon.com/?signup" target="_blank" aria-label="menuitem" title="Signup for Fermyon Cloud">Signup for Cloud</a>
         </div>
 
         <div id="search-button-container" class="search-button-container"></div>

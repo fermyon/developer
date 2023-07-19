@@ -325,7 +325,7 @@
     }
 
     .documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label {
-        width: 100%;
+        width: 90%;
     }
 
     .menu-wrap + article.content {
@@ -343,11 +343,11 @@
     #topbar.navbar {
         .search-button {
             &:after {
-                right: 23vw;
+                right: 36vw;
             }
 
             &:before {
-                right: 21.5vw;
+                right: 34.5vw;
             }
         }
     }
@@ -359,30 +359,29 @@
 
     #topbar.navbar {
         a.navbar-link.dark-mode {
-            right: 16.75vw !important;
+            right: 24.75vw !important;
             position: absolute !important;
             margin-right: auto !important;
         }
         .search-button {
             &:after {
-                right: 22.25vw;
+                right: 28.25vw;
             }
 
             &:before {
-                right: 20vw;
+                right: 27vw;
             }
 
             .search-placeholder {
-                right: 55rem;
+                right: 60rem;
             }
 
             .search-command {
-                right: 45rem;
+                right: 50rem;
             }
         }
     }
 
-	// @media screen and (max-width: 1850px) {
 	.documentation {
 		.content {
 			&>section {

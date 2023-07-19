@@ -51,16 +51,24 @@ body {
 
             .menu-label {
                 color: $bluedark !important;
+
+                &.stay-open {
+                    &:after {
+                        opacity: 0.5;
+                    }
+                }
             }
 
             .accordion-tabs {
                 .accordion-menu-item-content.stay-open,
                 input:checked~.accordion-menu-item-content {
+                    
                     &:hover,
                     &.active,
                     .is-active {
                         &:before {
                             background: $lavenderfloral;
+                            opacity: 1;
                         }
                     }
                 }
