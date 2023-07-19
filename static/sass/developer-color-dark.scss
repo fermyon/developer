@@ -309,4 +309,164 @@ html.dark-theme {
     .multitab-content {
         background-color: $oxfordblue;
     }
+
+    .content {
+		section {
+			&>ul {
+
+				&:nth-child(2),
+				&:nth-child(3) {
+					background-color: $darkspace;
+
+					&::before {
+						color: $lightplum;
+					}
+				}
+			}
+		}
+	}
+
+	.search-button {
+		border: 1px solid #a8a8a8;
+		color: white;
+	}
+
+	#topbar.navbar {
+
+		.is-hoverable {
+			.navbar-dropdown {
+				background-color: $darkspace;
+
+				.navbar-item {
+					.project-content {
+						.title {
+							color: $midgreen;
+						}
+
+						.description {
+							color: $lightplum !important;
+						}
+					}
+				}
+
+			}
+
+
+		}
+
+		.logo-wrap {
+			.logo-project a {
+				color: $lightplum;
+			}
+		}
+
+		.navbar-menu {
+			a.navbar-item {
+
+				span {
+					background: darken($oxfordblue, 3.5%);
+				}
+
+				&.is-active {
+					span {
+						background: $darkspace;
+					}
+				}
+			}
+		}
+	}
+
+	.developer-home-wrap {
+
+		#intro {
+			h1 {
+				color: white;
+			}
+
+			p.lead {
+				color: $seagreen
+			}
+		}
+
+		h2,
+		h3 {
+			color: white !important;
+		}
+
+		.card.project {
+			background: linear-gradient(47deg, rgba(124, 109, 185, 0.12)  0%, rgba(124, 109, 185, 0.17) 100%);
+			outline: none;
+
+			&:hover .card-image.dark {
+				background: rgba(124, 109, 185, 0.07);
+			}
+
+			.card-image.dark {
+				display: block;
+			}
+
+			.card-image.light {
+				display: none;
+			}
+
+			figure.image {
+				border-bottom: none;
+			}
+
+			h3 span {
+				color: white !important;
+			}
+
+			p {
+				color: $lightplum;
+			}
+
+			.button,
+			.button strong {
+				color: $oxfordblue !important;
+			}
+		}
+
+		.flickity-button {
+			background: $darkplum;
+
+			&:hover {
+				background: $darkspace;
+			}
+		}
+
+		ul.connect-links li a {
+			color: $seagreen;
+		}
+
+		.external {
+			background: url('../image/arrowexternal-dark.svg') no-repeat 0 0;
+		}
+
+        .community-highlight {
+            background-color: rgba(124, 109, 185, 0.2);
+        }
+	}
+
+	.documentation {
+
+		.content {
+			section {
+				h1:first-of-type+ul {
+					li {
+						a {
+							color: $lightplum;
+							opacity: 0.75;
+						}
+					}
+
+					&:hover {
+						li a {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
 }
