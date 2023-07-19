@@ -24,59 +24,59 @@ export default {
 <template>
     <div v-if="isModalOpen" class="preview-wrapper">
         <div class="preview-overlay"></div>
-            <div class="preview-modal">
-                <div class="topbar">
-                    <span @click="closeModal"> X </span>
-                </div>
-                <div class="content-area">
-                    <div class="main-content">
-                        <div class="title">{{ modalData.title }}</div>
-                        <div class="description" v="">
-                            <div v-if="!modalData.isloaded">loading...</div>
-                            <div v-html="modalData.description"></div>
-                        </div>
-                        <div class="tags">
-                            <span v-for="item in modalData.tags">
-                                {{ item }}
-                            </span>
-                        </div>
+        <div class="preview-modal">
+            <div class="topbar">
+                <span @click="closeModal"> X </span>
+            </div>
+            <div class="content-area">
+                <div class="main-content">
+                    <div class="title">{{ modalData.title }}</div>
+                    <div class="description" v="">
+                        <div v-if="!modalData.isloaded">loading...</div>
+                        <div v-html="modalData.description"></div>
                     </div>
-                    <div class="metadata-space">
-                        <a class="is-btn button is-primary" target="_blank" :href="modalData.url">
-                            View on Github
-                        </a>
-                        <div class="metadata">
-                            <div class="name">Url</div>
-                            <div class="value">{{ modalData.url }}</div>
-                        </div>
-                        <div class="metadata">
-                            <div class="name">Submitted by</div>
-                            <div class="value">@{{ modalData.author }}</div>
-                        </div>
-                        <div class="metadata">
-                            <div class="name">Language</div>
-                            <div class="value">{{ modalData.language }}</div>
-                        </div>
-                        <div class="metadata">
-                            <div class="name">Created at</div>
-                            <div class="value">{{ modalData.createdAt }}</div>
-                        </div>
-                        <div class="metadata">
-                            <div class="name">Last updated</div>
-                            <div class="value">{{ modalData.lastUpdated }}</div>
-                        </div>
-                        <div class="metadata">
-                            <div class="name">Minimum Spin version</div>
-                            <div class="value badge">
-                                <img src="/image/spin-vector.png">
-                                {{ modalData.spinVersion }}
-                            </div>
+                    <div class="tags">
+                        <span v-for="item in modalData.tags">
+                            {{ item }}
+                        </span>
+                    </div>
+                </div>
+                <div class="metadata-space">
+                    <a class="is-btn button is-primary" target="_blank" :href="modalData.url">
+                        View on Github
+                    </a>
+                    <div class="metadata">
+                        <div class="name">Url</div>
+                        <div class="value">{{ modalData.url }}</div>
+                    </div>
+                    <div class="metadata">
+                        <div class="name">Submitted by</div>
+                        <div class="value">@{{ modalData.author }}</div>
+                    </div>
+                    <div class="metadata">
+                        <div class="name">Language</div>
+                        <div class="value">{{ modalData.language }}</div>
+                    </div>
+                    <div class="metadata">
+                        <div class="name">Created at</div>
+                        <div class="value">{{ modalData.createdAt }}</div>
+                    </div>
+                    <div class="metadata">
+                        <div class="name">Last updated</div>
+                        <div class="value">{{ modalData.lastUpdated }}</div>
+                    </div>
+                    <div class="metadata">
+                        <div class="name">Minimum Spin version</div>
+                        <div class="value badge">
+                            <img src="/image/spin-vector.png">
+                            {{ modalData.spinVersion }}
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
+
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -110,6 +110,7 @@ export default {
         display: flex;
         flex-direction: column;
         border-radius: 0.67rem;
+        overflow: hidden;
 
         .topbar {
             padding: 1rem;
@@ -123,28 +124,36 @@ export default {
         .content-area {
             display: flex;
             flex-grow: 1;
+            min-width: 0;
+            min-height: 0;
+
 
             .main-content {
                 width: 65%;
                 border-right: 1px solid $darkspace;
-                padding: 2rem 1rem;
+                padding: 1rem 0rem;
                 display: flex;
                 flex-direction: column;
-                overflow-y: auto;
+                max-height: 100%;
+                min-height: 0;
 
                 .title {
                     font-size: 1.75rem;
                     margin-bottom: 2rem;
                     color: $lavender;
+                    padding: 1rem;
                 }
 
                 .description {
                     font-size: 1rem;
                     flex-grow: 1;
+                    padding: 1rem;
                     overflow-y: auto;
                 }
 
                 .tags {
+                    padding: 1rem;
+
                     span {
                         font-size: 0.9rem;
                         border-radius: 0.67rem;
@@ -205,12 +214,21 @@ export default {
         flex-direction: column;
         align-items: center;
         overflow-y: auto;
+        min-height: auto !important;
 
 
         .main-content {
             width: 90% !important;
             border-right: none !important;
-            order: 2
+            order: 2;
+            min-height: auto !important;
+            max-height: none !important;
+            display: block;
+
+            .description {
+                height: auto;
+                overflow-y: visible;
+            }
         }
 
         .metadata-space {

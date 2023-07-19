@@ -7,7 +7,7 @@ tags = ["test", "rust"]
 [extra]
 author = "Thorsten Hans"
 type = "hub_document"
-category = "Tutorial"
+category = "Library"
 language = "Rust"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
@@ -19,5 +19,5 @@ url = "https://github.com/ThorstenHans/spin-contrib-http"
 
 ### Spin Contrib HTTP
 
-This is a template created by Thorsten Hans which contains helpers to build HTTP-based applications with Fermyon Spin.
+This is a library created by Thorsten Hans which contains helpers to build HTTP-based applications with Fermyon Spin.
 

@@ -1,36 +1,47 @@
 import { createStore } from 'vuex'
+import { router } from "./router"
 
 const store = createStore({
   state() {
     return {
       isModalOpen: false,
-      openModalTitle: "",
-      contentTypes: ["Plugin", "Template", "Snippet", "Component", "Tutorial", "Learning Resource"],
+      openPreviewId: "",
+      modalData: {
+        title: "test",
+        description: '',
+        url: "",
+        author: "",
+        tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: ""
+      },
+      contentTypes: ["Plugin", "Template", "Library", "Learning Resource"],
       languages: ["Rust", "JS/TS", "Go", "Python"],
       contentFilters: [],
       languageFilters: [],
-      contentItems: [],
-      modalData: {
-        title: "Static File Server",
-        description: "THis is ssome static stuff that does something which is awesome",
-        url: "https://github.com/karthik2804/examples",
-        author: "Karthik2804",
-        tags: ["web", "crypto"], language: "Typescript", createdAt: "05/19/2023", lastUpdated: "05/19/2023", spinVersion: "1.4"
-      }
+      contentItems: []
     }
   },
   mutations: {
     loadModalMeta(state, payload) {
+      let data = state.contentItems.find(k => k.id == payload)
+      if (data) {
+        state.modalData = data
+        console.log(state.testData)
+        state.modalData.description = ""
+        state.modalData.isloaded = false
+        document.body.classList.add("modal-open")
+
+      }
+    },
+    openPreview(state, payload) {
+      console.log(payload)
+      state.openPreviewId = payload
       state.isModalOpen = true
-      state.modalData = payload
-      state.modalData.description = ""
-      state.modalData.isloaded = false
-      state.openModalTitle = payload.title
-      document.body.classList.add("modal-open")
+      router.push("/hub/preview/" + payload)
     },
     closePreview(state) {
       state.isModalOpen = false
       document.body.classList.remove("modal-open")
+      router.push("/hub")
     },
     updateModalDescription(state, payload) {
       state.modalData.description = payload.description
@@ -52,13 +63,12 @@ const store = createStore({
     }
   },
   actions: {
-    async openPreview(context, data) {
-      context.commit("loadModalMeta", data)
-      let title = context.state.openModalTitle
-      let res = await fetch("http://localhost:3000" + data.path)
+    async getPreviewData(context) {
+      let id = context.state.openPreviewId
+      let res = await fetch("http://localhost:3000" + context.state.modalData.path)
       let text = (await res.text())
       setTimeout(() => {
-        if (title === context.state.openModalTitle) {
+        if (id === context.state.openPreviewId) {
           context.commit("updateModalDescription", {
             description: unescapeHTML(text),
             status: true
@@ -66,12 +76,13 @@ const store = createStore({
         }
       }, 2000);
     },
-    async getContentInfo(context, data) {
-      console.log("here")
-      let res = await fetch("http://localhost:3000/hub/get_list")
+    async getContentInfo(context, data, id) {
+      let res = await fetch("http://localhost:3000/api/hub/get_list")
       data = await res.json()
       context.state.contentItems = data
-      console.log(data)
+      context.state.contentItems.map(k => {
+        k.id = k.path.substring(k.path.lastIndexOf('/') + 1)
+      })
     }
   }
 })

@@ -7,7 +7,7 @@ tags = ["test", "rust"]
 [extra]
 author = "Lee-Orr "
 type = "hub_document"
-category = "Tutorial"
+category = "Plugin"
 language = "Rust"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
