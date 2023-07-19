@@ -355,7 +355,7 @@
 
 
 // wide desktops
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1660px) {
 
     #topbar.navbar {
         a.navbar-link.dark-mode {
@@ -370,6 +370,14 @@
 
             &:before {
                 right: 20vw;
+            }
+
+            .search-placeholder {
+                right: 55rem;
+            }
+
+            .search-command {
+                right: 45rem;
             }
         }
     }

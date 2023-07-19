@@ -295,7 +295,7 @@ html.dark-theme {
             }
 
             blockquote p {
-                background-color: rgba(0, 0, 0, 0.25);
+                background: lighten($oxforddark, 7.5%);
             }
         }
     }
@@ -312,17 +312,38 @@ html.dark-theme {
 
     .content {
 		section {
-			&>ul {
+			h1:first-of-type+ul {
+                background: lighten($oxforddark, 7.5%) !important;
 
-				&:nth-child(2),
-				&:nth-child(3) {
-					background-color: $darkspace;
+                &:before {
+                    color: $lavenderlight;
+                }
 
-					&::before {
-						color: $lightplum;
-					}
-				}
-			}
+                li {
+                    a {
+                        display: inline-block;
+                        color: $thistle !important;
+                    }
+                }
+
+                &:hover {
+                    li a {
+                        &:hover {
+                            background: rgba($oxforddark, 0.8) !important;
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                background-color: $darkspace;
+
+                &::before {
+                    color: $lightplum;
+                }
+            }
 		}
 	}
 
@@ -446,27 +467,5 @@ html.dark-theme {
         .community-highlight {
             background-color: rgba(124, 109, 185, 0.2);
         }
-	}
-
-	.documentation {
-
-		.content {
-			section {
-				h1:first-of-type+ul {
-					li {
-						a {
-							color: $lightplum;
-							opacity: 0.75;
-						}
-					}
-
-					&:hover {
-						li a {
-							opacity: 1;
-						}
-					}
-				}
-			}
-		}
 	}
 }

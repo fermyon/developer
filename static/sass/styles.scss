@@ -90,6 +90,7 @@ Importing color and theme updates for the brand 1.5 refresh
 				border-radius: 0.333rem;
 				list-style: none;
 				line-height: 1;
+				@include transition;
 
 				&:before {
 					content: "Contents:";
@@ -113,9 +114,10 @@ Importing color and theme updates for the brand 1.5 refresh
 						border-left: 4px solid rgba(125, 125, 125, 0.125);
 						border-radius: 1px;
 						margin: 0;
-						padding: 0.15rem 0 0.15rem 0.5rem;
-						line-height: 1.25;
+						padding: 0.25rem 0 0.25rem 0.5rem;
+						line-height: 1.5;
 						display: inline-block;
+						color: darken($bluedark, 7.5%);
 						@include transition;
 
 						&:hover {
@@ -139,7 +141,8 @@ Importing color and theme updates for the brand 1.5 refresh
 				font-size: 1rem !important;
 				margin: 1.67rem auto 2.67rem !important;
 				border-radius: 0.5rem;
-				background-color: rgba(211, 195, 217, 0.25);
+				background-color: lighten($thistle, 5%);
+				color: darken($bluedark, 7.5%);
 				line-height: 1.725;
 			}
 
@@ -169,7 +172,7 @@ Importing color and theme updates for the brand 1.5 refresh
 					top: 86px;
 					right: 90px;
 					width: 15vw;
-					background: $lightlavender;
+					background-color: lighten($thistle, 5%);
 					padding: 0.825rem 1rem;
 					border-radius: 0.333rem;
 				}

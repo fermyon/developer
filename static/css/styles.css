@@ -1599,7 +1599,7 @@ html.dark-theme body.documentation .content a.anchor-link {
 }
 
 html.dark-theme body.documentation .content blockquote p {
-  background-color: #00000040;
+  background: #180f4d;
 }
 
 html.dark-theme .dropdown-content a {
@@ -1610,11 +1610,29 @@ html.dark-theme .multitab-content {
   background-color: #0d203f;
 }
 
-html.dark-theme .content section > ul:nth-child(2), html.dark-theme .content section > ul:nth-child(3) {
+html.dark-theme .content section h1:first-of-type + ul {
+  background: #180f4d !important;
+}
+
+html.dark-theme .content section h1:first-of-type + ul:before {
+  color: #e7d3f2;
+}
+
+html.dark-theme .content section h1:first-of-type + ul li a {
+  display: inline-block;
+  color: #e7d3f2 !important;
+}
+
+html.dark-theme .content section h1:first-of-type + ul:hover li a:hover {
+  color: #fff;
+  background: #0e092dcc !important;
+}
+
+html.dark-theme .content section:nth-child(2), html.dark-theme .content section:nth-child(3) {
   background-color: #213762;
 }
 
-html.dark-theme .content section > ul:nth-child(2):before, html.dark-theme .content section > ul:nth-child(3):before {
+html.dark-theme .content section:nth-child(2):before, html.dark-theme .content section:nth-child(3):before {
   color: #d3c3d9;
 }
 
@@ -1710,15 +1728,6 @@ html.dark-theme .developer-home-wrap .external {
 
 html.dark-theme .developer-home-wrap .community-highlight {
   background-color: #7c6db933;
-}
-
-html.dark-theme .documentation .content section h1:first-of-type + ul li a {
-  color: #d3c3d9;
-  opacity: .75;
-}
-
-html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a {
-  opacity: 1;
 }
 
 .documentation > .developer-home-wrap {
@@ -2121,6 +2130,10 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 
 .documentation header.headroom--unpinned + main aside.menu {
   padding-top: 1.5rem !important;
+}
+
+.documentation header.headroom--unpinned + main h1:first-of-type + ul {
+  top: 2rem !important;
 }
 
 .menu-wrap {
@@ -3472,7 +3485,7 @@ footer.footer-links .footer-logo:hover:after {
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1660px) {
   #topbar.navbar a.navbar-link.dark-mode {
     margin-right: auto !important;
     position: absolute !important;
@@ -3485,6 +3498,14 @@ footer.footer-links .footer-logo:hover:after {
 
   #topbar.navbar .search-button:before {
     right: 20vw;
+  }
+
+  #topbar.navbar .search-button .search-placeholder {
+    right: 55rem;
+  }
+
+  #topbar.navbar .search-button .search-command {
+    right: 45rem;
   }
 
   .documentation .content > section {
@@ -3534,6 +3555,7 @@ footer.footer-links .footer-logo:hover:after {
   padding: .5rem 1rem .725rem;
   line-height: 1;
   list-style: none;
+  transition: all .3s ease-in-out;
   display: inline-block;
   overflow-y: auto;
 }
@@ -3558,11 +3580,12 @@ footer.footer-links .footer-logo:hover:after {
 }
 
 .documentation .content section h1:first-of-type + ul li a {
+  color: #2d386c;
   border-left: 4px solid #7d7d7d20;
   border-radius: 1px;
   margin: 0;
-  padding: .15rem 0 .15rem .5rem;
-  line-height: 1.25;
+  padding: .25rem 0 .25rem .5rem;
+  line-height: 1.5;
   transition: all .3s ease-in-out;
   display: inline-block;
 }
@@ -3582,7 +3605,8 @@ footer.footer-links .footer-logo:hover:after {
 }
 
 .documentation .content section blockquote p {
-  background-color: #d3c3d940;
+  color: #2d386c;
+  background-color: #f2e7f8;
   border-radius: .5rem;
   line-height: 1.725;
   margin: 1.67rem auto 2.67rem !important;
@@ -3609,7 +3633,7 @@ footer.footer-links .footer-logo:hover:after {
 @media screen and (min-width: 1661px) {
   .documentation .content section h1:first-of-type + ul {
     width: 15vw;
-    background: #ece5ee;
+    background-color: #f2e7f8;
     border-radius: .333rem;
     padding: .825rem 1rem;
     position: fixed;

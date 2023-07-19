@@ -7,6 +7,10 @@
     padding-top: 1.5rem !important;  
 }
 
+.documentation header.headroom--unpinned + main h1:first-of-type+ul {
+    top: 2rem !important;  
+}
+
 // sidebar width is fixed for desktop
 $sidebarWidth: 17.5vw;
 
