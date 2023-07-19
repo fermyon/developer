@@ -58,6 +58,10 @@ $ git checkout -b <your-branch>
 
 # build a release version of the Spin CLI
 $ cargo build --release
+
+# build only the spin CLI for quick development
+$ cargo build --bin spin
+
 # make sure compilation is successful
 $ ./target/release/spin --help
 
