@@ -1553,7 +1553,7 @@ html.dark-theme body.documentation .content .note {
 
 html.dark-theme body.documentation .content .note h4 {
   color: #ece5ee;
-  font-family: Space Grotesk, sans-serif;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
 }
 
 html.dark-theme body.documentation .content .note .button {
@@ -1752,7 +1752,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   margin-bottom: 2rem;
   padding-bottom: 0;
   padding-right: 8vw;
-  font-family: Space Grotesk, sans-serif;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 4rem;
 }
 
@@ -2195,7 +2195,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   width: 100%;
   align-items: center;
   margin-top: 1.125rem;
-  font-family: Space Grotesk, sans-serif;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   display: flex;
   border: none !important;
   padding: 1.25rem 0 !important;
@@ -2342,7 +2342,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   text-transform: uppercase;
   letter-spacing: .1125rem;
   margin: 0;
-  font-family: Space Grotesk, sans-serif;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 70%;
 }
 
@@ -2374,7 +2374,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   margin-left: 1vw;
   margin-right: .33vw;
   padding: .333rem .925rem;
-  font-family: Space Grotesk, sans-serif;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -2433,7 +2433,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   letter-spacing: .1125rem;
   letter-spacing: .2em;
   padding: 1rem;
-  font-family: Space Grotesk, sans-serif;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
@@ -3590,12 +3590,12 @@ footer.footer-links .footer-logo:hover:after {
 .documentation .content h1 {
   margin-top: 2rem;
   padding-bottom: 2.67rem;
-  font-family: Space Grotesk, sans-serif;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   position: relative;
 }
 
 .documentation .content h2 {
-  font-family: Space Grotesk, sans-serif;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   line-height: 1.5;
 }
 
