@@ -1652,7 +1652,7 @@ html.dark-theme .developer-home-wrap #intro h1 {
 }
 
 html.dark-theme .developer-home-wrap #intro p.lead {
-  color: #34e8bd;
+  color: #e7d3f2;
 }
 
 html.dark-theme .developer-home-wrap h2, html.dark-theme .developer-home-wrap h3 {
@@ -1685,7 +1685,7 @@ html.dark-theme .developer-home-wrap .card.project h3 span {
 }
 
 html.dark-theme .developer-home-wrap .card.project p {
-  color: #d3c3d9;
+  color: #d3c3d9 !important;
 }
 
 html.dark-theme .developer-home-wrap .card.project .button, html.dark-theme .developer-home-wrap .card.project .button strong {
@@ -1749,6 +1749,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 }
 
 .documentation > .developer-home-wrap .content.content-docs.content-docs-wide h1 {
+  color: #243d66;
   margin-bottom: 2rem;
   padding-bottom: 0;
   padding-right: 8vw;
@@ -1765,7 +1766,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 }
 
 .documentation > .developer-home-wrap .content.content-docs.content-docs-wide p.lead {
-  color: #8b62d1;
+  color: #375f9e;
   padding-right: 17.5rem;
   font-size: 2rem;
   line-height: 1.4;
@@ -1817,17 +1818,19 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 
 .documentation > .developer-home-wrap .card.project h3 {
   margin: .67rem 0 1.5rem;
-  font-size: 1.825vw;
-  line-height: 1.275;
-  color: #213762 !important;
+  font-size: 1.75vw;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #27426f !important;
 }
 
 .documentation > .developer-home-wrap .card.project h3 a {
-  color: #213762 !important;
+  color: #345995 !important;
 }
 
 .documentation > .developer-home-wrap .card.project p {
-  color: #525776;
+  line-height: 1.5;
+  color: #27426f !important;
 }
 
 .documentation > .developer-home-wrap .card.project span {
@@ -1857,9 +1860,20 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 }
 
 .documentation > .developer-home-wrap .card.project .button {
+  text-transform: uppercase;
+  letter-spacing: .1125rem;
+  text-transform: uppercase;
+  letter-spacing: .1125rem;
+  letter-spacing: .2em;
+  padding: 1rem 1.5rem;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
   transition: all .3s ease-in-out;
   position: absolute;
   bottom: 2.333rem;
+  color: #0e092d !important;
+  font-weight: normal !important;
 }
 
 .documentation > .developer-home-wrap .card.project .button:hover {
@@ -2326,11 +2340,11 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 }
 
 #topbar.navbar .logo-wrap .logo {
-  margin-top: -3px !important;
+  margin-top: -4px !important;
 }
 
 #topbar.navbar .logo-wrap .logo svg {
-  margin-left: 1vw;
+  margin-left: .5vw;
   height: 30% !important;
   min-height: auto !important;
   max-height: auto !important;
@@ -2569,10 +2583,12 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 
 .navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content .title {
   width: 100%;
+  color: #345995;
   align-items: center;
   margin-bottom: .67rem;
   font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  font-weight: bold;
   display: flex;
   position: relative;
 }
@@ -3614,6 +3630,10 @@ footer.footer-links .footer-logo:hover:after {
 
 .documentation .content pre code .hljs-comment {
   color: #bbb !important;
+}
+
+.documentation .content h1, .documentation .content h2, .documentation .content h3, .documentation .content h4, .documentation .content h5, .documentation .content h6 {
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
 }
 
 .documentation .content h1 code, .documentation .content h2 code, .documentation .content h3 code, .documentation .content h4 code, .documentation .content h5 code, .documentation .content h6 code {

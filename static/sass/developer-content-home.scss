@@ -32,6 +32,7 @@
 			margin-bottom: 2rem;
 			padding-right: 8vw;
             font-family: $spaceGro;
+			color: darken($darkblue, 12.5%);
 
 			&:after {
 				display: none;
@@ -44,7 +45,7 @@
 
 		p.lead {
 			font-size: 2rem;
-			color: darken($lavender, 17.5%);
+			color: lighten($darkblue, 2.5%);
 			line-height: 1.4;
 			padding-right: 17.5rem;
 		}
@@ -97,17 +98,19 @@
 
 		h3 {
 			margin: 0.67rem 0 1.5rem;
-			line-height: 1.275;
-			font-size: 1.825vw;
-			color: $darkspace !important;
+			line-height: 1.5;
+			font-size: 1.75vw;
+			color: darken($darkblue, 10%) !important;
+			font-weight: 500;
 
 			a {
-				color: $darkspace !important;
+				color: $darkblue !important;
 			}
 		}
 
 		p {
-			color: $darkplum;
+			color: darken($darkblue, 10%) !important;
+			line-height: 1.5;
 		}
 
 		span {
@@ -138,9 +141,14 @@
 		}
 
 		.button {
+			@include button;
+			@include upperCase;
+			@include transition;
 			position: absolute;
 			bottom: 2.333rem;
-			@include transition;
+			font-weight: normal !important;
+			letter-spacing: .2em;
+			padding: 1rem 1.5rem;
 
 			&:hover {
 				background-color: $seagreen !important;
