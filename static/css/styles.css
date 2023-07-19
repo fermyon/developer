@@ -2118,13 +2118,18 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   padding-left: calc(17.5vw + .75rem);
 }
 
+.menu-wrap + article.content footer.footer-links {
+  padding: 1.25rem 2.5vw !important;
+}
+
 .documentation aside.menu {
   min-height: 100%;
   width: 16vw;
+  background: #e6d2f1;
   flex-direction: column;
   display: flex;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: none !important;
   border: none !important;
   padding-top: 0 !important;
@@ -2359,7 +2364,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 }
 
 #topbar.navbar .navbar-menu .has-dropdown a.navbar-link {
-  padding-right: 2vw;
+  padding-right: 2rem;
 }
 
 #topbar.navbar .navbar-menu a.navbar-link {
@@ -2406,6 +2411,10 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
 
 #topbar.navbar .navbar-menu a.navbar-link.dark-mode:hover {
   background: none !important;
+}
+
+#topbar.navbar .navbar-menu a.navbar-link.dark-mode:after {
+  display: none !important;
 }
 
 #topbar.navbar .navbar-menu a.navbar-link.dark-mode svg {
@@ -2680,7 +2689,7 @@ html.dark-theme .documentation .content section h1:first-of-type + ul:hover li a
   display: block;
   position: absolute;
   top: 1rem;
-  right: 19.25rem;
+  right: 18.5rem;
 }
 
 .search-button:after {
@@ -3110,14 +3119,345 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 footer.footer-links {
   min-height: auto;
   z-index: 1400;
-  padding: 1.25rem 0;
   background: none !important;
   border-top: 1px solid #e6d2f1ab !important;
   margin: 7.25rem auto 0 !important;
+  padding: 1.25rem 0 !important;
 }
 
 footer.footer-links a.navbar-item {
+  margin-right: 2.5vw;
+  padding: .5rem .25rem;
   font-size: 1rem;
+}
+
+footer.footer-links .footer-logo {
+  max-width: 11.5rem;
+}
+
+footer.footer-links .footer-logo:hover {
+  background-color: #0000;
+}
+
+footer.footer-links .footer-logo:hover:after {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  main.is-fullwidth {
+    max-width: 92vw !important;
+    padding-left: 4vw !important;
+    padding-right: 4vw !important;
+  }
+
+  #topbar.navbar .logo-wrap {
+    width: 100% !important;
+  }
+
+  #topbar.navbar .navbar-menu {
+    display: none !important;
+  }
+
+  #topbar.navbar .search-button-container {
+    display: none;
+  }
+
+  .dropdown .logo-project {
+    display: block;
+  }
+
+  .dropdown .dropdown-content {
+    min-width: 200px;
+    background-color: #f9f9f9;
+    border-radius: .667rem;
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    box-shadow: 0 8px 16px #0003;
+  }
+
+  .dropdown .dropdown-content a {
+    color: #213762;
+    cursor: pointer;
+    margin: 0;
+    padding: .5rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown .dropdown-content a.is-active:after {
+    display: none;
+  }
+
+  .dropdown .dropdown-content a:hover {
+    background-color: #e9e1eb;
+  }
+
+  .dropdown :hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover + .dropdown-backdrop {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .menu-wrap + article.content {
+    max-width: 95vw !important;
+    padding-left: 0 !important;
+  }
+
+  .menu-wrap + article.content footer.footer-links {
+    padding: 1.25rem 0 !important;
+  }
+
+  .documentation aside.menu {
+    width: 100vw !important;
+    background: linear-gradient(105deg, #efe3f5 0%, #f0e6f4 100%) !important;
+    padding-bottom: 0 !important;
+  }
+
+  .documentation aside.menu .search-button-container {
+    display: none;
+  }
+
+  .documentation aside.menu a {
+    padding: .6rem .75rem;
+  }
+
+  .documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label {
+    width: 100%;
+  }
+
+  .documentation aside.menu .accordion-tabs .accordion-menu-item .accordion-menu-item-content.stay-open li a, .documentation aside.menu .accordion-tabs .accordion-menu-item input:checked ~ .accordion-menu-item-content li a {
+    padding: .3rem 2vw;
+    font-size: 1rem;
+  }
+
+  .documentation aside.menu .button-wrap {
+    z-index: 1440;
+    width: 100%;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    min-height: auto !important;
+    background: none !important;
+    border: none !important;
+    padding-top: 3rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .documentation > .developer-home-wrap {
+    max-width: 85% !important;
+    margin-left: 7.5% !important;
+    margin-right: 7.5% !important;
+    padding: 5.5rem 0 0 !important;
+  }
+
+  .documentation > .developer-home-wrap .content.content-docs.content-docs-wide.content-docs-wide {
+    max-width: 100%;
+    padding-left: .75rem !important;
+  }
+
+  .documentation > .developer-home-wrap .content.content-docs.content-docs-wide.content-docs-wide > section {
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .documentation > .developer-home-wrap aside.menu a.button {
+    min-width: 95%;
+    background-color: #34e8bd;
+    padding: 0;
+    color: #0d203f !important;
+  }
+
+  .documentation > .developer-home-wrap .menu-wrap + article.content section {
+    margin: 0;
+  }
+
+  .documentation > .developer-home-wrap .menu-wrap + article.content h1 {
+    padding-right: 0;
+    font-size: 1.825rem;
+  }
+
+  .documentation > .developer-home-wrap .menu-wrap + article.content p.lead {
+    padding-right: 0;
+    font-size: 1.125rem;
+  }
+
+  .documentation > .developer-home-wrap .card.project {
+    min-height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .documentation > .developer-home-wrap .card.project figure a {
+    display: inline-block;
+  }
+
+  .documentation > .developer-home-wrap .card.project h3 {
+    margin-top: 0;
+    font-size: 1.2rem !important;
+  }
+
+  .documentation > .developer-home-wrap .community-highlight {
+    margin-right: 0;
+  }
+
+  .documentation > .developer-home-wrap .community-highlight event {
+    padding-right: 0;
+  }
+
+  .documentation > .developer-home-wrap .community-highlight img {
+    display: none;
+  }
+
+  .documentation > .developer-home-wrap .community-highlight p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .documentation > .developer-home-wrap .community-highlight date {
+    font-size: .825rem;
+  }
+
+  .documentation > .developer-home-wrap .community-highlight eventtitle {
+    margin: .75rem 0 0;
+    font-size: 1.333rem;
+    line-height: 1.4;
+  }
+
+  .documentation > .developer-home-wrap .community-highlight .carousel-cell {
+    padding: 1.67rem 2rem;
+  }
+
+  .documentation > .developer-home-wrap .flickity-enabled .flickity-prev-next-button {
+    width: 1rem;
+    height: 1rem;
+    opacity: .33;
+    top: 21%;
+  }
+
+  .documentation > .developer-home-wrap .flickity-enabled .flickity-prev-next-button.next {
+    right: .5rem;
+  }
+
+  .documentation > .developer-home-wrap .flickity-enabled .flickity-prev-next-button.previous {
+    left: .5rem;
+  }
+
+  .documentation > .developer-home-wrap h2#connect {
+    margin-top: 3rem;
+  }
+
+  .documentation .content {
+    padding-top: 2rem;
+  }
+
+  .documentation .content h1 {
+    font-size: 6.333vw;
+  }
+
+  .documentation .content h2 {
+    font-size: 5vw;
+  }
+
+  .documentation .content h3 {
+    font-size: 3.33vw;
+  }
+
+  html.dark-theme .dropdown-content {
+    background-color: #213762;
+  }
+
+  html.dark-theme .dropdown-content a {
+    color: #34e8bd;
+  }
+
+  html.dark-theme .dropdown-content a:hover {
+    background: #0d203f;
+  }
+
+  html.dark-theme aside.menu {
+    background: #0e092d !important;
+  }
+}
+
+@media screen and (max-width: 1660px) {
+  .documentation .content.content-docs-wide section {
+    max-width: 780px !important;
+  }
+
+  .documentation .content section ul:nth-child(2), .documentation .content section ul:nth-child(3) {
+    position: relative;
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1380px) {
+  #topbar.navbar .logo-wrap a.navbar-item {
+    padding: .5rem .1rem .5rem .333rem;
+  }
+
+  #topbar.navbar .logo-wrap .logo {
+    margin-top: -5px !important;
+  }
+
+  #topbar.navbar .logo-wrap .logo svg {
+    height: 10% !important;
+    max-height: 10px !important;
+    margin-left: 0 !important;
+  }
+
+  #topbar.navbar .logo-wrap .logo-developer {
+    letter-spacing: .07rem;
+    margin: 0 0 0 -4px;
+    font-size: 63%;
+  }
+}
+
+@media screen and (min-width: 1381px) and (max-width: 1439px) {
+  #topbar.navbar .search-button:after {
+    right: 23vw;
+  }
+
+  #topbar.navbar .search-button:before {
+    right: 21.5vw;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #topbar.navbar a.navbar-link.dark-mode {
+    margin-right: auto !important;
+    position: absolute !important;
+    right: 16.75vw !important;
+  }
+
+  #topbar.navbar .search-button:after {
+    right: 22.25vw;
+  }
+
+  #topbar.navbar .search-button:before {
+    right: 20vw;
+  }
+
+  .documentation .content > section {
+    position: relative;
+    left: -9.25vw;
+  }
+
+  .documentation .content > section ul:nth-child(2), .documentation .content > section ul:nth-child(3) {
+    right: 5vw;
+  }
+
+  .documentation .developer-home-wrap .card.project h3 {
+    font-size: 1.825rem;
+  }
 }
 
 .documentation article.content-docs section#type img {
@@ -3472,232 +3812,6 @@ footer.footer-links a.navbar-item {
 
 .documentation .tabs.is-boxed a.is-active:hover {
   background-color: #ece5ee !important;
-}
-
-@media screen and (min-width: 1661px) {
-  .documentation .content > section {
-    position: relative;
-    left: -9.25vw;
-  }
-
-  .documentation .content > section ul:nth-child(2), .documentation .content > section ul:nth-child(3) {
-    right: 5vw;
-  }
-
-  .documentation .developer-home-wrap .card.project h3 {
-    font-size: 1.825rem;
-  }
-}
-
-@media screen and (max-width: 1660px) {
-  .documentation .content.content-docs-wide section {
-    max-width: 780px !important;
-  }
-
-  .documentation .content section ul:nth-child(2), .documentation .content section ul:nth-child(3) {
-    position: relative;
-    left: 0;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  main.is-fullwidth {
-    max-width: 95vw !important;
-    padding-left: 2.5vw !important;
-    padding-right: 2.5vw !important;
-  }
-
-  .menu-wrap + article.content {
-    max-width: 95vw !important;
-  }
-
-  .documentation .content {
-    padding-top: 2rem;
-  }
-
-  .documentation .content h1 {
-    font-size: 6.333vw;
-  }
-
-  .documentation .content h2 {
-    font-size: 5vw;
-  }
-
-  .documentation .content h3 {
-    font-size: 3.33vw;
-  }
-
-  #topbar.navbar .logo-wrap {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .search-button-container {
-    display: none;
-  }
-
-  .dropdown .logo-project {
-    display: block;
-  }
-
-  .dropdown .dropdown-content {
-    min-width: 200px;
-    background-color: #f9f9f9;
-    border-radius: .667rem;
-    margin: 0;
-    padding: 0;
-    display: none;
-    position: absolute;
-    top: 100%;
-    box-shadow: 0 8px 16px #0003;
-  }
-
-  .dropdown .dropdown-content a {
-    color: #213762;
-    cursor: pointer;
-    margin: 0;
-    padding: .5rem;
-    font-size: 1.125rem;
-    font-weight: bold;
-    text-decoration: none;
-    display: block;
-  }
-
-  .dropdown .dropdown-content a.is-active:after {
-    display: none;
-  }
-
-  .dropdown .dropdown-content a:hover {
-    background-color: #e9e1eb;
-  }
-
-  .dropdown :hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown:hover + .dropdown-backdrop {
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-
-  .documentation .developer-home-wrap {
-    max-width: 85% !important;
-    margin-left: 7.5% !important;
-    margin-right: 7.5% !important;
-    padding: 5.5rem 0 5rem !important;
-  }
-
-  .documentation .developer-home-wrap article.content {
-    max-width: 100%;
-  }
-
-  .documentation .developer-home-wrap aside.menu a.button {
-    min-width: 95%;
-    background-color: #34e8bd;
-    padding: 0;
-    color: #0d203f !important;
-  }
-
-  .documentation .developer-home-wrap .menu-wrap + article.content section {
-    margin: 0;
-  }
-
-  .documentation .developer-home-wrap .menu-wrap + article.content h1 {
-    padding-right: 0;
-    font-size: 1.825rem;
-  }
-
-  .documentation .developer-home-wrap .menu-wrap + article.content p.lead {
-    padding-right: 0;
-    font-size: 1.125rem;
-  }
-
-  .documentation .developer-home-wrap .card.project {
-    min-height: auto;
-    margin-bottom: 1rem;
-  }
-
-  .documentation .developer-home-wrap .card.project figure a {
-    display: inline-block;
-  }
-
-  .documentation .developer-home-wrap .card.project h3 {
-    margin-top: 0;
-    font-size: 1.2rem !important;
-  }
-
-  .documentation .developer-home-wrap .community-highlight {
-    margin-right: 0;
-  }
-
-  .documentation .developer-home-wrap .community-highlight event {
-    padding-right: 0;
-  }
-
-  .documentation .developer-home-wrap .community-highlight img {
-    display: none;
-  }
-
-  .documentation .developer-home-wrap .community-highlight p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .documentation .developer-home-wrap .community-highlight date {
-    font-size: .825rem;
-  }
-
-  .documentation .developer-home-wrap .community-highlight eventtitle {
-    margin: .75rem 0 0;
-    font-size: 1.333rem;
-    line-height: 1.4;
-  }
-
-  .documentation .developer-home-wrap .community-highlight .carousel-cell {
-    padding: 1.67rem 2rem;
-  }
-
-  .documentation .developer-home-wrap .flickity-enabled .flickity-prev-next-button {
-    width: 1rem;
-    height: 1rem;
-    opacity: .33;
-    top: 21%;
-  }
-
-  .documentation .developer-home-wrap .flickity-enabled .flickity-prev-next-button.next {
-    right: .5rem;
-  }
-
-  .documentation .developer-home-wrap .flickity-enabled .flickity-prev-next-button.previous {
-    left: .5rem;
-  }
-
-  .documentation .developer-home-wrap h2#connect {
-    margin-top: 3rem;
-  }
-
-  aside.menu a {
-    padding: .6rem .75rem;
-  }
-
-  html.dark-theme .dropdown-content {
-    background-color: #213762;
-  }
-
-  html.dark-theme .dropdown-content a {
-    color: #34e8bd;
-  }
-
-  html.dark-theme .dropdown-content a:hover {
-    background: #0d203f;
-  }
-}
-
-@media screen and (min-width: 1500px) {
-  .developer-home-wrap .card.project h3 {
-    font-size: 1.825rem;
-  }
 }
 
 .cc-window {

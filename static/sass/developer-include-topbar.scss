@@ -54,7 +54,7 @@
 
         .has-dropdown {
             a.navbar-link {
-                padding-right: 2vw;
+                padding-right: 2rem;
             }
         }
 
@@ -101,6 +101,10 @@
 
                 &:hover {
                     background: transparent !important;
+                }
+
+                &:after {
+                    display: none !important;
                 }
 
                 svg {

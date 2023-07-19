@@ -17,6 +17,10 @@ $sidebarWidth: 17.5vw;
 
 .menu-wrap + article.content {
     padding-left: calc($sidebarWidth + 0.75rem);
+
+    footer.footer-links {
+        padding: 1.25rem 2.5vw !important;
+    }
 }
 
 // sidebar layout
@@ -31,6 +35,7 @@ $sidebarWidth: 17.5vw;
     overflow-x: hidden;
     overflow-y: auto;
     width: calc($sidebarWidth - 1.5vw);
+    background: $lavendermid;
 
     .accordion-tabs {
         flex-grow: 1;
