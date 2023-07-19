@@ -29,7 +29,7 @@ $sidebarWidth: 17.5vw;
     padding-top: 0 !important;
     background: transparent none !important;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     width: calc($sidebarWidth - 1.5vw);
 
     .accordion-tabs {
