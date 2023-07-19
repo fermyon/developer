@@ -41,21 +41,27 @@
     <div class="navbar-menu">
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link is-active">
-                    {{#if (active_project request.spin-path-info "/spin/" )}}
+                {{#if (active_project request.spin-path-info "/spin/" )}}
+                <a class="navbar-link is-active" href="/spin/index">
                     Spin
-                    {{else}}
-                    {{#if (active_project request.spin-path-info "/cloud/" )}}
-                    Cloud
-                    {{else}}
-                    {{#if (active_project request.spin-path-info "/bartholomew/" )}}
-                    Bartholomew
-                    {{else}}
-                    Projects
-                    {{/if}}
-                    {{/if}}
-                    {{/if}}
                 </a>
+                {{else}}
+                {{#if (active_project request.spin-path-info "/cloud/" )}}
+                <a class="navbar-link is-active" href="/cloud/index">
+                    Cloud
+                </a>
+                {{else}}
+                {{#if (active_project request.spin-path-info "/bartholomew/" )}}
+                <a class="navbar-link is-active" href="/bartholomew/index">
+                    Bartholomew
+                </a>
+                {{else}}
+                <a class="navbar-link is-active">
+                    Projects
+                </a>
+                {{/if}}
+                {{/if}}
+                {{/if}}
                 
                 <div class="navbar-dropdown is-boxed">
                     <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-path-info "/spin/" )}}
