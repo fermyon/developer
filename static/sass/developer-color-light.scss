@@ -23,9 +23,9 @@ body {
 
         aside.menu {
             .button-wrap {
-                border-top: 1px solid $thistle;
+                border-top: 1px solid rgba($thistle, 0.25);
                 border-right: 1px solid $thistle;
-                background: #FAF1FE;
+                background: #F5EBF9;
             }
 
             a.button {

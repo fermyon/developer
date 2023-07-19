@@ -33,20 +33,52 @@ html.dark-theme {
             background: $oxforddark !important;
 
             .logo-wrap {
-                // border-right: 1px solid rgba($lavendermid, 0.125) !important;
-
                 .logo-developer a {
                     color: $greenfoam !important;
                 }
+
+                &::after {
+                    background-color: $bluedark;
+                }
             }
 
-            .navbar-menu .button {
-                &.is-secondary {
+            .navbar-menu {
+
+                a.navbar-link {
                     color: white !important;
-                    border-width: 0.125rem;
-    
+
+                    &:not(.is-arrowless)::after {
+                        border-color: rgba(255,255,255,0.33);
+                    }
+
+                    &.is-active {
+                        color: white !important;
+                        background: rgba(124, 109, 185, 0.425) !important;
+                    }
+
                     &:hover {
+                        background: rgba(124, 109, 185, 0.5) !important;
+                    }
+
+                    &.dark-mode {
+                        &:hover {
+                            background: none transparent !important;
+                        }
+                    } 
+
+                }
+
+                .button {
+                    color: white !important;
+                    border-width: 0.1rem !important;
+
+                    &.is-primary {
                         color: $oxfordblue !important;
+                        border: none !important;
+        
+                        &:hover {
+                            color: white !important;
+                        }
                     }
                 }
             }
@@ -92,13 +124,13 @@ html.dark-theme {
             }
             
             .button-wrap {
-                background: transparent !important;
-                border-top: 1px solid rgba($bluedark, 0.2) !important;
+                background: #120C32 !important;
+                border-top: 1px solid rgba($bluedark, 0.1) !important;
                 border-right: 1px solid $bluedark;
 
                 a.button {
                     &.is-primary {
-                        color: white !important;
+                        color: $seagreen !important;
                     }
 
                     &.is-secondary {

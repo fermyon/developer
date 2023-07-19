@@ -41,7 +41,7 @@
     <div class="navbar-menu">
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
+                <a class="navbar-link is-active">
                     {{#if (active_project request.spin-path-info "/spin/" )}}
                     Spin
                     {{else}}
@@ -84,16 +84,15 @@
             </div>
             <div class="overlay"></div>
 
-            <a class="navbar-link is-arrowless is-active">Docs</a>
-            <a class="navbar-link is-arrowless">Hub</a>
+            {{!-- quicklinks can be added to the topbar here --}}
         </div>
 
         <div class="navbar-end">
 
-            <a class="dark-mode">
-                <svg width="1.5rem" height="1.5rem" viewBox="0 0 502 502" version="1.1"
+            <a class="dark-mode navbar-link">
+                <svg width="1.67rem" height="1.67rem" viewBox="0 0 502 502" version="1.1"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>Light Mode</title>
+                    <title>Toggle light/dark mode</title>
                     <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
                         <g id="noun-dark-mode-4600782" transform="translate(0.168000, 0.168250)" fill-rule="nonzero">
                             <g id="Group">
