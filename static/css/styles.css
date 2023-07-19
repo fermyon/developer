@@ -1493,6 +1493,10 @@ html.dark-theme body.documentation aside.menu .accordion-tabs .accordion-menu-it
   background: #57388b;
 }
 
+html.dark-theme body.documentation footer.footer-links {
+  border-top: 1px solid #e7d3f220 !important;
+}
+
 html.dark-theme body.documentation .content a {
   color: #ccb2f0;
 }
@@ -1999,6 +2003,10 @@ html.dark-theme .multitab-content {
   padding: 0 1.5vw !important;
 }
 
+.menu-wrap + article.content {
+  padding-left: calc(17.5vw + .75rem);
+}
+
 .documentation aside.menu {
   min-height: 100%;
   width: 16vw;
@@ -2277,7 +2285,7 @@ html.dark-theme .multitab-content {
 
 #topbar.navbar .navbar-menu a.navbar-link.dark-mode {
   width: auto;
-  margin-right: 1.75rem;
+  margin-right: 1.425rem;
   padding: 0;
   display: flex;
   position: relative;
@@ -2881,7 +2889,7 @@ html.dark-theme .multitab-content {
 }
 
 html.dark-theme #topbar.navbar .search-button:hover {
-  background: linear-gradient(#21376200 0%, #21376280 100%);
+  background: linear-gradient(#21376200 0%, #21376240 100%);
 }
 
 html.dark-theme .search-button-container:after {
@@ -2986,6 +2994,19 @@ html.dark-theme .search-modal-container .result-section-container .suggested-pro
 html.dark-theme .search-modal-container .result-section-container .suggested-project .suggested-project-link {
   color: #34e8bd;
   background-color: #0000;
+}
+
+footer.footer-links {
+  min-height: auto;
+  z-index: 1400;
+  padding: 1.25rem 0;
+  background: none !important;
+  border-top: 1px solid #e6d2f1ab !important;
+  margin: 7.25rem auto 0 !important;
+}
+
+footer.footer-links a.navbar-item {
+  font-size: 1rem;
 }
 
 .documentation article.content-docs section#type img {

@@ -15,6 +15,10 @@ $sidebarWidth: 17.5vw;
     z-index: 665;
 }
 
+.menu-wrap + article.content {
+    padding-left: calc($sidebarWidth + 0.75rem);
+}
+
 // sidebar layout
 .documentation aside.menu {
     display: flex;

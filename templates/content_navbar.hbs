@@ -84,6 +84,11 @@
             </div>
             <div class="overlay"></div>
 
+            {{#if (active_project request.spin-path-info "/cloud/" )}}
+            <a class="navbar-link" href="{{site.info.base_url}}/cloud/changelog">Changelog</a>
+            {{/if}}
+
+
             {{!-- quicklinks can be added to the topbar here --}}
         </div>
 
