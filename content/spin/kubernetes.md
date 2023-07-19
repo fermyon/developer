@@ -73,6 +73,7 @@ Azure AKS provides a straightforward and officially [documented](https://learn.m
 - The *os-type* for WASM/WASI node pools must be Linux.
 - You can't use the Azure portal to create WASM/WASI node pools.
 - AKS uses an older version of Spin for the shim, so you will need to change `spin_manifest_version` to `spin_version` in `spin.toml` if you are using a template-generated project from the Spin CLI
+- The RuntimeClass `wasmtime-spin-v0-5-1` on Azure maps to spin v1.0.0, and the `wasmtime-spin-v1` RuntimeClass uses an older shim corresponding to v0.3.0 spin.
 
 #### Note for Rust
 
