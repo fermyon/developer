@@ -1,0 +1,102 @@
+// light mode is the default state of page
+// whereas dark mode adds a class html.dark-theme
+
+body {
+    background: $docsbg2;
+
+    #topbar.navbar{
+        background: $docsbg1;
+        border-bottom: 1px solid lighten($lavenderfloral, 20%);
+
+        .logo-wrap {    
+            .logo-developer {
+                color: $lavenderfloral;
+            }
+        }
+    }
+
+    &.documentation {
+        .menu-wrap {
+            background: linear-gradient(105deg, rgba(239, 227, 245, 0.5) 0%, rgba(240, 230, 244, 0.74) 100%);
+            border-right: 1px solid $thistle;
+        }
+
+        aside.menu {
+            .button-wrap {
+                border-top: 1px solid rgba($thistle, 0.25);
+                border-right: 1px solid $thistle;
+                background: #F5EBF9;
+            }
+
+            a.button {
+                color: $oxforddark !important;
+                color: $oxforddark;
+                background: white;
+
+                &.is-primary {
+                    border: 2px solid $seagreen !important;
+                }
+                
+                &.is-secondary {
+                    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.05);
+                }
+            }
+
+            a {
+                &.active {
+                    color: $darkspace;
+                    background-color: $lightlavender;
+                }
+            }
+
+            .menu-label {
+                color: $bluedark !important;
+
+                &.stay-open {
+                    &:after {
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            .accordion-tabs {
+                .accordion-menu-item-content.stay-open,
+                input:checked~.accordion-menu-item-content {
+                    
+                    &:hover,
+                    &.active,
+                    .is-active {
+                        &:before {
+                            background: $lavenderfloral;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .content {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            li,
+            th,
+            td,
+            dd {
+                code {
+                    background: rgba($thistle, 0.2) !important;
+                }
+            }
+        }
+
+        pre {
+            code {
+                background: linear-gradient(110deg, hsla(230, 80%, 72%, 0.12) 0%, hsla(248, 67%, 11%, 1) 100%) !important;
+            }
+        }
+    }
+}
