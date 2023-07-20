@@ -7,7 +7,7 @@ const store = createStore({
       isModalOpen: false,
       openPreviewId: "",
       modalData: {
-        title: "test",
+        title: "",
         description: '',
         url: "",
         author: "",
@@ -49,14 +49,14 @@ const store = createStore({
     },
     updateContentTypeFilter(state, payload) {
       if (state.contentFilters.includes(payload)) {
-        state.contentFilters.splice(state.contentFilters.indexOf(payload))
+        state.contentFilters.splice(state.contentFilters.indexOf(payload), 1)
       } else {
         state.contentFilters.push(payload)
       }
     },
     updateLanguageFilter(state, payload) {
       if (state.languageFilters.includes(payload)) {
-        state.languageFilters.splice(state.languageFilters.indexOf(payload))
+        state.languageFilters.splice(state.languageFilters.indexOf(payload), 1)
       } else {
         state.languageFilters.push(payload)
       }
@@ -100,4 +100,4 @@ const unescapeHTML = str =>
     }[tag] || tag)
   );
 
-export { store }
+export { store, unescapeHTML }

@@ -11,7 +11,6 @@
 
 body{
   width: 100%;
-  
   &.modal-open {
     height: 100%;
     overflow: hidden;
@@ -25,4 +24,10 @@ body{
   display: flex;
   flex-direction: column;
 }
+
+html.dark-theme body.documentation {
+  background-color: darken($oxforddark, 2.5%) !important;
+
+}
+
 </style>

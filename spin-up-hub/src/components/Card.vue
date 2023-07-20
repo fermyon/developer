@@ -42,12 +42,14 @@ export default {
     max-width: 250px;
     display: flex;
     flex-direction: column;
-    background-color: $oxfordblue;
+    background-color: $thistle;
     padding: 1rem;
     border-radius: 0.67rem;
     transition: all 1s ease-in-out;
     overflow: hidden;
     margin-right: 0.5rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid darken($lavenderdark, 5%);
 
     .topbar {
         display: flex;
@@ -55,12 +57,13 @@ export default {
         align-items: center;
 
         .category {
-            background-color: $lightlavender;
+            background-color: white;
             display: inline-block;
             border-radius: 0.67rem;
             padding: 0.2rem 0.4rem;
             color: $darkspace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
         }
 
         .icon {
@@ -85,6 +88,25 @@ export default {
 
         span {
             padding: 0.2rem;
+            margin-right: 0.5rem;
+            color: $bluedark;
+        }
+    }
+}
+
+.dark-theme {
+    .content-card {
+        background-color: darken($bluecallout, 2.5%);
+
+        .category {
+            color: $lavenderlight;
+            background-color: darken($lavenderdark, 25%);
+        }
+
+        .tags {
+            span {
+                color: $lavendermid;
+            }
         }
     }
 }

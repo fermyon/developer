@@ -17,8 +17,7 @@ export default {
     width: 100%;
     display: flex;
     flex-grow: 1;
-    margin-top: 2rem;
-    background-color: $darkspace;
+    background-color: darken($docsbg1, 2%);
 }
 
 @media screen and (max-width:1023px) {
@@ -26,5 +25,11 @@ export default {
         flex-direction: column;
 
     }
+}
+
+.dark-theme {
+ .content-wrapper {
+    background-color: $oxforddark;
+ }
 }
 </style>

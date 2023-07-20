@@ -1,7 +1,4 @@
 <script>
-import { computed } from 'vue';
-
-
 export default {
     data() {
         return {
@@ -105,7 +102,7 @@ export default {
         height: 80%;
         width: 80%;
         max-width: 800px;
-        background-color: $oxfordblue;
+        background-color: $docsbg1;
         border-radius: 0.67rem;
         display: flex;
         flex-direction: column;
@@ -114,11 +111,11 @@ export default {
 
         .topbar {
             padding: 1rem;
-            background-color: $darkspace;
+            background-color: $docsbg1;
             display: flex;
             justify-content: flex-end;
             border-radius: 0.67rem 0.67rem 0 0;
-
+            border-bottom: 1px solid lighten($lavenderfloral, 15%);
         }
 
         .content-area {
@@ -130,7 +127,7 @@ export default {
 
             .main-content {
                 width: 65%;
-                border-right: 1px solid $darkspace;
+                border-right: 1px solid lighten($lavenderfloral, 15%);
                 padding: 1rem 0rem;
                 display: flex;
                 flex-direction: column;
@@ -140,8 +137,8 @@ export default {
                 .title {
                     font-size: 1.75rem;
                     margin-bottom: 2rem;
-                    color: $lavender;
                     padding: 1rem;
+                    font-family: $spaceGro;
                 }
 
                 .description {
@@ -157,7 +154,7 @@ export default {
                     span {
                         font-size: 0.9rem;
                         border-radius: 0.67rem;
-                        background-color: $darkspace;
+                        background-color: $lavender;
                         padding: 0.2rem 0.4rem;
                         margin-right: 0.5rem;
                     }
@@ -193,7 +190,7 @@ export default {
                             align-items: center;
                             justify-content: space-between;
                             border-radius: 0.67rem;
-                            background-color: $lavender;
+                            background-color: $lavendermid;
                             padding: 0.2rem 0.4rem;
 
                             img {
@@ -239,4 +236,52 @@ export default {
         }
     }
 }
+
+.dark-theme {
+    .preview-modal {
+        background-color: darken($bluecallout, 10%);
+
+        .topbar {
+            border-bottom: 1px solid $bluecallout;
+            background-color: $bluecallout;
+        }
+
+        .content-area {
+            .main-content {
+                border-right: 1px solid $bluecallout;
+
+                .title {
+                    color: white;
+                }
+
+                .tags {
+                    span {
+                        background: darken($bluedark, 5%);
+                    }
+                }
+            }
+
+        }
+
+        .metadata-space {
+            width: 35%;
+            padding: 1rem;
+
+            a {
+                margin: 2rem 0 1rem 0;
+                width: 100%;
+                border-radius: 0.67rem;
+            }
+
+            .metadata {
+                .value {
+
+                    &.badge {
+                        color: black;
+                    }
+                }
+                }
+            }
+        }
+    }
 </style>

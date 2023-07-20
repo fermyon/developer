@@ -95,7 +95,7 @@ function main() {
 
     let consolidatedSearchIndex = []
 
-    glob(argparse.dir + '/**/*.md', (err, files) => {
+    glob(argparse.dir + '/**/*.md', {ignore: argparse.ignore},  (err, files) => {
         if (err) {
             console.log('Error', err)
         } else {

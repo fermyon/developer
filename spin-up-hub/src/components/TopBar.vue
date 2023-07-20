@@ -10,6 +10,9 @@ export default {
       <div class="description">WELCOME TO THE SPIN UP HUB</div>
       <input class="search-input" type="text" placeholder="Explore the fermyverse">
     </div>
+    <div class="contribute">
+      <a class="btn" href="/hub/contributing">Add Contribution</a>
+    </div>
   </div>
 </template>
 
@@ -17,6 +20,7 @@ export default {
 .topbar {
   padding: 8rem 1rem 1rem 1rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -28,8 +32,8 @@ export default {
     align-items: center;
     border-radius: 0.67rem;
     justify-content: center;
-    background: $darkspace;
-    padding: 1rem;
+    background: lighten($thistle, 5%);
+    padding: 1rem 0 3rem 0;
 
     .description {
       margin-top: 1rem;
@@ -43,10 +47,18 @@ export default {
       margin-top: 1rem;
       border: none;
       padding: 1rem;
-      border-radius: 0.67rem;
+      border-radius: 2rem;
       width: 80%;
-      background-color: $oxfordblue;
+      background-color: $docsbg2;
     }
+
+  }
+
+  .contribute {
+    width: 100vw;
+    text-align: right;
+    font-size: 1rem;
+    padding: 2rem;
   }
 }
 
@@ -54,6 +66,17 @@ export default {
   .topbar {
     .search-box {
       width: 90%;
+    }
+  }
+}
+
+.dark-theme {
+  .search-box {
+    background: linear-gradient(105deg, rgba(154, 103, 194, 0.21) 0%, rgba(124, 109, 185, 0.21) 100%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    .search-input {
+      background-color: darken($oxforddark, 2.5%);
     }
   }
 }
