@@ -262,16 +262,17 @@
 				}
 
 				.navbar-dropdown {
-					width: 350px;
+					width: 380px;
                     margin-left: -1.75vw;
 
 					.navbar-item {
-						width: 100%;
+						width: 92%;
 						margin-left: 0;
 						padding: 0;
+                        border-radius: 0.75rem !important;
 
 						.project-content {
-							width: 100%;
+							width: 90%;
 							padding: 1rem 1rem 1rem 1.5rem;
 
 							.title {

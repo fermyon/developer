@@ -2613,18 +2613,19 @@ html.dark-theme .developer-home-wrap .community-highlight {
 }
 
 .navbar-menu .navbar-start .is-hoverable .navbar-dropdown {
-  width: 350px;
+  width: 380px;
   margin-left: -1.75vw;
 }
 
 .navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item {
-  width: 100%;
+  width: 92%;
   margin-left: 0;
   padding: 0;
+  border-radius: .75rem !important;
 }
 
 .navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content {
-  width: 100%;
+  width: 90%;
   padding: 1rem 1rem 1rem 1.5rem;
 }
 
@@ -3523,23 +3524,23 @@ footer.footer-links .footer-logo:hover:after {
   #topbar.navbar a.navbar-link.dark-mode {
     margin-right: auto !important;
     position: absolute !important;
-    right: 24.75vw !important;
+    right: 27.75vw !important;
   }
 
   #topbar.navbar .search-button:after {
-    right: 28.25vw;
+    right: 31.25vw;
   }
 
   #topbar.navbar .search-button:before {
-    right: 27vw;
+    right: 30vw;
   }
 
   #topbar.navbar .search-button .search-placeholder {
-    right: 60rem;
+    right: 63rem;
   }
 
   #topbar.navbar .search-button .search-command {
-    right: 50rem;
+    right: 53rem;
   }
 
   .documentation .content > section {

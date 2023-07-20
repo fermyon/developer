@@ -359,25 +359,25 @@
 
     #topbar.navbar {
         a.navbar-link.dark-mode {
-            right: 24.75vw !important;
+            right: 27.75vw !important;
             position: absolute !important;
             margin-right: auto !important;
         }
         .search-button {
             &:after {
-                right: 28.25vw;
+                right: 31.25vw;
             }
 
             &:before {
-                right: 27vw;
+                right: 30vw;
             }
 
             .search-placeholder {
-                right: 60rem;
+                right: 63rem;
             }
 
             .search-command {
-                right: 50rem;
+                right: 53rem;
             }
         }
     }
