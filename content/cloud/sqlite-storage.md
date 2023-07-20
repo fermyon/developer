@@ -103,6 +103,21 @@ inspirational-pig has been deleted
 
 > The NoOps SQL Database must be deleted before another Spin application can use the feature to prevent unintentional data sharing between Spin applications. 
 
+## FAQ
+
+- **Can I export data from my NoOps SQL Database?**
+
+- **If I upgrade my Spin application, can I still access the same instance of my NoOps SQL Database?**
+
+
+- **If I delete and redeploy my Spin application, can I still access the same instance of my NoOps SQL Database?**
+
+
+
+If I redeploy the "same" app (for some value of "same"), can it get at that database?
+
+If the answer to 1 and 2 is no, what is the point of the database sitting around taking up my one precious database slot?
+
 ## Next Steps
 
 * For support or feature feedback, please join our [Discord channel #noops-sql-db-private-beta](LINK-TBD)
