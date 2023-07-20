@@ -257,7 +257,7 @@ Deis Labs provides a preconfigured K3d environment that can be run using this co
 <!-- @selectiveCpy -->
 
 ```console
-$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.3.3 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
+$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.8.0 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
 ```
 
 Create a file wasm-runtimeclass.yml and populate with the following information
