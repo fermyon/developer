@@ -3,6 +3,7 @@ template = "render_hub_content_body"
 date = "2023-07-20T12:00:00Z"
 enable_shortcodes = true
 [extra]
+type = "contributing"
 url = "https://github.com/fermyon/developer/blob/main/content/api/hub/contributing.md"
 
 ---
@@ -15,12 +16,11 @@ url = "https://github.com/fermyon/developer/blob/main/content/api/hub/contributi
   - [Creating Markdown](#creating-markdown)
   - [Valid Metadata](#valid-metadata)
   - [Valid Content Types](#valid-content-types)
-- [Testing Locally](#testing-locally)
+  - [Testing Locally](#testing-locally)
   - [Add Changes](#add-changes)
   - [Commit Changes](#commit-changes)
   - [Push Changes](#push-changes)
   - [Create a Pull Request](#create-a-pull-request)
-
 
 We are delighted that you are interested in making Spin Up Hub better! Thank you! This
 document will guide you through making your first contribution to the project.
@@ -155,10 +155,8 @@ After your file has been created, you can test it on localhost before commiting.
 <!-- @selectiveCpy -->
 
 ```console
-$ npm run spin
-$ cd spin-up-hub
 $ npm install
-$ npm run dev
+$ npm run spin
 ```
 
 ### Add Changes
