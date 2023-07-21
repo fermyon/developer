@@ -64,7 +64,7 @@ Please copy all four nameserver records and use them to replace your name server
 
 ## Verify Domain Has Been Delegated
 
-Please wait for up to 72 hours for the process change. Once the verification process has been completed, you should see a green checkmark next to your custom domain. 
+Please wait for up to 72 hours for the change to be processed. Once the verification process has been completed, you should see a green checkmark next to your custom domain. 
 
 ![DRAFT SCREENSHOT - step 5](/static/image/custom-domains/Step-5.png)
 
