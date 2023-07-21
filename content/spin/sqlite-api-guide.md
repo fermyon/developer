@@ -6,14 +6,24 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/sqlite-api-guide.md"
 
 ---
+- [Granting SQLite Database Permissions to Components](#granting-sqlite-database-permissions-to-components)
 - [Using SQLite Storage From Applications](#using-sqlite-storage-from-applications)
 - [Preparing an SQLite Database](#preparing-an-sqlite-database)
 - [Custom SQLite Databases](#custom-sqlite-databases)
-- [Granting SQLite Database Permissions to Components](#granting-sqlite-database-permissions-to-components)
+  - [Granting Access to Custom SQLite Databases](#granting-access-to-custom-sqlite-databases)
 
 Spin provides an interface for you to persist data in an SQLite database managed by Spin. This database allows Spin developers to persist relational data across application invocations.
 
 {{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the [MySQL or Postgres APIs](/spin/rdbms-storage). However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite database is a great option." }}
+
+## Granting SQLite Database Permissions to Components
+
+By default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
+
+```toml
+[component]
+sqlite_databases = ["default"]
+```
 
 ## Using SQLite Storage From Applications
 
@@ -174,16 +184,11 @@ You can provide the `--sqlite` flag more than once; Spin runs the statements (or
 
 Spin defines a database named `"default"` and provides automatic backing storage.  If you need to customize Spin with additional databases, or to change the backing storage for the default database, you can do so via the `--runtime-config-file` flag and the `runtime-config.toml` file.  See [SQLite Database Runtime Configuration](/spin/dynamic-configuration#sqlite-storage-runtime-configuration) for details.
 
-## Granting SQLite Database Permissions to Components
+### Granting Access to Custom SQLite Databases
 
-By default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
+As mentioned above, by default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest, using the `component.sqlite_databases` field in the manifest.
 
-```toml
-[component]
-sqlite_databases = ["default"]
-```
-
-Components can be given access to different databases:
+Components can be given access to different databases, and may be granted access to more than one database. For example:
 
 ```toml
 # c1 has no access to any databases
