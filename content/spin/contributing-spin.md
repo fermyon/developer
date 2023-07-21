@@ -56,14 +56,11 @@ $ git remote add fork https://github.com/<your-username>/spin
 # create a new branch for your work
 $ git checkout -b <your-branch>
 
-# build a release version of the Spin CLI
-$ cargo build --release
-
-# build only the spin CLI for quick development
-$ cargo build --bin spin
+# build the Spin CLI
+$ cargo build
 
 # make sure compilation is successful
-$ ./target/release/spin --help
+$ ./target/debug/spin --help
 
 # run the tests and make sure they pass
 $ make test
