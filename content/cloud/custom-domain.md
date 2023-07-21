@@ -31,9 +31,9 @@ Note that this propagation is generally performed in a reasonable time frame (mi
 
 ### Next Steps
 
-* Follow the [Ferymon Cloud Custom Domains tutorial](./custom-domains-tutorial.md) to add your custom domain
-* Visit [Technical FAQ](./faq.md) for troubleshooting assistance
-* Check out [Pricing](./pricing-and-billing.md) for billing-related questions
+* Follow the [Ferymon Cloud Custom Domains tutorial](./custom-domains-tutorial.md) to add your custom domain.
+* Visit [Technical FAQ](./faq.md) for troubleshooting assistance.
+* Check out [Pricing](./pricing-and-billing.md) for billing-related questions.
 
 ### Terminology
 
