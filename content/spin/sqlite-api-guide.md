@@ -34,7 +34,7 @@ The set of operations is common across all SDKs:
 | Operation  | Parameters | Returns | Behavior |
 |------------|------------|---------|----------|
 | `open`  | name | connection  | Open the database with the specified name. If `name` is the string "default", the default database is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](/spin/dynamic-configuration.md#sqlite-storage-runtime-configuration) supplied with the application.|
-| `execute` | connection, sql, parameters | database records | Executes the SQL statement and returns the results of the statement. SELECT statements typically return records or scalars. INSERT, UPDATE, and DELETE statements typically return empty result sets, but may return values in some cases. |
+| `execute` | connection, sql, parameters | database records | Executes the SQL statement and returns the results of the statement. SELECT statements typically return records or scalars. INSERT, UPDATE, and DELETE statements typically return empty result sets, but may return values in some cases. The `execute` operation recognizes the [SQLite dialect of SQL](https://www.sqlite.org/lang.html). |
 | `close` | connection | - | Close the specified `connection`. |
 
 The exact detail of calling these operations from your application depends on your language:
@@ -175,6 +175,8 @@ Or you can pass SQL statements directly on the command line as a (quoted) string
 ```bash
 spin up --sqlite "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT NOT NULL, due TEXT NOT NULL)"
 ```
+
+As with runtime operations, this flag uses the [SQLite dialect of SQL](https://www.sqlite.org/lang.html).
 
 You can provide the `--sqlite` flag more than once; Spin runs the statements (or files) in the order you provide them, and waits for each to complete before running the next.
 
