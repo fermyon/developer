@@ -39,7 +39,7 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Key value store key size (bytes)* | 255 | 255 | Contact us
 | Key value store storage size (GB) | 1 | 2 | Contact us
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
-| SQLite Storage | [See private beta documentation](./sqlite-storage.md) | [See private beta documentation](./sqlite-storage.md)  | [See private beta documentation](./sqlite-storage.md) 
+| SQLite Storage | [See private beta documentation](/cloud/noops-sql-db.md) | [See private beta documentation](/cloud/noops-sql-db.md)  | [See private beta documentation](/cloud/noops-sql-db.md) 
 | **Regions** |
 | Region count| 1 | 1 | Contact us
 
@@ -65,7 +65,7 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported (only default store) |
-| [SQLite Storage](/spin/sqlite-api-guide) | [Private Beta](./sqlite-storage.md) |
+| [SQLite Storage](/spin/sqlite-api-guide) | [Private Beta](/cloud/noops-sql-db.md) |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
