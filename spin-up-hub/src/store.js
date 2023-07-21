@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { router } from "./router"
+import lunr from 'lunr'
 
 const store = createStore({
   state() {
@@ -17,7 +18,10 @@ const store = createStore({
       languages: ["Rust", "JS/TS", "Go", "Python"],
       contentFilters: [],
       languageFilters: [],
-      contentItems: []
+      contentItems: [],
+      loadedSearchData: false,
+      searchIndex: [],
+      searchTerm: ""
     }
   },
   mutations: {
@@ -60,12 +64,15 @@ const store = createStore({
       } else {
         state.languageFilters.push(payload)
       }
+    },
+    updateSearchTerm(state, payload) {
+      state.searchTerm = payload
     }
   },
   actions: {
     async getPreviewData(context) {
       let id = context.state.openPreviewId
-      let res = await fetch("http://localhost:3000" + context.state.modalData.path)
+      let res = await fetch(import.meta.env.VITE_API_HOST + context.state.modalData.path)
       let text = (await res.text())
       setTimeout(() => {
         if (id === context.state.openPreviewId) {
@@ -77,11 +84,28 @@ const store = createStore({
       }, 2000);
     },
     async getContentInfo(context, data, id) {
-      let res = await fetch("http://localhost:3000/api/hub/get_list")
+      let res = await fetch(import.meta.env.VITE_API_HOST  + "/api/hub/get_list")
       data = await res.json()
       context.state.contentItems = data
       context.state.contentItems.map(k => {
         k.id = k.path.substring(k.path.lastIndexOf('/') + 1)
+      })
+    },
+    async loadSearchData(context) {
+      let data = await fetch(import.meta.env.VITE_API_HOST  + "/static/hub-index-data.json")
+      let documents = await data.json()
+      context.state.searchIndex = lunr(function() {
+        this.field('title')
+        this.field('content')
+        this.field('language', {boost: 10})
+        this.field('tags', {boost: 100})
+        this.field('keywords', {boost: 100})
+        this.field('url')
+        this.ref('id')
+
+        documents.forEach(function (doc) {
+          this.add(doc)
+      }, this)
       })
     }
   }

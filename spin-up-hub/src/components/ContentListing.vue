@@ -13,8 +13,30 @@ export default {
         filteredLanguages() {
             return this.$store.state.languageFilters
         },
+        searchIndex() {
+            return this.$store.state.searchIndex
+        },
+        searchTerm() {
+            return this.$store.state.searchTerm
+        },
         contentItmes() {
             let data = this.$store.state.contentItems
+            if (this.searchTerm) {
+                let updatedQuery = this.searchTerm
+                    .split(" ")
+                    .map(word => word + '^2 ' + word + '* ' + word + '~2')
+                    .join(' ');
+                let result = this.searchIndex.search(updatedQuery)
+                //get only confident results
+                let matches = []
+                result.map(k => {
+                    if (k.score < 0.5) {
+                        return
+                    }
+                    matches.push(data.find(docs => k.ref == docs.id))
+                })
+                data = matches
+            }
             let contentFilterLength = this.filteredContentTypes.length
             let langaugeFilterLength = this.filteredLanguages.length
             if (contentFilterLength + langaugeFilterLength === 0) { return data }
@@ -34,9 +56,9 @@ export default {
 </script>
 
 <template>
-        <transition-group name="card-list" tag="div" class="content-listing" appear>
-            <Card v-for="item in contentItmes" :item="item" v-bind:key="item.title"></Card>
-        </transition-group>
+    <transition-group name="card-list" tag="div" class="content-listing" appear>
+        <Card v-for="item in contentItmes" :item="item" v-bind:key="item.title"></Card>
+    </transition-group>
 </template>
 <style lang="scss" scoped>
 .content-listing {
@@ -47,15 +69,18 @@ export default {
     flex-wrap: wrap;
     padding: 1rem;
 }
-.card-list-enter-active, .card-list-leave-active {
-  transition: all 0.5s;
+
+.card-list-enter-active,
+.card-list-leave-active {
+    transition: all 0.5s;
 }
+
 .card-list-leave-active {
     position: absolute;
 }
+
 .card-list-enter-from,
-.card-list-leave-to
-    {
+.card-list-leave-to {
     opacity: 0;
     scale: 0;
     transform: translateY(30px);
@@ -63,5 +88,4 @@ export default {
 
 .card-list-move {
     transition: transform 0.5s;
-}
-</style>
+}</style>

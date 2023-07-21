@@ -1,6 +1,30 @@
 <script>
 export default {
-
+  data() {
+    return {
+    }
+  },
+  methods: {
+    async loadSearchData() {
+      if (!this.$store.state.loadedSearchData) {
+        await this.$store.dispatch("loadSearchData")
+        this.$store.state.loadedSearchData = true
+      }
+    }
+  },
+  computed: {
+    loadedSearchData() {
+      return this.$store.state.loadedSearchData
+    },
+    searchTerm: {
+      get() {
+        return this.$store.state.searchTerm
+      },
+      set(value) {
+        this.$store.commit("updateSearchTerm",  value)
+      }
+    }
+  }
 }
 </script>
 
@@ -8,7 +32,7 @@ export default {
   <div class="topbar">
     <div class="search-box">
       <div class="description">WELCOME TO THE SPIN UP HUB</div>
-      <input class="search-input" type="text" placeholder="Explore the fermyverse">
+      <input class="search-input" v-model="searchTerm" @click="loadSearchData" type="text" placeholder="Explore the fermyverse">
     </div>
     <div class="contribute">
       <a class="btn" href="/hub/contributing">Add Contribution</a>

@@ -7,7 +7,7 @@ export default {
         }
     },
     async mounted() {
-        let res = await fetch("http://localhost:3000/api/hub/contributing")
+        let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/contributing")
         this.contributionGuide = unescapeHTML(await res.text())
         console.log(this.contributionGuide)
     }

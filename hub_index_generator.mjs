@@ -29,19 +29,22 @@ function parseMdFile(file, filepath) {
 
     // Parse markdown into json tree
     let content = fm(data)
+
+    if (content.attributes.type != "hub_document") {return}
+
     let myResult = unified()
         .use(remarkParse)
         .parse(content.body);
 
     // Create default document index for the page
     let documentIndex = {
-        project: file.split("/")[2],
         title: content.attributes["title"],
         content: "",
         keywords: content.attributes["keywords"],
         langauge: content.attributes["language"],
         tags: content.attributes["tags"],
-        url: "/hub/preview/" + file.replace(filepath, "").replace(".md", "")
+        url: "/hub/preview/" + file.replace(filepath, "").replace(".md", ""),
+        id: file.replace(filepath, "").replace(".md", "")
     }
 
     // For each heading create a new search index
@@ -77,7 +80,10 @@ function main() {
             console.log('Error', err)
         } else {
             files.forEach(file => {
-                consolidatedSearchIndex = consolidatedSearchIndex.concat(parseMdFile(file, argparse.dir))
+                let ret = parseMdFile(file, argparse.dir)
+                if (ret) {
+                    consolidatedSearchIndex = consolidatedSearchIndex.concat(ret)
+                }
             })
         }
         fs.writeFileSync(argparse.out, JSON.stringify(consolidatedSearchIndex));
