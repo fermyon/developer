@@ -58,6 +58,7 @@ export default {
     width: 100%;
     text-align: center;
     display: flex;
+    cursor: default;
   }
   .tag {
     display: inline-block;
@@ -66,6 +67,7 @@ export default {
     border-radius: 0.67rem;
     padding: 0.2rem 0.4rem;
     background-color: $lightplum;
+    cursor: pointer;
     &.active {
       background-color: $seagreen;
     }
@@ -74,6 +76,8 @@ export default {
 
 @media screen and (max-width:1023px) {
         .content-filters {
+            padding-left: 0;
+            padding-right: 0;
             width: 100%;
             display: flex;
             flex-wrap: wrap;

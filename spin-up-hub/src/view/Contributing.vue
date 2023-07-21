@@ -1,5 +1,5 @@
 <script>
-import {unescapeHTML} from "../store"
+import { unescapeHTML } from "../store"
 export default {
     data() {
         return {
@@ -8,16 +8,16 @@ export default {
     },
     async mounted() {
         let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/contributing")
-        this.contributionGuide = unescapeHTML(await res.text())
-        console.log(this.contributionGuide)
+        this.contributionGuide = "<h1>Spin Up Hub Contribution Guide</h1>" + unescapeHTML(await res.text()).replaceAll('class="language', 'class="hljs langugae"')
     }
 }
 </script>
 
 <template>
-    <div class="documentation">
-        <article class="content-docs">
-            <div class="content" v-html='this.contributionGuide'></div>
+    <div class="columns">
+        <article class="column content content-docs content-docs-wide">
+            <section class="type" v-html='this.contributionGuide'>
+            </section>
         </article>
     </div>
 </template>
@@ -27,6 +27,7 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: 8rem;
+
     .content-docs {
         max-width: 800px;
     }

@@ -21,9 +21,23 @@ export default {
         return this.$store.state.searchTerm
       },
       set(value) {
-        this.$store.commit("updateSearchTerm",  value)
+        this.$store.commit("updateSearchTerm", value)
       }
     }
+  },
+  mounted() {
+    console.log("here",  document.getElementById("hub-search-input"))
+    document.onkeydown = function (e) {
+      if (e.key == "s" || e.key == "S") {
+        console.log("here")
+        let seachBar = document.getElementById("hub-search-input")
+        if (document.activeElement != seachBar) {
+          e.preventDefault()
+          seachBar.focus()
+        }
+
+      }
+    };
   }
 }
 </script>
@@ -32,7 +46,8 @@ export default {
   <div class="topbar">
     <div class="search-box">
       <div class="description">WELCOME TO THE SPIN UP HUB</div>
-      <input class="search-input" v-model="searchTerm" @click="loadSearchData" type="text" placeholder="Explore the fermyverse">
+      <input id="hub-search-input" class="search-input" v-model="searchTerm" @focus="loadSearchData" type="text"
+        placeholder="Explore the fermyverse">
     </div>
     <div class="contribute">
       <a class="btn" href="/hub/contributing">Add Contribution</a>

@@ -70,6 +70,13 @@ export default {
     padding: 1rem;
 }
 
+@media screen and (max-width:1023px) {
+    .content-listing {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 .card-list-enter-active,
 .card-list-leave-active {
     transition: all 0.5s;
@@ -88,4 +95,5 @@ export default {
 
 .card-list-move {
     transition: transform 0.5s;
-}</style>
+}
+</style>

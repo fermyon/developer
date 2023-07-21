@@ -74,17 +74,15 @@ const store = createStore({
       let id = context.state.openPreviewId
       let res = await fetch(import.meta.env.VITE_API_HOST + context.state.modalData.path)
       let text = (await res.text())
-      setTimeout(() => {
-        if (id === context.state.openPreviewId) {
-          context.commit("updateModalDescription", {
-            description: unescapeHTML(text),
-            status: true
-          })
-        }
-      }, 2000);
+      if (id === context.state.openPreviewId) {
+        context.commit("updateModalDescription", {
+          description: unescapeHTML(text),
+          status: true
+        })
+      }
     },
     async getContentInfo(context, data, id) {
-      let res = await fetch(import.meta.env.VITE_API_HOST  + "/api/hub/get_list")
+      let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/get_list")
       data = await res.json()
       context.state.contentItems = data
       context.state.contentItems.map(k => {
@@ -92,20 +90,21 @@ const store = createStore({
       })
     },
     async loadSearchData(context) {
-      let data = await fetch(import.meta.env.VITE_API_HOST  + "/static/hub-index-data.json")
+      let data = await fetch(import.meta.env.VITE_API_HOST + "/static/hub-index-data.json")
       let documents = await data.json()
-      context.state.searchIndex = lunr(function() {
+      context.state.searchIndex = lunr(function () {
         this.field('title')
         this.field('content')
-        this.field('language', {boost: 10})
-        this.field('tags', {boost: 100})
-        this.field('keywords', {boost: 100})
+        this.field('language', { boost: 10 })
+        this.field('author'),
+          this.field('tags', { boost: 100 })
+        this.field('keywords', { boost: 100 })
         this.field('url')
         this.ref('id')
 
         documents.forEach(function (doc) {
           this.add(doc)
-      }, this)
+        }, this)
       })
     }
   }
@@ -113,14 +112,15 @@ const store = createStore({
 
 const unescapeHTML = str =>
   str.replace(
-    /&amp;|&lt;|&gt;|&#39;|&quot;/g,
+    /&amp;|&lt;|&gt;|&#39;|&quot;|&#x3D;/g,
     tag =>
     ({
       '&amp;': '&',
       '&lt;': '<',
       '&gt;': '>',
       '&#39;': "'",
-      '&quot;': '"'
+      '&quot;': '"',
+      '&#x3D;': '='
     }[tag] || tag)
   );
 

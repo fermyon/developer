@@ -39,6 +39,7 @@ function parseMdFile(file, filepath) {
     // Create default document index for the page
     let documentIndex = {
         title: content.attributes["title"],
+        author: content.attributes["author"],
         content: "",
         keywords: content.attributes["keywords"],
         langauge: content.attributes["language"],

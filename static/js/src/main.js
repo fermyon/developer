@@ -1,4 +1,4 @@
-const { el, mount, text, list, setChildren, setStyle, setAttr } = redom
+const { mount } = redom
 import {setupSearch, searchButton, searchModal} from "./modules/search"
 import {addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents, changelogFilter} from "./modules/utils"
 import { multiTabContentHandler} from "./modules/multiTab"
@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
   (async function () {
     try {
       await setupSearch()
+      console.log("got here")
       mount(document.getElementById("search-button-container"), searchButton);
       mount(document.getElementById("search-modal-container"), searchModal);
       document.onkeydown = function (e) {
@@ -63,10 +64,17 @@ document.addEventListener("DOMContentLoaded", function () {
           e.stopPropagation()
           searchModal.open()
         }
+        if (e.key == "s" || e.key == "S") {
+          let searchBar = document.getElementById("hub-search-input")
+          if (searchBar && document.activeElement != searchBar) {
+            e.preventDefault()
+            searchBar.focus()
+          }
+      }
       }
     }
     catch (err) {
-      console.err("Could not setup search")
+      console.error("Could not setup search")
     }
   })()
 
