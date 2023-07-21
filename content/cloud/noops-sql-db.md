@@ -3,7 +3,7 @@ template = "cloud_main"
 date = "2023-07-26T16:00:00Z"
 enable_shortcodes = false
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/cloud/noops-sql-database.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/noops-sql-db.md"
 
 ---
 
@@ -38,7 +38,7 @@ NoOps SQL Database in Fermyon Cloud is currently in private beta. To request acc
 
 ### Prepare a NoOps SQL Database
 
-Since `--sqlite` is not supported on `spin cloud deploy`, we recommend using the `execute` command in your application's source code to create a table. For example, in this routing function we use the Rust SDK to check if the table exists. If it doesn't, then we create one:
+We recommend using the `execute` command in your application's source code to create a table. For example, in this routing function we use the Rust SDK to check if the table exists. If it doesn't, then we create one:
 
 ```rust
 #[http_component]
@@ -59,9 +59,9 @@ fn handle_todo(req: Request) -> anyhow::Result<Response> {
 }
 ```
 
-### Manage SQLite Database Lifecycle
+### Manage NoOps SQL Database Lifecycle
 
-A SQLite Store is created when you deploy a Spin application that references a "default" SQLite database in it's component manifest. Multiple components in the same Spin application can be given access to the default database like so:
+A NoOps SQL Database is created when you deploy a Spin application that references a "default" SQLite database in it's component manifest. Multiple components in the same Spin application can be given access to the default database like so:
 
 ```toml
 # c1 does not have access to the default database
@@ -79,7 +79,7 @@ name = "c3"
 sqlite_databases = ["default"]
 ```
 
-The SQLite database will created when the Spin application is deployed. The data in between Spin application invocations and updates. 
+The NoOps SQL database will created when the Spin application is deployed. The data in between Spin application invocations and updates. 
 
 ```bash
 $ spin cloud deploy
@@ -87,7 +87,9 @@ Deploying app ..
 Creating database inspirational-pig (default) for app "quickstart"
 ```
 
-You can check to see which Spin application is tied to your SQLite Store by using the `spin cloud sql` command:
+You can check to see which Spin application is tied to your NoOpsSQL database by using the `spin cloud sql` command:
+
+>> Fermyon Cloud will automatically generate a random name for your NoOps SQL database.
 
 ```bash
 $ spin cloud sqlite list
@@ -106,17 +108,13 @@ inspirational-pig has been deleted
 ## FAQ
 
 - **Can I export data from my NoOps SQL Database?**
+At this time, Fermyon Cloud does not have a data export feature for NoOps SQL DB. We'd love to hear your thoughts on what an ideal experience would look like at [github.com/fermyon/feedback](https://github.com/fermyon/feedback)
 
 - **If I upgrade my Spin application, can I still access the same instance of my NoOps SQL Database?**
-
+Yes, as long as you haven't deleted your NoOps SQL Database, the instance will be running and stateful. 
 
 - **If I delete and redeploy my Spin application, can I still access the same instance of my NoOps SQL Database?**
-
-
-
-If I redeploy the "same" app (for some value of "same"), can it get at that database?
-
-If the answer to 1 and 2 is no, what is the point of the database sitting around taking up my one precious database slot?
+TBD!!!
 
 ## Next Steps
 
