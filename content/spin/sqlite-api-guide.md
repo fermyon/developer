@@ -41,7 +41,7 @@ use serde::Serialize;
 use spin_sdk::{
     http::{Request, Response},
     http_component,
-    sqlite::{DataTypeParam, Error, Connection},
+    sqlite::{Connection, Error, ValueParam},
 };
 
 #[http_component]
@@ -62,13 +62,13 @@ fn handle_request(req: Request) -> Result<Response> {
         &[]
     )?;
 
-    let todos = rowset.rows().map(|row|
+    let todos: Vec<_> = rowset.rows().map(|row|
         ToDo {
             id: row.get::<u32>("id").unwrap(),
             description: row.get::<&str>("description").unwrap().to_owned(),
             due: row.get::<&str>("due").unwrap().to_owned(),
         }
-    );
+    ).collect();
 
     let body = serde_json::to_vec(&todos)?;
     Ok(http::Response::builder().status(200).body(Some(body.into()))?)
