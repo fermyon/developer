@@ -1,4 +1,5 @@
 <script>
+import { nextTick } from "vue"
 import { unescapeHTML } from "../store"
 export default {
     data() {
@@ -8,7 +9,15 @@ export default {
     },
     async mounted() {
         let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/contributing")
-        this.contributionGuide = "<h1>Spin Up Hub Contribution Guide</h1>" + unescapeHTML(await res.text()).replaceAll('class="language', 'class="hljs langugae"')
+        this.contributionGuide = "<h1>Spin Up Hub Contribution Guide</h1>" + unescapeHTML(await res.text())
+        nextTick(() => {
+            document.querySelectorAll("pre > code").forEach((codeblock) => {
+                console.log(codeblock)
+                codeblock.classList.add("hljs")
+            })
+            addCopyButtons()
+            addAnchorLinks()
+        })
     }
 }
 </script>

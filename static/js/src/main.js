@@ -1,6 +1,6 @@
 const { mount } = redom
 import {setupSearch, searchButton, searchModal} from "./modules/search"
-import {addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents, changelogFilter} from "./modules/utils"
+import {addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents, changelogFilter, addAnchorLinks} from "./modules/utils"
 import { multiTabContentHandler} from "./modules/multiTab"
 
 document.querySelectorAll('.modal-button').forEach(function (el) {
@@ -79,3 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
   })()
 
 });
+
+//added for the hub
+window.addAnchorLinks = addAnchorLinks
+window.addCopyButtons = addCopyButtons

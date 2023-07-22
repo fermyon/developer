@@ -16,6 +16,12 @@ export default {
         verified() {
             return this.modalData.author == "fermyon"
         }
+    },
+    updated() {
+        document.querySelectorAll("pre > code").forEach((codeblock) => {
+            console.log(codeblock)
+            codeblock.classList.add("hljs")
+        })
     }
 }
 
@@ -24,7 +30,7 @@ export default {
 <template>
     <div v-if="isModalOpen" class="preview-wrapper">
         <div class="preview-overlay"></div>
-        <div class="preview-modal">
+        <div class="preview-modal content">
             <div class="topbar">
                 <span @click="closeModal"> X </span>
             </div>
@@ -258,11 +264,12 @@ export default {
 
 .dark-theme {
     .preview-modal {
-        background-color: darken($bluecallout, 10%);
+        background-color: $oxforddark;
+        padding-top: 0;
 
         .topbar {
-            border-bottom: 1px solid $bluecallout;
-            background-color: $bluecallout;
+            border-bottom: 1px solid lighten($oxforddark, 5%);
+            background-color: lighten($oxforddark, 5%);
         }
 
         .content-area {
