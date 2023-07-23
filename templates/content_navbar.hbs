@@ -80,7 +80,7 @@
                         </div>
                     </a>
 
-                    <a href="/bartholomew/index" class="navbar-item{{#if (active_project request.spin-path-info "/bartholomew/" )}} is-active {{/if}}">
+                    <a href="/bartholomew/index" class="navbar-item{{#if (active_project request.spin-path-info "/bartholomew/" )}} {{/if}}">
                         <div class="project-content">
                             <div class="title">Bartholomew</div>
                             <div class="description">Compile WebAssembly-powered websites with this micro CMS</div>
@@ -90,12 +90,14 @@
             </div>
             <div class="overlay"></div>
 
+            {{!-- quicklinks can be added to the topbar here --}}
+            <a class="navbar-item" href="/hub">
+                Examples Hub
+            </a>
+
             {{#if (active_project request.spin-path-info "/cloud/" )}}
             <a class="navbar-item" href="{{site.info.base_url}}/cloud/changelog">Changelog</a>
             {{/if}}
-
-
-            {{!-- quicklinks can be added to the topbar here --}}
         </div>
 
         <div class="navbar-end">
