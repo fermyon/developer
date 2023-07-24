@@ -1,6 +1,6 @@
 title = "The WebAssembly (Wasm) Meetup - Berlin // Kubernetes and Cloud Native Berlin"
 date = "2023-07-24T00:00:01Z"
-description = "[The WebAssembly (Wasm) Meetup - Berlin](https://www.meetup.com/the-webassembly-wasm-meetup-berlin/) and [Kubernetes and Cloud Native Berlin](https://www.meetup.com/berlin-kubernetes-meetup/) meet-up groups are co-organizing a July meet-up on July 26 at co.up in Berlin! Join Fermyon for a session on "Bring[ing] your own Kubernetes and run Serverless WebAssembly" starting at 6 PM."
+description = "[The WebAssembly (Wasm) Meetup - Berlin](https://www.meetup.com/the-webassembly-wasm-meetup-berlin/) and [Kubernetes and Cloud Native Berlin](https://www.meetup.com/berlin-kubernetes-meetup/) meet-up groups are co-organizing a July meet-up on July 26 at co.up in Berlin! Join Fermyon for a session on \"Bring[ing] your own Kubernetes and run Serverless WebAssembly\" starting at 6 PM."
 
 [extra]
 type = "event"
