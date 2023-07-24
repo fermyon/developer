@@ -11,6 +11,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud deploy](#spin-cloud-deploy)
 - [spin cloud help](#spin-cloud-help)
 - [spin cloud login](#spin-cloud-login)
+- [spin cloud sqlite](#spin-cloud-sqlite)
+- [spin cloud sqlite delete](#spin-cloud-sqlite-delete)
+- [spin cloud sqlite help](#spin-cloud-sqlite-help)
+- [spin cloud sqlite list](#spin-cloud-sqlite-list)
 - [spin cloud variables](#spin-cloud-variables)
 - [spin cloud variables delete](#spin-cloud-variables-delete)
 - [spin cloud variables help](#spin-cloud-variables-help)
@@ -205,6 +209,148 @@ OPTIONS:
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud sqlite
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite --help 
+
+cloud-sqlite 0.1.1 
+Manage Fermyon Cloud SQLite databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete a SQLite database
+    help      Print this message or the help of the given subcommand(s)
+    list      List all SQLite databases of a user
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }} 
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud sqlite delete
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite delete --help
+
+cloud-sqlite-delete 0.1.1 
+Delete a SQLite database
+
+USAGE:
+    spin cloud sqlite delete [OPTIONS] <NAME>
+
+ARGS:
+    <NAME>    Name of database to delete
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+    -y, --yes
+            Skips prompt to confirm deletion of database
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }} 
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud sqlite help 
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite help     
+
+cloud-sqlite 0.1.1 
+Manage Fermyon Cloud SQLite databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete a SQLite database
+    help      Print this message or the help of the given subcommand(s)
+    list      List all SQLite databases of a user
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }} 
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud sqlite list
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.1.1"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite list --help
+
+cloud-sqlite-list 0.1.1 
+List all SQLite databases of a user
+
+USAGE:
+    spin cloud sqlite list [OPTIONS]
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }} 
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud variables

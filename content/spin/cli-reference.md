@@ -228,6 +228,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -374,6 +380,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -460,6 +472,12 @@ The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/c
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
+
+The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference).
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
 
 The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference).
 
@@ -621,6 +639,12 @@ The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
+
+The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-deploy).
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
 
 The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-deploy).
 
@@ -819,6 +843,12 @@ The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../c
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-login).
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -833,6 +863,12 @@ The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
+
+The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-variables).
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
 
 The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-variables).
 
@@ -869,6 +905,12 @@ OPTIONS:
                                       it defaults to "spin.toml" [default: spin.toml]
     -h, --help                        Print help information
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -1048,6 +1090,12 @@ SUBCOMMANDS:
 
 * implemented via plugin
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -1240,6 +1288,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 **Please note: `spin new` vs `spin add`**.  These commands are similar except that:
@@ -1384,6 +1438,12 @@ SUBCOMMANDS:
     update       Fetch the latest Spin plugins from the spin-plugins repository
     upgrade      Upgrade one or all plugins
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -1599,6 +1659,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1703,6 +1769,12 @@ OPTIONS:
     -h, --help         Print help information
         --installed    List only installed plugins
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -1823,6 +1895,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1922,6 +2000,12 @@ USAGE:
 OPTIONS:
     -h, --help    Print help information
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -2153,6 +2237,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 **Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
@@ -2289,6 +2379,12 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2421,6 +2517,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2540,6 +2642,12 @@ OPTIONS:
     -h, --help        Print help information
     -k, --insecure    Ignore server certificate errors
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -2676,6 +2784,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2787,7 +2901,7 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.3"}}
+{{ startTab "v1.4"}}
 
 <!-- @selectiveCpy -->
 
@@ -2810,6 +2924,12 @@ SUBCOMMANDS:
     uninstall    Remove a template from your installation
     upgrade      Upgrade templates to match your current version of Spin
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -3000,6 +3120,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -3109,6 +3235,12 @@ OPTIONS:
         --tag <TAGS>    Filter templates matching all provided tags
         --verbose       Whether to show additional template details in the list
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -3228,6 +3360,12 @@ ARGS:
 OPTIONS:
     -h, --help    Print help information
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -3410,6 +3548,12 @@ OPTIONS:
             which to upgrade.  Pass this flag to upgrade only the specified repository without
             prompting
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -3741,6 +3885,12 @@ TRIGGER OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 > **Please note:** If the `-f` or `--from` options do not accurately infer the intended registry or `.toml` file for your application, then you can explicitly specify either the `--from-registry` or  `--from-file` options to clarify this.
@@ -3877,6 +4027,12 @@ The following additional trigger options are available for the [spin up](#spin-u
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -4002,6 +4158,12 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v1.5"}}
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ## Stability Table
@@ -4097,6 +4259,13 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
 | <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
+
+{{ blockEnd }}
+
+{{ startTab "v1.5"}}
+
+| Command                                                                               | Stability    |
+| ------------------------------------------------------------------------------------- | ------------ |
 
 {{ blockEnd }}
 
