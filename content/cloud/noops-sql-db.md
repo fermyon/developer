@@ -19,7 +19,6 @@ With NoOps SQL Database using SQLite support in Fermyon Cloud, you can persist r
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/buwr66oRPbU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
 ## Accessing Private Beta
 
 NoOps SQL Database in Fermyon Cloud is currently in private beta. To request access to the private beta, please fill out this short [sign-up form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx).
