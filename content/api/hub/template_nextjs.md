@@ -14,6 +14,7 @@ last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v0.8"
 summary =  "A template to use Next.js with Spin"
 url = "https://github.com/radu-matei/spin-nextjs"
+keywords = "react, next.js, js, javascript, typescript"
 
 ---
 

@@ -59,11 +59,11 @@ export default {
 </script>
 
 <template>
-    <transition-group class="content-listing column is-four-fifths-desktop is-full-touch" name="card-list" tag="div" appear>
-        <div class="columns is-0 is-mobile is-multiline">
+    <div class="content-listing column is-four-fifths-desktop is-full-touch">
+        <transition-group class="columns is-0 is-mobile is-multiline" tag="div"  name="card-list" appear>
             <Card v-for="item in contentItems" :item="item" :key="item.title"></Card>
+        </transition-group>
         </div>
-    </transition-group>
 </template>
 
 <style lang="scss" scoped>

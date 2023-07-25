@@ -14,6 +14,7 @@ last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v1.0"
 summary =  "A sample of using the Dioxus Web framework in Spin"
 url = "https://www.fermyon.com/blog/dioxus-in-spin"
+keywords = "frontend, rust, gui"
 
 ---
 

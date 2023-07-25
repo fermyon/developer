@@ -2,7 +2,7 @@ title = "OpenAI Chat API TS"
 template = "render_hub_content_body"
 date = "2023-07-24T02:00:00Z"
 content-type = "text/html"
-tags = ["openai", "chatgpt", "api", "config", "ts", "typescript", "http"]
+tags = ["openai", "chatgpt", "typescript"]
 
 [extra]
 author = "teknicus"
@@ -14,6 +14,7 @@ last_updated = "2023-07-24T02:00:00Z"
 spin_version = ">v1.3"
 summary =  "A sample demonstrating how to use the OpenAI Chat API with TypeScript"
 url = "https://github.com/teknicus/spin-openaichat"
+keywords = "config, api, AI, chatgpt, ts, http"
 
 ---
 

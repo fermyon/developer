@@ -2,7 +2,7 @@ title = "Building a Like button"
 template = "render_hub_content_body"
 date = "2022-10-15T00:22:56Z"
 content-type = "text/html"
-tags = ["typescript", "html", "key-value", "web"]
+tags = ["typescript", "key-value", "web"]
 
 [extra]
 author = "fermyon"

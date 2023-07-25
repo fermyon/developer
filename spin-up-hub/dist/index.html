@@ -35,6 +35,10 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="/static/css/styles.css"
+      rel="stylesheet"
+    />
 
     <!-- Google Tag Manager -->
     <script>
@@ -103,11 +107,11 @@
     window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
   heap.load("3221611804");
     </script> -->
-    <script type="module" crossorigin src="/hub/assets/index-1ab256de.js"></script>
-    <link rel="stylesheet" href="/hub/assets/index-1b9fef86.css">
+    <script type="module" crossorigin src="/hub/assets/index-23887677.js"></script>
+    <link rel="stylesheet" href="/hub/assets/index-6402d622.css">
   </head>
 
-  <body class="documentation">
+  <body class="documentation hub">
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-T28H3XL"
@@ -177,7 +181,7 @@
       <div class="navbar-menu">
         <div class="navbar-start">
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link is-active"> Docs </a>
+            <a class="navbar-link" >Docs</a>
 
             <div class="navbar-dropdown is-boxed">
               <a href="/spin/index" class="navbar-item">
@@ -209,6 +213,8 @@
             </div>
           </div>
           <div class="overlay"></div>
+
+          <!-- <a class="navbar-item is-active" href="./">Hub</a> -->
         </div>
 
         <div class="navbar-end">
@@ -324,42 +330,46 @@
         <script src="/static/js/main.js"></script>
         
       </div>
+
     <footer class="footer-links">
-      <nav class="level">
-        <div class="level-left">
-          <a class="navbar-item" href="{{site.info.base_url}}/cloud/changelog"
-            >Cloud Changelog</a
-          >
-          <a
-            class="navbar-item"
-            href="https://discord.gg/AAFNfS7NGf"
-            target="_blank"
-            >Discord</a
-          >
-          <a
-            class="navbar-item"
-            href="https://github.com/fermyon/developer"
-            target="_blank"
-            >GitHub</a
-          >
-          <a
-            class="navbar-item"
-            href="https://twitter.com/fermyontech"
-            target="_blank"
-            >Twitter</a
-          >
-        </div>
-        <div class="level-right">
-          <a
-            href="/cloud/deploy"
-            class="footer-logo cta-runs-on-fermyon"
-            ><img
-              src="/static/image/fermyon-badge.png"
-              alt="This website runs on Fermyon Cloud"
-          /></a>
-        </div>
-      </nav>
+      <div class="container">
+        <nav class="level">
+          <div class="level-left">
+            <a class="navbar-item" href="{{site.info.base_url}}/cloud/changelog"
+              >Cloud Changelog</a
+            >
+            <a
+              class="navbar-item"
+              href="https://discord.gg/AAFNfS7NGf"
+              target="_blank"
+              >Discord</a
+            >
+            <a
+              class="navbar-item"
+              href="https://github.com/fermyon/developer"
+              target="_blank"
+              >GitHub</a
+            >
+            <a
+              class="navbar-item"
+              href="https://twitter.com/fermyontech"
+              target="_blank"
+              >Twitter</a
+            >
+          </div>
+          <div class="level-right">
+            <a
+              href="/cloud/deploy"
+              class="footer-logo cta-runs-on-fermyon"
+              ><img
+                src="/static/image/fermyon-badge.png"
+                alt="This website runs on Fermyon Cloud"
+            /></a>
+          </div>
+        </nav>
+      </div>
     </footer>
+
     </main>
   </body>
 </html>

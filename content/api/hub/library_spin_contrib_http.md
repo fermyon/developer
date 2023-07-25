@@ -2,7 +2,7 @@ title = "Spin Contrib HTTP"
 template = "render_hub_content_body"
 date = "2022-10-15T00:22:56Z"
 content-type = "text/plain"
-tags = ["test", "rust"]
+tags = ["http", "rust"]
 
 [extra]
 author = "Thorsten Hans"
@@ -14,6 +14,7 @@ last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v1.4"
 summary = "This crate contains a bunch of helpers to build HTTP-based applications with Fermyon Spin."
 url = "https://github.com/ThorstenHans/spin-contrib-http"
+keywords = "http helpers, rust"
 
 ---
 
