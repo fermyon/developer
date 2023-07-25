@@ -41,7 +41,6 @@ NoOps SQL Database in Fermyon Cloud is currently in private beta. To request acc
 
 You can use the `spin cloud sqlite execute` command to create a table in your database. 
 
-
 Alternatively, you can use `execute` command in your application's source code as well. For example, in this routing function we use the Rust SDK to check if the table exists, and to create it if not:
 
 ```rust
