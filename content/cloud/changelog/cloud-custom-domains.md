@@ -15,6 +15,6 @@ Blog authors and website tinkerers can rest easy knowing that Fermyon Cloud now 
 
 References:
 
-- [Custom Domains Conceptual Documentation](custom-domains.md)
+- [Custom Domains Conceptual Documentation](/cloud/custom-domain)
 - [Custom Domains Tutorial](/cloud/custom-domains-tutorial)
 - [Fermyon Cloud Pricing](https://www.fermyon.com/pricing)
