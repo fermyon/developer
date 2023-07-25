@@ -1,4 +1,4 @@
-title = "NoOps SQL Database"
+title = "NoOps SQLite Database"
 template = "cloud_main"
 date = "2023-07-26T16:00:00Z"
 enable_shortcodes = false
