@@ -6,14 +6,24 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/sqlite-api-guide.md"
 
 ---
+- [Granting SQLite Database Permissions to Components](#granting-sqlite-database-permissions-to-components)
 - [Using SQLite Storage From Applications](#using-sqlite-storage-from-applications)
 - [Preparing an SQLite Database](#preparing-an-sqlite-database)
 - [Custom SQLite Databases](#custom-sqlite-databases)
-- [Granting SQLite Database Permissions to Components](#granting-sqlite-database-permissions-to-components)
+  - [Granting Access to Custom SQLite Databases](#granting-access-to-custom-sqlite-databases)
 
 Spin provides an interface for you to persist data in an SQLite database managed by Spin. This database allows Spin developers to persist relational data across application invocations.
 
 {{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the [MySQL or Postgres APIs](/spin/rdbms-storage). However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite database is a great option." }}
+
+## Granting SQLite Database Permissions to Components
+
+By default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
+
+```toml
+[component]
+sqlite_databases = ["default"]
+```
 
 ## Using SQLite Storage From Applications
 
@@ -24,7 +34,7 @@ The set of operations is common across all SDKs:
 | Operation  | Parameters | Returns | Behavior |
 |------------|------------|---------|----------|
 | `open`  | name | connection  | Open the database with the specified name. If `name` is the string "default", the default database is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](/spin/dynamic-configuration.md#sqlite-storage-runtime-configuration) supplied with the application.|
-| `execute` | connection, sql, parameters | database records | Executes the SQL statement and returns the results of the statement. SELECT statements typically return records or scalars. INSERT, UPDATE, and DELETE statements typically return empty result sets, but may return values in some cases. |
+| `execute` | connection, sql, parameters | database records | Executes the SQL statement and returns the results of the statement. SELECT statements typically return records or scalars. INSERT, UPDATE, and DELETE statements typically return empty result sets, but may return values in some cases. The `execute` operation recognizes the [SQLite dialect of SQL](https://www.sqlite.org/lang.html). |
 | `close` | connection | - | Close the specified `connection`. |
 
 The exact detail of calling these operations from your application depends on your language:
@@ -41,7 +51,7 @@ use serde::Serialize;
 use spin_sdk::{
     http::{Request, Response},
     http_component,
-    sqlite::{DataTypeParam, Error, Connection},
+    sqlite::{Connection, Error, ValueParam},
 };
 
 #[http_component]
@@ -62,13 +72,13 @@ fn handle_request(req: Request) -> Result<Response> {
         &[]
     )?;
 
-    let todos = rowset.rows().map(|row|
+    let todos: Vec<_> = rowset.rows().map(|row|
         ToDo {
             id: row.get::<u32>("id").unwrap(),
             description: row.get::<&str>("description").unwrap().to_owned(),
             due: row.get::<&str>("due").unwrap().to_owned(),
         }
-    );
+    ).collect();
 
     let body = serde_json::to_vec(&todos)?;
     Ok(http::Response::builder().status(200).body(Some(body.into()))?)
@@ -166,6 +176,8 @@ Or you can pass SQL statements directly on the command line as a (quoted) string
 spin up --sqlite "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT NOT NULL, due TEXT NOT NULL)"
 ```
 
+As with runtime operations, this flag uses the [SQLite dialect of SQL](https://www.sqlite.org/lang.html).
+
 You can provide the `--sqlite` flag more than once; Spin runs the statements (or files) in the order you provide them, and waits for each to complete before running the next.
 
 > It's also possible to create tables from your Wasm components using the usual `execute` function. That can end up mingling your "hot path" application logic with database maintenance code; decide which approach is best based on your application's needs.
@@ -174,16 +186,11 @@ You can provide the `--sqlite` flag more than once; Spin runs the statements (or
 
 Spin defines a database named `"default"` and provides automatic backing storage.  If you need to customize Spin with additional databases, or to change the backing storage for the default database, you can do so via the `--runtime-config-file` flag and the `runtime-config.toml` file.  See [SQLite Database Runtime Configuration](/spin/dynamic-configuration#sqlite-storage-runtime-configuration) for details.
 
-## Granting SQLite Database Permissions to Components
+### Granting Access to Custom SQLite Databases
 
-By default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
+As mentioned above, by default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest, using the `component.sqlite_databases` field in the manifest.
 
-```toml
-[component]
-sqlite_databases = ["default"]
-```
-
-Components can be given access to different databases:
+Components can be given access to different databases, and may be granted access to more than one database. For example:
 
 ```toml
 # c1 has no access to any databases
