@@ -37,9 +37,6 @@ export default {
 }
 
 @media screen and (max-width:1023px) {
-    .hub-wrapper {
-        flex-direction: column-reverse;
-    }
-}
 
+}
 </style>

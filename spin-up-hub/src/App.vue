@@ -242,5 +242,38 @@ html.dark-theme body.hub {
       }
     }
   }
+
+  .dark-theme {
+    .content-listing {
+
+      // fancy cards 
+      .columns > .column {
+        &:first-of-type,
+        &:nth-of-type(2) {
+          a.card {
+
+            .category {
+              background: white;
+              color: $bluedark;
+
+              svg {
+                fill: $bluedark;
+              }
+            }
+
+            article {
+              h3 {
+                color: $oxforddark;
+              }
+
+              .summary { 
+                color: $bluecallout;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 </style>

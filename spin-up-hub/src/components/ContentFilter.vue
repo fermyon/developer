@@ -44,14 +44,18 @@ export default {
         <a class="button is-primary is-rounded is-medium" href="/hub/contributing">Add New</a>
     </div>
         
-    <div class="filter-category">Resource Types:</div>
-    <div v-for="item in contentTypes" class="tag" v-bind:class="isActiveContentType(item)" @click="toggleContentFilter(item)">
-      <a>{{ item }}</a>
+    <div class="filter-group">
+      <div class="filter-category">Resource Types:</div>
+      <div v-for="item in contentTypes" class="tag" v-bind:class="isActiveContentType(item)" @click="toggleContentFilter(item)">
+        <a>{{ item }}</a>
+      </div>
     </div>
 
-    <div class="filter-category"> Languages:</div>
-    <div v-for="item in languages" class="tag" v-bind:class="isActiveLanguage(item)" @click="toggleLanguageFilter(item)">
-      <a>{{ item }}</a>
+    <div class="filter-group">
+      <div class="filter-category"> Languages:</div>
+      <div v-for="item in languages" class="tag" v-bind:class="isActiveLanguage(item)" @click="toggleLanguageFilter(item)">
+        <a>{{ item }}</a>
+      </div>
     </div>
     
   </div>
@@ -146,8 +150,49 @@ export default {
 
 @media screen and (max-width:1023px) {
 
+  .content-filters {
+    display: inline-flex;
+    .filter-category {
+      margin-top: 1rem;
+      width: 100%;
+      text-align: left;
+    }
+    .tag {
+      display: inline-flex;
+      flex-direction: row;
+
+      a {
+        display: inline-flex;
+        margin-right: 0.67rem;
+      }
+    }
+
+    .filter-group {
+      display: inline-block;
+      width: 40%;
+      order: 1;
+    }
+
+    .contribute {
+      order: 3;
+      display: flex;
+      width: 20%;
+      margin-right: 1.25rem;
+      padding-top: 2.5rem;
+    }
+  }
   .button {
     margin: 0.125rem auto;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .content-filters {
+    flex-direction: column;
+
+    .filter-group {
+      width: 100% !important;
+    }
   }
 }
 </style>
