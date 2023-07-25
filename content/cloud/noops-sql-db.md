@@ -33,7 +33,6 @@ NoOps SQL Database in Fermyon Cloud is currently in private beta. To request acc
 * Your NoOps SQL Database can hold up 1 GB of data
 
 *Service Limitations*
-* You must delete your Spin application before you can delete your NoOps SQL Database
 * The `--sqlite` flag not supported on `spin cloud deploy`
 * Fermyon Cloud only supports "default" NoOps SQL Databases at this time
 
@@ -41,7 +40,10 @@ NoOps SQL Database in Fermyon Cloud is currently in private beta. To request acc
 
 ### Prepare a NoOps SQL Database
 
-We recommend using the `execute` command in your application's source code to create a table. For example, in this routing function we use the Rust SDK to check if the table exists, and to create it if not:
+You can use the `spin cloud sqlite execute` command to create a table in your database. 
+
+
+Alternatively, you can use `execute` command in your application's source code as well. For example, in this routing function we use the Rust SDK to check if the table exists, and to create it if not:
 
 ```rust
 #[http_component]
@@ -57,6 +59,7 @@ fn handle_todo(req: Request) -> anyhow::Result<Response> {
 <...>
 }
 ```
+As pointed out in the [API guide](/spin/sqlite-api-guide.md), this strategy can end up mingling your “hot path” application logic with database maintenance code; decide which approach is best based on your application’s needs.
 
 ### Manage NoOps SQL Database Lifecycle
 
@@ -99,7 +102,10 @@ Lastly, after [deleting your Spin application](/cloud/delete.md) you can delete 
 
 ```bash
 $ spin cloud sqlite delete inspirational-pig
-inspirational-pig has been deleted
+The action is irreversible.
+Please type "strong-boson" for confirmation: strong-boson
+Deleting database ...
+Database "strong-boson" deleted
 ```
 
 > In the Private Beta, the database is inaccessible once the application has been deleted. However, we separate out the the database deletion step because we anticipate the database being accessible after deletion in a future beta. We enforce NoOps SQL Database deletion to prevent unintentional data sharing between Spin applications. 
