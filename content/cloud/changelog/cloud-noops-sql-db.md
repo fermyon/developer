@@ -18,5 +18,5 @@ References:
 
 - [NoOps SQL Database (Private Beta) Documentation](/cloud/cloud-noops-sql-db.md)
 - [NOOps SQL Database (Private Beta) Blog Post](LINK-TBD)
-- [Discord Channel](LINK-TBD)
+- [Discord Channel](https://www.fermyon.com/discord)
 - [Spin's SQLite Storage API](/spin/sqlite-api-guide.md)
