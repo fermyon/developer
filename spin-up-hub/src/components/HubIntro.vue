@@ -44,53 +44,76 @@ export default {
 
 <template>
   <div class="hub-intro">
-    <div class="search-box">
-      <div class="description">WELCOME TO THE SPIN UP HUB</div>
-      <input id="hub-search-input" class="search-input" v-model="searchTerm" @focus="loadSearchData" type="text"
-        placeholder="Explore the fermyverse">
-    </div>
-    <div class="contribute">
-      <a class="btn" href="/hub/contributing">Add Contribution</a>
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-three-fifths-desktop is-full-mobile">
+
+          <div class="search-box has-text-centered">
+            <h1 class="description">WELCOME TO THE <code><img src="/image/spin-vector.png" alt="Spin Icon">&nbsp;SPIN UP</code> EXAMPLE HUB</h1>
+            <input class="search-input" type="text" placeholder="Explore the fermyverse" />
+            <h2>Search for spin app templates, plugins and examples.</h2>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .hub-intro {
-  padding: 8rem 1rem 1rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 3.67rem;
 
   .search-box {
-    width: 60%;
-    max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 0.67rem;
     justify-content: center;
-    background: lighten($thistle, 5%);
-    padding: 1rem 0 3rem 0;
+    padding: .5rem 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid darken($lavendermid, 3.5%);
+    background: linear-gradient(180deg, darken($docsbg1, 2%) 0%, darken($docsbg1, 1%) 100%);
+    box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.05);
+    z-index: 600;
 
-    .description {
-      margin-top: 1rem;
+    h1.description {
+      font-family: $spaceGro;
+      color: $bluedark;
+      @include upperCase;
+      margin: 1.33rem 0 1rem;
+      font-weight: 500 !important;
       font-size: 1.25rem;
-      font-weight: 600;
-      padding: 1rem;
-      text-align: center;
-    }
 
+      code {
+        font-family: $mono;
+        color: $bluedark;
+        font-size: 1.25rem;
+        background: rgba($lavendermid, 0.35);
+        border-radius: 0.33em;
+        letter-spacing: 0.05rem;
+        font-weight: 400;
+      }
+    }
     .search-input {
       margin-top: 1rem;
       border: none;
-      padding: 1rem;
+      padding: 1rem 2rem;
       border-radius: 2rem;
       width: 80%;
-      background-color: $docsbg2;
+      border-radius: 3.75rem;
+      border: 1px solid rgba(137, 103, 194, 0.5);
+      color: $bluecallout;
+      font-size: 1rem;
+      font-family: $spaceGro;
+      background: linear-gradient(180deg, #F6F4FE 0%, #FBFBFC 100%);
     }
 
+    h2 {
+      margin: 1.333rem auto 1rem;
+      font-size: 1em;
+      color: rgba($darkblue, 0.8);
+    }
   }
 
   .contribute {
@@ -110,12 +133,31 @@ export default {
 }
 
 .dark-theme {
+
+  .hub-intro {
+    background: #0C0823;
+  }
   .search-box {
+    border-color:#384687;
     background: linear-gradient(105deg, rgba(154, 103, 194, 0.21) 0%, rgba(124, 109, 185, 0.21) 100%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
+    h1.description {
+      color: $thistle;
+      code {
+        background: rgba($lavenderdark, 0.1);
+        color: $thistle;
+      }
+    }
+
     .search-input {
-      background-color: darken($oxforddark, 2.5%);
+      border-radius: 3.75rem;
+      border: 1px solid #8967C2;
+      background: linear-gradient(180deg, #171135 0%, #0C0725 100%);
+    }
+
+    h2 {
+      color: rgba($thistle, 0.7);
     }
   }
 }

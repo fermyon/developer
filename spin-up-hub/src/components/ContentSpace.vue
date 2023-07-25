@@ -8,8 +8,12 @@ export default {
 
 <template>
     <div class="content-wrapper">
-        <ContentFilter />
-        <ContentListing />
+        <div class="container">
+            <div class="columns is-centered is-0 is-mobile is-multiline">
+                <ContentFilter />
+                <ContentListing />
+            </div>
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -17,19 +21,24 @@ export default {
     width: 100%;
     display: flex;
     flex-grow: 1;
-    background-color: darken($docsbg1, 2%);
+    border-top: 1px solid rgba($thistle, 1);
+    background: linear-gradient(180deg, darken($docsbg1, 1.5%) 0%, rgba($docsbg1, 0.1) 100%);
+    padding-top: 1.825rem;
+    padding-bottom: 5rem;
+    z-index: 500;
+    position: relative;
 }
 
 @media screen and (max-width:1023px) {
     .content-wrapper {
-        flex-direction: column;
-
+        
     }
 }
 
 .dark-theme {
- .content-wrapper {
-    background-color: $oxforddark;
- }
+    .content-wrapper {
+        border-color: darken($bluedark, 10%);
+        background: linear-gradient(180deg, rgba(230, 210, 241, 0.05) 0%, rgba(230, 210, 241, 0.00) 100%);
+    }
 }
 </style>

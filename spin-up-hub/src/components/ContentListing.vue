@@ -56,18 +56,21 @@ export default {
 </script>
 
 <template>
-    <transition-group name="card-list" tag="div" class="content-listing" appear>
-        <Card v-for="item in contentItmes" :item="item" v-bind:key="item.title"></Card>
+    <transition-group class="content-listing column is-four-fifths-desktop is-full-touch" name="card-list" tag="div" appear>
+        <div class="columns is-0 is-mobile is-multiline">
+            <Card v-for="item in contentItmes" :item="item" v-bind:key="item.title"></Card>
+        </div>
     </transition-group>
 </template>
+
 <style lang="scss" scoped>
 .content-listing {
     flex-grow: 1;
     min-height: 80%;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    padding: 1rem;
+    z-index: 550;
+    position: relative;
 }
 
 @media screen and (max-width:1023px) {
