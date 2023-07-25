@@ -19,7 +19,7 @@ export default {
         searchTerm() {
             return this.$store.state.searchTerm
         },
-        contentItmes() {
+        contentItems() {
             let data = this.$store.state.contentItems
             if (this.searchTerm) {
                 let updatedQuery = this.searchTerm
@@ -46,6 +46,9 @@ export default {
             if (langaugeFilterLength === 0) {
                 return data.filter(k => { return this.filteredContentTypes.includes(k.category) })
             }
+            console.log(data.filter(k => {
+                return this.filteredContentTypes.includes(k.category) && this.filteredLanguages.includes(k.language)
+            }))
             return data.filter(k => {
                 return this.filteredContentTypes.includes(k.category) && this.filteredLanguages.includes(k.language)
             })
@@ -58,7 +61,7 @@ export default {
 <template>
     <transition-group class="content-listing column is-four-fifths-desktop is-full-touch" name="card-list" tag="div" appear>
         <div class="columns is-0 is-mobile is-multiline">
-            <Card v-for="item in contentItmes" :item="item" v-bind:key="item.title"></Card>
+            <Card v-for="item in contentItems" :item="item" :key="item.title"></Card>
         </div>
     </transition-group>
 </template>
