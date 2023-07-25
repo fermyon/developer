@@ -7,23 +7,23 @@ tags = ["openai", "chatgpt", "api", "config", "ts", "typescript", "http"]
 [extra]
 author = "teknicus"
 type = "hub_document"
-category = "Template"
+category = "Sample"
 language = "TypeScript"
 created_at = "2023-07-24T02:00:00Z"
 last_updated = "2023-07-24T02:00:00Z"
 spin_version = ">v1.3"
-summary =  "A template to use the OpenAI Chat API with TypeScript"
+summary =  "A sample demonstrating how to use the OpenAI Chat API with TypeScript"
 url = "https://github.com/teknicus/spin-openaichat"
 
 ---
 
-# OpenAI Chat template for Spin
+# OpenAI Chat Sample for Spin
 
-This is a template to use the [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat/create) with TypeScript.
+This is a sample demonstrating to use the [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat/create) with TypeScript.
 
-The application exposes and endpoint to ask a question in the body of a POST request and get an answer in the response. Originally created for the [Spin Workshop](https://github.com/fermyon/workshops/blob/main/spin/02b-json-api-openai.md)
+The application exposes an endpoint to ask a question in the body of a POST request and get an answer in the response. Originally created for the [Spin Workshop](https://github.com/fermyon/workshops/blob/main/spin/02b-json-api-openai.md)
 
-## Pre-requisited
+## Pre-requisites
 - npm
 - spin (>1.3)
 
