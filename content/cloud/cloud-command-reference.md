@@ -13,6 +13,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud login](#spin-cloud-login)
 - [spin cloud sqlite](#spin-cloud-sqlite)
 - [spin cloud sqlite delete](#spin-cloud-sqlite-delete)
+- [spin cloud sqlite execute](#spin-cloud-sqlite-execute)
 - [spin cloud sqlite help](#spin-cloud-sqlite-help)
 - [spin cloud sqlite list](#spin-cloud-sqlite-list)
 - [spin cloud variables](#spin-cloud-variables)
@@ -56,6 +57,14 @@ SUBCOMMANDS:
     login        Login to Fermyon Cloud
     variables    Manage Spin application variables
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -122,6 +131,14 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -151,6 +168,14 @@ SUBCOMMANDS:
     login        Login to Fermyon Cloud
     variables    Manage Spin application variables
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -208,6 +233,14 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -215,15 +248,16 @@ OPTIONS:
 
 {{ tabs "cloud-plugin-version" }}
 
-{{ startTab "v0.1.1"}}
+{{ startTab "v0.1.2"}}
 
 Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
-```console
-$ spin cloud sqlite --help 
 
-cloud-sqlite 0.1.1 
+```console
+$ spin cloud sqlite --help
+
+cloud-sqlite 0.1.2
 Manage Fermyon Cloud SQLite databases
 
 USAGE:
@@ -234,29 +268,31 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete    Delete a SQLite database
-    help      Print this message or the help of the given subcommand(s)
-    list      List all SQLite databases of a user
+    delete     Delete a SQLite database
+    execute    Execute SQL against a SQLite database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all SQLite databases of a user
 ```
 
 {{ blockEnd }}
 
-{{ blockEnd }} 
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud sqlite delete
 
 {{ tabs "cloud-plugin-version" }}
 
-{{ startTab "v0.1.1"}}
+{{ startTab "v0.1.2"}}
 
 Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
+
 ```console
 $ spin cloud sqlite delete --help
 
-cloud-sqlite-delete 0.1.1 
+cloud-sqlite-delete 0.1.2
 Delete a SQLite database
 
 USAGE:
@@ -282,22 +318,63 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ blockEnd }} 
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
-## spin cloud sqlite help 
+## spin cloud sqlite execute
 
 {{ tabs "cloud-plugin-version" }}
 
-{{ startTab "v0.1.1"}}
+{{ startTab "v0.1.2"}}
 
 Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
-```console
-$ spin cloud sqlite help     
 
-cloud-sqlite 0.1.1 
+```console
+$ spin cloud sqlite execute --help
+
+cloud-sqlite-execute 0.1.2
+Execute SQL against a SQLite database
+
+USAGE:
+    spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
+
+ARGS:
+    <NAME>         Name of database to execute against
+    <STATEMENT>    Statement to execute
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud sqlite help
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin cloud sqlite help    
+
+cloud-sqlite 0.1.2
 Manage Fermyon Cloud SQLite databases
 
 USAGE:
@@ -308,29 +385,31 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete    Delete a SQLite database
-    help      Print this message or the help of the given subcommand(s)
-    list      List all SQLite databases of a user
+    delete     Delete a SQLite database
+    execute    Execute SQL against a SQLite database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all SQLite databases of a user
 ```
 
 {{ blockEnd }}
 
-{{ blockEnd }} 
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud sqlite list
 
 {{ tabs "cloud-plugin-version" }}
 
-{{ startTab "v0.1.1"}}
+{{ startTab "v0.1.2"}}
 
 Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
+
 ```console
 $ spin cloud sqlite list --help
 
-cloud-sqlite-list 0.1.1 
+cloud-sqlite-list 0.1.2
 List all SQLite databases of a user
 
 USAGE:
@@ -350,7 +429,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ blockEnd }} 
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud variables
@@ -381,6 +460,14 @@ SUBCOMMANDS:
     list      List all variables of an application
     set       Set variable pairs
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -425,6 +512,14 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -457,6 +552,14 @@ SUBCOMMANDS:
     list      List all variables of an application
     set       Set variables
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -495,6 +598,14 @@ OPTIONS:
     -V, --version
             Print version information
 ```
+
+{{ blockEnd }}
+
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -539,6 +650,14 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ## Subcommand Stability Table
@@ -561,6 +680,19 @@ Spin compatibility: `>= v1.3`
 | <code>cloud deploy</code>                                  | Stabilizing |
 | <code>cloud login</code>                                   | Stabilizing |
 | <code>cloud variables</code>                               | Stabilizing |
+
+{{ blockEnd }}
+
+{{ startTab "v0.1.2"}}
+
+Spin compatibility: `>= v1.3`
+
+| Command                                                    | Stability   |
+| ---------------------------------------------------------- | ----------- |
+| <code>cloud deploy</code>                                  |             |
+| <code>cloud login</code>                                   |             |
+| <code>cloud sqlite</code>                                  |             |
+| <code>cloud variables</code>                               |             |
 
 {{ blockEnd }}
 
