@@ -58,8 +58,10 @@ export default {
               </code>
                EXAMPLE HUB
             </h1>
-            <input class="search-input" type="text" placeholder="Explore the fermyverse" />
-            <h2>Search for Spin app templates, plugins and examples.</h2>
+            
+            <div class="search-wrap">
+              <input class="search-input" type="text" placeholder="Search for Spin app templates, plugins and examples" /><span class="search-icon"></span>
+            </div>
           </div>
 
         </div>
@@ -78,7 +80,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: .5rem 2rem;
+    padding: .5rem 2rem 2.5rem;
     border-radius: 1.5rem;
     border: 1px solid darken($lavendermid, 3.5%);
     background: linear-gradient(180deg, darken($docsbg1, 2%) 0%, darken($docsbg1, 1%) 100%);
@@ -90,7 +92,7 @@ export default {
       color: lighten($bluedark, 5%);
       @include upperCase;
       margin: 1.33rem 0 1rem;
-      font-weight: 500 !important;
+      font-weight: 400 !important;
       font-size: 1.25rem;
 
       code {
@@ -114,22 +116,44 @@ export default {
           position: absolute;
           top: 0.125rem;
           left: 0rem;
-          // margin-top: 2.25rem;
         }
       }
     }
-    .search-input {
-      margin-top: 1rem;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 2rem;
-      width: 80%;
-      border-radius: 3.75rem;
-      border: 1px solid rgba(137, 103, 194, 0.5);
-      color: $bluecallout;
-      font-size: 1rem;
-      font-family: $spaceGro;
-      background: linear-gradient(180deg, #F6F4FE 0%, #FBFBFC 100%);
+
+    .search-wrap {
+      width: auto;
+      min-width: 88%;
+      position: relative;
+
+      .search-input {
+        margin-top: 1rem;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        width: 100%;
+        border-radius: 3.75rem;
+        border: 1px solid rgba(137, 103, 194, 0.5);
+        color: darken($lavenderdark, 12.5%);
+        font-size: 1rem;
+        font-family: $spaceGro;
+        background: linear-gradient(180deg, #F6F4FE 0%, #FBFBFC 100%);
+        text-align: left;
+
+        &::placeholder {
+          color: darken($lavenderdark, 12.5%);
+        }
+      }
+
+      .search-icon {
+        background: url(../static/image/icon-search.svg) no-repeat 0 0;
+        position: absolute;
+        right: 1.5rem;
+        top: 2.25rem;
+        width: 1rem;
+        height: 1rem;
+        content: " ";
+        display: inline-block;
+      }
     }
 
     h2 {
@@ -163,7 +187,6 @@ export default {
 }
 
 .dark-theme {
-
   .hub-intro {
     background: #0C0823;
   }
@@ -171,6 +194,7 @@ export default {
     border-color:#384687;
     background: linear-gradient(105deg, rgba(154, 103, 194, 0.21) 0%, rgba(124, 109, 185, 0.21) 100%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    
 
     h1.description {
       color: $thistle;
@@ -185,14 +209,20 @@ export default {
       }
     }
 
-    input.search-input {
-      border-radius: 3.75rem;
-      border: 1px solid #8967C2;
-      background: linear-gradient(180deg, #171135 0%, #0C0725 100%);
-      color: $thistle;
+    .search-wrap {
+      input.search-input {
+        border-radius: 3.75rem;
+        border: 1px solid #8967C2;
+        background: linear-gradient(180deg, #171135 0%, #0C0725 100%);
+        color: white;
 
-      &::placeholder {
-        color: rgba($thistle, 0.85);
+        &::placeholder {
+          color: white;
+        }
+      }
+
+      .search-icon {
+        background: url(../static/image/icon-search-dark.svg) no-repeat 0 0;
       }
     }
 
