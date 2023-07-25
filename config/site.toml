@@ -9,6 +9,6 @@ github = "https://github.com/fermyon/developer"
 twitter = "https://twitter.com/fermyontech"
 
 # Static assets that we need to provide
-favicon = "/static/image/favicon.png"
+favicon = "/static/image/icon/favicon.png"
 twitter_card_type = "summary"
 twitter_card = "/static/image/twitter_card_summary.png"

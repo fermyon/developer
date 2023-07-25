@@ -72,6 +72,12 @@ Azure AKS provides a straightforward and officially [documented](https://learn.m
 - The WASM/WASI node pools can't be used for system node pool.
 - The *os-type* for WASM/WASI node pools must be Linux.
 - You can't use the Azure portal to create WASM/WASI node pools.
+- AKS uses an older version of Spin for the shim, so you will need to change `spin_manifest_version` to `spin_version` in `spin.toml` if you are using a template-generated project from the Spin CLI
+- The RuntimeClass `wasmtime-spin-v0-5-1` on Azure maps to spin v1.0.0, and the `wasmtime-spin-v1` RuntimeClass uses an older shim corresponding to v0.3.0 spin.
+
+#### Note for Rust
+
+In Cargo.toml, the `spin-sdk` dependency should be downgraded to `v1.0.0-rc.1` in order to match the lower version running on the AKS shim
 
 ### Setup
 
@@ -257,7 +263,7 @@ Deis Labs provides a preconfigured K3d environment that can be run using this co
 <!-- @selectiveCpy -->
 
 ```console
-$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.3.3 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
+$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.8.0 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
 ```
 
 Create a file wasm-runtimeclass.yml and populate with the following information

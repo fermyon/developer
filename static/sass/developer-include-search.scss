@@ -14,47 +14,57 @@
 .search-button-container {
 	display: inline-block;
 	position: absolute;
-	width: 105%;
+	width: 100%;
 	display: block;
 	top: 0;
-	left: -1.333vw;
+	left: 2px;
 	bottom: 0;
-	right: -5vw;
+	right: 0;
 	z-index: 11;
-
-	
 }
 
 .search-button {
 	border: none !important;
-	padding: 0.8rem 30.5rem 0.8rem 0.8rem;
+	padding: 0.8rem 25rem 0.8rem 0.8rem;
 	z-index: 19;
 	cursor: text;
 	display: block;
 	width: 100%;
-	height: 5.5rem;
+	height: 4.333rem;
 	background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%);
 	text-align: right;
 	position: relative;
 	@include transition;
 
+	&:before {
+		height: 2rem;
+		width: 1px;
+		background: $lavendermid;
+		right: 30.5rem;
+		top: 1rem;
+		display: block;
+		content: " ";
+		position: absolute;
+	}
+
 	&:after {
 		background: url('../image/search.svg') no-repeat 0 0;
+		background-size: cover;
 		display: inline-block;
 		position: absolute;
 		z-index: -1;
-		height: 2rem;
-		width: 2rem;
+		height: 1.35rem;
+		width: 1.35rem;
 		content: " ";
-		top: 2rem;
-		right: 28.75rem;
+		top: 1.33rem;
+		right: 31.35rem;
 	}
 
 	.search-command {
 		opacity: 0;
 		position: absolute;
-		top: 3rem;
-		right: 32rem;
+		top: 2.35rem;
+		right: 34rem;
 		@include transition;
 	}
 
@@ -68,8 +78,8 @@
 		display: inline-block;
 		@include transition;
 		position: absolute;
-		right: 37.5rem;
-		top: 2.25rem;
+		right: 43.33rem;
+		top: 1.5rem;
 		text-align: left;
 	}
 
@@ -98,7 +108,7 @@
 }
 
 .search-command {
-	background-color: $lightlavender;
+	background-color: white;
 	color: #345995;
 	padding: 0.333em 0.5em 0.333em;
 	display: inline-block;
@@ -372,11 +382,13 @@
 html.dark-theme {
 
     #topbar.navbar .search-button:hover {
-		background: linear-gradient(180deg, rgba(33, 55, 98,0) 0%, rgba(33, 55, 98,0.5) 100%);
+		background: linear-gradient(180deg, rgba(33, 55, 98,0) 0%, rgba(33, 55, 98,0.25) 100%);
 	}
 
-	.search-button-container:after {
-		background: url('../image/search-white.svg') no-repeat 0 0 !important;
+	.search-button-container {
+		&:after {
+			background: url('../image/search-white.svg') no-repeat 0 0 !important;
+		}
 	}
 
 	.search-button .search-placeholder {
@@ -386,10 +398,14 @@ html.dark-theme {
     .search-button {
         color: white;
         border: none !important;
+
+		&::before {
+			background: rgba($thistle, 0.2) !important;
+		}
     }
 
     .search-command {
-        background-color: $darkspace;
+        background-color: rgba($darkspace, 0.5);
         color: $lightlavender;
     }
 

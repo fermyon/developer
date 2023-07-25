@@ -1,0 +1,476 @@
+// dark mode is activated via the class html.dark-theme
+
+html.dark-theme {
+
+    &:root {
+        color-scheme: dark;
+    }
+
+    body.documentation {
+        background: $oxforddark !important;
+
+        main {
+            position: relative;
+
+            &:after {
+                border-radius: 68.4375rem;
+                background: rgba(230, 210, 241, 0.20);
+                filter: blur(260px);
+                position: fixed;
+                right: -34rem;
+                bottom: -32rem; 
+                z-index: 0;
+                content: " ";
+                display: block;
+                width: 68.4375rem;
+                height: 68.4375rem;
+                opacity: 0.2;
+            }
+        }
+
+        #topbar.navbar {
+            border-bottom: 1px solid $bluedark;
+            background: $oxforddark !important;
+
+            .logo-wrap {
+                .logo-developer a {
+                    color: $greenfoam !important;
+                }
+
+                &::after {
+                    background-color: $bluedark;
+                }
+            }
+
+            .navbar-menu {
+
+                a.navbar-item {
+                    color: white;
+        
+                    &:hover {
+                        background: rgba(124, 109, 185, 0.5) !important;
+                    }
+                }
+
+                a.navbar-link {
+                    color: white !important;
+
+                    &:not(.is-arrowless)::after {
+                        border-color: rgba(255,255,255,0.33);
+                    }
+
+                    &.is-active {
+                        color: white !important;
+                        background: rgba(124, 109, 185, 0.425) !important;
+                    }
+
+                    &:hover {
+                        background: rgba(124, 109, 185, 0.5) !important;
+                    }
+
+                    &.dark-mode {
+                        &:hover {
+                            background: none transparent !important;
+                        }
+                    } 
+                }
+
+                .button {
+                    color: white !important;
+                    border-width: 0.1rem !important;
+
+                    &.is-primary {
+                        color: $oxfordblue !important;
+                        border: none !important;
+        
+                        &:hover {
+                            color: white !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu-wrap {
+            border-right: 1px solid #384687;
+            background: linear-gradient(47deg, rgba($oxforddark, 0.14) 0%, rgba(124, 109, 185, 0.12) 100%);
+        }
+
+        aside.menu {
+
+            a {
+                color: $lightlavender;
+
+                &.active {
+                    color: $seagreen;
+                    background-color: $darkspace;
+                }
+            }
+
+            .accordion-tabs {
+                .accordion-menu-item .accordion-menu-item-content.stay-open li a,
+                .accordion-menu-item input:checked ~ .accordion-menu-item-content li a {
+                    color: white !important; 
+
+                    &:before {
+                        background: $lavenderdark;
+                        opacity: 0.25;
+                    }
+
+                    &.active,
+                    &:hover {
+                        &:before {
+                            // background: $lavenderdark;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .menu-label {
+                color: $lightlavender !important;
+
+                &.stay-open {
+                    &:after {
+                        opacity: 0.5;
+                    }
+                }
+            }
+            
+            .button-wrap {
+                background: #120C32 !important;
+                border-top: 1px solid rgba($bluedark, 0.1) !important;
+                border-right: 1px solid $bluedark;
+
+                a.button {
+                    &.is-primary {
+                        color: $seagreen !important;
+                    }
+
+                    &.is-secondary {
+                        background: #384687;
+                        color: $thistle !important;
+                    }
+                }
+            }
+
+            .accordion-tabs {
+                
+                .menu-label {
+                    color: $lavendermid !important;
+
+                    &:hover {
+                        color: $thistle !important;
+                        background-color: rgba($oxforddark, 0.67);
+                    }
+                }
+
+                .accordion-menu-item-content.stay-open,
+                input:checked~.accordion-menu-item-content {
+                    &:hover,
+                    &.active,
+                    .is-active {
+                        &:before {
+                            background: darken($lavenderdark, 20%);
+                        }
+                    }
+                }
+            }
+        }
+
+        footer.footer-links {
+            border-top: 1px solid rgba($lavenderlight, 0.125) !important;
+        }
+
+        .content {
+
+            a {
+                color: lighten($lavenderfloral, 12.5%)
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            li,
+            th,
+            td,
+            dd {
+                code {
+                    background: rgba($lavenderdark, 0.2);
+                }
+            }
+
+            pre {
+                margin: 1.67rem 0 2.33rem;
+
+                code {
+                    background: darken($oxforddark, 2.5%) !important;
+                    background: linear-gradient(52deg, lighten($oxforddark, 4.25%) 0%, desaturate(lighten($oxforddark, 6.25%), 22.5%) 100%)  !important;
+                }
+            }
+
+            table {
+                th {
+                    background-color: #0a1931;
+                    border-bottom: 1px solid #0d203f;
+                    color: #fff;
+                }
+
+                td {
+                    border-bottom-color: #0d203f;
+                }
+
+                code {
+                    background-color: rgba($oxfordblue, 0.5);
+                }
+            }
+
+            details {
+                background: #1b2c4f;
+                border-left: 4px solid #243c6c;
+
+                .summary-content {
+                    border-top: 1px solid #243c6c;
+                }
+
+                .summary-chevron-up,
+                .summary-chevron-down {
+                    background: #1b2c4f;
+                }
+            }
+
+            blockquote p {
+                background: lighten($oxforddark, 4.25%);
+                border-color: rgba($lavenderdark, 0.25) !important;
+                color: $thistle !important;
+            }
+
+            .note {
+                background: lighten($oxforddark, 4.25%);
+                color: white;
+
+                h4 {
+                    color: $lightlavender;
+                    font-family: $spaceGro;
+                }
+
+                .button {
+                    background-color: transparent;
+                    color: $seagreen;
+                }
+            }
+
+            .multitab-content {
+                background: none transparent !important;
+                border: 1px solid rgba($vistablue, 0.25);
+            }
+
+            .tabs {
+
+                &.is-boxed {
+                    a {
+                        color: lighten($lavender, 2.5%);
+                        background-color: transparent;
+                        position: relative;
+
+                        &:hover {
+                            color: $lightlemon;
+                            background: none transparent !important;
+                            border-bottom: 1px solid rgba($vistablue, 0.25);;
+                        }
+
+                        &.is-active {
+                            color: $lavender;
+                            background: $oxforddark !important;
+                            border: 1px solid rgba($vistablue, 0.25);
+                            border-bottom: none;
+                            line-height: 1.285;
+
+                            &:hover {
+                                background: $oxforddark !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            a.anchor-link {
+                &:hover {
+                    background: transparent !important;
+                }
+            }
+
+            a.anchor-link {
+                fill: #fff;
+            }
+
+            blockquote p {
+                background: lighten($oxforddark, 7.5%);
+            }
+        }
+    }
+
+    .dropdown-content {
+        a {
+            color: #34e8bd;
+        }
+    }
+
+    .multitab-content {
+        background-color: $oxfordblue;
+    }
+
+    .content {
+		section {
+			h1:first-of-type+ul {
+                background: lighten($oxforddark, 7.5%) !important;
+
+                &:before {
+                    color: $lavenderlight;
+                }
+
+                li {
+                    a {
+                        display: inline-block;
+                        color: $thistle !important;
+                    }
+                }
+
+                &:hover {
+                    li a {
+                        &:hover {
+                            background: rgba($oxforddark, 0.8) !important;
+                            color: white;
+                        }
+                    }
+                }
+            }
+		}
+	}
+
+	.search-button {
+		border: 1px solid #a8a8a8;
+		color: white;
+	}
+
+	#topbar.navbar {
+
+		.is-hoverable {
+			.navbar-dropdown {
+                background: #3D3368 !important;
+
+				.navbar-item {
+					.project-content {
+						.title {
+							color: $midgreen;
+						}
+
+						.description {
+							color: $lightplum !important;
+						}
+					}
+				}
+
+			}
+
+
+		}
+
+		.logo-wrap {
+			.logo-project a {
+				color: $lightplum;
+			}
+		}
+
+		.navbar-menu {
+			a.navbar-item {
+
+				span {
+					background: darken($oxfordblue, 3.5%);
+				}
+
+				&.is-active {
+					span {
+						background: $darkspace;
+					}
+				}
+			}
+		}
+	}
+
+	.developer-home-wrap {
+
+		#intro {
+			h1 {
+				color: white;
+			}
+
+			p.lead {
+				color: $thistle;
+			}
+		}
+
+		h2,
+		h3 {
+			color: white !important;
+		}
+
+		.card.project {
+			background: linear-gradient(47deg, rgba(124, 109, 185, 0.12)  0%, rgba(124, 109, 185, 0.17) 100%);
+			outline: none;
+
+			&:hover .card-image.dark {
+				background: rgba(124, 109, 185, 0.07);
+			}
+
+			.card-image.dark {
+				display: block;
+			}
+
+			.card-image.light {
+				display: none;
+			}
+
+			figure.image {
+				border-bottom: none;
+			}
+
+			h3 span {
+				color: white !important;
+			}
+
+			p {
+				color: $lightplum !important;                
+			}
+
+			.button,
+			.button strong {
+				color: $oxfordblue !important;
+			}
+		}
+
+		.flickity-button {
+			background: $darkplum;
+
+			&:hover {
+				background: $darkspace;
+			}
+		}
+
+		ul.connect-links li a {
+			color: $seagreen;
+		}
+
+		.external {
+			background: url('../image/arrowexternal-dark.svg') no-repeat 0 0;
+		}
+
+        .community-highlight {
+            background-color: rgba(124, 109, 185, 0.2);
+        }
+	}
+}

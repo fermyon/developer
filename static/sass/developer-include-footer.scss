@@ -1,0 +1,25 @@
+footer.footer-links {
+    min-height: auto;
+    z-index: 1400;
+    background: transparent !important;
+    border-top: 1px solid rgba($lavendermid, 0.67) !important;
+    margin: 7.25rem auto 0 !important;
+    padding: 1.25rem 0 1.25rem !important;
+
+    a.navbar-item {
+        font-size: 1rem;
+        margin-right: 2.5vw;
+        padding: 0.5rem 0.25rem;
+    }
+
+    .footer-logo {
+        max-width: 11.5rem;
+
+        &:hover {
+            background-color: transparent;
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
