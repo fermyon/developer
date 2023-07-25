@@ -122,4 +122,4 @@ No, at this time you cannot access the database. You will need to delete the ins
 
 ## Next Steps
 
-* For support or feature feedback, please join our [Discord channel #noops-sql-db-private-beta](LINK-TBD). This is where you can provide feedback and ask for assistance from the Fermyon Cloud team on all things NoOps SQL Database. 
+* For support or feature feedback, please join our [Discord channel #noops-sql-db-private-beta](https://www.fermyon.com/discord). This is where you can provide feedback and ask for assistance from the Fermyon Cloud team on all things NoOps SQL Database. 
