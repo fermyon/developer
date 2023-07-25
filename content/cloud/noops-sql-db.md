@@ -58,6 +58,7 @@ fn handle_todo(req: Request) -> anyhow::Result<Response> {
 <...>
 }
 ```
+
 As pointed out in the [API guide](/spin/sqlite-api-guide.md), this strategy can end up mingling your “hot path” application logic with database maintenance code; decide which approach is best based on your application’s needs.
 
 ### Manage NoOps SQL Database Lifecycle
