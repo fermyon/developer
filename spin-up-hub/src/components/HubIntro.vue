@@ -128,7 +128,7 @@ export default {
       .search-input {
         margin-top: 1rem;
         border: none;
-        padding: 1rem 2rem;
+        padding: 1rem 4rem 1rem 2rem;
         border-radius: 2rem;
         width: 100%;
         border-radius: 3.75rem;
@@ -138,6 +138,9 @@ export default {
         font-family: $spaceGro;
         background: linear-gradient(180deg, #F6F4FE 0%, #FBFBFC 100%);
         text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &::placeholder {
           color: darken($lavenderdark, 12.5%);

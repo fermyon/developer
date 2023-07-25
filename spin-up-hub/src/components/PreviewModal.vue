@@ -354,7 +354,7 @@ export default {
                 height: 90vh !important;
                 width: 96vw !important;
                 max-width: $modalMaxTablet;
-                margin-top: 12.25rem !important;
+                margin-top: 20rem !important;
                 margin-bottom: 10rem !important;
 
                 .content-area {
@@ -416,7 +416,7 @@ export default {
 
         .preview-wrapper .preview-modal.content {
             max-width: $modalMaxMobile;
-            margin-top: 16rem !important;
+            margin-top: 22rem !important;
             margin-bottom: 12rem !important;
 
             .content-area {
