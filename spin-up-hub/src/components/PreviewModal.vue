@@ -116,7 +116,7 @@ export default {
     z-index: 1001;
     height: 100%;
     width: 100%;
-    overflow-y: scroll;
+    overflow: hidden;
     box-shadow: 0px 14px 64px 0px rgba(0, 0, 0, 0.33);
 
     .preview-overlay {
@@ -124,6 +124,8 @@ export default {
         height: 100%;
         width: 100%;
         top: 0;
+        bottom: 0;
+        right: 0;
         left: 0;
         backdrop-filter: blur(6px) brightness(25%);
         background: rgba(darken($docsbg1, 3%), 0.70);
@@ -346,14 +348,14 @@ export default {
         $modalMaxTablet: 620px;
 
         .preview-wrapper {
-            padding-top: 10.5rem;
-            padding-bottom: 2rem !important;
             
             .preview-modal.content {
                 z-index: 1002;
                 height: 90vh !important;
                 width: 96vw !important;
                 max-width: $modalMaxTablet;
+                margin-top: 12.25rem !important;
+                margin-bottom: 10rem !important;
 
                 .content-area {
                     flex-direction: column-reverse;
@@ -414,6 +416,8 @@ export default {
 
         .preview-wrapper .preview-modal.content {
             max-width: $modalMaxMobile;
+            margin-top: 16rem !important;
+            margin-bottom: 12rem !important;
 
             .content-area {
 
