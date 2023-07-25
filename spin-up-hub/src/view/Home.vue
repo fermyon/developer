@@ -1,10 +1,10 @@
 <script>
-import TopBar from '../components/TopBar.vue'
+import HubIntro from '../components/HubIntro.vue'
 import ContentSpace from '../components/ContentSpace.vue'
 import PreviewModal from '../components/PreviewModal.vue'
 
 export default {
-  components: { TopBar, ContentSpace, PreviewModal },
+  components: { HubIntro, ContentSpace, PreviewModal },
   async mounted() {
     if (this.$route.name == "Preview") {
       this.$store.commit("openPreview", this.$route.params.id)
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <TopBar />
+  <HubIntro />
   <ContentSpace />
   <PreviewModal />
 </template>

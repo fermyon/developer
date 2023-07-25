@@ -23,11 +23,13 @@ export default {
 </script>
 
 <template>
-    <div class="columns">
-        <article class="column content content-docs content-docs-wide">
-            <section class="type" v-html='this.contributionGuide'>
-            </section>
-        </article>
+    <div class="container">
+        <div class="columns">
+            <article class="column content content-docs content-docs-wide">
+                <section class="type" v-html='this.contributionGuide'>
+                </section>
+            </article>
+        </div>
     </div>
 </template>
 
