@@ -1,0 +1,22 @@
+title = "Rust Redis trigger template"
+template = "render_hub_content_body"
+date = "2022-10-15T00:22:56Z"
+content-type = "text/html"
+tags = ["rust", "redis"]
+
+[extra]
+author = "fermyon"
+type = "hub_document"
+category = "Template"
+language = "Rust"
+created_at = "2022-10-15T00:22:56Z"
+last_updated = "2022-10-15T00:22:56Z"
+spin_version = ">v0.2"
+summary =  "A template to create a Redis pub-sub handler in Rust"
+url = "https://github.com/fermyon/spin/tree/main/templates/redis-rust"
+
+---
+
+This is the default Redis pub-sub trigger template for Rust. It installs by default with the [Spin install script](https://developer.fermyon.com/spin/install#installing-spin).
+
+This guide walks you through how to use it: [Redis Components](https://developer.fermyon.com/spin/rust-components#redis-components)
