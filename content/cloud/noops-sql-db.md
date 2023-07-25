@@ -25,6 +25,8 @@ NoOps SQL Database in Fermyon Cloud is currently in private beta. To request acc
  
 > Please note that the private beta is limited in space and all requests cannot be guaranteed. 
 
+Once you have access to the private beta, please ensure you have [Spin CLI](./cli-reference.md) v1.4 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) vX.Y or greater installed. 
+
 ## Quotas And Service Limitations For NoOps SQL Database in Fermyon Cloud
 
 *Quotas* 
@@ -39,26 +41,13 @@ NoOps SQL Database in Fermyon Cloud is currently in private beta. To request acc
 
 ### Prepare a NoOps SQL Database
 
-You can use the `spin cloud sqlite execute` command to create a table in your database. 
+You can use the `spin cloud sqlite execute` command to check if a table needs to be created, and if so create one: 
 
-Alternatively, you can use `execute` command in your application's source code as well. For example, in this routing function we use the Rust SDK to check if the table exists, and to create it if not:
-
-```rust
-#[http_component]
-fn handle_todo(req: Request) -> anyhow::Result<Response> {
-    let connection = Connection::open_default()?;
-	connection.execute("CREATE TABLE IF NOT EXISTS todos (
-			id INTEGER PRIMARY KEY AUTOINCREMENT,
-			description TEXT NOT NULL,
-			due_date DATE,
-			starred BOOLEAN DEFAULT 0,
-			is_completed BOOLEAN DEFAULT 0
-			);", &[])?;
-<...>
-}
+```bash
+$ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
 ```
 
-As pointed out in the [API guide](/spin/sqlite-api-guide.md), this strategy can end up mingling your “hot path” application logic with database maintenance code; decide which approach is best based on your application’s needs.
+>> If you need to look up the name of your database, use the `spin cloud sqlite list` command
 
 ### Manage NoOps SQL Database Lifecycle
 
