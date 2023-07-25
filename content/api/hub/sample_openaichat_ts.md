@@ -18,8 +18,6 @@ keywords = "config, api, AI, chatgpt, ts, http"
 
 ---
 
-# OpenAI Chat Sample for Spin
-
 This is a sample demonstrating to use the [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat/create) with TypeScript.
 
 The application exposes an endpoint to ask a question in the body of a POST request and get an answer in the response. Originally created for the [Spin Workshop](https://github.com/fermyon/workshops/blob/main/spin/02b-json-api-openai.md)

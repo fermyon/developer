@@ -158,16 +158,21 @@ export default {
             background-color: $docsbg1;
             display: flex;
             height: 3.5rem;
-            justify-content: flex-end;
+            justify-content: space-between;
             border-radius: 0.67rem 0.67rem 0 0;
             border-bottom: 1px solid $lavendermid;
             position: relative;
+            align-items: center;
+            padding: 0.5rem;
+            z-index: 100;
 
             span {
-                position: absolute;
-                top: 1.2rem;
                 cursor: pointer;
-
+                padding: 0.5rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 &.icon-back {
                     left: 1.25rem;
                 }
