@@ -244,16 +244,22 @@ export default {
             }
 
             .metadata-space {
-                padding-top: 1rem;
-                padding-bottom: 4rem;
                 position: relative;
+                height: calc(70vh - 3.5rem);
+                margin-top: 0.75rem;
+                width: calc($modalMax/3.03);
+                display: block;
 
                 .metadata-wrap {
                     position: fixed;
                     left: 50%;
                     margin-left: calc($modalMax/6);
                     display: inline-block;
+                    height: calc(70vh - 4.3rem);
                     width: calc($modalMax/3);
+                    overflow: hidden;
+                    overflow-y: scroll;
+                    padding-bottom: 2rem;
                 }
 
                 a {
@@ -263,7 +269,7 @@ export default {
 
                     &.button {
                         width: auto !important;
-                        margin: 2rem !important;
+                        margin: 3rem 2rem 2rem 2rem !important;
                         border-radius: 2rem;
                     }
                 }
@@ -280,7 +286,6 @@ export default {
                     .value {
                         font-size: 1rem;
                         word-wrap: break-word;
-                        display: inline-flexbox;
                         align-items: center;
                         margin-right: 2rem;
                         line-height: 1.3;
@@ -308,6 +313,35 @@ export default {
                                 margin-right: 0.5rem;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px) and (max-width:1220px) {
+    $modalMaxDesktop: 1020px;
+
+    .preview-wrapper {
+            
+        .preview-modal.content {
+            max-width: $modalMaxDesktop;
+
+            .content-area {
+                .main-content {
+                    .main-content-wrap {
+                        max-width: $modalMaxDesktop;
+                    }
+                }
+                .metadata-space {
+                    .metadata-wrap {
+                        max-width: calc($modalMaxDesktop / 3) !important;
+                        margin-left: calc($modalMaxDesktop / 6);
+                    }
+
+                    a.button {
+                        width: calc($modalMaxDesktop / 4) !important;
                     }
                 }
             }
@@ -390,6 +424,7 @@ export default {
                     }
 
                     .metadata-space {
+                        
                         .metadata-wrap {
                             position: relative;
                             left: auto;
@@ -420,6 +455,10 @@ export default {
             margin-bottom: 12rem !important;
 
             .content-area {
+                .title {
+                    font-size: 1.67rem;
+                    margin: 0 0 1rem;
+                }
 
                 a.button {
                     margin: 2rem 0 !important;
