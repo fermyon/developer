@@ -1,6 +1,6 @@
 title = "Fermyon Cloud NoOps SQL DB (Private Beta)"
 template = "changelog_item"
-date = "2022-07-26T16:00:00Z"
+date = "2023-07-26T16:00:00Z"
 enable_shortcodes = true
 tags = ["storage"]
 [extra]
