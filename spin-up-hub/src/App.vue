@@ -177,6 +177,23 @@ html.dark-theme body.hub {
       margin-left: 5vw;
       margin-right: 5vw;
     }
+
+    .content-listing {
+      .columns > .column {
+        .column:first-of-type a.card {
+          background: url(../static/image/gradient-blue-green.jpg) no-repeat -8rem -1rem !important;
+          background-size: 60rem !important;
+        }
+        .column:nth-of-type(2) a.card {
+          background: url(../static/image/gradient-pink-purple.jpg)  no-repeat -10rem -1rem !important;
+          background-size: 60rem !important;
+        }
+        .column:nth-of-type(3) a.card {
+          background: url(../static/image/gradient-pink-blue.jpg)  no-repeat -8rem -1rem !important;
+          background-size: 60rem !important;
+        }
+      }
+    }
   }
 }
 </style>

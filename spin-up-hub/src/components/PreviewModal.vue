@@ -40,8 +40,8 @@ export default {
                         <img src="/static/image/icon-close.svg" alt="Close" />
                     </span>
                 </header>
-                <div class="content-area columns">
-                    <div class="main-content column is-two-thirds">
+                <div class="content-area columns is-mobile">
+                    <div class="main-content column is-two-thirds-tablet is-full-mobile">
                         <div class="main-content-wrap">
                             <div class="title">{{ modalData.title }}</div>
                             <div class="description" v="">
@@ -55,7 +55,7 @@ export default {
                             </div>
                         </div>
                     </div>
-                    <div class="metadata-space column is-one-third">
+                    <div class="metadata-space column is-one-third-tablet is-full-mobile">
                         <div class="metadata-wrap">
                             <a class="is-btn button is-rounded is-primary" target="_blank" :href="modalData.url">
                             View on Github
@@ -129,6 +129,8 @@ export default {
         background: rgba(darken($docsbg1, 3%), 0.70);
     }
 
+    $modalMax: 1144px;
+
     .preview-modal.content {
         z-index: 1002;
         height: auto;
@@ -136,7 +138,7 @@ export default {
         width: 94vw;
         margin-left: auto;
         margin-right: auto;
-        max-width: 1144px;
+        max-width: $modalMax;
         background-color: $docsbg1;
         border-radius: 0.67rem;
         display: block;
@@ -246,23 +248,26 @@ export default {
 
                 .metadata-wrap {
                     position: fixed;
-                    width: 33.333%;
+                    left: 50%;
+                    margin-left: calc($modalMax/6);
+                    display: inline-block;
+                    width: calc($modalMax/3);
                 }
 
                 a {
                     margin: 2rem 0 1rem 0;
-                    width: 100%;
+                    display: block;
                     border-radius: 0.67rem;
 
                     &.button {
-                        width: 78% !important;
-                        margin: 2rem 2rem 2rem 1rem !important;
+                        width: auto !important;
+                        margin: 2rem !important;
                         border-radius: 2rem;
                     }
                 }
 
                 .metadata {
-                    padding: 0.425rem 2rem 0.425rem 1rem;
+                    padding: 0.425rem 2rem 0.425rem 2rem;
                     line-height: 1.5;
                     display: block;
                     
@@ -335,6 +340,97 @@ export default {
             border-bottom: 1px solid $darkspace;
         }
     }
+
+    body.hub {
+        // modal on mobile
+        $modalMaxTablet: 620px;
+
+        .preview-wrapper {
+            padding-top: 10.5rem;
+            padding-bottom: 2rem !important;
+            
+            .preview-modal.content {
+                z-index: 1002;
+                height: 90vh !important;
+                width: 96vw !important;
+                max-width: $modalMaxTablet;
+
+                .content-area {
+                    flex-direction: column-reverse;
+
+                    .main-content {
+                        height: auto;
+
+                        .title,
+                        .description {
+                            padding-right: 0;
+                            padding-left: 0;
+                        }
+
+                        .tags  {
+                            padding: 1rem 0;
+                        }
+
+                        .main-content-wrap {
+                            width: auto;
+                            max-width: $modalMaxTablet;
+                            max-height: auto;
+                            overflow-y: visible;
+                            position: relative;
+                            top: auto;
+                            bottom: auto;
+                        }
+                    }
+
+                    a.button {
+                        margin: 2rem 0 !important;
+                        width: calc($modalMaxTablet - 4rem) !important;
+                    }
+
+                    .metadata-space {
+                        .metadata-wrap {
+                            position: relative;
+                            left: auto;
+                            margin-left: 0;
+                            width: auto;
+                            max-width: $modalMaxTablet;
+
+                            .metadata {
+                                padding-left: 0;
+                                padding-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    body.hub {
+        // modal on mobile
+        $modalMaxMobile: 320px;
+
+        .preview-wrapper .preview-modal.content {
+            max-width: $modalMaxMobile;
+
+            .content-area {
+
+                a.button {
+                    margin: 2rem 0 !important;
+                    width: calc($modalMaxMobile - 4rem) !important;
+                }
+
+                .main-content .main-content-wrap {
+                    max-width: $modalMaxMobile;
+                }
+                .metadata-space .metadata-wrap {
+                    max-width: $modalMaxMobile;
+                }
+            }
+        }
+    }
 }
 
 .dark-theme {
@@ -365,10 +461,6 @@ export default {
         }
 
         .metadata-space {
-
-            a {
-
-            }
 
             .metadata {
                 .value {

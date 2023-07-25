@@ -49,7 +49,7 @@ export default {
         <div class="column is-three-fifths-desktop is-full-mobile">
 
           <div class="search-box has-text-centered">
-            <h1 class="description">WELCOME TO THE <code><img src="/image/spin-vector.png" alt="Spin Icon">&nbsp;SPIN UP</code> EXAMPLE HUB</h1>
+            <h1 class="description">WELCOME TO THE <code><img aria-multiline="Spin" src="/static/image/spin.svg" alt="Spin Icon">&nbsp;SPIN UP</code> EXAMPLE HUB</h1>
             <input class="search-input" type="text" placeholder="Explore the fermyverse" />
             <h2>Search for spin app templates, plugins and examples.</h2>
           </div>
@@ -93,6 +93,16 @@ export default {
         border-radius: 0.33em;
         letter-spacing: 0.05rem;
         font-weight: 400;
+        position: relative;
+        padding-left: 2rem;
+
+        img {
+          fill: white !important;
+          position: absolute;
+          top: -2.1rem;
+          left: 0.67rem;
+          margin-top: 2.25rem;
+        }
       }
     }
     .search-input {
@@ -137,13 +147,6 @@ export default {
       }
     }
   }
-
-  .content-filters {
-
-  }
-  .content-listing {
-    
-  }
 }
 
 .dark-theme {
@@ -158,6 +161,7 @@ export default {
 
     h1.description {
       color: $thistle;
+
       code {
         background: rgba($lavenderdark, 0.1);
         color: $thistle;
