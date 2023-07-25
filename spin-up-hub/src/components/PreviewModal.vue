@@ -28,68 +28,79 @@ export default {
 </script>
 
 <template>
-    <div v-if="isModalOpen" class="preview-wrapper">
-        <div class="preview-overlay"></div>
-        <div class="preview-modal content">
-            <div class="topbar">
-                <span @click="closeModal"> X </span>
-            </div>
-            <div class="content-area">
-                <div class="main-content">
-                    <div class="title">{{ modalData.title }}</div>
-                    <div class="description" v="">
-                        <div v-if="!modalData.isloaded">loading...</div>
-                        <div v-html="modalData.description"></div>
-                    </div>
-                    <div class="tags">
-                        <span v-for="item in modalData.tags">
-                            {{ item }}
-                        </span>
-                    </div>
-                </div>
-                <div class="metadata-space">
-                    <a class="is-btn button is-primary" target="_blank" :href="modalData.url">
-                        View on Github
-                    </a>
-                    <div class="metadata">
-                        <div class="name">Url</div>
-                        <div class="value">{{ modalData.url }}</div>
-                    </div>
-                    <div class="metadata">
-                        <div class="name">Submitted by</div>
-                        <div class="value">@{{ modalData.author }}
-                            <svg v-if="verified" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                                <g>
-                                    <path
-                                        d="m1138 517.5-94-94.5c-3.3438-3.0742-5.1719-7.4609-5-12v-133c0-31.031-12.328-60.789-34.27-82.73-21.941-21.941-51.699-34.27-82.73-34.27h-133c-4.5391 0.17188-8.9258-1.6562-12-5l-94.5-94c-21.922-21.801-51.582-34.039-82.5-34.039s-60.578 12.238-82.5 34.039l-94.5 94c-3.0742 3.3438-7.4609 5.1719-12 5h-133c-31.031 0-60.789 12.328-82.73 34.27-21.941 21.941-34.27 51.699-34.27 82.73v133c0.17188 4.5391-1.6562 8.9258-5 12l-94 94.5c-21.801 21.922-34.039 51.582-34.039 82.5s12.238 60.578 34.039 82.5l94 94.5c3.3438 3.0742 5.1719 7.4609 5 12v133c0 31.031 12.328 60.789 34.27 82.73 21.941 21.941 51.699 34.27 82.73 34.27h133c4.5391-0.17188 8.9258 1.6562 12 5l94.5 94c21.793 22.047 51.5 34.453 82.5 34.453s60.707-12.406 82.5-34.453l94.5-94c3.0742-3.3438 7.4609-5.1719 12-5h133c31.031 0 60.789-12.328 82.73-34.27 21.941-21.941 34.27-51.699 34.27-82.73v-133c-0.17188-4.5391 1.6562-8.9258 5-12l94-94.5c21.801-21.922 34.039-51.582 34.039-82.5s-12.238-60.578-34.039-82.5zm-70.5 94.5-94.5 94c-21.957 22.02-34.199 51.906-34 83v133c0 4.5078-1.793 8.832-4.9805 12.02s-7.5117 4.9805-12.02 4.9805h-133c-31.094-0.19922-60.98 12.043-83 34l-94 94.5c-3.1875 3.1758-7.5 4.957-12 4.957s-8.8125-1.7812-12-4.957l-94-94.5c-22.02-21.957-51.906-34.199-83-34h-133c-4.5078 0-8.832-1.793-12.02-4.9805s-4.9805-7.5117-4.9805-12.02v-133c0.19922-31.094-12.043-60.98-34-83l-94.5-94c-3.1758-3.1875-4.957-7.5-4.957-12s1.7812-8.8125 4.957-12l94.5-94c21.957-22.02 34.199-51.906 34-83v-133c0-4.5078 1.793-8.832 4.9805-12.02s7.5117-4.9805 12.02-4.9805h133c31.094 0.19922 60.98-12.043 83-34l94-94.5c3.1875-3.1758 7.5-4.957 12-4.957s8.8125 1.7812 12 4.957l94 94.5c22.02 21.957 51.906 34.199 83 34h133c4.5078 0 8.832 1.793 12.02 4.9805s4.9805 7.5117 4.9805 12.02v133c-0.19922 31.094 12.043 60.98 34 83l94.5 94c3.1758 3.1875 4.957 7.5 4.957 12s-1.7812 8.8125-4.957 12z" />
-                                    <path d="m550 654.5-114.5-115-71 71 185.5 185 285.5-285-71-71z" />
-                                </g>
-                            </svg>
+    <div class="container">
+        <div v-if="isModalOpen" class="preview-wrapper">
+            <div class="preview-overlay" @click="closeModal"></div>
+            <div class="preview-modal content">
+                <header>
+                    <span @click="closeModal" class="icon-back">
+                        <img src="/static/image/icon-back.svg" alt="Back" />
+                    </span>
+                    <span @click="closeModal" class="icon-close">
+                        <img src="/static/image/icon-close.svg" alt="Close" />
+                    </span>
+                </header>
+                <div class="content-area columns">
+                    <div class="main-content column is-two-thirds">
+                        <div class="main-content-wrap">
+                            <div class="title">{{ modalData.title }}</div>
+                            <div class="description" v="">
+                                <div v-if="!modalData.isloaded">loading...</div>
+                                <div v-html="modalData.description"></div>
+                            </div>
+                            <div class="tags">
+                                <span v-for="item in modalData.tags">
+                                    {{ item }}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div class="metadata">
-                        <div class="name">Language</div>
-                        <div class="value">{{ modalData.language }}</div>
-                    </div>
-                    <div class="metadata">
-                        <div class="name">Created at</div>
-                        <div class="value">{{ modalData.createdAt }}</div>
-                    </div>
-                    <div class="metadata">
-                        <div class="name">Last updated</div>
-                        <div class="value">{{ modalData.lastUpdated }}</div>
-                    </div>
-                    <div class="metadata">
-                        <div class="name">Minimum Spin version</div>
-                        <div class="value badge">
-                            <img src="/image/spin-vector.png">
-                            {{ modalData.spinVersion }}
+                    <div class="metadata-space column is-one-third">
+                        <div class="metadata-wrap">
+                            <a class="is-btn button is-rounded is-primary" target="_blank" :href="modalData.url">
+                            View on Github
+                            </a>
+                            <div class="metadata">
+                                <div class="name">Url</div>
+                                <div class="value">{{ modalData.url }}</div>
+                            </div>
+                            <div class="metadata">
+                                <div class="name">Submitted by</div>
+                                <div class="value">@{{ modalData.author }}
+                                    <svg v-if="verified" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="m1138 517.5-94-94.5c-3.3438-3.0742-5.1719-7.4609-5-12v-133c0-31.031-12.328-60.789-34.27-82.73-21.941-21.941-51.699-34.27-82.73-34.27h-133c-4.5391 0.17188-8.9258-1.6562-12-5l-94.5-94c-21.922-21.801-51.582-34.039-82.5-34.039s-60.578 12.238-82.5 34.039l-94.5 94c-3.0742 3.3438-7.4609 5.1719-12 5h-133c-31.031 0-60.789 12.328-82.73 34.27-21.941 21.941-34.27 51.699-34.27 82.73v133c0.17188 4.5391-1.6562 8.9258-5 12l-94 94.5c-21.801 21.922-34.039 51.582-34.039 82.5s12.238 60.578 34.039 82.5l94 94.5c3.3438 3.0742 5.1719 7.4609 5 12v133c0 31.031 12.328 60.789 34.27 82.73 21.941 21.941 51.699 34.27 82.73 34.27h133c4.5391-0.17188 8.9258 1.6562 12 5l94.5 94c21.793 22.047 51.5 34.453 82.5 34.453s60.707-12.406 82.5-34.453l94.5-94c3.0742-3.3438 7.4609-5.1719 12-5h133c31.031 0 60.789-12.328 82.73-34.27 21.941-21.941 34.27-51.699 34.27-82.73v-133c-0.17188-4.5391 1.6562-8.9258 5-12l94-94.5c21.801-21.922 34.039-51.582 34.039-82.5s-12.238-60.578-34.039-82.5zm-70.5 94.5-94.5 94c-21.957 22.02-34.199 51.906-34 83v133c0 4.5078-1.793 8.832-4.9805 12.02s-7.5117 4.9805-12.02 4.9805h-133c-31.094-0.19922-60.98 12.043-83 34l-94 94.5c-3.1875 3.1758-7.5 4.957-12 4.957s-8.8125-1.7812-12-4.957l-94-94.5c-22.02-21.957-51.906-34.199-83-34h-133c-4.5078 0-8.832-1.793-12.02-4.9805s-4.9805-7.5117-4.9805-12.02v-133c0.19922-31.094-12.043-60.98-34-83l-94.5-94c-3.1758-3.1875-4.957-7.5-4.957-12s1.7812-8.8125 4.957-12l94.5-94c21.957-22.02 34.199-51.906 34-83v-133c0-4.5078 1.793-8.832 4.9805-12.02s7.5117-4.9805 12.02-4.9805h133c31.094 0.19922 60.98-12.043 83-34l94-94.5c3.1875-3.1758 7.5-4.957 12-4.957s8.8125 1.7812 12 4.957l94 94.5c22.02 21.957 51.906 34.199 83 34h133c4.5078 0 8.832 1.793 12.02 4.9805s4.9805 7.5117 4.9805 12.02v133c-0.19922 31.094 12.043 60.98 34 83l94.5 94c3.1758 3.1875 4.957 7.5 4.957 12s-1.7812 8.8125-4.957 12z" />
+                                            <path d="m550 654.5-114.5-115-71 71 185.5 185 285.5-285-71-71z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metadata">
+                                <div class="name">Language</div>
+                                <div class="value">{{ modalData.language }}</div>
+                            </div>
+                            <div class="metadata">
+                                <div class="name">Created at</div>
+                                <div class="value">{{ modalData.createdAt }}</div>
+                            </div>
+                            <div class="metadata">
+                                <div class="name">Last updated</div>
+                                <div class="value">{{ modalData.lastUpdated }}</div>
+                            </div>
+                            <div class="metadata">
+                                <div class="name">Minimum Spin version</div>
+                                <div class="value badge">
+                                    <img src="/image/spin-vector.png">
+                                    {{ modalData.spinVersion }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </template>
 
@@ -99,11 +110,14 @@ export default {
     justify-content: center;
     align-items: center;
     position: fixed;
+    height: 100vh;
     top: 0;
     left: 0;
     z-index: 1001;
     height: 100%;
     width: 100%;
+    overflow-y: scroll;
+    box-shadow: 0px 14px 64px 0px rgba(0, 0, 0, 0.33);
 
     .preview-overlay {
         position: absolute;
@@ -112,101 +126,163 @@ export default {
         top: 0;
         left: 0;
         backdrop-filter: blur(6px) brightness(25%);
+        background: rgba(darken($docsbg1, 3%), 0.70);
     }
 
-    .preview-modal {
+    .preview-modal.content {
         z-index: 1002;
-        height: 80%;
-        width: 80%;
-        max-width: 800px;
+        height: auto;
+        height: 70vh;
+        width: 94vw;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1144px;
         background-color: $docsbg1;
         border-radius: 0.67rem;
-        display: flex;
-        flex-direction: column;
+        display: block;
         border-radius: 0.67rem;
         overflow: hidden;
+        position: relative;
+        box-shadow: 0px 14px 64px 0px rgba(0, 0, 0, 0.05);
 
-        .topbar {
-            padding: 1rem;
+        &.content {
+            padding: 0 !important;
+        }
+
+        header {
+            margin: 0;
             background-color: $docsbg1;
             display: flex;
+            height: 3.5rem;
             justify-content: flex-end;
             border-radius: 0.67rem 0.67rem 0 0;
-            border-bottom: 1px solid lighten($lavenderfloral, 15%);
+            border-bottom: 1px solid $lavendermid;
+            position: relative;
+
+            span {
+                position: absolute;
+                top: 1.2rem;
+                cursor: pointer;
+
+                &.icon-back {
+                    left: 1.25rem;
+                }
+
+                &.icon-close {
+                    right: 1.25rem;
+                }
+
+                &:hover {
+                    background: rgba(255,255,255,0.2);
+                }
+            }
         }
 
         .content-area {
             display: flex;
             flex-grow: 1;
-            min-width: 0;
-            min-height: 0;
-
-
+            height: 100%;
             .main-content {
-                width: 65%;
                 border-right: 1px solid lighten($lavenderfloral, 15%);
-                padding: 1rem 0rem;
-                display: flex;
-                flex-direction: column;
-                max-height: 100%;
-                min-height: 0;
+                height: 100%;
+
+                .main-content-wrap {
+                    padding-top: 3rem;
+                    max-height: 100%;
+                    overflow-y: scroll;
+                    position: absolute;
+                    top: 3.5rem;
+                    bottom: 0;
+                    width: 66.667%;
+                }
 
                 .title {
-                    font-size: 1.75rem;
+                    font-size: 2.25rem;
                     margin-bottom: 2rem;
-                    padding: 1rem;
+                    padding: 0 2rem;
                     font-family: $spaceGro;
+                    font-weight: 400;
                 }
 
                 .description {
-                    font-size: 1rem;
                     flex-grow: 1;
-                    padding: 1rem;
+                    padding: 0 2rem 1rem;
                     overflow-y: auto;
-                }
+                    font-size: 1.25rem;
+                    line-height: 2;
 
-                .tags {
-                    padding: 1rem;
-
-                    span {
-                        font-size: 0.9rem;
-                        border-radius: 0.67rem;
-                        background-color: $lavender;
-                        padding: 0.2rem 0.4rem;
-                        margin-right: 0.5rem;
+                    p {
+                        font-size: 1.25rem !important;
+                        line-height: 2;
+                        letter-spacing: 0.05rem;
                     }
                 }
 
+                .tags {
+                    padding: 1.75rem 1.5rem;
+
+                    span {
+                        display: inline-block;
+                        line-height: 1.4;
+                        font-size: 1.125rem;
+                        border-radius: 1rem !important;
+                        padding: 0.15rem 1rem;
+                        background-color: darken($docsbg1, 5%);
+                        margin: 0 0.5rem 0 0;
+                        color: $bluecallout;
+                        height: auto;
+                        width: auto;
+                        cursor: pointer;
+                        text-transform: capitalize;
+                        transition: backround 0.3s ease-in-out 0;
+                    }
+                }
             }
 
             .metadata-space {
-                width: 35%;
-                padding: 1rem;
+                padding-top: 1rem;
+                padding-bottom: 4rem;
+                position: relative;
+
+                .metadata-wrap {
+                    position: fixed;
+                    width: 33.333%;
+                }
 
                 a {
                     margin: 2rem 0 1rem 0;
                     width: 100%;
                     border-radius: 0.67rem;
+
+                    &.button {
+                        width: 78% !important;
+                        margin: 2rem 2rem 2rem 1rem !important;
+                        border-radius: 2rem;
+                    }
                 }
 
                 .metadata {
-                    margin-top: 1rem;
-
+                    padding: 0.425rem 2rem 0.425rem 1rem;
+                    line-height: 1.5;
+                    display: block;
+                    
                     .name {
                         font-size: 1rem;
-                        color: gray
+                        color: darken($lavendermid, 25%);
                     }
-
                     .value {
                         font-size: 1rem;
                         word-wrap: break-word;
-                        display: flex;
+                        display: inline-flexbox;
                         align-items: center;
+                        margin-right: 2rem;
+                        line-height: 1.3;
 
                         svg {
                             width: 1rem;
                             height: 1rem;
                             margin-left: 0.5rem;
+                            margin-top: 0.5rem;
                         }
 
                         &.badge {
@@ -214,9 +290,10 @@ export default {
                             display: inline-flex;
                             align-items: center;
                             justify-content: space-between;
-                            border-radius: 0.67rem;
+                            border-radius: 2rem;
                             background-color: $lavendermid;
-                            padding: 0.2rem 0.4rem;
+                            padding: 0.2rem 0.75rem;
+                            margin-top: 0.5rem;
 
                             img {
                                 height: 1rem;
@@ -238,7 +315,6 @@ export default {
         overflow-y: auto;
         min-height: auto !important;
 
-
         .main-content {
             width: 90% !important;
             border-right: none !important;
@@ -257,22 +333,21 @@ export default {
             width: 90% !important;
             order: 1;
             border-bottom: 1px solid $darkspace;
-
         }
     }
 }
 
 .dark-theme {
-    .preview-modal {
-        background-color: $oxforddark;
-        padding-top: 0;
+    .preview-wrapper {
 
-        .topbar {
-            border-bottom: 1px solid lighten($oxforddark, 5%);
-            background-color: lighten($oxforddark, 5%);
-        }
+        .preview-modal.content {
+            background: #202644 !important;
+            border-color: darken($lavenderdark, 7.5%);
 
-        .content-area {
+            header {
+                background: lighten(#202644, 5%) !important;
+                border-color: #202644 !important;
+            }
             .main-content {
                 border-right: 1px solid $bluecallout;
 
@@ -283,20 +358,16 @@ export default {
                 .tags {
                     span {
                         background: darken($bluedark, 5%);
+                        color: $thistle;
                     }
                 }
             }
-
         }
 
         .metadata-space {
-            width: 35%;
-            padding: 1rem;
 
             a {
-                margin: 2rem 0 1rem 0;
-                width: 100%;
-                border-radius: 0.67rem;
+
             }
 
             .metadata {
@@ -311,6 +382,10 @@ export default {
                 }
             }
         }
+    }
+
+    .preview-overlay {
+        background: rgba($oxforddark, 0.8);
     }
 }
 </style>

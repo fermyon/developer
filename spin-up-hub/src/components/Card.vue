@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-    <div class="column is-one-third" @click="OpenItem">
+    <div class="column is-one-third-desktop is-full-mobile is-half-tablet" @click="OpenItem">
         <a class="card">
             <header>
                 <span class="category">
@@ -154,8 +154,8 @@ a.card {
         span {
             padding: 0.2rem;
             margin-right: 0.5rem;
-            color: $lavenderfloral;
-            font-size: 0.8rem;
+            color: $lavenderdark;
+            font-size: 0.7rem;
             font-style: normal;
             font-weight: 400;
             @include upperCase;

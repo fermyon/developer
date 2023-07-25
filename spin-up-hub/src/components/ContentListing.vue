@@ -74,10 +74,7 @@ export default {
 }
 
 @media screen and (max-width:1023px) {
-    .content-listing {
-        padding-left: 0;
-        padding-right: 0;
-    }
+
 }
 
 .card-list-enter-active,

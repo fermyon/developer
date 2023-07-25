@@ -38,10 +38,6 @@ body.hub {
     }
 
     .navbar-menu {
-
-    }
-
-    .navbar-menu {
       a.navbar-item {
         border-radius: 0.6875rem;
 
@@ -49,6 +45,24 @@ body.hub {
           font-weight: 600 !important;
           background: rgba(124, 109, 185, 0.125) !important;
         }
+
+        &.button {
+          border-radius: 2rem;
+        }
+      }
+    }
+  }
+
+  main {
+    .button {
+      display: block;
+      font-family: $spaceGro;
+      margin: 0.125rem 12.5% 0 0;
+      line-height: 1.75;
+      @include button;
+
+      &:hover {
+        background: $seagreen;
       }
     }
   }
@@ -79,6 +93,36 @@ body.hub {
     z-index: 720;
     position: relative;
   }
+
+  .content-listing {
+    // fancy cards 
+    .columns > .column {
+      &:first-of-type a.card {
+          background: url(../static/image/gradient-blue-green.jpg) no-repeat -8rem -1rem !important;
+          background-size: 33rem !important;
+      }
+
+      &:nth-of-type(2) a.card {
+          background: url(../static/image/gradient-pink-purple.jpg)  no-repeat -10rem -1rem !important;
+          background-size: 33rem !important;
+      }
+
+      &:nth-of-type(3) a.card {
+          background: url(../static/image/gradient-pink-blue.jpg)  no-repeat -8rem -1rem !important;
+          background-size: 33rem !important;
+      }
+
+      &:first-of-type,
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        a.card {
+          .tags span {
+            color: darken($lavenderdark, 33%);
+          }
+        }
+      }
+    }
+  }
 }
 
 html.dark-theme body.hub {
@@ -87,6 +131,52 @@ html.dark-theme body.hub {
   &:after {
     opacity: 0.2;
     background: rgba(230, 210, 241, 0.27);
+  }
+
+  main {
+    .button {
+      color: $oxforddark !important;
+    }
+  }
+
+  .content-listing {
+    .columns > .column {
+      &:first-of-type,
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        a.card {
+
+          .category {
+            background: white;
+            color: $bluedark;
+
+            svg {
+              fill: $bluedark;
+            }
+          }
+
+          article {
+            h3 {
+              color: $oxforddark;
+            }
+
+            .summary { 
+              color: $bluecallout;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1023px) {
+  body.hub { 
+    .container {
+      width: 90vw;
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
   }
 }
 </style>

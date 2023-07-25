@@ -62,18 +62,6 @@ export default {
   z-index: 550;
   position: relative;
 
-  .button {
-    display: block;
-    font-family: $spaceGro;
-    margin: 0.125rem 12.5% 0 0;
-    line-height: 1.75;
-    @include button;
-
-    &:hover {
-      background: $seagreen;
-    }
-  }
-
   .filter-category {
     margin-top: 2.333rem;
     padding: 0.5rem 5% 0.5rem 0;
@@ -103,7 +91,7 @@ export default {
       height: auto;
       width: auto;
       cursor: pointer;
-      @include transition;
+      transition: backround 0.3s ease-in-out 0;
 
       &:hover {
         background-color: white;
@@ -135,6 +123,8 @@ export default {
   .content-filters {
     .tag { 
       a {
+        color: $thistle;
+
         &:hover {
           background: rgba($lavenderdark, 0.35);
           // color: $bluedark;
@@ -156,5 +146,8 @@ export default {
 
 @media screen and (max-width:1023px) {
 
+  .button {
+    margin: 0.125rem auto;
+  }
 }
 </style>

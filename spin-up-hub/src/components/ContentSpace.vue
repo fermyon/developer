@@ -9,7 +9,7 @@ export default {
 <template>
     <div class="content-wrapper">
         <div class="container">
-            <div class="columns is-centered is-0 is-mobile is-multiline">
+            <div class="columns is-centered is-0 is-mobile is-multiline hub-wrapper">
                 <ContentFilter />
                 <ContentListing />
             </div>
@@ -24,15 +24,9 @@ export default {
     border-top: 1px solid rgba($thistle, 1);
     background: linear-gradient(180deg, darken($docsbg1, 1.5%) 0%, rgba($docsbg1, 0.1) 100%);
     padding-top: 1.825rem;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
     z-index: 500;
     position: relative;
-}
-
-@media screen and (max-width:1023px) {
-    .content-wrapper {
-        
-    }
 }
 
 .dark-theme {
@@ -41,4 +35,11 @@ export default {
         background: linear-gradient(180deg, rgba(230, 210, 241, 0.05) 0%, rgba(230, 210, 241, 0.00) 100%);
     }
 }
+
+@media screen and (max-width:1023px) {
+    .hub-wrapper {
+        flex-direction: column-reverse;
+    }
+}
+
 </style>

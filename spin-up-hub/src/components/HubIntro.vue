@@ -127,8 +127,22 @@ export default {
 @media screen and (max-width:1023px) {
   .hub-intro {
     .search-box {
-      width: 90%;
+      h1.description {
+        font-size: 1rem;
+
+        code {
+          font-size: 1.1rem;
+          word-wrap: none;
+        }
+      }
     }
+  }
+
+  .content-filters {
+
+  }
+  .content-listing {
+    
   }
 }
 
