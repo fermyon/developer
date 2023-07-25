@@ -49,9 +49,17 @@ export default {
         <div class="column is-three-fifths-desktop is-full-mobile">
 
           <div class="search-box has-text-centered">
-            <h1 class="description">WELCOME TO THE <code><img aria-multiline="Spin" src="/static/image/spin.svg" alt="Spin Icon">&nbsp;SPIN UP</code> EXAMPLE HUB</h1>
+            <h1 class="description">
+              WELCOME TO THE 
+              <code>
+                <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.5745 2.41183C10.8569 2.41183 10.1567 2.47974 9.47625 2.6046C9.45 2.60898 9.42811 2.58927 9.42811 2.56298V0.105148C9.42811 0.0481928 9.38217 0 9.32309 0H6.70405C6.64716 0 6.59902 0.0460022 6.59902 0.105148V3.50931C6.59902 3.52464 6.59027 3.53998 6.57496 3.54655C2.68687 5.41292 0 9.39321 0 14C0 18.6068 2.68687 22.5849 6.57496 24.4534C6.59027 24.46 6.59902 24.4754 6.59902 24.4907V27.8949C6.59902 27.9518 6.64497 28 6.70405 28H9.32309C9.37998 28 9.42811 27.954 9.42811 27.8949V25.4348C9.42811 25.4085 9.45218 25.3888 9.47625 25.3932C10.1567 25.5181 10.8569 25.586 11.5745 25.586C17.9679 25.586 23.1491 20.3987 23.1491 13.9978C23.1491 7.59693 17.9657 2.41183 11.5745 2.41183ZM2.72407 14C2.72407 10.988 4.23379 8.32421 6.53338 6.7207C6.56183 6.70099 6.60121 6.7207 6.60121 6.75575V21.2443C6.60121 21.2793 6.56183 21.299 6.53338 21.2793C4.23379 19.678 2.72407 17.012 2.72407 14V14ZM12.5548 22.8083C11.4958 22.9244 10.4718 22.8499 9.50907 22.6177C9.46093 22.6068 9.42811 22.563 9.42811 22.5148V5.4874C9.42811 5.43921 9.46093 5.3954 9.50907 5.38445C10.172 5.22453 10.8634 5.1391 11.5767 5.1391C16.6332 5.1391 20.7138 9.40635 20.4119 14.5345C20.1603 18.8105 16.8083 22.3417 12.557 22.8083H12.5548Z" fill="#0E092D"/></svg> 
+                SPIN UP
+              </code>
+               EXAMPLE HUB
+            </h1>
             <input class="search-input" type="text" placeholder="Explore the fermyverse" />
-            <h2>Search for spin app templates, plugins and examples.</h2>
+            <h2>Search for Spin app templates, plugins and examples.</h2>
           </div>
 
         </div>
@@ -74,12 +82,12 @@ export default {
     border-radius: 1.5rem;
     border: 1px solid darken($lavendermid, 3.5%);
     background: linear-gradient(180deg, darken($docsbg1, 2%) 0%, darken($docsbg1, 1%) 100%);
-    box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.02);
     z-index: 600;
 
     h1.description {
       font-family: $spaceGro;
-      color: $bluedark;
+      color: lighten($bluedark, 5%);
       @include upperCase;
       margin: 1.33rem 0 1rem;
       font-weight: 500 !important;
@@ -87,21 +95,26 @@ export default {
 
       code {
         font-family: $mono;
-        color: $bluedark;
+        color: $oxforddark;
         font-size: 1.25rem;
-        background: rgba($lavendermid, 0.35);
+        background: rgba($lavendermid, 0.05);
         border-radius: 0.33em;
         letter-spacing: 0.05rem;
         font-weight: 400;
         position: relative;
-        padding-left: 2rem;
+        padding: 0 0 0 2rem;
+        display: inline-block;
+        margin: 0 0.5rem;
+        justify-content: center;
 
-        img {
+        svg {
           fill: white !important;
+          display: inline-block;
+          max-height: 1.5rem;
           position: absolute;
-          top: -2.1rem;
-          left: 0.67rem;
-          margin-top: 2.25rem;
+          top: 0.125rem;
+          left: 0rem;
+          // margin-top: 2.25rem;
         }
       }
     }
@@ -163,15 +176,24 @@ export default {
       color: $thistle;
 
       code {
-        background: rgba($lavenderdark, 0.1);
-        color: $thistle;
+        background: rgba($lavenderdark, 0.02);
+        color: white;
+
+        svg, path {
+          fill: white !important;
+        }
       }
     }
 
-    .search-input {
+    input.search-input {
       border-radius: 3.75rem;
       border: 1px solid #8967C2;
       background: linear-gradient(180deg, #171135 0%, #0C0725 100%);
+      color: $thistle;
+
+      &::placeholder {
+        color: rgba($thistle, 0.85);
+      }
     }
 
     h2 {

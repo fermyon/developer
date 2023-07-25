@@ -42,7 +42,7 @@ body.hub {
         border-radius: 0.6875rem;
 
         &.is-active {
-          font-weight: 600 !important;
+          font-weight: 500 !important;
           background: rgba(124, 109, 185, 0.125) !important;
         }
 
@@ -107,6 +107,10 @@ html.dark-theme body.hub {
     .button {
       color: $oxforddark !important;
     }
+  }
+
+  footer.footer-links .level a {
+    color: white;
   }
 }
 
