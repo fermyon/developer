@@ -35,7 +35,7 @@ Once you have access to the private beta, please ensure you have [Spin CLI](./cl
 
 *Service Limitations*
 * The `--sqlite` flag not supported on `spin cloud deploy`
-* Fermyon Cloud only supports "default" NoOps SQL Databases at this time
+* Fermyon Cloud only supports NoOps SQLite Databases named "default" at this time
 
 ## How To:
 
