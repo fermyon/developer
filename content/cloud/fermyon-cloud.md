@@ -50,6 +50,11 @@ Traffic routing is done using [Traefik](https://doc.traefik.io/), which ensures 
 
 To package and distribute application to and within the cloud, we rely on Bindle. For more information about deployment concepts in the Fermyon Cloud, see [here](deployment-concepts).
 
+### Database Storage
+
+Fermyon Cloud uses [Chiselstrike's Turso Database](https://docs.turso.tech/) to power its [NoOps SQL Database using SQLite](/cloud/noops-sql-db.md). Turso's low-latency performance characteristics and use of [libSQL](https://libsql.org/), an open-source fork of [SQLite](https://sqlite.org/), made it a natural fit for Fermyon Cloud's managed base offering.
+
+
 ### Web UI, API and CLI
 
 The Fermyon Cloud exposes a public [REST API](rest-api.md) which is used by the [web interface](https://cloud.fermyon.com) and the Spin CLI when logging in and deploying applications.
