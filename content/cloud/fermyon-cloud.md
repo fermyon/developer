@@ -52,7 +52,7 @@ To package and distribute application to and within the cloud, we rely on Bindle
 
 ### Database Storage
 
-Fermyon Cloud uses [Chiselstrike's Turso Database](https://docs.turso.tech/) to power its [NoOps SQL Database using SQLite](/cloud/noops-sql-db.md). Turso's low-latency performance characteristics and use of [libSQL](https://libsql.org/), an open-source fork of [SQLite](https://sqlite.org/), made it a natural fit for Fermyon Cloud's managed base offering.
+Fermyon Cloud uses [Turso Database](https://docs.turso.tech/) to power its [NoOps SQL Database using SQLite](/cloud/noops-sql-db.md). Turso's low-latency performance characteristics and use of [libSQL](https://libsql.org/), an open-source fork of [SQLite](https://sqlite.org/), made it a natural fit for Fermyon Cloud's managed base offering.
 
 
 ### Web UI, API and CLI
