@@ -11,7 +11,7 @@ async function getSearchIndex() {
     return await res.json()
   }
   catch (err) {
-    console.Err("cannot load search module")
+    console.log("cannot load search module")
   }
 }
 
@@ -29,7 +29,6 @@ async function setupSearch() {
             this.add(doc)
         }, this)
     })
-
 }
 
 class SearchButton {

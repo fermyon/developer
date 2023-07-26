@@ -642,7 +642,7 @@ async function getSearchIndex() {
         let res = await fetch("/static/data.json");
         return await res.json();
     } catch (err) {
-        console.Err("cannot load search module");
+        console.error("cannot load search module");
     }
 }
 async function setupSearch() {
@@ -1121,7 +1121,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             };
         } catch (err) {
-            console.err("Could not setup search");
+            console.error("Could not setup search");
         }
     })();
 });

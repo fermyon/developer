@@ -4045,8 +4045,8 @@ footer.footer-links .footer-logo:hover:after {
 }
 
 .cc-revoke.cc-top {
-  border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  border-bottom-left-radius: .5em;
   top: 0;
   left: 3em;
 }
