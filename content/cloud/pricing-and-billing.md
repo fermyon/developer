@@ -66,7 +66,7 @@ At this time the Starter Plan has no time limit. As long as your resource utiliz
 
 **Where can I purchase a custom domain?**
 
-You can purchase a custom domain through an external domain registrar such as [Namecheap](https://www.namecheap.com/) or [Google Domains](https://www.domains.google). Fermyon Cloud is not a domain registrar at this time. 
+You can purchase a custom domain through an external domain registrar such as [Namecheap](https://www.namecheap.com/) or [GoDaddy](https://www.godaddy.com/). Fermyon Cloud is not a domain registrar at this time. 
 
 ### Invoice 
 
