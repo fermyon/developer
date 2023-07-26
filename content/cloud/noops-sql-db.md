@@ -86,7 +86,7 @@ $ spin cloud sqlite list
 inspirational-pig (default) 
 ```
 
-Lastly, after [deleting your Spin application](/cloud/delete.md) you can delete your default database with the following command:
+Lastly, (warning; using the `delete` subcommand is **permanent**) you can delete your default database with the following command:
 
 ```bash
 $ spin cloud sqlite delete inspirational-pig
