@@ -41,6 +41,8 @@
                             {{/if}} href="{{site.info.base_url}}/cloud/fermyon-cloud">The Fermyon Cloud</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/cloud/deployment-concepts" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/cloud/deployment-concepts">Deployment Concepts</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/custom-domain" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/custom-domain">Custom Domain</a></li>
                 </ul>
             </div>
 
@@ -64,8 +66,11 @@
                     <li><a {{#if (active_content request.spin-path-info "/cloud/custom-fermyon-subdomain" )}}
                             class="active" {{/if}} href="{{site.info.base_url}}/cloud/custom-fermyon-subdomain">Apply
                             Custom Fermyon Subdomain</a></li>
-                    <li><a {{#if (active_content request.spin-path-info "/cloud/variables" )}} class="active" {{/if}}
-                            href="{{site.info.base_url}}/cloud/variables">Configuring App Variables and Secrets</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/custom-domains-tutorial" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/cloud/custom-domains-tutorial">Apply
+                            Custom Domain</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/variables" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/cloud/variables">Configuring App Variables and Secrets</a></li>
                 </ul>
             </div>
 

@@ -64,6 +64,10 @@ This can be done online on the [Fermyon Cloud Dashboard's Account Settings](http
 
 At this time the Starter Plan has no time limit. As long as your resource utilization remains below the monthly limits, you can use Fermyon Cloud, for free, as long as you want it to. We reserve the right to change that policy, but for now we’re thrilled to be able to provide this service to you completely free.
 
+**Where can I purchase a custom domain?**
+
+You can purchase a custom domain through an external domain registrar such as [Namecheap](https://www.namecheap.com/) or [GoDaddy](https://www.godaddy.com/). Fermyon Cloud is not a domain registrar at this time. 
+
 ### Invoice 
 
 **Where can I see my bill?**
