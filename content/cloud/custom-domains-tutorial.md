@@ -20,7 +20,7 @@ Custom domains enable you to bring your own domain to Fermyon Cloud.  Unlike gen
 
 To ensure the tutorial goes smoothly, please ensure you have the following: 
 
-* Most importantly, you must have a domain you own. If you don't have a domain, please visit a domain registrar like [Namecheap](https://www.namecheap.com/) or [Google Domains](https://domains.google) to purchase one. 
+* Most importantly, you must have a domain you own. If you don't have a domain, please visit a domain registrar like [Namecheap](https://www.namecheap.com/) or [GoDaddy](https://www.godaddy.com/) to purchase one. 
 * A Fermyon Cloud account that is set up via your preferred [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email)
 * A Spin application already deployed to Fermyon Cloud that you would like to apply the custom domain to. If you aren't familiar with how to deploy an application on Fermyon Cloud, check out our [develop a Spin application](./develop.md) article to learn how to build a Spin application and then our [deploy a Spin application article](./deploy.md) for deployment instructions. 
 
