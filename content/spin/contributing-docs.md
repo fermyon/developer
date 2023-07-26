@@ -412,7 +412,7 @@ Let's take a quick look at how you can use the `bart` CLI to check any content t
 
 ### 6.7 Checking Your Content - Preview a Documentation Page on Localhost
 
-You can host the technical documentation on the localhost to view changes by using the following command: 
+You can host your changes to the developer documentation on your own machine (localhost) by using the following `spin` command: 
 
 <!-- @selectiveCpy -->
 
