@@ -4019,15 +4019,15 @@ CLI commands have four phases that indicate levels of stability:
 
 | Command                                                    | Stability   |
 | ---------------------------------------------------------- | ----------- |
-| <code>spin add</code>                                                 | Stable      |
-| <code>spin build</code>                                               | Stable      |
-| <code>spin new</code>                                                 | Stable      |
-| <code>spin plugins <install&vert;list&vert;uninstall&vert;update&vert;upgrade></code> | Stable      |
-| <code>spin templates <install&vert;list&vert;uninstall&vert;upgrade></code>       | Stable      |
-| <code>spin up</code>                                                  | Stable      |
-| <code>spin cloud <deploy&vert;login></code>                               | Stabilizing |
-| <code>spin registry</code>                                            | Stabilizing |
-| <code>spin bindle <prepare&vert;push></code>                              | Deprecated  |
+| <code>spin add</code>                                      | Stable      |
+| <code>spin build</code>                                    | Stable      |
+| <code>spin new</code>                                      | Stable      |
+| <code>spin plugins</code>                                  | Stable      |
+| <code>spin templates </code>                               | Stable      |
+| <code>spin up</code>                                       | Stable      |
+| <code>spin cloud </code>                                   | Stabilizing |
+| <code>spin registry</code>                                 | Stabilizing |
+| <code>spin bindle</code>                                   | Deprecated  |
 
 {{ blockEnd }}
 
@@ -4038,13 +4038,13 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin add</code>                                                                 | Stable       |
 | <code>spin build</code>                                                               | Stable       |
 | <code>spin new</code>                                                                 | Stable       |
-| <code>spin plugins <install&vert;list&vert;uninstall&vert;update&vert;upgrade></code> | Stable       |
-| <code>spin templates <install&vert;list&vert;uninstall&vert;upgrade></code>           | Stable       |
+| <code>spin plugins</code>                                                             | Stable       |
+| <code>spin templates</code>                                                           | Stable       |
 | <code>spin up</code>                                                                  | Stable       |
-| <code>spin cloud <deploy&vert;login></code>                                           | Stabilizing  |
+| <code>spin cloud</code>                                                               | Stabilizing  |
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin watch</code>                                                               | Experimental |
-| <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
+| <code>spin bindle</code>                                                              | Deprecated   |
 
 {{ blockEnd }}
 
@@ -4055,13 +4055,13 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin add</code>                                                                 | Stable       |
 | <code>spin build</code>                                                               | Stable       |
 | <code>spin new</code>                                                                 | Stable       |
-| <code>spin plugins <install&vert;list&vert;uninstall&vert;update&vert;upgrade></code> | Stable       |
-| <code>spin templates <install&vert;list&vert;uninstall&vert;upgrade></code>           | Stable       |
+| <code>spin plugins</code>                                                             | Stable       |
+| <code>spin templates</code>                                                           | Stable       |
 | <code>spin up</code>                                                                  | Stable       |
-| <code>spin cloud <deploy&vert;login></code>                                           | Stabilizing  |
+| <code>spin cloud</code>                                                               | Stabilizing  |
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin watch</code>                                                               | Experimental |
-| <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
+| <code>spin bindle</code>                                                              | Deprecated   |
 
 {{ blockEnd }}
 
@@ -4072,13 +4072,13 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin add</code>                                                                 | Stable       |
 | <code>spin build</code>                                                               | Stable       |
 | <code>spin new</code>                                                                 | Stable       |
-| <code>spin plugins <install&vert;list&vert;uninstall&vert;update&vert;upgrade></code> | Stable       |
-| <code>spin templates <install&vert;list&vert;uninstall&vert;upgrade></code>           | Stable       |
+| <code>spin plugins</code>                                                             | Stable       |
+| <code>spin templates</code>                                                           | Stable       |
 | <code>spin up</code>                                                                  | Stable       |
-| <code>spin cloud <deploy&vert;login></code>                                           | Stabilizing  |
+| <code>spin cloud</code>                                                               | Stabilizing  |
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin watch</code>                                                               | Experimental |
-| <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
+| <code>spin bindle</code>                                                              | Deprecated   |
 
 {{ blockEnd }}
 
@@ -4089,13 +4089,13 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin add</code>                                                                 | Stable       |
 | <code>spin build</code>                                                               | Stable       |
 | <code>spin new</code>                                                                 | Stable       |
-| <code>spin plugins <install&vert;list&vert;uninstall&vert;update&vert;upgrade></code> | Stable       |
-| <code>spin templates <install&vert;list&vert;uninstall&vert;upgrade></code>           | Stable       |
+| <code>spin plugins</code>                                                             | Stable       |
+| <code>spin templates</code>                                                           | Stable       |
 | <code>spin up</code>                                                                  | Stable       |
-| <code>spin cloud <deploy&vert;login></code>                                           | Stabilizing  |
+| <code>spin cloud</code>                                                               | Stabilizing  |
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
-| <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
+| <code>spin bindle</code>                                                              | Deprecated   |
 
 {{ blockEnd }}
