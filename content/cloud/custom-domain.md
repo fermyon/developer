@@ -15,7 +15,7 @@ Every Fermyon Cloud application has a default domain name in the format `<app-na
 
 If you do not own a domain (and are **not** interested in purchasing one) but would like to customize your Spin application's domain name within the `fermyon.app` apex domain, then Custom Fermyon Subdomains may be a good option for you. Check out the [Custom Fermyon Subdomains tutorial](./custom-fermyon-subdomain.md) for more instructions. 
 
-If you do not own a domain and you **are** interested in purchasing one, you can purchase one through a domain registrar like [Namecheap](https://www.namecheap.com/) or [Google Domains](https://domains.google). Fermyon Cloud is not a domain registrar meaning you'll have to use an external registrar.
+If you do not own a domain and you **are** interested in purchasing one, you can purchase one through a domain registrar like [Namecheap](https://www.namecheap.com/) or [GoDaddy](https://www.godaddy.com/). Fermyon Cloud is not a domain registrar meaning you'll have to use an external registrar.
 
 >> If you are unsure what some of the terms on this page mean, please see the section called [Terminology](#terminology) at the bottom of this page.
 
