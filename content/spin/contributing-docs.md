@@ -26,6 +26,7 @@ keywords = "contribute contributing"
   - [6.4 The Edit On GitHub Button](#64-the-edit-on-github-button)
   - [6.5 How To Properly Edit CSS Styles](#65-how-to-properly-edit-css-styles)
   - [6.6 Checking Your Content - Using Bartholomew's CLI](#66-checking-your-content---using-bartholomews-cli)
+  - [6.7 Checking Your Content - Preview a Documentation Page on Localhost](#67-checking-your-content---preview-a-documentation-page-on-localhost)
   - [7. Checking Web Pages](#7-checking-web-pages)
   - [8. Add Changes](#8-add-changes)
   - [9. Commit Changes](#9-commit-changes)
@@ -408,6 +409,18 @@ SUBCOMMANDS:
 ```
 
 Let's take a quick look at how you can use the `bart` CLI to check any content that you are wanting to contribute.
+
+### 6.7 Checking Your Content - Preview a Documentation Page on Localhost
+
+You can host your changes to the developer documentation on your own machine (localhost) by using the following `spin` command: 
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin up -e "PREVIEW_MODE=1"
+```
+
+> Please note: using the `PREVIEW_MODE=1` as part of a `spin` command is safe on localhost and allows you to view content (even if the `date` setting in the content's `.md` is set to a future date). It is often the case that you will be checking content before the publishing date via your system. The developer documentation's manifest file `spin.toml` has the `PREVIEW_MODE` set to `0` i.e. `environment = { PREVIEW_MODE = "0" }`. This `spin.toml` file is correct for a production environment and should always be `0` (so that the CMS adheres to the publishing `date` setting for content on the public site). Simply put, you can use `PREVIEW_MODE=1` safely in your command line on your locahost but you should never update the `spin.toml` file (in this regard).
 
 ### 7. Checking Web Pages
 
