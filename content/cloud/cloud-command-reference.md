@@ -365,7 +365,6 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite --help
 
-cloud-sqlite 0.1.2
 Manage Fermyon Cloud SQLite databases
 
 USAGE:
@@ -399,7 +398,6 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-cloud-sqlite-delete 0.1.2
 Delete a SQLite database
 
 USAGE:
@@ -440,7 +438,6 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-cloud-sqlite-execute 0.1.2
 Execute SQL against a SQLite database
 
 USAGE:
@@ -479,7 +476,6 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite help    
 
-cloud-sqlite 0.1.2
 Manage Fermyon Cloud SQLite databases
 
 USAGE:
@@ -513,7 +509,6 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite list --help
 
-cloud-sqlite-list 0.1.2
 List all SQLite databases of a user
 
 USAGE:
@@ -680,7 +675,6 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud variables help
 
-cloud-variables 0.1.1
 Manage Spin application variables
 
 USAGE:
@@ -740,7 +734,6 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud variables list --help
 
-cloud-variables-list 0.1.1
 List all variables of an application
 
 USAGE:
@@ -808,7 +801,6 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud variables set --help
 
-cloud-variables-set 0.1.1
 Set variables
 
 USAGE:
