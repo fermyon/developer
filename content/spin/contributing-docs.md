@@ -420,6 +420,8 @@ You can host your changes to the developer documentation on your own machine (lo
 $ spin up -e "PREVIEW_MODE=1"
 ```
 
+> Please note: using the `PREVIEW_MODE=1` as part of a `spin` command is safe on localhost and allows you to view content (even if the `date` setting in the content's `.md` is set to a future date). It is often the case that you will be checking content before the publishing date via your system. The developer documentation's manifest file `spin.toml` has the `PREVIEW_MODE` set to `0` i.e. `environment = { PREVIEW_MODE = "0" }`. This `spin.toml` file is correct for a production environment and should always be `0` (so that the CMS adheres to the publishing `date` setting for content on the public site). Simply put, you can use `PREVIEW_MODE=1` safely in your command line on your locahost but you should never update the `spin.toml` file (in this regard).
+
 ### 7. Checking Web Pages
 
 The `bart check` command can be used to check the content. Simply pass in the content as a parameter. The developer documentation [uses shortcodes](/bartholomew/shortcodes), so always pass `--shortcodes ./shortcodes` as shown below:
