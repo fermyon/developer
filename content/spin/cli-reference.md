@@ -228,12 +228,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -377,12 +371,6 @@ OPTIONS:
     -u, --up
             Run the application after building
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -908,12 +896,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1090,12 +1072,6 @@ SUBCOMMANDS:
 
 * implemented via plugin
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -1288,12 +1264,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 **Please note: `spin new` vs `spin add`**.  These commands are similar except that:
@@ -1438,12 +1408,6 @@ SUBCOMMANDS:
     update       Fetch the latest Spin plugins from the spin-plugins repository
     upgrade      Upgrade one or all plugins
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -1659,12 +1623,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1769,12 +1727,6 @@ OPTIONS:
     -h, --help         Print help information
         --installed    List only installed plugins
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -1895,12 +1847,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2000,12 +1946,6 @@ USAGE:
 OPTIONS:
     -h, --help    Print help information
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -2237,12 +2177,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 **Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
@@ -2379,12 +2313,6 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2517,12 +2445,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2642,12 +2564,6 @@ OPTIONS:
     -h, --help        Print help information
     -k, --insecure    Ignore server certificate errors
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -2781,12 +2697,6 @@ OPTIONS:
     -h, --help                        Print help information
     -k, --insecure                    Ignore server certificate errors
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -2924,12 +2834,6 @@ SUBCOMMANDS:
     uninstall    Remove a template from your installation
     upgrade      Upgrade templates to match your current version of Spin
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -3120,12 +3024,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -3235,12 +3133,6 @@ OPTIONS:
         --tag <TAGS>    Filter templates matching all provided tags
         --verbose       Whether to show additional template details in the list
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -3360,12 +3252,6 @@ ARGS:
 OPTIONS:
     -h, --help    Print help information
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -3548,12 +3434,6 @@ OPTIONS:
             which to upgrade.  Pass this flag to upgrade only the specified repository without
             prompting
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
@@ -3885,12 +3765,6 @@ TRIGGER OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 > **Please note:** If the `-f` or `--from` options do not accurately infer the intended registry or `.toml` file for your application, then you can explicitly specify either the `--from-registry` or  `--from-file` options to clarify this.
@@ -4027,12 +3901,6 @@ The following additional trigger options are available for the [spin up](#spin-u
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -4155,12 +4023,6 @@ OPTIONS:
         --skip-build                  Only run the Spin application, restarting it when build
                                       artifacts change
 ```
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-<!-- @selectiveCpy -->
 
 {{ blockEnd }}
 
