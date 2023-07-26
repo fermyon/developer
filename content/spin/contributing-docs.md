@@ -26,6 +26,7 @@ keywords = "contribute contributing"
   - [6.4 The Edit On GitHub Button](#64-the-edit-on-github-button)
   - [6.5 How To Properly Edit CSS Styles](#65-how-to-properly-edit-css-styles)
   - [6.6 Checking Your Content - Using Bartholomew's CLI](#66-checking-your-content---using-bartholomews-cli)
+  - [6.7 Checking Your Content - Preview a Documentation Page on Localhost](#67-checking-your-content---preview-a-documentation-page-on-localhost)
   - [7. Checking Web Pages](#7-checking-web-pages)
   - [8. Add Changes](#8-add-changes)
   - [9. Commit Changes](#9-commit-changes)
@@ -408,6 +409,16 @@ SUBCOMMANDS:
 ```
 
 Let's take a quick look at how you can use the `bart` CLI to check any content that you are wanting to contribute.
+
+### 6.7 Checking Your Content - Preview a Documentation Page on Localhost
+
+You can host the technical documentation on the localhost to view changes by using the following command: 
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin up -e "PREVIEW_MODE=1"
+```
 
 ### 7. Checking Web Pages
 
