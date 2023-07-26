@@ -465,12 +465,6 @@ The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/c
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference).
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -627,12 +621,6 @@ The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
-
-The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-deploy).
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
 
 The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-deploy).
 
@@ -831,12 +819,6 @@ The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../c
 
 {{ blockEnd }}
 
-{{ startTab "v1.5"}}
-
-The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-login).
-
-{{ blockEnd }}
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -851,12 +833,6 @@ The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
-
-The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-variables).
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
 
 The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-variables).
 
@@ -4121,14 +4097,5 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
 | <code>spin bindle <prepare&vert;push></code>                                          | Deprecated   |
-
-{{ blockEnd }}
-
-{{ startTab "v1.5"}}
-
-| Command                                                                               | Stability    |
-| ------------------------------------------------------------------------------------- | ------------ |
-
-{{ blockEnd }}
 
 {{ blockEnd }}
