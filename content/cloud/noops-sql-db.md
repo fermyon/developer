@@ -8,10 +8,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/noops-sql-db
 ---
 
 - [Accessing Private Beta](#accessing-private-beta)
-- [Service Limitations and Quotas For NoOps SQL Database in Fermyon Cloud](#service-limitations-and-quotas-for-noops-sql-database-in-fermyon-cloud)
+- [Quotas And Service Limitations For the Database in Fermyon Cloud](#quotas-and-service-limitations-for-the-database-in-fermyon-cloud)
 - [How To:](#how-to)
-	- [Prepare a NoOps SQL Database](#prepare-a-noops-sql-database)
-	- [Manage NoOps SQL Database Lifecycle](#manage-noops-sql-database-lifecycle)
+	- [Prepare a Database](#prepare-a-database)
+	- [Manage the Database Lifecycle](#manage-the-database-lifecycle)
 - [FAQ](#faq)
 - [Next Steps](#next-steps)
 
@@ -21,13 +21,13 @@ With NoOps SQL Database using SQLite support in Fermyon Cloud, you can persist r
 
 ## Accessing Private Beta
 
-NoOps SQL Database in Fermyon Cloud is currently in private beta. To request access to the private beta, please fill out this short [sign-up form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx).
+The database in Fermyon Cloud is currently in private beta. To request access to the private beta, please fill out this short [sign-up form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx).
  
 > Please note that the private beta is limited in space and all requests cannot be guaranteed. 
 
 Once you have access to the private beta, please ensure you have [Spin CLI](./cli-reference.md) v1.4 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) vX.Y or greater installed. 
 
-## Quotas And Service Limitations For NoOps SQL Database in Fermyon Cloud
+## Quotas And Service Limitations For the Database in Fermyon Cloud
 
 *Quotas* 
 * You can have a maximum of 1 NoOps SQL Database in your Cloud account
@@ -35,11 +35,11 @@ Once you have access to the private beta, please ensure you have [Spin CLI](./cl
 
 *Service Limitations*
 * The `--sqlite` flag not supported on `spin cloud deploy`
-* Fermyon Cloud only supports NoOps SQLite Databases named "default" at this time
+* Fermyon **Cloud** only supports databases named "default" at this time
 
 ## How To:
 
-### Prepare a NoOps SQL Database
+### Prepare a Database
 
 You can use the `spin cloud sqlite execute` command to check if a table needs to be created, and if so create one: 
 
@@ -49,9 +49,9 @@ $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos 
 
 >> If you need to look up the name of your database, use the `spin cloud sqlite list` command
 
-### Manage NoOps SQL Database Lifecycle
+### Manage the Database Lifecycle
 
-A NoOps SQL Database is created when you deploy a Spin application that references a "default" SQLite database in its component manifest. Multiple components in the same Spin application can be given access to the default database like so:
+A database is created when you deploy a Spin application that references a "default" SQLite database in its component manifest. Multiple components in the same Spin application can be given access to the default database like so:
 
 ```toml
 # c1 does not have access to the default database
@@ -69,7 +69,7 @@ name = "c3"
 sqlite_databases = ["default"]
 ```
 
-The NoOps SQL database will created when the Spin application is deployed. The data persists Spin application invocations and updates. 
+The database will be created when the Spin application is deployed. The data persists Spin application invocations and updates. 
 
 ```bash
 $ spin cloud deploy
@@ -77,9 +77,9 @@ Deploying app ..
 Creating database inspirational-pig (default) for app "quickstart"
 ```
 
-You can check to see your NoOps SQL database by using the `spin cloud sqlite` command:
+You can check to see your database by using the `spin cloud sqlite` command:
 
->> Fermyon Cloud will automatically generate a random name for your NoOps SQL database.
+>> Fermyon Cloud will automatically generate a random name for your database.
 
 ```bash
 $ spin cloud sqlite list
@@ -96,17 +96,17 @@ Deleting database ...
 Database "strong-boson" deleted
 ```
 
-> In the Private Beta, the database is inaccessible once the application has been deleted. However, we separate out the the database deletion step because we anticipate the database being accessible after deletion in a future beta. We enforce NoOps SQL Database deletion to prevent unintentional data sharing between Spin applications. 
+> In the Private Beta, the database is inaccessible once the application has been deleted. However, we separate out the the database deletion step because we anticipate the database being accessible after deletion in a future beta. We enforce database deletion to prevent unintentional data sharing between Spin applications. 
 
 ## FAQ
 
-- **Can I export data from my NoOps SQL Database?**
+- **Can I export data from my database?**
 At this time, Fermyon Cloud does not have a data export feature. We'd love to hear your thoughts on what an ideal experience would look like at [github.com/fermyon/feedback](https://github.com/fermyon/feedback)
 
-- **If I upgrade my Spin application, can I still access the same instance of my NoOps SQL Database?**
+- **If I upgrade my Spin application, can I still access the same instance of my database?**
 Yes, as long as you haven't deleted your database, the instance will be running and stateful. 
 
-- **If I delete and redeploy my Spin application, can I still access the same instance of my NoOps SQL Database?**
+- **If I delete and redeploy my Spin application, can I still access the same instance of my database?**
 No, at this time you cannot access the database. You will need to delete the instance and provision a new one. 
 
 ## Next Steps
