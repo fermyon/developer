@@ -25,7 +25,7 @@ The database in Fermyon Cloud is currently in private beta. To request access to
  
 > Please note that the private beta is limited in space and all requests cannot be guaranteed. 
 
-Once you have access to the private beta, please ensure you have [Spin CLI](./cli-reference.md) v1.4 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) vX.Y or greater installed. 
+Once you have access to the private beta, please ensure you have [Spin CLI](./cli-reference.md) v1.4 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) v0.1.2 or greater installed. 
 
 ## Quotas And Service Limitations For the Database in Fermyon Cloud
 
