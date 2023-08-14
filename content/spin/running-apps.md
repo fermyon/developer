@@ -108,6 +108,8 @@ command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
+Note that references to files in the `component.build.watch` section use the optional `component.build.workdir` section as the base directory for references. If not specified, it uses the directory of the `spin.toml` file. 
+
 If you would prefer Spin watch to only rerun the application (without a rebuild) when changes occur, you can use the `--skip-build` option when running the `spin watch` command.  In this case, Spin will ignore the `component.build.watch` section, and monitor only the `spin.toml`, `component.source` and `component.files`.
 
 The table below outlines exactly which files `spin watch` will monitor for changes depending on how you run the command. `spin watch` uses the configuration found on every component in your application.
