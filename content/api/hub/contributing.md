@@ -77,7 +77,7 @@ $ git remote add upstream https://github.com/fermyon/developer
 
 ### Creating Markdown
 
-Create a **`.md`** Markdown file in the **`content/hub`** folder in your fork. (Adhering to the naming convention of other files helps keep things tidy and manageable.)
+Create a **`.md`** Markdown file in the **`content/api/hub`** folder in your fork. (Adhering to the naming convention of other files helps keep things tidy and manageable.)
 
 Below is a copyable example to get you started:
 
