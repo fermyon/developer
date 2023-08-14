@@ -108,7 +108,7 @@ command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
-Note that references to files in the `component.build.watch` section use the optional `component.build.workdir` section as the base directory for references. If not specified, it uses the directory of the `spin.toml` file. 
+If the `build` section specifies a `workdir`, then `watch` patterns are relative to that directory. Otherwise, `watch` patterns are relative to the directory containing the `spin.toml` file.
 
 If you would prefer Spin watch to only rerun the application (without a rebuild) when changes occur, you can use the `--skip-build` option when running the `spin watch` command.  In this case, Spin will ignore the `component.build.watch` section, and monitor only the `spin.toml`, `component.source` and `component.files`.
 
@@ -126,6 +126,8 @@ Spin watch waits up to 100 milliseconds before responding to filesystem events, 
 > Note: If the build step (`spin build`) fails, `spin up` will not be run.
 
 Passing the `--clear` flag clears the screen anytime a rebuild or rerun occurs. Spin watch does not clear the screen between rebuild and rerun as this provides you with an opportunity to see any warnings.
+
+For additional information about Spin's `watch` feature, please see the [Spin watch - live reload for Wasm app development](https://www.fermyon.com/blog/spin-watch-live-reloading) blog article.
 
 ## Next Steps
 
