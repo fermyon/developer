@@ -42,6 +42,7 @@ Importing color and theme updates for the brand 1.5 refresh
 @import "developer-include-topbar";
 @import "developer-include-search";
 @import "developer-include-footer";
+@import "developer-include-feedback";
 // device adjustments
 @import "developer-responsive";
 
@@ -81,7 +82,7 @@ Importing color and theme updates for the brand 1.5 refresh
 
 			// toc
 			h1:first-of-type+ul {
-				max-height: 70%;
+				max-height: 65vh;
 				overflow-y: auto;
 				min-width: 15vw;
 				display: inline-block;
