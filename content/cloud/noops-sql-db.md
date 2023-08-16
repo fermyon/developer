@@ -12,8 +12,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/noops-sql-db
 - [How To](#how-to)
   - [Database Access From Many Components](#database-access-from-many-components)
   - [Preparing Fermyon Cloud Schema](#preparing-fermyon-cloud-schema)
-    - [Source Code](#source-code)
-    - [Spin Subcommand](#spin-subcommand)
   - [Deleting the Database](#deleting-the-database)
 - [FAQ](#faq)
 - [Next Steps](#next-steps)
@@ -73,29 +71,7 @@ The above configuration will last the lifespan of the application.
 
 ### Preparing Fermyon Cloud Schema
 
-Once you have a NoOps SQLite Storage Spin application successfully built on localhost, prepare the appropriate Fermyon Cloud schema. You need to prepare Fermyon Cloud because your local Spin application's SQLite database is independent of your Cloud application's database. You can think of your local Spin application as a development and testing environment (with its own test data) and Fermyon Cloud as the production environment (with real user data). You can bootstrap your Cloud SQLite database schema (to match your local Spin application) in a couple of different ways.
-
-#### Source Code
-
-The Spin SDK surfaces the Spin SQLite database interface to your language so you can [use SQLite storage from within your application's source code](https://developer.fermyon.com/spin/sqlite-api-guide#using-sqlite-storage-from-applications). Adding SQLite-compatible statements via your source code is one way to bootstrap the Fermyon Cloud application instance schema. For example, you can use a statement like the following to create a table **only** if it does not already exist (note the `IF NOT EXISTS` part of the statement, which would be the case if running your application on Fermyon Cloud for the first time).
-
-```javascript
-import {Sqlite} from "@fermyon/spin-sdk"
-
-// -- snip --
-
-export async function handleRequest(request) {
-    const conn = Sqlite.openDefault();
-    const result = conn.execute("CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)");
-
-// -- snip --
-
-}
-```
-
-#### Spin Subcommand
-
-The other way to bootstrap your Cloud SQLite database schema is via the `spin cloud sqlite execute` subcommand. Your spin application on localhost will already have randomly assigned a name for your database. You will need this name to run the `spin cloud sqlite execute` subcommand. You can obtain this name by typing the following command in your local application's directory:
+Bootstrapping your Cloud SQLite database schema is done via the `spin cloud sqlite execute` subcommand. Your NoOps SQLite application on localhost will have already assigned a name for your database. All we need to do is obtain the name by typing the following command (in your local NoOps SQLite application's directory):
 
 <!-- @selectiveCpy -->
 
@@ -105,13 +81,13 @@ Databases (1)
 inspirational-pig (default)
 ```
 
-As we can see from the above command, there is one database called `inspirational-pig`. Next, we use that name as part of our `spin cloud sqlite execute` subcommand to create our schema for our Fermyon Cloud application:
+Once we have this name (in this above example, we can see our database called `inspirational-pig`), we use that `inspirational-pig` as part of our `spin cloud sqlite execute` subcommand to create our schema for our Fermyon Cloud application:
 
 ```bash
 $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
 ```
 
-As mentioned above, Fermyon Cloud only supports databases named “default” at this time. Once you add the `sqlite_databases = ["default"]` line to your local Spin application's manifest, Spin internally associates that `default` database with the random name Spin autogenerates, i.e. `inspirational-pig`. The name is not arbitrary and must be used explicitly when using the `spin cloud sqlite execute` subcommand (as shown above). This will allow you to develop your application, continually build locally, and deploy to Fermyon Cloud, knowing that the two instances (local and Cloud) share the same schema.
+As mentioned above, Fermyon Cloud only supports databases named “default” at this time. Once you add the `sqlite_databases = ["default"]` line to your local Spin application's manifest, Spin internally associates that `default` database with the random name Spin autogenerates, i.e. `inspirational-pig`. The name is not arbitrary and must be used explicitly when using the `spin cloud sqlite execute` subcommand (as shown above). This will allow you to develop your application, continually build locally, and deploy to Fermyon Cloud, knowing that the two instances (localhost and Cloud) share the same schema.
 
 ### Deleting the Database
 
