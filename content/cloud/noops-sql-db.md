@@ -78,6 +78,8 @@ inspirational-pig (default)
 
 > See the [SQLite documentation](https://www.sqlite.org/lang.html) for information about the SQLite dialect of SQL.
 
+<!-- @selectiveCpy -->
+
 ```bash
 $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
 ```
@@ -89,6 +91,8 @@ $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos 
 Warning: using the `delete` subcommand is **permanent**. 
 
 You can delete your default database with the following command:
+
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin cloud sqlite delete inspirational-pig
