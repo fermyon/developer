@@ -39,7 +39,7 @@ Once you have access to the private beta, please ensure you have [Spin CLI](./cl
 * The `--sqlite` flag is not supported on `spin cloud deploy`
 * Fermyon **Cloud** only supports databases named "default" at this time
 
-## Creating a New Spin Application (Optional)
+## Creating a New Spin Application
 
 If you already have a Spin application, you can skip this step. If you do not have a Spin application on localhost you will need to [create one](/spin/quickstart#create-your-first-application).
 
