@@ -41,7 +41,7 @@ Once you have access to the private beta, please ensure you have [Spin CLI](./cl
 
 ## Creating a New Spin Application
 
-If you already have a Spin application, you can skip this step. If you do not have a Spin application on localhost you will need to [create one](/spin/quickstart#create-your-first-application).
+If you already have a Spin application, you can skip this step. If you do not have a Spin application locally you will need to [create one](/spin/quickstart#create-your-first-application).
 
 ## Grant SQLite Permission
 
