@@ -82,7 +82,7 @@ inspirational-pig (default)
 $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
 ```
 
-> Note: Cloud database is completely unrelated to the local (optional) database.
+> Note: The Cloud database is completely unrelated to the local database, and must be prepared separately.
 
 ## Deleting the Cloud Database
 
