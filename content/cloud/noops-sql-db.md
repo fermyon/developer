@@ -52,7 +52,7 @@ To tell Spin that we want to use SQLite storage, we only need to [grant SQLite p
 sqlite_databases = ["default"]
 ```
 
-The new database file (`sqlite_db.db`) is created in your application's `.spin` folder when you deploy this Spin application. The database persists Spin application invocations and updates. The database is empty and can optionally have tables and data added using the following step.
+The new database file (`sqlite_db.db`) is created in your application's `.spin` folder when you deploy this Spin application. The database persists across Spin application invocations and updates. The database is empty and can optionally have tables and data added using the following step.
 
 ## Tables and Data Locally (Optional)
 
