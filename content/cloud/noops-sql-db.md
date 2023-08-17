@@ -98,7 +98,7 @@ Deleting database ...
 Database "inspirational-pig" deleted
 ```
 
-> In the Private Beta, the database is inaccessible once the application has been deleted. However, we separate out the database deletion step because we anticipate the database being accessible after deletion in a future beta. We enforce database deletion to prevent unintentional data sharing between Spin applications. 
+> In the Private Beta, we do not have support for sharing database between apps. However, we still separate out the database deletion from app deletion because we anticipate the ability to use databases from multiple apps in the future.
 
 ## FAQ
 
