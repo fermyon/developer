@@ -60,7 +60,11 @@ See [preparing an SQLite database](https://developer.fermyon.com/spin/sqlite-api
 
 ## Tables and Data in Fermyon Cloud
 
-When you first `spin cloud deploy` your application (with the `sqlite_databases` configuration, as shown above), Fermyon Cloud will create a new & empty database for your Cloud application. This new Cloud database will have a unique name. To obtain the name, type the following command in your local NoOps SQLite application's directory:
+When you first `spin cloud deploy` your application (with the `sqlite_databases` configuration, as shown above), Fermyon Cloud will create a new database for your Cloud application.
+
+The new database is initially empty, so you will need to create tables (and potentially initial data) before it is useful.  To do this:
+
+1. Find the name of your Cloud database. To do this, run the following command:
 
 <!-- @selectiveCpy -->
 
