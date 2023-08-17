@@ -56,7 +56,7 @@ The new database file (`sqlite_db.db`) is created in your application's `.spin` 
 
 ## Tables and Data Locally (Optional)
 
-See [preparing an SQLite database](https://developer.fermyon.com/spin/sqlite-api-guide#preparing-an-sqlite-database) for more information in using the `spin up` subcommand's `--sqlite` option to create and populate tables locally. No **Cloud** database is created or changed as a result of using this this optional `spin up --sqlite` example. Populating this local database can be useful for testing (the relationship between your application's logic and your schema) before deploying your application to Fermyon Cloud.
+See [preparing an SQLite database](https://developer.fermyon.com/spin/sqlite-api-guide#preparing-an-sqlite-database) for more information on using the `spin up` subcommand's `--sqlite` option to create and populate tables locally. No **Cloud** database is created or changed as a result of using this this optional `spin up --sqlite` example. Populating this local database can be useful for testing (the relationship between your application's logic and your schema) before deploying your application to Fermyon Cloud.
 
 ## Tables and Data in Fermyon Cloud
 
