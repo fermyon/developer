@@ -74,7 +74,9 @@ Databases (1)
 inspirational-pig (default)
 ```
 
-Then use the `spin cloud sqlite execute` command to create your Cloud database's schema i.e. execute language syntax compatible with [SQLite](https://www.sqlite.org/lang.html) against your Cloud database.
+2. Run `spin cloud sqlite execute`, passing the name of the database and the SQL statement(s) needed to create your Cloud database's tables and initial data.
+
+> See the [SQLite documentation](https://www.sqlite.org/lang.html) for information about the SQLite dialect of SQL.
 
 ```bash
 $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
