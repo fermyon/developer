@@ -6,7 +6,6 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/rdbms-storage.md"
 
 ---
-- [Using SQLite From Applications](#using-sqlite-from-applications)
 - [Using MySQL and PostgreSQL From Applications](#using-mysql-and-postgresql-from-applications)
 
 Spin provides two interfaces for relational (SQL) databases:
@@ -14,45 +13,9 @@ Spin provides two interfaces for relational (SQL) databases:
 * A built-in [SQLite database](/spin/sqlite-api-guide), which is always available and requires no management on your part.
 * "Bring your own database" support for MySQL and PostgreSQL, where you host and manage the database outside of Spin.
 
-## Using SQLite From Applications
+This page covers the "bring your own database" scenario.  See [SQLite Storage](/spin/sqlite-api-guide) for the built-in service.
 
 {{ details "Why do I need a Spin interface? Why can't I just use my language's database libraries?" "The current version of the WebAssembly System Interface (WASI) doesn't provide a sockets interface, so database libraries that depend on sockets can't be built to Wasm. The Spin interface means Wasm modules can bypass this limitation by asking Spin to make the database connection on their behalf." }}
-
-{{ tabs "sdk-type" }}
-
-{{ startTab "Rust"}}
-
-**SQLite**
-
-Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
-
-{{ blockEnd }}
-
-{{ startTab "TypeScript"}}
-
-**SQLite**
-
-Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
-
-{{ blockEnd }}
-
-{{ startTab "Python"}}
-
-**SQLite**
-
-Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
-
-{{ blockEnd }}
-
-{{ startTab "TinyGo"}}
-
-**SQLite**
-
-Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
-
-{{ blockEnd }}
-
-{{ blockEnd }}
 
 ## Using MySQL and PostgreSQL From Applications
 
