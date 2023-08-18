@@ -13,7 +13,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/go-components
 - [Storing Data in Redis From Go Components](#storing-data-in-redis-from-go-components)
 - [Using Go Packages in Spin Components](#using-go-packages-in-spin-components)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
-- [Storing Data in SQLite Relational Databases](#storing-data-in-sqlite-relational-databases)
 - [Storing Data in MySQL and PostgreSQL Relational Databases](#storing-data-in-mysql-and-postgresql-relational-databases)
 
 > This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Go templates, installing required tools, and creating Go applications.
@@ -350,10 +349,6 @@ WASI can be used when implementing a Spin component.
 ## Storing Data in the Spin Key-Value Store
 
 Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store-tutorial).
-
-## Storing Data in SQLite Relational Databases
-
-For more information about using SQLite relational databases from TinyGo, see [SQLite storage](sqlite-api-guide).
 
 ## Storing Data in MySQL and PostgreSQL Relational Databases
 

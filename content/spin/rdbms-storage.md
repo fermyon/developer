@@ -32,8 +32,6 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
-**MySQL and PostgreSQL**
-
 MySQL functions are available in the `spin_sdk::mysql` module, and PostgreSQL functions in the `spin_sdk::pg` module. The function names match the operations above. This example shows MySQL:
 
 ```rust
@@ -64,23 +62,17 @@ You can find complete examples for using relational databases in the Spin reposi
 
 {{ startTab "TypeScript"}}
 
-**MySQL and PostgreSQL**
-
 The JavaScript/TypeScript SDK doesn't surface the MySQL or PostgreSQL APIs. However, you can use hosted relational database services that are accessible over HTTP. For an example, see the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/planetscale), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/javascript/planetscale)).
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-**MySQL and PostgreSQL**
-
 The Python SDK doesn't currently surface the MySQL or PostgreSQL APIs.
 
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
-
-**MySQL and PostgreSQL**
 
 The Go SDK doesn't currently surface the MySQL or PostgreSQL APIs.
 
