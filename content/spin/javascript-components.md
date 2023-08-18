@@ -14,6 +14,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/javascript-co
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
 - [Routing in a Component](#routing-in-a-component)
+- [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
+- [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External NPM Libraries](#using-external-npm-libraries)
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
 - [Caveats](#caveats)
@@ -379,6 +381,14 @@ export const handleRequest: HandleRequest = async function(request: HttpRequest)
     return await router.handleRequest(request)
 }
 ```
+
+## Storing Data in the Spin Key-Value Store
+
+Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store-tutorial).
+
+## Storing Data in Relational Databases
+
+For more information about using relational databases from TypeScript/JavaScript, see [Relational Databases](rdbms-storage).
 
 ## Using External NPM Libraries
 

@@ -16,6 +16,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/python-compon
 - [An Outbound Redis Example](#an-outbound-redis-example)
   - [Configuration](#configuration-1)
   - [Building and Running the Application](#building-and-running-the-application-2)
+- [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
+- [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 
 With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
 
@@ -328,3 +330,11 @@ redis-cli
 127.0.0.1:6379> get foo
 "bar"
 ```
+
+## Storing Data in the Spin Key-Value Store
+
+Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store-tutorial).
+
+## Storing Data in Relational Databases
+
+For more information about using relational databases from Python, see [Relational Databases](rdbms-storage).
