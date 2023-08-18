@@ -119,7 +119,7 @@ const json = JSON.stringify(result.rows);
 * Parameters are JavaScript values (numbers, strings, byte arrays, or nulls). Spin infers the underlying SQL type.
 * The `execute` function returns an object with `rows` and `columns` properties. `columns` is an array of strings representing column names. `rows` is an array of rows, each of which is an array of JavaScript values (as above) in the same order as `columns`.
 * The `Connection` object doesn't surface the `close` function.
-* Errors are surfaced as exceptions.
+* If a Spin SDK function fails, it throws an [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error).
 
 {{ blockEnd }}
 
