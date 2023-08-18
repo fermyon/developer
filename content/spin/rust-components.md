@@ -14,6 +14,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/rust-componen
 - [Storing Data in Redis From Rust Components](#storing-data-in-redis-from-rust-components)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
   - [Serializing Objects to the Key-Value Store](#serializing-objects-to-the-key-value-store)
+- [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
 - [Troubleshooting](#troubleshooting)
@@ -435,6 +436,10 @@ HTTP/1.1 200 OK
 
 0x1234
 ```
+
+## Storing Data in SQLite
+
+For more information about using SQLite from Rust, see [SQLite storage](sqlite-api-guide).
 
 ## Storing Data in Relational Databases
 
