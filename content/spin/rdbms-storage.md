@@ -6,6 +6,7 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/rdbms-storage.md"
 
 ---
+- [Using SQLite From Applications](#using-sqlite-from-applications)
 - [Using MySQL and PostgreSQL From Applications](#using-mysql-and-postgresql-from-applications)
 
 Spin provides two interfaces for relational (SQL) databases:
@@ -13,9 +14,45 @@ Spin provides two interfaces for relational (SQL) databases:
 * A built-in [SQLite database](/spin/sqlite-api-guide), which is always available and requires no management on your part.
 * "Bring your own database" support for MySQL and PostgreSQL, where you host and manage the database outside of Spin.
 
-This page covers the "bring your own database" scenario.  See [SQLite Storage](/spin/sqlite-api-guide) for the built-in service.
+## Using SQLite From Applications
 
 {{ details "Why do I need a Spin interface? Why can't I just use my language's database libraries?" "The current version of the WebAssembly System Interface (WASI) doesn't provide a sockets interface, so database libraries that depend on sockets can't be built to Wasm. The Spin interface means Wasm modules can bypass this limitation by asking Spin to make the database connection on their behalf." }}
+
+{{ tabs "sdk-type" }}
+
+{{ startTab "Rust"}}
+
+**SQLite**
+
+Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
+
+{{ blockEnd }}
+
+{{ startTab "TypeScript"}}
+
+**SQLite**
+
+Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
+
+{{ blockEnd }}
+
+{{ startTab "Python"}}
+
+**SQLite**
+
+Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
+
+{{ blockEnd }}
+
+{{ startTab "TinyGo"}}
+
+**SQLite**
+
+Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 ## Using MySQL and PostgreSQL From Applications
 
@@ -31,10 +68,6 @@ The exact detail of calling these operations from your application depends on yo
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
-
-**SQLite**
-
-Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
 
 **MySQL and PostgreSQL**
 
@@ -68,10 +101,6 @@ You can find complete examples for using relational databases in the Spin reposi
 
 {{ startTab "TypeScript"}}
 
-**SQLite**
-
-Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
-
 **MySQL and PostgreSQL**
 
 The JavaScript/TypeScript SDK doesn't surface the MySQL or PostgreSQL APIs. However, you can use hosted relational database services that are accessible over HTTP. For an example, see the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/planetscale), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/javascript/planetscale)).
@@ -80,10 +109,6 @@ The JavaScript/TypeScript SDK doesn't surface the MySQL or PostgreSQL APIs. Howe
 
 {{ startTab "Python"}}
 
-**SQLite**
-
-Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
-
 **MySQL and PostgreSQL**
 
 The Python SDK doesn't currently surface the MySQL or PostgreSQL APIs.
@@ -91,10 +116,6 @@ The Python SDK doesn't currently surface the MySQL or PostgreSQL APIs.
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
-
-**SQLite**
-
-Spin provides an interface for you to [persist data in an SQLite database managed by Spin](https://developer.fermyon.com/spin/sqlite-api-guide).
 
 **MySQL and PostgreSQL**
 
