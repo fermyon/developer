@@ -119,7 +119,7 @@ const json = JSON.stringify(result.rows);
 * Parameters are JavaScript values (numbers, strings, byte arrays, or nulls). Spin infers the underlying SQL type.
 * The `execute` function returns an object with `rows` and `columns` properties. `columns` is an array of strings representing column names. `rows` is an array of rows, each of which is an array of JavaScript values (as above) in the same order as `columns`.
 * The `Connection` object doesn't surface the `close` function.
-* Errors are surfaced as exceptions.
+* Errors surface as exceptions. However, an error inside exception handling (a `try...catch` statement block) will only return an empty object.
 
 {{ blockEnd }}
 
