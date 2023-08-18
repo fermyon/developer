@@ -18,7 +18,7 @@ keywords = "rust, static content, components, html"
 
 ---
 
-A nice litte app to create shortlinks, and generate QR codes.
+A nice little app to create short links and generate QR codes.
 
 The sample has an api, an admin UI (html), a component to redirect, and uses an external component to generate QR codes.
 
