@@ -15,7 +15,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/javascript-co
 - [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
 - [Routing in a Component](#routing-in-a-component)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
-- [Storing Data in SQLite Relational Databases](#storing-data-in-sqlite-relational-databases)
+- [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in MySQL and PostgreSQL Relational Databases](#storing-data-in-mysql-and-postgresql-relational-databases)
 - [Using External NPM Libraries](#using-external-npm-libraries)
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
@@ -387,9 +387,9 @@ export const handleRequest: HandleRequest = async function(request: HttpRequest)
 
 Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store-tutorial).
 
-## Storing Data in SQLite Relational Databases
+## Storing Data in SQLite
 
-For more information about using SQLite relational databases from TypeScript/Javascript, see [SQLite storage](sqlite-api-guide).
+For more information about using SQLite from TypeScript/Javascript, see [SQLite storage](sqlite-api-guide).
 
 ## Storing Data in MySQL and PostgreSQL Relational Databases
 
