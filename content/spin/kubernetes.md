@@ -287,7 +287,7 @@ These instructions are provided for a self-managed or other Kubernetes service t
 - Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
 - You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
 
-### Setup (new)
+### Setup
 
 We provide the [spin-containerd-shim-installer](https://github.com/fermyon/spin-containerd-shim-installer) Helm chart that provides an automated method to install and configure the containerd shim for Fermyon Spin in Kubernetes. Please see the [README](https://github.com/fermyon/spin-containerd-shim-installer/main/README.md) in the installer repository for more information.
 
