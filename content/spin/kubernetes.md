@@ -51,8 +51,8 @@ For Kubernetes to run Spin workloads, it needs to be taught about a new runtime 
 
 ## Next Steps
 
-- Use the appropriate guide below to configure Kubernetes cluster for Spin Apps
-- Follow the instructions in the “Run a Spin Workload in Kubernetes” guide below
+- Use the appropriate guide below to configure Kubernetes cluster for Spin Apps.
+- Follow the instructions in the “Run a Spin Workload in Kubernetes” guide below.
 
 {{ tabs "platforms" }}
 
@@ -72,16 +72,16 @@ Azure AKS provides a straightforward and officially [documented](https://learn.m
 - The WASM/WASI node pools can't be used for system node pool.
 - The *os-type* for WASM/WASI node pools must be Linux.
 - You can't use the Azure portal to create WASM/WASI node pools.
-- AKS uses an older version of Spin for the shim, so you will need to change `spin_manifest_version` to `spin_version` in `spin.toml` if you are using a template-generated project from the Spin CLI
+- AKS uses an older version of Spin for the shim, so you will need to change `spin_manifest_version` to `spin_version` in `spin.toml` if you are using a template-generated project from the Spin CLI.
 - The RuntimeClass `wasmtime-spin-v0-5-1` on Azure maps to spin v1.0.0, and the `wasmtime-spin-v1` RuntimeClass uses an older shim corresponding to v0.3.0 spin.
 
 #### Note for Rust
 
-In Cargo.toml, the `spin-sdk` dependency should be downgraded to `v1.0.0-rc.1` in order to match the lower version running on the AKS shim
+In Cargo.toml, the `spin-sdk` dependency should be downgraded to `v1.0.0-rc.1` in order to match the lower version running on the AKS shim.
 
 ### Setup
 
-To get spin working on an AKS cluster, a few setup steps are required. First Add the aks-preview extension
+To get spin working on an AKS cluster, a few setup steps are required. First Add the aks-preview extension:
 
 <!-- @selectiveCpy -->
 
@@ -97,7 +97,7 @@ Next update to the latest version:
 $ az extension update --name aks-preview
 ```
 
-Register the WasmNodePoolPreview feature
+Register the WasmNodePoolPreview feature:
 
 <!-- @selectiveCpy -->
 
@@ -105,7 +105,7 @@ Register the WasmNodePoolPreview feature
 $ az feature register --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
 ```
 
-This will take a few minutes to complete. You can verify it’s done when this command returns *Registered*
+This will take a few minutes to complete. You can verify it’s done when this command returns *Registered*:
 
 <!-- @selectiveCpy -->
 
@@ -113,7 +113,7 @@ This will take a few minutes to complete. You can verify it’s done when this c
 $ az feature show --namespace "Microsoft.ContainerService" --name "WasmNodePoolPreview"
 ```
 
-Finally refresh the registration of the ContainerService
+Finally refresh the registration of the ContainerService:
 
 <!-- @selectiveCpy -->
 
@@ -121,7 +121,7 @@ Finally refresh the registration of the ContainerService
 $ az provider register --namespace Microsoft.ContainerService
 ```
 
-Once the service is registered, the next step is to add a Wasm/WASI nodepool to an existing AKS cluster. If a cluster doesn’t already exist, follow Azure’s [documentation](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli) to create a new cluster.
+Once the service is registered, the next step is to add a Wasm/WASI nodepool to an existing AKS cluster. If a cluster doesn’t already exist, follow Azure’s [documentation](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli) to create a new cluster:
 
 <!-- @selectiveCpy -->
 
@@ -135,7 +135,7 @@ $ az aks nodepool add \
     --workload-runtime WasmWasi
 ```
 
-You can verify the workloadRuntime using the following command
+You can verify the workloadRuntime using the following command:
 
 <!-- @selectiveCpy -->
 
@@ -143,7 +143,7 @@ You can verify the workloadRuntime using the following command
 $ az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipool --query workloadRuntime
 ```
 
-The next set of commands uses kubectl to create the necessary runtimeClass. If you don’t already have kubectl configured with the appropriate credentials, you can retrieve them with this command
+The next set of commands uses kubectl to create the necessary runtimeClass. If you don’t already have kubectl configured with the appropriate credentials, you can retrieve them with this command:
 
 <!-- @selectiveCpy -->
 
@@ -151,7 +151,7 @@ The next set of commands uses kubectl to create the necessary runtimeClass. If y
 $ az aks get-credentials -n myAKSCluster -g myResourceGroup
 ```
 
-Find the name of the nodepool
+Find the name of the nodepool:
 
 <!-- @selectiveCpy -->
 
@@ -159,7 +159,7 @@ Find the name of the nodepool
 $ kubectl get nodes -o wide
 ```
 
-Then retrieve detailed information on the appropriate nodepool and verify among it’s labels is “kubernetes.azure.com/wasmtime-spin-v1=true”
+Then retrieve detailed information on the appropriate nodepool and verify among it’s labels is “kubernetes.azure.com/wasmtime-spin-v1=true”:
 
 <!-- @selectiveCpy -->
 
@@ -167,7 +167,7 @@ Then retrieve detailed information on the appropriate nodepool and verify among 
 kubectl describe node aks-mywasipool-12456878-vmss000000
 ```
 
-Find the `wasmtime-spin-v1` RuntimeClass created by AKS
+Find the `wasmtime-spin-v1` RuntimeClass created by AKS:
 
 <!-- @selectiveCopy -->
 
@@ -183,7 +183,7 @@ $ kubectl describe runtimeclass wasmtime-spin-v1
 
 ### Introduction
 
-Docker Desktop provides both an easy way to run Spin apps in containers directly and it's own Kubernetes option.
+Docker Desktop provides both [an easy way to run Spin apps in containers](https://www.fermyon.com/blog/spin-in-docker) directly and its own Kubernetes option.
 
 ### Known Limitations
 
@@ -195,9 +195,9 @@ Docker Desktop provides both an easy way to run Spin apps in containers directly
 
 Install approproiate Preview Version of Docker Desktop+Wasm Technical Preview 2 from [here](https://www.docker.com/blog/announcing-dockerwasm-technical-preview-2/). Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
 
-Next Enable Kubernetes under Settings → Experimental → Enable Kubernetes, then hit “Apply & Restart”
+Next Enable Kubernetes under Settings → Experimental → Enable Kubernetes, then hit “Apply & Restart”.
 
-Create a file wasm-runtimeclass.yml and populate with the following information
+Create a file wasm-runtimeclass.yml and populate with the following information:
 
 ```yaml
 apiVersion: node.k8s.io/v1
@@ -207,7 +207,7 @@ metadata:
 handler: "spin"
 ```
 
-Then register the runtime class with the cluster
+Then register the runtime class with the cluster:
 
 <!-- @selectiveCpy -->
 
@@ -246,7 +246,7 @@ If there is not command specified in the Dockerfile, one will need to be passed 
 
 Ensure both Docker and k3d are installed. Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
 
-Deis Labs provides a preconfigured K3d environment that can be run using this command
+Deis Labs provides a preconfigured K3d environment that can be run using this command:
 
 <!-- @selectiveCpy -->
 
@@ -254,7 +254,7 @@ Deis Labs provides a preconfigured K3d environment that can be run using this co
 $ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.8.0 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
 ```
 
-Create a file wasm-runtimeclass.yml and populate with the following information
+Create a file wasm-runtimeclass.yml and populate with the following information:
 
 ```yaml
 apiVersion: node.k8s.io/v1
@@ -264,7 +264,7 @@ metadata:
 handler: "spin"
 ```
 
-Then register the runtime class with the cluster
+Then register the runtime class with the cluster:
 
 <!-- @selectiveCpy -->
 
@@ -307,7 +307,7 @@ There are several values you may need to configure based on your Kubernetes envi
 | installer.hostEtcContainerdPath | `/etc/containerd` | Directory where containerd's config.toml is located                      |
 | installer.hostBinPath           | `/usr/local/bin`  | Directory where the shim binary should be installed to (must be on PATH) |
 
-> NOTE: Because it is difficult to cover all Kubernetes environments there are no default values for node selectors or tolerations but they are configurable through values. We recommend that you configure some sensible defaults for your environment.
+> NOTE: Because it is difficult to cover all Kubernetes environments there are no default values for node selectors or tolerations but they are configurable through values. We recommend that you configure some sensible defaults for your environment:
 
 ```console
 $ helm install fermyon-spin oci://ghcr.io/fermyon/charts/spin-containerd-shim-installer --version 0.8.0
