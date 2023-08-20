@@ -131,6 +131,7 @@ $ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mywasipool \
     --node-count 1 \
+    --node-vm-size Standard_B2s \
     --workload-runtime WasmWasi
 ```
 
@@ -147,7 +148,7 @@ The next set of commands uses kubectl to create the necessary runtimeClass. If y
 <!-- @selectiveCpy -->
 
 ```console
-$ az aks get-credentials -n myakscluster -g myresourcegroup
+$ az aks get-credentials -n myAKSCluster -g myResourceGroup
 ```
 
 Find the name of the nodepool
@@ -166,25 +167,12 @@ Then retrieve detailed information on the appropriate nodepool and verify among 
 kubectl describe node aks-mywasipool-12456878-vmss000000
 ```
 
-Create a file wasm-runtimeclass.yml and populate with the following information
+Find the `wasmtime-spin-v1` RuntimeClass created by AKS
 
-```yaml
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: "wasmtime-spin-v1"
-handler: "spin"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin-v1": "true"
-```
-
-Then register the runtime class with the cluster
-
-<!-- @selectiveCpy -->
+<!-- @selectiveCopy -->
 
 ```console
-$ kubectl apply -f wasm-runtimeclass.yaml
+$ kubectl describe runtimeclass wasmtime-spin-v1
 ```
 
 {{ blockEnd }}
@@ -299,41 +287,30 @@ These instructions are provided for a self-managed or other Kubernetes service t
 - Each Pod will be constantly running it’s own HTTP listener which adds overhead vs Fermyon Cloud.
 - You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
 
-### Setup
+### Setup (new)
 
-Clone containerd shim repository. Cd into the directory and run make
+We provide the [spin-containerd-shim-installer](https://github.com/fermyon/spin-containerd-shim-installer) Helm chart that provides an automated method to install and configure the containerd shim for Fermyon Spin in Kubernetes. Please see the [README](https://github.com/fermyon/spin-containerd-shim-installer/main/README.md) in the installer repository for more information.
 
-<!-- @selectiveCpy -->
+The version of the container image and Helm chart directly correlates to the version of the containerd shim. We recommend selecting the shim version that correlates the version of Spin that you use for your application(s). For simplicity, here is a table depicting the version matrix between Spin and the containerd shim.
 
-```console
-$ git clone https://github.com/deislabs/containerd-wasm-shims
-$ cd containerd-wasm-shims
-$ make
-```
+| [Spin](https://github.com/fermyon/spin/releases)              | [containerd-shim-spin-v1](https://github.com/deislabs/containerd-wasm-shims/releases) |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [v1.4.0](https://github.com/fermyon/spin/releases/tag/v1.4.0) | [v0.8.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.8.0)       |
+| [v1.3.0](https://github.com/fermyon/spin/releases/tag/v1.3.0) | [v0.7.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.7.0)       |
+| [v1.1.0](https://github.com/fermyon/spin/releases/tag/v1.1.0) | [v0.6.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.6.0)       |
+| [v1.0.0](https://github.com/fermyon/spin/releases/tag/v1.0.0) | [v0.5.1](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.5.1)       |
 
-Copy the `containerd-shim-spin-v1` to the `/bin` directory of kubernetes node image. Then add the following lines to the config.toml for containerd.
+There are several values you may need to configure based on your Kubernetes environment. The installer needs to add a binary to the node's PATH and edit containerd's config.toml. The defaults we set are the same defaults for containerd and should work for most Kubernetes environments but you may need to adjust them if your distribution uses non-default paths.
 
-```
-  [plugins.cri.containerd.runtimes.spin]
-    runtime_type = "io.containerd.spin.v1"
-```
+| Name                            | Default           | Description                                                              |
+| ------------------------------- | ----------------- | ------------------------------------------------------------------------ |
+| installer.hostEtcContainerdPath | `/etc/containerd` | Directory where containerd's config.toml is located                      |
+| installer.hostBinPath           | `/usr/local/bin`  | Directory where the shim binary should be installed to (must be on PATH) |
 
-Create a file wasm-runtimeclass.yml and populate with the following information
-
-```yaml
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: "wasmtime-spin-v1"
-handler: "spin"
-```
-
-Then register the runtime class with the cluster
-
-<!-- @selectiveCpy -->
+> NOTE: Because it is difficult to cover all Kubernetes environments there are no default values for node selectors or tolerations but they are configurable through values. We recommend that you configure some sensible defaults for your environment.
 
 ```console
-$ kubectl apply -f wasm-runtimeclass.yaml
+$ helm install fermyon-spin oci://ghcr.io/fermyon/charts/spin-containerd-shim-installer --version 0.8.0
 ```
 
 {{ blockEnd }}
@@ -409,15 +386,11 @@ An example Dockerfile is below. The only things which end up in the final image 
 Dockerfile
 
 ```yaml
-FROM scratch AS build
-WORKDIR /tmp/test
-COPY . .
-
 FROM scratch
-COPY --from=build /tmp/test/spin.toml .
-COPY --from=build /tmp/test/target/wasm32-wasi/release/test.wasm ./target/wasm32-wasi/release/test.wasm
-COPY --from=build /tmp/test/spin_static_fs.wasm ./spin_static_fs.wasm
-COPY --from=build /tmp/test/static ./static
+COPY ./spin.toml .
+COPY ./target/wasm32-wasi/release/test.wasm ./target/wasm32-wasi/release/test.wasm
+COPY ./spin_static_fs.wasm ./spin_static_fs.wasm
+COPY ./static ./static
 ```
 
 The deploy.yaml file defines the deployment to the Kubernetes server. By default the replicas is configured as 3, however this can be edited after the scaffolding stage and before the deployment stage. Additionally, the runtimeClassName is defined as wasmtime-spin-v1. It’s critical that that is the exact name used when setting up the Kubernetes service to support Spin, or that the deployment be edited to the appropriate name.
