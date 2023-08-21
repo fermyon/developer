@@ -178,3 +178,12 @@ Also, note that the application's folder structure, scaffolded for us by Spin vi
 ```
 
 This is the recommended Spin application structure.
+
+## Next Steps
+
+- Learn about how to [build your Spin application code](build)
+- Try [running your application locally](running-apps)
+- Discover how Spin application authors [design and organise applications](see-what-people-have-built-with-spin)
+- Learn about how to [configure your application at runtime](dynamic-configuration)
+- Look up details in the [application manifest reference](manifest-reference)
+- Try deploying a Spin application to the [Fermyon Cloud](/cloud/quickstart)
