@@ -66,7 +66,7 @@ $ spin new http-rust spin-key-value
 ```bash
 $ spin new http-ts spin-key-value
 
-# Reference: https://github.com/karthik2804/spin-kv-ts
+# Reference: https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/spin_kv
 ```
 
 {{ blockEnd }}
