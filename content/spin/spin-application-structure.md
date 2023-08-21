@@ -159,7 +159,7 @@ route = "/static/old.txt"
 executor = { type = "wagi" }
 ```
 
-Also, note that the application's folder structure, scaffolded for us by Spin via the spin add commands, is symmetrical and shows no nesting of components.
+Also, note that the application's folder structure, scaffolded for us by Spin via the spin add commands, is symmetrical and shows no nesting of components:
 
 ```console
 ├── assets
