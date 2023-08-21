@@ -1,4 +1,4 @@
-title = "Spin Application Structure"
+title = "Application Structure"
 template = "spin_main"
 date = "2023-08-20T00:00:00Z"
 enable_shortcodes = true
