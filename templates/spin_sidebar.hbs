@@ -143,6 +143,9 @@
                     Advanced
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/spin-application-structure" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/spin-application-structure">Spin Application Structure</a>
+                    </li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/extending-and-embedding" )}}
                             class="active" {{/if}} href="{{site.info.base_url}}/spin/extending-and-embedding">Extending
                             and Embedding
