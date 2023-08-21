@@ -8,7 +8,7 @@ keywords = "structure"
 
 ---
 
-As mentioned in this [blog post](https://www.fermyon.com/blog/spin-application-structure), we are often asked about how to structure Spin applications. There are a few nuances to this discussion, such as the use of different application trigger types and how to modify an existing application's structure. These nuances are discussed in the blog post and also in [this video](https://www.youtube.com/watch?v=QQD-qodabSc). This page, however, will focus only on creating Spin applications from scratch using the http-empty template. This template serves as the foundation for the recommended Spin application structure when creating applications that respond to HTTP requests.
+As mentioned in this [blog post](https://www.fermyon.com/blog/spin-application-structure), we are often asked about how to structure Spin applications that involve multiple source code components. There are a few nuances to this discussion, such as the use of different application trigger types and how to modify an existing application's structure. These nuances are discussed in the blog post and also in [this video](https://www.youtube.com/watch?v=QQD-qodabSc). This page, however, will focus only on creating multi-component Spin applications from scratch using the http-empty template. This template serves as the foundation for the recommended Spin application structure when creating applications that respond to HTTP requests.
 
 ## Recommended Application Structure
 

@@ -248,6 +248,8 @@ All of these templates create a manifest containing a single component, and the 
 
 To add a new component to an existing application using a template, run the `spin add` command. This works in a very similar way to `spin new`, except that it expects the `spin.toml` file to already exist, and adds the details for the new component to that `spin.toml`.
 
+> Please take a look at the [Spin application structure](spin/spin-application-structure) documentation, which explains how to achieve the recommended application structure (through the use of Spin templates via the `spin new` and `spin add` commands).
+
 ## Including Files with Components
 
 You can include files with a component.  This means that:
@@ -389,6 +391,7 @@ channel = "messages"
 
 ## Next Steps
 
+- Learn about [Spin application structure](spin/spin-application-structure)
 - Learn about how to [build your Spin application code](build)
 - Try [running your application locally](running-apps)
 - Discover how Spin application authors [design and organise applications](see-what-people-have-built-with-spin)
