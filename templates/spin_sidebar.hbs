@@ -27,6 +27,9 @@
                 <ul class="menu-list accordion-menu-item-content">
                     <li><a {{#if (active_content request.spin-path-info "/spin/writing-apps" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/writing-apps">Writing Applications</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/spin/spin-application-structure" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/spin-application-structure">Structuring Applications</a>
+                    </li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/build" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/build">Building Application Code</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/running-apps" )}} class="active" {{/if}}
