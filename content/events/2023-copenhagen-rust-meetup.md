@@ -1,6 +1,6 @@
 title = "Copenhagen Rust Community Meet-Up"
 date = "2023-08-22T17:00:00Z"
-description = "Catch Mikkel Hegnhoj & Sohan Maheshwar at the August Copenhagen Rust meet-up in which they'll present, \“An introduction to Spin, a serverless WebAssembly framework written in Rust\”. We'll be sponsoring food & drinks as well -- make sure to RSVP now to save your spot!"
+description = "Catch Mikkel Hegnhoj & Sohan Maheshwar at the August Copenhagen Rust meet-up in which they will present, \"An introduction to Spin, a serverless WebAssembly framework written in Rust\". We will be sponsoring food & drinks as well -- make sure to RSVP now to save your spot!"
 
 [extra]
 type = "event"
