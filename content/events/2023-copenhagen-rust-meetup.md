@@ -10,3 +10,4 @@ url = "https://www.meetup.com/copenhagen-rust-community/events/294806394/"
 image = "static/image/avatar.png"
 
 ---
+
