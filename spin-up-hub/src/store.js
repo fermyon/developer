@@ -29,15 +29,15 @@ const store = createStore({
       let data = state.contentItems.find(k => k.id == payload)
       if (data) {
         state.modalData = data
-        console.log(state.testData)
+        state.modalData.createdAt = formatTimestamp(data.createdAt)
+        state.modalData.lastUpdated = formatTimestamp(data.lastUpdated)
         state.modalData.description = ""
         state.modalData.isloaded = false
         document.body.classList.add("modal-open")
-
+        document.title = `Spin Up Hub | ${state.modalData.title} `
       }
     },
     openPreview(state, payload) {
-      console.log(payload)
       state.openPreviewId = payload
       state.isModalOpen = true
       router.push("/hub/preview/" + payload)
@@ -46,6 +46,7 @@ const store = createStore({
       state.isModalOpen = false
       document.body.classList.remove("modal-open")
       router.push("/hub")
+      document.title = "Spin Up Hub"
     },
     updateModalDescription(state, payload) {
       state.modalData.description = payload.description
@@ -123,5 +124,10 @@ const unescapeHTML = str =>
       '&#x3D;': '='
     }[tag] || tag)
   );
+
+function formatTimestamp(timestamp) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric'};
+  return new Date(timestamp).toLocaleDateString('en-US', options);
+}
 
 export { store, unescapeHTML }
