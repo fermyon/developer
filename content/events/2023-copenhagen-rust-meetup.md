@@ -4,7 +4,7 @@ description = "Catch Mikkel Hegnhoj & Sohan Maheshwar at the August Copenhagen R
 
 [extra]
 type = "event"
-eventdates = "Aug 31st - Copenhagen, Denmark"
+eventdates = "Aug 31 - Copenhagen, Denmark"
 eventexpires = "2023-08-31T01:01:01Z"
 url = "https://www.meetup.com/copenhagen-rust-community/events/294806394/"
 image = "static/image/avatar.png"
