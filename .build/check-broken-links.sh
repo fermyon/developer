@@ -96,6 +96,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://www.linkedin.com/company/fermyon/'                                                                                                                                   \
     --exclude 'https://support.google.com/webmasters/answer/7552505'                                                                                                                        \
     --exclude 'https://www.namecheap.com/support/knowledgebase/article.aspx/767/10/how-to-change-dns-for-a-domain/'                                                                         \
+    --exclude 'https://docs.sigstore.dev/system_config/installation/'                                                                                                                       \
     --exclude 'https://support.google.com/domains/answer/3290309?hl=en#'                                                                                                                    \
     --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en' | tee "${report}" || blc_error=true
 
