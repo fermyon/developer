@@ -4,7 +4,7 @@ description = "Join us along with AI experts and researchers. Whether you're a s
 
 [extra]
 type = "event"
-eventdates = "September 26th-27th - San Francisco, California"
+eventdates = "Sept 26-27 - San Francisco, California"
 eventexpires = "2023-09-28T01:01:01Z"
 url = "https://aiconference.com/"
 image = "static/image/avatar.png"
