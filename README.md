@@ -18,4 +18,4 @@ spin watch # Uses spin watch to run the website and reload when content changes
 
 Editing the contents:
 
-If you would like to edit the contents of the [developer.fermyon.com](https://developer.fermyon.com/) website, and contribute your changes, please visit the [Contributing to Docs](https://developer.fermyon.com/common/contributing-docs) page.
+If you would like to edit the contents of the [developer.fermyon.com](https://developer.fermyon.com/) website, and contribute your changes, please visit the [Contributing to Docs](spin/contributing-docs) page.
