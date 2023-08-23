@@ -10,4 +10,3 @@ url = "https://www.eventbrite.com/e/bytecode-alliance-componentize-the-world-tic
 image = "static/image/avatar.png"
 
 ---
-
