@@ -4,7 +4,7 @@ description = "Exciting times await you at the Civo Navigate Europe 2023 event t
 
 [extra]
 type = "event"
-eventdates = "September 5th-6th - London, UK"
+eventdates = "Sept 5-6 - London, UK"
 eventexpires = "2023-09-07T01:01:01Z"
 url = "https://www.civo.com/navigate"
 image = "static/image/avatar.png"
