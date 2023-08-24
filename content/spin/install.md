@@ -24,7 +24,7 @@ Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windo
 
 You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
 
-Add Spin to the list of formulae that Homebrew tracks, updates, and installs from:
+Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
 
 <pre class="bash spin-install" id="spin-install-linux"><code>$ brew tap fermyon/tap</code></pre>
 
