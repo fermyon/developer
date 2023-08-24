@@ -22,7 +22,19 @@ Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windo
 
 {{ startTab "Linux"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins:
+You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
+
+Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
+
+<pre class="bash spin-install" id="spin-install-linux"><code>$ brew tap fermyon/tap</code></pre>
+
+Install Spin:
+
+<pre class="bash spin-install" id="spin-install-linux"><code>$ brew install fermyon/tap/spin</code></pre>
+
+> Note: `brew install spin` will **not** install Fermyon's Spin framework. Fermyon Spin is accessed from the `fermyon` tap, as shown above.
+
+The installer script also installs Spin along with a starter set of language templates and plugins:
 
 <!-- @selectiveCpy -->
 
@@ -54,7 +66,19 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "macOS"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins:
+You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
+
+Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
+
+<pre class="bash spin-install" id="spin-install-macos"><code>$ brew tap fermyon/tap</code></pre>
+
+Install Spin:
+
+<pre class="bash spin-install" id="spin-install-macos"><code>$ brew install fermyon/tap/spin</code></pre>
+
+> Note: `brew install spin` will **not** install Fermyon's Spin framework. Fermyon Spin is accessed from the `fermyon` tap, as shown above.
+
+The installer script also installs Spin along with a starter set of language templates and plugins:
 
 <!-- @selectiveCpy -->
 
