@@ -96,8 +96,15 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 **General Notes**
 - The spinSdk object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the @fermyon/spin-sdk package. For example: 
 
+`get` **Operation**
+- The result is of the type `ArrayBuffer | null`
+- If the key does not exist, `get` returns `null` (no error is thrown)
+
 `set` **Operation**
-- The value argument is of the type `ArrayBuffer | string`
+- The value argument is of the type `ArrayBuffer | string`.
+
+`setJson` and `getJson` **Operation**
+- JavaScript and TypeScript applications can store JavaScript objects using `setJson`; these are serialized within the store as JSON. These serialized objects can be retrieved and deserialized using `getJson`. If you call `getJson` on a key that doesn't exist then an error is thrown (note that this is different behavior from `get`).
 
 {{ blockEnd }}
 
