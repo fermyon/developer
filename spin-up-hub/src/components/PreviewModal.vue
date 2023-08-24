@@ -62,11 +62,11 @@ export default {
                             </a>
                             <div class="metadata">
                                 <div class="name">Url</div>
-                                <div class="value"><a href="{{ modalData.url }}">{{ modalData.url }}</a></div>
+                                <div class="value"><a :href="modalData.url">{{ modalData.url }}</a></div>
                             </div>
                             <div class="metadata">
                                 <div class="name">Submitted by</div>
-                                <div class="value"><a href="https://github.com/{{ modalData.author }}">@{{ modalData.author }}</a>
+                                <div class="value"><a :href="'https://github.com/' + modalData.author">@{{ modalData.author }}</a>
                                     <svg v-if="verified" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
                                         <g>
                                             <path
