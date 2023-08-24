@@ -1,4 +1,4 @@
-title = "Spin Pluginify"
+title = "Pluginify"
 template = "render_hub_content_body"
 date = "2022-10-15T00:22:56Z"
 content-type = "text/plain"
@@ -12,7 +12,7 @@ language = "Rust"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v1.0"
-summary = "A plugin to help with the development of spin plugins"
+summary = "A plugin to help with the development of Spin plugins"
 url = "https://github.com/itowlson/spin-pluginify"
 keywords = "plugins, packaging plugins"
 
@@ -22,4 +22,8 @@ This is a Spin plugin that helps with the inner loop of Spin plugin development 
 
 ## Installation
 
-For more detailed instructions, check out the source in [github](https://github.com/itowlson/spin-pluginify)
+```bash
+spin plugins install pluginify
+```
+
+For usage information, check out the source in [GitHub](https://github.com/itowlson/spin-pluginify).
