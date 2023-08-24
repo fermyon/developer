@@ -44,7 +44,7 @@ If you delete the plugins directory, you will no longer be able to run your plug
 
 Installed templates are stored in `(DATA_DIR)/spin/templates`.
 
-> Note: If you [install Spin] using Homebrew, the templates are stored at `$HOMEBREW_PREFIX/fermyon-spin`.
+> Note: If you [install Spin](install) using Homebrew, the templates are stored at `$HOMEBREW_PREFIX/fermyon-spin`.
 
 If you delete the templates directory, you will lose access to your installed templates (until you reinstall them), but other Spin operations will be unaffected.
 
