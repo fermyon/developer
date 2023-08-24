@@ -1,4 +1,4 @@
-title = "Example of All KV Functions in TypeScript"
+title = "All KV Functions in TypeScript"
 template = "render_hub_content_body"
 date = "2023-08-23T00:00:00Z"
 content-type = "text/html"
