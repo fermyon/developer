@@ -22,7 +22,11 @@ Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windo
 
 {{ startTab "Linux"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins:
+You can now manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
+
+<pre class="bash spin-install" id="spin-install-linux"><code>$ brew tap fermyon/tap && brew install fermyon/tap/spin</code></pre>
+
+The installer script also installs Spin along with a starter set of language templates and plugins:
 
 <!-- @selectiveCpy -->
 
@@ -54,7 +58,11 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 {{ startTab "macOS"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins:
+You can now manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
+
+<pre class="bash spin-install" id="spin-install-macos"><code>$ brew tap fermyon/tap && brew install fermyon/tap/spin</code></pre>
+
+The installer script also installs Spin along with a starter set of language templates and plugins:
 
 <!-- @selectiveCpy -->
 
