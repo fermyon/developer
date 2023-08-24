@@ -26,9 +26,13 @@ You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew
 
 Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
 
+<!-- @selectiveCpy -->
+
 <pre class="bash spin-install" id="spin-install-linux"><code>$ brew tap fermyon/tap</code></pre>
 
 Install Spin:
+
+<!-- @selectiveCpy -->
 
 <pre class="bash spin-install" id="spin-install-linux"><code>$ brew install fermyon/tap/spin</code></pre>
 
@@ -70,9 +74,13 @@ You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew
 
 Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
 
+<!-- @selectiveCpy -->
+
 <pre class="bash spin-install" id="spin-install-macos"><code>$ brew tap fermyon/tap</code></pre>
 
 Install Spin:
+
+<!-- @selectiveCpy -->
 
 <pre class="bash spin-install" id="spin-install-macos"><code>$ brew install fermyon/tap/spin</code></pre>
 
@@ -204,14 +212,18 @@ spin plugins install cloud --yes
 
 To list installed templates, run:
 
+<!-- @selectiveCpy -->
+
 ```sh
-spin templates list
+$ spin templates list
 ```
 
 To list installed and available plugins, run:
 
+<!-- @selectiveCpy -->
+
 ```sh
-spin plugins list
+$ spin plugins list
 ```
 
 ## Next Steps
