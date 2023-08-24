@@ -68,7 +68,7 @@ To install the canary version of spin, you should pass the argument `-v canary`.
 
 You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
 
-Add Spin to the list of formulae that Homebrew tracks, updates, and installs from:
+Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
 
 <pre class="bash spin-install" id="spin-install-macos"><code>$ brew tap fermyon/tap</code></pre>
 
