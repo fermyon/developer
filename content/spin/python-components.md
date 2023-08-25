@@ -333,7 +333,7 @@ redis-cli
 
 ## Storing Data in the Spin Key-Value Store
 
-Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store-tutorial).
+Spin has a key-value store built in. For information about using it from Python, see [the key-value store API guide](kv-store-api-guide).
 
 ## Storing Data in SQLite
 
