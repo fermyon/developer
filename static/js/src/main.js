@@ -1,7 +1,8 @@
 const { mount } = redom
-import {setupSearch, searchButton, searchModal} from "./modules/search"
-import {addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents, changelogFilter, addAnchorLinks} from "./modules/utils"
-import { multiTabContentHandler} from "./modules/multiTab"
+import { setupSearch, searchButton, searchModal } from "./modules/search"
+import { addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents, changelogFilter } from "./modules/utils"
+import { multiTabContentHandler } from "./modules/multiTab"
+import { createFeedbackElement } from "./modules/feedback";
 
 document.querySelectorAll('.modal-button').forEach(function (el) {
   el.addEventListener('click', function () {
@@ -52,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
   (async function () {
     try {
       await setupSearch()
-      console.log("got here")
       mount(document.getElementById("search-button-container"), searchButton);
       mount(document.getElementById("search-modal-container"), searchModal);
       document.onkeydown = function (e) {
@@ -78,6 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })()
 
+  // Init feedback on docs pages
+  let feedback = document.getElementById("feedback-wrapper")
+  if (feedback) {
+    createFeedbackElement(feedback)
+  }
 });
 
 //added for the hub
