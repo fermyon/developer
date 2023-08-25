@@ -36,8 +36,9 @@ Once you have access to the private beta, please ensure you have [Spin CLI](./cl
 * Your NoOps SQL Database can hold up 1 GB of data
 
 *Service Limitations*
-* The `--sqlite` flag is not supported on `spin cloud deploy`
-* Fermyon **Cloud** only supports databases named "default" at this time
+* To run a SQL statement (for migration and schema creation), use the `spin cloud sqlite list` and `spin cloud sqlite execute` commands. The equivalent of `spin up --sqlite` for `spin deploy` does currently not exist in Cloud. [See this section for more info](#tables-and-data-in-fermyon-cloud).
+
+* Fermyon **Cloud** only supports databases named "default" at this time.
 
 ## Creating a New Spin Application
 
