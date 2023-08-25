@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Init feedback on docs pages
   let feedback = document.getElementById("feedback-wrapper")
-  console.log(feedback)
   if (feedback) {
     createFeedbackElement(feedback)
   }

@@ -3227,6 +3227,16 @@ footer.footer-links .footer-logo:hover:after {
 
 .documentation .feedback-wrapper.end-of-page .feedback-modal {
   width: 100%;
+  padding: 1rem;
+}
+
+.documentation .feedback-wrapper.end-of-page .feedback-modal .statement {
+  margin: 1rem;
+  font-weight: 400;
+}
+
+.documentation .feedback-wrapper.end-of-page .feedback-modal .feedback-response-container {
+  margin-bottom: 1rem;
 }
 
 .documentation .feedback-wrapper .feedback-modal {
@@ -3302,15 +3312,27 @@ footer.footer-links .footer-logo:hover:after {
 }
 
 .documentation .feedback-wrapper .feedback-modal .feedback-response-container .feedback-button {
-  height: 32px;
-  width: 32px;
-  background: #d5c6da;
+  height: 50px;
+  width: 50px;
+  background: none;
   border: none;
-  border-radius: .33rem;
   justify-content: center;
   align-items: center;
-  padding: .4rem;
   display: flex;
+}
+
+.documentation .feedback-wrapper .feedback-modal .feedback-response-container .feedback-button svg path {
+  fill: #b691ea;
+}
+
+.documentation .feedback-wrapper .feedback-modal .feedback-response-container .feedback-button svg:hover path {
+  fill: #a171e4;
+}
+
+html.dark-theme .documentation .content .note .button {
+  background-color: #1fbca0 !important;
+  top: 0 !important;
+  transform: none !important;
 }
 
 html.dark-theme body main .feedback-wrapper .feedback-modal {
@@ -3325,10 +3347,6 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
   background: #1fbca0;
 }
 
-html.dark-theme body main .feedback-wrapper .feedback-modal .feedback-response-container .feedback-button {
-  background: #27426f;
-}
-
 @media screen and (max-width: 1661px) {
   .documentation main .feedback-wrapper {
     width: 100%;
@@ -3340,7 +3358,26 @@ html.dark-theme body main .feedback-wrapper .feedback-modal .feedback-response-c
 
   .documentation main .feedback-wrapper .feedback-modal {
     width: 100%;
+    padding: 1rem;
   }
+
+  .documentation main .feedback-wrapper .feedback-modal .statement {
+    margin: 1rem;
+    font-weight: 400;
+  }
+
+  .documentation main .feedback-wrapper .feedback-modal .feedback-response-container {
+    margin-bottom: 1rem;
+  }
+
+  .documentation main .feedback-wrapper .feedback-modal .feedback-response-container button {
+    top: 0;
+  }
+}
+
+.documentation .content .note .button {
+  top: 0 !important;
+  transform: none !important;
 }
 
 @media screen and (max-width: 1023px) {
@@ -3925,7 +3962,6 @@ html.dark-theme body main .feedback-wrapper .feedback-modal .feedback-response-c
   background: #e2d8f4;
   border-radius: .333rem;
   margin: 5rem 0 3rem;
-  padding: 1.5rem 2rem;
   position: relative;
   box-shadow: .333rem .333rem #bea7e5;
 }

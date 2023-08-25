@@ -15,7 +15,17 @@
             max-width: 800px;
 
             .feedback-modal {
+                padding: 1rem;
                 width: 100%;
+
+                .statement {
+                    font-weight: 400;
+                    margin: 1rem;
+                }
+
+                .feedback-response-container {
+                    margin-bottom: 1rem;
+                }
             }
         }
 
@@ -91,16 +101,25 @@
                 margin-top: 1rem;
 
                 .feedback-button {
-
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     border: none;
-                    border-radius: 0.33rem;
-                    padding: 0.4rem;
-                    background: darken($lightlavender, 10%);
-                    height: 32px;
-                    width: 32px;
+                    height: 50px;
+                    width: 50px;
+                    background: transparent;
+
+                    svg {
+                        path {
+                            fill: lighten($lavenderfloral, 5%);
+                        }
+
+                        &:hover {
+                            path {
+                                fill: darken($lavenderfloral, 2.5%);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -109,23 +128,24 @@
 }
 
 html.dark-theme {
+    .documentation .content .note .button {
+        top: 0 !important;
+        transform: none !important;
+        background-color: $midgreen !important;
+    }
     body {
         main {
             .feedback-wrapper {
 
                 .feedback-modal {
                     background-color: lighten($oxforddark, 7.5%) !important;
+
                     textarea {
                         background-color: lighten($oxforddark, 15%) !important;
                     }
+
                     a {
                         background: $midgreen;
-                    }
-
-                    .feedback-response-container {
-                        .feedback-button {
-                            background: darken($midblue, 10%);
-                        }
                     }
                 }
 
@@ -146,8 +166,28 @@ html.dark-theme {
 
                 .feedback-modal {
                     width: 100%;
+                    padding: 1rem;
+
+                    .statement {
+                        font-weight: 400;
+                        margin: 1rem;
+                    }
+
+                    .feedback-response-container {
+                        margin-bottom: 1rem;
+
+                        button {
+                            top: 0;
+                        }
+                    }
+
                 }
             }
         }
     }
+}
+
+.documentation .content .note .button {
+    top: 0 !important;
+    transform: none !important;
 }
