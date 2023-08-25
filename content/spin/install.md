@@ -24,6 +24,8 @@ Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windo
 
 {{ startTab "Linux"}}
 
+**Homebrew**
+
 You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
 
 Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
@@ -44,7 +46,9 @@ $ brew install fermyon/tap/spin
 
 > Note: `brew install spin` will **not** install Fermyon's Spin framework. Fermyon Spin is accessed from the `fermyon` tap, as shown above.
 
-The installer script also installs Spin along with a starter set of language templates and plugins:
+**Installer script**
+
+Another option (other than brew) is to use our installer script. The installer script installs Spin along with a starter set of language templates and plugins:
 
 <!-- @selectiveCpy -->
 
@@ -52,7 +56,7 @@ The installer script also installs Spin along with a starter set of language tem
 $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
-It's highly recommended to add Spin to a folder, which is on your path, e.g.:
+Once you have run the installer script, it is highly recommended to add Spin to a folder, which is on your path, e.g.:
 
 <!-- @selectiveCpy -->
 
@@ -82,6 +86,8 @@ $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v 
 
 {{ startTab "macOS"}}
 
+**Homebrew**
+
 You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
 
 Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
@@ -102,6 +108,10 @@ $ brew install fermyon/tap/spin
 
 > Note: `brew install spin` will **not** install Fermyon's Spin framework. Fermyon Spin is accessed from the `fermyon` tap, as shown above.
 
+**Installer script**
+
+Another option (other than brew) is to use our installer script. The installer script installs Spin along with a starter set of language templates and plugins:
+
 The installer script also installs Spin along with a starter set of language templates and plugins:
 
 <!-- @selectiveCpy -->
@@ -110,7 +120,7 @@ The installer script also installs Spin along with a starter set of language tem
 $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
 ```
 
-It's highly recommended to add Spin to a folder, which is on your path, e.g.:
+Once you have run the installer script, it is highly recommended to add Spin to a folder, which is on your path, e.g.:
 
 <!-- @selectiveCpy -->
 
