@@ -385,7 +385,7 @@ export const handleRequest: HandleRequest = async function(request: HttpRequest)
 
 ## Storing Data in the Spin Key-Value Store
 
-Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store-tutorial).
+Spin has a key-value store built in. For information about using it from TypeScript/JavaScript, see [the key-value store tutorial](kv-store-tutorial).
 
 ## Storing Data in SQLite
 
