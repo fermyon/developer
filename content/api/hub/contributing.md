@@ -8,7 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/api/hub/contributi
 
 ---
 
-- [Contributiung Procedure](#contributiung-procedure)
+- [Contribution Procedure](#contribution-procedure)
   - [Fork the Repository](#fork-the-repository)
   - [Clone the Fork](#clone-the-fork)
   - [Create New Branch](#create-new-branch)
@@ -29,7 +29,7 @@ First, any contribution and interaction on any Fermyon project MUST follow our
 [code of conduct](https://www.fermyon.com/code-of-conduct). Thank you for being
 part of an inclusive and open community!
 
-## Contributiung Procedure
+## Contribution Procedure
 
 ### Fork the Repository
 
@@ -150,7 +150,7 @@ The following is a list of the types of content that a user can submit to the Sp
 
 ### Testing Locally
 
-After your file has been created, you can test it on localhost before commiting.
+After your file has been created, you can test it on localhost before committing.
 
 <!-- @selectiveCpy -->
 
