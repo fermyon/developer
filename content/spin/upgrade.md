@@ -100,6 +100,17 @@ If you followed the documentation's [install from source method](/spin/install#b
 ~/spin/target/release/spin
 ```
 
+### Homebrew
+
+If you installed Spin using [Homebrew](https://brew.sh/) please use the following commands to upgrade Spin.
+
+<!-- @selectiveCpy -->
+
+```bash
+$ brew update
+$ brew upgrade fermyon/tap/spin
+```
+
 ## Troubleshooting
 
 If you have upgraded Spin and don't see the newer version, please consider the following.
