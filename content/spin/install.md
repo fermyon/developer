@@ -272,7 +272,7 @@ First update the local cache by running the `spin plugins update` command:
 $ spin plugins update
 ```
 
-Then install templates by name.
+Then install plugins by name.
 
 Python:
 
