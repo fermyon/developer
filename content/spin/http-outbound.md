@@ -93,13 +93,14 @@ HTTP functions and classes are available in the `spin_http` module. The function
 from spin_http import Request, Response, http_send
 
 response = http_send(
-    Request("GET", "https://random-data-api.fermyon.app/animals/json", [], None))
+    Request("GET", "https://random-data-api.fermyon.app/animals/json", {}, None))
 ```
 
 **Notes**
 
 * For compatibility with idiomatic Python, types do not necessarily match the underlying Wasm interface. For example, `method` is a string.
 * Request and response bodies are `bytes`. (You can pass literal strings using the `b` prefix.)  Pass `None` for no body.
+* Request and response headers are dictionaries.
 * Errors are signalled through exceptions.
 
 You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outbound_http).
