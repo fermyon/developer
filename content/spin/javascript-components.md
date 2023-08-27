@@ -234,8 +234,6 @@ export async function handleRequest(request) {
 
     const animalFactBody = decoder.decode(await animalFact.arrayBuffer() || new Uint8Array())
 
-    const env = JSON.stringify(process.env)
-
     const body = `Here's an animal fact: ${animalFactBody}\n`
 
     return {
