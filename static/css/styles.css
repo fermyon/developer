@@ -3211,6 +3211,7 @@ footer.footer-links .footer-logo:hover:after {
 .documentation .feedback-wrapper {
   width: 15vw;
   height: 100%;
+  z-index: 10;
   position: fixed;
   top: 0;
   right: 90px;
@@ -3757,6 +3758,7 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 .documentation .content section h1:first-of-type + ul {
   max-height: 65vh;
   min-width: 15vw;
+  z-index: 999;
   background: #ece5ee;
   border-radius: .333rem;
   padding: .5rem 1rem .725rem;
@@ -3840,6 +3842,7 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 @media screen and (min-width: 1661px) {
   .documentation .content section h1:first-of-type + ul {
     width: 15vw;
+    z-index: 999;
     background-color: #f2e7f8;
     border-radius: .333rem;
     padding: .825rem 1rem;
