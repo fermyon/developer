@@ -91,6 +91,7 @@ Importing color and theme updates for the brand 1.5 refresh
 				border-radius: 0.333rem;
 				list-style: none;
 				line-height: 1;
+				z-index: 999;
 				@include transition;
 
 				&:before {
@@ -176,6 +177,7 @@ Importing color and theme updates for the brand 1.5 refresh
 					background-color: lighten($thistle, 5%);
 					padding: 0.825rem 1rem;
 					border-radius: 0.333rem;
+					z-index: 999;
 				}
 			}
 
