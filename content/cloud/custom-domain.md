@@ -38,10 +38,10 @@ Note that this propagation is generally performed in a reasonable time frame (mi
 ### Terminology
 
 * Apex Domain: the `finickywhiskers.com` part in `www.finickywhiskers.com`.
-* Custom Domain: a personalized and unique address that individuals, businesses, or organizations can register and use for their workloads. In the context of Fermyon Cloud, this is the domain name you provide. 
-* Custom Fermyon Subdomain: a customized name you select following the pattern  `<custom-name>.fermyon.app`. 
-* Domain Name: human-readable address to identify a workload on the internet. For example, `finicky-whiskers-6cavavfh.fermyon.app` or `www.finickywhiskers.com`.
-* Domain Name Service (DNS) provider: a service that manages and maintains a database of domain names and their corresponding IP addresses. 
-* Domain Registrar: a company or organization accredited by domain name registries to allow individuals and businesses to register and manage domain names for their websites. For example, [Namecheap](https://www.namecheap.com/) or [GoDaddy](https://www.godaddy.com/) are domain registrars. 
+* Custom Domain: a personalized and unique address that individuals, businesses, or organizations can register and use for their workloads. In the context of Fermyon Cloud, this is the domain name you provide.
+* Custom Fermyon Subdomain: a customized name you select following the pattern  `<custom-name>.fermyon.app`.
+* Domain Name: human-readable address to identify a workload on the internet. For example, `finicky-whiskers-6cavavfh.fermyon.app` or `finickywhiskers.com`.
+* Domain Name Service (DNS) provider: a service that manages and maintains a database of domain names and their corresponding IP addresses.
+* Domain Registrar: a company or organization accredited by domain name registries to allow individuals and businesses to register and manage domain names for their websites. For example, [Namecheap](https://www.namecheap.com/) or [GoDaddy](https://www.godaddy.com/) are domain registrars.
 * Fermyon Domain Name: the default domain a Spin application gets allocated at creation time, which is a combination of the application's name and a random string. For example, `finicky-whiskers-6cavavfh.fermyon.app`.
 * Subdomain: a hierarchical part of a larger domain name. It is added to the left of the primary domain name, separated by a dot (period). For example, `finicky-whiskers.fermyon.app` is a subdomain of `fermyon.app`.
