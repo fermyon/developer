@@ -15,7 +15,7 @@ We're thrilled to announce Fermyon Cloud's NoOps SQLite Database is now in priva
 
 References:
 
-- [NoOps SQL Database (Private Beta) Documentation](/cloud/cloud-noops-sql-db.md)
+- [NoOps SQL Database (Private Beta) Documentation](/cloud/noops-sql-db)
 - [NOOps SQL Database (Private Beta) Blog Post](https://www.fermyon.com/blog/announcing-noops-sql-db)
 - [Discord Channel](https://www.fermyon.com/discord)
 - [Spin's SQLite Storage API](/spin/sqlite-api-guide.md)
