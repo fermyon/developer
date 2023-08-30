@@ -28,7 +28,7 @@ Once you have access to the private beta, please ensure you have:
 * TODO any additional quota information
 
 *Service Limitations*
-* TODO any service limitations to run Fermyon Serverless AI (i.e. only supports TODO)
+* TODO any service limitations to run Fermyon Serverless AI (i.e. only supports TODO).
 
 ## FAQ
 

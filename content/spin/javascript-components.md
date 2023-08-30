@@ -17,6 +17,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/javascript-co
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in MySQL and PostgreSQL Relational Databases](#storing-data-in-mysql-and-postgresql-relational-databases)
+- [AI Inferencing From JS/TS Components](#ai-inferencing-from-jsts-components)
 - [Using External NPM Libraries](#using-external-npm-libraries)
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
 - [Caveats](#caveats)
@@ -392,6 +393,10 @@ For more information about using SQLite from TypeScript/Javascript, see [SQLite 
 ## Storing Data in MySQL and PostgreSQL Relational Databases
 
 For more information about using relational databases from TypeScript/JavaScript, see [Relational Databases](rdbms-storage).
+
+## AI Inferencing From JS/TS Components
+
+For more information about using Serverless AI from JS/TS, see the [Serverless AI](serverless-ai-api-guide) API guide.
 
 ## Using External NPM Libraries
 

@@ -104,6 +104,8 @@
                     Tutorials
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/serverless-ai-tutorial" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/serverless-ai-tutorial">Serverless AI</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/url-shortener">Building a URL Shortener With Spin</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/spin-oci" )}} class="active" {{/if}}
