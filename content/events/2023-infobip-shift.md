@@ -10,3 +10,4 @@ url = "https://shift.infobip.com/"
 image = "static/image/avatar.png"
 
 ---
+
