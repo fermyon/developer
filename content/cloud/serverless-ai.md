@@ -24,8 +24,10 @@ Once you have access to the private beta, please ensure you have:
 ## Quotas And Service Limitations For Fermyon Serverless AI
 
 *Quotas* 
-* You can have TODO
-* TODO any additional quota information
+* You can have up to 75 inferencing requests per hour, 200 embedding requests per hour
+* You can have a maximum of 1,024 tokens (prompt and response) per request
+
+>> If you have questions about increasing these limits, please reach out to [support@fermyon.com](mailto://support@fermyon.com)
 
 *Service Limitations*
 * TODO any service limitations to run Fermyon Serverless AI (i.e. only supports TODO).
