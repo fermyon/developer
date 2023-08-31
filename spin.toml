@@ -14,7 +14,7 @@ files = [ "content/**/*" , "templates/*", "scripts/*", "config/*", "shortcodes/*
 route = "/..."
 [component.build]
 command = "npm run build-index && npm run build-hub-index"
-watch = [ "content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*", "static/*"]
+watch = [ "content/**/*", "templates/*" ]
 
 [[component]]
 source = "modules/spin_static_fs.wasm"
