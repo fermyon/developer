@@ -37,7 +37,6 @@ configured:
   [`clippy`](https://github.com/rust-lang/rust-clippy) configured for your Rust
   installation
 - `make`
-- `cmake`
 - if you are a VS Code user, we recommend the [`rust-analyzer`](https://rust-analyzer.github.io/) extension.
 - please ensure you
   [configure adding a GPG signature to your commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)
