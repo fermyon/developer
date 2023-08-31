@@ -13,8 +13,8 @@ files = [ "content/**/*" , "templates/*", "scripts/*", "config/*", "shortcodes/*
 [component.trigger]
 route = "/..."
 [component.build]
-command = "npm run build-index"
-watch = [ "content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*", "static/*"]
+command = "npm run build-index && npm run build-hub-index"
+watch = [ "content/**/*", "templates/*" ]
 
 [[component]]
 source = "modules/spin_static_fs.wasm"
@@ -191,3 +191,6 @@ files = [ { source = "spin-up-hub/dist/", destination = "/" } ]
 environment = {FALLBACK_PATH = "./index.html"}
 [component.trigger]
 route = "/hub/..."
+[component.build]
+workdir = "spin-up-hub"
+command = "npm run build"
