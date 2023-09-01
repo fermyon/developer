@@ -45,7 +45,7 @@ Now, let's dive deep into a comprehensive tutorial and unlock your potential to 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-rust spin-serverless-ai
+$ spin new 
 
 ```
 
@@ -64,6 +64,19 @@ HTTP path: /...
 ```
 
 {{ blockEnd }}
+
+{{ startTab "TinyGo"}}
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin new 
+
+```
+
+{{ blockEnd }}
+{{ blockEnd }}
+
 
 ## Fetch AI Model
 
@@ -243,6 +256,15 @@ export const handleRequest: HandleRequest = async function (
 
 {{ blockEnd }}
 
+{{ startTab "TinyGo"}}
+
+<!-- @selectiveCpy -->
+
+```go
+
+```
+
+{{ blockEnd }}
 
 {{ blockEnd }}
 
@@ -286,7 +308,7 @@ We create an `assets` directory where we can store files to serve statically (se
 <!-- @selectiveCpy -->
 
 ```bash
-mkdir assetts
+mkdir assets
 ```
 
 ## Application Manifest
