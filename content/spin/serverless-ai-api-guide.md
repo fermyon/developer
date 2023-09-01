@@ -54,14 +54,37 @@ TODO
 
 {{ startTab "Typescript"}}
 
-TODO. For example:
+To use Serverless AI functions, the `Llm` module from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example: 
 
 ```javascript
-TODO
+import { EmbeddingModels, HandleRequest, HttpRequest, HttpResponse, InferencingModels, Llm} from "@fermyon/spin-sdk"
+
+export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+    let embeddings = Llm.generateEmbeddings(EmbeddingModels.AllMiniLmL6V2, ["someString"])
+    console.log(embeddings.embeddings)
+    let result = Llm.infer(InferencingModels.Llama2Chat, prompt)
+    return {
+        status: 200,
+        headers: {"content-type":"text/plain"},
+        body: result.text
+    }
+}
 ```
 
 **General Notes**
-* TODO
+
+`infer` operation:
+
+- It takes in the following arguments - model name, prompt and a optional third parameter for inferencing options. 
+- The model name is a string. There are enums for the inbuilt models (llama2-chat and codellama) in `InferencingModels`.
+- The optional third parameter which is an interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.  
+- The return value is a `string`.
+
+`generateEmbeddings` operation:
+
+- It takes two arguments - model name and list of strings to generate the embeddings for. 
+- The model name is a string. There are enums for the inbuilt models (AllMiniLmL6V2) in `EmbeddingModels`.
+- The return value is of the type `number[][]`. 
 
 {{ blockEnd }}
 
