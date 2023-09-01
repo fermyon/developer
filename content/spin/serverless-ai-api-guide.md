@@ -96,7 +96,7 @@ The Python SDK doesn't currently surface the Serverless AI API.
 
 {{ startTab "TinyGo"}}
 
-To use Serverless AI functions, the `github.com/fermyon/spin/sdk/go/llm` package from the Spin SDK provides two methods: `Infer` and `GenerateEmbeddings`. For example:
+Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/llm` pakage. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/llm) for reference documentation. For example:
 
 ```go
 package main
@@ -129,13 +129,27 @@ func init() {
 		fmt.Printf("%v\n", embeddings.Embeddings)
 	})
 }
-
-func main() {}
 ```
 
 **General Notes**
 
-See full [documentation](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/llm).
+`infer` operation:
+
+- It takes in the following arguments - model name, prompt and a optional third parameter for inferencing options (pass `nil` if you don't want to specify it).
+- The model name is a string.
+- The params allows you to specificy `MaxTokens`, `RepeatPenalty`, `RepeatPenaltyLastNTokenCount`, `Temperature`, `TopK`, `TopP`.
+- It returns a result struct with a `Text` field that contains the answer and a `Usage` field that contains metadata about the operation.
+
+`generateEmbeddings` operation:
+
+- It takes two arguments - model name and list of strings to generate the embeddings for.
+- The model name is a string.
+- It returns a result struct with a `Embeddings` field that contains the `[][]float32` embeddings and a `Usage` field that contains metadata about the operation.
+
+{{ blockEnd }}
+
+{{ startTab "Swift"}}
+* The inferencing parameters are optional and you can pass `nil` if you don't want to specify them
 
 {{ blockEnd }}
 
