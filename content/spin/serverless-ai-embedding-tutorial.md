@@ -1,9 +1,9 @@
-title = "Serverless AI Tutorial"
+title = "Serverless AI Embedding Tutorial"
 template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-tutorial.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-embedding-tutorial.md"
 
 ---
 
@@ -13,7 +13,7 @@ AI Inferencing performs well on GPUs. However, GPU infrastructure is both scarce
 
 
 
-TODO create page based on Karthik's JS example here https://www.notion.so/fermyon/Spin-AI-Inferencing-Setup-e86964bf27fe48bdaf68d374d23b0e51
+TODO create page based on Karthik's JS blog recommender herehttps://github.com/fermyon/blog-recommendation/
 
 * Create a Spin application with `spin new`
 * Use the Serverless AI SDK to perform inferencing
@@ -32,7 +32,7 @@ You will need the latest version of Spin templates. Please go ahead and [update 
 
 You will need the latest version of Spin plugins. Please go ahead and [update Spin plugins](https://developer.fermyon.com/spin/managing-plugins) before we begin.
 
-## Serverless AI Inferencing With Spin Applications 
+## Serverless AI Embedding With Spin Applications 
 
 Now, let's dive deep into a comprehensive tutorial and unlock your potential to use Fermyon Serverless AI.
 

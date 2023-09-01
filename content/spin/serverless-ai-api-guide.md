@@ -84,7 +84,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 - It takes two arguments - model name and list of strings to generate the embeddings for. 
 - The model name is a string. There are enums for the inbuilt models (AllMiniLmL6V2) in `EmbeddingModels`.
-- The return value is of the type `number[][]`. 
+- The return value is of the type `number[][] 
 
 {{ blockEnd }}
 
