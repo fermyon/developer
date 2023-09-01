@@ -70,7 +70,7 @@ HTTP path: /...
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new 
+$ spin new http-go sentiment-analysis --accept-defaults
 
 ```
 
@@ -86,13 +86,9 @@ Next, we create a folder and fetch a pre-trained AI model for our application:
 
 ```bash
 $ cd sentiment-analysis
-$ mkdir .spin
-$ cd .spin
-$ mkdir llms
+$ mkdir -p .spin/llms
 $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
-$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin llama2-chat
-# Then move back to the application's home directory
-$ cd ../../../sentiment-analysis
+$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/llms/llama2-chat
 ```
 
 ## Set up Turso DB locally
@@ -118,10 +114,11 @@ token = "<Turso token>"
 
 ## Application Configuration
 
-Place the following line into the application's manifest (the `spin.toml` file) within the `[[component]]` section:
+Place the following lines into the application's manifest (the `spin.toml` file) within the `[[component]]` section:
 
 ```toml
 ai_models = ["llama2-chat"]
+key_value_stores = ["default"]
 ```
 
 Note the positioning, of the `ai_models` configuration, shown below:
@@ -283,6 +280,125 @@ export const handleRequest: HandleRequest = async function (
 <!-- @selectiveCpy -->
 
 ```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"strings"
+
+	spinhttp "github.com/fermyon/spin/sdk/go/http"
+	"github.com/fermyon/spin/sdk/go/key_value"
+	"github.com/fermyon/spin/sdk/go/llm"
+)
+
+type sentimentAnalysisRequest struct {
+	Sentence string
+}
+
+type sentimentAnalysisResponse struct {
+	Sentiment string
+}
+
+const prompt = `\
+You are a bot that generates sentiment analysis responses. Respond with a single positive, negative, or neutral.
+
+Hi, my name is Bob
+neutral
+
+I am so happy today
+positive
+
+I am so sad today
+negative
+
+<SENTENCE>
+`
+
+func init() {
+	spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
+		router := spinhttp.NewRouter()
+		router.POST("/sentiment-analysis", performSentimentAnalysis)
+		router.ServeHTTP(w, r)
+	})
+}
+
+func performSentimentAnalysis(w http.ResponseWriter, r *http.Request, ps spinhttp.Params) {
+	var req sentimentAnalysisRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	fmt.Printf("Performing sentiment analysis on: %q\n", req.Sentence)
+
+	// Open the KV store
+	store, err := key_value.Open("default")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer key_value.Close(store)
+
+	// If the sentiment of the sentence is already in the KV store, return it
+	exists, err := key_value.Exists(store, req.Sentence)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if exists {
+		fmt.Println("Found sentence in KV store returning cached sentiment")
+		value, err := key_value.Get(store, req.Sentence)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		res := sentimentAnalysisResponse{
+			Sentiment: string(value),
+		}
+		if err := json.NewEncoder(w).Encode(res); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		return
+	}
+	fmt.Println("Sentence not found in KV store")
+
+	// Otherwise, perform sentiment analysis
+	fmt.Println("Running inference")
+	params := &llm.InferencingParams{
+		MaxTokens:   10,
+		Temperature: 0.5,
+	}
+
+	result, err := llm.Infer("llama2-chat", strings.Replace(prompt, "<SENTENCE>", req.Sentence, 1), params)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	fmt.Printf("Inference result (%d tokens): %s\n", result.Usage.GeneratedTokenCount, result.Text)
+
+	var sentiment string
+	if fields := strings.Fields(result.Text); len(fields) > 0 {
+		sentiment = fields[0]
+	}
+
+	// Cache the result in the KV store
+	fmt.Println("Caching sentiment in KV store")
+	key_value.Set(store, req.Sentence, []byte(sentiment))
+
+	res := &sentimentAnalysisResponse{
+		Sentiment: sentiment,
+	}
+	if err := json.NewEncoder(w).Encode(res); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func main() {}
 
 ```
 
