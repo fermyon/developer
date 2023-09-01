@@ -67,20 +67,20 @@ TODO
 
 {{ startTab "Python"}}
 
-TODO. For example:
-
-```python
-TODO
-```
-
-**General Notes**
-* TODO
+The Python SDK doesn't currently surface the Serverless AI API. 
 
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
 
-The Go SDK doesn't currently surface the Serverless AI API.
+TODO. For example:
+
+```javascript
+TODO
+```
+
+**General Notes**
+* TODO
 
 {{ blockEnd }}
 
