@@ -17,7 +17,8 @@ Spin provides an interface for you to perform AI inference within Spin applicati
 By default, TODO:
 
 ```toml
-TODO any Spin application configuration goes here
+[[component]]
+ai_models = ["llama2-chat"]
 ```
 
 > Note: To deploy a Spin application that performs AI inferencing please visit the [Serverless AI](https://developer.fermyon.com/cloud/serverless-ai#accessing-private-beta) section in the documentation. It covers signing up for the private beta and setting up your Fermyon Serverless AI.
