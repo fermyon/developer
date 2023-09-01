@@ -60,13 +60,16 @@ export default {
 
 <template>
     <div class="content-listing column is-four-fifths-desktop is-full-touch">
-        <transition-group class="columns is-0 is-mobile is-multiline" tag="div"  name="card-list" appear>
+        <transition-group class="card-groups columns is-0 is-mobile is-multiline" tag="div"  name="card-list" appear>
             <Card v-for="item in contentItems" :item="item" :key="item.title"></Card>
         </transition-group>
         </div>
 </template>
 
 <style lang="scss" scoped>
+.card-groups {
+    width: 100%;
+}
 .content-listing {
     flex-grow: 1;
     min-height: 80%;
