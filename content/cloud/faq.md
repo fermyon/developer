@@ -67,6 +67,7 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Configuration Variables](/spin/variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported (only default store) |
 | [SQLite Storage](/spin/sqlite-api-guide) | [Private Beta](/cloud/noops-sql-db.md) |
+| [Serverless AI](/spin/serverless-ai-api-guide) | [Private Beta](/cloud/serverless-ai.md) |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
