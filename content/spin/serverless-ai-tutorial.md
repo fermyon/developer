@@ -16,7 +16,7 @@ AI Inferencing performs well on GPUs. However, GPU infrastructure is both scarce
 TODO create page based on Karthik's embedding example here https://www.notion.so/fermyon/Spin-AI-Inferencing-Setup-e86964bf27fe48bdaf68d374d23b0e51
 
 * Create a Spin application with `spin new`
-* Use the Serverless AI SDK to perform embedding
+* Use the Serverless AI SDK to perform inferencing
 
 ## Tutorial Prerequisites
 
@@ -32,7 +32,7 @@ You will need the latest version of Spin templates. Please go ahead and [update 
 
 You will need the latest version of Spin plugins. Please go ahead and [update Spin plugins](https://developer.fermyon.com/spin/managing-plugins) before we begin.
 
-## Serverless AI Embedding With Spin Applications 
+## Serverless AI Inferencing With Spin Applications 
 
 Now, let's dive deep into a comprehensive tutorial and unlock your potential to use Fermyon Serverless AI.
 
@@ -58,7 +58,7 @@ $ spin new
 ```bash
 $ spin new http-js
 Enter a name for your new application: sentiment-analysis
-Description: A sentiment analysis API that demonstrates using LLM embedding and SQLite stores together
+Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
 HTTP base: /
 HTTP path: /...
 ```
@@ -89,27 +89,6 @@ $ cd sentiment-analysis
 $ mkdir -p .spin/llms
 $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
 $ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/llms/llama2-chat
-```
-
-## Set up Turso DB locally
-Create a Turso Database using your personal account and set the configuration as follows:
-
-```terminal
-turso db create --enable-extensions
-# Get the url
-turso db show <db-name>
-# Create access token
-turso db tokens create <db-name> --expiration none 
-```
-
-Then make a create a `runtime-config.toml` in your application directory and provide the following details:
-
-```toml
-# This tells Spin to use the remote host as its default database
-[sqlite_database.default]
-type = "libsql"
-url = "https://<database-name>.turso.io"
-token = "<Turso token>"
 ```
 
 ## Application Configuration
