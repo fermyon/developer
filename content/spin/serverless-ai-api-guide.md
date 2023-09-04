@@ -38,7 +38,7 @@ use spin_sdk::{llm::{infer, InferencingModel::Llama2Chat}};
 
 // -- snip --
 
-let inferencing_result = infer(Llama2Chat, &PROMPT.clone().replace("<SENTENCE>", &request.sentence));
+let inferencing_result = infer(Llama2Chat, &PROMPT.replace("<SENTENCE>", &request.sentence));
 ```
 
 **General Notes**
