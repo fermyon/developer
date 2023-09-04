@@ -1,6 +1,6 @@
 title = "AI-assisted News Summarizer"
 template = "render_hub_content_body"
-date = "2023-09-05T00:00:00Z"
+date = "2023-09-05T09:00:00Z"
 content-type = "text/html"
 tags = ["typescript", "javascript", "ai"]
 
