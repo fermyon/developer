@@ -34,9 +34,6 @@ Once you have access to the private beta, please ensure you have:
 
 ## FAQ
 
-- **Can I TODO?**
-At this time, Fermyon Serverless AI does not have TODO. We'd love to hear your thoughts on what an ideal experience would look like at [github.com/fermyon/feedback](https://github.com/fermyon/feedback)
-
 - **How does Fermyon Serverless AI compare to OpenAI? In what situations am I better off using Fermyon Serverless AI?**
 With Fermyon Serverless AI, you don’t need to be worried about vendor lock-in. With Fermyon Serverless AI you can run your inferencing workloads locally with Spin or on your infrastructure of choice with Spin install. In fact, Fermyon Serverless AI is build using open source models that can be used completely outside the context of Spin in the case you decide to host your own infrastructure end to end. 
 

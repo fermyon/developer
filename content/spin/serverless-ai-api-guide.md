@@ -47,7 +47,7 @@ let inferencing_result = infer(Llama2Chat, &PROMPT.replace("<SENTENCE>", &reques
 
 - It takes in the following arguments - model name, prompt and ... 
 - The model name is ...
-- The optional third parameter which is an interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.  
+- The optional third parameter which is an interface allows you to specify parameters such as `max_tokens`, `repeat_penalty`, `repeat_penalty_last_n_token_count`, `temperature`, `top_k`, `top_p`.  
 - The return value is ...
 
 {{ blockEnd }}
@@ -143,7 +143,7 @@ func init() {
 `generateEmbeddings` operation:
 
 - It takes two arguments - model name and list of strings to generate the embeddings for.
-- The model name is a string.
+- The model name is a string: `all-minilm-l6-v2`
 - It returns a result struct with an `Embeddings` field that contains the `[][]float32` embeddings and a `Usage` field that contains metadata about the operation.
 
 {{ blockEnd }}
