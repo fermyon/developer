@@ -85,7 +85,7 @@ Next, we create a folder and fetch a pre-trained AI model for our application:
 $ cd sentiment-analysis
 $ mkdir -p .spin/ai-models
 $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
-$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/llms/llama2-chat
+$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/ai-models/llama2-chat
 ```
 
 ## Application Configuration
@@ -656,9 +656,9 @@ Next, we create a folder and fetch a pre-trained AI model for our application:
 
 ```bash
 $ cd sentiment-analysis
-$ mkdir -p .spin/llms
+$ mkdir -p .spin/ai-models
 $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
-$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/llms/llama2-chat
+$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/ai-models/llama2-chat
 ```
 
 ## Application Configuration
