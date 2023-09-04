@@ -8,7 +8,7 @@ type= "changelog_post"
 
 ---
 
-We're thrilled to announce that Fermyon Serverless AI is in private beta. Spin developers can now perform AI inferencing from within Spin applications (that are either running locally or deployed to Fermyon Cloud). You can sign up for the private beta using [this short form](https://fibsu0jcu2g.typeform.com/to/mNzgXRvB#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx). 
+We're thrilled to announce that Fermyon Serverless AI is in private beta. Spin developers can now perform AI inferencing and embedding from within Spin applications (that are either running locally or deployed to Fermyon Cloud). You can sign up for the private beta using [this short form](https://fibsu0jcu2g.typeform.com/to/mNzgXRvB#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx). 
 
 
 <!-- break -->
