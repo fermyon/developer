@@ -11,9 +11,7 @@ AI Inferencing performs well on GPUs. However, GPU infrastructure is both scarce
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/01oOh3D9cVQ?si=wORKmuOkeFMGYBsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
-
-TODO create page based on Karthik's embedding example here https://www.notion.so/fermyon/Spin-AI-Inferencing-Setup-e86964bf27fe48bdaf68d374d23b0e51
+In this tutorial we will:
 
 * Create a Spin application with `spin new`
 * Use the Serverless AI SDK to perform inferencing
@@ -77,7 +75,6 @@ $ spin new http-go sentiment-analysis --accept-defaults
 {{ blockEnd }}
 {{ blockEnd }}
 
-
 ## Fetch AI Model
 
 Next, we create a folder and fetch a pre-trained AI model for our application:
@@ -86,7 +83,7 @@ Next, we create a folder and fetch a pre-trained AI model for our application:
 
 ```bash
 $ cd sentiment-analysis
-$ mkdir -p .spin/llms
+$ mkdir -p .spin/ai-models
 $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
 $ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/llms/llama2-chat
 ```
@@ -509,6 +506,7 @@ Enter a name for your new component: ui
 HTTP path: /static/...
 Directory containing the files to serve: assets
 ```
+
 ### Key Value Explorer
 
 For this, we install use a pre-made template by pointing to the templates GitHub repository:
@@ -649,7 +647,6 @@ $ spin new http-go embedding-component --accept-defaults
 
 {{ blockEnd }}
 {{ blockEnd }}
-
 
 ## Fetch AI Model
 

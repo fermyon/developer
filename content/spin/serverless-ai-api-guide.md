@@ -8,7 +8,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 ---
 - [Using Fermyon Serverless AI From Applications](#using-fermyon-serverless-ai-from-applications)
 
-
 Spin provides an interface for you to perform AI inference within Spin applications. By default, a given component of an app will not have access to any Serverless AI models. Access must be provided explicitly via the component manifest.  For example, a component could be given access to the llama2-chat model using:
 
 ```toml

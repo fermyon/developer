@@ -56,10 +56,8 @@ Does Fermyon Serverless AI come with any specific or special support services?
 In the request response body, you will see information about request time, predicted token account, etc. 
 
 - **What programming languages / SDKs can I use to invoke Serverless AI?**
-Please visit the [API Guide](/spin/api-guide.md) for this information.
+Please visit the [API Guide](/spin/serverless-ai-api-guide.md) for this information.
 
 ## Next Steps
 
 * For support or feature feedback, please join our [Discord channel #serverless-ai](https://www.fermyon.com/discord). This is where you can provide feedback and ask for assistance from the Fermyon team on all things Fermyon Serverless AI. 
-
-
