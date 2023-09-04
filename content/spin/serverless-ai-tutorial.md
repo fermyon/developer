@@ -6,6 +6,33 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-tutorial.md"
 
 ---
+- [Tutorial Prerequisites](#tutorial-prerequisites)
+  - [Spin](#spin)
+  - [Templates](#templates)
+  - [Plugins](#plugins)
+- [Serverless AI Inferencing With Spin Applications](#serverless-ai-inferencing-with-spin-applications)
+- [Creating a New Spin Application](#creating-a-new-spin-application)
+- [Fetch AI Model](#fetch-ai-model)
+- [Application Configuration](#application-configuration)
+- [Source Code](#source-code)
+- [Additional Functionality](#additional-functionality)
+  - [Static Fileserver Component For The UI](#static-fileserver-component-for-the-ui)
+  - [Key Value Explorer](#key-value-explorer)
+- [Application Manifest](#application-manifest)
+- [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
+- [TODO Deploy to Fermyon Cloud](#todo-deploy-to-fermyon-cloud)
+- [TODO Testing](#todo-testing)
+- [Serverless AI Embedding With Spin Applications](#serverless-ai-embedding-with-spin-applications)
+- [Creating a New Spin Application](#creating-a-new-spin-application-1)
+- [Fetch AI Model](#fetch-ai-model-1)
+- [Application Configuration](#application-configuration-1)
+- [Source Code](#source-code-1)
+- [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application-1)
+- [TODO Deploy to Fermyon Cloud](#todo-deploy-to-fermyon-cloud-1)
+- [TODO Testing](#todo-testing-1)
+- [Integrating Custom Domain and Storage](#integrating-custom-domain-and-storage)
+- [Conclusion](#conclusion)
+- [Next Steps](#next-steps)
 
 AI Inferencing performs well on GPUs. However, GPU infrastructure is both scarce and expensive. This tutorial will show you how to use Fermyon Serverless AI to quickly build advanced AI-enabled serverless applications that can run on Fermyon Cloud. Your applications will benefit from 50 millisecond cold start times and operate 100x faster than other on-demand AI infrastructure services. Take a quick look at the video below, and make sure you sign up here to be one of the first to access the Fermyon [Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
 
