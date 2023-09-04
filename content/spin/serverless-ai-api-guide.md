@@ -42,6 +42,15 @@ use spin_sdk::{llm::{infer, InferencingModel::Llama2Chat}};
 let inferencing_result = infer(Llama2Chat, &PROMPT.clone().replace("<SENTENCE>", &request.sentence));
 ```
 
+**General Notes**
+
+`infer` operation:
+
+- It takes in the following arguments - model name, prompt and ... 
+- The model name is ...
+- The optional third parameter which is an interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.  
+- The return value is ...
+
 {{ blockEnd }}
 
 {{ startTab "Typescript"}}
