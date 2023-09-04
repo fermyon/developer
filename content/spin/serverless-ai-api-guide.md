@@ -23,7 +23,7 @@ The Spin SDK surfaces the Serverless AI interface to your language. The set of o
 
 | Operation  | Parameters | Returns | Behavior |
 |------------|------------|---------|----------|
-| `infer`  | model `string`, prompt `string`, params `list` | `string`  | The `infer` is performed on a specific model. The name of the model is the first parameter provided (i.e. `llama2-v70b-chat`, `llama2-v13b-chat`, `llama2-v7b-chat` or other; passed in as a `string`). The second parameter is a prompt; passed in as a `string`. The third parameter is a mix of float and unsigned integers relating to inferencing parameters in this order: `max-tokens` (unsigned 32 integer), `repeat-penalty` (float 32), `repeat-penalty-last-n-token-count` (unsigned 32 integer), `temperature` (float 32), `top-k` (unsigned 32 integer) and `top-p` (float 32). The result from `infer` is a `string` |
+| `infer`  | model `string`, prompt `string`, params `list` | `string`  | The `infer` is performed on a specific model. The name of the model is the first parameter provided (i.e. `llama2-chat`, `codellama-instruct`, or other; passed in as a `string`). The second parameter is a prompt; passed in as a `string`. The third parameter is a mix of float and unsigned integers relating to inferencing parameters in this order: `max-tokens` (unsigned 32 integer), `repeat-penalty` (float 32), `repeat-penalty-last-n-token-count` (unsigned 32 integer), `temperature` (float 32), `top-k` (unsigned 32 integer) and `top-p` (float 32). The result from `infer` is a `string` |
 
 The exact detail of calling these operations from your application depends on your language:
 
