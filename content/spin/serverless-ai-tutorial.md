@@ -1,6 +1,6 @@
 title = "Serverless AI Tutorial"
 template = "spin_main"
-date = "2023-08-01T09:00:00Z"
+date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-tutorial.md"
