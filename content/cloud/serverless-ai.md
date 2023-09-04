@@ -30,21 +30,21 @@ Once you have access to the private beta, please ensure you have:
 >> If you have questions about increasing these limits, please reach out to [support@fermyon.com](mailto://support@fermyon.com)
 
 *Service Limitations*
-* TODO any service limitations to run Fermyon Serverless AI (i.e. only supports TODO).
+* Fermyon Serverless AI currently supports the following models: `Code Llama Instruct`, `Llama2 Chat`, and `all-MiniLm-L6-v2`
 
 ## FAQ
 
 - **Can I TODO?**
 At this time, Fermyon Serverless AI does not have TODO. We'd love to hear your thoughts on what an ideal experience would look like at [github.com/fermyon/feedback](https://github.com/fermyon/feedback)
 
-- **How does Fermyon Serverless AI compare to OpenAI? OctoML? In what situations am I better off using Fermyon Serverless AI?**
-With Fermyon Serverless AI, you don’t need to be worried about vendor lock-in. Unlike using OpenAI’s services, with Fermyon Serverless AI you can run your inferencing workloads locally with Spin or on your infrastructure of choice with Spin install. 
+- **How does Fermyon Serverless AI compare to OpenAI? In what situations am I better off using Fermyon Serverless AI?**
+With Fermyon Serverless AI, you don’t need to be worried about vendor lock-in. With Fermyon Serverless AI you can run your inferencing workloads locally with Spin or on your infrastructure of choice with Spin install. In fact, Fermyon Serverless AI is build using open source models that can be used completely outside the context of Spin in the case you decide to host your own infrastructure end to end. 
 
-- **Which specific model(s) is Fermyon Serverless AI using? [i.e. 7B, 13B, 70B] Why was this model chosen?**
-Fermyon Serverless AI is using the 13B model as it strikes an excellent balance of performance and accuracy. If you’re interested in another model, please share this feedback at [github.com/fermyon/feedback](github.com/fermyon/feedback).
+- **Which specific model(s) is Fermyon Serverless AI using for inferencing? [i.e. 7B, 13B, 70B] Why was this model chosen?**
+Fermyon Serverless AI is using the 13B model for inferencing, both for `llama2-chat` and `codellama-instruct`, as it strikes an excellent balance of performance and accuracy. If you’re interested in another model, please share this feedback at [github.com/fermyon/feedback](github.com/fermyon/feedback).
 
 - **How do I choose which model I’m using?**
-Please visit [Meta AI’s documentation](https://ai.meta.com/resources/models-and-libraries/llama/) to learn morea bout the tradeoffs between llama2 and Code Llama
+`llama2-chat` is trained for chat use cases, although it can be used for general language model tasks as well. `code llama` is meant for generating code based on instructions. However, this are just high-level guideposts. Please visit [Meta AI’s documentation](https://ai.meta.com/resources/models-and-libraries/llama/) for more specific instructions and to learn more about the tradeoffs between llama2 and Code Llama
 
 - **Do you support Fine Tuning? Bring your own Model? Any models other than LLaMa2 and CodeLlama? Vector Databases?**
 At this time, we do not support Fine Tuning or bringing your own model. Fermyon Serverless AI supports llama2 and CodeLlama. If you’re interested in another model, please share that feedback with our team by raising an issue [here](https://github.com/fermyon/feedback/issues/new/choose). Vector databases, backed by our NoOps SQL DB, are supported today in private beta.
@@ -53,7 +53,7 @@ At this time, we do not support Fine Tuning or bringing your own model. Fermyon 
 Does Fermyon Serverless AI come with any specific or special support services?
 
 - **I read somewhere that I’ll receive data about my AI inferencing usage — where can I find that data? Where can I find a reference as to the definition(s) of each of those data elements?**
-In the request response body, you will see information about request time, predicted token account, etc. 
+In the request response body, you will see the number of prompt tokens and number of generated tokens for inferencing requests. For embedding requests, you'll be presented with the number of prompt tokens. 
 
 - **What programming languages / SDKs can I use to invoke Serverless AI?**
 Please visit the [API Guide](/spin/serverless-ai-api-guide.md) for this information.
