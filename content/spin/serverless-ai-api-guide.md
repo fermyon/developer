@@ -6,34 +6,25 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-api-guide.md"
 
 ---
-- [How Fermyon Serverless AI Works](#how-fermyon-serverless-ai-works)
 - [Using Fermyon Serverless AI From Applications](#using-fermyon-serverless-ai-from-applications)
 
 
-Spin provides an interface for you to perform AI inference within Spin applications.
-
-## How Fermyon Serverless AI Works
-
-By default, TODO:
+Spin provides an interface for you to perform AI inference within Spin applications. By default, a given component of an app will not have access to any Serverless AI models. Access must be provided explicitly via the component manifest.  For example, a component could be given access to the llama2-chat model using:
 
 ```toml
 [[component]]
 ai_models = ["llama2-chat"]
 ```
 
-> Note: To deploy a Spin application that performs AI inferencing please visit the [Serverless AI](https://developer.fermyon.com/cloud/serverless-ai#accessing-private-beta) section in the documentation. It covers signing up for the private beta and setting up your Fermyon Serverless AI.
+> Note: To deploy a Spin application (that performs AI inferencing) to Fermyon Cloud please visit the [Serverless AI](https://developer.fermyon.com/cloud/serverless-ai#accessing-private-beta) section in the documentation. It covers signing up for the private beta and setting up your Fermyon Serverless AI.
 
 ## Using Fermyon Serverless AI From Applications
 
-The Spin SDK surfaces the Serverless AI interface to your language.
-
-The set of operations is common across all SDKs:
+The Spin SDK surfaces the Serverless AI interface to your language. The set of operations is common across all supporting SDKs:
 
 | Operation  | Parameters | Returns | Behavior |
 |------------|------------|---------|----------|
 | `infer`  | model `string`, prompt `string`, params `list` | `string`  | The `infer` is performed on a specific model. The name of the model is the first parameter provided (i.e. `llama2-v70b-chat`, `llama2-v13b-chat`, `llama2-v7b-chat` or other; passed in as a `string`). The second parameter is a prompt; passed in as a `string`. The third parameter is a mix of float and unsigned integers relating to inferencing parameters in this order: `max-tokens` (unsigned 32 integer), `repeat-penalty` (float 32), `repeat-penalty-last-n-token-count` (unsigned 32 integer), `temperature` (float 32), `top-k` (unsigned 32 integer) and `top-p` (float 32). The result from `infer` is a `string` |
-
-TODO the above are still in flux so please check this reference to see the operations and parameters https://github.com/fermyon/spin/blob/llm-sdk/wit/preview2/llm.wit and then delete this line TODO
 
 The exact detail of calling these operations from your application depends on your language:
 
@@ -41,14 +32,15 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
-TODO. For example:
+To use Serverless AI functions, the `llm` module from the Spin SDK provides the method: `infer`. The following snippet is from the [Rust sentiment analysis example](https://github.com/fermyon/ai-examples/sentiment-analysis-rust): 
 
 ```rust
-TODO
-```
+use spin_sdk::{llm::{infer, InferencingModel::Llama2Chat}};
 
-**General Notes** 
-* TODO
+// -- snip --
+
+let inferencing_result = infer(Llama2Chat, &PROMPT.clone().replace("<SENTENCE>", &request.sentence));
+```
 
 {{ blockEnd }}
 
@@ -96,7 +88,7 @@ The Python SDK doesn't currently surface the Serverless AI API.
 
 {{ startTab "TinyGo"}}
 
-Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/llm` pakage. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/llm) for reference documentation. For example:
+Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/llm` package. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/llm) for reference documentation. For example:
 
 ```go
 package main
@@ -135,20 +127,21 @@ func init() {
 
 `infer` operation:
 
-- It takes in the following arguments - model name, prompt and a optional third parameter for inferencing options (pass `nil` if you don't want to specify it).
+- It takes in the following arguments - model name, prompt and an optional third parameter for inferencing options (pass `nil` if you don't want to specify it).
 - The model name is a string.
-- The params allows you to specificy `MaxTokens`, `RepeatPenalty`, `RepeatPenaltyLastNTokenCount`, `Temperature`, `TopK`, `TopP`.
+- The params allows you to specify `MaxTokens`, `RepeatPenalty`, `RepeatPenaltyLastNTokenCount`, `Temperature`, `TopK`, `TopP`.
 - It returns a result struct with a `Text` field that contains the answer and a `Usage` field that contains metadata about the operation.
 
 `generateEmbeddings` operation:
 
 - It takes two arguments - model name and list of strings to generate the embeddings for.
 - The model name is a string.
-- It returns a result struct with a `Embeddings` field that contains the `[][]float32` embeddings and a `Usage` field that contains metadata about the operation.
+- It returns a result struct with an `Embeddings` field that contains the `[][]float32` embeddings and a `Usage` field that contains metadata about the operation.
 
 {{ blockEnd }}
 
 {{ startTab "Swift"}}
+
 * The inferencing parameters are optional and you can pass `nil` if you don't want to specify them
 
 {{ blockEnd }}
