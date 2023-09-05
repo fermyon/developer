@@ -269,7 +269,7 @@ export default {
 
                 a {
                     margin: 2rem 0 1rem 0;
-                    display: block;
+                    display: inline;
                     border-radius: 0.67rem;
 
                     &.button {
