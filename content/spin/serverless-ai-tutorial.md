@@ -102,24 +102,6 @@ HTTP path: /api/...
 ```
 
 {{ blockEnd }}
-
-{{ startTab "TinyGo"}}
-
-The TinyGo code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-go)
-
-<!-- @selectiveCpy -->
-
-> Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
-
-```bash
-$ spin new http-go 
-Enter a name for your new application: sentiment-analysis
-Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
-HTTP path: /api/...
-```
-
-{{ blockEnd }}
 {{ blockEnd }}
 
 ### Fetch AI Model
