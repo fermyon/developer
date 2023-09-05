@@ -4,6 +4,7 @@ set -euo pipefail
 # Fancy colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
 NC='\033[0m' # No Color aka reset
 
 # Version to install. Defaults to latest or set by --version or -v
@@ -16,6 +17,8 @@ fancy_print() {
         echo -e "${GREEN}${2}${NC}"
     elif [[ $1 == 1 ]]; then
         echo -e "${RED}${2}${NC}"
+    elif [[ $1 == 3 ]]; then
+        echo -e "${YELLOW}${2}${NC}"
     else
         echo -e "${2}"
     fi
@@ -131,13 +134,22 @@ fancy_print 0 "Step 4: Install default templates"
 ./spin templates install --git "https://github.com/fermyon/spin-python-sdk" --upgrade
 ./spin templates install --git "https://github.com/fermyon/spin-js-sdk" --upgrade
 
-# Install default plugins
 fancy_print 0 "Step 5: Install default plugins"
 ./spin plugins update
-./spin plugins install js2wasm --yes
-./spin plugins install py2wasm --yes
-./spin plugins install cloud --yes
+if [[ $VERSION = "canary" ]]; then
+    ./spin plugins install -u https://github.com/fermyon/spin-js-sdk/releases/download/canary/js2wasm.json --yes
+    ./spin plugins install -u https://github.com/fermyon/spin-python-sdk/releases/download/canary/py2wasm.json --yes
+    ./spin plugins install -u https://github.com/fermyon/cloud-plugin/releases/download/canary/cloud.json --yes
+else
+    ./spin plugins install js2wasm --yes
+    ./spin plugins install py2wasm --yes
+    ./spin plugins install cloud --yes
+fi
 
+if [[ $VERSION = "canary" ]]; then
+    fancy_print 3 "Warning: You are using canary Spin, but templates use latest stable SDKs."
+    fancy_print 3 "Be sure to update templates to point to 'canary' SDKs."
+fi
 # Direct to quicks-start doc
 fancy_print 0 "You're good to go. Check here for the next steps: https://developer.fermyon.com/spin/quickstart"
 fancy_print 0 "Run './spin' to get started"
