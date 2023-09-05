@@ -40,8 +40,8 @@ AI Inferencing performs well on GPUs. However, GPU infrastructure is both scarce
 In this tutorial we will:
 
 * Update Spin (and dependencies) on your local machine
-* Create a Spin application with `spin new`
-* Use the Serverless AI SDK (in Rust, TypeScript and TinyGo)
+* Create a Serverless AI application
+* Learn about the Serverless AI SDK (in Rust, TypeScript and TinyGo)
 
 ## Tutorial Prerequisites
 
@@ -75,7 +75,7 @@ Now, let's dive deep into a comprehensive tutorial and unlock your potential to 
 
 {{ startTab "Rust"}}
 
-The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples)
+The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-rs)
 
 <!-- @selectiveCpy -->
 
@@ -87,6 +87,8 @@ $ spin new http-rust sentiment-analysis --accept-defaults
 {{ blockEnd }}
 
 {{ startTab "TypeScript" }}
+
+The TypeScript code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-ts)
 
 <!-- @selectiveCpy -->
 
@@ -101,6 +103,8 @@ HTTP path: /...
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
+
+The TinyGo code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-go)
 
 <!-- @selectiveCpy -->
 

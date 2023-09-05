@@ -17,9 +17,21 @@ The Fermyon Serverless AI is currently in private beta. To request access to the
  
 > Please note that the private beta is limited in space, and all requests cannot be guaranteed. 
 
-Once you have access to the private beta, please ensure you have:
-- TODO (what does a user need to install/upgrade) i.e. [Spin CLI](./cli-reference.md) version TODO or greater
-- TODO (what does a user need to install/upgrade) i.e. [TODO plugin](TODO) version TODO or greater installed. 
+Once you have access to the private beta, please ensure you have the `canary` version of Spin installed:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
+```
+
+Also, for TypeScript/JavaScript examples, please ensure you have the latest TypeScript/JavaScript SDK installed:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
+```
 
 ## Quotas And Service Limitations For Fermyon Serverless AI
 
@@ -35,7 +47,7 @@ Once you have access to the private beta, please ensure you have:
 ## FAQ
 
 - **How does Fermyon Serverless AI compare to OpenAI? In what situations am I better off using Fermyon Serverless AI?**
-With Fermyon Serverless AI, you don’t need to be worried about vendor lock-in. With Fermyon Serverless AI you can run your inferencing workloads locally with Spin or on your infrastructure of choice with Spin install. In fact, Fermyon Serverless AI is build using open source models that can be used completely outside the context of Spin in the case you decide to host your own infrastructure end to end. 
+With Fermyon Serverless AI, you don’t need to be worried about vendor lock-in. With Fermyon Serverless AI you can run your inferencing workloads locally with Spin or on your infrastructure of choice with Spin install. In fact, Fermyon Serverless AI is built using open source models that can be used completely outside the context of Spin in case you decide to host your own infrastructure end to end. 
 
 - **Which specific model(s) is Fermyon Serverless AI using for inferencing? [i.e. 7B, 13B, 70B] Why was this model chosen?**
 Fermyon Serverless AI is using the 13B model for inferencing, both for `llama2-chat` and `codellama-instruct`, as it strikes an excellent balance of performance and accuracy. If you’re interested in another model, please share this feedback at [github.com/fermyon/feedback](github.com/fermyon/feedback).
@@ -50,7 +62,7 @@ At this time, we do not support Fine Tuning or bringing your own model. Fermyon 
 Does Fermyon Serverless AI come with any specific or special support services?
 
 - **I read somewhere that I’ll receive data about my AI inferencing usage — where can I find that data? Where can I find a reference as to the definition(s) of each of those data elements?**
-In the request response body, you will see the number of prompt tokens and number of generated tokens for inferencing requests. For embedding requests, you'll be presented with the number of prompt tokens. 
+In the request response body, you will see the number of prompt tokens and the number of generated tokens for inferencing requests. For embedding requests, you'll be presented with the number of prompt tokens. 
 
 - **What programming languages / SDKs can I use to invoke Serverless AI?**
 Please visit the [API Guide](/spin/serverless-ai-api-guide.md) for this information.

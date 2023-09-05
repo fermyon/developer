@@ -7,8 +7,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 
 ---
 - [Using Serverless AI From Applications](#using-serverless-ai-from-applications)
-	- [Configuration](#configuration)
-	- [File Structure](#file-structure)
+  - [Configuration](#configuration)
+  - [File Structure](#file-structure)
 - [Serverless AI Interface](#serverless-ai-interface)
 
 
