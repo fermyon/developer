@@ -512,6 +512,6 @@ wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", re
 
 > `wit-bindgen` evolves rapidly to track draft standards.  Very recent versions of `wit-bindgen` are unlikely to work correctly with Spin.  So the dependency must be pinned to a specific `rev`.  Over time, Spin expects to track "peninsulas of stability" in the evolving standards.
 
-## Read the Rust Spin SDK documentation
+## Read the Rust Spin SDK Documentation
 
 Although you learned a lot by following the concepts and samples shown here, you can dive even deeper and read the [Rust Spin SDK documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html).
