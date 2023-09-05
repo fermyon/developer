@@ -11,7 +11,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
   - [File Structure](#file-structure)
 - [Serverless AI Interface](#serverless-ai-interface)
 
-
 The nature of AI and LLM workloads on already trained models lends itself very naturally to a serverless-style architecture. As a framework for building and deploying serverless applications, Spin provides an interface for you to perform AI inference within Spin applications. 
 
 ## Using Serverless AI From Applications 
