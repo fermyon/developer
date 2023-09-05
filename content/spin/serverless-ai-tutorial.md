@@ -71,11 +71,16 @@ Now, let's dive deep into a comprehensive tutorial and unlock your potential to 
 
 The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-rs)
 
+> Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
+
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-rust sentiment-analysis --accept-defaults
-
+$ spin new http-rust
+Enter a name for your new application: sentiment-analysis
+Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
+HTTP base: /
+HTTP path: /api/...
 ```
 
 {{ blockEnd }}
@@ -84,6 +89,8 @@ $ spin new http-rust sentiment-analysis --accept-defaults
 
 The TypeScript code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-ts)
 
+> Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
+
 <!-- @selectiveCpy -->
 
 ```bash
@@ -91,7 +98,7 @@ $ spin new http-js
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
 HTTP base: /
-HTTP path: /...
+HTTP path: /api/...
 ```
 
 {{ blockEnd }}
@@ -102,9 +109,13 @@ The TinyGo code snippets below are taken from the [Fermyon Serverless AI Example
 
 <!-- @selectiveCpy -->
 
-```bash
-$ spin new http-go sentiment-analysis --accept-defaults
+> Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 
+```bash
+$ spin new http-go Enter a name for your new application: sentiment-analysis
+Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
+HTTP base: /
+HTTP path: /api/...
 ```
 
 {{ blockEnd }}
@@ -502,7 +513,7 @@ negative
 func init() {
 	spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
 		router := spinhttp.NewRouter()
-		router.POST("/sentiment-analysis", performSentimentAnalysis)
+		router.POST("/api/sentiment-analysis", performSentimentAnalysis)
 		router.ServeHTTP(w, r)
 	})
 }
@@ -650,7 +661,7 @@ id = "sentiment-analysis"
 source = "target/sentiment-analysis.wasm"
 exclude_files = ["**/node_modules"]
 [component.trigger]
-route = "/..."
+route = "/api/..."
 [component.build]
 command = "npm run build"
 
