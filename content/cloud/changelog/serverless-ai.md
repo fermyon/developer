@@ -5,6 +5,8 @@ enable_shortcodes = true
 tags = ["ai"]
 [extra]
 type= "changelog_post"
+twitter_card_type = "summary_large_image" 
+image = "/static/changelog/fermyon-severless-ai-twitter-card.jpg
 
 ---
 
