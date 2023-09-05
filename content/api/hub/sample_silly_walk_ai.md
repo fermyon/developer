@@ -1,4 +1,4 @@
-title = "A 'Silly Walk' example of Serverless AI"
+title = "A Silly Walk example of Serverless AI"
 template = "render_hub_content_body"
 date = "2023-09-05T09:00:00Z"
 content-type = "text/html"
