@@ -8,27 +8,29 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 ---
 - [Tutorial Prerequisites](#tutorial-prerequisites)
   - [Spin](#spin)
-- [Dependencies](#dependencies)
+  - [Dependencies](#dependencies)
 - [Serverless AI Inferencing With Spin Applications](#serverless-ai-inferencing-with-spin-applications)
-- [Creating a New Spin Application](#creating-a-new-spin-application)
-- [Fetch AI Model](#fetch-ai-model)
-- [Application Configuration](#application-configuration)
-- [Source Code](#source-code)
-- [Additional Functionality](#additional-functionality)
+  - [Creating a New Spin Application](#creating-a-new-spin-application)
+  - [Fetch AI Model](#fetch-ai-model)
+  - [Application Configuration](#application-configuration)
+  - [Source Code](#source-code)
+  - [Additional Functionality](#additional-functionality)
   - [Static Fileserver Component For The UI](#static-fileserver-component-for-the-ui)
   - [Key Value Explorer](#key-value-explorer)
-- [Application Manifest](#application-manifest)
-- [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
-- [TODO Deploy to Fermyon Cloud](#todo-deploy-to-fermyon-cloud)
-- [TODO Testing](#todo-testing)
+  - [Application Manifest](#application-manifest)
+  - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
+  - [Test Locally](#test-locally)
+  - [Deploy to Fermyon Cloud](#deploy-to-fermyon-cloud)
+  - [Testing in Fermyon Cloud](#testing-in-fermyon-cloud)
+  - [Visit Fermyon Cloud UI](#visit-fermyon-cloud-ui)
 - [Serverless AI Embedding With Spin Applications](#serverless-ai-embedding-with-spin-applications)
-- [Creating a New Spin Application](#creating-a-new-spin-application-1)
-- [Fetch AI Model](#fetch-ai-model-1)
-- [Application Configuration](#application-configuration-1)
-- [Source Code](#source-code-1)
-- [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application-1)
-- [TODO Deploy to Fermyon Cloud](#todo-deploy-to-fermyon-cloud-1)
-- [TODO Testing](#todo-testing-1)
+  - [Creating a New Spin Application](#creating-a-new-spin-application-1)
+  - [Fetch AI Model](#fetch-ai-model-1)
+  - [Application Configuration](#application-configuration-1)
+  - [Source Code](#source-code-1)
+  - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application-1)
+  - [TODO Deploy to Fermyon Cloud](#todo-deploy-to-fermyon-cloud)
+  - [TODO Testing](#todo-testing)
 - [Integrating Custom Domain and Storage](#integrating-custom-domain-and-storage)
 - [Conclusion](#conclusion)
 - [Next Steps](#next-steps)
@@ -55,7 +57,7 @@ You will need the `canary` version of Spin, the easiest way to do that is via Sp
 $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
 ```
 
-## Dependencies
+### Dependencies
 
 The above installation script automatically installs the latest SDKs for Rust and TinyGo (which will enable us to write Serverless AI applications in Rust and TinyGo). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, you will need to upgrade the TypeScript SDK as follows:
 
@@ -69,7 +71,7 @@ $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 
 Now, let's dive deep into a comprehensive tutorial and unlock your potential to use Fermyon Serverless AI.
 
-## Creating a New Spin Application
+### Creating a New Spin Application
 
 {{ tabs "sdk-type" }}
 
@@ -116,7 +118,7 @@ $ spin new http-go sentiment-analysis --accept-defaults
 {{ blockEnd }}
 {{ blockEnd }}
 
-## Fetch AI Model
+### Fetch AI Model
 
 Next, we create a folder and fetch a pre-trained AI model for our application:
 
@@ -129,7 +131,7 @@ $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-
 $ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/ai-models/llama2-chat
 ```
 
-## Application Configuration
+### Application Configuration
 
 Place the following lines into the application's manifest (the `spin.toml` file) within the `[[component]]` section:
 
@@ -154,7 +156,7 @@ command = "npm run build"
 watch = ["src/**/*", "package.json", "package-lock.json"]
 ```
 
-## Source Code
+### Source Code
 
 Now let's use the Spin SDK to access the model from our app:
 
@@ -531,7 +533,7 @@ func main() {}
 
 {{ blockEnd }}
 
-## Additional Functionality
+### Additional Functionality
 
 This application also includes two more components, a key/value explorer and static-fileserver component. Let's quickly go ahead and create those (letting Spin do all of the scaffolding for us).
 
@@ -575,7 +577,7 @@ We create an `assets` directory where we can store files to serve statically (se
 mkdir assets
 ```
 
-## Application Manifest
+### Application Manifest
 
 As shown below, the Spin framework has done all of the scaffolding for us:
 
@@ -612,7 +614,7 @@ key_value_stores = ["default"]
 route = "/internal/kv-explorer/..."
 ```
 
-## Building and Deploying Your Spin Application
+### Building and Deploying Your Spin Application
 
 Now let's build and deploy our Spin Application locally. Run the following command to build your application: 
 
@@ -623,30 +625,49 @@ $ npm install
 $ spin build --up
 ```
 
-## TODO Deploy to Fermyon Cloud
+### Test Locally
+
+```bash
+# Create a new POST request to localhost
+$ curl -vXPOST 'localhost:3000/api/sentiment-analysis' -H'Content-Type: application/json' -d "{\"sentence\": \"Well this is very nice indeed\" }"
+
+{"sentiment":"positive"}
+```
+
+### Deploy to Fermyon Cloud
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin cloud deploy TODO
+$ spin cloud deploy
 ```
 
-## TODO Testing 
+### Testing in Fermyon Cloud
 
 <!-- @selectiveCpy -->
 
 ```bash
-# Create a new POST request TODO
-$ curl -X POST localhost:3000/test -H 'Content-Type: application/json' -d '{"todo":"todo"}' -v
+# Create a new POST request to your apps URL in Fermyon Cloud
+$ curl -vXPOST 'https://abcxyz.fermyon.app/api/sentiment-analysis' -H'Content-Type: application/json' -d "{\"sentence\": \"Well this is very nice indeed\" }"
 
-TODO
+{"sentiment":"positive"}
 ```
+
+### Visit Fermyon Cloud UI
+
+Visiting your apps URL will produce a User Interface (UI) similar to the following.
+
+![sentiment analysis ui blank](/static/image/docs/sentiment-analysis-ui-blank.png)
+
+You can type in a sentence, and the UI will respond with the sentiment analysis.
+
+![sentiment analysis ui positive](/static/image/docs/sentiment-analysis-ui-positive.png)
 
 ## Serverless AI Embedding With Spin Applications 
 
 Now let's build an application using Fermyon Serverless AI embeddings, which are stored and retrieved from a Vector Database (backed by a [NoOps SQL Database](https://www.fermyon.com/blog/announcing-noops-sql-db)). 
 
-## Creating a New Spin Application
+### Creating a New Spin Application
 
 Please make sure you've installed the correct version of Spin, the respective plugins, and templates outlined in previous sections. 
 
@@ -689,7 +710,7 @@ $ spin new http-go embedding-component --accept-defaults
 {{ blockEnd }}
 {{ blockEnd }}
 
-## Fetch AI Model
+### Fetch AI Model
 
 Next, we create a folder and fetch a pre-trained AI model for our application:
 
@@ -702,7 +723,7 @@ $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-
 $ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/ai-models/llama2-chat
 ```
 
-## Application Configuration
+### Application Configuration
 
 Place the following lines into the application's manifest (the `spin.toml` file) within the `[[component]]` section:
 
@@ -727,7 +748,7 @@ workdir = "embeddings"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
-## Source Code
+### Source Code
 
 Now let's use the Spin SDK to access the model from our app:
 
@@ -859,7 +880,7 @@ impl<'a> TryFrom<sqlite::Row<'a>> for Embedding {
 }
 ```
 
-## Building and Deploying Your Spin Application
+### Building and Deploying Your Spin Application
 
 Now let's build and deploy our Spin Application locally. Run the following command to build your application: 
 
@@ -869,7 +890,7 @@ Now let's build and deploy our Spin Application locally. Run the following comma
 $ spin build --up
 ```
 
-## TODO Deploy to Fermyon Cloud
+### TODO Deploy to Fermyon Cloud
 
 <!-- @selectiveCpy -->
 
@@ -877,7 +898,7 @@ $ spin build --up
 $ spin cloud deploy TODO
 ```
 
-## TODO Testing 
+### TODO Testing 
 
 <!-- @selectiveCpy -->
 
