@@ -87,6 +87,7 @@ const store = createStore({
       data = await res.json()
       context.state.contentItems = data
       context.state.contentItems.map(k => {
+        k.title = unescapeHTML(k.title)
         k.id = k.path.substring(k.path.lastIndexOf('/') + 1)
       })
     },
@@ -113,7 +114,7 @@ const store = createStore({
 
 const unescapeHTML = str =>
   str.replace(
-    /&amp;|&lt;|&gt;|&#39;|&quot;|&#x3D;/g,
+    /&amp;|&lt;|&gt;|&#39;|&quot;|&#x3D;|&#x27;/g,
     tag =>
     ({
       '&amp;': '&',
@@ -121,7 +122,8 @@ const unescapeHTML = str =>
       '&gt;': '>',
       '&#39;': "'",
       '&quot;': '"',
-      '&#x3D;': '='
+      '&#x3D;': '=',
+      '&#x27;': '\'' 
     }[tag] || tag)
   );
 
