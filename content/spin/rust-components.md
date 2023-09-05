@@ -17,6 +17,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/rust-componen
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
+- [AI Inferencing From Rust Components](#ai-inferencing-from-rust-components)
 - [Troubleshooting](#troubleshooting)
 - [Manually Creating New Projects With Cargo](#manually-creating-new-projects-with-cargo)
 - [Read the Rust Spin SDK documentation](#read-the-rust-spin-sdk-documentation)
@@ -453,6 +454,10 @@ annotated using the `http_component` macro, compiled to the
 [`wasm32-wasi` target](https://doc.rust-lang.org/stable/nightly-rustc/rustc_target/spec/wasm32_wasi/index.html).
 This means that any [crate](https://crates.io) that compiles to `wasm32-wasi` can
 be used when implementing the component.
+
+## AI Inferencing From Rust Components
+
+For more information about using Serverless AI from Rust, see the [Serverless AI](serverless-ai-api-guide) API guide.
 
 ## Troubleshooting
 
