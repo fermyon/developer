@@ -13,7 +13,7 @@ created_at = "2023-09-05T00:00:00Z"
 last_updated = "2023-09-05T00:00:00Z"
 spin_version = ">v1.5"
 summary =  "An example of generating a Pythonesque description of walking using Fermyon Serverless AI"
-url = "https://github.com/fermyon/ai-examples/tree/main/silly-walk"
+url = "https://github.com/fermyon/ai-examples/tree/main/silly-walk-ts"
 keywords = "typescript, javascript, ai"
 
 ---
