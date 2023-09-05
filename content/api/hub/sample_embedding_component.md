@@ -2,7 +2,7 @@ title = "Serverless AI Embedding Component Sample"
 template = "render_hub_content_body"
 date = "2023-09-05T00:00:00Z"
 content-type = "text/html"
-tags = ["ai", "rust", "somponent"]
+tags = ["ai", "rust", "component"]
 
 [extra]
 author = "mikkelhegn"
@@ -18,7 +18,7 @@ keywords = "AI, rust, api, http"
 
 ---
 
-This is a sample for how to build a Spin componnent, which you can use to generate embeddings for texts, and compare against. The component is general-purpose in that it accepts text you want to store in the database. You can update and delete text in the database, e.g. from a web hook, or by different types of automation. You can also call the component to compare a given text string with what's in the database already. The component will return a sorted list of text already in the database.
+This is a sample for how to build a Spin component, which you can use to generate embeddings for texts, and compare against. The component is general-purpose in that it accepts text you want to store in the database. You can update and delete text in the database, e.g. from a web hook, or by different types of automation. You can also call the component to compare a given text string with what's in the database already. The component will return a sorted list of text already in the database.
 
 This is built using the Serverless AI features in Spin and Fermyon Cloud.
 
