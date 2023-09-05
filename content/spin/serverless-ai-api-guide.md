@@ -199,10 +199,4 @@ func init() {
 
 {{ blockEnd }}
 
-{{ startTab "Swift"}}
-
-* The inferencing parameters are optional and you can pass `nil` if you don't want to specify them
-
-{{ blockEnd }}
-
 {{ blockEnd }}

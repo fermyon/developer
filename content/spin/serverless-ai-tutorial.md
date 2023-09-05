@@ -125,6 +125,8 @@ HTTP path: /api/...
 
 Next, we create a folder and fetch a pre-trained AI model for our application:
 
+> Please note: this step can take a few minutes.
+
 <!-- @selectiveCpy -->
 
 ```bash
@@ -167,7 +169,7 @@ Now let's use the Spin SDK to access the model from our app:
 
 {{ startTab "Rust"}}
 
-<!-- @nocpy -->
+<!-- @selectiveCpy -->
 
 ```rust
 use std::str::FromStr;
@@ -349,7 +351,7 @@ impl FromStr for Sentiment {
 
 {{ startTab "TypeScript"}}
 
-<!-- @nocpy -->
+<!-- @selectiveCpy -->
 
 ```typescript
 import {
@@ -702,6 +704,8 @@ $ curl -vXPOST 'localhost:3000/api/sentiment-analysis' -H'Content-Type: applicat
 ```
 
 ### Deploy to Fermyon Cloud
+
+To deploy your Serverless AI to Fermyon Cloud, you will first need to sign up for Fermyon's [Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
 
 <!-- @selectiveCpy -->
 
