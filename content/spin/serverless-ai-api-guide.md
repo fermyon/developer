@@ -44,7 +44,7 @@ See the [serverless AI Tutorial](/spin/serverless-ai-tutorial) documentation for
 
 ## Serverless AI Interface
 
-The Spin SDK surfaces the Serverless AI interface to a variety of different languages. See the [Language Support Overview](spin/language-support-overview) to see if your specific language is supported.
+The Spin SDK surfaces the Serverless AI interface to a variety of different languages. See the [Language Support Overview](/spin/language-support-overview) to see if your specific language is supported.
 
 The set of operations is common across all supporting language SDKs:
 
@@ -146,55 +146,7 @@ The Python SDK doesn't currently surface the Serverless AI API.
 
 {{ startTab "TinyGo"}}
 
-Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/llm` package. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/llm) for reference documentation. For example:
-
-```go
-package main
-
-import (
-	"fmt"
-	"net/http"
-
-	spinhttp "github.com/fermyon/spin/sdk/go/http"
-	"github.com/fermyon/spin/sdk/go/llm"
-)
-
-func init() {
-	spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
-		result, err := llm.Infer("llama2-chat", "What is a good prompt?", nil)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		fmt.Printf("Prompt tokens:    %d\n", result.Usage.PromptTokenCount)
-		fmt.Printf("Generated tokens: %d\n", result.Usage.GeneratedTokenCount)
-		fmt.Fprintf(w, "%s\n", result.Text)
-
-		embeddings, err := llm.GenerateEmbeddings("all-minilm-l6-v2", []string{"Hello world"})
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		fmt.Printf("Prompt Tokens: %d\n", embeddings.Usage.PromptTokenCount)
-		fmt.Printf("%v\n", embeddings.Embeddings)
-	})
-}
-```
-
-**General Notes**
-
-`infer` operation:
-
-- It takes in the following arguments - model name, prompt and an optional third parameter for inferencing options (pass `nil` if you don't want to specify it).
-- The model name is a string.
-- The params allows you to specify `MaxTokens`, `RepeatPenalty`, `RepeatPenaltyLastNTokenCount`, `Temperature`, `TopK`, `TopP`.
-- It returns a result struct with a `Text` field that contains the answer and a `Usage` field that contains metadata about the operation.
-
-`generateEmbeddings` operation:
-
-- It takes two arguments - model name and list of strings to generate the embeddings for.
-- The model name is a string: `all-minilm-l6-v2`
-- It returns a result struct with an `Embeddings` field that contains the `[][]float32` embeddings and a `Usage` field that contains metadata about the operation.
+The TinyGo SDK doesn't currently surface the Serverless AI API. 
 
 {{ blockEnd }}
 

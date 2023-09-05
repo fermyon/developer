@@ -35,7 +35,7 @@ In this tutorial we will:
 
 * Update Spin (and dependencies) on your local machine
 * Create a Serverless AI application
-* Learn about the Serverless AI SDK (in Rust, TypeScript and TinyGo)
+* Learn about the Serverless AI SDK (in Rust and TypeScript)
 
 ## Tutorial Prerequisites
 
@@ -51,7 +51,7 @@ $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v 
 
 ### Dependencies
 
-The above installation script automatically installs the latest SDKs for Rust and TinyGo (which will enable us to write Serverless AI applications in Rust and TinyGo). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, you will need to upgrade the TypeScript SDK as follows:
+The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, you will need to upgrade the TypeScript SDK as follows:
 
 <!-- @selectiveCpy -->
 
@@ -112,7 +112,8 @@ The TinyGo code snippets below are taken from the [Fermyon Serverless AI Example
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 
 ```bash
-$ spin new http-go Enter a name for your new application: sentiment-analysis
+$ spin new http-go 
+Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
 HTTP base: /
 HTTP path: /api/...
@@ -467,135 +468,6 @@ export const handleRequest: HandleRequest = async function (
 ): Promise<HttpResponse> {
   return await router.handleRequest(request, request);
 };
-```
-
-{{ blockEnd }}
-
-{{ startTab "TinyGo"}}
-
-<!-- @selectiveCpy -->
-
-```go
-package main
-
-import (
-	"encoding/json"
-	"fmt"
-	"net/http"
-	"strings"
-
-	spinhttp "github.com/fermyon/spin/sdk/go/http"
-	"github.com/fermyon/spin/sdk/go/key_value"
-	"github.com/fermyon/spin/sdk/go/llm"
-)
-
-type sentimentAnalysisRequest struct {
-	Sentence string
-}
-
-type sentimentAnalysisResponse struct {
-	Sentiment string
-}
-
-const prompt = `\
-You are a bot that generates sentiment analysis responses. Respond with a single positive, negative, or neutral.
-
-Hi, my name is Bob
-neutral
-
-I am so happy today
-positive
-
-I am so sad today
-negative
-
-<SENTENCE>
-`
-
-func init() {
-	spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
-		router := spinhttp.NewRouter()
-		router.POST("/api/sentiment-analysis", performSentimentAnalysis)
-		router.ServeHTTP(w, r)
-	})
-}
-
-func performSentimentAnalysis(w http.ResponseWriter, r *http.Request, ps spinhttp.Params) {
-	var req sentimentAnalysisRequest
-	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
-	}
-	fmt.Printf("Performing sentiment analysis on: %q\n", req.Sentence)
-
-	// Open the KV store
-	store, err := key_value.Open("default")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	defer key_value.Close(store)
-
-	// If the sentiment of the sentence is already in the KV store, return it
-	exists, err := key_value.Exists(store, req.Sentence)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	if exists {
-		fmt.Println("Found sentence in KV store returning cached sentiment")
-		value, err := key_value.Get(store, req.Sentence)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		res := sentimentAnalysisResponse{
-			Sentiment: string(value),
-		}
-		if err := json.NewEncoder(w).Encode(res); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		return
-	}
-	fmt.Println("Sentence not found in KV store")
-
-	// Otherwise, perform sentiment analysis
-	fmt.Println("Running inference")
-	params := &llm.InferencingParams{
-		MaxTokens:   10,
-		Temperature: 0.5,
-	}
-
-	result, err := llm.Infer("llama2-chat", strings.Replace(prompt, "<SENTENCE>", req.Sentence, 1), params)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	fmt.Printf("Inference result (%d tokens): %s\n", result.Usage.GeneratedTokenCount, result.Text)
-
-	var sentiment string
-	if fields := strings.Fields(result.Text); len(fields) > 0 {
-		sentiment = fields[0]
-	}
-
-	// Cache the result in the KV store
-	fmt.Println("Caching sentiment in KV store")
-	key_value.Set(store, req.Sentence, []byte(sentiment))
-
-	res := &sentimentAnalysisResponse{
-		Sentiment: sentiment,
-	}
-	if err := json.NewEncoder(w).Encode(res); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-}
-
-func main() {}
-
 ```
 
 {{ blockEnd }}

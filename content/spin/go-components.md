@@ -14,7 +14,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/go-components
 - [Using Go Packages in Spin Components](#using-go-packages-in-spin-components)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
-- [AI Inferencing From Go Components](#ai-inferencing-from-go-components)
 
 > This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Go templates, installing required tools, and creating Go applications.
 
@@ -354,7 +353,3 @@ Spin has a key-value store built in. For information about using it from TinyGo,
 ## Storing Data in SQLite
 
 For more information about using SQLite from TinyGo, see [SQLite storage](sqlite-api-guide).
-
-## AI Inferencing From Go Components
-
-For more information about using Serverless AI from TinyGo, see the [Serverless AI](serverless-ai-api-guide) API guide.
