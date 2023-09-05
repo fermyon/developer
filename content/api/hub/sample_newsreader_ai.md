@@ -13,7 +13,7 @@ created_at = "2023-09-05T00:00:00Z"
 last_updated = "2023-09-05T00:00:00Z"
 spin_version = ">v1.5"
 summary =  "Read an RSS feed and have AI summarize it for you"
-url = "https://github.com/fermyon/ai-examples/tree/main/newsreader"
+url = "https://github.com/fermyon/ai-examples/tree/main/newsfeeder-ts"
 keywords = "typescript, javascript, ai"
 
 ---
