@@ -8,8 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 ---
 - [Tutorial Prerequisites](#tutorial-prerequisites)
   - [Spin](#spin)
-  - [Templates](#templates)
-  - [Plugins](#plugins)
+- [Dependencies](#dependencies)
 - [Serverless AI Inferencing With Spin Applications](#serverless-ai-inferencing-with-spin-applications)
 - [Creating a New Spin Application](#creating-a-new-spin-application)
 - [Fetch AI Model](#fetch-ai-model)
@@ -40,22 +39,31 @@ AI Inferencing performs well on GPUs. However, GPU infrastructure is both scarce
 
 In this tutorial we will:
 
+* Update Spin (and dependencies) on your local machine
 * Create a Spin application with `spin new`
-* Use the Serverless AI SDK to perform inferencing
+* Use the Serverless AI SDK (in Rust, TypeScript and TinyGo)
 
 ## Tutorial Prerequisites
 
 ### Spin 
 
-You will need the latest version of Spin. Please go ahead and [install](./install.md) Spin or [upgrade](./upgrade.md) (to the [latest](https://github.com/fermyon/spin/releases/latest)) before we begin.
+You will need the `canary` version of Spin, the easiest way to do that is via Spin's installation script (passing in the `-v` option):
 
-### Templates
+<!-- @selectiveCpy -->
 
-You will need the latest version of Spin templates. Please go ahead and [update Spin templates](https://developer.fermyon.com/spin/managing-templates) before we begin.
+```bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
+```
 
-### Plugins
+## Dependencies
 
-You will need the latest version of Spin plugins. Please go ahead and [update Spin plugins](https://developer.fermyon.com/spin/managing-plugins) before we begin.
+The above installation script automatically installs the latest SDKs for Rust and TinyGo (which will enable us to write Serverless AI applications in Rust and TinyGo). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, you will need to upgrade the TypeScript SDK as follows:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
+```
 
 ## Serverless AI Inferencing With Spin Applications 
 
@@ -66,6 +74,8 @@ Now, let's dive deep into a comprehensive tutorial and unlock your potential to 
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
+
+The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples)
 
 <!-- @selectiveCpy -->
 
@@ -878,8 +888,10 @@ The groundbreaking Fermyon Serverless AI introduces a revolutionary addition to 
 
 ## Conclusion
 
-We want to get feedback on the Serverless AI API. We are curious about what models you would like to use and what applications you are building using Serverless AI.
+We want to get feedback on the Serverless AI API. We are curious about what models you would like to use and what applications you are building using Serverless AI. Let us know what you need, and how Fermyon's Serverless AI could potentially help solve a problem for you. We would love to help you write your new Serverless AI application.
 
 ## Next Steps
 
-Please feel free to ask questions and also share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
+- Try the numerous Serverless AI examples in our GitHub repository called [ai-examples](https://github.com/fermyon/ai-examples).
+- [Contribute](https://developer.fermyon.com/hub/contributing) your Serverless AI app to our [Spin Up Hub](https://developer.fermyon.com/hub).
+- Ask questions and share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
