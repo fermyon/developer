@@ -83,16 +83,19 @@ $ spin templates uninstall redis-befunge
 
 ## Upgrading Templates
 
-When you upgrade Spin, you will typically want to upgrade your templates to match.  This means new applications and components will get dependencies that match the Spin version you are using.  To do this, run `spin templates upgrade`:
+<!-- @searchTerm "update templates to point to canary SDKs" -->
+
+When you upgrade Spin, you typically want to upgrade your templates to match.  This means new applications and components will get dependencies that match the Spin version you are using.  To do this, run `spin templates upgrade`:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin templates upgrade
 Select repos to upgrade. Use Space to select/deselect and Enter to confirm selection.
-  [x] https://github.com/fermyon/spin-python-sdk
-  [ ] https://github.com/fermyon/spin (at spin/templates/v1.0)
-> [x] https://github.com/fermyon/spin-js-sdk
+> [ ] https://github.com/fermyon/spin
+  [ ] https://github.com/fermyon/spin-python-sdk
+  [ ] https://github.com/fermyon/spin-js-sdk
+  [ ] https://github.com/fermyon/spin-dotnet-sdk
 ```
 
 Use the cursor keys and the space bar to select the repositories you want to upgrade, then hit Enter to upgrade the selected repositories.
