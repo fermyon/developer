@@ -25,6 +25,8 @@ Once you have access to the private beta, please ensure you have the `canary` ve
 $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
 ```
 
+> Once you have run the installer script, adding the `spin` file to a folder already in your `$PATH` system variable is highly recommended, i.e. `sudo mv spin /usr/local/bin/`.
+
 If you want to deploy to Fermyon Cloud, you'll also need the latest version of the Cloud Plugin:
 
 <!-- @selectiveCpy -->
