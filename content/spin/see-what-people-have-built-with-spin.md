@@ -51,7 +51,7 @@ The 'Building a Social App with Spin' series covers the process and decision-mak
 
 The 'Finicky Whiskers' series covers the journey of creating a game with an architecture designed to [re-think microservices](https://www.fermyon.com/blog/rethinking-microservices) and showcase how WebAssembly modules can be started, executed, and shut down in the blink of an eye.
 
-> Finicky Whiskers was built to be the world's most adorable manual load generator, so it's not necessarily an model of how to use Spin most efficiently! But the series may be useful for decomposing an application into Spin microservices, and as a look at how Spin and containers can work together. As a bonus, if you are interested, you can play the game [here](https://www.finickywhiskers.com/index.html).
+> Finicky Whiskers was built to be the world's most adorable manual load generator, so it's not necessarily an model of how to use Spin most efficiently! But the series may be useful for decomposing an application into Spin microservices, and as a look at how Spin and containers can work together. As a bonus, if you are interested, you can play the game [here](https://finickywhiskers.com/index.html).
 
 * [Part 1: The World's Most Adorable Manual Load Generator](https://www.fermyon.com/blog/finicky-whiskers-part-1-intro)
 * [Part 2: Serving the HTML, CSS, and Static Assets](https://www.fermyon.com/blog/finicky-whiskers-part-2-fileserver)
@@ -63,6 +63,10 @@ The 'Finicky Whiskers' series covers the journey of creating a game with an arch
 Chances are whatever you are building will want to talk to other endpoints on the web. If so, Spin's HTTP library can help. The following article explains how to access external APIs from within Spin applications.
 
 - [Accessing external APIs](https://www.fermyon.com/blog/spin-rest-apis)
+
+## NoOps SQLite Storage Using Javascript
+
+Check out our [NoOps and Serverless Are the Perfect Pair](https://www.fermyon.com/blog/noops-and-serverless-are-the-perfect-pair) blog article that provides a NoOps SQLite Storage example (using Javascript).
 
 ## Next Steps
 

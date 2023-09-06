@@ -12,6 +12,8 @@ keywords = "install"
 - [Building Spin From Source](#building-spin-from-source)
 - [Using Cargo to Install Spin](#using-cargo-to-install-spin)
 - [Installing Templates and Plugins](#installing-templates-and-plugins)
+  - [Templates](#templates)
+  - [Plugins](#plugins)
 - [Next Steps](#next-steps)
 
 ## Installing Spin
@@ -22,13 +24,39 @@ Spin runs on Linux (amd64 and arm64), macOS (Intel and Apple Silicon), and Windo
 
 {{ startTab "Linux"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins:
+**Homebrew**
+
+You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
+
+Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-linux"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash</code></pre>
+```bash
+$ brew tap fermyon/tap
+```
 
-It's highly recommended to add Spin to a folder, which is on your path, e.g.:
+Install Spin:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ brew install fermyon/tap/spin
+```
+
+> Note: `brew install spin` will **not** install Fermyon's Spin framework. Fermyon Spin is accessed from the `fermyon` tap, as shown above.
+
+**Installer script**
+
+Another option (other than brew) is to use our installer script. The installer script installs Spin along with a starter set of language templates and plugins:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
+```
+
+Once you have run the installer script, it is highly recommended to add Spin to a folder, which is on your path, e.g.:
 
 <!-- @selectiveCpy -->
 
@@ -42,25 +70,57 @@ To install a specific version, you can pass arguments to the install script this
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-linux-version"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.10.0</code></pre>
+```bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.10.0
+```
 
 To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-linux-canary"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary</code></pre>
+```bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
+```
 
 {{ blockEnd }}
 
 {{ startTab "macOS"}}
 
-There are multiple ways to install Spin. The easiest is to use the installer script, hosted on this site. The script installs Spin along with a starter set of language templates and plugins:
+**Homebrew**
+
+You can manage your Spin installation via [Homebrew](https://brew.sh/). Homebrew automatically installs Spin templates and Spin plugins, and on uninstall, will prompt you to delete the directory where the templates and plugins were downloaded:
+
+Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-macos"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash</code></pre>
+```bash
+$ brew tap fermyon/tap
+```
 
-It's highly recommended to add Spin to a folder, which is on your path, e.g.:
+Install Spin:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ brew install fermyon/tap/spin
+```
+
+> Note: `brew install spin` will **not** install Fermyon's Spin framework. Fermyon Spin is accessed from the `fermyon` tap, as shown above.
+
+**Installer script**
+
+Another option (other than brew) is to use our installer script. The installer script installs Spin along with a starter set of language templates and plugins:
+
+The installer script also installs Spin along with a starter set of language templates and plugins:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
+```
+
+Once you have run the installer script, it is highly recommended to add Spin to a folder, which is on your path, e.g.:
 
 <!-- @selectiveCpy -->
 
@@ -74,13 +134,17 @@ To install a specific version, you can pass arguments to the install script this
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-macos-version"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.10.0</code></pre>
+```bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.10.0
+```
 
 To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-macos-canary"><code>$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary</code></pre>
+```bash
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
+```
 
 {{ blockEnd }}
 
@@ -101,12 +165,13 @@ If you want to use WSL2 (Windows Subsystem for Linux 2), please follow the instr
 
 The Spin project [signs releases](https://github.com/fermyon/spin/blob/main/docs/content/sips/012-signing-spin-releases.md) using [Sigstore](https://docs.sigstore.dev/), a project that helps with signing software and _stores signatures in a tamper-resistant public log_. Consumers of Spin releases can validate the integrity of the package they downloaded by performing a validation of the artifact against the signature present in the public log. Specifically, users get two main guarantees by verifying the signature: 1) that the author of the artifact is indeed the one expected (i.e. the build infrastructure associated with the Spin project, at a given revision that can be inspected), and 2) that the content generated by the build infrastructure has not been tampered with.
 
-To verify the release signature, first [configure Cosign v2.0.0+](https://docs.sigstore.dev/cosign/installation/). This is the CLI tool that we will use validate the signature.
+To verify the release signature, first [configure Cosign v2.0.0+](https://docs.sigstore.dev/system_config/installation/). This is the CLI tool that we will use validate the signature.
 The same directory where the installation script was run should also contain a signature of the Spin binary and the certificate used to perform the signature. The following command will perform the signature verification using the `cosign` CLI:
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-source-build"><code> $ cosign verify-blob \
+```bash
+$ cosign verify-blob \
     --signature spin.sig \
     --certificate crt.pem \
     --certificate-identity https://github.com/fermyon/spin/.github/workflows/release.yml@refs/tags/<version> \
@@ -114,7 +179,7 @@ The same directory where the installation script was run should also contain a s
     # --certificate-github-workflow-sha <optionally, pass the commit SHA associated with the tag> \
     ./spin
 Verified OK
-</code></pre>
+```
 
 You can now move the Spin binary to the path knowing that it was indeed built by the infrastructure associated with the Spin project, and that it has not been tampered with since the build.
 
@@ -124,10 +189,11 @@ You can now move the Spin binary to the path knowing that it was indeed built by
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-source-build"><code>$ git clone https://github.com/fermyon/spin
+```bash
+$ git clone https://github.com/fermyon/spin
 $ cd spin && make build
 $ ./target/release/spin --help
-</code></pre>
+```
 
 > Please note: On a fresh Linux installation, you will also need the standard build toolchain (`gcc`, `make`, etc.), the SSL library headers, and on some distributions you may need `pkg-config`. For example, on Debian-like distributions, including Ubuntu, you can install the standard build toolchain with this command:
 
@@ -145,13 +211,14 @@ If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installati
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-source-cargo"><code>$ git clone https://github.com/fermyon/spin -b v1.4.1
+```bash
+$ git clone https://github.com/fermyon/spin -b v1.4.1
 $ cd spin
 $ rustup target add wasm32-wasi
 $ rustup target add wasm32-unknown-unknown
 $ cargo install --locked --path .
 $ spin --help
-</code></pre>
+```
 
 > Please note: Installing Spin v1.4.1 from source requires Rust 1.68.0 or newer. You can update Rust using the following command:
 
@@ -165,30 +232,91 @@ This does not install any Spin templates or plugins. For a starter list, see the
 
 ## Installing Templates and Plugins
 
-Spin has a variety of templates and plugins to make it easier to create Spin applications in your favorite programming language. 
-The install script automatically installs a starter set of templates and plugins, namely templates from the Spin repository and JavaScript and Python toolchain plugins and the Fermyon Cloud plugin. If you used a different installation method, we recommend you install these templates and plugins manually, as follows:
+Spin has a variety of templates and plugins to make it easier to create Spin applications in your favorite programming language. [The install script](install#installing-spin) automatically installs a starter set of templates and plugins, namely templates from the Spin repository and JavaScript and Python toolchain plugins and the Fermyon Cloud plugin. 
 
-```sh
-spin templates install --git https://github.com/fermyon/spin --upgrade
-spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
-spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
-spin plugins update
-spin plugins install js2wasm --yes
-spin plugins install py2wasm --yes
-spin plugins install cloud --yes
+If you used a different installation method, we recommend you install these templates and plugins manually, as follows.
+
+### Templates
+
+Spin:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin --upgrade
+```
+
+Spin Python SDK
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
+```
+
+Spin JS SDK:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 ```
 
 To list installed templates, run:
 
-```sh
-spin templates list
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates list
+```
+
+For more information please read the [managing templates](https://developer.fermyon.com/spin/managing-templates) section of the documentation.
+
+### Plugins
+
+First update the local cache by running the `spin plugins update` command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins update
+```
+
+Then install plugins by name.
+
+Python:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins install py2wasm --yes
+```
+
+Javascript:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins install js2wasm --yes
+```
+
+Fermyon Cloud:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins install cloud --yes
 ```
 
 To list installed and available plugins, run:
 
-```sh
-spin plugins list
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins list
 ```
+
+For more information, please visit the [managing plugins](https://developer.fermyon.com/spin/managing-plugins) section of the documentation.
 
 ## Next Steps
 

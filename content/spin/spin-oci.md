@@ -1,4 +1,4 @@
-title = "Hosting Spin Apps in Open Container Initiative (OCI) Registries"
+title = "Spin Apps in Registries"
 template = "spin_main"
 date = "2023-02-13T00:00:00Z"
 enable_shortcodes = true
@@ -6,7 +6,7 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/spin-oci.md"
 
 ---
-- [Spin Open Container Initiative (OCI) Support](#spin-open-container-initiative-oci-support)
+- [Spin Registry Support](#spin-registry-support)
 - [Prerequisites](#prerequisites)
 - [Publishing and Running Spin Applications Using Registries (Video)](#publishing-and-running-spin-applications-using-registries-video)
 - [Set Up Your GHCR Instance](#set-up-your-ghcr-instance)
@@ -16,9 +16,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/spin-oci.md"
 - [Conclusion](#conclusion)
 - [Next Steps](#next-steps)
 
-## Spin Open Container Initiative (OCI) Support
+## Spin Registry Support
 
-With Spin's Open Container Initiative (OCI) support, you can package and save your Spin application as an OCI artifact in a registry like [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/) and then run your Spin app from these registries.
+With Spin's registry support, you can package and save your Spin application as an artifact in a registry like [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [DockerHub](https://hub.docker.com/) and then run your Spin app from these registries.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ The following video shows you how to push a Spin app to GHCR, and then run that 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ijTEf8wDkqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-The rest of this page shows you how to use OCI-compliant GHCR artifacts locally with Spin. 
+The rest of this page shows you how to use GHCR artifacts locally with Spin. 
 
 ## Set Up Your GHCR Instance
 

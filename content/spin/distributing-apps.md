@@ -107,7 +107,7 @@ $ spin registry pull ghcr.io/alyssa-p-hacker/hello-world@sha256:06b19
 
 ## Signing Spin Applications and Verifying Signatures
 
-Because Spin uses the container registry standards to distribute applications, it can also take advantage of tooling built around those standards.  Here is an example of using [Cosign and Sigstore](https://docs.sigstore.dev/cosign/overview/) to sign and verify a Spin application:
+Because Spin uses the container registry standards to distribute applications, it can also take advantage of tooling built around those standards.  Here is an example of using [Cosign and Sigstore](https://docs.sigstore.dev/) to sign and verify a Spin application:
 
 <!-- @nocpy -->
 

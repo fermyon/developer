@@ -13,8 +13,8 @@ files = [ "content/**/*" , "templates/*", "scripts/*", "config/*", "shortcodes/*
 [component.trigger]
 route = "/..."
 [component.build]
-command = "npm run build-index"
-watch = [ "content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*", "static/*"]
+command = "npm run build-index && npm run build-hub-index"
+watch = [ "content/**/*", "templates/*" ]
 
 [[component]]
 source = "modules/spin_static_fs.wasm"
@@ -183,3 +183,14 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/cli-reference"
 [component.trigger]
 route = "/common/cli-reference"
 executor = { type = "wagi" }
+
+[[component]]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
+id = "hub_fileserver_static"
+files = [ { source = "spin-up-hub/dist/", destination = "/" } ]
+environment = {FALLBACK_PATH = "./index.html"}
+[component.trigger]
+route = "/hub/..."
+[component.build]
+workdir = "spin-up-hub"
+command = "npm run build"

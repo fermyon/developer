@@ -80,6 +80,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template'                                                            \
     --exclude 'https://twitter.com/fermyontech'                                                                                                                                             \
     --exclude 'https://twitter.com/fermyontech/status/1641537393818738710'                                                                                                                  \
+    --exclude 'https://www.godaddy.com'                                                                                                                                                     \
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \

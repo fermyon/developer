@@ -33,12 +33,14 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Spin application deployments per hour* | 100 | 100 | Contact us
 | Outbound requests per hour per Spin app* | 500 | 500 | Contact us
 | **Networking** |
+| Custom domains * | 5 | 100 | Contact us
 | Custom Fermyon subdomain character count* | 62 | 62 | Contact us
 | Bandwidth egress (GB) | 5 | 50 | Contact us
 | **Storage** |
 | Key value store key size (bytes)* | 255 | 255 | Contact us
 | Key value store storage size (GB) | 1 | 2 | Contact us
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
+| SQLite Storage | [See private beta documentation](/cloud/noops-sql-db.md) | [See private beta documentation](/cloud/noops-sql-db.md)  | [See private beta documentation](/cloud/noops-sql-db.md) 
 | **Regions** |
 | Region count| 1 | 1 | Contact us
 
@@ -64,7 +66,8 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported (only default store) |
-| [SQLite Storage](/spin/sqlite-api-guide) | Not supported |
+| [SQLite Storage](/spin/sqlite-api-guide) | [Private Beta](/cloud/noops-sql-db.md) |
+| [Serverless AI](/spin/serverless-ai-api-guide) | [Private Beta](/cloud/serverless-ai.md) |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
@@ -95,6 +98,15 @@ To learn more about what feature support looks like for various programming lang
 11:08:27 : Bad Gateway
 11:08:29 : Hello from Rust - updated
 ```
+
+- **Q: It’s been over 72 hours and my custom domain hasn’t successfully verified, now what?** 
+  - If you're a Growth or Enterprise plan user, please reach out to [support@fermyon.com](mailto://support@fermyon.com). Otherwise, please go to [Discord's](https://discord.com/invite/AAFNfS7NGf) #cloud channel for assistance. 
+
+- **Q: How do I add a new record?**
+  - At this time, you can only add a maximum of 1 custom domain to your Spin application. We do not support additional records at this time. To file a feedback request, please visit [github.com/fermyon/feedback](https://github.com/fermyon/feedback).
+
+- **Can I configure external DNS for my custom domain on Fermyon Cloud?**
+  - Fermyon Cloud only supports Fermyon DNS at this time for custom domains. To file a feedback request, please visit [github.com/fermyon/feedback](https://github.com/fermyon/feedback).
 
 ## Next Steps
 

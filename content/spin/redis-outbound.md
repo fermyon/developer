@@ -85,7 +85,7 @@ const value = Redis.get(address, key);
 * Address and key parameters are strings.
 * Bytes parameters and return values are buffers (TypeScript `ArrayBuffer`).
 * Lists are passed and returned as arrays.
-* Errors are signalled through exceptions.
+* If a Spin SDK function fails, it throws an [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error).
 
 **`execute` Operation**
 

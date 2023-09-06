@@ -14,10 +14,13 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/rust-componen
 - [Storing Data in Redis From Rust Components](#storing-data-in-redis-from-rust-components)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
   - [Serializing Objects to the Key-Value Store](#serializing-objects-to-the-key-value-store)
+- [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
+- [AI Inferencing From Rust Components](#ai-inferencing-from-rust-components)
 - [Troubleshooting](#troubleshooting)
 - [Manually Creating New Projects With Cargo](#manually-creating-new-projects-with-cargo)
+- [Read the Rust Spin SDK documentation](#read-the-rust-spin-sdk-documentation)
 
 Spin aims to have best-in-class support for building components in Rust, and
 writing such components should be familiar for Rust developers.
@@ -436,6 +439,10 @@ HTTP/1.1 200 OK
 0x1234
 ```
 
+## Storing Data in SQLite
+
+For more information about using SQLite from Rust, see [SQLite storage](sqlite-api-guide).
+
 ## Storing Data in Relational Databases
 
 Spin provides clients for MySQL and PostgreSQL. For information about using them from Rust, see [Relational Databases](rdbms-storage).
@@ -447,6 +454,10 @@ annotated using the `http_component` macro, compiled to the
 [`wasm32-wasi` target](https://doc.rust-lang.org/stable/nightly-rustc/rustc_target/spec/wasm32_wasi/index.html).
 This means that any [crate](https://crates.io) that compiles to `wasm32-wasi` can
 be used when implementing the component.
+
+## AI Inferencing From Rust Components
+
+For more information about using Serverless AI from Rust, see the [Serverless AI](serverless-ai-api-guide) API guide.
 
 ## Troubleshooting
 
@@ -505,3 +516,7 @@ wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", re
 ```
 
 > `wit-bindgen` evolves rapidly to track draft standards.  Very recent versions of `wit-bindgen` are unlikely to work correctly with Spin.  So the dependency must be pinned to a specific `rev`.  Over time, Spin expects to track "peninsulas of stability" in the evolving standards.
+
+## Read the Rust Spin SDK Documentation
+
+Although you learned a lot by following the concepts and samples shown here, you can dive even deeper and read the [Rust Spin SDK documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html).

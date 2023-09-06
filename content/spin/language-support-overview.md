@@ -26,6 +26,7 @@ This page contains information about language support for Spin features:
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
+| [Serverless AI](/spin/rust-components.md#ai-inferencing-from-rust-components) | Supported |
 | **Extensibility** |
 | [Authoring Custom Triggers](/spin/extending-and-embedding) | Supported |
 
@@ -46,6 +47,7 @@ This page contains information about language support for Spin features:
 | MySQL | Not Supported |
 | PostgreSQL| Not Supported |
 | [Outbound Redis](/spin/javascript-components#storing-data-in-redis-from-jsts-components) | Supported |
+| [Serverless AI](/spin/javascript-components#ai-inferencing-from-jsts-components) | Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
@@ -66,6 +68,7 @@ This page contains information about language support for Spin features:
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](/spin/python-components#an-outbound-redis-example) | Supported |
+| Serverless AI | Not Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
@@ -86,6 +89,7 @@ This page contains information about language support for Spin features:
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](/spin/go-components#storing-data-in-redis-from-go-components) | Supported |
+| Serverless AI | Not Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 

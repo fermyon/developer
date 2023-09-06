@@ -41,6 +41,8 @@
                             {{/if}} href="{{site.info.base_url}}/cloud/fermyon-cloud">The Fermyon Cloud</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/cloud/deployment-concepts" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/cloud/deployment-concepts">Deployment Concepts</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/custom-domain" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/custom-domain">Custom Domain</a></li>
                 </ul>
             </div>
 
@@ -64,8 +66,11 @@
                     <li><a {{#if (active_content request.spin-path-info "/cloud/custom-fermyon-subdomain" )}}
                             class="active" {{/if}} href="{{site.info.base_url}}/cloud/custom-fermyon-subdomain">Apply
                             Custom Fermyon Subdomain</a></li>
-                    <li><a {{#if (active_content request.spin-path-info "/cloud/variables" )}} class="active" {{/if}}
-                            href="{{site.info.base_url}}/cloud/variables">Configuring App Variables and Secrets</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/custom-domains-tutorial" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/cloud/custom-domains-tutorial">Apply
+                            Custom Domain</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/variables" )}}
+                            class="active" {{/if}} href="{{site.info.base_url}}/cloud/variables">Configuring App Variables and Secrets</a></li>
                 </ul>
             </div>
 
@@ -104,9 +109,22 @@
                 </ul>
             </div>
 
-            <div class="accordion-menu-item">
+             <div class="accordion-menu-item">
                 <input type="checkbox" id="rd6" name="rd">
                 <label for="rd6" class="accordion-menu-item-label menu-label">
+                    Private Beta Features
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/noops-sql-db" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/noops-sql-db">NoOps SQL Database</a></li>
+                    <li><a {{#if (active_content request.spin-path-info "/cloud/serverless-ai" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/cloud/serverless-ai">Serverless AI</a></li>
+                </ul>
+            </div>
+
+            <div class="accordion-menu-item">
+                <input type="checkbox" id="rd7" name="rd">
+                <label for="rd7" class="accordion-menu-item-label menu-label">
                     Contributing
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
