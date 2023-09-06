@@ -27,20 +27,11 @@ $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v 
 
 > Once you have run the installer script, adding the `spin` file to a folder already in your `$PATH` system variable is highly recommended, i.e. `sudo mv spin /usr/local/bin/`.
 
-If you want to deploy to Fermyon Cloud, you'll also need the latest version of the Cloud Plugin:
+Also, for TypeScript/JavaScript examples, please ensure you have the latest TypeScript/JavaScript template installed:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin plugins install -u https://github.com/fermyon/cloud-plugin/releases/download/canary/cloud.json - y
-```
-
-Also, for TypeScript/JavaScript examples, please ensure you have the latest TypeScript/JavaScript SDK and templates installed:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin plugins install -u https://github.com/fermyon/spin-js-sdk/releases/download/canary/js2wasm.json -y
 $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 ```
 
