@@ -25,7 +25,7 @@ Once you have access to the private beta, please ensure you have the `canary` ve
 $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
 ```
 
-Also, for TypeScript/JavaScript examples, please ensure you have the latest TypeScript/JavaScript SDK installed:
+Also, for TypeScript/JavaScript examples, please ensure you have the latest TypeScript/JavaScript template installed:
 
 <!-- @selectiveCpy -->
 
