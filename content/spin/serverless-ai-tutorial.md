@@ -53,7 +53,7 @@ $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v 
 
 ### Dependencies
 
-The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, you will need to upgrade the TypeScript SDK as follows:
+The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, please ensure you have the latest TypeScript/JavaScript template installed:
 
 <!-- @selectiveCpy -->
 
