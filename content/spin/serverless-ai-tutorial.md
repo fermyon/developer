@@ -49,6 +49,8 @@ You will need the `canary` version of Spin, the easiest way to do that is via Sp
 $ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
 ```
 
+> Once you have run the installer script, adding the `spin` file to a folder already in your `$PATH` system variable is highly recommended, i.e. `sudo mv spin /usr/local/bin/`.
+
 ### Dependencies
 
 The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, you will need to upgrade the TypeScript SDK as follows:
