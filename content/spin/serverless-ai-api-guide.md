@@ -1,4 +1,4 @@
-title = "Serverless API"
+title = "Serverless AI API"
 template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
