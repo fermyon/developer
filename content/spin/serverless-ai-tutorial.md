@@ -106,24 +106,79 @@ HTTP path: /api/...
 {{ blockEnd }}
 {{ blockEnd }}
 
-### Fetch AI Model
+### Fetching Supported AI Models
 
-Next, we create a folder and fetch a pre-trained AI model for our application:
+Next, **from within the application directory (alongside our `spin.toml` file), we create the appropriate folder structure (depending on which model we want to use) and then fetch the pre-trained AI model for our application:
 
-> Please note: this step can take a few minutes.
+> Please note: downloading a model can take a few minutes.
+
+#### llama2-chat example download
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd sentiment-analysis
+# llama2-chat
 $ mkdir -p .spin/ai-models
+$ cd .spin/ai-models
 $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
-$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/ai-models/llama2-chat
+$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin llama2-chat
+```
+
+<!-- @nocpy -->
+
+```bash
+tree .spin
+.spin
+└── ai-models
+    └── llama2-chat
+```
+
+#### codellama-instruct example download
+
+<!-- @selectiveCpy -->
+
+```bash
+# codellama-instruct
+$ mkdir -p .spin/ai-models
+$ cd .spin/ai-models
+$ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/main/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
+$ mv codellama-13b.ggmlv3.Q3_K_L.bin codellama-instruct
+```
+
+<!-- @nocpy -->
+
+```bash
+tree .spin
+.spin
+└── ai-models
+    └── codellama-instruct
+```
+
+#### all-minikm-16-v2 example download
+
+<!-- @selectiveCpy -->
+
+```bash
+$ mkdir -p .spin/ai-models/all-minikm-16-v2
+$ cd .spin/ai-models/all-minikm-16-v2
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/tokenizer.json
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/model.safetensors
+```
+
+<!-- @nocpy -->
+
+```bash
+tree .spin
+.spin
+└── ai-models
+    └── all-minikm-16-v2
+        ├── model.safetensors
+        └── tokenizer.json
 ```
 
 ### Application Configuration
 
-Place the following lines into the application's manifest (the `spin.toml` file) within the `[[component]]` section:
+Then, we configure the `[[component]]` section of our application's manifest (the `spin.toml` file); explicitly naming our model of choice. For example, in the case of the sentiment analysis application, we specify the `llama2-chat` value for our `ai_models` configuration:
 
 ```toml
 ai_models = ["llama2-chat"]
@@ -540,6 +595,12 @@ route = "/internal/kv-explorer/..."
 ```
 
 ### Building and Deploying Your Spin Application
+
+**Note:** Running inferencing on localhost (your CPU) is not as optimal as deploying to Fermyon's Serverless AI (where inferencing is performed by high-powered GPUs). You can skip this `spin build --up` step and move straight to `spin cloud deploy` if you:
+
+- a) are using one of the 3 supported models above,
+- b) have configured your `spin.toml` file to explicitly configure the model (as shown above), and
+- c) have [signed up for the Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
 
 Now let's build and deploy our Spin Application locally. Run the following command to build your application: 
 
