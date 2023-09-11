@@ -110,6 +110,7 @@ This page contains information about language support for Spin features:
 | MySQL | Not Supported |
 | [PostgreSQL](https://github.com/fermyon/spin-dotnet-sdk#working-with-postgres) | Supported |
 | [Outbound Redis](https://github.com/fermyon/spin-dotnet-sdk#making-redis-requests) | Supported |
+| Serverless AI | Not Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
