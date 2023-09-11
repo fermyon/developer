@@ -73,8 +73,15 @@ const store = createStore({
   actions: {
     async getPreviewData(context) {
       let id = context.state.openPreviewId
-      let res = await fetch(import.meta.env.VITE_API_HOST + context.state.modalData.path)
-      let text = (await res.text())
+      let res = await fetch(import.meta.env.VITE_API_HOST + (context.state.modalData.path || "/api/hub/404"))
+      let text = ""
+      if (res.status != 200) {
+        text = `<h3>Content not found</h3>
+        <p>Unable to load the requested resource. Please try again in case it is a transitent error or open an <a href=\"https://github.com/fermyon/developer/issues\">issue</a></p>
+        <p>Browse the available content by closing the modal.</p>`
+      } else {
+        text = (await res.text())
+      }
       if (id === context.state.openPreviewId) {
         context.commit("updateModalDescription", {
           description: unescapeHTML(text),
@@ -84,6 +91,10 @@ const store = createStore({
     },
     async getContentInfo(context, data, id) {
       let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/get_list")
+      if (res.status != 200) {
+        console.log("something went wrong")
+        return
+      }
       data = await res.json()
       context.state.contentItems = data
       context.state.contentItems.map(k => {
@@ -123,12 +134,12 @@ const unescapeHTML = str =>
       '&#39;': "'",
       '&quot;': '"',
       '&#x3D;': '=',
-      '&#x27;': '\'' 
+      '&#x27;': '\''
     }[tag] || tag)
   );
 
 function formatTimestamp(timestamp) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric'};
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(timestamp).toLocaleDateString('en-US', options);
 }
 
