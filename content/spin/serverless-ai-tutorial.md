@@ -552,6 +552,8 @@ $ spin build --up
 
 ### Test Locally
 
+<!-- @selectiveCpy -->
+
 ```bash
 # Create a new POST request to localhost
 $ curl -vXPOST 'localhost:3000/api/sentiment-analysis' -H'Content-Type: application/json' -d "{\"sentence\": \"Well this is very nice indeed\" }"
