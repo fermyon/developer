@@ -14,9 +14,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
   - [Creating a New Spin Application](#creating-a-new-spin-application)
   - [Supported AI Models](#supported-ai-models)
   - [Model Optimization](#model-optimization)
-    - [llama2-chat example download](#llama2-chat-example-download)
-    - [codellama-instruct example download](#codellama-instruct-example-download)
-    - [all-minikm-16-v2 example download](#all-minikm-16-v2-example-download)
+  - [Application Structure](#application-structure)
   - [Application Configuration](#application-configuration)
   - [Source Code](#source-code)
   - [Additional Functionality](#additional-functionality)
@@ -129,7 +127,7 @@ The models need to be in a particular format for Spin to be able to use them (qu
 
 Next, from within the application directory (alongside our `spin.toml` file), we need to create the appropriate folder structure (the code below demonstrates the variations in folder structure depending on which model is being used). Once the folder structure is in place, we then fetch the pre-trained AI model for our application:
 
-#### llama2-chat example download
+**llama2-chat example download**
 
 > Ensure you have read the Meta [Policy Requirements](#policy-requirements) before continuing to use Llama models.
 
@@ -152,7 +150,7 @@ tree .spin
     └── llama2-chat
 ```
 
-#### codellama-instruct example download
+**codellama-instruct example download**
 
 > Ensure you have read the Meta [Policy Requirements](#policy-requirements) before continuing to use Llama models.
 
@@ -175,7 +173,7 @@ tree .spin
     └── codellama-instruct
 ```
 
-#### all-minikm-16-v2 example download
+**all-minikm-16-v2 example download**
 
 The following section fetches a specific version of the [sentence-transformers](https://www.sbert.net/index.html#) model:
 
