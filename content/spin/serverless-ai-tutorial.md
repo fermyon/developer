@@ -9,7 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 - [Tutorial Prerequisites](#tutorial-prerequisites)
   - [Spin](#spin)
   - [Dependencies](#dependencies)
-- [Policy Requirements](#policy-requirements)
+- [Licenses](#licenses)
 - [Serverless AI Inferencing With Spin Applications](#serverless-ai-inferencing-with-spin-applications)
   - [Creating a New Spin Application](#creating-a-new-spin-application)
   - [Supported AI Models](#supported-ai-models)
@@ -64,9 +64,9 @@ The above installation script automatically installs the latest SDKs for Rust (w
 $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 ```
 
-## Policy Requirements
+## Licenses
 
-> This tutorial uses [Meta AI](https://ai.meta.com/)'s Llama 2, Llama Chat and Code Llama models. If you are running Spin on your own (and have not filled out our Serverless AI [private beta signup form](https://fibsu0jcu2g.typeform.com/serverless-ai)) you will need to visit [Meta's Llama webpage](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and agree to Meta's License, Acceptable Use Policy, and to Meta’s privacy policy before fetching and using Llama models.
+> This tutorial uses [Meta AI](https://ai.meta.com/)'s Llama 2, Llama Chat and Code Llama models you will need to visit [Meta's Llama webpage](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and agree to Meta's License, Acceptable Use Policy, and to Meta’s privacy policy before fetching and using Llama models.
 
 ## Serverless AI Inferencing With Spin Applications 
 
@@ -116,7 +116,7 @@ HTTP path: /api/...
 ### Supported AI Models
 
 Fermyon's Spin and Serverless AI currently support:
-- Meta's open source Large Language Models (LLMs) [Llama](https://ai.meta.com/llama/), specifically the `llama2-chat` and `codellama-instruct` models (see Meta [Policy Requirements](#policy-requirements) section above.
+- Meta's open source Large Language Models (LLMs) [Llama](https://ai.meta.com/llama/), specifically the `llama2-chat` and `codellama-instruct` models (see Meta [Licenses](#licenses) section above.
 - SentenceTransformers' [embeddings](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) models, specifically the `all-minilm-l6-v2` model.
 
 ### Model Optimization
@@ -129,7 +129,7 @@ Next, we need to create the appropriate folder structure from within the applica
 
 **llama2-chat example download**
 
-> Ensure you have read the Meta [Policy Requirements](#policy-requirements) before continuing to use Llama models.
+> Ensure you have read the Meta [Licenses](#licenses) section before continuing to use Llama models.
 
 <!-- @selectiveCpy -->
 
@@ -152,7 +152,7 @@ tree .spin
 
 **codellama-instruct example download**
 
-> Ensure you have read the Meta [Policy Requirements](#policy-requirements) before continuing to use Llama models.
+> Ensure you have read the Meta [Licenses](#licenses) section before continuing to use Llama models.
 
 <!-- @selectiveCpy -->
 
