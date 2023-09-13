@@ -66,7 +66,7 @@ $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 
 ## Policy Requirements
 
-> This tutorial uses [Meta AI](https://ai.meta.com/)'s Llama 2, Llama Chat and Code Llama models. If you are running Spin on your own (and have not filled out our Serverless AI [private beta signup form](https://fibsu0jcu2g.typeform.com/serverless-ai)) will need to visit [Meta's Llama webpage](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and agree to Meta's License, Acceptable Use Policy, and to Meta’s privacy policy before fetching and using Llama models.
+> This tutorial uses [Meta AI](https://ai.meta.com/)'s Llama 2, Llama Chat and Code Llama models. If you are running Spin on your own (and have not filled out our Serverless AI [private beta signup form](https://fibsu0jcu2g.typeform.com/serverless-ai)) you will need to visit [Meta's Llama webpage](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and agree to Meta's License, Acceptable Use Policy, and to Meta’s privacy policy before fetching and using Llama models.
 
 ## Serverless AI Inferencing With Spin Applications 
 
