@@ -197,6 +197,14 @@ tree .spin
         └── tokenizer.json
 ```
 
+> Note: Rather than be limited to a 1:1 relationship between a Spin applications and a downloaded model, if you would like more than just one Spin application to access a specific model (that you have already downloaded) you can create an arbitrary directory (i.e. `~/my-ai-models/`) to house your models, and then create a symbolic link to a specific Spin application (i.e. `~/application-one/.spin/ai-models`):
+
+<!-- @nocpy -->
+
+```bash
+ln -s ~/my-ai-models/ ~/application-one/.spin/ai-models
+```
+
 ### Application Configuration
 
 Then, we configure the `[[component]]` section of our application's manifest (the `spin.toml` file); explicitly naming our model of choice. For example, in the case of the sentiment analysis application, we specify the `llama2-chat` value for our `ai_models` configuration:
