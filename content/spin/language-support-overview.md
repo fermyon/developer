@@ -85,7 +85,7 @@ This page contains information about language support for Spin features:
 | [Outbound HTTP](/spin/go-components#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported |
-| SQLite Storage | Not supported |
+| [SQLite Storage](/spin/sqlite-api-guide) | Supported |
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](/spin/go-components#storing-data-in-redis-from-go-components) | Supported |

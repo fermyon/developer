@@ -152,7 +152,61 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-The Go SDK doesn't currently surface the SQLite API.
+The Go SDK is implemented as a driver for the standard library's [database/sql](https://pkg.go.dev/database/sql) interface.
+
+```go
+package main
+
+import (
+	"encoding/json"
+	"net/http"
+
+	spinhttp "github.com/fermyon/spin/sdk/go/http"
+	"github.com/fermyon/spin/sdk/go/sqlite"
+)
+
+type Todo struct {
+	ID          string
+	Description string
+	Due         string
+}
+
+func init() {
+	spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
+		db := sqlite.Open("default")
+		defer db.Close()
+
+		_, err := db.Exec("INSERT INTO todos (description, due) VALUES (?, ?)", "Try out Spin SQLite", "Friday")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		rows, err := db.Query("SELECT id, description, due FROM todos")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		var todos []*Todo
+		for rows.Next() {
+			var todo Todo
+			if err := rows.Scan(&todo.ID, &todo.Description, &todo.Due); err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			todos = append(todos, &todo)
+		}
+		json.NewEncoder(w).Encode(todos)
+	})
+}
+
+func main() {}
+```
+
+**General Notes**
+
+A convenience function `sqlite.Open()` is provided to create a database connection. Because the `http.Handle` function is inside the `init()` function the Spin SQLite driver cannot be initialized the same way as other drivers using [sql.Open](https://pkg.go.dev/database/sql#Open).
 
 {{ blockEnd }}
 
