@@ -125,7 +125,7 @@ The models need to be in a particular format for Spin to be able to use them (qu
 
 ### Application Structure
 
-Next, from within the application directory (alongside our `spin.toml` file), we need to create the appropriate folder structure (the code below demonstrates the variations in folder structure depending on which model is being used). Once the folder structure is in place, we then fetch the pre-trained AI model for our application:
+Next, we need to create the appropriate folder structure from within the application directory (alongside our `spin.toml` file). The code below demonstrates the variations in folder structure depending on which model is being used. Once the folder structure is in place, we then fetch the pre-trained AI model for our application:
 
 **llama2-chat example download**
 
