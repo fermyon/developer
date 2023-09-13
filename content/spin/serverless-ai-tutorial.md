@@ -116,7 +116,7 @@ HTTP path: /api/...
 ### Supported AI Models
 
 Fermyon's Spin and Serverless AI currently support:
-- Meta's open source Large Language Models (LLMs) [Llama](https://ai.meta.com/llama/), specifically the `llama2-chat` and `codellama-instruct` models (see Meta [Licenses](#licenses) section above.
+- Meta's open source Large Language Models (LLMs) [Llama](https://ai.meta.com/llama/), specifically the `llama2-chat` and `codellama-instruct` models (see Meta [Licenses](#licenses) section above).
 - SentenceTransformers' [embeddings](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) models, specifically the `all-minilm-l6-v2` model.
 
 ### Model Optimization
