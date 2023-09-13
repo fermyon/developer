@@ -9,9 +9,12 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 - [Tutorial Prerequisites](#tutorial-prerequisites)
   - [Spin](#spin)
   - [Dependencies](#dependencies)
+- [Licenses](#licenses)
 - [Serverless AI Inferencing With Spin Applications](#serverless-ai-inferencing-with-spin-applications)
   - [Creating a New Spin Application](#creating-a-new-spin-application)
-  - [Fetch AI Model](#fetch-ai-model)
+  - [Supported AI Models](#supported-ai-models)
+  - [Model Optimization](#model-optimization)
+  - [Application Structure](#application-structure)
   - [Application Configuration](#application-configuration)
   - [Source Code](#source-code)
   - [Additional Functionality](#additional-functionality)
@@ -27,7 +30,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 - [Conclusion](#conclusion)
 - [Next Steps](#next-steps)
 
-AI Inferencing performs well on GPUs. However, GPU infrastructure is both scarce and expensive. This tutorial will show you how to use Fermyon Serverless AI to quickly build advanced AI-enabled serverless applications that can run on Fermyon Cloud. Your applications will benefit from 50 millisecond cold start times and operate 100x faster than other on-demand AI infrastructure services. Take a quick look at the video below, and make sure you sign up here to be one of the first to access the Fermyon [Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
+Artificial Intelligence (AI) Inferencing performs well on GPUs. However, GPU infrastructure is both scarce and expensive. This tutorial will show you how to use Fermyon Serverless AI to quickly build advanced AI-enabled serverless applications that can run on Fermyon Cloud. Your applications will benefit from 50 millisecond cold start times and operate 100x faster than other on-demand AI infrastructure services. Take a quick look at the video below, and make sure you sign up to be one of the first to access the Fermyon [Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/01oOh3D9cVQ?si=wORKmuOkeFMGYBsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -60,6 +63,10 @@ The above installation script automatically installs the latest SDKs for Rust (w
 ```bash
 $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 ```
+
+## Licenses
+
+> This tutorial uses [Meta AI](https://ai.meta.com/)'s Llama 2, Llama Chat and Code Llama models you will need to visit [Meta's Llama webpage](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and agree to Meta's License, Acceptable Use Policy, and to Meta’s privacy policy before fetching and using Llama models.
 
 ## Serverless AI Inferencing With Spin Applications 
 
@@ -106,24 +113,101 @@ HTTP path: /api/...
 {{ blockEnd }}
 {{ blockEnd }}
 
-### Fetch AI Model
+### Supported AI Models
 
-Next, we create a folder and fetch a pre-trained AI model for our application:
+Fermyon's Spin and Serverless AI currently support:
+- Meta's open source Large Language Models (LLMs) [Llama](https://ai.meta.com/llama/), specifically the `llama2-chat` and `codellama-instruct` models (see Meta [Licenses](#licenses) section above).
+- SentenceTransformers' [embeddings](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) models, specifically the `all-minilm-l6-v2` model.
 
-> Please note: this step can take a few minutes.
+### Model Optimization
+
+The models need to be in a particular format for Spin to be able to use them (quantized, which is a form of optimization). The official download links for the models (in non-quantized format) are listed in the previous section. However, for your convenience, the code examples below fetch models which are already in the special quantized format.
+
+### Application Structure
+
+Next, we need to create the appropriate folder structure from within the application directory (alongside our `spin.toml` file). The code below demonstrates the variations in folder structure depending on which model is being used. Once the folder structure is in place, we then fetch the pre-trained AI model for our application:
+
+**llama2-chat example download**
+
+> Ensure you have read the Meta [Licenses](#licenses) section before continuing to use Llama models.
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd sentiment-analysis
+# llama2-chat
 $ mkdir -p .spin/ai-models
+$ cd .spin/ai-models
 $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
-$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin .spin/ai-models/llama2-chat
+$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin llama2-chat
+```
+
+<!-- @nocpy -->
+
+```bash
+tree .spin
+.spin
+└── ai-models
+    └── llama2-chat
+```
+
+**codellama-instruct example download**
+
+> Ensure you have read the Meta [Licenses](#licenses) section before continuing to use Llama models.
+
+<!-- @selectiveCpy -->
+
+```bash
+# codellama-instruct
+$ mkdir -p .spin/ai-models
+$ cd .spin/ai-models
+$ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/main/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
+$ mv codellama-13b.ggmlv3.Q3_K_L.bin codellama-instruct
+```
+
+<!-- @nocpy -->
+
+```bash
+tree .spin
+.spin
+└── ai-models
+    └── codellama-instruct
+```
+
+**all-minikm-16-v2 example download**
+
+The following section fetches a specific version of the [sentence-transformers](https://www.sbert.net/index.html#) model:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ mkdir -p .spin/ai-models/all-minikm-16-v2
+$ cd .spin/ai-models/all-minikm-16-v2
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/tokenizer.json
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/model.safetensors
+```
+
+<!-- @nocpy -->
+
+```bash
+tree .spin
+.spin
+└── ai-models
+    └── all-minikm-16-v2
+        ├── model.safetensors
+        └── tokenizer.json
+```
+
+> Note: Rather than be limited to a 1:1 relationship between a Spin applications and a downloaded model, if you would like more than just one Spin application to access a specific model (that you have already downloaded) you can create an arbitrary directory (i.e. `~/my-ai-models/`) to house your models, and then create a symbolic link to a specific Spin application (i.e. `~/application-one/.spin/ai-models`):
+
+<!-- @nocpy -->
+
+```bash
+ln -s ~/my-ai-models/ ~/application-one/.spin/ai-models
 ```
 
 ### Application Configuration
 
-Place the following lines into the application's manifest (the `spin.toml` file) within the `[[component]]` section:
+Then, we configure the `[[component]]` section of our application's manifest (the `spin.toml` file); explicitly naming our model of choice. For example, in the case of the sentiment analysis application, we specify the `llama2-chat` value for our `ai_models` configuration:
 
 ```toml
 ai_models = ["llama2-chat"]
@@ -540,6 +624,12 @@ route = "/internal/kv-explorer/..."
 ```
 
 ### Building and Deploying Your Spin Application
+
+**Note:** Running inferencing on localhost (your CPU) is not as optimal as deploying to Fermyon's Serverless AI (where inferencing is performed by high-powered GPUs). You can skip this `spin build --up` step and move straight to `spin cloud deploy` if you:
+
+- a) are using one of the 3 supported models above,
+- b) have configured your `spin.toml` file to explicitly configure the model (as shown above), and
+- c) have [signed up for the Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
 
 Now let's build and deploy our Spin Application locally. Run the following command to build your application: 
 
