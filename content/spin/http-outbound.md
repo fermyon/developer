@@ -151,6 +151,6 @@ The Wasm module can make HTTP requests _only_ to the specified hosts. If a port 
 
 For development-time convenience, you can also pass the string `"insecure:allow-all"` in the `allowed_http_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
 
-## Granting HTTP Permissions to Components Within a Spin App
+### Making HTTP Requests Within an Application
 
 Components **within a Spin app can easily communicate with each other** via outbound http provided they are configured with  `allowed_http_hosts = ["self"]`
