@@ -153,4 +153,4 @@ For development-time convenience, you can also pass the string `"insecure:allow-
 
 ## Granting HTTP Permissions to Components Within a Spin App
 
-> Components **within a Spin app can easily communicate with each other** via outbound http provided they are configured with  `allowed_http_hosts = ["self"]`
+Components **within a Spin app can easily communicate with each other** via outbound http provided they are configured with  `allowed_http_hosts = ["self"]`
