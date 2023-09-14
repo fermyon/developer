@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/http-outbound
 ---
 - [Using HTTP From Applications](#using-http-from-applications)
 - [Granting HTTP Permissions to Components](#granting-http-permissions-to-components)
+- [Granting HTTP Permissions to Components Within a Spin App](#granting-http-permissions-to-components-within-a-spin-app)
 
 Spin provides an interface for you to make outgoing HTTP requests.
 
@@ -149,3 +150,7 @@ allowed_http_hosts = [ "random-data-api.fermyon.app", "api.example.com:8080" ]
 The Wasm module can make HTTP requests _only_ to the specified hosts. If a port is specified, the module can make requests only to that port; otherwise, the module can make requests only on the default HTTP and HTTPS ports. Requests to other hosts (or ports) will fail with an error.
 
 For development-time convenience, you can also pass the string `"insecure:allow-all"` in the `allowed_http_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
+
+## Granting HTTP Permissions to Components Within a Spin App
+
+> Components **within a Spin app can easily communicate with each other** via outbound http provided they are configured with  `allowed_http_hosts = ["self"]`

@@ -7,6 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/serverless-a
 
 ---
 - [Accessing Private Beta](#accessing-private-beta)
+- [Spin](#spin)
 - [Quotas And Service Limitations For Fermyon Serverless AI](#quotas-and-service-limitations-for-fermyon-serverless-ai)
 - [FAQ](#faq)
 - [Next Steps](#next-steps)
@@ -17,15 +18,11 @@ The Fermyon Serverless AI is currently in private beta. To request access to the
  
 > Please note that the private beta is limited in space, and all requests cannot be guaranteed. 
 
-Once you have access to the private beta, please ensure you have the `canary` version of Spin installed:
+## Spin
 
-<!-- @selectiveCpy -->
+You will need to [install the latest version of Spin](install#installing-spin).
 
-```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
-```
-
-> Once you have run the installer script, adding the `spin` file to a folder already in your `$PATH` system variable is highly recommended, i.e. `sudo mv spin /usr/local/bin/`.
+If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
 
 Also, for TypeScript/JavaScript examples, please ensure you have the latest TypeScript/JavaScript template installed:
 
