@@ -8,7 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/http-outbound
 ---
 - [Using HTTP From Applications](#using-http-from-applications)
 - [Granting HTTP Permissions to Components](#granting-http-permissions-to-components)
-- [Granting HTTP Permissions to Components Within a Spin App](#granting-http-permissions-to-components-within-a-spin-app)
+  - [Making HTTP Requests Within an Application](#making-http-requests-within-an-application)
 
 Spin provides an interface for you to make outgoing HTTP requests.
 
@@ -153,4 +153,14 @@ For development-time convenience, you can also pass the string `"insecure:allow-
 
 ### Making HTTP Requests Within an Application
 
-Components **within a Spin app can easily communicate with each other** via outbound http provided they are configured with  `allowed_http_hosts = ["self"]`
+In an HTTP component, you can use the special host `self` to make HTTP requests **within the current Spin application**. For example, if you make an outbound HTTP request to http://self/api/customers/, Spin replaces self with whatever host the application is running on. It also replaces the URL scheme (`http` or `https`) with the scheme of the current HTTP request. For example, if the application is running in the cloud, Spin changes `http://self/api` to `https://.../api`.
+
+Using `self` means that the application doesn't need to know the URL where it's deployed, or whether it's running locally versus in the cloud.
+
+> This doesn't work in Redis components because Spin uses the incoming HTTP request to determine the current host.
+
+You must still grant permission by including `self` in `allowed_http_hosts`:
+
+```toml
+allowed_http_hosts = ["self"]
+```
