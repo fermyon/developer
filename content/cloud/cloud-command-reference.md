@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud](#spin-cloud)
 - [spin cloud apps](#spin-cloud-apps)
 - [spin cloud apps delete](#spin-cloud-apps-delete)
-- [spin cloud list](#spin-cloud-list)
+- [spin cloud apps list](#spin-cloud-apps-list)
 - [spin cloud deploy](#spin-cloud-deploy)
 - [spin cloud help](#spin-cloud-help)
 - [spin cloud login](#spin-cloud-login)
