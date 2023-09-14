@@ -4294,6 +4294,8 @@ TRIGGER OPTIONS:
 
 {{ startTab "v1.5"}}
 
+> From Spin 1.5 onwards, `spin up` will auto-create the working directory (`workdir`) specified in spin.toml if the directory specified in spin.toml does not already exist.
+
 <!-- @selectiveCpy -->
 
 ```console

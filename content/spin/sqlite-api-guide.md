@@ -152,7 +152,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-The Go SDK doesn't currently surface the SQLite API.
+Please visit the [TinyGo SQLite example application](https://github.com/fermyon/spin/tree/main/examples/tinygo-sqlite) for instructions on how to use the TinyGo SQLite API within your Spin application.
 
 {{ blockEnd }}
 
