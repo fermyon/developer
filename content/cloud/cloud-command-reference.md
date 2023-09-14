@@ -182,7 +182,7 @@ OPTIONS:
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
-## spin cloud list
+## spin cloud apps list
 
 {{ tabs "cloud-plugin-version" }}
 
