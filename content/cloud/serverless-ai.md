@@ -20,9 +20,9 @@ The Fermyon Serverless AI is currently in private beta. To request access to the
 
 ## Spin
 
-You will need to [install the latest version of Spin](install#installing-spin).
+You will need to [install the latest version of Spin](/spin/install#installing-spin).
 
-If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
+If you already have Spin installed, [check what version you are on and upgrade](/spin/upgrade#are-you-on-the-latest-version) if required.
 
 Also, for TypeScript/JavaScript examples, please ensure you have the latest TypeScript/JavaScript template installed:
 
