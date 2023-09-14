@@ -407,7 +407,7 @@ OPTIONS:
 
 <!-- @selectiveCpy -->
 
-{{ blockEnd }}
+```console
 
 USAGE:
     spin build [OPTIONS] [--] [UP_ARGS]...
@@ -429,7 +429,9 @@ OPTIONS:
 
     -u, --up
             Run the application after building
+```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1364,6 +1366,7 @@ OPTIONS:
                                        format. Parameters passed as CLI option overwrite parameters
                                        specified in the file
 ```
+
 {{ blockEnd }}
 
 {{ blockEnd }}

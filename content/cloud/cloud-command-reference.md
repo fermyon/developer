@@ -178,6 +178,7 @@ OPTIONS:
     -V, --version
             Print version information
 ```
+
 {{ blockEnd }}
 {{ blockEnd }}
 
