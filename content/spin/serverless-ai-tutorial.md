@@ -161,7 +161,7 @@ tree .spin
 $ mkdir -p .spin/ai-models
 $ cd .spin/ai-models
 $ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/main/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
-$ mv codellama-13b.ggmlv3.Q3_K_L.bin codellama-instruct
+$ mv codellama-13b-instruct.ggmlv3.Q3_K_L.bin codellama-instruct
 ```
 
 <!-- @nocpy -->
