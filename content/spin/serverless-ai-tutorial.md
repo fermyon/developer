@@ -44,15 +44,9 @@ In this tutorial we will:
 
 ### Spin 
 
-You will need the `canary` version of Spin, the easiest way to do that is via Spin's installation script (passing in the `-v` option):
+You will need to [install the latest version of Spin](install#installing-spin).
 
-<!-- @selectiveCpy -->
-
-```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v canary
-```
-
-> Once you have run the installer script, adding the `spin` file to a folder already in your `$PATH` system variable is highly recommended, i.e. `sudo mv spin /usr/local/bin/`.
+If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
 
 ### Dependencies
 

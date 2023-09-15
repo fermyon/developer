@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/http-outbound
 ---
 - [Using HTTP From Applications](#using-http-from-applications)
 - [Granting HTTP Permissions to Components](#granting-http-permissions-to-components)
+  - [Making HTTP Requests Within an Application](#making-http-requests-within-an-application)
 
 Spin provides an interface for you to make outgoing HTTP requests.
 
@@ -149,3 +150,17 @@ allowed_http_hosts = [ "random-data-api.fermyon.app", "api.example.com:8080" ]
 The Wasm module can make HTTP requests _only_ to the specified hosts. If a port is specified, the module can make requests only to that port; otherwise, the module can make requests only on the default HTTP and HTTPS ports. Requests to other hosts (or ports) will fail with an error.
 
 For development-time convenience, you can also pass the string `"insecure:allow-all"` in the `allowed_http_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
+
+### Making HTTP Requests Within an Application
+
+In an HTTP component, you can use the special host `self` to make HTTP requests **within the current Spin application**. For example, if you make an outbound HTTP request to http://self/api/customers/, Spin replaces self with whatever host the application is running on. It also replaces the URL scheme (`http` or `https`) with the scheme of the current HTTP request. For example, if the application is running in the cloud, Spin changes `http://self/api` to `https://.../api`.
+
+Using `self` means that the application doesn't need to know the URL where it's deployed, or whether it's running locally versus in the cloud.
+
+> This doesn't work in Redis components because Spin uses the incoming HTTP request to determine the current host.
+
+You must still grant permission by including `self` in `allowed_http_hosts`:
+
+```toml
+allowed_http_hosts = ["self"]
+```
