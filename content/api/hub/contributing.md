@@ -156,6 +156,10 @@ After your file has been created, you can test it on localhost before committing
 
 ```console
 $ npm install
+$ cd spin-up-hub
+$ npm install
+$ cd ..
+$ spin build
 $ npm run spin
 ```
 
