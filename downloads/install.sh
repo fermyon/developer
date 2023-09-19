@@ -116,7 +116,7 @@ URL="https://github.com/fermyon/spin/releases/download/${VERSION}/${FILE}"
 current_dir=$(pwd)
 
 # Define a list of items to check for (this can be updated if the spin tarball is updated)
-items=("/spin" "/LICENSE" "/crt.pem" "spin.sig", "/README.md")
+items=("/spin")
 
 # Create a variable that can be called on to question if an exit 1 is required (due to items already existing)
 exit_due_to_existing_item=0
