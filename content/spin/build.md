@@ -27,7 +27,7 @@ To make the build process easier, the `spin build` command allows you to build a
 
 ## Setting Up for `spin build`
 
-To use `spin build`, each component that you want to build must specify the command used to build it in `spin.toml`, as part of its `component.build` table.
+To use `spin build`, each component that you want to build must specify the command used to build it in `spin.toml`, as part of its `component.build` table:
 
 ```toml
 [[component]]
@@ -41,7 +41,7 @@ command = "npm run build"
 
 If you generated the component from a Fermyon-supplied template, the `component.build` section should be set up correctly for you.  You don't need to change or add anything.
 
-> Different components may be built from different languages, and so each component can have its own build command.  In addition, some components may be precompiled into Wasm modules, and don't need a build command at all.  If a component doesn't have a build command, `spin build` just skips it.
+> Different components may be built from different languages, and so each component can have its own build command.  In addition, some components may be precompiled into Wasm modules, and don't need a build command at all.  If a component doesn't have a build command, `spin build` just skips it:
 
 {{ tabs "sdk-type" }}
 
@@ -148,13 +148,16 @@ Once the build commands are set up, running `spin build` will execute, sequentia
 <!-- @selectiveCpy -->
 
 ```bash
-$ RUST_LOG=spin=trace spin build
-2022-04-25T03:01:56.721630Z  INFO spin_build: Executing the build command for component rust-hello.
-    Finished release [optimized] target(s) in 0.05s
-2022-04-25T03:01:56.832360Z  INFO spin_build: Executing the build command for component rust-static-assets.
-    Finished release [optimized] target(s) in 0.02s
-2022-04-25T03:01:56.905424Z  INFO spin_build: Executing the build command for component rust-outbound-http.
-    Finished release [optimized] target(s) in 0.02s
+$ spin build
+Building component rust-hello with `cargo build --target wasm32-wasi --release`
+    Updating crates.io index
+    Updating git repository `https://github.com/fermyon/spin`
+
+    //--snip--
+
+    Compiling test-application v0.1.0 (rust-hello)
+    Finished release [optimized] target(s) in 39.05s
+Finished building all Spin components
 ```
 
 > If your build doesn't work, and your source code looks okay, you can [run `spin doctor`](/spin/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
