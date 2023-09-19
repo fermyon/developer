@@ -230,8 +230,6 @@ Now let's use the Spin SDK to:
 
 {{ startTab "Rust"}}
 
-<!-- @nocpy -->
-
 ```rust
 use anyhow::Result;
 use http::{Method, StatusCode};
@@ -285,8 +283,6 @@ fn handle_request(req: Request) -> Result<Response> {
 
 {{ startTab "TypeScript"}}
 
-<!-- @nocpy -->
-
 ```typescript
 import { HandleRequest, HttpRequest, HttpResponse, Kv } from "@fermyon/spin-sdk"
 
@@ -333,8 +329,6 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 {{ blockEnd }}
 
 {{ startTab "TinyGo" }}
-
-<!-- @nocpy -->
 
 ```go
 package main
@@ -448,7 +442,7 @@ We can now use a `HEAD` request to confirm that our component is holding data fo
 <!-- @selectiveCpy -->
 
 ```bash
-curl -I HEAD localhost:3000/test -v                                                     
+$ curl -I HEAD localhost:3000/test -v                                                     
 
 Trying 127.0.0.1:3000...
 * Connected to localhost (127.0.0.1) port 3000

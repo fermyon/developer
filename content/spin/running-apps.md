@@ -97,6 +97,8 @@ If any of these change, Spin will rebuild the application if necessary, then res
 
 The following `spin.toml` configuration (belonging to a Spin `http-rust` application) is configured to ensure that the application is both **rebuilt** (via `cargo build --target wasm32-wasi --release`) and **rerun** whenever changes occur in any Rust source (`.rs`) files, the `Cargo.toml` file or the `spin.toml` file, itself. When changes occur in either the Wasm binary file (`target/wasm32-wasi/release/test.wasm`) or the text file (`my-files/changing-file.txt`) the application is only **rerun** using the initial `spin up` command:
 
+<!-- @nocpy -->
+
  ```toml
 [[component]]
 // -- snip

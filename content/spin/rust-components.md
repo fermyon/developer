@@ -20,7 +20,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/rust-componen
 - [AI Inferencing From Rust Components](#ai-inferencing-from-rust-components)
 - [Troubleshooting](#troubleshooting)
 - [Manually Creating New Projects With Cargo](#manually-creating-new-projects-with-cargo)
-- [Read the Rust Spin SDK documentation](#read-the-rust-spin-sdk-documentation)
+- [Read the Rust Spin SDK Documentation](#read-the-rust-spin-sdk-documentation)
 
 Spin aims to have best-in-class support for building components in Rust, and
 writing such components should be familiar for Rust developers.
@@ -85,8 +85,6 @@ Building a Spin HTTP component using the Rust SDK means writing a single functio
 that takes an HTTP request as a parameter, and returns an HTTP response — below
 is a complete implementation for such a component:
 
-<!-- @nocpy -->
-
 ```rust
 use anyhow::Result;
 use spin_sdk::{
@@ -125,8 +123,6 @@ new messages on the configured channels.
 > See the [Redis trigger](./redis-trigger.md) for details about the Redis trigger.
 
 Writing a Redis component in Rust also takes advantage of the SDK:
-
-<!-- @nocpy -->
 
 ```rust
 use anyhow::Result;
@@ -215,8 +211,6 @@ Let's see an example of a component that makes a request to
 [an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json) and
 inserts a custom header into the response before returning:
 
-<!-- @nocpy -->
-
 ```rust
 use anyhow::Result;
 use spin_sdk::{
@@ -301,8 +295,6 @@ messages to Redis channels. This can be used from both HTTP and Redis triggered
 components.
 
 Let's see how we can use the Rust SDK to connect to Redis:
-
-<!-- @nocpy -->
 
 ```rust
 use anyhow::{anyhow, Result};

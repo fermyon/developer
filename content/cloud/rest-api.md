@@ -18,8 +18,6 @@ The [Fermyon Cloud OpenAPI](https://github.com/fermyon/cloud-openapi) project co
 
 To use [the Rust client](https://github.com/fermyon/cloud-openapi/tree/main/clients/rust), go ahead and add a reference to the Fermyon Cloud OpenAPI in your project’s `Cargo.toml` file, as shown below:
 
-<!-- @nocpy -->
-
 ```toml
 cloud-openapi = { git = "https://github.com/fermyon/cloud-openapi" }
 ```

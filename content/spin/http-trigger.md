@@ -155,8 +155,6 @@ The exact signature of the HTTP handler, and how a function is identified to be 
 
 In Rust, the handler is identified by the `#[spin_sdk::http_component]` attribute.  It takes a `spin_sdk::http::Request`, and returns a `spin_sdk::http::Response` (or error).  These types are instantiations of the standard `http::Request` and `http::Response` types and behave exactly like them:
 
-<!-- @nocpy -->
-
 ```rust
 use anyhow::Result;
 use spin_sdk::{
@@ -182,8 +180,6 @@ In JavaScript or TypeScript, the handler is identified by name.  It must be call
 
 In **JavaScript**, `handleRequest` is declared as `export async function`.  It takes a JsvaScript object representing the request, and returns a response object.  The fields of these objects are exactly the same as in TypeScript:
 
-<!-- @nocpy -->
-
 ```javascript
 export async function handleRequest(request) {
     return {
@@ -195,8 +191,6 @@ export async function handleRequest(request) {
 ```
 
 In **TypeScript**, `handleRequest` is declared as an `export const` of the `HandleRequest` function type - that is, a function literal rather than a function declaration.  It takes a `HttpRequest` object, and returns a `HttpResponse` object, both defined in the `@fermyon/spin-sdk` package:
-
-<!-- @nocpy -->
 
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
@@ -216,8 +210,6 @@ export const handleRequest: HandleRequest = async function(request: HttpRequest)
 
 In Python, the handler is identified by name.  It must be called `handle_request`.  It takes a request object and must return an instance of `Response`, defined in the `spin_http` package:
 
-<!-- @nocpy -->
-
 ```python
 from spin_http import Response
 
@@ -234,8 +226,6 @@ def handle_request(request):
 In Go, you register the handler as a callback in your program's `init` function.  Call `spinhttp.Handle`, passing your handler as the sole argument.  Your handler takes a `http.Request` record, from the standard `net/http` package, and a `ResponseWriter` to construct the response.
 
 > The do-nothing `main` function is required by TinyGo but is not used; the action happens in the `init` function and handler callback.
-
-<!-- @nocpy -->
 
 ```go
 package main
@@ -434,8 +424,6 @@ print("hello world\n");
 Here is a working example, written in [Grain](https://grain-lang.org/),
 a programming language that natively targets WebAssembly and WASI but
 does not yet support the component model:
-
-<!-- @nocpy -->
 
 ```js
 import Process from "sys/process";

@@ -14,6 +14,8 @@ As mentioned in this [blog post](https://www.fermyon.com/blog/spin-application-s
 
 If we start with a blank canvas and use the `http-empty` template we will get a new Spin application:
 
+<!-- @selectiveCpy -->
+
 ```console
 $ spin new http-empty
 Enter a name for your new application: myapp
@@ -23,12 +25,16 @@ HTTP base: /
 
 The above command will provide an empty structure, as shown below:
 
+<!-- @nocpy -->
+
 ```console
 └── myapp
     └── spin.toml
 ```
 
 To add new components to the application, we simply move into the `myapp` directory and begin to add components using the `spin add` subcommand:
+
+<!-- @selectiveCpy -->
 
 ```console
 $ spin add http-rust
@@ -42,6 +48,8 @@ HTTP path: /second/...
 ```
 
 After adding two new components, we can see the visual representation of our application. Notice the symmetry; there is no hierarchy or nesting of components:
+
+<!-- @nocpy -->
 
 ```console
 .
@@ -84,6 +92,8 @@ fn handle_second_http_rust_component(req: Request) -> Result<Response> {
 
 As an additional example of adding more components, let's add a new static file server component:
 
+<!-- @selectiveCpy -->
+
 ```console
 $ spin add static-fileserver
 Enter a name for your new component: assets
@@ -92,6 +102,8 @@ Directory containing the files to serve: assets
 ```
 
 After the static file server component is added, we create the `assets` directory (our local directory containing the files to serve) and then add some static content into the `assets` directory to be served:
+
+<!-- @selectiveCpy -->
 
 ```console
 $ mkdir assets
@@ -104,6 +116,8 @@ $ cp ~/Desktop/new.txt assets
 
 Why stop there? We can add even more functionality to our application. Let's now add a `redirect` component to redirect requests made to `/static/old.txt` and forward those through to `/static/new.txt`:
 
+<!-- @selectiveCpy -->
+
 ```console
 $ spin add redirect
 Enter a name for your new component: additional-component-redirect
@@ -112,6 +126,8 @@ Redirect to: /static/new.txt
 ```
 
 We now have 4 separate components scaffolded for us by Spin. Note the application manifest (the `spin.toml` file) is correctly configured based on our `spin add` commands:
+
+<!-- @nocpy -->
 
 ```toml
 spin_manifest_version = "1"
@@ -160,6 +176,8 @@ executor = { type = "wagi" }
 ```
 
 Also, note that the application's folder structure, scaffolded for us by Spin via the spin add commands, is symmetrical and shows no nesting of components:
+
+<!-- @nocpy -->
 
 ```console
 ├── assets

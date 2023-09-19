@@ -232,8 +232,6 @@ Now let's use the Spin SDK to access the model from our app:
 
 {{ startTab "Rust"}}
 
-<!-- @selectiveCpy -->
-
 ```rust
 use std::str::FromStr;
 
@@ -414,8 +412,6 @@ impl FromStr for Sentiment {
 
 {{ startTab "TypeScript"}}
 
-<!-- @selectiveCpy -->
-
 ```typescript
 import {
   HandleRequest,
@@ -577,12 +573,14 @@ We create an `assets` directory where we can store files to serve statically (se
 <!-- @selectiveCpy -->
 
 ```bash
-mkdir assets
+$ mkdir assets
 ```
 
 ### Application Manifest
 
 As shown below, the Spin framework has done all of the scaffolding for us:
+
+<!-- @nocpy -->
 
 ```toml
 spin_manifest_version = "1"

@@ -29,7 +29,7 @@ To install plugins, use the `spin plugins install` command. You can install plug
 
 The Spin maintainers curate a catalogue of "known" plugins. You can install plugins from this catalogue by name:
 
-<!-- @nocpy -->
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin plugins install js2wasm
@@ -73,7 +73,7 @@ $ spin plugins install --file ~/dev/spin-befunge-sdk/befunge2wasm.json
 
 You run plugins in the same way as built-in Spin subcommands. For example:
 
-<!-- @nocpy -->
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin js2wasm --help
@@ -122,7 +122,7 @@ $ spin plugins uninstall befunge2wasm
 
 To upgrade a plugin to the latest version, run `spin plugins upgrade`. This has the same options as `spin plugins install`, according to whether the plugin comes from the catalogue, a URL, or a file:
 
-<!-- @nocpy -->
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin plugins upgrade js2wasm

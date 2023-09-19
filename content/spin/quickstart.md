@@ -313,8 +313,6 @@ takes an HTTP request as a parameter and returns an HTTP response, and it is
 annotated with the `http_component` macro which identifies it as the entry point
 for HTTP requests:
 
-<!-- @nocpy -->
-
 ```rust
 use anyhow::Result;
 use spin_sdk::{
@@ -406,8 +404,6 @@ JavaScript version looks slightly different, but is still a function with
 the same signature.)  The Spin `js2wasm` plugin looks for the `handleRequest` function
 by name when building your application into a Wasm module:
 
-<!-- @nocpy -->
-
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
 
@@ -486,8 +482,6 @@ WebAssembly module.
 Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in Python — a regular function named `handle_request` that
 takes an HTTP request as a parameter and returns an HTTP response.  The Spin `py2wasm` plugin looks for the `handle_request` function by name when building your application into a Wasm module.
-
-<!-- @nocpy -->
 
 ```python
 from spin_http import Response
@@ -572,8 +566,6 @@ sets up a callback, and passes that callback to `spinhttp.Handle` to register it
 the handler for HTTP requests.  You can learn more about this structure
 in the [Go language guide](go-components).
 
-<!-- @nocpy -->
-
 ```go
 package main
 
@@ -605,8 +597,6 @@ The Spin template creates starter source code.  Now you need to turn that into a
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
-
-<!-- @selectiveCpy -->
 
 ```bash
 $ spin build

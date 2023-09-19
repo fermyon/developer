@@ -78,7 +78,7 @@ Our application receives a password via the HTTP request body, compares it to an
 
 In reality, you'd have multiple usernames and password hashes in a database, but for this tutorial, we will configure the expected password using a Spin application variable. We'll name the variable `password` and set `required = true` since there is no reasonable default value. To do this, add a top-level `[variables]` section to the application manifest (`spin.toml`) and declare the variable within it:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```toml
 # Add this above the [component] section
@@ -88,7 +88,7 @@ password = { required = true }
 
 To surface the variable to the `pw-checker` component, add a `[component.config]` section in the component and specify the variable within it. Instead of statically assigning the value of the config variable, we are referencing the dynamic variable with [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use the variables in their configuration section will get access to them. This enables only exposing variables and secrets to the desired components of an application:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```toml
 # Add this below the [component.build] section
@@ -124,8 +124,6 @@ password = "\{{ password }}"
 ## Using Variables in a Spin Application
 
 Now that we have defined our variables and surfaced them to our component, we are ready to implement our Spin application. The application should get the user-provided password from the body of the HTTP request, compare it to the expected password set in our configuration variable, and authenticate accordingly. We will use the Spin `spin_config` module to retrieve the value of the `password` variable:
-
-<!-- @selectiveCpy -->
 
 ```py
 from spin_http import Response

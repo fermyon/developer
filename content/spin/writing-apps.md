@@ -132,8 +132,6 @@ At the Wasm level, a Spin component is a Wasm module that exports a handler for 
 
 See the Language Guides section for how to do this in your preferred language. As an example, this is a component written in the Rust language. The `hello_world` function uses an attribute `#[http_component]` to identify the function as handling a Spin HTTP event. The function takes a `Request` and returns a `Result<Response>`:
 
-<!-- @nocpy -->
-
 ```rust
 #[http_component]​
 fn hello_world(_req: Request) -> Result<Response> {​
@@ -259,6 +257,8 @@ You can include files with a component.  This means that:
 
 To do this, use the `files` field in the component manifest:
 
+<!-- @nocpy -->
+
 ```toml
 [[component]]
 files = [ "images/**/*.jpg", { source = "styles/dist", destination = "/styles" } ]
@@ -278,6 +278,8 @@ If your files list would match some files or directories that you _don't_ want i
 Environment variables can be provided to components via the Spin application manifest.
 
 To do this, use the `environment` field in the component manifest:
+
+<!-- @nocpy -->
 
 ```toml
 [[component]]
@@ -303,6 +305,8 @@ fn handle_hello_rust(req: Request) -> Result<Response> {
 
 By default, Spin components are not allowed to make outgoing HTTP requests.  This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing.  To grant a component permission to make HTTP requests to a particular host, use the `allowed_http_hosts` field in the component manifest:
 
+<!-- @nocpy -->
+
 ```toml
 [[component]]
 allowed_http_hosts = [ "dog-facts.example.com", "api.example.com:8080" ]
@@ -315,6 +319,8 @@ For development-time convenience, you can also pass the string `"insecure:allow-
 ## Granting Storage Permissions to Components
 
 By default, Spin components are not allowed to access Spin's storage services.  This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing.  To grant a component permission to use a Spin-provided store, use the `key_value_stores` field in the component manifest:
+
+<!-- @nocpy -->
 
 ```toml
 [[component]]

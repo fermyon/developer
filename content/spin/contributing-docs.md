@@ -73,6 +73,8 @@ The resulting output would be as follows.
 
 If a document is relevant to two or more projects, the dynamic body feature of bartholomew is to be used. Create the document in one of the projects with the content. In the other project(s) create a file with only the frontmatter. Then add the following field to the frontmatter:
 
+<!-- @nocpy -->
+
 ```toml
 .
 .
@@ -83,6 +85,8 @@ body_source = "<path to the content>"
 ```
 
 The value for the `body_source` key, should be the path from which the content is being shared (relative to the repository's `content` folder). For example if the Spin project's `developer/content/spin/contributing-docs.md` holds the sharable content (as the single source of truth), then the Cloud project can display that same content by using the following frontmatter:
+
+<!-- @nocpy -->
 
 ```toml
 title = "Contributing to Docs"
@@ -153,6 +157,8 @@ $ git remote add upstream https://github.com/fermyon/developer
 
 It is highly recommended that you use either the `<!-- @selectiveCpy -->` or the `<!-- @nocpy -->` annotation before each of your code blocks, and that each code block defines the appropriate [syntax highlighting](https://rdmd.readme.io/docs/code-blocks#language-support). The annotation can be skipped for code blocks with example code snippets i.e. non-terminal or generic output examples.
 
+**Selective copy**
+
 The selective copy annotation (`<!-- @selectiveCpy -->`) is intended for use when communicating code and/or CLI commands for the reader to copy and paste. The selective copy annotation allows the reader to see the entire code block (both commands and results) but only copies the lines that start with `$` into the reader's clipboard (minus the `$`) when the user clicks the copy button. For example, copying the following code block will only copy `echo "hello"` into your clipboard, for pasting.
 
 <!-- @selectiveCpy -->
@@ -164,6 +170,8 @@ hello
 
 > Note: If the command, that starts with `$`, is deliberately spread over two lines (by escaping the newline character), then the copy mechanism will still copy the second line which is technically still part of that single command.
 
+**No copy**
+
 The no copy annotation (`<!-- @nocpy -->`) precedes a code block where no copy and pasting of code is intended. If using the no copy attribute please still be sure to add the appropriate syntax highlighting to your code block (for display purposes). For example:
 
 `<!-- @nocpy -->`
@@ -171,6 +179,12 @@ The no copy annotation (`<!-- @nocpy -->`) precedes a code block where no copy a
 ```bash
 Some generic code not intended for copying/pasting
 ```
+
+**Non-selective copy** - just a straight copy without any additional features.
+
+If you want the code in a code block to be copyable with no "smarts" to remove the `$` then you can just simply leave out the annotation altogether. A code block in markdown will be copyable without smarts just as is.
+
+**Multi-tab code blocks**
 
 Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](/spin/install#installing-spin) installer documentation](/spin/install#installing-spin) and [Spin Key/Value documentation](/spin/kv-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
 
