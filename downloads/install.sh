@@ -112,6 +112,17 @@ fi
 FILE="spin-${VERSION}-${OS}-${ARC}.tar.gz"
 URL="https://github.com/fermyon/spin/releases/download/${VERSION}/${FILE}"
 
+# Establish the location of current working environment
+current_dir=$(pwd)
+
+# Define Spin directory name
+spin_directory_name=("/spin")
+
+if [ -d "${current_dir}${spin_directory_name}" ]; then
+    fancy_print 1 "Error: .${spin_directory_name} already exists, please delete ${current_dir}${spin_directory_name} and run the installer again."
+    exit 1
+fi
+
 # Download file, exit if not found - e.g. version does not exist
 fancy_print 0 "Step 1: Downloading: ${URL}"
 curl -fsOL $URL || (fancy_print 1 "Error downloading the file: ${FILE}"; exit 1)
