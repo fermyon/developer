@@ -151,13 +151,13 @@ Once the build commands are set up, running `spin build` will execute, sequentia
 
 ```bash
 $ spin build
-Building component rust-hello with `cargo build --target wasm32-wasi --release`
+Building component hello with `cargo build --target wasm32-wasi --release`
     Updating crates.io index
     Updating git repository `https://github.com/fermyon/spin`
 
     //--snip--
 
-    Compiling test-application v0.1.0 (rust-hello)
+    Compiling hello v0.1.0 (hello)
     Finished release [optimized] target(s) in 39.05s
 Finished building all Spin components
 ```
