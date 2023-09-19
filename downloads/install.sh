@@ -115,23 +115,11 @@ URL="https://github.com/fermyon/spin/releases/download/${VERSION}/${FILE}"
 # Establish the location of current working environment
 current_dir=$(pwd)
 
-# Define a list of items to check for (this can be updated if the spin tarball is updated)
-items=("/spin")
+# Define Spin directory name
+spin_directory_name=("/spin")
 
-# Create a variable that can be called on to question if an exit 1 is required (due to items already existing)
-exit_due_to_existing_item=0
-
-# Iterate through the list of items
-for item in "${items[@]}"; do
-    if [ -d "${current_dir}${item}" ]; then
-        # Update the variable because the found existing item now warrants an exit 1 after this loop
-        exit_due_to_existing_item=1
-        fancy_print 1 "Error: .${item} already exists, please delete ${current_dir}${item} and run the installer again."
-    fi
-done
-
-# Question the variable which indicates if an exit 1 must occur (due to pre-existing items)
-if [ "$exit_due_to_existing_item" -eq 1 ]; then
+if [ -d "${current_dir}${spin_directory_name}" ]; then
+    fancy_print 1 "Error: .${spin_directory_name} already exists, please delete ${current_dir}${spin_directory_name} and run the installer again."
     exit 1
 fi
 
