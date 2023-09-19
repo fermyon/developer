@@ -131,7 +131,7 @@ Next, we need to create the appropriate folder structure from within the applica
 # llama2-chat
 $ mkdir -p .spin/ai-models
 $ cd .spin/ai-models
-$ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
+$ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/a17885f653039bd07ed0f8ff4ecc373abf5425fd/llama-2-13b-chat.ggmlv3.q3_K_L.bin
 $ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin llama2-chat
 ```
 
@@ -154,7 +154,7 @@ tree .spin
 # codellama-instruct
 $ mkdir -p .spin/ai-models
 $ cd .spin/ai-models
-$ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/main/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
+$ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/b3dc9d8df8b4143ee18407169f09bc12c0ae09ef/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
 $ mv codellama-13b-instruct.ggmlv3.Q3_K_L.bin codellama-instruct
 ```
 
@@ -176,8 +176,8 @@ The following section fetches a specific version of the [sentence-transformers](
 ```bash
 $ mkdir -p .spin/ai-models/all-minikm-16-v2
 $ cd .spin/ai-models/all-minikm-16-v2
-$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/tokenizer.json
-$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/model.safetensors
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/tokenizer.json
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/model.safetensors
 ```
 
 <!-- @nocpy -->
