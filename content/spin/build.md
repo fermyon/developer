@@ -113,6 +113,8 @@ $ spin plugins install py2wasm --yes
 
 The build command then calls `spin py2wasm` on your application file:
 
+<!-- @nocpy -->
+
 ```toml
 [component.build]
 command = "spin py2wasm app -o app.wasm"
@@ -125,6 +127,8 @@ command = "spin py2wasm app -o app.wasm"
 For Go applications, you must use the TinyGo compiler, as the standard Go compiler does not yet support the WASI standard.  See the [TinyGo installation guide](https://tinygo.org/getting-started/install/).
 
 The build command calls TinyGo with the WASI backend and appropriate options:
+
+<!-- @nocpy -->
 
 ```toml
 [component.build]

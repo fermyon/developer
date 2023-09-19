@@ -21,7 +21,8 @@ Variables are added to an application under the top-level `[variables]` section 
 
 For example, say an application needs to access a secret. A `[variables]` section could be added to an application's manifest with one entry for a variable named `secret`. Since there is no reasonable default value for a secret, the variable is set as required with `required = true`:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
+
 ```toml
 # Add this above the [component] section
 [variables]
@@ -29,6 +30,8 @@ secret = { required = true }
 ```
 
 Variables are surfaced to a specific component by adding a `[component.config]` section to the component and referencing them within it. The `[component.config]` section contains a mapping of component variables and values. Entries can be static (like `api_host` below) or reference an updatable application variable (like `password` below) using [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use variables in their configuration section will get access to them. This enables only exposing variables (such as secrets) to the desired components of an application.
+
+<!-- @nocpy -->
 
 ```toml
 # Add this below the [component.build] section
@@ -41,7 +44,8 @@ When a component configuration variable references an application variable, it's
 
 A complete application manifest with a `secret` variable and a component that uses it would look similar to the following, with the `[component.build]` section varying depending on the language used to build the `password_checker` component:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
+
 ```toml
 spin_manifest_version = "1"
 description = "A Spin app with a dynamically updatable secret"

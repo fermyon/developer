@@ -69,8 +69,6 @@ The exact signature of the Redis handler, and how a function is identified to be
 
 In Rust, the handler is identified by the `#[spin_sdk::redis_component]` attribute.  It takes a `bytes::Bytes`, representing the raw payload of the Redis message, and returns an `anyhow::Result` indicating success or an error with details.  This example just logs the payload as a string:
 
-<!-- @nocpy -->
-
 ```rust
 use anyhow::Result;
 use bytes::Bytes;
@@ -106,8 +104,6 @@ In Go, you register the handler as a callback in your program's `init` function.
 > The do-nothing `main` function is required by TinyGo but is not used; the action happens in the `init` function and handler callback.
 
 This example just logs the payload as a string:
-
-<!-- @nocpy -->
 
 ```go
 package main

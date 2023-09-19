@@ -63,8 +63,6 @@ HTTP path: /data
 
 ## CSharp
 
-<!-- @nocpy -->
-
 ```csharp
 using Fermyon.Spin.Sdk;
 using System.Net;

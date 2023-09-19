@@ -179,8 +179,6 @@ Building a Spin HTTP component using the JS/TS SDK means writing a single functi
 that takes an HTTP request as a parameter, and returns an HTTP response — below
 is a complete implementation for such a component in TypeScript:
 
-<!-- @nocpy -->
-
 ```Javascript
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
 
@@ -223,8 +221,6 @@ If allowed, Spin components can send outbound HTTP requests.
 Let's see an example of a component that makes a request to
 [an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json) and
 inserts a custom header into the response before returning:
-
-<!-- @nocpy -->
 
 ```javascript
 const encoder = new TextEncoder("utf-8")
@@ -313,8 +309,6 @@ proxies or URL shorteners.
 Using the Spin's JS SDK, you can use the Redis key/value store and to publish messages to Redis channels.
 
 Let's see how we can use the JS/TS SDK to connect to Redis:
-
-<!-- @nocpy -->
 
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse, Redis } from "@fermyon/spin-sdk"

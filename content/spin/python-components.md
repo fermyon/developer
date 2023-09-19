@@ -118,8 +118,6 @@ In Spin, HTTP components are triggered by the occurrence of an HTTP request and 
 
 Building a Spin HTTP component using the Python SDK means writing a single function that takes an HTTP request as a parameter, and returns an HTTP response. Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
 
-<!-- @nocpy -->
-
 ```
 from spin_http import Response
 
@@ -175,9 +173,7 @@ Hello from the Python SDK
 
 This next example will create an outbound request, to obtain a random fact about animals, which will be returned to the calling code. If you would like to try this out, you can go ahead and update your existing `app.py` file from the previous step; using the following source code:
 
-<!-- @nocpy -->
-
-```
+```python
 from spin_http import Request, Response, http_send
 
 
@@ -195,7 +191,9 @@ def handle_request(request):
 
 The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `random-data-api.fermyon.app` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_http_hosts`:
 
-```
+<!-- @nocpy -->
+
+```toml
 spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
@@ -268,9 +266,7 @@ command = "spin py2wasm app -o app.wasm"
 
 If you are still following along, please go ahead and update your `app.py` file one more time, as follows:
 
-<!-- @nocpy -->
-
-```
+```python
 from spin_http import Response
 from spin_redis import redis_del, redis_get, redis_incr, redis_set, redis_sadd, redis_srem, redis_smembers
 from spin_config import config_get

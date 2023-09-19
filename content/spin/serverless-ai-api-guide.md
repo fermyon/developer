@@ -19,6 +19,8 @@ The nature of AI and LLM workloads on already trained models lends itself very n
 
 By default, a given component of a Spin application will not have access to any Serverless AI models. Access must be provided explicitly via the Spin application's manifest (the `spin.toml` file).  For example, an individual component in a Spin application could be given access to the llama2-chat model by adding the following `ai_models` configuration inside the specific `[[component]]` section:
 
+<!-- @nocpy -->
+
 ```toml
 // -- snip --
 
@@ -61,6 +63,8 @@ The exact detail of calling these operations from your application depends on yo
 {{ startTab "Rust"}}
 
 To use Serverless AI functions, the `llm` module from the Spin SDK provides the methods. The following snippet is from the [Rust code generation example](https://github.com/fermyon/ai-examples/tree/main/code-generator-rs):
+
+<!-- @nocpy -->
 
 ```rust
 use spin_sdk::{

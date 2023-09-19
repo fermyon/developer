@@ -28,7 +28,7 @@ To install templates, use the `spin templates install` command. You can install 
 
 To install templates from the Spin Git repository, run `spin templates install --git`.
 
-<!-- @nocpy -->
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin templates install --git https://github.com/fermyon/spin
