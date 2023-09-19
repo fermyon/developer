@@ -121,7 +121,7 @@ spin_installation_location=${current_dir}"/spin"
 
 # Check to see if an item called spin already exists (before expending resources downloading the file).
 if [ -e "$spin_installation_location" ]; then
-    fancy_print 1 "Error ${spin_installation_location} already exists, please delete ${spin_installation_location} and run the installer again."; exit 1
+    fancy_print 1 "Error: ${spin_installation_location} already exists, please delete ${spin_installation_location} and run the installer again."; exit 1
 fi
 
 # Download file, exit if not found - e.g. version does not exist
