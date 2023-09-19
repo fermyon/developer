@@ -421,7 +421,7 @@ $ cd developer
 $ npm install
 $ cd spin-up-hub
 $ npm install
-$ cd ../../developer
+$ cd ..
 $ spin build
 $ spin up -e "PREVIEW_MODE=1"
 ```
