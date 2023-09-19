@@ -47,7 +47,7 @@ Copy the URL from the UI in readiness for running the `git clone` command.
 
 Go ahead and clone the new fork that you just created (the one which resides in your own GitHub account):
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ cd ~
@@ -59,7 +59,7 @@ $ cd developer
 
 Create a new branch that will house all of your changes for this specific contribution:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ git checkout -b my_new_branch
@@ -69,7 +69,7 @@ $ git checkout -b my_new_branch
 
 Create a new remote for the upstream (a pointer to the original repository to which you are contributing):
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ git remote add upstream https://github.com/fermyon/developer
@@ -81,7 +81,7 @@ Create a **`.md`** Markdown file in the **`content/api/hub`** folder in your for
 
 Below is a copyable example to get you started:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```toml
 title = "Rust HTTP trigger template"
@@ -152,7 +152,7 @@ The following is a list of the types of content that a user can submit to the Sp
 
 After your file has been created, you can test it on localhost before committing.
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```console
 $ npm install
@@ -169,7 +169,7 @@ Once your changes have been checked, go ahead and add your changes by moving to 
 
 Add your changes by running the following command, from the root of the developer repository:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ git add .
@@ -181,12 +181,12 @@ Before committing, please ensure that your GitHub installation is configured suf
 
 If you need to set these values please use the following commands:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ git config user.name "yourusername"
 ```
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ git config user.email "youremail@somemail.com"
@@ -196,7 +196,7 @@ More information can be found at this GitHub documentation page called [signing 
 
 Type the following commit command to ensure that you sign off (--signoff), sign the data (-S) - recommended, and also leave a short message (-m):
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ git commit -S --signoff -m "Updating Spin Up Hub"
@@ -208,13 +208,15 @@ $ git commit -S --signoff -m "Updating Spin Up Hub"
 
 At this stage, it is a good idea to just quickly check what GitHub thinks the origin is. For example, if we type `git remote -v` we can see that the origin is our repo; which we a) forked the original repo into and b) which we then cloned to our local disk so that we could edit:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ git remote -v
 ```
 
 The above command will return output similar to the following:
+
+<!-- @nocpy -->
 
 ```bash
 origin	git@github.com:yourusername/developer.git (fetch)
@@ -225,7 +227,7 @@ upstream	https://github.com/fermyon/developer (push)
 
 Once you are satisfied go ahead and push your changes:
 
-<!-- @selectiveCpy -->
+<!-- @nocpy -->
 
 ```bash
 $ git push -u origin my_new_branch
