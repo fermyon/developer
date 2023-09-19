@@ -131,6 +131,7 @@ Each table in the `component` array contains the following fields:
 |-------------------------|------------|-------------|----------|-----------|
 | `command`               | Required   | String      | The command to execute on `spin build`. | `"cargo build --target wasm32-wasi --release"` |
 | `workdir`               | Optional   | String      | The directory in which to execute `command`, relative to the manifest file. The default is the directory containing the manifest file. An example of where this is needed is a multi-component application where each component is its own source tree in its own directory. | `"my-project"` |
+| `watch`                 | Optional   | Array of strings | The files or glob patterns which `spin watch` should monitor to determine if the component Wasm file needs to be rebuilt. These are relative to `workdir`, or to the directory containing the manifest file if `workdir` is not present. | `["src/**/*.rs", "Cargo.toml"]` |
 
 ## Next Steps
 
