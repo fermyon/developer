@@ -417,7 +417,6 @@ You can host your changes to the developer documentation on your own machine (lo
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd developer
 $ npm install
 $ cd spin-up-hub
 $ npm install
