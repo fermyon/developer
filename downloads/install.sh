@@ -114,7 +114,6 @@ URL="https://github.com/fermyon/spin/releases/download/${VERSION}/${FILE}"
 
 # Establish the location of current working environment
 current_dir=$(pwd)
-fancy_print 0 "Current working directory: ${current_dir}"
 
 # Establish the absolute Spin installation location
 spin_installation_location=${current_dir}"/spin"
