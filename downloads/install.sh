@@ -126,7 +126,7 @@ for item in "${items[@]}"; do
     if [ -d "${current_dir}${item}" ]; then
         # Update the variable because the found existing item now warrants an exit 1 after this loop
         exit_due_to_existing_item=1
-        fancy_print 1 "Error ${item} already exists, please delete ${current_dir}${item} and run the installer again."
+        fancy_print 1 "Error: ${item} already exists, please delete ${current_dir}${item} and run the installer again."
     fi
 done
 
