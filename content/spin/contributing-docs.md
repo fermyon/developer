@@ -412,11 +412,17 @@ Let's take a quick look at how you can use the `bart` CLI to check any content t
 
 ### 6.7 Checking Your Content - Preview a Documentation Page on Localhost
 
-You can host your changes to the developer documentation on your own machine (localhost) by using the following `spin` command: 
+You can host your changes to the developer documentation on your own machine (localhost) by using the following `spin` commands: 
 
 <!-- @selectiveCpy -->
 
 ```bash
+$ cd developer
+$ npm install
+$ cd spin-up-hub
+$ npm install
+$ cd ../../developer
+$ spin build
 $ spin up -e "PREVIEW_MODE=1"
 ```
 
