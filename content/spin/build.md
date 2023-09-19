@@ -25,6 +25,7 @@ To make the build process easier, the `spin build` command allows you to build a
 
 > You don't have to use `spin build` to manage your builds.  If you prefer to use a Makefile or other build system, you can!  `spin build` is just there to provide an 'out of the box' solution.
 
+<!-- markdownlint-disable-next-line titlecase-rule -->
 ## Setting Up for `spin build`
 
 To use `spin build`, each component that you want to build must specify the command used to build it in `spin.toml`, as part of its `component.build` table:
@@ -141,6 +142,7 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 > The output of the build command _must_ match the component's `source` path.  If you change the `build` or `source` attributes, make sure to keep them in sync.
 
+<!-- markdownlint-disable-next-line titlecase-rule -->
 ## Running `spin build`
 
 Once the build commands are set up, running `spin build` will execute, sequentially, each build command:
