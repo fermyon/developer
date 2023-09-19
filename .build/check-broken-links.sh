@@ -81,6 +81,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://twitter.com/fermyontech'                                                                                                                                             \
     --exclude 'https://twitter.com/fermyontech/status/1641537393818738710'                                                                                                                  \
     --exclude 'https://www.godaddy.com'                                                                                                                                                     \
+    --exclude 'https://linux.die.net/man/1/which'                                                                                                                                           \
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
