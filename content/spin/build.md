@@ -42,7 +42,7 @@ command = "npm run build"
 
 If you generated the component from a Fermyon-supplied template, the `component.build` section should be set up correctly for you.  You don't need to change or add anything.
 
-> Different components may be built from different languages, and so each component can have its own build command.  In addition, some components may be precompiled into Wasm modules, and don't need a build command at all.  If a component doesn't have a build command, `spin build` just skips it:
+> Different components may be built from different languages, and so each component can have its own build command.  In addition, some components may be precompiled into Wasm modules, and don't need a build command at all.  If a component doesn't have a build command, `spin build` just skips it.
 
 {{ tabs "sdk-type" }}
 
