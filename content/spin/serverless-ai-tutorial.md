@@ -119,6 +119,25 @@ HTTP path: /api/...
 ```
 
 {{ blockEnd }}
+
+{{ startTab "Python" }}
+
+The TypeScript code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-py)
+
+> Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin new http-py
+Enter a name for your new application: sentiment-analysis
+Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
+HTTP base: /
+HTTP path: /api/...
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ### Supported AI Models
@@ -540,6 +559,14 @@ export const handleRequest: HandleRequest = async function (
 ): Promise<HttpResponse> {
   return await router.handleRequest(request, request);
 };
+```
+
+{{ blockEnd }}
+
+{{ startTab "Python"}}
+
+```python
+#TODO
 ```
 
 {{ blockEnd }}
