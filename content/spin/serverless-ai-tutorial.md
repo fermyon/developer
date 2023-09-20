@@ -238,7 +238,7 @@ Now let's use the Spin SDK to access the model from our app:
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.85"
 ```
-The following Rust source code is an example of what goes in your `src/lib.rs` file:
+Change your `lib.rs` file to read as follows:
 
 ```rust
 use std::str::FromStr;
