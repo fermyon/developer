@@ -631,7 +631,7 @@ route = "/internal/kv-explorer/..."
 - b) have configured your `spin.toml` file to explicitly configure the model (as shown above), and
 - c) have [signed up for the Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
 
-Now, let's build and run our Spin Application locally. (***Note:** If you are following along with the TypeScript/JavaScript example, you will first need to run `npm install`. Otherwise, please continue to the following `spin` command.):
+Now, let's build and run our Spin Application locally. (**Note:** If you are following along with the TypeScript/JavaScript example, you will first need to run `npm install`. Otherwise, please continue to the following `spin` command.)
 
 <!-- @selectiveCpy -->
 
