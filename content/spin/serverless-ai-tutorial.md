@@ -38,7 +38,7 @@ In this tutorial we will:
 
 * Update Spin (and dependencies) on your local machine
 * Create a Serverless AI application
-* Learn about the Serverless AI SDK (in Rust and TypeScript)
+* Learn about the Serverless AI SDK (in Rust, TypeScript and Python)
 
 ## Tutorial Prerequisites
 
@@ -50,12 +50,26 @@ If you already have Spin installed, [check what version you are on and upgrade](
 
 ### Dependencies
 
-The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, please ensure you have the latest TypeScript/JavaScript template installed:
+The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). 
+
+**TypeScript/JavaScript**
+
+Some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, please ensure you have the latest TypeScript/JavaScript template installed:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
+```
+
+**Python**
+
+Some of the Serverless AI examples are written using Python. To enable Serverless AI functionality via Python, please ensure you have the latest Python template installed:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
 ```
 
 ## Licenses

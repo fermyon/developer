@@ -68,7 +68,7 @@ This page contains information about language support for Spin features:
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](/spin/python-components#an-outbound-redis-example) | Supported |
-| Serverless AI | Not Supported |
+| [Serverless AI](/spin/python-components#ai-inferencing-from-python-components) | Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
