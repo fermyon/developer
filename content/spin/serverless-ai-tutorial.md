@@ -232,6 +232,17 @@ Now let's use the Spin SDK to access the model from our app:
 
 {{ startTab "Rust"}}
 
+The Rust source code for this sentiment analysis example uses serde. There are a couple of ways to add the required serde dependencies:
+- Run `cargo add serde -F derive` and `cargo add serde_json` from your Rust application's home directory (which will automatically update your application's `Cargo.toml` file), or
+- Manually, edit your Rust application's `Cargo.toml` file by adding the following lines beneath the `Cargo.toml` file's `[dependencies]` section:
+
+```toml
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.85"
+```
+
+Once you have added serde, as explained above, modify your `src/lib.rs` file to match the following content:
+
 ```rust
 use std::str::FromStr;
 
@@ -623,12 +634,11 @@ route = "/internal/kv-explorer/..."
 - b) have configured your `spin.toml` file to explicitly configure the model (as shown above), and
 - c) have [signed up for the Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
 
-Now let's build and deploy our Spin Application locally. Run the following command to build your application: 
+Now, let's build and run our Spin Application locally. (**Note:** If you are following along with the TypeScript/JavaScript example, you will first need to run `npm install`. Otherwise, please continue to the following `spin` command.)
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ npm install
 $ spin build --up
 ```
 
