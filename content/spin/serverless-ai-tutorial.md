@@ -232,13 +232,16 @@ Now let's use the Spin SDK to access the model from our app:
 
 {{ startTab "Rust"}}
 
-> The Rust source code for this sentiment analysis example uses the `serde` crate. Add the following dependencies to your Rust application's `Cargo.toml` file before you build/run the application:
+The Rust source code for this sentiment analysis example uses serde. There are a couple of ways to add the required serde dependencies:
+- Run `cargo add serde -F derive` and `cargo add serde_json` from your Rust application's home directory (which will automatically update your application's `Cargo.toml` file), or
+- Manually, edit your Rust application's `Cargo.toml` file by adding the following lines beneath the `Cargo.toml` file's `[dependencies]` section:
 
 ```toml
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.85"
 ```
-Change your `lib.rs` file to read as follows:
+
+Once you have added serde, as explained above, modify your `src/lib.rs` file to match the following content:
 
 ```rust
 use std::str::FromStr;
