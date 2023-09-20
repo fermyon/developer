@@ -177,7 +177,7 @@ The following section fetches a specific version of the [sentence-transformers](
 $ mkdir -p .spin/ai-models/all-minikm-16-v2
 $ cd .spin/ai-models/all-minikm-16-v2
 $ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/tokenizer.json
-$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/model.safetensors
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/model.safetensors
 ```
 
 <!-- @nocpy -->
