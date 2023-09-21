@@ -38,6 +38,7 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Bandwidth egress (GB) | 5 | 50 | Contact us
 | **Storage** |
 | Key value store key size (bytes)* | 255 | 255 | Contact us
+| Key value store value size (MB)* | 1 | 1 | Contact us
 | Key value store storage size (GB) | 1 | 2 | Contact us
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
 | SQLite Storage | [See private beta documentation](/cloud/noops-sql-db.md) | [See private beta documentation](/cloud/noops-sql-db.md)  | [See private beta documentation](/cloud/noops-sql-db.md) 
