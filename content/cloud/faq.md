@@ -109,6 +109,9 @@ To learn more about what feature support looks like for various programming lang
 - **Can I configure external DNS for my custom domain on Fermyon Cloud?**
   - Fermyon Cloud only supports Fermyon DNS at this time for custom domains. To file a feedback request, please visit [github.com/fermyon/feedback](https://github.com/fermyon/feedback).
 
+- **Unable to redeploy an app on Fermyon Cloud?**
+  - If `spin deploy` fails with the error `No channel with app_id xxxx and name spin-deploy`, but the app works locally (via `spin build --up`), please delete the app from your Fermyon Cloud dashboard and try again.
+
 ## Next Steps
 
 - Learn how to engage with Fermyon to get [support](support)
