@@ -8,7 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/deployment-c
 ---
 
 - [Deployments in Fermyon Cloud](#deployments-in-fermyon-cloud)
-- [Fermyon Cloud implements OCI, the Open Container Initiative, specifications](#fermyon-cloud-implements-oci-the-open-container-initiative-specifications)
+- [Fermyon Cloud Implements OCI, the Open Container Initiative, Specifications](#fermyon-cloud-implements-oci-the-open-container-initiative-specifications)
 - [Deprecating Bindle - An Aggregate Object Storage System](#deprecating-bindle---an-aggregate-object-storage-system)
 - [The Deployment Process Explained](#the-deployment-process-explained)
   - [1. Packaging and Uploading an Application](#1-packaging-and-uploading-an-application)
@@ -20,7 +20,7 @@ Deploying applications to a cloud service should be simple. Even though there is
 
 In this article, we describe the core technologies and concepts, which are part of the deployment process in the Fermyon Cloud.
 
-## Fermyon Cloud implements OCI, the Open Container Initiative, specifications
+## Fermyon Cloud Implements OCI, the Open Container Initiative, Specifications
 
 The [Fermyon Cloud Plugin for Spin](https://developer.fermyon.com/cloud/cloud-command-reference) uses the [OCI Image](https://github.com/opencontainers/image-spec) and [OCI Distribution](https://github.com/opencontainers/distribution-spec) Specifications to move applications to the Cloud. These use of these specifications enables the use of existing infrastructure to distribute applications between Spin and Fermyon Cloud.
 
