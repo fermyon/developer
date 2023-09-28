@@ -8,7 +8,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/deployment-c
 ---
 
 - [Deployments in Fermyon Cloud](#deployments-in-fermyon-cloud)
-- [Bindle - An Aggregate Object Storage System](#bindle---an-aggregate-object-storage-system)
+- [Fermyon Cloud implements OCI, the Open Container Initiative, specifications](#fermyon-cloud-implements-oci-the-open-container-initiative-specifications)
+- [Deprecating Bindle - An Aggregate Object Storage System](#deprecating-bindle---an-aggregate-object-storage-system)
 - [The Deployment Process Explained](#the-deployment-process-explained)
   - [1. Packaging and Uploading an Application](#1-packaging-and-uploading-an-application)
   - [2. Create or Upgrade an Application](#2-create-or-upgrade-an-application)
@@ -19,9 +20,19 @@ Deploying applications to a cloud service should be simple. Even though there is
 
 In this article, we describe the core technologies and concepts, which are part of the deployment process in the Fermyon Cloud.
 
-## Bindle - An Aggregate Object Storage System
+## Fermyon Cloud implements OCI, the Open Container Initiative, specifications
 
-The Fermyon Cloud uses [Bindle](https://github.com/deislabs/bindle) to package and distribute Spin applications. Bindle is an open-source project, built and maintained by Deis Labs. Bindle is very well documented, so we will not go into details of how Bindle works, other than calling out a few core features of the system here:
+The [Fermyon Cloud Plugin for Spin](https://developer.fermyon.com/cloud/cloud-command-reference) uses the [OCI Image](https://github.com/opencontainers/image-spec) and [OCI Distribution](https://github.com/opencontainers/distribution-spec) Specifications to move applications to the Cloud. These use of these specifications enables the use of existing infrastructure to distribute applications between Spin and Fermyon Cloud.
+
+It's important to note that Spin applications deploying using the Cloud Plugin, are not in a format compatible with being run by an [OCI runtime](https://github.com/opencontainers/runtime-spec) compatible runtime, like [runc](https://github.com/opencontainers/runc). If you want to explore the path of running Spin applications using a container runtime. [ContainerD and runwasi](https://github.com/containerd/runwasi) is what you would need.
+
+## Deprecating Bindle - An Aggregate Object Storage System
+
+With the release of the [Spin Cloud Plugin](https://developer.fermyon.com/cloud/cloud-command-reference) [v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.3.0), the default deployment 
+mechanism is OCI, not Bindle.
+
+The Fermyon Cloud still support using [Bindle](https://github.com/deislabs/bindle) to package and distribute Spin applications. Bindle is an open-source project, built and maintained by Deis Labs. 
+Bindle is very well documented, so we will not go into details of how Bindle works, other than calling out a few core features of the system here:
 
 - A bindle refers to the combined package, which always contains:
   - An invoice: A file with the bindles name, description, and a list of parcel manifests.
@@ -30,32 +41,28 @@ The Fermyon Cloud uses [Bindle](https://github.com/deislabs/bindle) to package a
   - Once a bindle is put into a bindle hub (the server), it cannot be changed, nor can it be deleted.
 - Bindles can use semantic versioning [SemVer](https://semver.org) as part of their names.
 
+> Note: The Fermyon Cloud Spin plugin supports upgrading an application which was previously deployed using Bindle, to use OCI. However, it's not supported to upgrade an application switching from OCI to Bindle as the packaging mechanism. You can use a Cloud Plugin version [v0.2.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.2.0) to keep using Bindle, however, it's not guaranteed that all features of the version of the plugin will be compatible with other operations in the Cloud.
+
 ## The Deployment Process Explained
 
-In the Fermyon Cloud, we host an instance of Bindle, so when you run `spin deploy`, the command will take care of:
+Deploying to the Fermyon Cloud, involves two steps:
 1. Packaging the application and upload it to the Fermyon Cloud
-2. Creating or upgrade an application, using the bindle
-
-There is no direct interaction with Bindle when using the Fermyon Cloud.
+2. Creating or upgrade an application
 
 Let's unfold each of these steps.
 
 ### 1. Packaging and Uploading an Application
 
-The first step in deploying an application is to package all the files into parcels and generate an invoice.  All of this is handled in a staging directory, which is either a temporary directory using [this implementation](https://doc.rust-lang.org/std/env/fn.temp_dir.html#platform-specific-behavior) or the staging directory defined using the `--staging-dir` option.
+The first step in deploying an application is to package all the files using the OCI specification. The Cloud Plugin will create individual layers for the files that make up the application, to optimize changes to applications on subsequent packaging and deployment.
 
-The bindle will be named using the `name` from `spin.toml`, the `version` from `spin.toml`, and a build metadata string, which is automatically generated by Spin at deployment time.
+The OCI image will be named using the `name` from `spin.toml`, the `version` from `spin.toml`, and a build metadata string, which is automatically generated by Spin at deployment time. The result is that the version of a Spin application will be like this `1.0.0-r80e5abb`.
 
-Bindles in the Fermyon Cloud always use Semantic Versioning and require major, minor, and patch version numbers to be specified. Therefore, the version in `spin.toml` has to conform to the `MAJOR.MINOR.PATCH` format, i.e. `1.0.1` is valid, `1.0` and `1` are not valid version numbers for a Spin application. The result is that the version of a Spin application will be like this `my_app_name/1.0.0+r80e5abb`.
-
-Following packaging, the bindle will be uploaded to the Fermyon Cloud. As soon as a bindle has been uploaded, it cannot be modified or deleted. This is to preserve the integrity of the immutability of bindles.
+Following packaging, the image will be uploaded to an OCI compatible registry the Fermyon Cloud.
 
 ### 2. Create or Upgrade an Application
 
-The next step in the deployment process is to create or upgrade the application.
+The next step in the deployment process is to create or upgrade the application. An application is upgraded, if the application name as defined in `spin.toml`, already exists in the Fermyon Cloud. 
 
-An application in the Fermyon Cloud can have multiple revisions, which are tied to channels. These concepts are derived from [Hippo](https://docs.hippofactory.dev/) an open-source Platform as a Service (PaaS) for WebAssembly. As you deploy your application both an application, a channel and a revision will be created in the Fermyon Cloud.
+Before serving traffic to the application, the deployment process checks for the application health endpoint and finishes once the application is concluded to be healthy by the cloud. The application health point is an integral part of the Fermyon Cloud, which does reserve the HTTP route `/.well-known/spin/health`, which will not be routed to your Spin components.
 
-If the application already exists, an upgrade will take place. What happens at this point is that a new revision will be created, and as soon as this is deemed healthy, traffic will start to route to the new revision. The failover from the old to the new revision takes a short amount of time, during which you will be able to observe replies from both revisions. The application existence is determined based on the combination of the user account and the Spin application name, as defined in `spin.toml`.
-
-The deployment process checks for the application health endpoint and finishes once the application is concluded to be healthy by the cloud. The application health point is an integral part of the Fermyon Cloud but does reserve the HTTP route `/.well-known/spin/health`, which will not be routed to your Spin application.
+If an upgrade takes place, the failover from the old to the new deployment takes a short amount of time, during which you can observe replies from both deployments (version).
