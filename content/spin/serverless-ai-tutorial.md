@@ -569,7 +569,8 @@ We create an `assets` directory where we can store files to serve statically (se
 ```bash
 $ mkdir assets
 ```
-### Add the front-end 
+
+### Add the Front-End 
 We can add a webpage that asks the user for some text and does the sentiment analysis on it. In your assets folder, create two files `dynamic.js` and `index.html`. 
 
 Here's the code snippet for `index.html`
@@ -643,7 +644,9 @@ Here's the code snippet for `index.html`
   </body>
 </html>
 ```
+
 Here's the code snippet for `dynamic.js` 
+
 ```javascript
 // Listen for the Enter key being pressed
 document.addEventListener("keydown", function (event) {
