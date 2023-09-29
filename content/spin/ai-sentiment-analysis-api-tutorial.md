@@ -574,6 +574,7 @@ $ mkdir assets
 ```
 
 ### Add the Front-End 
+
 We can add a webpage that asks the user for some text and does the sentiment analysis on it. In your assets folder, create two files `dynamic.js` and `index.html`. 
 
 Here's the code snippet for `index.html`
