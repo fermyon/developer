@@ -14,8 +14,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud apps list](#spin-cloud-apps-list)
 - [spin cloud deploy](#spin-cloud-deploy)
 - [spin cloud help](#spin-cloud-help)
+- [spin cloud link](#spin-cloud-link)
 - [spin cloud login](#spin-cloud-login)
 - [spin cloud sqlite](#spin-cloud-sqlite)
+- [spin cloud sqlite create](#spin-cloud-sqlite-create)
 - [spin cloud sqlite delete](#spin-cloud-sqlite-delete)
 - [spin cloud sqlite execute](#spin-cloud-sqlite-execute)
 - [spin cloud sqlite help](#spin-cloud-sqlite-help)
@@ -28,6 +30,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [Subcommand Stability Table](#subcommand-stability-table)
 
 ## Spin Cloud Command
+
+> TODO: I added headers above for new CLI commands (spin cloud sqlite create, spin cloud link), but their descriptions need to be added below
 
 Fermyon provides a [`cloud` plugin](https://github.com/fermyon/cloud-plugin) for the [Spin CLI](./cli-reference.md) for you to manage Spin applications in Fermyon Cloud. This page documents the `spin cloud` command. Specifically, all of the available options and subcommands. For more information on subcommand stability, see the [subcommands stability table](#subcommand-stability-table). You can reproduce the Spin Cloud command documentation on your machine by using the `--help` flag. For example:
 
