@@ -8,11 +8,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/deployment-c
 ---
 
 - [Deployments in Fermyon Cloud](#deployments-in-fermyon-cloud)
-- [Fermyon Cloud Implements OCI, the Open Container Initiative, Specifications](#fermyon-cloud-implements-oci-the-open-container-initiative-specifications)
-- [Deprecating Bindle - An Aggregate Object Storage System](#deprecating-bindle---an-aggregate-object-storage-system)
+- [OCI - the Open Container Initiative](#oci---the-open-container-initiative)
 - [The Deployment Process Explained](#the-deployment-process-explained)
-  - [1. Packaging and Uploading an Application](#1-packaging-and-uploading-an-application)
-  - [2. Create or Upgrade an Application](#2-create-or-upgrade-an-application)
+- [Deprecating Bindle - An Aggregate Object Storage System](#deprecating-bindle---an-aggregate-object-storage-system)
 
 ## Deployments in Fermyon Cloud
 
@@ -20,18 +18,30 @@ Deploying applications to a cloud service should be simple. Even though there is
 
 In this article, we describe the core technologies and concepts, which are part of the deployment process in the Fermyon Cloud.
 
-## Fermyon Cloud Implements OCI, the Open Container Initiative, Specifications
+## OCI - the Open Container Initiative
 
 The [Fermyon Cloud Plugin for Spin](https://developer.fermyon.com/cloud/cloud-command-reference) uses the [OCI Image](https://github.com/opencontainers/image-spec) and [OCI Distribution](https://github.com/opencontainers/distribution-spec) Specifications to move applications to the Cloud. These use of these specifications enables the use of existing infrastructure to distribute applications between Spin and Fermyon Cloud.
 
 It's important to note that Spin applications deploying using the Cloud Plugin, are not in a format compatible with being run by an [OCI runtime](https://github.com/opencontainers/runtime-spec) compatible runtime, like [runc](https://github.com/opencontainers/runc). If you want to explore the path of running Spin applications using a container runtime. [ContainerD and runwasi](https://github.com/containerd/runwasi) is what you would need.
 
+> Note: The Fermyon Cloud Spin plugin supports upgrading an application which was previously deployed using Bindle, to use OCI. However, it's not supported to upgrade an application switching from OCI to Bindle as the packaging mechanism. You can use a Cloud Plugin version [v0.2.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.2.0) to keep using Bindle, however, it's not guaranteed that all features of the version of the plugin will be compatible with other operations in the Cloud.
+
+## The Deployment Process Explained
+
+Deploying to the Fermyon Cloud, involves two steps:
+1. Packaging the application and uploading it to the Fermyon Cloud
+  - The first step in deploying an application is to package all the files using the OCI specification. The Cloud Plugin will create individual layers for the files that make up the application, to optimize changes to applications on subsequent packaging and deployment.
+  - Following packaging, the image will be uploaded to an OCI compatible registry in the Fermyon Cloud.
+1. Creating or upgrade an application
+  - An application is upgraded if the application name, as defined in `spin.toml`, already exists in your Fermyon Cloud account.
+  - Before serving traffic to the application, the deployment process checks for the application health endpoint and finishes once the application is concluded to be healthy by the cloud. The application health point is an integral part of the Fermyon Cloud, which does reserve the HTTP route `/.well-known/spin/health`, which will not be routed to your Spin components.
+  - If an upgrade takes place, the failover from the old to the new deployment takes a short amount of time, during which you can observe replies from both deployments (version).
+
 ## Deprecating Bindle - An Aggregate Object Storage System
 
-With the release of the [Spin Cloud Plugin](https://developer.fermyon.com/cloud/cloud-command-reference) [v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.3.0), the default deployment 
-mechanism is OCI, not Bindle.
+With the release of the [Spin Cloud Plugin](https://developer.fermyon.com/cloud/cloud-command-reference) [v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.3.0), the default deployment mechanism is OCI, not Bindle. The Fermyon Cloud still supports using [Bindle](https://github.com/deislabs/bindle) to package and distribute Spin applications. You can use a Cloud Plugin version [v0.2.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.2.0) to keep using Bindle, however, it's not guaranteed that all features of the version of the plugin will be compatible with other operations in the Cloud.
 
-The Fermyon Cloud still support using [Bindle](https://github.com/deislabs/bindle) to package and distribute Spin applications. Bindle is an open-source project, built and maintained by Deis Labs. 
+Bindle is an open-source project, built and maintained by Deis Labs. 
 Bindle is very well documented, so we will not go into details of how Bindle works, other than calling out a few core features of the system here:
 
 - A bindle refers to the combined package, which always contains:
@@ -40,29 +50,3 @@ Bindle is very well documented, so we will not go into details of how Bindle wor
 - Bindles are immutable and cannot be overwritten.
   - Once a bindle is put into a bindle hub (the server), it cannot be changed, nor can it be deleted.
 - Bindles can use semantic versioning [SemVer](https://semver.org) as part of their names.
-
-> Note: The Fermyon Cloud Spin plugin supports upgrading an application which was previously deployed using Bindle, to use OCI. However, it's not supported to upgrade an application switching from OCI to Bindle as the packaging mechanism. You can use a Cloud Plugin version [v0.2.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.2.0) to keep using Bindle, however, it's not guaranteed that all features of the version of the plugin will be compatible with other operations in the Cloud.
-
-## The Deployment Process Explained
-
-Deploying to the Fermyon Cloud, involves two steps:
-1. Packaging the application and upload it to the Fermyon Cloud
-2. Creating or upgrade an application
-
-Let's unfold each of these steps.
-
-### 1. Packaging and Uploading an Application
-
-The first step in deploying an application is to package all the files using the OCI specification. The Cloud Plugin will create individual layers for the files that make up the application, to optimize changes to applications on subsequent packaging and deployment.
-
-The OCI image will be named using the `name` from `spin.toml`, the `version` from `spin.toml`, and a build metadata string, which is automatically generated by Spin at deployment time. The result is that the version of a Spin application will be like this `1.0.0-r80e5abb`.
-
-Following packaging, the image will be uploaded to an OCI compatible registry the Fermyon Cloud.
-
-### 2. Create or Upgrade an Application
-
-The next step in the deployment process is to create or upgrade the application. An application is upgraded, if the application name as defined in `spin.toml`, already exists in the Fermyon Cloud. 
-
-Before serving traffic to the application, the deployment process checks for the application health endpoint and finishes once the application is concluded to be healthy by the cloud. The application health point is an integral part of the Fermyon Cloud, which does reserve the HTTP route `/.well-known/spin/health`, which will not be routed to your Spin components.
-
-If an upgrade takes place, the failover from the old to the new deployment takes a short amount of time, during which you can observe replies from both deployments (version).
