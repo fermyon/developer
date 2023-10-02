@@ -667,6 +667,32 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud help
+
+USAGE:
+    spin cloud <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    apps         Manage applications deployed to Fermyon Cloud
+    deploy       Package and upload an application to the Fermyon Cloud
+    help         Print this message or the help of the given subcommand(s)
+    login        Login to Fermyon Cloud
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
+    variables    Manage Spin application variables
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
