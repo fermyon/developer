@@ -645,7 +645,9 @@ Here's the code snippet for `index.html`
   </body>
 </html>
 ```
+
 Here's the code snippet for `dynamic.js` 
+
 ```javascript
 // Listen for the Enter key being pressed
 document.addEventListener("keydown", function (event) {
