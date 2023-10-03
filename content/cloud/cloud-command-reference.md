@@ -1147,7 +1147,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQL against a SQLite database
+Execute SQLite statements against a NoOps SQL database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1237,7 +1237,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite help    
 
-Manage Fermyon Cloud SQLite databases
+Manage Fermyon Cloud NoOps SQL databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1325,7 +1325,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite list --help
 
-List all SQLite databases of a user
+List all NoOps SQL databases of a user
 
 USAGE:
     spin cloud sqlite list [OPTIONS]
