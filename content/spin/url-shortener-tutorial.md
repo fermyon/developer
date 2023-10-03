@@ -1,4 +1,4 @@
-title = "URL Shortener Tutorial"
+title = "Building a URL Shortener With Spin"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
