@@ -1,6 +1,3 @@
-<<<<<<< HEAD:content/spin/ai-sentiment-analysis-api-tutorial.md
-title = "Sentiment Analysis With Serverless AI"
-=======
 
 title = "Build a Sentiment Analysis API using Serverless AI Inferencing"
 template = "spin_main"
@@ -816,8 +813,7 @@ route = "/internal/kv-explorer/..."
 **Note:** Running inferencing on localhost (your CPU) is not as optimal as deploying to Fermyon's Serverless AI (where inferencing is performed by high-powered GPUs). You can skip this `spin build --up` step and move straight to `spin cloud deploy` if you:
 
 - a) are using one of the 3 supported models above,
-- b) have configured your `spin.toml` file to explicitly configure the model (as shown above), and
-- c) have [signed up for the Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
+- b) have configured your `spin.toml` file to explicitly configure the model (as shown above)
 
 Now, let's build and run our Spin Application locally. (**Note:** If you are following along with the TypeScript/JavaScript example, you will first need to run `npm install`. Otherwise, please continue to the following `spin` command.)
 
@@ -882,12 +878,11 @@ We want to get feedback on the Serverless AI API. We are curious about what mode
 - Try the numerous Serverless AI examples in our GitHub repository called [ai-examples](https://github.com/fermyon/ai-examples).
 - [Contribute](https://developer.fermyon.com/hub/contributing) your Serverless AI app to our [Spin Up Hub](https://developer.fermyon.com/hub).
 - Ask questions and share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).title = "Serverless AI Tutorial"
->>>>>>> ea8961d (Update serverless-ai-tutorial.md):content/spin/serverless-ai-tutorial.md
 template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/ai-sentiment-analysis-api-tutorial.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-tutorial.md"
 
 ---
 - [Tutorial Prerequisites](#tutorial-prerequisites)
