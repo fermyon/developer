@@ -15,6 +15,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud deploy](#spin-cloud-deploy)
 - [spin cloud help](#spin-cloud-help)
 - [spin cloud link](#spin-cloud-link)
+- [spin cloud link sqlite](#spin-cloud-link-sqlite)
 - [spin cloud login](#spin-cloud-login)
 - [spin cloud sqlite](#spin-cloud-sqlite)
 - [spin cloud sqlite create](#spin-cloud-sqlite-create)
@@ -22,6 +23,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud sqlite execute](#spin-cloud-sqlite-execute)
 - [spin cloud sqlite help](#spin-cloud-sqlite-help)
 - [spin cloud sqlite list](#spin-cloud-sqlite-list)
+- [spin cloud unlink](#spin-cloud-unlink)
+- [spin cloud unlink sqlite](#spin-cloud-unlink-sqlite)
 - [spin cloud variables](#spin-cloud-variables)
 - [spin cloud variables delete](#spin-cloud-variables-delete)
 - [spin cloud variables help](#spin-cloud-variables-help)
@@ -30,8 +33,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [Subcommand Stability Table](#subcommand-stability-table)
 
 ## Spin Cloud Command
-
-> TODO: I added headers above for new CLI commands (spin cloud sqlite create, spin cloud link), but their descriptions need to be added below
 
 Fermyon provides a [`cloud` plugin](https://github.com/fermyon/cloud-plugin) for the [Spin CLI](./cli-reference.md) for you to manage Spin applications in Fermyon Cloud. This page documents the `spin cloud` command. Specifically, all of the available options and subcommands. For more information on subcommand stability, see the [subcommands stability table](#subcommand-stability-table). You can reproduce the Spin Cloud command documentation on your machine by using the `--help` flag. For example:
 
@@ -700,6 +701,78 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud link
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud link
+Link apps to resources
+
+USAGE:
+    spin cloud link <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    help      Print this message or the help of the given subcommand(s)
+    sqlite    Link an app to a sqlite database
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud link sqlite
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud link sqlite --help
+Link an app to a NoOps SQL database
+
+USAGE:
+    spin cloud link sqlite [OPTIONS] --app <APP> --database <DATABASE> <LABEL>
+
+ARGS:
+    <LABEL>    The name by which the application will refer to the database
+
+OPTIONS:
+    -a, --app <APP>
+            The app that will be using the database
+
+    -d, --database <DATABASE>
+            The database that the app will refer to by the label
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud login
 
 {{ tabs "cloud-plugin-version" }}
@@ -942,7 +1015,6 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 {{ startTab "v0.3.0"}}
-
 Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
@@ -963,6 +1035,69 @@ SUBCOMMANDS:
     execute    Execute SQLite statements against a NoOps SQL database
     help       Print this message or the help of the given subcommand(s)
     list       List all NoOps SQL databases of a user
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite --help
+
+Manage Fermyon Cloud NoOps SQL databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    create     Create a NoOps SQL database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all NoOps SQL databases of a user
+```
+
+{{ blockEnd }}
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud sqlite create
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite create --help
+
+Create a NoOps SQL database
+
+USAGE:
+    spin cloud sqlite create [OPTIONS] <NAME>
+
+ARGS:
+    <NAME>    Name of database to create
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
 ```
 
 {{ blockEnd }}
@@ -1306,6 +1441,71 @@ USAGE:
     spin cloud sqlite list [OPTIONS]
 
 OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud unlink
+
+{{ tabs "cloud-plugin-version" }}
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud unlink
+Unlink apps from resources
+
+USAGE:
+    spin cloud unlink <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    help      Print this message or the help of the given subcommand(s)
+    sqlite    Unlink an app from a NoOps SQL database
+```
+
+{{ blockEnd }}
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud unlink sqlite
+
+{{ tabs "cloud-plugin-version" }}
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud unlink sqlite --help
+Unlink an app from a NoOps SQL database
+
+USAGE:
+    spin cloud unlink sqlite [OPTIONS] --app <APP> <LABEL>
+
+ARGS:
+    <LABEL>    The name by which the application refers to the database
+
+OPTIONS:
+    -a, --app <APP>
+            The app that will be using the database
+
         --environment-name <environment-name>
             Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
             to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
