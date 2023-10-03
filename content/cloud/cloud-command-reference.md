@@ -945,7 +945,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite --help
 
-Manage Fermyon Cloud SQLite databases
+Manage Fermyon Cloud NoOps SQL databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1044,7 +1044,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete a SQLite database
+Delete a NoOps SQL database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1068,7 +1068,6 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
-
 
 {{ blockEnd }}
 
@@ -1255,7 +1254,6 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1343,7 +1341,6 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
-
 
 {{ blockEnd }}
 
@@ -1705,7 +1702,6 @@ SUBCOMMANDS:
 ```
 
 {{ blockEnd }}
-
 
 {{ blockEnd }}
 
