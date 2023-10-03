@@ -1,4 +1,4 @@
-title = "Key Value Store Tutorial"
+title = "Spin Key-Value Store"
 template = "spin_main"
 date = "2023-02-21T00:00:00Z"
 enable_shortcodes = true
