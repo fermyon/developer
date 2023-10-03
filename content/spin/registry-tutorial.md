@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-02-13T00:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/spin-oci.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/registry-tutorial.md"
 
 ---
 - [Spin Registry Support](#spin-registry-support)
