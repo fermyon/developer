@@ -1,4 +1,4 @@
-title = "Registry Tutorial"
+title = "Spin Apps in Registries"
 template = "spin_main"
 date = "2023-02-13T00:00:00Z"
 enable_shortcodes = true
