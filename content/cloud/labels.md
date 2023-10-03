@@ -16,7 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/labels.md"
 
 Spin applications are inherently ephermal resources; therefore, you don't necessarily want other Fermyon Cloud resources (such as NoOps SQL Databases) to share the exact same lifecycle. Furthermore, as you build and prototype your Spin application you may want to connect to other resources without necessarily having to recompile your application, but you still need some construct to explain the relationship between your Spin application and the other resource you need it to connect with. 
 
-This is where Fermyon Cloud `labels` are useful. `labels` are construct that allow developers to establish a relationship between a Spin application and it's dependent Fermyon Cloud resources while still preserving independent lifecycles for the respective resources. Application scoped, labels are an indirect reference to a named Fermyon Cloud resource that belongs to the user. Whenever that Spin application needs to access that resource, it will use the `label` as reference. The Spin application does not need to know the true name of the resource it's interacting with.   
+This is where Fermyon Cloud `labels` are useful. `labels` are construct that allow developers to establish a relationship between a Spin application and it's dependent Fermyon Cloud resources while still preserving independent lifecycles for the respective resources. `Labels` are application scoped and an indirect reference to a named Fermyon Cloud resource that belongs to the user. Whenever that Spin application needs to access that resource, it will use the `label` as reference. The Spin application does not need to know the true name of the resource it's interacting with. This also means a `label` is well understood by all the components within it's respective application, but it doesn't hold any significance to other applications. 
 
 > At this time, only NoOps SQL DB supports `labels`. However, in the future other Fermyon Cloud resources such as Key Value Store will support `labels` as well. 
 
@@ -57,7 +57,7 @@ Now you can see your Spin applications, their respective labels and their connec
 
 ## How To Delete A Label 
 
-Labels are application scoped, meaning they only hold significance to the application itself and are tied to 
+Unlike the Fermyon Cloud resources they're linked to, `labels` are tied to their applications' lifespan. The only way to remove a label currently is to delete the application its associated with. Deleting the application (and therefore implicitly deleting the label) has no impact on the storage resource itself. 
 
 ## Next Steps
 

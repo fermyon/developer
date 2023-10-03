@@ -29,7 +29,7 @@ The database in Fermyon Cloud is currently in private beta. To request access to
  
 > Please note that the private beta is limited in space, and all requests cannot be guaranteed. 
 
-Once you have access to the private beta, please ensure you have [Spin CLI](./cli-reference.md) v1.4 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) v0.1.2 or greater installed. 
+Once you have access to the private beta, please ensure you have [Spin CLI](./cli-reference.md) v1.4 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) v0.3.1 or greater installed. 
 
 ## Quotas And Service Limitations For the Database in Fermyon Cloud
 
@@ -40,15 +40,13 @@ Once you have access to the private beta, please ensure you have [Spin CLI](./cl
 *Service Limitations*
 * To run a SQL statement (for migration and schema creation), use the `spin cloud sqlite list` and `spin cloud sqlite execute` commands. The equivalent of `spin up --sqlite` for `spin deploy` does currently not exist in Cloud. [See this section for more info](#tables-and-data-in-fermyon-cloud).
 
-* Fermyon **Cloud** only supports databases named "default" at this time.
-
 ## Creating a New Spin Application
 
 If you already have a Spin application, you can skip this step. If you do not have a Spin application locally you will need to [create one](/spin/quickstart#create-your-first-application).
 
 ## Grant SQLite Permission
 
-To tell Spin that we want to use SQLite storage, we only need to [grant SQLite permission to a component in the application’s manifest](/spin/sqlite-api-guide#granting-sqlite-database-permissions-to-components) (the `spin.toml` file). For example:
+To tell Spin that we want to use SQLite storage, we only need to [grant SQLite permission to a component in the application’s manifest](/spin/sqlite-api-guide#granting-sqlite-database-permissions-to-components) (the `spin.toml` file) by supplying a [label](labels.md). For example:
 
 ```
 [component]
@@ -62,6 +60,14 @@ The new database file (`sqlite_db.db`) is created in your application's `.spin` 
 See [preparing an SQLite database](https://developer.fermyon.com/spin/sqlite-api-guide#preparing-an-sqlite-database) for more information on using the `spin up` subcommand's `--sqlite` option to create and populate tables locally. No **Cloud** database is created or changed as a result of using this this optional `spin up --sqlite` example. Populating this local database can be useful for testing (the relationship between your application's logic and your schema) before deploying your application to Fermyon Cloud.
 
 ## Tables and Data in Fermyon Cloud
+
+You have two options to create your database (both are equally valid):
+* Option A: Implicitly create a database via `spin cloud deploy`
+* Option B : Explicitly create a database via `spin cloud sqlite create` 
+
+Please skip to whatever step is relevant to you. 
+
+### Implicitly Create A Database Via `spin cloud deploy`
 
 When you first `spin cloud deploy` your application (with the `sqlite_databases` configuration, as shown above), Fermyon Cloud will create a new database for your Cloud application.
 
@@ -89,10 +95,29 @@ $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos 
 
 > Note: The Cloud database is completely unrelated to the local database, and must be prepared separately.
 
-## Creating a Label and Linking Your Database
+### Explicitly create a database via `spin cloud sqlite create`
 
-> TODO - this section needs to be filled out
+1. You can create your NoOps SQL DB using the following command:
 
+``<!-- @selectiveCpy -->
+
+```bash
+$ spin cloud sqlite create mydb
+```
+
+2. Run `spin cloud sqlite execute`, passing the name of the database and the SQL statement(s) needed to create your Cloud database's tables and initial data.
+
+> See the [SQLite documentation](https://www.sqlite.org/lang.html) for information about the SQLite dialect of SQL.
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin cloud sqlite execute mydb "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
+```
+
+> Note: The Cloud database is completely unrelated to the local database, and must be prepared separately.
+
+Now you can deploy your application and select `mydb` as the resource you
 ## Deleting the Cloud Database
 
 Warning: using the `delete` subcommand is **permanent**. 
