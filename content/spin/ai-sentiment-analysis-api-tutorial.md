@@ -1,4 +1,4 @@
-title = "AI Sentiment Analysis API Tutorial"
+title = "Sentiment Analysis With Serverless AI"
 template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
