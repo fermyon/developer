@@ -227,3 +227,20 @@ Spin does _not_ create libSQL databases.  Use your hosting service's tools to cr
 The `default` database will still be defined, even if you add other databases.
 
 By default, components will not have access to any of these databases (even the default one). You must grant each component access to the databases that it needs to use. To do this, use the `component.sqlite_databases` entry in the component manifest within `spin.toml`. See [SQLite Database](/spin/sqlite-api-guide.md) for more details. 
+
+### LLM Runtime Configuration
+
+Spin provides a Large Language Model interface for interacting with LLMs for inferencing and embedding. The default host implementation is to use local CPU/GPU compute. However, the Spin runtime configuration file (runtime-config.toml) can be updated to enable Spin to use remote compute using HTTP requests.
+
+The following is an example of how an application's `runtime-config.toml` file can be configured to use the remote compute option. Note the `type`, `url` and `auth_token` are set to `remote_http`, URL of the server and the auth token for the server. 
+
+```toml
+[llm_compute]
+type = "remote_http"
+url = "http://example.com"
+auth_token = "<auth_token>"
+```
+
+Currently, the remote compute option requires an user to deploy their own LLM proxy service. Fermyon Cloud users can do this using the [`cloud-gpu` plugin](https://github.com/fermyon/spin-cloud-gpu).  If you prefer to create and deploy your own proxy service, you can find a reference implementation of the proxy protocol in the [`spin-cloud-gpu plugin repository`](https://github.com/fermyon/spin-cloud-gpu/blob/main/fermyon-cloud-gpu/src/index.ts). 
+
+By default, componenets will not have access to the LLM models unless granted explicit access through the `component.ai_models` entry in the component manifest within `spin.toml`. See [Serverless AI](/spin/serverless-ai-api-guide) for more details.
