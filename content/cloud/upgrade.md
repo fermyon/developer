@@ -9,11 +9,12 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/upgrade.md"
 - [Upgrade Your Application](#upgrade-your-application)
 - [Next Steps](#next-steps)
 
-To upgrade your Spin application, there are just a few steps to take. This doesn’t require so much stress.
+Upgrading your application is as simple as redeploying after you've made changes to your application code or version.
 
 ## Upgrade Your Application
 
-To upgrade a Spin application running in the Fermyon Cloud, you first have to change the version of your application.
+When upgrading a Spin application running in the Fermyon Cloud, you may wish to change the version of your application
+when code changes have been made. This is an optional step.
 
 1. Open the `spin.toml` file. In the file, you’ll find this line of code for the version:
 
@@ -31,9 +32,8 @@ In this case, we're changing the version from `0.1.0` to `0.1.1`:
 version = "0.1.1"
 ```
 
-{{ details "Additional info" "Spin application are packaged using [Bindle](https://github.com/deislabs/bindle). Bindle ensures immutability, meaning you cannot overwrite a Bindle (name+version), once it has been uploaded to a Bindle server. /n/n `spin deploy` will fail if you try to redeploy a version of an application, which already exists in the Fermyon Cloud." }}
-
-You can now deploy the upgraded version of your application by running this command:
+Whether you've just updated your application code or also bumped the version, you can now deploy the upgraded version
+of your application by running this command:
 
 <!-- @selectiveCpy -->
 

@@ -323,7 +323,7 @@ This guide demonstrates the commands to run a Spin workload in Kubernetes. It sh
 
 ### Concepts
 
-Spin apps are bundled using either Bindle or OCI (as of Spin 0.8). These packages include the spin.toml file, and the wasm and static files which it references. While Kubernetes also uses OCI repositories, it expects the package to be in a container format.
+Spin apps are bundled using the OCI format. These packages include the spin.toml file, and the wasm and static files which it references. While Kubernetes also uses OCI repositories, it expects the package to be in a container format.
 
 The containerd shim for Spin allows Kubernetes to appropriately schedule Spin applications as long as they have been wrapped in a lightweight “scratch” container.
 
