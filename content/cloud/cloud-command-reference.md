@@ -23,6 +23,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud sqlite execute](#spin-cloud-sqlite-execute)
 - [spin cloud sqlite help](#spin-cloud-sqlite-help)
 - [spin cloud sqlite list](#spin-cloud-sqlite-list)
+- [spin cloud sqlite rename](#spin-cloud-sqlite-rename)
 - [spin cloud unlink](#spin-cloud-unlink)
 - [spin cloud unlink sqlite](#spin-cloud-unlink-sqlite)
 - [spin cloud variables](#spin-cloud-variables)
@@ -1393,6 +1394,34 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite help    
+
+Manage Fermyon Cloud NoOps SQL databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    create     Create a NoOps SQL database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all NoOps SQL databases of a user
+    rename     Rename a NoOps SQL database
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1453,6 +1482,85 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite list --help
+
+List all NoOps SQL databases of a user
+
+USAGE:
+    spin cloud sqlite list [OPTIONS]
+
+OPTIONS:
+    -a, --app <APP>
+            Filter list by an app
+
+    -d, --database <DATABASE>
+            Filter list by a database
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+        --format <FORMAT>
+            Format of list [default: table] [possible values: table, json]
+
+    -g, --group-by <GROUP_BY>
+            Grouping strategy of tabular list [default: app] [possible values: app, database]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud sqlite rename
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite rename --help
+
+Rename a NoOps SQL database
+
+USAGE:
+    spin cloud sqlite rename [OPTIONS] <NAME> <NEW_NAME>
+
+ARGS:
+    <NAME>        Current name of database to rename
+    <NEW_NAME>    New name for the database
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
