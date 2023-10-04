@@ -30,7 +30,12 @@ The string "data" is a **label** which will be used by the Spin application to r
 
 ```bash
 spin cloud deploy
-TODO: add link steps
+Uploading todo-v2 version 0.1.0-r88287985 to Fermyon Cloud...
+Deploying...
+App "todo-app" accesses a database labeled "data"
+Would you like to link an existing database or create a new database?: Use an existing database and link app to it
+Which database would you like to link to todo-v2 using the label "data": todo_data
+App "todo-app" accesses a database labeled "data"
 ```
 
 Let's kick things up a notch and deploy a second Spin application that will also use the todo_data database.
@@ -48,7 +53,12 @@ The second Spin application is using its own label, default.
 
 ```bash
 spin cloud deploy
-TODO: add link steps
+Uploading api-app version 0.1.0-r88287985 to Fermyon Cloud...
+Deploying...
+App "api-app" accesses a database labeled "default"
+Would you like to link an existing database or create a new database?: Use an existing database and link app to it
+Which database would you like to link to todo-v2 using the label "default": todo_data
+App "api-app" accesses a database labeled "data"
 ```
 
 Now we have two seperate Spin applications using their own labels can link to the same logical resource. 
@@ -93,10 +103,12 @@ Now you can see your Spin applications, their respective labels and their connec
 If you'd like to change your link while your Spin application is running, you can do so with the following command:
 
 ```bash
-spin cloud sqlite unlink 
+spin cloud sqlite unlink --app api-app default
 ```
 
-Once you delete your Spin application, you are deleting the link and label as well. This act has no impact on the NoOps SQL Database that was previously linked to the Spin application.
+Now we've successfully unlinked our api-app from default, which was referencing the todo_data database. 
+
+If you choose to delete your Spin application without unlinking, you are deleting the link and label as well. This act has no impact on the NoOps SQL Database that was previously linked to the Spin application.
 
 ## Next Steps
 

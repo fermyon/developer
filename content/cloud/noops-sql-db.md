@@ -121,6 +121,11 @@ Now you can deploy your application and select `mydb` as the resource you would 
 
 ```bash
 spin cloud deploy
+Deploying...
+App "todo" accesses a database labeled "default"
+Would you like to link an existing database or create a new database?: Use an existing database and link app to it
+Which database would you like to link to todo-v2 using the label "default": mydb
+App "todo" accesses a database labeled "default"
 ```
 
 ## Deleting the Cloud Database
