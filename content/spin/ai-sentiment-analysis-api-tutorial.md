@@ -44,7 +44,7 @@ In this tutorial we will:
 
 ### Spin 
 
-You will need to [install the latest version of Spin](install#installing-spin).Serverless AI is supported on Spin versions 1.5 and above. 
+You will need to [install the latest version of Spin](install#installing-spin). Serverless AI is supported on Spin versions 1.5 and above. 
 
 If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
 
@@ -805,7 +805,7 @@ source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v
 id = "ui"
 files = [ { source = "assets", destination = "/" } ]
 [component.trigger]
-route = "/static/..."
+route = "/..."
 
 [[component]]
 source = { url = "https://github.com/radu-matei/spin-kv-explorer/releases/download/v0.9.0/spin-kv-explorer.wasm", digest = "sha256:07f5f0b8514c14ae5830af0f21674fd28befee33cd7ca58bc0a68103829f2f9c" }
