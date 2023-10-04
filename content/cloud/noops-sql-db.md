@@ -117,7 +117,12 @@ $ spin cloud sqlite execute mydb "CREATE TABLE IF NOT EXISTS todos (id INTEGER P
 
 > Note: The Cloud database is completely unrelated to the local database, and must be prepared separately.
 
-Now you can deploy your application and select `mydb` as the resource you
+Now you can deploy your application and select `mydb` as the resource you would like to link your application to: 
+
+```bash
+spin cloud deploy
+```
+
 ## Deleting the Cloud Database
 
 Warning: using the `delete` subcommand is **permanent**. 
