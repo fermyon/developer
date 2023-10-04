@@ -813,8 +813,7 @@ route = "/internal/kv-explorer/..."
 **Note:** Running inferencing on localhost (your CPU) is not as optimal as deploying to Fermyon's Serverless AI (where inferencing is performed by high-powered GPUs). You can skip this `spin build --up` step and move straight to `spin cloud deploy` if you:
 
 - a) are using one of the 3 supported models above,
-- b) have configured your `spin.toml` file to explicitly configure the model (as shown above), and
-- c) have [signed up for the Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
+- b) have configured your `spin.toml` file to explicitly configure the model (as shown above)
 
 Now, let's build and run our Spin Application locally. (**Note:** If you are following along with the TypeScript/JavaScript example, you will first need to run `npm install`. Otherwise, please continue to the following `spin` command.)
 
@@ -837,7 +836,7 @@ $ curl -vXPOST 'localhost:3000/api/sentiment-analysis' -H'Content-Type: applicat
 
 ### Deploy to Fermyon Cloud
 
-To deploy your Serverless AI to Fermyon Cloud, you will first need to sign up for Fermyon's [Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
+Deploying to the Fermyon Cloud is one simple command. If you have not logged into your Fermyon Cloud account already, the CLI will prompt you to login. Follow the instructions to complete the authorization process.  
 
 <!-- @selectiveCpy -->
 
