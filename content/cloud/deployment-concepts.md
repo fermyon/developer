@@ -43,4 +43,3 @@ When you run the `spin cloud deploy` command, the following happens:
 With the release of the [Spin Cloud Plugin](https://developer.fermyon.com/cloud/cloud-command-reference) [v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.3.0), the deployment mechanism is OCI, not Bindle. 
 
 The Fermyon Cloud will soon stop supporting [Bindle](https://github.com/deislabs/bindle) for deploying Spin applications. It is highly recommended to start using OCI and the latest version of the Cloud Plugin.
-
