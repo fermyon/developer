@@ -1,9 +1,4 @@
-<<<<<<< HEAD:content/spin/serverless-ai-tutorial.md
-
-title = "Build a Sentiment Analysis API using Serverless AI Inferencing"
-=======
-title = "AI Sentiment Analysis API Tutorial"
->>>>>>> 1816af7 (Be consistent with page names, titles and menu):content/spin/ai-sentiment-analysis-api-tutorial.md
+title = "Sentiment Analysis With Serverless AI"
 template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
