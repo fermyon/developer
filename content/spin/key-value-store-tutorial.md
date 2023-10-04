@@ -1,9 +1,9 @@
-title = "Persistent Data Locally With Key Value Store"
+title = "Key Value Store Tutorial"
 template = "spin_main"
 date = "2023-02-21T00:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/kv-store-tutorial.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/key-value-store-tutorial.md"
 
 ---
 - [Key Value Store With Spin Applications](#key-value-store-with-spin-applications)

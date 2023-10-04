@@ -1,10 +1,14 @@
+<<<<<<< HEAD:content/spin/serverless-ai-tutorial.md
 
 title = "Build a Sentiment Analysis API using Serverless AI Inferencing"
+=======
+title = "AI Sentiment Analysis API Tutorial"
+>>>>>>> 1816af7 (Be consistent with page names, titles and menu):content/spin/ai-sentiment-analysis-api-tutorial.md
 template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-tutorial.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/ai-sentiment-analysis-api-tutorial.md"
 
 ---
 - [Tutorial Prerequisites](#tutorial-prerequisites)
