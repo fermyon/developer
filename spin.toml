@@ -194,39 +194,3 @@ route = "/hub/..."
 [component.build]
 workdir = "spin-up-hub"
 command = "npm run build"
-
-# Redirect /spin/spin-oci to /spin/registry-tutorial
-[[component]]
-id = "registry-tutorial"
-source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/registry-tutorial" }
-[component.trigger]
-route = "/spin/spin-oci"
-executor = { type = "wagi" }
-
-# Redirect /spin/url-shortener to /spin/url-shortener-tutorial
-[[component]]
-id = "url-shortener-tutorial"
-source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/url-shortener-tutorial" }
-[component.trigger]
-route = "/spin/url-shortener"
-executor = { type = "wagi" }
-
-# Redirect /spin/kv-store-tutorial to /spin/key-value-store-tutorial
-[[component]]
-id = "key-value-store-tutorial"
-source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/key-value-store-tutorial" }
-[component.trigger]
-route = "/spin/kv-store-tutorial"
-executor = { type = "wagi" }
-
-# Redirect /spin/serverless-ai-tutorial to /spin/ai-sentiment-analysis-api-tutorial
-[[component]]
-id = "ai-sentiment-analysis-api-tutorial"
-source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/ai-sentiment-analysis-api-tutorial" }
-[component.trigger]
-route = "/spin/serverless-ai-tutorial"
-executor = { type = "wagi" }

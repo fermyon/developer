@@ -1,4 +1,4 @@
-title = "Labels"
+title = "Linking Applications to Resources"
 template = "cloud_main"
 date = "2023-10-30T00:22:56Z"
 enable_shortcodes = true
@@ -6,39 +6,34 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/labels.md"
 
 ---
-- [Labels Overview](#labels-overview)
-- [Benefits of labels](#benefits-of-labels)
-- [How To Create A Label](#how-to-create-a-label)
-- [How to Delete A Label](#how-to-delete-a-label)
+- [Linking Applications to Resources](#linking-applications-to-resources)
+- [Benefits of Linking](#benefits-of-linking)
+- [Working With Links](#working-with-links)
 - [Next Steps](#next-steps) 
 
-# Labels Overview
+# Linking Applications to Resources
 
-Spin applications are inherently ephermal resources; therefore, you don't necessarily want other Fermyon Cloud resources (such as NoOps SQL Databases) to share the exact same lifecycle. Furthermore, as you build and prototype your Spin application you may want to connect to other resources without necessarily having to recompile your application, but you still need some construct to explain the relationship between your Spin application and the other resource you need it to connect with. 
+Spin applications are inherently ephemeral resources; therefore, state needs to be persisted in external stores such as NoOps SQL Databases. To do this, Spin applications need some way to refer to these external resources.  Furthermore, as you build and prototype your Spin application you may want to connect to other resources without necessarily having to recompile your application. As your workload grows into a large-scale distributed system, you will likely have multiple applications referring to the same logical resource via different names.
 
-This is where Fermyon Cloud `labels` are useful. `labels` are construct that allow developers to establish a relationship between a Spin application and it's dependent Fermyon Cloud resources while still preserving independent lifecycles for the respective resources. `Labels` are application scoped and an indirect reference to a named Fermyon Cloud resource that belongs to the user. Whenever that Spin application needs to access that resource, it will use the `label` as reference. The Spin application does not need to know the true name of the resource it's interacting with. This also means a `label` is well understood by all the components within it's respective application, but it doesn't hold any significance to other applications. 
+This is where Fermyon Cloud **labels** are useful. Labels are the construct that establishes a relationship between a Spin application and it's dependent Fermyon Cloud resources. Labels are application scoped and an indirect reference to a named Fermyon Cloud resource that belongs to the user. Whenever that Spin application needs to access that resource, it will use the label as reference. The Spin application does not need to know the true name of the resource it's interacting with. This also means a label is well understood by all the components within it's respective application, but it doesn't hold any significance to other applications. 
 
-> At this time, only NoOps SQL DB supports `labels`. However, in the future other Fermyon Cloud resources such as Key Value Store will support `labels` as well. 
+> At this time, only NoOps SQL DB supports labels. However, in the future other Fermyon Cloud resources such as Key Value Store will support labels as well. 
 
-## Benefits of Labels
+## Benefits of Linking
 
-Benefits of the Fermyon Clould `labels` include:
+Benefits of the Fermyon Clould links include:
 
 * **Easy Sharing**: Share your Fermyon Cloud resource across applications effortlessly.
 * **Resource Creation Control**: You decide when to create and delete Fermyon Cloud resources.
 * **Flexible Lifecycle Management**: Manage Fermyon Cloud resources independently of your Spin application.
 * **Seamless Cloud Integration**: Cloud experience smoothly integrates with local Spin development, no runtime configuration changes required. 
-* **Component Model Alignment**: Change the data resource your application points to without rebuilding it.
+* **Dynamic App Resource Configuration**: Change the data resource your application points to without rebuilding it.
 
-## How To Create A Label
+## Working With Links
 
-Labels can be created in two different manners, either within the component manifest in `spin.toml` or via `spin cloud` plugin via the `spin cloud link` command. Both approaches are equally valid. The path you choose most likely depends on whether your Spin application needs to be linked to the resource immediately at deployment time. If you know the exact topology of your workload, you'll likely include the label in the component manifest in your `spin.toml` at deployment time.
-
-On the other hand, if you're familiarizing yourself with Fermyon Cloud and interacting with these resources for the first time you may find yourself using `spin cloud link` instead. The `spin cloud link` command allows you to create a label once you already have a deployed Spin application and storage resource you'd like to connect to. 
+Labels can be created in two different manners, either within the component manifest in `spin.toml` or with the `spin cloud link` command. You'll likely include the label in the component manifest in your `spin.toml` at deployment time and be prompted to create the link during the deployment. Later, you can use `spin cloud link` to update which resource is linked to a Spin app.
 
 ![TODO - this is a rough PM diagram, needs design polish](../../static/image/labels-diagram.png)
-
-## How to View Existing Labels
 
 To see your existing labels, you will need to use the `spin cloud` plugin along with the subcommand of the resource you've linked to your Spin application via a label. For example, if you'd like to see the labels you created for your NoOps SQL DB resources, you'd run the following command:
 
@@ -53,11 +48,9 @@ $ spin cloud sqlite list
 +------+---------+--------------+
 ```
 
-Now you can see your Spin applications, their respective labels and their connected NoOps SQL Databases. In the example above, we have two unique applications that are sharing the same NoOps SQL Database instance. 
+Now you can see your Spin applications, their respective labels and their connected NoOps SQL Databases. In the example above, we have two unique Spin applications (todo and api) that are linked to the same NoOps SQL Database instance (amiable-kiwi) via their respective labels (default and hello). 
 
-## How To Delete A Label 
-
-Unlike the Fermyon Cloud resources they're linked to, `labels` are tied to their applications' lifespan. The only way to remove a label currently is to delete the application its associated with. Deleting the application (and therefore implicitly deleting the label) has no impact on the storage resource itself. 
+Unlike the Fermyon Cloud resources they're linked to, labels are tied to their applications' lifespan. The only way to remove a label currently is to delete the application its associated with. Deleting the application (and therefore implicitly deleting the label) has no impact on the storage resource itself. 
 
 ## Next Steps
 
