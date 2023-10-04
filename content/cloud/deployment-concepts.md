@@ -20,7 +20,7 @@ In this article, we describe the core technologies and concepts, which are part 
 
 ## OCI - the Open Container Initiative
 
-The [Fermyon Cloud Plugin for Spin](https://developer.fermyon.com/cloud/cloud-command-reference) uses the [OCI Image](https://github.com/opencontainers/image-spec) and [OCI Distribution](https://github.com/opencontainers/distribution-spec) Specifications to move applications to the Cloud. These use of these specifications enables the use of existing infrastructure to distribute applications between Spin and Fermyon Cloud.
+The [Fermyon Cloud Plugin for Spin](https://developer.fermyon.com/cloud/cloud-command-reference) uses the [OCI Image](https://github.com/opencontainers/image-spec) and [OCI Distribution](https://github.com/opencontainers/distribution-spec) Specifications to move applications to the Cloud. These specifications enables the use of existing infrastructure to distribute applications between Spin and Fermyon Cloud.
 
 It's important to note that Spin applications deployed using the Cloud Plugin, are not, however, compatible with being run by an [OCI runtime](https://github.com/opencontainers/runtime-spec) compatible runtime, like [runc](https://github.com/opencontainers/runc). If you want to explore running Spin applications using a container runtime, you can do so using [`containerd` and `runwasi`](https://github.com/containerd/runwasi).
 
@@ -31,7 +31,7 @@ It's important to note that Spin applications deployed using the Cloud Plugin, a
 When you run the `spin cloud deploy` command, the following happens:
 
 1. Packaging the application and uploading it to the Fermyon Cloud
-  - The first step in deploying an application is to package all the files using the OCI specification. The Cloud Plugin will create individual layers for the files that make up the application, to optimize changes to applications on subsequent packaging and deployment.
+  - The first step in deploying an application is to package all the files using the OCI specification. 
   - Following packaging, the image will be uploaded to an OCI compatible registry in the Fermyon Cloud.
 2. Creating or upgrading an application
   - An application is upgraded if the application name, as defined in `spin.toml`, already exists in your Fermyon Cloud account.
@@ -40,14 +40,7 @@ When you run the `spin cloud deploy` command, the following happens:
 
 ## Deprecating Bindle - An Aggregate Object Storage System
 
-With the release of the [Spin Cloud Plugin](https://developer.fermyon.com/cloud/cloud-command-reference) [v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.3.0), the default deployment mechanism is OCI, not Bindle. The Fermyon Cloud still supports using [Bindle](https://github.com/deislabs/bindle) to package and distribute Spin applications. You can use a Cloud Plugin version [v0.2.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.2.0) to keep using Bindle, however, it's not guaranteed that all features of the version of the plugin will be compatible with other operations in the Cloud.
+With the release of the [Spin Cloud Plugin](https://developer.fermyon.com/cloud/cloud-command-reference) [v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.3.0), the deployment mechanism is OCI, not Bindle. 
 
-Bindle is an open-source project, built and maintained by Deis Labs. 
-Bindle is very well documented, so we will not go into details of how Bindle works, other than calling out a few core features of the system here:
+The Fermyon Cloud will soon stop supporting [Bindle](https://github.com/deislabs/bindle) for deploying Spin applications. It is highly recommended to start using OCI and the latest version of the Cloud Plugin.
 
-- A bindle refers to the combined package, which always contains:
-  - An invoice: A file with the bindles name, description, and a list of parcel manifests.
-  - One or more parcels: The individual data components in the package.
-- Bindles are immutable and cannot be overwritten.
-  - Once a bindle is put into a bindle hub (the server), it cannot be changed, nor can it be deleted.
-- Bindles can use semantic versioning [SemVer](https://semver.org) as part of their names.
