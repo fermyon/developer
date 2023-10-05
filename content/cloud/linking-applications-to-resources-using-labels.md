@@ -98,7 +98,7 @@ Which database would you like to link to todo-app-v2 using the label "default":
 
 In the example here we have chosen to link `todo-app-v2` to our pre-existing `inspiring-otter` Cloud database using via the "default" label, that we added to our `todo-app-v2` application manifest (`spin.toml`) file.
 
-Now we have two seperate Spin applications (`todo-app` and `todo-app-v2`) using their own labels to link to the same database. 
+Now we have two separate Spin applications (`todo-app` and `todo-app-v2`) using their own labels to link to the same database. 
 
 Links and labels are application scoped. Whenever a specific Spin application (say `todo-app`) needs to access the database resource (`inspiring-otter`), it will do so via the label "data".
 
