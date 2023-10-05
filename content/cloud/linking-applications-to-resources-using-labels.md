@@ -122,7 +122,7 @@ The benefits of using labels and Fermyon Cloud links include:
 
 Whenever you add a string to your NoOps SQL database entry in the component manifest, you're creating a label. When you deploy your Spin application to Fermyon Cloud, you will be prompted to link the label to a specific NoOps SQL database instance. Later on, if you'd like to update the link you can do so via the `spin cloud link` command. 
 
-To see your existing labels, you will need to use the `spin cloud` plugin along with the subcommand of the resource you've linked your Spin application to (via a label). For example, if you would like to see the labels you created for your NoOps SQL DB resources, you would run the following command:
+To see your existing labels, run the `spin cloud <resource-type> list` command, where `<resource-type>` is the subcommand for the resource whose links you want to see. For example, if you want to see how your applications and your NoOps SQL databases are linked, run the following command:
 
 ```bash
 $ spin cloud sqlite list
