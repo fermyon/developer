@@ -48,7 +48,7 @@ Would you like to link an existing database or create a new database?:
   Create a new database and link the app to it
 ```
 
-At this point the `spin deploy` command asks us which database we would like to link to our `todo-app` using the label "data" (which we configured in our `spin.toml` file above):
+Since we chose to link to an existing database, `spin deploy` asks us which database we would like to link this app's "data" label to:
 
 ```bash
 Which database would you like to link to todo-app using the label "data":
