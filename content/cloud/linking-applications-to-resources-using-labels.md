@@ -108,7 +108,7 @@ A label is understood by all the components within a single application, but the
 
 > At this time, only NoOps SQL DB supports labels. However, in the future other Fermyon Cloud resources such as Key Value Store will support links and labels as well. 
 
-## Benefits of Links and Labels
+## Features of Links and Labels
 
 The benefits of using labels and Fermyon Cloud links include:
 
