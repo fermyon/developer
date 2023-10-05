@@ -746,7 +746,7 @@ USAGE:
 
 OPTIONS:
         --build
-            Specifies to perform `spin build` before deploying the application [env:
+            For local apps, specifies to perform `spin build` before deploying the application [env:
             SPIN_ALWAYS_BUILD=]
 
         --buildinfo <BUILDINFO>
@@ -756,9 +756,10 @@ OPTIONS:
             Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
             to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
 
-    -f, --from <APP_MANIFEST_FILE>
-            The application to deploy. This may be a manifest (spin.toml) file, or a directory
-            containing a spin.toml file. If omitted, it defaults to "spin.toml" [default: spin.toml]
+    -f, --from <APPLICATION>
+            The application to deploy. This may be a manifest (spin.toml) file, a directory
+            containing a spin.toml file, or a remote registry reference. If omitted, it defaults to
+            "spin.toml"
 
     -h, --help
             Print help information
