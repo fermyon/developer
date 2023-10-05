@@ -13,6 +13,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/noops-sql-db
 - [Grant SQLite Permission](#grant-sqlite-permission)
 - [Managing Your Local Spin Database Schema](#managing-your-local-spin-database-schema)
 - [Tables and Data in Fermyon Cloud](#tables-and-data-in-fermyon-cloud)
+  - [Implicitly Create A Database Via `spin cloud deploy`](#implicitly-create-a-database-via-spin-cloud-deploy)
+  - [Explicitly Create A Database Via `spin cloud sqlite create`](#explicitly-create-a-database-via-spin-cloud-sqlite-create)
 - [Deleting the Cloud Database](#deleting-the-cloud-database)
 - [FAQ](#faq)
 - [Next Steps](#next-steps)
@@ -95,7 +97,7 @@ $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos 
 
 > Note: The Cloud database is completely unrelated to the local database, and must be prepared separately.
 
-### Explicitly create a database via `spin cloud sqlite create`
+### Explicitly Create A Database Via `spin cloud sqlite create`
 
 1. You can create your NoOps SQL DB using the following command:
 

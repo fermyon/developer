@@ -1524,7 +1524,6 @@ OPTIONS:
 
 {{ blockEnd }}
 
-
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud sqlite rename
 
