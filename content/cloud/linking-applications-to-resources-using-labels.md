@@ -92,7 +92,7 @@ Would you like to link an existing database or create a new database?:
 We again use the up/down arrow keys to make our selection and hit `return` to continue:
 
 ```bash
-Which database would you like to link to todo-app-mkii using the label "default":
+Which database would you like to link to todo-app-v2 using the label "default":
 > inspiring-otter
 ```
 
