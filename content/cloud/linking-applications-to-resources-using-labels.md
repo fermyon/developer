@@ -114,7 +114,7 @@ Benefits of the Fermyon Clould links and labels include:
 
 * **Easy Sharing**: Share your Fermyon Cloud resource across applications effortlessly.
 * **Resource Creation Control**: You decide when to create and delete Fermyon Cloud resources.
-* **Flexible Lifecycle Management**: Manage Fermyon Cloud resources independently of your Spin application.
+* **Decoupled Resource Lifecycle**: Allow Fermyon Cloud resources to have lifecycles independent of your Spin application's lifecycle.
 * **Seamless Cloud Integration**: Cloud experience smoothly integrates with local Spin development, no runtime configuration changes required. 
 * **Dynamic App Resource Configuration**: Change the data resource your application points to without rebuilding it.
 
