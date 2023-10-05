@@ -87,7 +87,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
     return {
             status: 200,
             headers: {"content-type":"text/plain"},
-            body: store.get("mykey")
+            body: store.get("mykey") ?? encoder.encode("Key not found")
     }
 }
 

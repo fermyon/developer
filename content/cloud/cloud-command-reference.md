@@ -10,6 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud](#spin-cloud)
 - [spin cloud apps](#spin-cloud-apps)
 - [spin cloud apps delete](#spin-cloud-apps-delete)
+- [spin cloud apps info](#spin-cloud-apps-info)
 - [spin cloud apps list](#spin-cloud-apps-list)
 - [spin cloud deploy](#spin-cloud-deploy)
 - [spin cloud help](#spin-cloud-help)
@@ -22,6 +23,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud sqlite execute](#spin-cloud-sqlite-execute)
 - [spin cloud sqlite help](#spin-cloud-sqlite-help)
 - [spin cloud sqlite list](#spin-cloud-sqlite-list)
+- [spin cloud sqlite rename](#spin-cloud-sqlite-rename)
 - [spin cloud unlink](#spin-cloud-unlink)
 - [spin cloud unlink sqlite](#spin-cloud-unlink-sqlite)
 - [spin cloud variables](#spin-cloud-variables)
@@ -116,6 +118,32 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud --help
+
+USAGE:
+    spin cloud <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    apps         Manage applications deployed to Fermyon Cloud
+    deploy       Package and upload an application to the Fermyon Cloud
+    help         Print this message or the help of the given subcommand(s)
+    login        Login to Fermyon Cloud
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
+    variables    Manage Spin application variables
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -148,6 +176,33 @@ SUBCOMMANDS:
 ```
 
 {{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud apps --help
+
+Manage applications deployed to Fermyon Cloud
+
+USAGE:
+    spin cloud apps <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete an app deployed in Fermyon Cloud
+    help      Print this message or the help of the given subcommand(s)
+    info      Get details about a deployed app in Fermyon Cloud
+    list      List all the apps deployed in Fermyon Cloud
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -185,6 +240,73 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud apps delete --help
+
+Delete an app deployed in Fermyon Cloud
+
+USAGE:
+    spin cloud apps delete [OPTIONS] <APP>
+
+ARGS:
+    <APP>    Name of Spin app
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud apps info
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud apps info --help
+Get details about a deployed app in Fermyon Cloud
+
+USAGE:
+    spin cloud apps info [OPTIONS] <APP>
+
+ARGS:
+    <APP>    Name of Spin app
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -218,6 +340,34 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud apps list --help
+
+List all the apps deployed in Fermyon Cloud
+
+USAGE:
+    spin cloud apps list [OPTIONS]
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -390,6 +540,59 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud deploy --help
+
+Package and upload an application to the Fermyon Cloud
+
+USAGE:
+    spin cloud deploy [OPTIONS]
+
+OPTIONS:
+        --build
+            Specifies to perform `spin build` before deploying the application [env:
+            SPIN_ALWAYS_BUILD=]
+
+        --buildinfo <BUILDINFO>
+            Build metadata to append to the oci tag
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -f, --from <APP_MANIFEST_FILE>
+            The application to deploy. This may be a manifest (spin.toml) file, or a directory
+            containing a spin.toml file. If omitted, it defaults to "spin.toml" [default: spin.toml]
+
+    -h, --help
+            Print help information
+
+        --key-value <KEY_VALUES>
+            Set a key/value pair (key=value) in the deployed application's default store. Any
+            existing value will be overwritten. Can be used multiple times
+
+        --no-buildinfo
+            Disable attaching buildinfo [env: SPIN_DEPLOY_NO_BUILDINFO=]
+
+        --readiness-timeout <READINESS_TIMEOUT_SECS>
+            How long in seconds to wait for a deployed HTTP application to become ready. The default
+            is 60 seconds. Set it to 0 to skip waiting for readiness [default: 60]
+
+    -V, --version
+            Print version information
+
+        --variable <VARIABLES>
+            Set a variable (variable=value) in the deployed application. Any existing value will be
+            overwritten. Can be used multiple times
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -445,6 +648,32 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 {{ startTab "v0.2.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud help
+
+USAGE:
+    spin cloud <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    apps         Manage applications deployed to Fermyon Cloud
+    deploy       Package and upload an application to the Fermyon Cloud
+    help         Print this message or the help of the given subcommand(s)
+    login        Login to Fermyon Cloud
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
+    variables    Manage Spin application variables
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
 
 Spin compatibility: `>= v1.3`
 
@@ -683,6 +912,50 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud login --help
+
+USAGE:
+    spin cloud login [OPTIONS]
+
+OPTIONS:
+        --auth-method <auth-method>
+            [env: AUTH_METHOD=] [possible values: github, token]
+
+        --environment-name <environment-name>
+            Save the login details under the specified name instead of making them the default. Use
+            named environments with `spin deploy --environment-name <name>` [env:
+            FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -k, --insecure
+            Ignore server certificate errors
+
+        --list
+            List saved logins
+
+        --status
+            Display login status
+
+        --token <TOKEN>
+            Auth Token [env: SPIN_AUTH_TOKEN=]
+
+        --url <CLOUD_SERVER_URL>
+            URL of Fermyon Cloud Instance [env: CLOUD_URL=] [default: https://cloud.fermyon.com/]
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -725,6 +998,31 @@ Spin compatibility: `>= v1.3`
 $ spin cloud sqlite --help
 
 Manage Fermyon Cloud SQLite databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all NoOps SQL databases of a user
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite --help
+
+Manage Fermyon Cloud NoOps SQL databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -878,6 +1176,39 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite delete --help
+
+Delete a NoOps SQL database
+
+USAGE:
+    spin cloud sqlite delete [OPTIONS] <NAME>
+
+ARGS:
+    <NAME>    Name of database to delete
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+
+    -y, --yes
+            Skips prompt to confirm deletion of database
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -925,6 +1256,37 @@ Spin compatibility: `>= v1.3`
 $ spin cloud sqlite execute --help
 
 Execute SQL against a SQLite database
+
+USAGE:
+    spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
+
+ARGS:
+    <NAME>         Name of database to execute against
+    <STATEMENT>    Statement to execute
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite execute --help
+
+Execute SQLite statements against a NoOps SQL database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1006,6 +1368,60 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite help    
+
+Manage Fermyon Cloud NoOps SQL databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all NoOps SQL databases of a user
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite help    
+
+Manage Fermyon Cloud NoOps SQL databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    create     Create a NoOps SQL database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all NoOps SQL databases of a user
+    rename     Rename a NoOps SQL database
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1066,6 +1482,85 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite list --help
+
+List all NoOps SQL databases of a user
+
+USAGE:
+    spin cloud sqlite list [OPTIONS]
+
+OPTIONS:
+    -a, --app <APP>
+            Filter list by an app
+
+    -d, --database <DATABASE>
+            Filter list by a database
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+        --format <FORMAT>
+            Format of list [default: table] [possible values: table, json]
+
+    -g, --group-by <GROUP_BY>
+            Grouping strategy of tabular list [default: app] [possible values: app, database]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud sqlite rename
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite rename --help
+
+Rename a NoOps SQL database
+
+USAGE:
+    spin cloud sqlite rename [OPTIONS] <NAME> <NEW_NAME>
+
+ARGS:
+    <NAME>        Current name of database to rename
+    <NEW_NAME>    New name for the database
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1119,6 +1614,33 @@ OPTIONS:
     -a, --app <APP>
             The app that will be using the database
 
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite list --help
+
+List all NoOps SQL databases of a user
+
+USAGE:
+    spin cloud sqlite list [OPTIONS]
+
+OPTIONS:
         --environment-name <environment-name>
             Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
             to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
@@ -1192,6 +1714,32 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 {{ startTab "v0.2.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables --help
+
+Manage Spin application variables
+
+USAGE:
+    spin cloud variables <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete variables
+    help      Print this message or the help of the given subcommand(s)
+    list      List all variables of an application
+    set       Set variables
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
 
 Spin compatibility: `>= v1.3`
 
@@ -1323,6 +1871,39 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables delete --help
+
+Delete variables
+
+USAGE:
+    spin cloud variables delete [OPTIONS] --app <app> [VARIABLES_TO_DELETE]...
+
+ARGS:
+    <VARIABLES_TO_DELETE>...    Variable pair to set
+
+OPTIONS:
+        --app <app>
+            Name of Spin app
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1383,6 +1964,32 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 {{ startTab "v0.2.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables help
+
+Manage Spin application variables
+
+USAGE:
+    spin cloud variables <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete variables
+    help      Print this message or the help of the given subcommand(s)
+    list      List all variables of an application
+    set       Set variables
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
 
 Spin compatibility: `>= v1.3`
 
@@ -1476,6 +2083,36 @@ OPTIONS:
 {{ blockEnd }}
 
 {{ startTab "v0.2.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables list --help
+
+List all variables of an application
+
+USAGE:
+    spin cloud variables list [OPTIONS] --app <app>
+
+OPTIONS:
+        --app <app>
+            Name of Spin app
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
 
 Spin compatibility: `>= v1.3`
 
@@ -1611,6 +2248,39 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables set --help
+
+Set variables
+
+USAGE:
+    spin cloud variables set [OPTIONS] --app <app> [VARIABLES_TO_SET]...
+
+ARGS:
+    <VARIABLES_TO_SET>...    Variable pair to set
+
+OPTIONS:
+        --app <app>
+            Name of Spin app
+
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ## Subcommand Stability Table
@@ -1650,6 +2320,20 @@ Spin compatibility: `>= v1.3`
 {{ blockEnd }}
 
 {{ startTab "v0.2.0"}}
+
+Spin compatibility: `>= v1.3`
+
+| Command                                                    | Stability   |
+| ---------------------------------------------------------- | ----------- |
+| <code>cloud apps</code>                                    | Stabilizing |
+| <code>cloud deploy</code>                                  | Stabilizing |
+| <code>cloud login</code>                                   | Stabilizing |
+| <code>cloud sqlite</code>                                  | Stabilizing |
+| <code>cloud variables</code>                               | Stabilizing |
+
+{{ blockEnd }}
+
+{{ startTab "v0.3.0"}}
 
 Spin compatibility: `>= v1.3`
 
