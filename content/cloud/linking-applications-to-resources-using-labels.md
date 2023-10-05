@@ -32,7 +32,7 @@ sqlite_databases = ["data"]
 // --snip--
 ```
 
-The string "data" is a **label** that will be used by the Spin application to reference the NoOps SQL Database. At application deployment time, we get a couple of choices from the `spin` command:
+The string "data" is the **label** that the Spin application uses to reference the NoOps SQL Database. At application deployment time, we have to make a decision about how to map that label to an actual database.  The `spin cloud deploy` command gives us a couple of choices:
 - Use an existing database and link app to it
 - Create a new database and link the app to it
 
