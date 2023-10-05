@@ -52,7 +52,8 @@ Since we chose to link to an existing database, `spin deploy` asks us which data
 
 ```bash
 Which database would you like to link to todo-app using the label "data":
-> inspiring-otter
+  finance
+> projects
 ```
 
 > Note: The database names are arbitrary and created on our behalf. In this case `inspiring-otter` is our Cloud database. We are linking the `inspiring-otter` database to our `todo-app` using the label "data".
