@@ -11,7 +11,15 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/linking-appl
 - [Working With Links and Labels](#working-with-links-and-labels)
 - [Next Steps](#next-steps)
 
-Spin applications are inherently ephemeral resources; therefore, the state of an application needs to be persisted in external stores such as NoOps SQL Databases. To do this, Spin applications need a way to refer to these external resources. As your workload grows into a distributed system, you will likely have multiple applications connecting to the same NoOps SQL Database with different names as they don't necessarily know or need to care about the terms used by the other.
+Many Spin applications require data storage between invocations. Fermyon Cloud offers two methods for this: key-value storage and NoOps SQL databases. However, the relationship between applications and databases isn't strictly one-to-one. A single database might be used by multiple applications, while an application could utilize several databases. There might even be a need to maintain a database that isn't utilized by any applications, perhaps for analytics or compliance reasons. All of these scenarios can occur as applications are independently deployed, upgraded, and retired, without any particular application needing to be aware of how others might be using the same databases.
+
+To facilitate the seamless transition of applications between different environments, such as from a local development environment to Fermyon Cloud, Spin applications don't reference databases by their physical location, like a connection string. Instead, they use a label. A label is an abstract identifier, such as "default," "user-accounts," or "transactions." The environment determines how this label is mapped to a physical database.
+
+In the Spin development environment, that mapping is handled by the [runtime configuration file](/spin/dynamic-configuration#runtime-configuration).  In Fermyon Cloud, it's managed through _links_.
+
+> Link management is currently available only for NoOps SQL databases. Fermyon Cloud currently allows applications only the "default" key-value store, which is private to the application and shares the application's lifespan. Key-value link management is planned for a future release of Fermyon Cloud.
+
+This may sound abstract, so let's walk through a specific example:
 
 This is where Fermyon Cloud **links** and **labels** are helpful. As a Spin application developer, you provide a label whenever you fill out the name for a NoOps SQL database in the component manifest. Let's walk through a specific example together:
 
