@@ -144,7 +144,7 @@ spin cloud sqlite unlink --app todo-app data
 
 Now we've successfully unlinked our `todo-app` from the `inspiring-otter` database. 
 
-If you choose to delete your Spin application without unlinking, you are deleting the link and label as well. This act has no impact on the NoOps SQL Database that was previously linked to the Spin application.
+If you delete a Fermyon Cloud application, it removes any links associated with the application, but does not delete the linked database.
 
 ## Next Steps
 
