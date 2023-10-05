@@ -110,7 +110,7 @@ A label is understood by all the components within a single application, but the
 
 ## Benefits of Links and Labels
 
-Benefits of the Fermyon Clould links and labels include:
+The benefits of using labels and Fermyon Cloud links include:
 
 * **Easy Sharing**: Share your Fermyon Cloud resource across applications effortlessly.
 * **Resource Creation Control**: You decide when to create and delete Fermyon Cloud resources.
