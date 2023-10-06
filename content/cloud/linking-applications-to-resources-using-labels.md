@@ -142,7 +142,7 @@ Though not recommended, if you'd like to unlink your resource while your Spin ap
 spin cloud sqlite unlink --app todo-app data
 ```
 
-Now we've successfully unlinked our `todo-app` from the `inspiring-otter` database. 
+Now we've successfully unlinked our `todo-app` from the `projects` database. 
 
 If you delete a Fermyon Cloud application, it removes any links associated with the application, but does not delete the linked database.
 
