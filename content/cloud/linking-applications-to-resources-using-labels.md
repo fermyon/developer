@@ -21,7 +21,6 @@ In the Spin development environment, that mapping is handled by the [runtime con
 
 This may sound abstract, so let's walk through a specific example:
 
-
 ```toml
 // --snip--
 name = "todo-app"
