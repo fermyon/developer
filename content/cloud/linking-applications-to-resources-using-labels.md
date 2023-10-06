@@ -96,7 +96,7 @@ Which database would you like to link to todo-app-v2 using the label "default":
 > projects
 ```
 
-In the example here we have chosen to link `todo-app-v2` to our pre-existing `inspiring-otter` Cloud database using via the "default" label, that we added to our `todo-app-v2` application manifest (`spin.toml`) file.
+In the example here we have chosen to link `todo-app-v2` to our pre-existing `projects` Cloud database using via the "default" label, that we added to our `todo-app-v2` application manifest (`spin.toml`) file.
 
 Now we have two separate Spin applications (`todo-app` and `todo-app-v2`) using their own labels to link to the same database. 
 
