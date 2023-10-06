@@ -48,7 +48,7 @@ Traffic routing is done using [Traefik](https://doc.traefik.io/), which ensures 
 
 ### Application Packaging and Distribution
 
-To package and distribute application to and within the cloud, we rely on Bindle. For more information about deployment concepts in the Fermyon Cloud, see [here](deployment-concepts).
+To package and distribute applications to and within the cloud, we rely on an OCI Registry. For more information about deployment concepts in the Fermyon Cloud, see [here](deployment-concepts).
 
 ### Database Storage
 
