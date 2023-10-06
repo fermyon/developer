@@ -130,7 +130,7 @@ $ spin cloud sqlite list
 | App                          Label     Database        |
 +========================================================+
 | todo-app                     data      projects        |
-| todo-app-v2                  default   inspiring-otter |
+| todo-app-v2                  default   projects        |
 +--------------------------------------------------------+
 ```
 
