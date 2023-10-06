@@ -102,7 +102,7 @@ Now we have two separate Spin applications (`todo-app` and `todo-app-v2`) using 
 
 Links and labels are application scoped. Whenever a specific Spin application (say `todo-app`) needs to access the database resource (`projects`), it will do so via the label "data".
 
-The Spin application does not need to know the true name of the Cloud resource (`inspiring-otter` database) that it is interacting with. 
+The Spin application does not need to know the true name of the Cloud resource (`projects` database) that it is interacting with. 
 
 A label is understood by all the components within a single application, but the labels applied do not hold any significance to other Spin applications. 
 
