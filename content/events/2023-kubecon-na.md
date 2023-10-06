@@ -1,12 +1,12 @@
-title = "The AI Conference 2023"
+title = "KubeCon CloudNativeCon NA 2023"
 date = "2023-09-05T17:00:00Z"
-description = "Join us along with AI experts and researchers. Whether you're a student, professional, entrepreneur, or just an enthusiast, we would love to meet you! Drop by our booth so we can get to know each other, learn about what we are working on, and you can grab some swag. AI is an amazing emerging field and this could be a monumental step in your professional development. See you there!"
+description = "Join us as we all gain unparalleled insights into Kubernetes and cloud-native technologies. This will be a melting pot of information and ideas. Visit us at our booth so we can discuss how you can use Spin and Fermyon as part of your cutting edge ideas and solutions in the evolving cloud-native landscape."
 
 [extra]
 type = "event"
-eventdates = "Sept 26-27 - San Francisco, California"
-eventexpires = "2023-09-28T01:01:01Z"
-url = "https://aiconference.com/"
+eventdates = "Nov 6-9 - Chicago, Illinois"
+eventexpires = "2023-11-10T01:01:01Z"
+url = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
 image = "static/image/avatar.png"
 
 ---
