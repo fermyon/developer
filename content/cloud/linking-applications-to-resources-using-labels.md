@@ -56,7 +56,7 @@ Which database would you like to link to todo-app using the label "data":
 > projects
 ```
 
-> Note: The database names are arbitrary and created on our behalf. In this case `inspiring-otter` is our Cloud database. We are linking the `inspiring-otter` database to our `todo-app` using the label "data".
+> Note: When Fermyon Cloud creates a new databases, it gives it an arbitrary name such as `inspiring-otter`. You can rename databases to give them more memorable names. In the example above, our databases have been renamed for `finance` and `projects`.
 
 From this point, we see that our app is deploying and once finished we receive our deployed application's URL endpoint:
 
