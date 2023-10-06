@@ -1,6 +1,6 @@
 title = "Linking Applications to Resources Using Labels"
 template = "cloud_main"
-date = "2023-10-30T00:22:56Z"
+date = "2023-09-30T00:22:56Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/linking-applications-to-resources-using-labels.md"
