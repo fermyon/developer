@@ -21,7 +21,6 @@ In the Spin development environment, that mapping is handled by the [runtime con
 
 This may sound abstract, so let's walk through a specific example:
 
-This is where Fermyon Cloud **links** and **labels** are helpful. As a Spin application developer, you provide a label whenever you fill out the name for a NoOps SQL database in the component manifest. Let's walk through a specific example together:
 
 ```toml
 // --snip--
