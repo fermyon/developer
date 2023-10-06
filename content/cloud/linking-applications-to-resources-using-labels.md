@@ -92,7 +92,8 @@ We again use the up/down arrow keys to make our selection and hit `return` to co
 
 ```bash
 Which database would you like to link to todo-app-v2 using the label "default":
-> inspiring-otter
+  finance
+> projects
 ```
 
 In the example here we have chosen to link `todo-app-v2` to our pre-existing `inspiring-otter` Cloud database using via the "default" label, that we added to our `todo-app-v2` application manifest (`spin.toml`) file.
