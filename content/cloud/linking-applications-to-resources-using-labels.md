@@ -36,7 +36,7 @@ The string "data" is the **label** that the Spin application uses to reference t
 - Use an existing database and link app to it
 - Create a new database and link the app to it
 
-In this example below, we are going to **link** the app to a specific NoOps SQL Database instance using the label. To do this, we choose the first option (that `spin deploy` gives us). We make our selection by using the up/down arrow keys and then `return` to continue:
+In this example below, we are going to **link** the app to an existing NoOps SQL Database instance using the label. To do this, we choose the first option (that `spin deploy` gives us). We make our selection by using the up/down arrow keys and then `return` to continue:
 
 ```bash
 spin deploy
