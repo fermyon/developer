@@ -136,7 +136,7 @@ $ spin cloud sqlite list
 
 Now you can see your Spin applications, their respective labels and their connected NoOps SQL Databases.
 
-If you'd like to change your link while your Spin application is running, you can do so with the following command:
+Though not recommended, if you'd like to unlink your resource while your Spin application is running, you can do so with the following command:
 
 ```bash
 spin cloud sqlite unlink --app todo-app data
