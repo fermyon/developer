@@ -168,15 +168,15 @@ tree .spin
     └── codellama-instruct
 ```
 
-**all-minikm-16-v2 example download**
+**all-minilm-l6-v2 example download**
 
 The following section fetches a specific version of the [sentence-transformers](https://www.sbert.net/index.html#) model:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ mkdir -p .spin/ai-models/all-minikm-16-v2
-$ cd .spin/ai-models/all-minikm-16-v2
+$ mkdir -p .spin/ai-models/all-minilm-l6-v2
+$ cd .spin/ai-models/all-minilm-l6-v2
 $ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/tokenizer.json
 $ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/0b6dc4ef7c29dba0d2e99a5db0c855c3102310d8/model.safetensors
 ```
@@ -187,7 +187,7 @@ $ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/0b6
 tree .spin
 .spin
 └── ai-models
-    └── all-minikm-16-v2
+    └── all-minilm-l6-v2
         ├── model.safetensors
         └── tokenizer.json
 ```
