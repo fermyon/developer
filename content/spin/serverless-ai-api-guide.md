@@ -144,7 +144,26 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-The Python SDK doesn't currently surface the Serverless AI API. 
+```python
+from spin_http import Response
+from spin_llm import llm_infer
+
+
+def handle_request(request):
+    prompt="You are a stand up comedy writer. Tell me a joke."
+    result=llm_infer("llama2-chat", prompt)
+    return Response(200,
+                    {"content-type": "text/plain"},
+                    bytes(result.text, "utf-8"))
+```
+
+**General Notes**
+
+`llm_infer` operation:
+
+- It takes in the following arguments - model name and `prompt`. 
+- The model name is passed in as a string (as shown above; `"llama2-chat"`).
+- The return value is a `string`.
 
 {{ blockEnd }}
 

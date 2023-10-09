@@ -38,7 +38,7 @@ In this tutorial we will:
 
 * Update Spin (and dependencies) on your local machine
 * Create a Serverless AI application
-* Learn about the Serverless AI SDK (in Rust and TypeScript)
+* Learn about the Serverless AI SDK (in Rust, TypeScript and Python)
 
 ## Tutorial Prerequisites
 
@@ -50,12 +50,24 @@ If you already have Spin installed, [check what version you are on and upgrade](
 
 ### Dependencies
 
-The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). However, some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, please ensure you have the latest TypeScript/JavaScript template installed:
+The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). However, some of the Serverless AI examples are written using TypeScript/Javascript and Python. To enable Serverless AI functionality via TypeScript/Javascript and Python, please ensure you have the latest TypeScript/JavaScript and Python template installed:
+
+**TypeScript/Javascript**
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
+```
+
+**Python**
+
+Some of the Serverless AI examples are written using Python. To enable Serverless AI functionality via Python, please ensure you have the latest Python template installed:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
 ```
 
 ## Licenses
@@ -106,6 +118,24 @@ HTTP path: /api/...
 ```
 
 {{ blockEnd }}
+
+{{ startTab "Python" }}
+
+The Python code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-py)
+
+> Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
+<!-- @selectiveCpy -->
+
+```bash
+$ spin new http-py
+Enter a name for your new application: sentiment-analysis
+Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
+HTTP base: /
+HTTP path: /api/...
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ### Supported AI Models
@@ -538,6 +568,40 @@ export const handleRequest: HandleRequest = async function (
 ): Promise<HttpResponse> {
   return await router.handleRequest(request, request);
 };
+```
+
+{{ blockEnd }}
+
+{{ startTab "Python"}}
+
+```python
+from spin_http import Response
+from spin_llm import llm_infer
+import json
+import re
+
+PROMPT="""<<SYS>>
+You are a bot that generates sentiment analysis responses. Respond with a single positive, negative, or neutral.
+<</SYS>>
+[INST]
+Follow the pattern of the following examples:
+User: Hi, my name is Bob
+Bot: neutral
+User: I am so happy today
+Bot: positive
+User: I am so sad today
+Bot: negative
+[/INST]
+User: """
+
+def handle_request(request):
+    request_body=json.loads(request.body)
+    sentence=request_body["sentence"].strip()
+    result=llm_infer("llama2-chat", PROMPT+sentence)
+    response_body=json.dumps({"sentence": re.sub("\\nBot\: ", "", result.text)})
+    return Response(200,
+                    {"content-type": "application/json"},
+                    bytes(response_body, "utf-8"))
 ```
 
 {{ blockEnd }}

@@ -18,6 +18,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/python-compon
   - [Building and Running the Application](#building-and-running-the-application-2)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
+- [AI Inferencing From Python Components](#ai-inferencing-from-python-components)
 
 With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
 
@@ -334,3 +335,7 @@ Spin has a key-value store built in. For information about using it from Python,
 ## Storing Data in SQLite
 
 For more information about using SQLite from Python, see [SQLite storage](sqlite-api-guide).
+
+## AI Inferencing From Python Components
+
+For more information about using Serverless AI from Python, see the [Serverless AI](serverless-ai-api-guide) API guide.
