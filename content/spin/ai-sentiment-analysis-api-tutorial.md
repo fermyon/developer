@@ -1,9 +1,9 @@
-title = "Serverless AI Tutorial"
+title = "Sentiment Analysis With Serverless AI"
 template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-tutorial.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/ai-sentiment-analysis-api-tutorial.md"
 
 ---
 - [Tutorial Prerequisites](#tutorial-prerequisites)
@@ -30,7 +30,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 - [Conclusion](#conclusion)
 - [Next Steps](#next-steps)
 
-Artificial Intelligence (AI) Inferencing performs well on GPUs. However, GPU infrastructure is both scarce and expensive. This tutorial will show you how to use Fermyon Serverless AI to quickly build advanced AI-enabled serverless applications that can run on Fermyon Cloud. Your applications will benefit from 50 millisecond cold start times and operate 100x faster than other on-demand AI infrastructure services. Take a quick look at the video below, and make sure you sign up to be one of the first to access the Fermyon [Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
+Artificial Intelligence (AI) Inferencing performs well on GPUs. However, GPU infrastructure is both scarce and expensive. This tutorial will show you how to use Fermyon Serverless AI to quickly build advanced AI-enabled serverless applications that can run on Fermyon Cloud. Your applications will benefit from 50 millisecond cold start times and operate 100x faster than other on-demand AI infrastructure services. Take a quick look at the video below to learn about executing inferencing on LLMs with no extra setup.
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/01oOh3D9cVQ?si=wORKmuOkeFMGYBsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -44,17 +44,15 @@ In this tutorial we will:
 
 ### Spin 
 
-You will need to [install the latest version of Spin](install#installing-spin).
+You will need to [install the latest version of Spin](install#installing-spin). Serverless AI is supported on Spin versions 1.5 and above. 
 
 If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
 
 ### Dependencies
 
-The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). 
+The above installation script automatically installs the latest SDKs for Rust (which will enable us to write Serverless AI applications in Rust). However, some of the Serverless AI examples are written using TypeScript/Javascript and Python. To enable Serverless AI functionality via TypeScript/Javascript and Python, please ensure you have the latest TypeScript/JavaScript and Python template installed:
 
-**TypeScript/JavaScript**
-
-Some of the Serverless AI examples are written using TypeScript/Javascript. To enable Serverless AI functionality via TypeScript/Javascript, please ensure you have the latest TypeScript/JavaScript template installed:
+**TypeScript/Javascript**
 
 <!-- @selectiveCpy -->
 
@@ -79,6 +77,7 @@ $ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgr
 ## Serverless AI Inferencing With Spin Applications 
 
 Now, let's dive deep into a comprehensive tutorial and unlock your potential to use Fermyon Serverless AI.
+**Note:** The full source code with other examples can be found in our [Github repo](https://github.com/fermyon/ai-examples/tree/main)
 
 ### Creating a New Spin Application
 
@@ -111,7 +110,7 @@ The TypeScript code snippets below are taken from the [Fermyon Serverless AI Exa
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-js
+$ spin new http-ts
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
 HTTP base: /
@@ -122,10 +121,9 @@ HTTP path: /api/...
 
 {{ startTab "Python" }}
 
-The TypeScript code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-py)
+The Python code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-py)
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
-
 <!-- @selectiveCpy -->
 
 ```bash
@@ -164,7 +162,7 @@ Next, we need to create the appropriate folder structure from within the applica
 # llama2-chat
 $ mkdir -p .spin/ai-models
 $ cd .spin/ai-models
-$ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q3_K_L.bin
+$ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/a17885f653039bd07ed0f8ff4ecc373abf5425fd/llama-2-13b-chat.ggmlv3.q3_K_L.bin
 $ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin llama2-chat
 ```
 
@@ -187,7 +185,7 @@ tree .spin
 # codellama-instruct
 $ mkdir -p .spin/ai-models
 $ cd .spin/ai-models
-$ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/main/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
+$ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/b3dc9d8df8b4143ee18407169f09bc12c0ae09ef/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
 $ mv codellama-13b-instruct.ggmlv3.Q3_K_L.bin codellama-instruct
 ```
 
@@ -209,8 +207,8 @@ The following section fetches a specific version of the [sentence-transformers](
 ```bash
 $ mkdir -p .spin/ai-models/all-minikm-16-v2
 $ cd .spin/ai-models/all-minikm-16-v2
-$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/tokenizer.json
-$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/refs%2Fpr%2F21/model.safetensors
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/7dbbc90392e2f80f3d3c277d6e90027e55de9125/tokenizer.json
+$ wget https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/0b6dc4ef7c29dba0d2e99a5db0c855c3102310d8/model.safetensors
 ```
 
 <!-- @nocpy -->
@@ -264,6 +262,17 @@ Now let's use the Spin SDK to access the model from our app:
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
+
+The Rust source code for this sentiment analysis example uses serde. There are a couple of ways to add the required serde dependencies:
+- Run `cargo add serde -F derive` and `cargo add serde_json` from your Rust application's home directory (which will automatically update your application's `Cargo.toml` file), or
+- Manually, edit your Rust application's `Cargo.toml` file by adding the following lines beneath the `Cargo.toml` file's `[dependencies]` section:
+
+```toml
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.85"
+```
+
+Once you have added serde, as explained above, modify your `src/lib.rs` file to match the following content:
 
 ```rust
 use std::str::FromStr;
@@ -575,17 +584,13 @@ You are a bot that generates sentiment analysis responses. Respond with a single
 <</SYS>>
 [INST]
 Follow the pattern of the following examples:
-
 User: Hi, my name is Bob
 Bot: neutral
-
 User: I am so happy today
 Bot: positive
-
 User: I am so sad today
 Bot: negative
 [/INST]
-
 User: """
 
 def handle_request(request):
@@ -615,8 +620,195 @@ We use the `spin add` command to add the new `static-fileserver` that we will na
 ```bash
 $ spin add static-fileserver
 Enter a name for your new component: ui
-HTTP path: /static/...
+HTTP path: /...
 Directory containing the files to serve: assets
+
+```
+
+We create an `assets` directory where we can store files to serve statically (see the `spin.toml` file for more configuration information):
+
+<!-- @selectiveCpy -->
+
+```bash
+$ mkdir assets
+```
+
+### Add the Front-End 
+
+We can add a webpage that asks the user for some text and does the sentiment analysis on it. In your assets folder, create two files `dynamic.js` and `index.html`. 
+
+Here's the code snippet for `index.html`
+
+```html
+<!DOCTYPE html>
+<html data-theme="cupcake">
+  <head>
+    <title>Sentiment Analyzer</title>
+    <meta name="description" content="Perform sentiment analysis" />
+
+    <!-- Tailwind and Daisy UI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.2.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
+    <!-- Import script to make page dynamic -->
+    <script src="dynamic.js"></script>
+  </head>
+
+  <body class="bg-base-200">
+    <div id="alert" class="fixed top-20 inset-x-0 w-1/2 mx-auto"></div>
+    <div class="flex flex-col min-h-screen">
+      <div
+        class="sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-base-100 text-base-content shadow-md"
+      >
+        <nav class="navbar w-full">
+          <div class="flex-1">
+            <a href="/" class="btn btn-ghost text-4xl font-bold"
+              >Sentiment Analyzer</a
+            >
+          </div>
+          <div class="flex-none">
+            <a href="" class="btn btn-warning">Restart</a>
+          </div>
+        </nav>
+      </div>
+      <main class="mx-auto my-10 prose">
+        <p>
+          This Sentiment Analyzer is a demonstration of how you can use Fermyon
+          Serverless AI to easily make an AI-powered API. When you type in a
+          sentence it is sent to a Spin app running in the Fermyon Cloud,
+          inferencing is performed using the Fermyon serverless AI feature, and
+          the response is cached in a Fermyon key/value store.
+        </p>
+        <p>
+          Note that LLM's are not perfect and the sentiment analysis performed
+          by this application is not guaranteed to be perfect.
+        </p>
+        <p>
+          To get started type a sentence below and press
+          <kbd class="kbd kbd-sm">enter</kbd>.
+        </p>
+
+        <div class="flex flex-col gap-8 w-full">
+          <input
+            id="sentence-input"
+            type="text"
+            placeholder="Type the sentence you want to analyze here"
+            class="input w-full"
+          />
+          <div>
+            <button class="btn btn-primary" onclick="newCard()">Analyze</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+```
+
+Here's the code snippet for `dynamic.js` 
+
+```javascript
+// Listen for the Enter key being pressed
+document.addEventListener("keydown", function (event) {
+  if (event.keyCode === 13) {
+    newCard();
+  }
+});
+
+var globalCardCount = 0;
+var runningInference = false;
+
+function newCard() {
+  if (runningInference) {
+    console.log("Already running inference, please wait...");
+    setAlert("Already running inference, please wait...");
+    return;
+  }
+  var inputElement = document.getElementById("sentence-input");
+  var sentence = inputElement.value;
+  if (sentence === "") {
+    console.log("Please enter a sentence to analyze");
+    setAlert("Please enter a sentence to analyze");
+    return;
+  }
+  inputElement.value = "";
+
+  var cardIndex = globalCardCount;
+  globalCardCount++;
+  var newCard = document.createElement("div");
+  newCard.id = "card-" + cardIndex;
+  newCard.innerHTML = `
+    <div class="card bg-base-100 shadow-xl w-full">
+        <div class="m-4 flex flex-col gap-2">
+            <div>${sentence}</div>
+            <div class="flex flex-row justify-end">
+                <span class="loading loading-dots loading-sm"></span>
+            </div>
+        </div>
+    </div>
+    `;
+  document.getElementById("sentence-input").before(newCard);
+
+  console.log("Running inference on sentence: " + sentence);
+  runningInference = true;
+  fetch("/api/sentiment-analysis", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ sentence: sentence }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      updateCard(cardIndex, sentence, data.sentiment);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function updateCard(cardIndex, sentence, sentiment) {
+  badge = "";
+  if (sentiment === "positive") {
+    badge = `<span class="badge badge-success">Positive</span>`;
+  } else if (sentiment === "negative") {
+    badge = `<span class="badge badge-error">Negative</span>`;
+  } else if (sentiment === "neutral") {
+    badge = `<span class="badge badge-ghost">Neutral</span>`;
+  } else {
+    badge = `<span class="badge badge-ghost">Unsure</span>`;
+  }
+  var cardElement = document.getElementById("card-" + cardIndex);
+  cardElement.innerHTML = `
+    <div class="card bg-base-100 shadow-xl w-full">
+        <div class="m-4 flex flex-col gap-2">
+            <div>${sentence}</div>
+            <div class="flex flex-row justify-end">
+                ${badge}
+            </div>
+        </div>
+    </div>
+    `;
+  runningInference = false;
+}
+
+function setAlert(msg) {
+  var alertElement = document.getElementById("alert");
+  alertElement.innerHTML = `
+    <div class="alert alert-error">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-error-content">${msg}</span>
+    </div>
+    `;
+  setTimeout(function () {
+    alertElement.innerHTML = "";
+  }, 3000);
+}
 ```
 
 ### Key Value Explorer
@@ -664,6 +856,8 @@ version = "0.1.0"
 id = "sentiment-analysis"
 source = "target/sentiment-analysis.wasm"
 exclude_files = ["**/node_modules"]
+ai_models = ["llama2-chat"]
+key_value_stores = ["default"]
 [component.trigger]
 route = "/api/..."
 [component.build]
@@ -674,7 +868,7 @@ source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v
 id = "ui"
 files = [ { source = "assets", destination = "/" } ]
 [component.trigger]
-route = "/static/..."
+route = "/..."
 
 [[component]]
 source = { url = "https://github.com/radu-matei/spin-kv-explorer/releases/download/v0.9.0/spin-kv-explorer.wasm", digest = "sha256:07f5f0b8514c14ae5830af0f21674fd28befee33cd7ca58bc0a68103829f2f9c" }
@@ -690,15 +884,13 @@ route = "/internal/kv-explorer/..."
 **Note:** Running inferencing on localhost (your CPU) is not as optimal as deploying to Fermyon's Serverless AI (where inferencing is performed by high-powered GPUs). You can skip this `spin build --up` step and move straight to `spin cloud deploy` if you:
 
 - a) are using one of the 3 supported models above,
-- b) have configured your `spin.toml` file to explicitly configure the model (as shown above), and
-- c) have [signed up for the Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
+- b) have configured your `spin.toml` file to explicitly configure the model (as shown above)
 
-Now let's build and deploy our Spin Application locally. Run the following command to build your application: 
+Now, let's build and run our Spin Application locally. (**Note:** If you are following along with the TypeScript/JavaScript example, you will first need to run `npm install`. Otherwise, please continue to the following `spin` command.)
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ npm install
 $ spin build --up
 ```
 
@@ -715,7 +907,7 @@ $ curl -vXPOST 'localhost:3000/api/sentiment-analysis' -H'Content-Type: applicat
 
 ### Deploy to Fermyon Cloud
 
-To deploy your Serverless AI to Fermyon Cloud, you will first need to sign up for Fermyon's [Serverless AI private beta](https://developer.fermyon.com/cloud/serverless-ai).
+Deploying to the Fermyon Cloud is one simple command. If you have not logged into your Fermyon Cloud account already, the CLI will prompt you to login. Follow the instructions to complete the authorization process.  
 
 <!-- @selectiveCpy -->
 
