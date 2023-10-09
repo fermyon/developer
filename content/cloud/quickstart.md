@@ -126,7 +126,7 @@ $ spin deploy
 
 The `spin` command will run using the Spin binary in your system path and read the Spin application definition file `spin.toml` in the current (`cloud-start`) directory to know what application to deploy.
 
-{{ details "Learn more" "Deploying a Spin application to the Fermyon Cloud includes packaging the application and all the required files, uploading it to a Bindle registry, as well as instantiating the application on the cloud. \n\n You can learn more about the deployment process [here](./deployment-concepts)." }}
+{{ details "Learn more" "Deploying a Spin application to the Fermyon Cloud includes packaging the application and all the required files, uploading it to an OCI registry, as well as instantiating the application on the cloud. \n\n You can learn more about the deployment process [here](./deployment-concepts)." }}
 
 ## Success
 
@@ -135,7 +135,7 @@ This is what a successful Spin application deployment on Fermyon Cloud looks lik
 <!-- @nocpy -->
 
 ```console
-Uploading cloud_start version 0.1.0+XXXXXXXX...
+Uploading cloud_start version 0.1.0+XXXXXXXX to Fermyon Cloud...
 Deploying...
 Waiting for application to become ready... ready
 Available Routes:

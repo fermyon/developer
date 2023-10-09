@@ -71,7 +71,7 @@ To install a specific version, you can pass arguments to the install script this
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.10.0
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v1.5.0
 ```
 
 To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:

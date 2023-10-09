@@ -25,9 +25,10 @@ To make the build process easier, the `spin build` command allows you to build a
 
 > You don't have to use `spin build` to manage your builds.  If you prefer to use a Makefile or other build system, you can!  `spin build` is just there to provide an 'out of the box' solution.
 
+<!-- markdownlint-disable-next-line titlecase-rule -->
 ## Setting Up for `spin build`
 
-To use `spin build`, each component that you want to build must specify the command used to build it in `spin.toml`, as part of its `component.build` table.
+To use `spin build`, each component that you want to build must specify the command used to build it in `spin.toml`, as part of its `component.build` table:
 
 ```toml
 [[component]]
@@ -141,6 +142,7 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 > The output of the build command _must_ match the component's `source` path.  If you change the `build` or `source` attributes, make sure to keep them in sync.
 
+<!-- markdownlint-disable-next-line titlecase-rule -->
 ## Running `spin build`
 
 Once the build commands are set up, running `spin build` will execute, sequentially, each build command:
@@ -148,13 +150,16 @@ Once the build commands are set up, running `spin build` will execute, sequentia
 <!-- @selectiveCpy -->
 
 ```bash
-$ RUST_LOG=spin=trace spin build
-2022-04-25T03:01:56.721630Z  INFO spin_build: Executing the build command for component rust-hello.
-    Finished release [optimized] target(s) in 0.05s
-2022-04-25T03:01:56.832360Z  INFO spin_build: Executing the build command for component rust-static-assets.
-    Finished release [optimized] target(s) in 0.02s
-2022-04-25T03:01:56.905424Z  INFO spin_build: Executing the build command for component rust-outbound-http.
-    Finished release [optimized] target(s) in 0.02s
+$ spin build
+Building component hello with `cargo build --target wasm32-wasi --release`
+    Updating crates.io index
+    Updating git repository `https://github.com/fermyon/spin`
+
+    //--snip--
+
+    Compiling hello v0.1.0 (hello)
+    Finished release [optimized] target(s) in 39.05s
+Finished building all Spin components
 ```
 
 > If your build doesn't work, and your source code looks okay, you can [run `spin doctor`](/spin/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
