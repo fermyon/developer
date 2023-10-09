@@ -578,6 +578,7 @@ export const handleRequest: HandleRequest = async function (
 from spin_http import Response
 from spin_llm import llm_infer
 import json
+import re
 
 PROMPT="""<<SYS>>
 You are a bot that generates sentiment analysis responses. Respond with a single positive, negative, or neutral.
