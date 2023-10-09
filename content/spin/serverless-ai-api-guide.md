@@ -162,7 +162,7 @@ def handle_request(request):
 `llm_infer` operation:
 
 - It takes in the following arguments - model name and `prompt`. 
-- The model name is just passed in as a string for now (as you can see from above; `"llama2-chat"`). Future work may use inbuilt model definitions. For example, a Python [dataclass](https://docs.python.org/3/library/dataclasses.html) approach with a pre-defined `InferencingModelLlama2Chat` variable being passed in as the model (instead of the `"llama2-chat"` string) and a variable called `InferencingModelCodellamaInstruct` (instead of a`"codellama-instruct"` string). For now, we just use the string approach.
+- The model name is passed in as a string (as shown above; `"llama2-chat"`).
 - The return value is a `string`.
 
 {{ blockEnd }}
