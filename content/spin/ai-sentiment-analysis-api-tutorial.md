@@ -597,7 +597,7 @@ def handle_request(request):
     request_body=json.loads(request.body)
     sentence=request_body["sentence"].strip()
     result=llm_infer("llama2-chat", PROMPT+sentence)
-    response_body=json.dumps({"sentence": result.text})
+    response_body=json.dumps({"sentence": re.sub("\\nBot\: ", "", result.text)})
     return Response(200,
                     {"content-type": "application/json"},
                     bytes(response_body, "utf-8"))
