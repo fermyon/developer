@@ -232,7 +232,12 @@ OPTIONS:
 
 <!-- @selectiveCpy -->
 
-{{ blockEnd }}
+```console
+$ spin add --help
+
+spin-add 
+Scaffold a new component into an existing application
+
 
 USAGE:
     spin add [OPTIONS] [ARGS]
@@ -256,6 +261,7 @@ OPTIONS:
         --values-file <VALUES_FILE>    A TOML file which contains parameter values in name = "value"
                                        format. Parameters passed as CLI option overwrite parameters
                                        specified in the file
+```
 
 {{ blockEnd }}
 
