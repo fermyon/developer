@@ -1,6 +1,6 @@
-title = "Fermyon Serverless AI (Private Beta)"
+title = "Spin Cloud v0.3 & 0.4 Updates"
 template = "changelog_item"
-date = "2023-10-12T09:00:00Z"
+date = "2023-10-13T09:00:00Z"
 enable_shortcodes = true
 tags = ["spin_cloud_plugin"]
 [extra]
