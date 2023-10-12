@@ -265,6 +265,8 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ blockEnd }}
+
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin build
 
