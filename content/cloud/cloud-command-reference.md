@@ -1818,6 +1818,33 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite list --help
+
+List all NoOps SQL databases of a user
+
+USAGE:
+    spin cloud sqlite list [OPTIONS]
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ startTab "v0.4.0"}}
 
 Spin compatibility: `>= v1.3`
