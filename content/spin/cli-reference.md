@@ -966,6 +966,22 @@ OPTIONS:
 
 <!-- @selectiveCpy -->
 
+```console
+$ spin doctor --help
+
+spin-doctor 
+Detect and fix problems with Spin applications
+
+USAGE:
+    spin doctor [OPTIONS]
+
+OPTIONS:
+    -f, --from <APP_MANIFEST_FILE>    The application to check. This may be a manifest (spin.toml)
+                                      file, or a directory containing a spin.toml file. If omitted,
+                                      it defaults to "spin.toml" [default: spin.toml]
+    -h, --help                        Print help information                       Print help information
+```
+
 {{ blockEnd }}
 
 {{ blockEnd }}
