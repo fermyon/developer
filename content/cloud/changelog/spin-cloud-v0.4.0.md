@@ -29,6 +29,7 @@ Some highlights include:
 
 > Note that NoOps SQL Database is currently in private beta. You can request access using this [short form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx).
 
+<img src="/static/image/changelog/spin-cloud-0.4.0.jpg" alt="Spin Cloud 0.4.0 changelog">
 
 <!-- break -->
 
