@@ -18,7 +18,7 @@ As of [spin cloud v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v
 
 ### As of spin cloud v0.4.0
 
-With [`spin cloud` plugin v0.4.0](https://github.com/fermyon/cloud-plugin), we've new functionality to help you manage your Spin application and NoOps SQL Database amoung other exciting changes. 
+With [`spin cloud` plugin v0.4.0](https://github.com/fermyon/cloud-plugin), we've new functionality to help you manage your Spin application and NoOps SQL Database, among other exciting changes. 
 
 Some highlights include:
 
