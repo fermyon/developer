@@ -10,7 +10,7 @@ image = "/static/image/changelog/spin-cloud-0.4.0.jpg"
 
 ---
 
-The past month, we've released two minor versions of the [`spin cloud` plugin](https://github.com/fermyon/cloud-plugin). Let's take a look at what's new!
+In the past month, we've released two minor versions of the [`spin cloud` plugin](https://github.com/fermyon/cloud-plugin). Let's take a look at what's new!
 
 ### As of spin cloud v0.3.0
 
