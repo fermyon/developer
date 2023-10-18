@@ -36,5 +36,5 @@ Some highlights include:
 References:
 
 - [Spin Cloud Plugin v0.4.0 Release Notes](https://github.com/fermyon/cloud-plugin/releases/tag/v0.4.0)
-- [Spin Cloud Plugin Reference Documentation](./cloud/cloud-command-reference)
-- [Linking Applications To Resources Using Labels](./cloud/linking-applications-to-resources-using-labels)
+- [Spin Cloud Plugin Reference Documentation](/cloud/cloud-command-reference)
+- [Linking Applications To Resources Using Labels](/cloud/linking-applications-to-resources-using-labels)
