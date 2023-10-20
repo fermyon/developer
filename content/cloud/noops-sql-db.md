@@ -145,4 +145,4 @@ Database "inspirational-pig" deleted
 ## Next Steps
 
 * For support or feature feedback, please join our [Discord channel #no-ops-db-beta](https://discord.gg/XxkZvsya). This is where you can provide feedback and ask for assistance from the Fermyon Cloud team on all things NoOps SQL Database. 
-* Visit [FAQ](/faq.md) for frequently asked questions
+* Visit [FAQ](/cloud/faq) for frequently asked questions
