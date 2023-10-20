@@ -1,4 +1,4 @@
-title = "AI-assisted News Summarizer"
+title = "AI-assisted Crossword Helper"
 template = "render_hub_content_body"
 date = "2023-10-17T09:00:00Z"
 content-type = "text/html"
