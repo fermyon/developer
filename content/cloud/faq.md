@@ -96,7 +96,7 @@ At this time, Fermyon Cloud does not have a data export feature. We'd love to he
 Yes, as long as you haven't deleted your database, the instance will be running and stateful. 
 
 - **If I delete and redeploy my Spin application, can I still access the same instance of my NoOps SQL Database?**
-No, at this time you cannot access the database. You will need to delete the instance and provision a new one. 
+Yes, Fermyon Cloud uses abstract [labels and links](https://developer.fermyon.com/cloud/linking-applications-to-resources-using-labels) to enable seamless database sharing and management among Spin applications.
 
 <!-- @nocpy -->
 
