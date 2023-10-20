@@ -1,4 +1,4 @@
-title = "NoOps SQL Database Tutorial"
+title = "NoOps SQL Database"
 template = "cloud_main"
 date = "2023-10-24T09:00:00Z"
 enable_shortcodes = true
