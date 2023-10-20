@@ -41,7 +41,7 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Key value store value size (MB)* | 1 | 1 | Contact us
 | Key value store storage size (GB) | 1 | 2 | Contact us
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
-| SQLite Storage (GB) | 1 | 1 |  Contact us
+| SQLite storage (GB) | 1 | 1 |  Contact us
 | **Regions** |
 | Region count| 1 | 1 | Contact us
 
