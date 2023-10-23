@@ -3,6 +3,7 @@ title = "Build your first AI app using Serverless AI Inferencing"
 description = "Getting Started with building your AI app in Python, Rust or TypeScript"
 template = "spin_main"
 tags = ["ai", "serverless", "getting started"]
+enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-hello-world.md"
 
@@ -72,6 +73,8 @@ Now, let's write your first Serverless AI application with Spin.
 {{ tabs "sdk-type" }}
  
 {{ startTab "Rust"}}
+
+The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/)
  
 <!-- @selectiveCpy -->
  
@@ -87,10 +90,7 @@ HTTP path: /...
  
 {{ startTab "Python" }}
  
-The Python code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-py)
- 
-> Note: please add /api/... when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
->
+The Python code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/)
  
 <!-- @selectiveCpy -->
  
@@ -106,10 +106,7 @@ HTTP path: /...
  
 {{ startTab "TypeScript" }}
  
-The TypeScript code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-ts)
- 
-> Note: please add /api/... when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
->
+The TypeScript code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/)
  
 <!-- @selectiveCpy -->
  
@@ -231,8 +228,7 @@ use spin_sdk::{
 #[http_component]
 fn hello_world(req: Request) -> Result<Response> {
    let model = llm::InferencingModel::Llama2Chat;
-   let prompt = "Tell me a joke that has a pun on cats"
-   let inference = llm::infer(model, "say hello".into());
+   let inference = llm::infer(model, "Can you tell me a joke about cats".into());
    Ok(http::Response::builder()
        .status(200)
        .body(Some(format!("{:?}", inference).into()))?)
@@ -247,7 +243,7 @@ fn hello_world(req: Request) -> Result<Response> {
 import { Llm, InferencingModels, HandleRequest, HttpRequest, HttpResponse } from  "@fermyon/spin-sdk"
 const  model = InferencingModels.Llama2Chat
 export  const  handleRequest: HandleRequest = async  function (request: HttpRequest): Promise<HttpResponse> {
-const  prompt = "Tell me a joke that has a pun on cats"
+const  prompt = "Can you tell me a joke about cats"
 const  out = Llm.infer(model, prompt)
 return {
 	status:  200,
@@ -267,13 +263,13 @@ import json
 import re
 
 def handle_request(request):
-    request_body=json.loads(request.body)
-    sentence=request_body["sentence"].strip()
-    result=llm_infer("llama2-chat", sentence)
-    response_body=json.dumps({"sentence": result.text)})
-    return Response(200,
-                    {"content-type": "application/json"},
-                    bytes(response_body, "utf-8"))
+    try:
+        result = llm_infer("llama2-chat", "Can you tell me a joke abut cats")
+        return Response(200, {"content-type": "text/plain"}, bytes(result.text, "utf-8"))
+    except Exception as e:
+        return Response(500, {"content-type": "text/plain"}, bytes(f"Error: {str(e)}", "utf-8"))
+
+
 ```
  
 {{ blockEnd }}
