@@ -15,7 +15,7 @@ spin_version = ">=1.5"
 summary =  "A plugin to connect local Spin apps to Fermyon Cloud GPUs"
 url = "https://github.com/fermyon/spin-cloud-gpu"
 
-
+---
 
 Ever tested your AI-powered Spin app locally and spent quite a while waiting for your machine's compute to kick in...? Us too! The spin-cloud-gpu plugin allows you to use GPUs on Fermyon Cloud while running your Spin app locally with `spin up`.
 
