@@ -6,14 +6,14 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-trigger.md"
 
 ---
-- [Specifying an Application as HTTP](#specifying-an-application-as-http)
-- [Mapping a Route to a Component](#mapping-a-route-to-a-component)
+- [Specifying an HTTP Trigger](#specifying-an-http-trigger)
+- [HTTP Trigger Routes](#http-trigger-routes)
   - [Routing with an Application `base`](#routing-with-an-application-base)
   - [Resolving Overlapping Routes](#resolving-overlapping-routes)
   - [Health Check Route](#health-check-route)
-- [HTTP Components](#http-components)
+- [Authoring HTTP Components](#authoring-http-components)
   - [The Request Handler](#the-request-handler)
-  - [The Request and Response Records](#the-request-and-response-records)
+  - [Getting Request and Response Information](#getting-request-and-response-information)
   - [Additional Request Information](#additional-request-information)
   - [Inside HTTP Components](#inside-http-components)
 - [HTTP With Wagi (WebAssembly Gateway Interface)](#http-with-wagi-webassembly-gateway-interface)
@@ -26,54 +26,42 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-trigg
 
 HTTP applications are an important workload in event-driven environments,
 and Spin has built-in support for creating and running HTTP
-components. This page covers Spin options that are specific to HTTP applications.
+components. This page covers Spin options that are specific to HTTP.
 
-The HTTP trigger in Spin is a web server. It listens for incoming requests and
+The HTTP trigger type in Spin is a web server. When an application has HTTP triggers, Spin listens for incoming requests and,
 based on the [application manifest](./writing-apps.md), it routes them to a
-component, which returns an HTTP response.
+component, which provides an HTTP response.
 
-## Specifying an Application as HTTP
+## Specifying an HTTP Trigger
 
-Every Spin application has a trigger specified in the manifest, which declares the type of events it responds to.
-For HTTP applications, the application trigger has `type = "http"`:
-
-<!-- @nocpy -->
+An HTTP trigger maps an HTTP route to a component.  For example:
 
 ```toml
-# spin.toml
-trigger = { type = "http", base = "/" }
+[[trigger.http]]
+route = "/..."                # the route that the trigger matches
+component = "my-application"  # the name of the component to handle this route
 ```
 
-The HTTP trigger also requires a `base` field.  Spin interprets each component route as relative to this route.  In most cases, you can set this to `"/"`, the base of the Web server, meaning Spin applies no prefix to component routes.
+Such a trigger says that HTTP requests matching the specified _route_ should be handled by the specified _component_. The `component` field works the same way across all triggers - see [Triggers](triggers) for the details.
 
-> If you create an application from a HTTP template, the trigger will be already set up for you.
+## HTTP Trigger Routes
 
-In addition, each component must have HTTP-specific configuration in its `[component.trigger]` table.
-
-## Mapping a Route to a Component
-
-Each component handles one route, specified in the `route` field of the component `trigger` table.
-
-The route may be _exact_ or _wildcard_.
+An HTTP route may be _exact_ or _wildcard_.
 
 An _exact_ route matches only the given route.  This is the default behavior.  For example, `/cart` matches only `/cart`, and not `/cart/checkout`:
 
 <!-- @nocpy -->
 
 ```toml
-# Run the `cart.wasm` module when the application receives a request to `/cart`...
-[[component]]
-id = "cart"
-source = "cart.wasm"
-[component.trigger]
+# Run the `shopping-cart` component when the application receives a request to `/cart`...
+[[trigger.http]]
 route = "/cart"
+component = "shopping-cart"
 
-# ...and the `checkout.wasm` module for `/cart/checkout`
-[[component]]
-id = "checkout"
-source = "checkout.wasm"
-[component.trigger]
+# ...and the `checkout` component for `/cart/checkout`
+[[trigger.http]]
 route = "/cart/checkout"
+component = "checkout"
 ```
 
 A _wildcard_ route matches the given route and any route under it.  A route is a wildcard if it ends in `/...`.  For example, `/users/...` matches `/users`, `/users/1`, `/users/1/edit`, and so on.  Any of these routes will run the mapped component.
@@ -83,28 +71,33 @@ A _wildcard_ route matches the given route and any route under it.  A route is a
 <!-- @nocpy -->
 
 ```toml
-[[component]]
-id = "user-manager"
-source = "users.wasm"
-# Run the `users.wasm` module when the application receives a request to `/users`
+[[trigger.http]]
+# Run the `user-manager` component when the application receives a request to `/users`
 # or any path beginning with `/users/`
-[component.trigger]
 route = "/users/..."
+component = "user-manager"
 ```
 
 ### Routing with an Application `base`
 
-If the application `base` is `"/"` then all component routes are matched exactly as given.
+You can set a base path for the entire application using the optional `[application.trigger.http]` section:
 
-If `base` contains a non-root path, this is prefixed to all component routes,
+```toml
+[application.trigger.http]
+base = "/shop"
+```
+
+If the application `base` is omitted, or is `"/"`, then all trigger routes are matched exactly as given.
+
+If `base` contains a non-root path, this is prefixed to all trigger routes,
 exact or wildcard.
 
-For example, suppose the application `base` path is `base = "/shop"`.  Then a component with `route = "/cart"` will be executed for requests to `/shop/cart`.  Similarly, a component with `route = "/users/..."` will be executed for requests to `/shop/users`, `/shop/users/1`, `/shop/users/1/edit` and so on.
+For example, suppose the application `base` path is `base = "/shop"`.  Then a trigger with `route = "/cart"` will be executed for requests to `/shop/cart`.  Similarly, a trigger with `route = "/users/..."` will be executed for requests to `/shop/users`, `/shop/users/1`, `/shop/users/1/edit` and so on.
 
 ### Resolving Overlapping Routes
 
-If multiple components could potentially handle the same request based on their
-defined routes, the component whose route has the longest matching prefix 
+If multiple triggers could potentially handle the same request based on their
+defined routes, the trigger whose route has the longest matching prefix 
 takes precedence.  This also means that exact matches take precedence over wildcard matches.
 
 In the following example, requests starting with the  `/users/` prefix (e.g. `/users/1`)
@@ -116,22 +109,17 @@ But requests to `/users/admin` will be handled by the `admin` component, not `us
 ```toml
 # spin.toml
 
-trigger = { type = "http", base = "/"}
-
-[[component]]
-id = "user-manager"
-[component.trigger]
+[[trigger.http]]
 route = "/users/..."
+component = "user-manager"
 
-[[component]]
-id = "admin"
-[component.trigger]
+[[trigger.http]]
 route = "/users/admin"
+component = "admin"
 
-[[component]]
-id = "shop"
-[component.trigger]
+[[trigger.http]]
 route = "/..."
+component = "shop"
 ```
 
 ### Health Check Route
@@ -139,11 +127,11 @@ route = "/..."
 Every HTTP application automatically has a special route always configured at `/.well-known/spin/health`, which
 returns `OK 200` when the Spin instance is healthy.
 
-## HTTP Components
+## Authoring HTTP Components
 
-> Spin has two ways of running HTTP components, depending on language support for the evolving WebAssembly component standards.  This section describes the default way, which is currently used by Rust, JavaScript/TypeScript, Python, and TinyGo components.  For other languages, see [HTTP Components with Wagi](#http-with-wagi-webassembly-gateway-interface)) below.
+> Spin has two ways of running HTTP components, depending on language support for the evolving WebAssembly component standards.  This section describes the default way, which is currently used by Rust, JavaScript/TypeScript, Python, and TinyGo components.  For other languages, see [HTTP Components with Wagi](#http-with-wagi-webassembly-gateway-interface) below.
 
-By default, Spin runs components using the [WebAssembly component model](https://github.com/WebAssembly/component-model).  In this model, the Wasm module exports a well-known function that Spin calls to handle the HTTP request.
+By default, Spin runs components using the [WebAssembly component model](https://component-model.bytecodealliance.org/).  In this model, the Wasm module exports a well-known interface that Spin calls to handle the HTTP request.
 
 ### The Request Handler
 
@@ -153,24 +141,97 @@ The exact signature of the HTTP handler, and how a function is identified to be 
 
 {{ startTab "Rust"}}
 
-In Rust, the handler is identified by the `#[spin_sdk::http_component]` attribute.  It takes a `spin_sdk::http::Request`, and returns a `spin_sdk::http::Response` (or error).  These types are instantiations of the standard `http::Request` and `http::Response` types and behave exactly like them:
+In Rust, the handler is identified by the `#[spin_sdk::http_component]` attribute.  The handler function can have one of two forms: _request-response_ or _input-output parameter_.
+
+**Request-Response Handlers**
+
+This form of handler function receives the request as an argument, and returns the response as the return value of the function. For example:
 
 ```rust
-use anyhow::Result;
-use spin_sdk::{
-    http::{Request, Response},
-    http_component,
-};
+#[http_component]
+async fn handle(request: http::Request) -> anyhow::Result<http::Response> { ... }
+```
+
+In this form, nothing is sent to the client until the entire response is ready. It is convenient for many use cases, but is not suitable for streaming responses.
+
+You have some flexibility in choosing the types of the request and response.  The request may be:
+
+* `http::Request`
+* `spin_sdk::http::IncomingRequest`
+* Any type for which you have implemented the `spin_sdk::http::conversions::TryFromIncomingRequest` trait
+
+The response may be:
+
+* `http::Response`
+* Any type for which you have implemented the `spin_sdk::http::IntoResponse` trait
+* A `Result` where the success type is one of the above and the error type is `anyhow::Error` or another error type for which you have implemented `spin_sdk::http::IntoResponse` (such as `anyhow::Result<http::Response>`)
+
+For example:
+
+```rust
+use http::{Request, Response};
+use spin_sdk::http::IntoResponse;
+use spin_sdk::http_component;
 
 /// A simple Spin HTTP component.
 #[http_component]
-fn handle_hello_rust(req: Request) -> Result<Response> {
-    Ok(http::Response::builder()
+async fn handle_hello_rust(_req: Request<()>) -> anyhow::Result<impl IntoResponse> {
+    Ok(Response::builder()
         .status(200)
-        .header("foo", "bar")
-        .body(Some("Hello, Fermyon".into()))?)
+        .header("content-type", "text/plain")
+        .body("Hello, Fermyon")?)
 }
 ```
+
+> If you're familiar with Spin 1.x, note that Spin 2 is more forgiving with the type in the `.body()` call. You don't need to convert it to bytes or wrap it in an `Option`. To return an empty body, you can pass `()` instead of `None`.
+
+To extract data from the request, specify a body type as the generic parameter for the `Request` type. You can use raw content types such as `Vec<u8>` and `String`, or automatically deserialize a JSON body by using the `spin_sdk::http::Json<T>` type.
+
+**Input-Output Parameter Handlers**
+
+In this form, the handler function receives the request as an argument of type `spin_sdk::http::IncomingRequest`. It also receives an argument of type `spin_sdk::http::ResponseOutparam`, through which is sends the response. The function does not return a value. This form is recommended for streaming responses.
+
+To send a response:
+
+1. Create a `spin_sdk::http::OutgoingResponse`.
+2. Call `take_body()` on the `OutgoingResponse` - this gives you a `Sink` that you can later use to send data via the response.
+3. Call `ResponseOutparam::set`, passing the response argument and an `Ok` of the `OutgoingResponse`.
+4. Call `send` on the `Sink` as many times as you like. Each send is carried out as you call it, so you can send the first part of the response without waiting for the whole response to be ready.
+
+> You will need to reference the `futures` crate in `Cargo.toml`, and `use futures::SinkExt;`, to access the `send` method.
+
+```rust
+use futures::SinkExt;
+use spin_sdk::http::{Fields, IncomingRequest, OutgoingResponse, ResponseOutparam};
+use spin_sdk::http_component;
+
+/// A streaming Spin HTTP component.
+#[http_component]
+async fn handle_hello_rust(_req: IncomingRequest, response_out: ResponseOutparam) {
+    // Status code and headers must be supplied before calling take_body
+    let response = OutgoingResponse::new(
+        200,
+        &Fields::new(&[("content-type".to_string(), b"text/plain".to_vec())]),
+    );
+    // Get the sink for writing the body into. This must be mutable!
+    let mut body = response.take_body();
+
+    // Connect the OutgoingResponse to the ResponseOutparam.
+    ResponseOutparam::set(response_out, Ok(response));
+
+    // Write to the body sink over a period of time. (In this case we simulate a
+    // long-running operation by manually calling `thread::sleep`.)
+    for i in 1..20 {
+        let payload = format!("Hello {i}\n");
+        if let Err(e) = body.send(payload.into()).await {
+            eprintln!("Error sending payload: {e}");
+        }
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    }
+}
+```
+
+For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html).
 
 {{ blockEnd }}
 
@@ -253,7 +314,7 @@ func main() {}
 
 {{ blockEnd }}
 
-### The Request and Response Records
+### Getting Request and Response Information
 
 Exactly how the Spin SDK surfaces the request and response types varies from language to language; this section calls out general features.
 
@@ -285,92 +346,45 @@ For the most part, you'll build HTTP component modules using a language SDK (see
 
 > The WebAssembly component model is in its early stages, and over time the triggers and application entry points will undergo changes, both in the definitions of functions and types, and in the binary representations of those definitions and of primitive types (the so-called Application Binary Interface or ABI).  However, Spin ensures binary compatibility over the course of any given major release.  For example, a component built using the Spin 1.0 SDK will work on any version of Spin in the 1.x range.
 
-The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/blob/main/wit/ephemeral](https://github.com/fermyon/spin/blob/main/wit/ephemeral).
+The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/tree/main/wit/preview2](https://github.com/fermyon/spin/tree/main/wit/preview2).
 
-The core HTTP types are defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/http-types.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/http-types.wit):
+The HTTP types and interfaces are defined in [https://github.com/fermyon/spin/tree/main/wit/preview2/deps/http](https://github.com/fermyon/spin/tree/main/wit/preview2/deps/http), which tracks [the `wasi-http` specification](https://github.com/WebAssembly/wasi-http).
 
-<!-- @nocpy -->
-
-```fsharp
-// wit/ephemeral/http-types.wit
-
-// The HTTP status code.
-type http-status = u16
-// The HTTP body.
-type body = list<u8>
-// The HTTP headers represented as a list of (name, value) pairs.
-type headers = list<tuple<string, string>>
-// The HTTP parameter queries, represented as a list of (name, value) pairs.
-type params = list<tuple<string, string>>
-// The HTTP URI of the current request.
-type uri = string
-// The HTTP method.
-enum method { get, post, put,... }
-
-// An HTTP request.
-record request {
-    method: method,
-    uri: uri,
-    headers: headers,
-    params: params, // Retained for binary compatibility but no longer used
-    body: option<body>,
-}
-
-// An HTTP response.
-record response {
-    status: http-status,
-    headers: option<headers>,
-    body: option<body>,
-}
-
-// error types omitted
-```
-
-> The same HTTP types are also used to model the API for sending outbound HTTP requests.
-
-The entry point for Spin HTTP components is then defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-http.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-http.wit):
+In particular, the entry point for Spin HTTP components is defined in [the `incoming-handler` interface](https://github.com/fermyon/spin/blob/main/wit/preview2/deps/http/incoming-handler.wit):
 
 <!-- @nocpy -->
 
 ```fsharp
-// wit/ephemeral/spin-http.wit
+// incoming-handler.wit
 
-use * from http-types
+interface incoming-handler {
+  use types.{incoming-request, response-outparam}
 
-// The entry point for an HTTP handler.
-handle-http-request: function(req: request) -> response
+  handle: func(
+    request: incoming-request,
+    response-out: response-outparam
+  )
+}
 ```
 
-This is the function signature that all HTTP components must implement, and
-which is used by the Spin HTTP executor when instantiating and invoking the
-component.
+This is the interface that all HTTP components must implement, and which is used by the Spin HTTP executor when instantiating and invoking the component.
 
-This interface (`spin-http.wit`) can be directly used together with the
-[Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen)
-to build a component that the Spin HTTP executor can invoke.
+However, this is not necessarily the interface you, the component author, work with. It may not even be the interface of the component you build!
 
-This is exactly how Spin SDKs, such as the [Rust](rust-components), [JavaScript](javascript-components), [Python](python-components) and [Go](go-components) SDKs, are built.
-As more languages add support for the component model, we plan to add support for them in the same way.
+In many cases, you will use a more idiomatic wrapper provided by the Spin SDK, which implements the "true" interface internally. In some cases, you will build a Wasm "core module" which implements an earlier version of the Spin HTTP interface, which Spin internally adapts to the "true" interface as it loads your module.
 
-> WIT and the ABI are evolving standards.  The latest version of `wit-bindgen` creates binary implementations that do not work with current language implementations of the WebAssembly System Interface (WASI).  Spin remains pinned to an older implementation of `wit-bindgen` until the next generation of the component model stabilizes and achieves language-level support.
+But if you wish, and if your language supports it, you can implement the `incoming-handler` interface directly, using tools such as the
+[Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen). Spin will happily load and run such a component. This is exactly how Spin SDKs, such as the [Rust](rust-components) SDKs is built; as component authoring tools roll out for Go, JavaScript, Python, and other languages, you'll be able to use those tools to build `wasi-http` handlers and therefore Spin HTTP components.
+
+> The WASI family of specifications, and tool support for some component model features that WASI depends on, are not yet fully stabilized. If you implement `wasi-http` directly, you may need to do some trialing to find tool versions which work together and with Spin.
 
 ## HTTP With Wagi (WebAssembly Gateway Interface)
 
-The WebAssembly component model proposal is currently in its early stages, which
-means only a few programming languages fully implement it. While the language
-communities implement toolchain support for the component model (for emitting
-components and for automatically generating bindings for importing other
-components), we want to allow developers to use any language that compiles to
-WASI to build Spin HTTP applications. This is why Spin currently implements an
+A number of languages support WASI Preview 1 but not the component model. To enable developers to use these languages, Spin supports an
 HTTP executor based on [Wagi](https://github.com/deislabs/wagi), or the
 WebAssembly Gateway Interface, a project that implements the
 [Common Gateway Interface](https://datatracker.ietf.org/doc/html/rfc3875)
 specification for WebAssembly.
-
-> Spin will keep supporting the Wagi-based executor while language toolchains
-> add support for the WebAssembly component model. When enough programming
-> languages have implemented the component model, we will work with the Spin
-> community to decide when to deprecate the Wagi executor.
 
 Wagi allows a module built in any programming language that compiles to [WASI](https://wasi.dev/)
 to handle an HTTP request by passing the HTTP request information to the module's
@@ -384,14 +398,12 @@ is done the same way as a component that uses the Spin executor.
 
 ### Wagi Component Requirements
 
-Spin uses the component model by default, and cannot detect from the Wasm module alone whether it was built with component model support.  For Wagi components, therefore, you must tell Spin in the component manifest to run them using Wagi instead of 'default' Spin.  To do this, use the `executor` field in the `[component.trigger]` table:
+Spin uses the component model by default, and cannot detect from the Wasm module alone whether it was built with component model support.  For Wagi components, therefore, you must tell Spin in the component manifest to run them using Wagi instead of 'default' Spin.  To do this, use the `executor` field in the `trigger` table:
 
 ```toml
-[[component]]
-id = "wagi-test"
-source = "wagitest.wasm"
-[component.trigger]
+[[trigger.http]]
 route = "/"
+component = "wagi-test"
 executor = { type = "wagi" }
 ```
 
