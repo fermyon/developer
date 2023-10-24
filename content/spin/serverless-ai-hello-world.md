@@ -226,7 +226,7 @@ use spin_sdk::{
 };
 /// A simple Spin HTTP component.
 #[http_component]
-fn hello_world(req: Request) -> Result<Response> {
+fn hello_world(_req: Request) -> Result<Response> {
    let model = llm::InferencingModel::Llama2Chat;
    let inference = llm::infer(model, "Can you tell me a joke about cats".into());
    Ok(http::Response::builder()
