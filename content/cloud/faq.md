@@ -37,13 +37,12 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Custom Fermyon subdomain character count* | 62 | 62 | Contact us
 | Bandwidth egress (GB) | 5 | 50 | Contact us
 | **Storage** |
+| Storage size (GB) | 1 | 2 | Contact us
 | Key value store key size (bytes)* | 255 | 255 | Contact us
 | Key value store value size (MB)* | 1 | 1 | Contact us
-| Key value store storage size (GB) | 1 | 2 | Contact us
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
 | Key value store count | 5 | 100 | Contact us
-| SQLite storage (GB) | 1 | 2 |  Contact us
-| SQLite database count | 1 | 1 |  Contact us
+| SQLite database count | 1 | 2 |  Contact us
 | **Regions** |
 | Region count| 1 | 1 | Contact us
 
