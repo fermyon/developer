@@ -1,4 +1,4 @@
-title = "JSON state storage with TypeScript and Key/Value Store"
+title = "JSON State Storage with TypeScript and Key/Value Store"
 template = "render_hub_content_body"
 date = "2023-10-23T00:00:00Z"
 content-type = "text/html"
