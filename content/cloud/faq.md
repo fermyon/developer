@@ -39,9 +39,10 @@ The following are the quota for users based, stratified by the three [Subscripti
 | **Storage** |
 | Key value store key size (bytes)* | 255 | 255 | Contact us
 | Key value store value size (MB)* | 1 | 1 | Contact us
-| Key value store storage size (GB) | 1 | 2 | Contact us
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
-| SQLite Storage | [See private beta documentation](/cloud/noops-sql-db.md) | [See private beta documentation](/cloud/noops-sql-db.md)  | [See private beta documentation](/cloud/noops-sql-db.md) 
+| Key value store count | 5 | 100 | Contact us
+| Key value storage size (GB) | 1 | 2 | Contact us
+| SQLite database count | 1 | 1 |  Contact us
 | **Regions** |
 | Region count| 1 | 1 | Contact us
 
@@ -67,7 +68,7 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported (only default store) |
-| [SQLite Storage](/spin/sqlite-api-guide) | [Private Beta](/cloud/noops-sql-db.md) |
+| [SQLite Storage](/spin/sqlite-api-guide) | Supported |
 | [Serverless AI](/spin/serverless-ai-api-guide) | [Private Beta](/cloud/serverless-ai.md) |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
@@ -86,6 +87,15 @@ To learn more about what feature support looks like for various programming lang
 
 - **Why do I see mixed replies from my service during an upgrade?**
   - When doing an upgrade of an application, there is a gradual roll-out happening. This means that requests will hit both the existing and new modules, as the upgrade completes. You will see a pattern like the one below, showing the body reply from an HTTP request:
+
+- **Can I export data from my NoOps SQL Database?**
+At this time, Fermyon Cloud does not have a data export feature. We'd love to hear your thoughts on what an ideal experience would look like at [github.com/fermyon/feedback](https://github.com/fermyon/feedback)
+
+- **If I upgrade my Spin application, can I still access the same instance of my NoOps SQL Database?**
+Yes, as long as you haven't deleted your database, the instance will be running and stateful. 
+
+- **If I delete and redeploy my Spin application, can I still access the same instance of my NoOps SQL Database?**
+Yes, Fermyon Cloud uses abstract [labels and links](https://developer.fermyon.com/cloud/linking-applications-to-resources-using-labels) to enable seamless database sharing and management among Spin applications.
 
 <!-- @nocpy -->
 

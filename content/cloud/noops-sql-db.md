@@ -1,4 +1,4 @@
-title = "NoOps SQL Database"
+title = "NoOps SQL Database Tutorial"
 template = "cloud_main"
 date = "2023-07-26T16:00:00Z"
 enable_shortcodes = true
@@ -6,8 +6,6 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/noops-sql-db.md"
 
 ---
-- [Accessing Private Beta](#accessing-private-beta)
-- [Quotas And Service Limitations For the Database in Fermyon Cloud](#quotas-and-service-limitations-for-the-database-in-fermyon-cloud)
 - [Creating a New Spin Application](#creating-a-new-spin-application)
 - [Grant SQLite Permission](#grant-sqlite-permission)
 - [Managing Your Local Spin Database Schema](#managing-your-local-spin-database-schema)
@@ -22,21 +20,10 @@ With NoOps SQL Database using SQLite support in Fermyon Cloud, you can persist r
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/buwr66oRPbU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Accessing Private Beta
+> Please check that you have [Spin CLI](./cli-reference.md) v1.4 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) v0.3.1 or greater installed. 
 
-The database in Fermyon Cloud is currently in private beta. To request access to the private beta, please fill out this short [sign-up form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx).
- 
-> Please note that the private beta is limited in space, and all requests cannot be guaranteed. 
+## Service Limitations For the Database in Fermyon Cloud
 
-Once you have access to the private beta, please ensure you have [Spin CLI](./cli-reference.md) v1.4 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) v0.3.1 or greater installed. 
-
-## Quotas And Service Limitations For the Database in Fermyon Cloud
-
-*Quotas* 
-* You can have a maximum of 1 NoOps SQL Database in your Cloud account
-* Your NoOps SQL Database can hold up 1 GB of data
-
-*Service Limitations*
 * To run a SQL statement (for migration and schema creation), use the `spin cloud sqlite list` and `spin cloud sqlite execute` commands. The equivalent of `spin up --sqlite` for `spin deploy` does currently not exist in Cloud. [See this section for more info](#tables-and-data-in-fermyon-cloud).
 
 ## Creating a New Spin Application
@@ -155,19 +142,7 @@ Deleting database ...
 Database "inspirational-pig" deleted
 ```
 
-> In the Private Beta, we do not have support for sharing database between apps. However, we still separate out the database deletion from app deletion because we anticipate the ability to use databases from multiple apps in the future.
-
-## FAQ
-
-- **Can I export data from my database?**
-At this time, Fermyon Cloud does not have a data export feature. We'd love to hear your thoughts on what an ideal experience would look like at [github.com/fermyon/feedback](https://github.com/fermyon/feedback)
-
-- **If I upgrade my Spin application, can I still access the same instance of my database?**
-Yes, as long as you haven't deleted your database, the instance will be running and stateful. 
-
-- **If I delete and redeploy my Spin application, can I still access the same instance of my database?**
-No, at this time you cannot access the database. You will need to delete the instance and provision a new one. 
-
 ## Next Steps
 
 * For support or feature feedback, please join our [Discord channel #no-ops-db-beta](https://discord.gg/XxkZvsya). This is where you can provide feedback and ask for assistance from the Fermyon Cloud team on all things NoOps SQL Database. 
+* Visit [FAQ](/cloud/faq) for frequently asked questions
