@@ -43,11 +43,9 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Key value maximum keys* | 1,024 | 1,024 | Contact us
 | Key value store count | 5 | 100 | Contact us
 | SQLite storage (GB) | 1 | 2 |  Contact us
-| SQLite database count | 1 | 3 |  Contact us
+| SQLite database count | 1 | 1 |  Contact us
 | **Regions** |
 | Region count| 1 | 1 | Contact us
-
-> Note: Storage quota is shared across all Fermyon Cloud objects (e.g., Starter Plan users have 1 GB of storage to share between their Key Value Stores and their NoOps SQL Databases; Growth Plan users have 2 GB of storage to share between their Key Value Stores and their NoOps SQL Databases)
 
 ## Known Limitations
 
