@@ -319,7 +319,7 @@ Now that your app is built, there are three ways to test your Serverless AI app.
  
 Here are the two other methods for testing your app:
  
-1.  **Deploy the app to the Fermyon Cloud**
+**Deploy the app to the Fermyon Cloud**
  
 You can deploy the app to the cloud by using the `spin deploy` command. In case you have not logged into your account before deploying your application, you need to grant access via a one-time token. Follow the instructions in the prompt to complete the auth process.
  
