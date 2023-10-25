@@ -5,17 +5,17 @@
                         Get Started
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/index" )}} class="active" {{/if}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/index" )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/index">Introduction</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/quickstart" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/quickstart" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/quickstart">Quickstart</a>
                         </li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/install" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v1/install">Install</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/upgrade" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v1/upgrade">Upgrade</a></li>
-                        <li><a {{#if (active_content
-                                        request.spin-path-info "/spin/v1/see-what-people-have-built-with-spin" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/install" )}} class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v1/install">Install</a></li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/upgrade" )}} class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v1/upgrade">Upgrade</a></li>
+                        <li><a {{#if (active_project
+                                        request.spin-full-url "/spin/v1/see-what-people-have-built-with-spin" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/see-what-people-have-built-with-spin">Built
                                         With Spin</a></li>
@@ -27,26 +27,26 @@
                         Applications
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/writing-apps" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/writing-apps" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/writing-apps">Writing
                                         Applications</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/spin-application-structure" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/spin-application-structure" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/spin-application-structure">Structuring
                                         Applications</a>
                         </li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/build" )}} class="active" {{/if}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/build" )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/build">Compiling
                                         Applications</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/running-apps" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/running-apps" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/running-apps">Running
                                         Applications</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/distributing-apps" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/distributing-apps" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/distributing-apps">Publishing
                                         and Distribution</a>
                         </li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/troubleshooting-application-dev"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/troubleshooting-application-dev"
                                         )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/troubleshooting-application-dev">Troubleshooting
                                         Application Development</a></li>
@@ -59,28 +59,26 @@
                         Language Guides
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/language-support-overview" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/language-support-overview" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/language-support-overview">Language
                                         Support
                                         Overview</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/rust-components" )}}
-                                        class="active" {{/if}}
-                                        href="{{site.info.base_url}}/spin/v1/rust-components">Rust</a>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/rust-components" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v1/rust-components">Rust</a>
                         </li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/go-components" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/go-components" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/go-components">Go</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/javascript-components" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/javascript-components" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/javascript-components">Javascript</a>
                         </li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/python-components" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/python-components" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/python-components">Python</a>
                         </li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/other-languages" )}}
-                                        class="active" {{/if}}
-                                        href="{{site.info.base_url}}/spin/v1/other-languages">Other
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/other-languages" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v1/other-languages">Other
                                         Languages</a></li>
                 </ul>
         </div>
@@ -94,10 +92,10 @@
                     <li><a {{#if (active_content request.spin-path-info "/spin/triggers" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/triggers">Triggers</a></li>
                     -->
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/http-trigger" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/http-trigger" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/http-trigger">The HTTP
                                         Trigger</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/redis-trigger" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/redis-trigger" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/redis-trigger">The Redis
                                         Trigger</a></li>
                 </ul>
@@ -108,32 +106,32 @@
                         API Guides
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/api-guides-overview" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/api-guides-overview" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/api-guides-overview">API
                                         Support Overview</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/http-outbound" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/http-outbound" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/http-outbound">Making HTTP
                                         Requests</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/kv-store-api-guide" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/kv-store-api-guide" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/kv-store-api-guide">Key
                                         Value Store</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/serverless-ai-api-guide" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/serverless-ai-api-guide" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/serverless-ai-api-guide">Serverless
                                         AI</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/sqlite-api-guide" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/sqlite-api-guide" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/sqlite-api-guide">SQLite
                                         Storage</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/redis-outbound" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/redis-outbound" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/redis-outbound">Redis
                                         Storage</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/rdbms-storage" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/rdbms-storage" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/rdbms-storage">Relational
                                         Database Storage</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/variables" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/variables" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/variables">Application
                                         Variables</a></li>
                 </ul>
@@ -144,24 +142,23 @@
                         Tutorials
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/_spin/v1/serverless-ai-hello-world" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/serverless-ai-hello-world" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/serverless-ai-hello-world.md">Build Your First
                                         Serverless AI App</a></li>
-                        <li><a {{#if (active_content
-                                        request.spin-path-info "/spin/v1/ai-sentiment-analysis-api-tutorial" )}}
-                                        class="active" {{/if}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/ai-sentiment-analysis-api-tutorial"
+                                        )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/ai-sentiment-analysis-api-tutorial">Sentiment
                                         Analysis With Serverless AI</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/url-shortener-tutorial" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/url-shortener-tutorial" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/url-shortener-tutorial">Building
                                         a URL Shortener With Spin</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/registry-tutorial" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/registry-tutorial" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/registry-tutorial">Spin
                                         Apps in Registries</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/key-value-store-tutorial" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/key-value-store-tutorial" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/key-value-store-tutorial">Spin
                                         Key-Value Store</a></li>
@@ -173,11 +170,11 @@
                         Tools
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/managing-templates" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/managing-templates" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/managing-templates">Managing
                                         Templates</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/managing-plugins" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/managing-plugins" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/managing-plugins">Managing
                                         Plugins</a></li>
@@ -189,10 +186,10 @@
                         References
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/cli-reference" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/cli-reference" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/cli-reference">CLI
                                         Reference</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/manifest-reference" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/manifest-reference" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/manifest-reference">Application
                                         Manifest
@@ -206,12 +203,12 @@
                         Advanced
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/extending-and-embedding" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/extending-and-embedding" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/extending-and-embedding">Extending
                                         and Embedding
                                         Spin</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/deploying-to-fermyon" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/deploying-to-fermyon" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/deploying-to-fermyon">Deploying
                                         to Fermyon</a>
@@ -223,24 +220,24 @@
                                         Improvement Proposals <img
                                                 src="{{site.info.base_url}}/static/image/arrowexternal.svg" width="15"
                                                 height="15"></a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/dynamic-configuration" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/dynamic-configuration" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/dynamic-configuration">Dynamic
                                         Application
                                         Configuration</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/cache" )}} class="active" {{/if}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/cache" )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/cache">Spin Internal Data
                                         Layout</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/template-authoring" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/template-authoring" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/template-authoring">Creating
                                         Spin Templates</a>
                         </li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/plugin-authoring" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/plugin-authoring" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/plugin-authoring">Creating
                                         Spin Plugins</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/kubernetes" )}} class="active"
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/kubernetes" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v1/kubernetes">Spin on
                                         Kubernetes</a></li>
                 </ul>
@@ -251,11 +248,11 @@
                         Contributing
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/contributing-docs" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/contributing-docs" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/contributing-docs">Contributing
                                         to Docs</a></li>
-                        <li><a {{#if (active_content request.spin-path-info "/spin/v1/contributing-spin" )}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v1/contributing-spin" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v1/contributing-spin">Contributing
                                         to Spin</a></li>

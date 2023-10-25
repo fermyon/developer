@@ -41,7 +41,7 @@
     <div class="navbar-menu">
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
-                {{#if (active_project request.spin-path-info "/_spin/" )}}
+                {{#if (active_project request.spin-full-url "/spin/" )}}
                 <a class="navbar-link is-active">
                     Spin
                 </a>
@@ -64,7 +64,7 @@
                 {{/if}}
 
                 <div class="navbar-dropdown is-boxed">
-                    <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-path-info "/_spin/" )}}
+                    <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-path-info " /spin/" )}}
                         is-active {{/if}}">
                         <div class="project-content">
                             <div class="title">Spin</div>
@@ -72,7 +72,7 @@
                         </div>
                     </a>
 
-                    <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-path-info "/cloud/" )}}
+                    <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-path-info " /cloud/" )}}
                         is-active {{/if}}">
                         <div class="project-content">
                             <div class="title">Cloud</div>
