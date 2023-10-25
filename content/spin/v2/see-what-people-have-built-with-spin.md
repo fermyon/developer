@@ -2,7 +2,7 @@ title = "Built With Spin"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/see-what-people-have-built-with-spin.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/see-what-people-have-built-with-spin.md"
 
 ---
 - [Like Button](#like-button)

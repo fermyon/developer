@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/kv-store-api-guide.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/kv-store-api-guide.md"
 
 ---
 - [Using Key Value Store From Applications](#using-key-value-store-from-applications)
@@ -70,7 +70,7 @@ fn handle_request(_req: Request) -> Result<Response> {
 - The close operation is not surfaced; it is called automatically when the store is dropped.
 
 `set_json` and `get_json` **Operation**
-- Rust applications can [store and retrieve serializable Rust types](/spin/rust-components#storing-data-in-the-spin-key-value-store).
+- Rust applications can [store and retrieve serializable Rust types](/spin/v2/rust-components#storing-data-in-the-spin-key-value-store).
 
 {{ blockEnd }}
 
@@ -158,7 +158,7 @@ func example() error {
 
 ## Custom Key Value Stores
 
-Spin defines a key-value store named `"default"` and provides automatic backing storage.  If you need to customize Spin with additional stores, or to change the backing storage for the default store, you can do so via the `--runtime-config-file` flag and the `runtime-config.toml` file.  See [Key Value Store Runtime Configuration](/spin/dynamic-configuration#key-value-store-runtime-configuration) for details.
+Spin defines a key-value store named `"default"` and provides automatic backing storage.  If you need to customize Spin with additional stores, or to change the backing storage for the default store, you can do so via the `--runtime-config-file` flag and the `runtime-config.toml` file.  See [Key Value Store Runtime Configuration](/spin/v2/dynamic-configuration#key-value-store-runtime-configuration) for details.
 
 ## Granting Key Value Store Permissions to Components
 

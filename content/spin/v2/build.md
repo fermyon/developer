@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/build.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/build.md"
 
 ---
 
@@ -162,7 +162,7 @@ Building component hello with `cargo build --target wasm32-wasi --release`
 Finished building all Spin components
 ```
 
-> If your build doesn't work, and your source code looks okay, you can [run `spin doctor`](/spin/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
+> If your build doesn't work, and your source code looks okay, you can [run `spin doctor`](/spin/v2/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
 
 ## Running the Application After Build
 

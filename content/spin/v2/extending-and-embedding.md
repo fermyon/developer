@@ -2,7 +2,7 @@ title = "Extending and Embedding Spin"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/extending-and-embedding.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/extending-and-embedding.md"
 
 ---
 - [Other Ways to Extend and Use Spin](#other-ways-to-extend-and-use-spin)

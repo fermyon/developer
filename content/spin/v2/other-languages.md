@@ -2,7 +2,7 @@ title = "Building Spin components in other languages"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/other-languages.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/other-languages.md"
 
 ---
 - [AssemblyScript](#assemblyscript)

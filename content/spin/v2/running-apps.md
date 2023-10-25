@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/running-apps.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/running-apps.md"
 
 ---
 - [Specifying the Application to Run](#specifying-the-application-to-run)
@@ -32,7 +32,7 @@ If your manifest is named something different, or isn't in your current director
 
 > If you see the error `failed to resolve content at "example.wasm"` (where `example.wasm` is the module file of a component), check that the application has been built.
 
-> If your application doesn't run, you can [run `spin doctor`](/spin/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
+> If your application doesn't run, you can [run `spin doctor`](/spin/v2/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
 
 ### Testing HTTP Applications
 
