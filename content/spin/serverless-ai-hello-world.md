@@ -73,7 +73,7 @@ Now, let's write your first Serverless AI application with Spin.
  
 {{ startTab "Rust"}}
 
-The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/)
+The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/).
  
 <!-- @selectiveCpy -->
  
