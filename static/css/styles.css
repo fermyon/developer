@@ -2172,6 +2172,15 @@ html.dark-theme .developer-home-wrap .community-highlight {
   padding-bottom: 8rem !important;
 }
 
+.documentation aside.menu .version-dropdown {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #e7d3f2;
+  outline: none;
+  margin: 0 1rem 1rem 0;
+  padding: .2rem;
+}
+
 .documentation aside.menu .accordion-tabs {
   z-index: 200;
   flex-grow: 1;
