@@ -128,7 +128,7 @@ The `spin.toml` file is the manifest file which tells Spin what events should tr
 ai_models = ["llama2-chat"]
 ```
  
-This is what your `spin.toml` file should look like, based on whether you’re using Rust, TypeScript or Python.
+This is what your `spin.toml` file should look like, based on whether you’re using Rust, TypeScript or Python:
  
 {{ tabs "sdk-type" }}
  
