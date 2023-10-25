@@ -241,5 +241,3 @@ exclude_files = ["**/node_modules"]
 latest_spin_version = "v1"
 [component.trigger]
 route = "/spin/..."
-[component.build]
-command = "npm run build"
