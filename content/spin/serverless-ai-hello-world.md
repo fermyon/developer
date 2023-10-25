@@ -323,7 +323,7 @@ Here are the two other methods for testing your app:
  
 You can deploy the app to the cloud by using the `spin deploy` command. In case you have not logged into your account before deploying your application, you need to grant access via a one-time token. Follow the instructions in the prompt to complete the auth process.
  
-Once you have logged in and the app is deployed, you will see a URL, upon successful deployment. The app is now deployed and can be accessed by anyone with the URL.
+Once you have logged in and the app is deployed, you will see a URL, upon successful deployment. The app is now deployed and can be accessed by anyone with the URL:
  
 ```bash
 $ spin deploy
