@@ -62,7 +62,6 @@ $ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgr
 ## Licenses
  
 > This tutorial uses Meta AI's Llama 2, Llama Chat and Code Llama models you will need to visit Meta's Llama webpage and agree to Meta's License, Acceptable Use Policy, and to Meta’s privacy policy before fetching and using Llama models.
->
  
 ## Serverless AI Inferencing With Spin 
  
