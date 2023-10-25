@@ -106,6 +106,8 @@
                     Tutorials
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
+                    <li><a {{#if (active_content request.spin-path-info "/spin/serverless-ai-hello-world" )}} class="active"
+                            {{/if}} href="{{site.info.base_url}}/spin/serverless-ai-hello-world.md">Build Your First Serverless AI App</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/ai-sentiment-analysis-api-tutorial" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/spin/ai-sentiment-analysis-api-tutorial">Sentiment Analysis With Serverless AI</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/url-shortener-tutorial" )}} class="active" {{/if}}
