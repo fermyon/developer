@@ -43,7 +43,7 @@ $ spin --version
 
 ## Creating a New Spin Application
 
-Let's create a Spin application that will send and retreive data from a key value store. To make things easy, we'll start from a template using the following commands ([learn more]](./quickstart#creating-a-new-spin-application-from-a-template)):
+Let's create a Spin application that will send and retreive data from a key value store. To make things easy, we'll start from a template using the following commands ([learn more](./quickstart#creating-a-new-spin-application-from-a-template)):
 
 {{ tabs "sdk-type" }}
 
@@ -176,7 +176,7 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. 
 
-> Please note: Spin applications written in Rust can [store and retrieve Rust data structures]](./rust-components#storing-data-in-the-spin-key-value-store) in the application's data store.
+> Please note: Spin applications written in Rust can [store and retrieve Rust data structures](./rust-components#storing-data-in-the-spin-key-value-store) in the application's data store.
 
 ### The Spin SDK Version
 

@@ -58,7 +58,7 @@ $ spin plugins install js2wasm
 With the plugin installed, you can now call `spin js2wasm` to run it. In this
 case, for example, you might call it from your JavaScript application's npm
 build script. Learn more about building Spin components in JavaScript
-[here]](./javascript-components.md).
+[here](./javascript-components.md).
 
 To upgrade installed plugins to newer versions, run `spin plugin update` to
 fetch the latest plugins to the local catalogue and `spin plugin upgrade` to perform the

@@ -53,7 +53,7 @@ How-to guides are oriented towards showing a user how to solve a problem, which 
 
 ### 3. Reference
 
-Reference resources are merely a dry description; describing the feature in its simplest form. A great example of a reference resource is the [Spin CLI Reference page](./cli-reference). You will notice that the CLI Reference page simply lists all of the commands and available options.
+Reference resources are merely a dry description; describing the feature in its simplest form. A great example of a reference resource is the [Spin CLI Reference page](/spin/cli-reference). You will notice that the CLI Reference page simply lists all of the commands and available options.
 
 ### 4. Explanation
 
@@ -186,7 +186,7 @@ If you want the code in a code block to be copyable with no "smarts" to remove t
 
 **Multi-tab code blocks**
 
-Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](./install#installing-spin) installer documentation](./install#installing-spin) and [Spin Key/Value documentation](./kv-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
+Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](/spin/install#installing-spin) installer documentation and [Spin Key/Value documentation](/spin/kv-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
 
 The first step to implementing multi-tab code blocks is placing the `enable_shortcodes = true` configuration at the start of the `.md` file. Specifically, in the `.md` file's frontmatter.
 

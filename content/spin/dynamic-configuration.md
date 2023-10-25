@@ -14,6 +14,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/dynamic-confi
 - [Runtime Configuration](#runtime-configuration)
   - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
   - [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
+  - [LLM Runtime Configuration](#llm-runtime-configuration)
 
 Spin applications may define custom configuration which can be looked up by
 component code via the [spin-config interface](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-config.wit).
@@ -110,8 +111,8 @@ $ vault kv put secret/password value="test_password"
 $ vault kv get secret/password
 ```
 
-4. Go to the [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-config-test) folder.
-5. Build and run the `vault-config-test` app:
+4. Go to the [spin/tests/http/vault-variables-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-variables-test) folder.
+5. Build and run the `vault-variables-test` app:
 
 <!-- @selectiveCpy -->
 

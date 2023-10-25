@@ -2482,7 +2482,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-**Note:** For additional information, please see the [Managing Plugins](./managing-plugins) and/or [Creating Plugins](./plugin-authoring) sections of the documentation.
+**Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin registry
@@ -3993,7 +3993,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-**Note:** For additional information, please see the [Managing Templates](./managing-templates) and/or [Creating Templates](./template-authoring) sections of the documentation.
+**Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin up

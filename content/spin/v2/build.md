@@ -162,7 +162,7 @@ Building component hello with `cargo build --target wasm32-wasi --release`
 Finished building all Spin components
 ```
 
-> If your build doesn't work, and your source code looks okay, you can [run `spin doctor`]](./troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
+> If your build doesn't work, and your source code looks okay, you can [run `spin doctor`](./troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
 
 ## Running the Application After Build
 

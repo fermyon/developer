@@ -32,7 +32,7 @@ If your manifest is named something different, or isn't in your current director
 
 > If you see the error `failed to resolve content at "example.wasm"` (where `example.wasm` is the module file of a component), check that the application has been built.
 
-> If your application doesn't run, you can [run `spin doctor`]](./troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
+> If your application doesn't run, you can [run `spin doctor`](./troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
 
 ### Testing HTTP Applications
 

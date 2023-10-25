@@ -22,7 +22,7 @@ With Spin's registry support, you can package and save your Spin application as 
 
 ## Prerequisites
 
-First, follow [this guide]](./install) to ensure you have the latest version of Spin installed (this tutorial refers to Spin 1.0 and above). You can check the Spin version using the following command:
+First, follow [this guide](./install) to ensure you have the latest version of Spin installed (this tutorial refers to Spin 1.0 and above). You can check the Spin version using the following command:
 
 <!-- @selectiveCpy -->
 
