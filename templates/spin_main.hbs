@@ -14,8 +14,8 @@
                     <option value="/spin/v1/index" {{#if (active_project request.spin-path-info "/_spin/v1/" )}}
                         selected {{/if}}>Spin v1.x</option>
                 </select> --}}
-                {{#if (active_project request.spin-path-info "/_spin/v1/" )}}
-                {{> spin_sidebar_v1 }}
+                {{#if (active_project request.spin-path-info "/_spin/v2/" )}}
+                {{> spin_sidebar_v2 }}
                 {{else}}
                 {{> spin_sidebar }}
                 {{/if}}
