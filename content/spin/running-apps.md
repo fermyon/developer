@@ -32,7 +32,7 @@ If your manifest is named something different, or isn't in your current director
 
 > If you see the error `failed to resolve content at "example.wasm"` (where `example.wasm` is the module file of a component), check that the application has been built.
 
-> If your application doesn't run, you can [run `spin doctor`](/spin/troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
+> If your application doesn't run, you can [run `spin doctor`](./troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
 
 ### Testing HTTP Applications
 
@@ -79,9 +79,9 @@ Some trigger types support additional `spin up` flags.  For example, HTTP applic
 
 ## Monitoring Applications for Changes
 
-Spin's `watch` command rebuilds and restarts Spin applications whenever files change. You can use the `spin watch` [command](https://developer.fermyon.com/common/cli-reference#watch) in place of the `spin build` and `spin up` commands, to build, run and then keep your Spin application running without manual intervention while staying on the latest code and files.
+Spin's `watch` command rebuilds and restarts Spin applications whenever files change. You can use the `spin watch` [command](./cli-reference#watch) in place of the `spin build` and `spin up` commands, to build, run and then keep your Spin application running without manual intervention while staying on the latest code and files.
 
-> The `watch` command accepts valid Spin [up](https://developer.fermyon.com/common/cli-reference#up) options and passes them through to `spin up` for you when running/rerunning the Spin application.
+> The `watch` command accepts valid Spin [up](./cli-reference#up) options and passes them through to `spin up` for you when running/rerunning the Spin application.
 E.g. `spin watch --listen 127.0.0.1:3001`
 
 By default, Spin watch monitors:

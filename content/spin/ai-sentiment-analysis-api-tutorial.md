@@ -19,6 +19,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/ai-sentiment-
   - [Source Code](#source-code)
   - [Additional Functionality](#additional-functionality)
   - [Static Fileserver Component For The UI](#static-fileserver-component-for-the-ui)
+  - [Add the Front-End](#add-the-front-end)
   - [Key Value Explorer](#key-value-explorer)
   - [Application Manifest](#application-manifest)
   - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
@@ -948,5 +949,5 @@ We want to get feedback on the Serverless AI API. We are curious about what mode
 ## Next Steps
 
 - Try the numerous Serverless AI examples in our GitHub repository called [ai-examples](https://github.com/fermyon/ai-examples).
-- [Contribute](https://developer.fermyon.com/hub/contributing) your Serverless AI app to our [Spin Up Hub](https://developer.fermyon.com/hub).
+- [Contribute](/hub/contributing) your Serverless AI app to our [Spin Up Hub](/hub).
 - Ask questions and share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).

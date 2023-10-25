@@ -14,6 +14,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/dynamic-confi
 - [Runtime Configuration](#runtime-configuration)
   - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
   - [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
+  - [LLM Runtime Configuration](#llm-runtime-configuration)
 
 Spin applications may define custom configuration which can be looked up by
 component code via the [spin-config interface](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-config.wit).
@@ -110,7 +111,7 @@ $ vault kv put secret/password value="test_password"
 $ vault kv get secret/password
 ```
 
-4. Go to the [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-config-test) folder.
+4. Go to the [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/v1.5/tests/http/vault-config-test) folder.
 5. Build and run the `vault-config-test` app:
 
 <!-- @selectiveCpy -->
@@ -226,7 +227,7 @@ Spin does _not_ create libSQL databases.  Use your hosting service's tools to cr
 
 The `default` database will still be defined, even if you add other databases.
 
-By default, components will not have access to any of these databases (even the default one). You must grant each component access to the databases that it needs to use. To do this, use the `component.sqlite_databases` entry in the component manifest within `spin.toml`. See [SQLite Database](/spin/sqlite-api-guide.md) for more details. 
+By default, components will not have access to any of these databases (even the default one). You must grant each component access to the databases that it needs to use. To do this, use the `component.sqlite_databases` entry in the component manifest within `spin.toml`. See [SQLite Database](./sqlite-api-guide.md) for more details. 
 
 ### LLM Runtime Configuration
 
@@ -243,4 +244,4 @@ auth_token = "<auth_token>"
 
 Currently, the remote compute option requires an user to deploy their own LLM proxy service. Fermyon Cloud users can do this using the [`cloud-gpu` plugin](https://github.com/fermyon/spin-cloud-gpu).  If you prefer to create and deploy your own proxy service, you can find a reference implementation of the proxy protocol in the [`spin-cloud-gpu plugin repository`](https://github.com/fermyon/spin-cloud-gpu/blob/main/fermyon-cloud-gpu/src/index.ts). 
 
-By default, componenets will not have access to the LLM models unless granted explicit access through the `component.ai_models` entry in the component manifest within `spin.toml`. See [Serverless AI](/spin/serverless-ai-api-guide) for more details.
+By default, componenets will not have access to the LLM models unless granted explicit access through the `component.ai_models` entry in the component manifest within `spin.toml`. See [Serverless AI](./serverless-ai-api-guide) for more details.

@@ -270,7 +270,7 @@ To list installed templates, run:
 $ spin templates list
 ```
 
-For more information please read the [managing templates](https://developer.fermyon.com/spin/managing-templates) section of the documentation.
+For more information please read the [managing templates](./managing-templates) section of the documentation.
 
 ### Plugins
 
@@ -316,7 +316,7 @@ To list installed and available plugins, run:
 $ spin plugins list
 ```
 
-For more information, please visit the [managing plugins](https://developer.fermyon.com/spin/managing-plugins) section of the documentation.
+For more information, please visit the [managing plugins](./managing-plugins) section of the documentation.
 
 ## Next Steps
 

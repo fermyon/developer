@@ -2,7 +2,7 @@ title = "Building a URL Shortener With Spin"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/url-shortener-tutorial.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/url-shortener-tutorial.md"
 
 ---
 - [A Simple URL Shortener Built With Spin](#a-simple-url-shortener-built-with-spin)
