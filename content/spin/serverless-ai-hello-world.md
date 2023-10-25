@@ -105,7 +105,7 @@ HTTP path: /...
  
 {{ startTab "TypeScript" }}
  
-The TypeScript code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/)
+The TypeScript code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/).
  
 <!-- @selectiveCpy -->
  
