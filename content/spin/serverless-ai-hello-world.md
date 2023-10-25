@@ -350,7 +350,7 @@ $ spin plugins install -u https://github.com/fermyon/spin-cloud-gpu/releases/dow
 ```
  
  
-Let’s initialize the plugin. This command essentially deploys the Spin app to a Cloud GPU proxy and generates a runtime-config.
+Let’s initialize the plugin. This command essentially deploys the Spin app to a Cloud GPU proxy and generates a runtime-config:
  
 ```bash
 $ spin cloud-gpu init
