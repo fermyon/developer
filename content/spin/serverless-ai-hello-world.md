@@ -351,7 +351,6 @@ $ spin plugins install -u https://github.com/fermyon/spin-cloud-gpu/releases/dow
  
 Next, build and install the plugin for local development
  
-```
  
 Let’s initialize the plugin. This command essentially deploys the Spin app to a Cloud GPU proxy and generates a runtime-config.
  
