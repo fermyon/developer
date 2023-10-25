@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/key-value-store-tutorial.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/key-value-store-tutorial.md"
 
 ---
 - [Key Value Store With Spin Applications](#key-value-store-with-spin-applications)
@@ -43,7 +43,7 @@ $ spin --version
 
 ## Creating a New Spin Application
 
-Let's create a Spin application that will send and retreive data from a key value store. To make things easy, we'll start from a template using the following commands ([learn more](/spin/v2/quickstart#creating-a-new-spin-application-from-a-template)):
+Let's create a Spin application that will send and retreive data from a key value store. To make things easy, we'll start from a template using the following commands ([learn more](/spin/v2/v2/quickstart#creating-a-new-spin-application-from-a-template)):
 
 {{ tabs "sdk-type" }}
 
@@ -176,7 +176,7 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. 
 
-> Please note: Spin applications written in Rust can [store and retrieve Rust data structures](/spin/v2/rust-components#storing-data-in-the-spin-key-value-store) in the application's data store.
+> Please note: Spin applications written in Rust can [store and retrieve Rust data structures](/spin/v2/v2/rust-components#storing-data-in-the-spin-key-value-store) in the application's data store.
 
 ### The Spin SDK Version
 

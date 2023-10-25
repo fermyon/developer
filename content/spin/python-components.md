@@ -41,7 +41,7 @@ $ spin plugin update
 $ spin plugin install py2wasm
 ```
 
-**Please note:** For more information about managing `spin plugins`, see the [plugins section](/common/cli-reference#plugins) in the Spin Command Line Interface (CLI) documentation.
+**Please note:** For more information about managing `spin plugins`, see the [plugins section](./cli-reference#plugins) in the Spin Command Line Interface (CLI) documentation.
 
 ## Spin's Python HTTP Request Handler Template
 
@@ -69,7 +69,7 @@ Installed 1 template(s)
 +---------------------------------------------+
 ```
 
-**Please note:** For more information about managing `spin templates`, see the [templates section](/common/cli-reference#templates) in the Spin Command Line Interface (CLI) documentation.
+**Please note:** For more information about managing `spin templates`, see the [templates section](./cli-reference#templates) in the Spin Command Line Interface (CLI) documentation.
 
 ## Structure of a Python Component
 

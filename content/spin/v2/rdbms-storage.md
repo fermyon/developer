@@ -3,17 +3,17 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/rdbms-storage.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/rdbms-storage.md"
 
 ---
 - [Using MySQL and PostgreSQL From Applications](#using-mysql-and-postgresql-from-applications)
 
 Spin provides two interfaces for relational (SQL) databases:
 
-* A built-in [SQLite database](/spin/v2/sqlite-api-guide), which is always available and requires no management on your part.
+* A built-in [SQLite database](/spin/v2/v2/sqlite-api-guide), which is always available and requires no management on your part.
 * "Bring your own database" support for MySQL and PostgreSQL, where you host and manage the database outside of Spin.
 
-This page covers the "bring your own database" scenario.  See [SQLite Storage](/spin/v2/sqlite-api-guide) for the built-in service.
+This page covers the "bring your own database" scenario.  See [SQLite Storage](/spin/v2/v2/sqlite-api-guide) for the built-in service.
 
 {{ details "Why do I need a Spin interface? Why can't I just use my language's database libraries?" "The current version of the WebAssembly System Interface (WASI) doesn't provide a sockets interface, so database libraries that depend on sockets can't be built to Wasm. The Spin interface means Wasm modules can bypass this limitation by asking Spin to make the database connection on their behalf." }}
 

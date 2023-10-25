@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-trigger.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/http-trigger.md"
 
 ---
 - [Specifying an Application as HTTP](#specifying-an-application-as-http)
@@ -475,7 +475,7 @@ The `spin up` command's `--tls-cert` and `--tls-key` trigger options provide a w
 
 The `--tls-cert` option specifies the path to the TLS certificate to use for HTTPS, if this is not set, normal HTTP will be used. The certificate should be in PEM format. 
 
-The `--tls-key` option specifies the path to the private key to use for HTTPS, if this is not set, normal HTTP will be used. The key should be in PKCS#8 format. For more information, please see the [Spin CLI Reference](../common/cli-reference#trigger-options).
+The `--tls-key` option specifies the path to the private key to use for HTTPS, if this is not set, normal HTTP will be used. The key should be in PKCS#8 format. For more information, please see the [Spin CLI Reference](./cli-reference#trigger-options).
 
 ### Environment Variables
 

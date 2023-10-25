@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/sqlite-api-guide.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/sqlite-api-guide.md"
 
 ---
 - [Granting SQLite Database Permissions to Components](#granting-sqlite-database-permissions-to-components)
@@ -14,7 +14,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/sqlite-api
 
 Spin provides an interface for you to persist data in an SQLite database managed by Spin. This database allows Spin developers to persist relational data across application invocations.
 
-{{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the [MySQL or Postgres APIs](/spin/v2/rdbms-storage). However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite database is a great option." }}
+{{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the [MySQL or Postgres APIs](/spin/v2/v2/rdbms-storage). However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite database is a great option." }}
 
 ## Granting SQLite Database Permissions to Components
 
@@ -25,7 +25,7 @@ By default, a given component of an app will not have access to any SQLite datab
 sqlite_databases = ["default"]
 ```
 
-> Note: To deploy your Database application to Fermyon Cloud using `spin cloud deploy`, see the [NoOps SQL Database](https://developer.fermyon.com/cloud/noops-sql-db#accessing-private-beta) section in the documentation. It covers signing up for the private beta and setting up your Cloud database tables and initial data.
+> Note: To deploy your Database application to Fermyon Cloud using `spin cloud deploy`, see the [NoOps SQL Database](/cloud/noops-sql-db#accessing-private-beta) section in the documentation. It covers signing up for the private beta and setting up your Cloud database tables and initial data.
 
 ## Using SQLite Storage From Applications
 
@@ -35,7 +35,7 @@ The set of operations is common across all SDKs:
 
 | Operation  | Parameters | Returns | Behavior |
 |------------|------------|---------|----------|
-| `open`  | name | connection  | Open the database with the specified name. If `name` is the string "default", the default database is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](/spin/v2/dynamic-configuration.md#sqlite-storage-runtime-configuration) supplied with the application.|
+| `open`  | name | connection  | Open the database with the specified name. If `name` is the string "default", the default database is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](/spin/v2/v2/dynamic-configuration.md#sqlite-storage-runtime-configuration) supplied with the application.|
 | `execute` | connection, sql, parameters | database records | Executes the SQL statement and returns the results of the statement. SELECT statements typically return records or scalars. INSERT, UPDATE, and DELETE statements typically return empty result sets, but may return values in some cases. The `execute` operation recognizes the [SQLite dialect of SQL](https://www.sqlite.org/lang.html). |
 | `close` | connection | - | Close the specified `connection`. |
 
@@ -240,7 +240,7 @@ You can provide the `--sqlite` flag more than once; Spin runs the statements (or
 
 ## Custom SQLite Databases
 
-Spin defines a database named `"default"` and provides automatic backing storage.  If you need to customize Spin with additional databases, or to change the backing storage for the default database, you can do so via the `--runtime-config-file` flag and the `runtime-config.toml` file.  See [SQLite Database Runtime Configuration](/spin/v2/dynamic-configuration#sqlite-storage-runtime-configuration) for details.
+Spin defines a database named `"default"` and provides automatic backing storage.  If you need to customize Spin with additional databases, or to change the backing storage for the default database, you can do so via the `--runtime-config-file` flag and the `runtime-config.toml` file.  See [SQLite Database Runtime Configuration](/spin/v2/v2/dynamic-configuration#sqlite-storage-runtime-configuration) for details.
 
 ### Granting Access to Custom SQLite Databases
 

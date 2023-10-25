@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/serverless-ai-api-guide.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/serverless-ai-api-guide.md"
 
 ---
 - [Using Serverless AI From Applications](#using-serverless-ai-from-applications)
@@ -40,13 +40,13 @@ By default, the Spin framework will expect any already trained model files (whic
 code-generator-rs/.spin/ai_models/codellama-instruct
 ```
 
-See the [serverless AI Tutorial](/spin/v2/serverless-ai-tutorial) documentation for more concrete examples of implementing the Fermyon Serverless AI API, in your favorite language.
+See the [serverless AI Tutorial](/spin/v2/v2/serverless-ai-tutorial) documentation for more concrete examples of implementing the Fermyon Serverless AI API, in your favorite language.
 
 > Embeddings models are slightly more complicated; it is expected that both a `tokenizer.json` and a `model.safetensors` are located in the directory named after the model. For example, for the `foo-bar-baz` model, Spin will look in the `.spin/ai-models/foo-bar-baz` directory for `tokenizer.json` and a `model.safetensors`.
 
 ## Serverless AI Interface
 
-The Spin SDK surfaces the Serverless AI interface to a variety of different languages. See the [Language Support Overview](/spin/v2/language-support-overview) to see if your specific language is supported.
+The Spin SDK surfaces the Serverless AI interface to a variety of different languages. See the [Language Support Overview](/spin/v2/v2/language-support-overview) to see if your specific language is supported.
 
 The set of operations is common across all supporting language SDKs:
 

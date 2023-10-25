@@ -2,7 +2,7 @@ title = "Dynamic and Runtime Application Configuration"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-configuration.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/dynamic-configuration.md"
 
 ---
 - [Custom Config Variables](#custom-config-variables)
@@ -226,7 +226,7 @@ Spin does _not_ create libSQL databases.  Use your hosting service's tools to cr
 
 The `default` database will still be defined, even if you add other databases.
 
-By default, components will not have access to any of these databases (even the default one). You must grant each component access to the databases that it needs to use. To do this, use the `component.sqlite_databases` entry in the component manifest within `spin.toml`. See [SQLite Database](/spin/v2/sqlite-api-guide.md) for more details. 
+By default, components will not have access to any of these databases (even the default one). You must grant each component access to the databases that it needs to use. To do this, use the `component.sqlite_databases` entry in the component manifest within `spin.toml`. See [SQLite Database](/spin/v2/v2/sqlite-api-guide.md) for more details. 
 
 ### LLM Runtime Configuration
 
@@ -243,4 +243,4 @@ auth_token = "<auth_token>"
 
 Currently, the remote compute option requires an user to deploy their own LLM proxy service. Fermyon Cloud users can do this using the [`cloud-gpu` plugin](https://github.com/fermyon/spin-cloud-gpu).  If you prefer to create and deploy your own proxy service, you can find a reference implementation of the proxy protocol in the [`spin-cloud-gpu plugin repository`](https://github.com/fermyon/spin-cloud-gpu/blob/main/fermyon-cloud-gpu/src/index.ts). 
 
-By default, componenets will not have access to the LLM models unless granted explicit access through the `component.ai_models` entry in the component manifest within `spin.toml`. See [Serverless AI](/spin/v2/serverless-ai-api-guide) for more details.
+By default, componenets will not have access to the LLM models unless granted explicit access through the `component.ai_models` entry in the component manifest within `spin.toml`. See [Serverless AI](/spin/v2/v2/serverless-ai-api-guide) for more details.

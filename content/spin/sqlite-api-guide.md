@@ -25,7 +25,7 @@ By default, a given component of an app will not have access to any SQLite datab
 sqlite_databases = ["default"]
 ```
 
-> Note: To deploy your Database application to Fermyon Cloud using `spin cloud deploy`, see the [NoOps SQL Database](https://developer.fermyon.com/cloud/noops-sql-db#accessing-private-beta) section in the documentation. It covers signing up for the private beta and setting up your Cloud database tables and initial data.
+> Note: To deploy your Database application to Fermyon Cloud using `spin cloud deploy`, see the [NoOps SQL Database](/cloud/noops-sql-db#accessing-private-beta) section in the documentation. It covers signing up for the private beta and setting up your Cloud database tables and initial data.
 
 ## Using SQLite Storage From Applications
 

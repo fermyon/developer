@@ -2,7 +2,7 @@ title = "Contributing to Docs"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/contributing-docs.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/contributing-docs.md"
 keywords = "contribute contributing"
 
 ---
@@ -53,7 +53,7 @@ How-to guides are oriented towards showing a user how to solve a problem, which 
 
 ### 3. Reference
 
-Reference resources are merely a dry description; describing the feature in its simplest form. A great example of a reference resource is the [Spin CLI Reference page](/spin/v2/cli-reference). You will notice that the CLI Reference page simply lists all of the commands and available options.
+Reference resources are merely a dry description; describing the feature in its simplest form. A great example of a reference resource is the [Spin CLI Reference page](/spin/v2/v2/cli-reference). You will notice that the CLI Reference page simply lists all of the commands and available options.
 
 ### 4. Explanation
 
@@ -84,7 +84,7 @@ body_source = "<path to the content>"
 
 ```
 
-The value for the `body_source` key, should be the path from which the content is being shared (relative to the repository's `content` folder). For example if the Spin project's `developer/content/spin/v2/contributing-docs.md` holds the sharable content (as the single source of truth), then the Cloud project can display that same content by using the following frontmatter:
+The value for the `body_source` key, should be the path from which the content is being shared (relative to the repository's `content` folder). For example if the Spin project's `developer/content/spin/v2/v2/contributing-docs.md` holds the sharable content (as the single source of truth), then the Cloud project can display that same content by using the following frontmatter:
 
 <!-- @nocpy -->
 
@@ -186,7 +186,7 @@ If you want the code in a code block to be copyable with no "smarts" to remove t
 
 **Multi-tab code blocks**
 
-Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](/spin/v2/install#installing-spin) installer documentation](/spin/v2/install#installing-spin) and [Spin Key/Value documentation](/spin/v2/kv-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
+Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](/spin/v2/v2/install#installing-spin) installer documentation](/spin/v2/v2/install#installing-spin) and [Spin Key/Value documentation](/spin/v2/v2/kv-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
 
 The first step to implementing multi-tab code blocks is placing the `enable_shortcodes = true` configuration at the start of the `.md` file. Specifically, in the `.md` file's frontmatter.
 
@@ -359,7 +359,7 @@ If you create a new markdown file and/or you notice a file without the explicit 
 
 ```
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/contributing-docs.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/contributing-docs.md"
 ```
 
 ### 6.5 How To Properly Edit CSS Styles

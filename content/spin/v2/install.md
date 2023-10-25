@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/install.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/install.md"
 keywords = "install"
 
 ---
@@ -270,7 +270,7 @@ To list installed templates, run:
 $ spin templates list
 ```
 
-For more information please read the [managing templates](https://developer.fermyon.com/spin/managing-templates) section of the documentation.
+For more information please read the [managing templates](/spin/v2/managing-templates) section of the documentation.
 
 ### Plugins
 
@@ -316,7 +316,7 @@ To list installed and available plugins, run:
 $ spin plugins list
 ```
 
-For more information, please visit the [managing plugins](https://developer.fermyon.com/spin/managing-plugins) section of the documentation.
+For more information, please visit the [managing plugins](/spin/v2/managing-plugins) section of the documentation.
 
 ## Next Steps
 

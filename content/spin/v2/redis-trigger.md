@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/redis-trigger.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/redis-trigger.md"
 
 ---
 - [Specifying an Application as Redis](#specifying-an-application-as-redis)
