@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/cli-reference.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/cli-reference.md"
 
 ---
 - [spin add](#spin-add)
@@ -2482,7 +2482,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-**Note:** For additional information, please see the [Managing Plugins](/spin/v2/v2/managing-plugins) and/or [Creating Plugins](/spin/v2/v2/plugin-authoring) sections of the documentation.
+**Note:** For additional information, please see the [Managing Plugins]](./managing-plugins) and/or [Creating Plugins]](./plugin-authoring) sections of the documentation.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin registry
@@ -3993,7 +3993,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-**Note:** For additional information, please see the [Managing Templates](/spin/v2/v2/managing-templates) and/or [Creating Templates](/spin/v2/v2/template-authoring) sections of the documentation.
+**Note:** For additional information, please see the [Managing Templates]](./managing-templates) and/or [Creating Templates]](./template-authoring) sections of the documentation.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin up

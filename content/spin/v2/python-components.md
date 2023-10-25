@@ -2,7 +2,7 @@ title = "Building Spin Components in Python"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/python-components.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-components.md"
 
 ---
 - [Spin's Python Plugin](#spins-python-plugin)

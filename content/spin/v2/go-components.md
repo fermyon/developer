@@ -2,7 +2,7 @@ title = "Building Spin components in Go"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/go-components.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/go-components.md"
 
 ---
 

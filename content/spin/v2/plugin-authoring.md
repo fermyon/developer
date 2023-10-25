@@ -2,7 +2,7 @@ title = "Creating Spin Plugins"
 template = "spin_main"
 date = "2023-11-02T16:00:00Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/v2/plugin-authoring.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/plugin-authoring.md"
 
 ---
 - [What Are Spin Plugins?](#what-are-spin-plugins)
@@ -58,7 +58,7 @@ $ spin plugins install js2wasm
 With the plugin installed, you can now call `spin js2wasm` to run it. In this
 case, for example, you might call it from your JavaScript application's npm
 build script. Learn more about building Spin components in JavaScript
-[here](/spin/v2/v2/javascript-components.md).
+[here]](./javascript-components.md).
 
 To upgrade installed plugins to newer versions, run `spin plugin update` to
 fetch the latest plugins to the local catalogue and `spin plugin upgrade` to perform the
