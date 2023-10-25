@@ -80,7 +80,7 @@ $ spin up -f ghcr.io/alyssa-p-hacker/hello-world:v1
 
 > Remember that if the artifact is private you will need to be logged in, with permission to access it.
 
-> Spin optimizes downloads using a local [registry cache](/spin/cache). When running an application from a remote registry, Spin always tries to check the registry for updates, even if the application has already been pulled. However, content files that are already pulled will not be re-downloaded. This applies even if they were downloaded as part of a different application.
+> Spin optimizes downloads using a local [registry cache](./cache). When running an application from a remote registry, Spin always tries to check the registry for updates, even if the application has already been pulled. However, content files that are already pulled will not be re-downloaded. This applies even if they were downloaded as part of a different application.
 
 ### Running Published Applications by Digest
 
