@@ -85,7 +85,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite databases
+    sqlite       Manage Fermyon Cloud SQLite Databases
     variables    Manage Spin application variables
 
 ```
@@ -833,7 +833,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite databases
+    sqlite       Manage Fermyon Cloud SQLite Databases
     variables    Manage Spin application variables
 ```
 
@@ -1241,7 +1241,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite --help
 
-Manage Fermyon Cloud SQLite databases
+Manage Fermyon Cloud SQLite Databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1251,10 +1251,10 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete a SQLite database
-    execute    Execute SQL against a SQLite database
+    delete     Delete a SQLite Database
+    execute    Execute SQL against a SQLite Database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite databases of a user
+    list       List all SQLite Databases of a user
 ```
 
 {{ blockEnd }}
@@ -1267,7 +1267,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite --help
 
-Manage Fermyon Cloud SQLite databases
+Manage Fermyon Cloud SQLite Databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1389,7 +1389,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete a SQLite database
+Delete a SQLite Database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1422,7 +1422,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete a SQLite database
+Delete a SQLite Database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1528,7 +1528,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQL against a SQLite database
+Execute SQL against a SQLite Database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1559,7 +1559,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQL against a SQLite database
+Execute SQL against a SQLite Database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1659,7 +1659,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite help    
 
-Manage Fermyon Cloud SQLite databases
+Manage Fermyon Cloud SQLite Databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1669,10 +1669,10 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete a SQLite database
-    execute    Execute SQL against a SQLite database
+    delete     Delete a SQLite Database
+    execute    Execute SQL against a SQLite Database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite databases of a user
+    list       List all SQLite Databases of a user
 ```
 
 {{ blockEnd }}
@@ -1685,7 +1685,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite help    
 
-Manage Fermyon Cloud SQLite databases
+Manage Fermyon Cloud SQLite Databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1772,7 +1772,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite list --help
 
-List all SQLite databases of a user
+List all SQLite Databases of a user
 
 USAGE:
     spin cloud sqlite list [OPTIONS]
@@ -1799,7 +1799,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite list --help
 
-List all SQLite databases of a user
+List all SQLite Databases of a user
 
 USAGE:
     spin cloud sqlite list [OPTIONS]

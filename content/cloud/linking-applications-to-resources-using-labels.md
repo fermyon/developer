@@ -11,13 +11,13 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/linking-appl
 - [Working With Links and Labels](#working-with-links-and-labels)
 - [Next Steps](#next-steps)
 
-Many Spin applications require data storage between invocations. Fermyon Cloud offers two methods for this: key-value storage and NoOps SQL databases. However, the relationship between applications and databases isn't strictly one-to-one. A single database might be used by multiple applications, while an application could utilize several databases. There might even be a need to maintain a database that isn't utilized by any applications, perhaps for analytics or compliance reasons. All of these scenarios can occur as applications are independently deployed, upgraded, and retired, without any particular application needing to be aware of how others might be using the same databases.
+Many Spin applications require data storage between invocations. Fermyon Cloud offers two methods for this: key-value storage and SQLite Databases. However, the relationship between applications and databases isn't strictly one-to-one. A single database might be used by multiple applications, while an application could utilize several databases. There might even be a need to maintain a database that isn't utilized by any applications, perhaps for analytics or compliance reasons. All of these scenarios can occur as applications are independently deployed, upgraded, and retired, without any particular application needing to be aware of how others might be using the same databases.
 
 To facilitate the seamless transition of applications between different environments, such as from a local development environment to Fermyon Cloud, Spin applications don't reference databases by their physical location, like a connection string. Instead, they use a label. A label is an abstract identifier, such as "default," "user-accounts," or "transactions." The environment determines how this label is mapped to a physical database.
 
 In the Spin development environment, that mapping is handled by the [runtime configuration file](/spin/dynamic-configuration#runtime-configuration).  In Fermyon Cloud, it's managed through _links_.
 
-> Link management is currently available only for NoOps SQL databases. Fermyon Cloud currently allows applications only the "default" key-value store, which is private to the application and shares the application's lifespan. Key-value link management is planned for a future release of Fermyon Cloud.
+> Link management is currently available only for SQLite Databases. Fermyon Cloud currently allows applications only the "default" key-value store, which is private to the application and shares the application's lifespan. Key-value link management is planned for a future release of Fermyon Cloud.
 
 This may sound abstract, so let's walk through a specific example:
 
@@ -30,11 +30,11 @@ sqlite_databases = ["data"]
 // --snip--
 ```
 
-The string "data" is the **label** that the Spin application uses to reference the NoOps SQL Database. At application deployment time, we have to make a decision about how to map that label to an actual database.  The `spin cloud deploy` command gives us a couple of choices:
+The string "data" is the **label** that the Spin application uses to reference the SQLite Database. At application deployment time, we have to make a decision about how to map that label to an actual database.  The `spin cloud deploy` command gives us a couple of choices:
 - Use an existing database and link app to it
 - Create a new database and link the app to it
 
-In this example below, we are going to **link** the app to an existing NoOps SQL Database instance using the label. To do this, we choose the first option (that `spin deploy` gives us). We make our selection by using the up/down arrow keys and then `return` to continue:
+In this example below, we are going to **link** the app to an existing SQLite Database instance using the label. To do this, we choose the first option (that `spin deploy` gives us). We make our selection by using the up/down arrow keys and then `return` to continue:
 
 ```bash
 spin deploy
@@ -105,7 +105,7 @@ The Spin application does not need to know the true name of the Cloud resource (
 
 A label is understood by all the components within a single application, but the labels applied do not hold any significance to other Spin applications. 
 
-> At this time, only NoOps SQL DB supports labels. However, in the future other Fermyon Cloud resources such as Key Value Store will support links and labels as well. 
+> At this time, only SQLite Database supports labels. However, in the future other Fermyon Cloud resources such as Key Value Store will support links and labels as well. 
 
 ## Features of Links and Labels
 
@@ -119,9 +119,9 @@ The benefits of using labels and Fermyon Cloud links include:
 
 ## Working With Links and Labels
 
-Whenever you add a string to your NoOps SQL database entry in the component manifest, you're creating a label. When you deploy your Spin application to Fermyon Cloud, you will be prompted to link the label to a specific NoOps SQL database instance. Later on, if you'd like to update the link you can do so via the `spin cloud link` command. 
+Whenever you add a string to your SQLite Database entry in the component manifest, you're creating a label. When you deploy your Spin application to Fermyon Cloud, you will be prompted to link the label to a specific SQLite Database instance. Later on, if you'd like to update the link you can do so via the `spin cloud link` command. 
 
-To see your existing labels, run the `spin cloud <resource-type> list` command, where `<resource-type>` is the subcommand for the resource whose links you want to see. For example, if you want to see how your applications and your NoOps SQL databases are linked, run the following command:
+To see your existing labels, run the `spin cloud <resource-type> list` command, where `<resource-type>` is the subcommand for the resource whose links you want to see. For example, if you want to see how your applications and your SQLite Databases are linked, run the following command:
 
 ```bash
 $ spin cloud sqlite list
@@ -133,7 +133,7 @@ $ spin cloud sqlite list
 +--------------------------------------------------------+
 ```
 
-Now you can see your Spin applications, their respective labels and their connected NoOps SQL Databases.
+Now you can see your Spin applications, their respective labels and their connected SQLite Databases.
 
 Though not recommended, if you'd like to unlink your resource while your Spin application is running, you can do so with the following command:
 
@@ -147,5 +147,5 @@ If you delete a Fermyon Cloud application, it removes any links associated with 
 
 ## Next Steps
 
-* Review the [NoOps SQL DB Tutorial](noops-sql-db.md) to learn how to use links and labels with your NoOps SQL DB
+* Review the [SQLite Database Tutorial](noops-sql-db.md) to learn how to use links and labels with your SQLite Database
 * Visit the [Spin Cloud Plugin](cloud-command-reference.md) reference article to learn more about the `spin cloud sqlite link` commands

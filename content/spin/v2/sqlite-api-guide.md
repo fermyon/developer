@@ -12,13 +12,13 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/sqlite-api
 - [Custom SQLite Databases](#custom-sqlite-databases)
   - [Granting Access to Custom SQLite Databases](#granting-access-to-custom-sqlite-databases)
 
-Spin provides an interface for you to persist data in an SQLite database managed by Spin. This database allows Spin developers to persist relational data across application invocations.
+Spin provides an interface for you to persist data in an SQLite Database managed by Spin. This database allows Spin developers to persist relational data across application invocations.
 
-{{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the [MySQL or Postgres APIs](./rdbms-storage). However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite database is a great option." }}
+{{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the [MySQL or Postgres APIs](./rdbms-storage). However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite Database is a great option." }}
 
 ## Granting SQLite Database Permissions to Components
 
-By default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
+By default, a given component of an app will not have access to any SQLite Databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
 
 ```toml
 [component]
@@ -29,7 +29,7 @@ sqlite_databases = ["default"]
 
 ## Using SQLite Storage From Applications
 
-The Spin SDK surfaces the Spin SQLite database interface to your language.
+The Spin SDK surfaces the Spin SQLite Database interface to your language.
 
 The set of operations is common across all SDKs:
 
@@ -244,7 +244,7 @@ Spin defines a database named `"default"` and provides automatic backing storage
 
 ### Granting Access to Custom SQLite Databases
 
-As mentioned above, by default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest, using the `component.sqlite_databases` field in the manifest.
+As mentioned above, by default, a given component of an app will not have access to any SQLite Databases. Access must be granted specifically to each component via the component manifest, using the `component.sqlite_databases` field in the manifest.
 
 Components can be given access to different databases, and may be granted access to more than one database. For example:
 
