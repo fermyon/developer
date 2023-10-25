@@ -315,7 +315,7 @@ $ spin build
 
 {{ blockEnd }}
  
-Now that your app is built, there are three ways to test your Serverless AI app. One way to test the app is to run inferencing locally. This means running a LLM on your CPU. This is not as optimal compared to deploying to Fermyon’s Serverless AI which is performed by a high-powerful GPU in the cloud). To know more about this method, including downloading LLMs to your local machine, check out [the in-depth tutorial](https://developer.fermyon.com/spin/ai-sentiment-analysis-api-tutorial) on Building a Sentiment Analysis API using Serverless AI.
+Now that your app is built, there are three ways to test your Serverless AI app. One way to test the app is to run inferencing locally. This means running a LLM on your CPU. This is not as optimal compared to deploying to Fermyon’s Serverless AI, which uses high-powered GPUs in the cloud. To know more about this method, including downloading LLMs to your local machine, check out [the in-depth tutorial](https://developer.fermyon.com/spin/ai-sentiment-analysis-api-tutorial) on Building a Sentiment Analysis API using Serverless AI.
  
 Here are the two other methods for testing your app:
  
