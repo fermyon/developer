@@ -337,7 +337,7 @@ hello-world: https://hello-world-XXXXXX.fermyon.app (wildcard)
  
 The app’s manifest file reads the line `ai-models = ["llama2-chat"]` and uses that model in the cloud. For any changes to take effect in the app, it needs to be re-deployed to the cloud.
  
-2.  **Using the Cloud-GPU plugin to test locally**
+**Using the Cloud-GPU plugin to test locally**
  
 To avoid having to deploy the app for every change, you can use the [Cloud-GPU plugin](https://github.com/fermyon/spin-cloud-gpu) to deploy locally, with the LLM running in the cloud. While the app is hosted locally (running on `localhost`), every inferencing request is sent to the LLM that is running in the cloud. Follow the steps to use the `cloud-gpu` plugin
  
