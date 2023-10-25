@@ -277,7 +277,7 @@ def handle_request(request):
  
 ### Building and Deploying Your Spin Application
  
-Now that you have written your first Serverless AI app, it’s time to build and deploy it. To build your app run the following commands from inside your app’s folder (where the `spin.toml` file is located)
+Now that you have written your first Serverless AI app, it’s time to build and deploy it. To build your app run the following commands from inside your app’s folder (where the `spin.toml` file is located):
  
 {{ tabs "sdk-type" }}
  
