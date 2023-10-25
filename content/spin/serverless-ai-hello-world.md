@@ -368,7 +368,7 @@ auth_token = "<AUTO_GENERATED_TOKEN>"
  
 In the root of your Spin app directory, create a file named `runtime-config.toml` and paste the runtime-config generated in the previous step
  
-Now you are ready to test the Serverless AI app locally, using a GPU that is running in the cloud. To deploy the app locally you can use `spin up` (or `spin watch`) but with the following flag
+Now you are ready to test the Serverless AI app locally, using a GPU that is running in the cloud. To deploy the app locally you can use `spin up` (or `spin watch`) but with the following flag:
  
 ```bash
 $ spin up --runtime-config-file <path/to/runtime-config.toml>
