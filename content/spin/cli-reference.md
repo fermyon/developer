@@ -4382,7 +4382,7 @@ TRIGGER OPTIONS:
             [env: RUNTIME_CONFIG_FILE=]
 
         --sqlite <SQLITE_STATEMENTS>
-            Run an SQLite statement such as a migration against the default database. To run from a
+            Run a SQLite statement such as a migration against the default database. To run from a
             file, prefix the filename with @ e.g. spin up --sqlite @migration.sql
 
         --state-dir <STATE_DIR>
