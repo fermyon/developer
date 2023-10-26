@@ -969,7 +969,7 @@ Spin compatibility: `>= v1.3`
 <!-- @selectiveCpy -->
 ```console
 $ spin cloud link sqlite --help
-Link an app to a SQLite Database
+Link an app to an SQLite Database
 
 USAGE:
     spin cloud link sqlite [OPTIONS] --app <APP> --database <DATABASE> <LABEL>
@@ -1251,8 +1251,8 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete a SQLite Database
-    execute    Execute SQL against a SQLite Database
+    delete     Delete an SQLite Database
+    execute    Execute SQL against an SQLite Database
     help       Print this message or the help of the given subcommand(s)
     list       List all SQLite Databases of a user
 ```
@@ -1277,8 +1277,8 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete a SQLite Database
-    execute    Execute SQLite statements against a SQLite Database
+    delete     Delete an SQLite Database
+    execute    Execute SQLite statements against an SQLite Database
     help       Print this message or the help of the given subcommand(s)
     list       List all SQLite Databases of a user
 ```
@@ -1302,8 +1302,8 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete a SQLite Database
-    execute    Execute SQLite statements against a SQLite Database
+    delete     Delete an SQLite Database
+    execute    Execute SQLite statements against an SQLite Database
     help       Print this message or the help of the given subcommand(s)
     list       List all SQLite Databases of a user
 ```
@@ -1328,12 +1328,12 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    create     Create a SQLite Database
-    delete     Delete a SQLite Database
-    execute    Execute SQLite statements against a SQLite Database
+    create     Create an SQLite Database
+    delete     Delete an SQLite Database
+    execute    Execute SQLite statements against an SQLite Database
     help       Print this message or the help of the given subcommand(s)
     list       List all SQLite Databases of a user
-    rename     Rename a SQLite Database
+    rename     Rename an SQLite Database
 ```
 
 {{ blockEnd }}
@@ -1352,7 +1352,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite create --help
 
-Create a SQLite Database
+Create an SQLite Database
 
 USAGE:
     spin cloud sqlite create [OPTIONS] <NAME>
@@ -1389,7 +1389,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete a SQLite Database
+Delete an SQLite Database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1422,7 +1422,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete a SQLite Database
+Delete an SQLite Database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1455,7 +1455,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete a SQLite Database
+Delete an SQLite Database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1488,7 +1488,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete a SQLite Database
+Delete an SQLite Database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1528,7 +1528,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQL against a SQLite Database
+Execute SQL against an SQLite Database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1559,7 +1559,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQL against a SQLite Database
+Execute SQL against an SQLite Database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1590,7 +1590,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQLite statements against a SQLite Database
+Execute SQLite statements against an SQLite Database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1621,7 +1621,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQLite statements against a SQLite Database
+Execute SQLite statements against an SQLite Database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1669,8 +1669,8 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete a SQLite Database
-    execute    Execute SQL against a SQLite Database
+    delete     Delete an SQLite Database
+    execute    Execute SQL against an SQLite Database
     help       Print this message or the help of the given subcommand(s)
     list       List all SQLite Databases of a user
 ```
@@ -1695,8 +1695,8 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete a SQLite Database
-    execute    Execute SQLite statements against a SQLite Database
+    delete     Delete an SQLite Database
+    execute    Execute SQLite statements against an SQLite Database
     help       Print this message or the help of the given subcommand(s)
     list       List all SQLite Databases of a user
 ```
@@ -1721,8 +1721,8 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete a SQLite Database
-    execute    Execute SQLite statements against a SQLite Database
+    delete     Delete an SQLite Database
+    execute    Execute SQLite statements against an SQLite Database
     help       Print this message or the help of the given subcommand(s)
     list       List all SQLite Databases of a user
 ```
@@ -1747,12 +1747,12 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    create     Create a SQLite Database
-    delete     Delete a SQLite Database
-    execute    Execute SQLite statements against a SQLite Database
+    create     Create an SQLite Database
+    delete     Delete an SQLite Database
+    execute    Execute SQLite statements against an SQLite Database
     help       Print this message or the help of the given subcommand(s)
     list       List all SQLite Databases of a user
-    rename     Rename a SQLite Database
+    rename     Rename an SQLite Database
 ```
 
 {{ blockEnd }}
@@ -1899,7 +1899,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite rename --help
 
-Rename a SQLite Database
+Rename an SQLite Database
 
 USAGE:
     spin cloud sqlite rename [OPTIONS] <NAME> <NEW_NAME>
@@ -1947,7 +1947,7 @@ OPTIONS:
 
 SUBCOMMANDS:
     help      Print this message or the help of the given subcommand(s)
-    sqlite    Unlink an app from a SQLite Database
+    sqlite    Unlink an app from an SQLite Database
 ```
 
 {{ blockEnd }}
@@ -1966,7 +1966,7 @@ Spin compatibility: `>= v1.3`
 <!-- @selectiveCpy -->
 ```console
 $ spin cloud unlink sqlite --help
-Unlink an app from a SQLite Database
+Unlink an app from an SQLite Database
 
 USAGE:
     spin cloud unlink sqlite [OPTIONS] --app <APP> <LABEL>
