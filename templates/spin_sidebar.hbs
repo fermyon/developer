@@ -70,6 +70,10 @@
                     Triggers
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
+                    <!-- TODO: re-enable this when we split the v1 and v2 TOCs
+                    <li><a {{#if (active_content request.spin-path-info "/spin/triggers" )}} class="active" {{/if}}
+                            href="{{site.info.base_url}}/spin/triggers">Triggers</a></li>
+                    -->
                     <li><a {{#if (active_content request.spin-path-info "/spin/http-trigger" )}} class="active" {{/if}}
                             href="{{site.info.base_url}}/spin/http-trigger">The HTTP Trigger</a></li>
                     <li><a {{#if (active_content request.spin-path-info "/spin/redis-trigger" )}} class="active" {{/if}}

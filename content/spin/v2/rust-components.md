@@ -81,38 +81,34 @@ for writing Spin components with the Spin Rust SDK.
 > Make sure to read [the page describing the HTTP trigger](./http-trigger.md) for more
 > details about building HTTP applications.
 
-Building a Spin HTTP component using the Rust SDK means writing a single function
-that takes an HTTP request as a parameter, and returns an HTTP response — below
-is a complete implementation for such a component:
+Building a Spin HTTP component using the Rust SDK means writing a single function decorated with the `#[http_component]` attribute. The function can have one of two forms:
+
+* takes an HTTP request as a parameter, and returns an HTTP response — shown below
+* taken as parameters _both_ the HTTP request and an object through which to write a response - see [the HTTP trigger page](./http-trigger#authoring-http-components) for an example.
 
 ```rust
-use anyhow::Result;
-use spin_sdk::{
-    http::{Request, Response},
-    http_component,
-};
+use http::{Request, Response};
+use spin_sdk::http::IntoResponse;
+use spin_sdk::http_component;
 
 /// A simple Spin HTTP component.
 #[http_component]
-fn hello_world(req: Request) -> Result<Response> {
-    println!("{:?}", req);
-    Ok(http::Response::builder()
+async fn handle_hello_rust(_req: Request<()>) -> anyhow::Result<impl IntoResponse> {
+    Ok(Response::builder()
         .status(200)
-        .header("foo", "bar")
-        .body(Some("Hello, Fermyon!".into()))?)
+        .header("content-type", "text/plain")
+        .body("Hello, Fermyon")?)
 }
 ```
 
 The important things to note in the implementation above:
 
-- the `spin_sdk::http_component` macro marks the function as the
-  entry point for the Spin component
-- the function signature — `fn hello_world(req: Request) -> Result<Response>` —
+- the `spin_sdk::http_component` macro marks the function as the entry point for the Spin component
+- the function signature — `fn hello_world(req: Request) -> Result<impl IntoResponse>` —
   the Spin HTTP component uses the HTTP objects from the popular Rust crate
-  [`http`](https://crates.io/crates/http), and the request and response bodies
-  are optionally using [`bytes::Bytes`](https://crates.io/crates/bytes)
-  (`spin_sdk::http::Request` is a type alias for `http::Request<Option<Bytes>>`)
-- the component returns a Rust `anyhow::Result`, so if there is an error processing the request, it returns an `anyhow::Error`.
+  [`http`](https://crates.io/crates/http), and allows a flexible set of response types via the `IntoResponse` trait
+
+> If you're familiar with Spin 1.x, you will see some changes when upgrading to the Spin 2 SDK. Mostly these provide more flexibility, but you will likely need to change some details such as module paths. If you don't want to modify your code, you can continue using the 1.x SDK - your components will still run.
 
 ## Redis Components
 
@@ -158,16 +154,16 @@ instance the trigger must connect to:
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
 name = "spin-redis"
-trigger = { type = "redis", address = "redis://localhost:6379" }
 version = "0.1.0"
 
-[[component]]
-id = "echo-message"
-source = "target/wasm32-wasi/release/spinredis.wasm"
-[component.trigger]
+[application.trigger.redis]
+address = "redis://localhost:6379"
+
+[[trigger.redis]]
 channel = "messages"
+component = { source = "target/wasm32-wasi/release/spinredis.wasm" }
 ```
 
 This application will connect to `redis://localhost:6379`, and for every new
@@ -266,7 +262,7 @@ now receive requests in route `/outbound`:
 ```bash
 $ curl -i localhost:3000/outbound
 HTTP/1.1 200 OK
-date = "2023-11-02T16:00:00Z"
+date: Fri, 18 Mar 2022 03:54:36 GMT
 content-type: application/json; charset=utf-8
 content-length: 185
 server: spin/0.1.0
@@ -497,17 +493,11 @@ crate-type = [ "cdylib" ]
 [dependencies]
 # Useful crate to handle errors.
 anyhow = "1"
-# Crate to simplify working with bytes.
-bytes = "1"
 # General-purpose crate with common HTTP types.
 http = "0.2"
 # The Spin SDK.
 spin-sdk = { git = "https://github.com/fermyon/spin" }
-# Crate that generates Rust Wasm bindings from a WebAssembly interface.
-wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", rev = "cb871cfa1ee460b51eb1d144b175b9aab9c50aba" }
 ```
-
-> `wit-bindgen` evolves rapidly to track draft standards.  Very recent versions of `wit-bindgen` are unlikely to work correctly with Spin.  So the dependency must be pinned to a specific `rev`.  Over time, Spin expects to track "peninsulas of stability" in the evolving standards.
 
 ## Read the Rust Spin SDK Documentation
 
