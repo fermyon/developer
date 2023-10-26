@@ -18,16 +18,14 @@ As of [spin cloud v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v
 
 ### As of spin cloud v0.4.0
 
-With [`spin cloud` plugin v0.4.0](https://github.com/fermyon/cloud-plugin), we've new functionality to help you manage your Spin application and NoOps SQL Database, among other exciting changes. 
+With [`spin cloud` plugin v0.4.0](https://github.com/fermyon/cloud-plugin), we've new functionality to help you manage your Spin application and SQLite Database, among other exciting changes. 
 
 Some highlights include:
 
-* `spin cloud link sqlite` will connect your NoOps SQL DB to your Spin application of choice
-* `spin cloud unlink sqlite` will disconnect your NoOps SQL DB to your Spin application of choice
-* `spin cloud sqlite create` will create a NoOps SQL database on Fermyon Cloud
-* `spin cloud sqlite rename` will rename your NoOps SQL database
-
-> Note that NoOps SQL Database is currently in private beta. You can request access using this [short form](https://fibsu0jcu2g.typeform.com/to/Brv12FI0#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx).
+* `spin cloud link sqlite` will connect your SQLite Database to your Spin application of choice
+* `spin cloud unlink sqlite` will disconnect your SQLite Database to your Spin application of choice
+* `spin cloud sqlite create` will create an SQLite Database on Fermyon Cloud
+* `spin cloud sqlite rename` will rename your SQLite Database
 
 <img src="/static/image/changelog/spin-cloud-0.4.0.jpg" alt="Spin Cloud 0.4.0 changelog">
 

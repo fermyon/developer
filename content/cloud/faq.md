@@ -89,13 +89,13 @@ To learn more about what feature support looks like for various programming lang
 - **Why do I see mixed replies from my service during an upgrade?**
   - When doing an upgrade of an application, there is a gradual roll-out happening. This means that requests will hit both the existing and new modules, as the upgrade completes. You will see a pattern like the one below, showing the body reply from an HTTP request:
 
-- **Can I export data from my NoOps SQL Database?**
+- **Can I export data from my SQLite Database?**
 At this time, Fermyon Cloud does not have a data export feature. We'd love to hear your thoughts on what an ideal experience would look like at [github.com/fermyon/feedback](https://github.com/fermyon/feedback)
 
-- **If I upgrade my Spin application, can I still access the same instance of my NoOps SQL Database?**
+- **If I upgrade my Spin application, can I still access the same instance of my SQLite Database?**
 Yes, as long as you haven't deleted your database, the instance will be running and stateful. 
 
-- **If I delete and redeploy my Spin application, can I still access the same instance of my NoOps SQL Database?**
+- **If I delete and redeploy my Spin application, can I still access the same instance of my SQLite Database?**
 Yes, Fermyon Cloud uses abstract [labels and links](https://developer.fermyon.com/cloud/linking-applications-to-resources-using-labels) to enable seamless database sharing and management among Spin applications.
 
 <!-- @nocpy -->

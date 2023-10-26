@@ -64,9 +64,9 @@ Chances are whatever you are building will want to talk to other endpoints on th
 
 - [Accessing external APIs](https://www.fermyon.com/blog/spin-rest-apis)
 
-## NoOps SQLite Storage Using Javascript
+## SQLite Storage Using Javascript
 
-Check out our [NoOps and Serverless Are the Perfect Pair](https://www.fermyon.com/blog/noops-and-serverless-are-the-perfect-pair) blog article that provides a NoOps SQLite Storage example (using Javascript).
+Check out our [NoOps and Serverless Are the Perfect Pair](https://www.fermyon.com/blog/noops-and-serverless-are-the-perfect-pair) blog article that provides an SQLite database example (using Javascript).
 
 ## Next Steps
 

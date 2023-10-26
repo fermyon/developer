@@ -184,9 +184,9 @@ You must individually grant each component access to the stores that it needs to
 
 ### SQLite Storage Runtime Configuration
 
-Spin provides built-in SQLite storage. By default, this is backed by a database that Spin creates for you underneath your application directory (in the `.spin` subdirectory). However, you can use the Spin runtime configuration file (`runtime-config.toml`) to add and customize SQLite databases.
+Spin provides built-in SQLite storage. By default, this is backed by a database that Spin creates for you underneath your application directory (in the `.spin` subdirectory). However, you can use the Spin runtime configuration file (`runtime-config.toml`) to add and customize SQLite Databases.
 
-The following example `runtime-config.toml` tells Spin to map the `default` database to an SQLite database elsewhere in the file system:
+The following example `runtime-config.toml` tells Spin to map the `default` database to an SQLite Database elsewhere in the file system:
 
 ```toml
 [sqlite_database.default]
