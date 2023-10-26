@@ -81,7 +81,7 @@ for writing Spin components with the Spin Rust SDK.
 > Make sure to read [the page describing the HTTP trigger](./http-trigger.md) for more
 > details about building HTTP applications.
 
-Building a Spin HTTP component using the Rust SDK means writing a single function decorated with the `#[http_component]` attribute. The function can have one of two forms:
+Building a Spin HTTP component using the Rust SDK means writing a single function decorated with the [`#[http_component]`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/attr.http_component.html) attribute. The function can have one of two forms:
 
 * takes an HTTP request as a parameter, and returns an HTTP response — shown below
 * taken as parameters _both_ the HTTP request and an object through which to write a response - see [the HTTP trigger page](./http-trigger#authoring-http-components) for an example.
@@ -103,10 +103,10 @@ async fn handle_hello_rust(_req: Request<()>) -> anyhow::Result<impl IntoRespons
 
 The important things to note in the implementation above:
 
-- the `spin_sdk::http_component` macro marks the function as the entry point for the Spin component
+- the [`spin_sdk::http_component`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/attr.http_component.html) macro marks the function as the entry point for the Spin component
 - the function signature — `fn hello_world(req: Request) -> Result<impl IntoResponse>` —
   the Spin HTTP component uses the HTTP objects from the popular Rust crate
-  [`http`](https://crates.io/crates/http), and allows a flexible set of response types via the `IntoResponse` trait
+  [`http`](https://crates.io/crates/http), and allows a flexible set of response types via the[ `IntoResponse`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/trait.IntoResponse.html) trait
 
 > If you're familiar with Spin 1.x, you will see some changes when upgrading to the Spin 2 SDK. Mostly these provide more flexibility, but you will likely need to change some details such as module paths. If you don't want to modify your code, you can continue using the 1.x SDK - your components will still run.
 
