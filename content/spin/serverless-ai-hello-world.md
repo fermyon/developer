@@ -31,8 +31,8 @@ In this tutorial we will:
 
 ### Spin
 
-You will need to [install the latest version of Spin](notion://www.notion.so/fermyon/install#installing-spin). Serverless AI is supported on Spin v1.5 and above
-If you already have Spin installed, [check what version you are on and upgrade](notion://www.notion.so/fermyon/upgrade#are-you-on-the-latest-version) if required.
+You will need to [install the latest version of Spin](./install#installing-spin). Serverless AI is supported on Spin v1.5 and above
+If you already have Spin installed, [check what version you are on and upgrade](./upgrade#are-you-on-the-latest-version) if required.
 
 ### Dependencies
  
