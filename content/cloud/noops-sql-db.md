@@ -144,5 +144,5 @@ Database "inspirational-pig" deleted
 
 ## Next Steps
 
-* For support or feature feedback, please join our [Discord channel #no-ops-db-beta](https://discord.gg/XxkZvsya). This is the place where you can provide feedback and request assistance from the Fermyon Cloud team regarding all matters related to using SQLite Databases in Spin and Fermyon Cloud.
+* For support or feature feedback, please join our [Discord channel #no-ops-db-beta](https://discord.gg/XxkZvsya). This is the place where you can provide feedback and request assistance from the Fermyon Cloud team regarding all things SQLite Database.
 * Visit [FAQ](/cloud/faq) for frequently asked questions.
