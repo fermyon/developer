@@ -365,7 +365,7 @@ messages on the `messages` Redis channel.
 
 ## Storing Data in the Spin Key-Value Store
 
-Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](kv-store-tutorial).
+Spin has a key-value store built in. For information about using it from Rust, see [the key-value store tutorial](key-value-store-tutorial).
 
 ### Serializing Objects to the Key-Value Store
 
