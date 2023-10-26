@@ -29,7 +29,7 @@ sqlite_databases = ["default"]
 
 ## Using SQLite Storage From Applications
 
-The Spin SDK surfaces the Spin SQLite Database interface to your language.
+The Spin SDK surfaces the Spin SQLite database interface to your language.
 
 The set of operations is common across all SDKs:
 
