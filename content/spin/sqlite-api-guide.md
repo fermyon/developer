@@ -18,7 +18,7 @@ Spin provides an interface for you to persist data in an SQLite Database managed
 
 ## Granting SQLite Database Permissions to Components
 
-By default, a given component of an app will not have access to any SQLite Databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
+By default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
 
 ```toml
 [component]
