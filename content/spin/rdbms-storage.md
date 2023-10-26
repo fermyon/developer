@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/rdbms-storage
 
 Spin provides two interfaces for relational (SQL) databases:
 
-* A built-in [SQLite database](./sqlite-api-guide), which is always available and requires no management on your part.
+* A built-in [SQLite Database](./sqlite-api-guide), which is always available and requires no management on your part.
 * "Bring your own database" support for MySQL and PostgreSQL, where you host and manage the database outside of Spin.
 
 This page covers the "bring your own database" scenario.  See [SQLite Storage](./sqlite-api-guide) for the built-in service.

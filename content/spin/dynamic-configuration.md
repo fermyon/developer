@@ -141,7 +141,7 @@ You can supply runtime configuration by providing a value for the `--runtime-con
 
 ### Key Value Store Runtime Configuration
 
-Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The available store options are the embedded SQLite database, an external Redis database or Azure CosmosDB.
+Spin provides built-in key-value storage. This storage is backed by an SQLite Database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The available store options are the embedded SQLite Database, an external Redis database or Azure CosmosDB.
 
 The following is an example of how an application's `runtime-config.toml` file can be configured to use Redis instead. Note the `type` and `url` values, which are set to `redis` and the URL of the Redis host, respectively:
 
@@ -184,9 +184,9 @@ You must individually grant each component access to the stores that it needs to
 
 ### SQLite Storage Runtime Configuration
 
-Spin provides built-in SQLite storage. By default, this is backed by a database that Spin creates for you underneath your application directory (in the `.spin` subdirectory). However, you can use the Spin runtime configuration file (`runtime-config.toml`) to add and customize SQLite databases.
+Spin provides built-in SQLite storage. By default, this is backed by a database that Spin creates for you underneath your application directory (in the `.spin` subdirectory). However, you can use the Spin runtime configuration file (`runtime-config.toml`) to add and customize SQLite Databases.
 
-The following example `runtime-config.toml` tells Spin to map the `default` database to an SQLite database elsewhere in the file system:
+The following example `runtime-config.toml` tells Spin to map the `default` database to an SQLite Database elsewhere in the file system:
 
 ```toml
 [sqlite_database.default]
