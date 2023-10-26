@@ -16,57 +16,64 @@ Spin provides an interface for you to make outgoing HTTP requests.
 
 ## Using HTTP From Applications
 
-The Spin SDK surfaces the Spin HTTP interface to your language. The interface contains only one operation:
+The outbound HTTP interface depends on your language.
 
-| Operation  | Parameters | Returns | Behavior |
-|------------|------------|---------|----------|
-| `request`  | request record | response record   | Sends the given HTTP request, and returns the response. |
-
-The request record specifies:
-
-| Field      | Type     | Meaning          |
-|------------|----------|------------------|
-| `method`   | enum     | The HTTP method for the request, e.g. GET, POST, DELETE, etc. |
-| `uri`      | string   | The URI to which to make the request |
-| `headers`  | list of key-value string pairs | The request headers |
-| `body`     | bytes    | Optional request body |
-
-> The Wasm request record declaration also contains a `parameters` field. This is unused and is retained only for binary compatibility.
-
-The response record contains:
-
-| Field      | Type     | Meaning          |
-|------------|----------|------------------|
-| `status`   | integer  | The HTTP status code of the response, e.g. 200, 404, etc. |
-| `headers`  | list of key-value string pairs | The response headers, if any |
-| `body`     | bytes    | The response body, if any |
-
-The exact detail of calling the `request` operation from your application depends on your language:
+> Under the surface, Spin uses the `wasi-http` interface. If your tools support the Wasm Component Model, you can work with that directly; but for most languages the Spin SDK is more idiomatic.
 
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
 
-HTTP functions are available in the `spin_sdk::outbound_http` module. The function is named `send_request`. It takes a `spin_sdk::http::Request` and returns a `spin_sdk::http::Response`. Both of these types are specializations of the `Request` and `Response` types from the `http` crate, and have all their behaviour and methods; the Spin SDK maps them to the underlying Wasm interface. For example:
+To send requests, use the [`spin_sdk::http::send`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/fn.send.html) function. This takes a request argument and returns a response (or error). It is `async`, so within an async inbound handler you can have multiple outbound `send`s running concurrently.
+
+`send` is quite flexible in its request and response types. The request may be:
+
+* [`http::Request`](https://docs.rs/http/latest/http/request/struct.Request.html) - typically constructed via `http::Request::builder()`
+* [`spin_sdk::http::Request`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Request.html) - typically constructed via `spin_sdk::http::Request::builder()`
+* [`spin_sdk::http::OutgoingRequest`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.OutgoingRequest.html) - constructed via `OutgoingRequest::new()`
+* Any type for which you have implemented the `TryInto<spin_sdk::http::OutgoingRequest>` trait
+
+Generally, you should use `OutgoingRequest` when you need to stream the outbound request body; otherwise, the `Request` types are usually simpler.
+
+The response may be:
+
+* [`http::Response`](https://docs.rs/http/latest/http/response/struct.Response.html)
+* [`spin_sdk::http::Response`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Response.html)
+* [`spin_sdk::http::IncomingResponse`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.IncomingResponse.html)
+* Any type for which you have implemented the [spin_sdk::http::conversions::TryFromIncomingResponse](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/conversions/trait.TryFromIncomingResponse.html) trait
+
+Generally, you should use `IncomingResponse` when you need to stream the response body; otherwise, the `Response` types are usually simpler.
+
+Here is an example of doing outbound HTTP in a simple request-response style:
 
 ```rust
-use spin_sdk::http::{Request, Response};
+use spin_sdk::http::{IntoResponse, Request, send};
+use spin_sdk::http_component;
 
-let request = http::Request::builder()
-    .method("POST")
-    .uri("https://example.com/users")
-    .body(Some(json_text.into()))?;
+#[http_component]
+// The trigger handler (in this case an HTTP handler) has to be async
+// so we can `await` the outbound send.
+async fn handle_request(_req: Request) -> anyhow::Result<impl IntoResponse> {
 
-let response = spin_sdk::outbound_http::send_request(request)?;
-println!("Status: {}", response.status().as_str());
+    // For this example, use the http::Request type for the outbound request
+    let outbound_req = http::Request::builder()
+        .uri("https://www.fermyon.com/")
+        .body(())?;
+
+    // Send the outbound request, capturing the response as raw bytes
+    let response: http::Response<Vec<u8>> = send(outbound_req).await?;
+
+    // Use the outbound response body
+    let response_len = response.body().len();
+
+    Ok(http::Response::builder()
+        .status(200)
+        .header("content-type", "text/plain")
+        .body(format!("The test page was {response_len} bytes"))?)
+}
 ```
 
-**Notes**
-
-* The Rust SDK surfaces the idiomatic `http` types rather than the raw Wasm interface types. For example, the `method` in Rust is a string, not an enum.
-* Request and response bodies are of type `Option<bytes::Bytes>`.
-
-You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http).
+For an example of receiving the response in a streaming style, [see this example in the Spin repository](https://github.com/fermyon/spin/blob/main/examples/wasi-http-rust-streaming-outgoing-body/src/lib.rs).
 
 {{ blockEnd }}
 
