@@ -244,7 +244,7 @@ Spin defines a database named `"default"` and provides automatic backing storage
 
 ### Granting Access to Custom SQLite Databases
 
-As mentioned above, by default, a given component of an app will not have access to any SQLite Databases. Access must be granted specifically to each component via the component manifest, using the `component.sqlite_databases` field in the manifest.
+As mentioned above, by default, a given component of an app will not have access to any SQLite databases. Access must be granted specifically to each component via the component manifest, using the `component.sqlite_databases` field in the manifest.
 
 Components can be given access to different databases, and may be granted access to more than one database. For example:
 
