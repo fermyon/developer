@@ -13,10 +13,10 @@
                                         href="{{site.info.base_url}}/spin/v2/">Introduction</a></li>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/quickstart" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v2/quickstart">Quickstart</a></li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/install" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v2/install">Install</a></li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/upgrade" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v2/upgrade">Upgrade</a></li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/install" )}} class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/install">Install</a></li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/upgrade" )}} class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/upgrade">Upgrade</a></li>
                         <li><a {{#if (active_project
                                         request.spin-full-url "/spin/v2/see-what-people-have-built-with-spin" )}}
                                         class="active" {{/if}}
@@ -69,9 +69,8 @@
                                         href="{{site.info.base_url}}/spin/v2/language-support-overview">Language
                                         Support
                                         Overview</a></li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/rust-components" )}}
-                                        class="active" {{/if}}
-                                        href="{{site.info.base_url}}/spin/v2/rust-components">Rust</a></li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/rust-components" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v2/rust-components">Rust</a></li>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/go-components" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v2/go-components">Go</a></li>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/javascript-components" )}}
@@ -81,9 +80,9 @@
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/python-components" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/python-components">Python</a></li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/other-languages" )}}
-                                        class="active" {{/if}}
-                                        href="{{site.info.base_url}}/spin/v2/other-languages">Other Languages</a>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/other-languages" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v2/other-languages">Other
+                                        Languages</a>
                         </li>
                 </ul>
         </div>
@@ -93,6 +92,8 @@
                         Triggers
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
+                        <li><a {{#if (active_project request.spin-full-url "/spin/triggers" )}} class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/triggers">Triggers</a></li>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/http-trigger" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v2/http-trigger">The HTTP Trigger</a>
                         </li>
@@ -145,9 +146,8 @@
                         Tutorials
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_project
-                                        request.spin-full-url "/spin/v2/ai-sentiment-analysis-api-tutorial" )}}
-                                        class="active" {{/if}}
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/ai-sentiment-analysis-api-tutorial"
+                                        )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/ai-sentiment-analysis-api-tutorial">Sentiment
                                         Analysis With Serverless AI</a></li>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/url-shortener-tutorial" )}}
