@@ -85,7 +85,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud SQLite databases
     variables    Manage Spin application variables
 
 ```
@@ -112,7 +112,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
     variables    Manage Spin application variables
 ```
 
@@ -138,7 +138,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
     variables    Manage Spin application variables
 ```
 
@@ -164,7 +164,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
     variables    Manage Spin application variables
 ```
 
@@ -833,7 +833,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud SQLite databases
     variables    Manage Spin application variables
 ```
 
@@ -859,7 +859,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
     variables    Manage Spin application variables
 ```
 
@@ -885,7 +885,7 @@ SUBCOMMANDS:
     deploy       Package and upload an application to the Fermyon Cloud
     help         Print this message or the help of the given subcommand(s)
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
     variables    Manage Spin application variables
 ```
 
@@ -912,7 +912,7 @@ SUBCOMMANDS:
     help         Print this message or the help of the given subcommand(s)
     link         Link apps to resources
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
     unlink       Unlink apps from resources
     variables    Manage Spin application variables
 ```
@@ -948,7 +948,7 @@ SUBCOMMANDS:
     help         Print this message or the help of the given subcommand(s)
     link         Link apps to resources
     login        Login to Fermyon Cloud
-    sqlite       Manage Fermyon Cloud SQLite Databases
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
     unlink       Unlink apps from resources
     variables    Manage Spin application variables
 ```
@@ -969,7 +969,7 @@ Spin compatibility: `>= v1.3`
 <!-- @selectiveCpy -->
 ```console
 $ spin cloud link sqlite --help
-Link an app to an SQLite Database
+Link an app to a NoOps SQL database
 
 USAGE:
     spin cloud link sqlite [OPTIONS] --app <APP> --database <DATABASE> <LABEL>
@@ -1241,7 +1241,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite --help
 
-Manage Fermyon Cloud SQLite Databases
+Manage Fermyon Cloud SQLite databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1251,10 +1251,10 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete an SQLite Database
-    execute    Execute SQL against an SQLite Database
+    delete     Delete a SQLite database
+    execute    Execute SQL against a SQLite database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite Databases of a user
+    list       List all SQLite databases of a user
 ```
 
 {{ blockEnd }}
@@ -1267,7 +1267,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite --help
 
-Manage Fermyon Cloud SQLite Databases
+Manage Fermyon Cloud SQLite databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1277,10 +1277,10 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete an SQLite Database
-    execute    Execute SQLite statements against an SQLite Database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite Databases of a user
+    list       List all NoOps SQL databases of a user
 ```
 
 {{ blockEnd }}
@@ -1292,7 +1292,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite --help
 
-Manage Fermyon Cloud SQLite Databases
+Manage Fermyon Cloud NoOps SQL databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1302,10 +1302,10 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete an SQLite Database
-    execute    Execute SQLite statements against an SQLite Database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite Databases of a user
+    list       List all NoOps SQL databases of a user
 ```
 
 {{ blockEnd }}
@@ -1318,7 +1318,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite --help
 
-Manage Fermyon Cloud SQLite Databases
+Manage Fermyon Cloud NoOps SQL databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1328,12 +1328,12 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    create     Create an SQLite Database
-    delete     Delete an SQLite Database
-    execute    Execute SQLite statements against an SQLite Database
+    create     Create a NoOps SQL database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite Databases of a user
-    rename     Rename an SQLite Database
+    list       List all NoOps SQL databases of a user
+    rename     Rename a NoOps SQL database
 ```
 
 {{ blockEnd }}
@@ -1352,7 +1352,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite create --help
 
-Create an SQLite Database
+Create a NoOps SQL database
 
 USAGE:
     spin cloud sqlite create [OPTIONS] <NAME>
@@ -1389,7 +1389,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete an SQLite Database
+Delete a SQLite database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1422,7 +1422,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete an SQLite Database
+Delete a SQLite database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1455,7 +1455,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete an SQLite Database
+Delete a NoOps SQL database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1488,7 +1488,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite delete --help
 
-Delete an SQLite Database
+Delete a NoOps SQL database
 
 USAGE:
     spin cloud sqlite delete [OPTIONS] <NAME>
@@ -1528,7 +1528,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQL against an SQLite Database
+Execute SQL against a SQLite database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1559,7 +1559,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQL against an SQLite Database
+Execute SQL against a SQLite database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1590,7 +1590,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQLite statements against an SQLite Database
+Execute SQLite statements against a NoOps SQL database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1621,7 +1621,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite execute --help
 
-Execute SQLite statements against an SQLite Database
+Execute SQLite statements against a NoOps SQL database
 
 USAGE:
     spin cloud sqlite execute [OPTIONS] <NAME> <STATEMENT>
@@ -1659,7 +1659,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite help    
 
-Manage Fermyon Cloud SQLite Databases
+Manage Fermyon Cloud SQLite databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1669,10 +1669,10 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete an SQLite Database
-    execute    Execute SQL against an SQLite Database
+    delete     Delete a SQLite database
+    execute    Execute SQL against a SQLite database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite Databases of a user
+    list       List all SQLite databases of a user
 ```
 
 {{ blockEnd }}
@@ -1685,7 +1685,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite help    
 
-Manage Fermyon Cloud SQLite Databases
+Manage Fermyon Cloud SQLite databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1695,10 +1695,10 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete an SQLite Database
-    execute    Execute SQLite statements against an SQLite Database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite Databases of a user
+    list       List all NoOps SQL databases of a user
 ```
 
 {{ blockEnd }}
@@ -1711,7 +1711,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite help    
 
-Manage Fermyon Cloud SQLite Databases
+Manage Fermyon Cloud NoOps SQL databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1721,10 +1721,10 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    delete     Delete an SQLite Database
-    execute    Execute SQLite statements against an SQLite Database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite Databases of a user
+    list       List all NoOps SQL databases of a user
 ```
 
 {{ blockEnd }}
@@ -1737,7 +1737,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite help    
 
-Manage Fermyon Cloud SQLite Databases
+Manage Fermyon Cloud NoOps SQL databases
 
 USAGE:
     spin cloud sqlite <SUBCOMMAND>
@@ -1747,12 +1747,12 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    create     Create an SQLite Database
-    delete     Delete an SQLite Database
-    execute    Execute SQLite statements against an SQLite Database
+    create     Create a NoOps SQL database
+    delete     Delete a NoOps SQL database
+    execute    Execute SQLite statements against a NoOps SQL database
     help       Print this message or the help of the given subcommand(s)
-    list       List all SQLite Databases of a user
-    rename     Rename an SQLite Database
+    list       List all NoOps SQL databases of a user
+    rename     Rename a NoOps SQL database
 ```
 
 {{ blockEnd }}
@@ -1772,7 +1772,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite list --help
 
-List all SQLite Databases of a user
+List all SQLite databases of a user
 
 USAGE:
     spin cloud sqlite list [OPTIONS]
@@ -1799,7 +1799,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite list --help
 
-List all SQLite Databases of a user
+List all SQLite databases of a user
 
 USAGE:
     spin cloud sqlite list [OPTIONS]
@@ -1826,7 +1826,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite list --help
 
-List all SQLite Databases of a user
+List all NoOps SQL databases of a user
 
 USAGE:
     spin cloud sqlite list [OPTIONS]
@@ -1853,7 +1853,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite list --help
 
-List all SQLite Databases of a user
+List all NoOps SQL databases of a user
 
 USAGE:
     spin cloud sqlite list [OPTIONS]
@@ -1899,7 +1899,7 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud sqlite rename --help
 
-Rename an SQLite Database
+Rename a NoOps SQL database
 
 USAGE:
     spin cloud sqlite rename [OPTIONS] <NAME> <NEW_NAME>
@@ -1947,7 +1947,7 @@ OPTIONS:
 
 SUBCOMMANDS:
     help      Print this message or the help of the given subcommand(s)
-    sqlite    Unlink an app from an SQLite Database
+    sqlite    Unlink an app from a NoOps SQL database
 ```
 
 {{ blockEnd }}
@@ -1966,7 +1966,7 @@ Spin compatibility: `>= v1.3`
 <!-- @selectiveCpy -->
 ```console
 $ spin cloud unlink sqlite --help
-Unlink an app from an SQLite Database
+Unlink an app from a NoOps SQL database
 
 USAGE:
     spin cloud unlink sqlite [OPTIONS] --app <APP> <LABEL>
