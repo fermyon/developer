@@ -165,7 +165,7 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/contributing-s
 route = "/spin/contributing/"
 executor = { type = "wagi" }
 
-# Redirect /spin/contributing/ to spin/contributing-spin
+# Redirect /spin/kv-store/ to spin/key-value-store-tutorial
 [[component]]
 id = "spin-kv-store-tutorial"
 source = "modules/redirect.wasm"

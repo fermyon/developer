@@ -753,7 +753,7 @@ You can always run this command manually; `spin build` is a shortcut to save you
 
 ## Run Your Application
 
-Now that you have created the application and built the component, you can spin up_
+Now that you have created the application and built the component, you can _spin up_
 the application (pun intended):
 
 <!-- @selectiveCpy -->
