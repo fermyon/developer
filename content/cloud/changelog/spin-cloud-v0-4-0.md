@@ -24,7 +24,7 @@ Some highlights include:
 
 * `spin cloud link sqlite` will connect your SQLite Database to your Spin application of choice
 * `spin cloud unlink sqlite` will disconnect your SQLite Database to your Spin application of choice
-* `spin cloud sqlite create` will create a SQLite Database on Fermyon Cloud
+* `spin cloud sqlite create` will create an SQLite Database on Fermyon Cloud
 * `spin cloud sqlite rename` will rename your SQLite Database
 
 <img src="/static/image/changelog/spin-cloud-0.4.0.jpg" alt="Spin Cloud 0.4.0 changelog">
