@@ -12,7 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/sqlite-api-gu
 - [Custom SQLite Databases](#custom-sqlite-databases)
   - [Granting Access to Custom SQLite Databases](#granting-access-to-custom-sqlite-databases)
 
-Spin provides an interface for you to persist data in an SQLite Database managed by Spin. This database allows Spin developers to persist relational data across application invocations.
+Spin provides an interface for you to persist data in an SQLite database managed by Spin. This database allows Spin developers to persist relational data across application invocations.
 
 {{ details "Why do I need a Spin interface? Why can't I just use my own external database?" "You can absolutely still use your own external database either with the [MySQL or Postgres APIs](./rdbms-storage). However, if you're interested in quick, local relational storage without any infrastructure set-up then Spin's SQLite database is a great option." }}
 
