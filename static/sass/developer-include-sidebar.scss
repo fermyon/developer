@@ -1,15 +1,17 @@
 // offset in conjunction with headroom js
 .documentation main aside.menu {
-    padding-top: 6.5rem !important;   
+    padding-top: 6.5rem !important;
 }
 
-.documentation header.headroom--unpinned + main aside.menu {
-    padding-top: 1.5rem !important;  
+.documentation header.headroom--unpinned+main aside.menu {
+    padding-top: 1.5rem !important;
 }
 
-.documentation header.headroom--unpinned + main h1:first-of-type+ul {
-    top: 2rem !important;  
+.documentation header.headroom--unpinned+main h1:first-of-type+ul {
+    top: 2rem !important;
 }
+
+
 
 // sidebar width is fixed for desktop
 $sidebarWidth: 17.5vw;
@@ -19,7 +21,7 @@ $sidebarWidth: 17.5vw;
     z-index: 665;
 }
 
-.menu-wrap + article.content {
+.menu-wrap+article.content {
     padding-left: calc($sidebarWidth + 0.75rem);
 
     footer.footer-links {
@@ -41,12 +43,22 @@ $sidebarWidth: 17.5vw;
     width: calc($sidebarWidth - 1.5vw);
     background: $lavendermid;
 
+    // styling for sidebar version dropdown
+    .version-dropdown {
+        margin: 0 1rem 1rem 0;
+        padding: 0.2rem;
+        background: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid $thistle;
+    }
+
     .accordion-tabs {
         flex-grow: 1;
         z-index: 200;
         padding-bottom: 3.25rem;
         overflow: visible;
-        
+
         .accordion-menu-item {
 
             .menu-label {
@@ -74,12 +86,12 @@ $sidebarWidth: 17.5vw;
                 }
 
                 &:hover {
-                    background-color: rgba(255,255,255,0.333);
+                    background-color: rgba(255, 255, 255, 0.333);
 
                     &::after {
                         opacity: 0.25;
                     }
-                } 
+                }
 
                 &.stay-open {
                     &::after {
@@ -113,7 +125,7 @@ $sidebarWidth: 17.5vw;
         align-items: center;
         padding: 1.25rem 0 !important;
         margin-top: 1.125rem;
-        
+
         svg {
             margin-right: 1rem;
         }
@@ -122,14 +134,16 @@ $sidebarWidth: 17.5vw;
             border: 2px solid $seagreen !important;
             background-color: transparent !important;
         }
-        
+
         &.is-secondary {
             border: none !important;
             box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.05);
         }
 
         &:hover {
-            path, svg {
+
+            path,
+            svg {
                 fill: $seagreen;
             }
         }
@@ -185,6 +199,7 @@ $sidebarWidth: 17.5vw;
 
             .menu-label.stay-open {
                 cursor: auto;
+
                 &::after {
                     transform: rotate(90deg);
                     margin-top: 0.3rem !important;
@@ -240,6 +255,6 @@ $sidebarWidth: 17.5vw;
                     }
                 }
             }
-        }    
+        }
     }
 }

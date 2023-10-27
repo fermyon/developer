@@ -211,4 +211,4 @@ $ spin cloud variables list --app "pw_checker"
 
 Congratulations 🎉! You've built and deployed your first dynamically configurable Spin application.
 
-If you want to do more with your Spin applications, check out tutorials on persisting data in Fermyon Cloud, whether with the [built-in key/value service](/spin/kv-store-tutorial.md), [Redis](/cloud/data-redis.md), or [PostgreSQL](/cloud/data-postgres.md).
+If you want to do more with your Spin applications, check out tutorials on persisting data in Fermyon Cloud, whether with the [built-in key/value service](/spin/key-value-store-tutorial.md), [Redis](/cloud/data-redis.md), or [PostgreSQL](/cloud/data-postgres.md).

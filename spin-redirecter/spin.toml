@@ -1,0 +1,16 @@
+spin_manifest_version = "1"
+authors = ["karthik2804 <karthik.ganeshram@fermyon.com>"]
+description = ""
+name = "spin-redirecter"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "spin-version-proxy"
+source = "../modules/spin-redirecter.wasm"
+allowed_http_hosts = ["insecure:allow-all"]
+exclude_files = ["**/node_modules"]
+[component.trigger]
+route = "/..."
+[component.build]
+command = "npm run build"

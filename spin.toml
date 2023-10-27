@@ -2,31 +2,31 @@ spin_manifest_version = "1"
 name = "fermyon-developer"
 version = "0.1.0"
 description = "The Fermyon Developer website running on... Spin."
-authors = [ "Fermyon Engineering <engineering@fermyon.com>" ]
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 trigger = { type = "http", base = "/" }
 
 [[component]]
 source = "modules/bartholomew.wasm"
 id = "bartholomew"
 environment = { PREVIEW_MODE = "0" }
-files = [ "content/**/*" , "templates/*", "scripts/*", "config/*", "shortcodes/*"]
+files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 [component.trigger]
 route = "/..."
 [component.build]
 command = "npm run build-index && npm run build-hub-index"
-watch = [ "content/**/*", "templates/*" ]
+watch = ["content/**/*", "templates/*"]
 
 [[component]]
 source = "modules/spin_static_fs.wasm"
 id = "fileserver_static"
-files = [ { source = "static/", destination = "/" } ]
+files = [{ source = "static/", destination = "/" }]
 [component.trigger]
 route = "/static/..."
 
 [[component]]
 source = "modules/spin_static_fs.wasm"
 id = "fileserver_downloads"
-files = [ { source = "downloads/", destination = "/" } ]
+files = [{ source = "downloads/", destination = "/" }]
 [component.trigger]
 route = "/downloads/..."
 
@@ -165,7 +165,7 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/contributing-s
 route = "/spin/contributing/"
 executor = { type = "wagi" }
 
-# Redirect /spin/contributing/ to spin/contributing-spin
+# Redirect /spin/kv-store/ to spin/key-value-store-tutorial
 [[component]]
 id = "spin-kv-store-tutorial"
 source = "modules/redirect.wasm"
@@ -187,8 +187,8 @@ executor = { type = "wagi" }
 [[component]]
 source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
 id = "hub_fileserver_static"
-files = [ { source = "spin-up-hub/dist/", destination = "/" } ]
-environment = {FALLBACK_PATH = "./index.html"}
+files = [{ source = "spin-up-hub/dist/", destination = "/" }]
+environment = { FALLBACK_PATH = "./index.html" }
 [component.trigger]
 route = "/hub/..."
 [component.build]
@@ -230,3 +230,45 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/ai-sentiment-a
 [component.trigger]
 route = "/spin/serverless-ai-tutorial"
 executor = { type = "wagi" }
+
+# Component to give us clean versioned URLs for spin from the root
+[[component]]
+id = "spin-version-proxy"
+source = "modules/spin-redirecter.wasm"
+allowed_http_hosts = ["self"]
+exclude_files = ["**/node_modules"]
+files = ["spin-redirect.json"]
+[component.config]
+latest_spin_version = "v1"
+[component.trigger]
+route = "/spin/..."
+# Need to modify action to get the js2wasm plugin
+# [component.build]
+# workdir = "spin-redirecter"
+# command = "npm install && npm run build"
+
+[[component]]
+source = "modules/bartholomew.wasm"
+id = "bartholomew-spin-v1"
+environment = { PREVIEW_MODE = "0" }
+files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
+[component.config]
+optional_path_prefix = "/spin/v1/"
+[component.trigger]
+route = "/spin/v1/..."
+[component.build]
+command = "npm run build-index && npm run build-hub-index"
+watch = ["content/**/*", "templates/*"]
+
+[[component]]
+source = "modules/bartholomew.wasm"
+id = "bartholomew-spin-v2"
+environment = { PREVIEW_MODE = "0" }
+files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
+[component.config]
+optional_path_prefix = "/spin/v2/"
+[component.trigger]
+route = "/spin/v2/..."
+[component.build]
+command = "npm run build-index && npm run build-hub-index"
+watch = ["content/**/*", "templates/*"]

@@ -135,5 +135,5 @@ For additional information about Spin's `watch` feature, please see the [Spin wa
 
 - Learn how to [create and update a Spin application](writing-apps)
 - Learn about how to [configure your application at runtime](dynamic-configuration)
-- See how to [package and distribute your application](spin-oci)
+- See how to [package and distribute your application](registry-tutorial)
 - Try deploying your application to run in the [Fermyon Cloud](/cloud/quickstart)

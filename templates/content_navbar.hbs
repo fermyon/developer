@@ -41,17 +41,17 @@
     <div class="navbar-menu">
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
-                {{#if (active_project request.spin-path-info "/spin/" )}}
+                {{#if (active_project request.spin-full-url "/spin/" )}}
                 <a class="navbar-link is-active">
                     Spin
                 </a>
                 {{else}}
-                {{#if (active_project request.spin-path-info "/cloud/" )}}
+                {{#if (active_project request.spin-full-url "/cloud/" )}}
                 <a class="navbar-link is-active">
                     Cloud
                 </a>
                 {{else}}
-                {{#if (active_project request.spin-path-info "/bartholomew/" )}}
+                {{#if (active_project request.spin-full-url "/bartholomew/" )}}
                 <a class="navbar-link is-active">
                     Bartholomew
                 </a>
@@ -62,9 +62,9 @@
                 {{/if}}
                 {{/if}}
                 {{/if}}
-                
+
                 <div class="navbar-dropdown is-boxed">
-                    <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-path-info "/spin/" )}}
+                    <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-full-url "/spin/" )}}
                         is-active {{/if}}">
                         <div class="project-content">
                             <div class="title">Spin</div>
@@ -72,7 +72,7 @@
                         </div>
                     </a>
 
-                    <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-path-info "/cloud/" )}}
+                    <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-full-url "/cloud/" )}}
                         is-active {{/if}}">
                         <div class="project-content">
                             <div class="title">Cloud</div>
@@ -80,7 +80,7 @@
                         </div>
                     </a>
 
-                    <a href="/bartholomew/index" class="navbar-item{{#if (active_project request.spin-path-info "/bartholomew/" )}} {{/if}}">
+                    <a href="/bartholomew/index" class="navbar-item{{#if (active_project request.spin-full-url "/bartholomew/" )}} {{/if}}">
                         <div class="project-content">
                             <div class="title">Bartholomew</div>
                             <div class="description">Compile WebAssembly-powered websites with this micro CMS</div>
@@ -89,7 +89,6 @@
                 </div>
             </div>
             <div class="overlay"></div>
-
             {{!-- quicklinks can be added to the topbar here --}}
             <a class="navbar-item" href="/hub">
                 Hub
@@ -142,8 +141,12 @@
                 </svg>
             </a>
 
-            <a class="navbar-item button is-outlined is-rounded is-medium cta-login-to-cloud btn-login" href="https://cloud.fermyon.com/login" target="_blank" aria-label="menuitem" title="Login to Fermyon Cloud">Login to Cloud</a>
-            <a class="navbar-item button is-primary is-rounded is-medium cta-login-to-cloud btn-signup" href="https://cloud.fermyon.com/?signup" target="_blank" aria-label="menuitem" title="Signup for Fermyon Cloud">Signup for Cloud</a>
+            <a class="navbar-item button is-outlined is-rounded is-medium cta-login-to-cloud btn-login"
+                href="https://cloud.fermyon.com/login" target="_blank" aria-label="menuitem"
+                title="Login to Fermyon Cloud">Login to Cloud</a>
+            <a class="navbar-item button is-primary is-rounded is-medium cta-login-to-cloud btn-signup"
+                href="https://cloud.fermyon.com/?signup" target="_blank" aria-label="menuitem"
+                title="Signup for Fermyon Cloud">Signup for Cloud</a>
         </div>
 
         <div id="search-button-container" class="search-button-container"></div>

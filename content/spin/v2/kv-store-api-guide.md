@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/kv-store-a
 - [Custom Key Value Stores](#custom-key-value-stores)
 - [Granting Key Value Store Permissions to Components](#granting-key-value-store-permissions-to-components)
 
-Spin provides an interface for you to persist data in a key value store managed by Spin. This key value store allows Spin developers to persist non-relational data across application invocations. To learn more about key value store use cases and how to enable your Spin application to use a key value store, check out our [key value tutorial](./kv-store-tutorial.md).
+Spin provides an interface for you to persist data in a key value store managed by Spin. This key value store allows Spin developers to persist non-relational data across application invocations. To learn more about key value store use cases and how to enable your Spin application to use a key value store, check out our [key value tutorial](./key-value-store-tutorial.md).
 
 {{ details "Why do I need a Spin interface? Why can't I just use my own external store?" "You can absolutely still use your own external store either with the Redis or Postgres APIs, or outbound HTTP. However, if you're interested in quick, non-relational local storage without any infrastructure set-up then Spin's key value store is a great option." }}
 

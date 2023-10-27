@@ -17,6 +17,6 @@ Fermyon Cloud now supports [Key Value Store](/spin/kv-store-api-guide). While Sp
 References:
 
 - [Spin Key Value API Guide](/spin/kv-store-api-guide) 
-- [Spin Key Value Tutorial](/spin/kv-store-tutorial)
+- [Spin Key Value Tutorial](/spin/key-value-store-tutorial)
 - [Introducing Fermyon Cloud Key Store](https://www.fermyon.com/blog/introducing-fermyon-cloud-key-value-store)
 - [Cloud Limitations](/cloud/faq)
