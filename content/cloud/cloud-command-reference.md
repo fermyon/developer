@@ -891,6 +891,34 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud help
+
+USAGE:
+    spin cloud <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    apps         Manage applications deployed to Fermyon Cloud
+    deploy       Package and upload an application to the Fermyon Cloud
+    help         Print this message or the help of the given subcommand(s)
+    link         Link apps to resources
+    login        Login to Fermyon Cloud
+    sqlite       Manage Fermyon Cloud NoOps SQL databases
+    unlink       Unlink apps from resources
+    variables    Manage Spin application variables
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1790,6 +1818,33 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.3.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite list --help
+
+List all NoOps SQL databases of a user
+
+USAGE:
+    spin cloud sqlite list [OPTIONS]
+
+OPTIONS:
+        --environment-name <environment-name>
+            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
+            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
 {{ startTab "v0.4.0"}}
 
 Spin compatibility: `>= v1.3`
@@ -1873,6 +1928,7 @@ OPTIONS:
 ## spin cloud unlink
 
 {{ tabs "cloud-plugin-version" }}
+
 {{ startTab "v0.4.0"}}
 
 Spin compatibility: `>= v1.3`
@@ -1895,12 +1951,14 @@ SUBCOMMANDS:
 ```
 
 {{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud unlink sqlite
 
 {{ tabs "cloud-plugin-version" }}
+
 {{ startTab "v0.4.0"}}
 
 Spin compatibility: `>= v1.3`
@@ -1920,60 +1978,6 @@ OPTIONS:
     -a, --app <APP>
             The app that will be using the database
 
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -h, --help
-            Print help information
-
-    -V, --version
-            Print version information
-```
-
-{{ blockEnd }}
-
-{{ startTab "v0.3.0"}}
-
-Spin compatibility: `>= v1.3`
-
-<!-- @selectiveCpy -->
-```console
-$ spin cloud sqlite list --help
-
-List all NoOps SQL databases of a user
-
-USAGE:
-    spin cloud sqlite list [OPTIONS]
-
-OPTIONS:
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -h, --help
-            Print help information
-
-    -V, --version
-            Print version information
-```
-
-{{ blockEnd }}
-
-{{ startTab "v0.4.0"}}
-
-Spin compatibility: `>= v1.3`
-
-<!-- @selectiveCpy -->
-```console
-$ spin cloud sqlite list --help
-
-List all NoOps SQL databases of a user
-
-USAGE:
-    spin cloud sqlite list [OPTIONS]
-
-OPTIONS:
         --environment-name <environment-name>
             Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
             to the default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
@@ -2560,7 +2564,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v0.3.0"}}
+{{ startTab "v0.4.0"}}
 
 Spin compatibility: `>= v1.3`
 
@@ -2729,7 +2733,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-{{ startTab "v0.3.0"}}
+{{ startTab "v0.4.0"}}
 
 Spin compatibility: `>= v1.3`
 

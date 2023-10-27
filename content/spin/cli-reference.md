@@ -232,7 +232,12 @@ OPTIONS:
 
 <!-- @selectiveCpy -->
 
-{{ blockEnd }}
+```console
+$ spin add --help
+
+spin-add 
+Scaffold a new component into an existing application
+
 
 USAGE:
     spin add [OPTIONS] [ARGS]
@@ -256,6 +261,9 @@ OPTIONS:
         --values-file <VALUES_FILE>    A TOML file which contains parameter values in name = "value"
                                        format. Parameters passed as CLI option overwrite parameters
                                        specified in the file
+```
+
+{{ blockEnd }}
 
 {{ blockEnd }}
 
@@ -957,6 +965,22 @@ OPTIONS:
 {{ startTab "v1.5"}}
 
 <!-- @selectiveCpy -->
+
+```console
+$ spin doctor --help
+
+spin-doctor 
+Detect and fix problems with Spin applications
+
+USAGE:
+    spin doctor [OPTIONS]
+
+OPTIONS:
+    -f, --from <APP_MANIFEST_FILE>    The application to check. This may be a manifest (spin.toml)
+                                      file, or a directory containing a spin.toml file. If omitted,
+                                      it defaults to "spin.toml" [default: spin.toml]
+    -h, --help                        Print help information                       Print help information
+```
 
 {{ blockEnd }}
 

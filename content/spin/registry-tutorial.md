@@ -22,7 +22,7 @@ With Spin's registry support, you can package and save your Spin application as 
 
 ## Prerequisites
 
-First, follow [this guide](/spin/install) to ensure you have the latest version of Spin installed (this tutorial refers to Spin 1.0 and above). You can check the Spin version using the following command:
+First, follow [this guide](./install) to ensure you have the latest version of Spin installed (this tutorial refers to Spin 1.0 and above). You can check the Spin version using the following command:
 
 <!-- @selectiveCpy -->
 
@@ -77,7 +77,7 @@ Now we're ready to push the application. Run the `spin registry push` command to
 $ spin registry push ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
-> **Note:** You can find more information on `spin registry` options and subcommands in the [Spin CLI Reference documentation](/common/cli-reference#oci-registry).
+> **Note:** You can find more information on `spin registry` options and subcommands in the [Spin CLI Reference documentation](./cli-reference#oci-registry).
 
 You now have a Spin application stored in your registry. You can see the artifact under packages in the [GitHub UI](https://docs.github.com/en/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages).
 

@@ -1091,7 +1091,7 @@ You can type in a sentence, and the UI will respond with the sentiment analysis.
 
 ## Integrating Custom Domain and Storage
 
-The groundbreaking Fermyon Serverless AI introduces a revolutionary addition to the full-stack developer's arsenal. You can now seamlessly integrate the Fermyon [NoOps SQL Database](https://www.fermyon.com/blog/announcing-noops-sql-db), [Key-Value Storage](https://www.fermyon.com/blog/introducing-fermyon-cloud-key-value-store), and even your [Fermyon Cloud Custom Domains](https://www.fermyon.com/blog/announcing-custom-domains) with the launch of your very own advanced AI-enabled serverless applications.
+The groundbreaking Fermyon Serverless AI introduces a revolutionary addition to the full-stack developer's arsenal. You can now seamlessly integrate the Fermyon [SQLite Database](https://www.fermyon.com/blog/announcing-noops-sql-db), [Key-Value Storage](https://www.fermyon.com/blog/introducing-fermyon-cloud-key-value-store), and even your [Fermyon Cloud Custom Domains](https://www.fermyon.com/blog/announcing-custom-domains) with the launch of your very own advanced AI-enabled serverless applications.
 
 ## Conclusion
 
@@ -1100,5 +1100,5 @@ We want to get feedback on the Serverless AI API. We are curious about what mode
 ## Next Steps
 
 - Try the numerous Serverless AI examples in our GitHub repository called [ai-examples](https://github.com/fermyon/ai-examples).
-- [Contribute](https://developer.fermyon.com/hub/contributing) your Serverless AI app to our [Spin Up Hub](https://developer.fermyon.com/hub).
+- [Contribute](/hub/contributing) your Serverless AI app to our [Spin Up Hub](/hub).
 - Ask questions and share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).

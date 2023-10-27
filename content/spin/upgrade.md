@@ -68,7 +68,7 @@ $ where spin
 
 ### Cargo
 
-If you originally followed the documentation's [Cargo install method](/spin/install#using-cargo-to-install-spin), please revisit to reinstall.
+If you originally followed the documentation's [Cargo install method](./install#using-cargo-to-install-spin), please revisit to reinstall.
 
 > Hint: Your Spin executable will likely be in the following location:
 
@@ -80,7 +80,7 @@ If you originally followed the documentation's [Cargo install method](/spin/inst
 
 ### Installer 
 
-If you originally followed the documentation's [installer script method](/spin/install#installing-spin), please revisit to reinstall.
+If you originally followed the documentation's [installer script method](./install#installing-spin), please revisit to reinstall.
 
 > Hint: Your Spin executable will likely be in the following location:
 
@@ -92,7 +92,7 @@ If you originally followed the documentation's [installer script method](/spin/i
 
 ### Source
 
-If you followed the documentation's [install from source method](/spin/install#building-spin-from-source) please revisit to reinstall.
+If you followed the documentation's [install from source method](./install#building-spin-from-source) please revisit to reinstall.
 
 > Hint: Your Spin executable will likely be in the following location (where you originally cloned the Spin repository):
 
@@ -128,6 +128,6 @@ echo $PATH
 
 > Paths are separated by the `:` (colon)
 
-In the above case, the [Cargo install method](/spin/install#using-cargo-to-install-spin)'s installation will take precedence over the [installer script method](/spin/install#installing-spin)'s installation. 
+In the above case, the [Cargo install method](./install#using-cargo-to-install-spin)'s installation will take precedence over the [installer script method](./install#installing-spin)'s installation. 
 
 In this case, you can either remove the Cargo installation of Spin using `cargo uninstall spin-cli` or update your system path to prioritize the Spin binary path that you prefer.
