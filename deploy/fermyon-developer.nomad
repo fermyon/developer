@@ -110,6 +110,11 @@ job "fermyon-developer" {
     task "server" {
       driver = "exec"
 
+      resources {
+        cpu    = 100
+        memory = 600
+      }
+
       artifact {
         source = "https://github.com/fermyon/spin/releases/download/v1.5.1/spin-v1.5.1-linux-amd64.tar.gz"
         options {
