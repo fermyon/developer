@@ -8,8 +8,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/upgrade.md
 ---
 - [Are You on the Latest Version?](#are-you-on-the-latest-version)
 - [Upgrade Spin](#upgrade-spin)
-  - [Cargo](#cargo)
   - [Installer](#installer)
+  - [Homebrew](#homebrew)
+  - [Cargo](#cargo)
   - [Source](#source)
 - [Troubleshooting](#troubleshooting)
   - [Not Seeing the Latest Version?](#not-seeing-the-latest-version)
@@ -66,18 +67,6 @@ $ where spin
 
 {{ blockEnd }}
 
-### Cargo
-
-If you originally followed the documentation's [Cargo install method](./install#using-cargo-to-install-spin), please revisit to reinstall.
-
-> Hint: Your Spin executable will likely be in the following location:
-
-<!-- @nocpy -->
-
-```bash
-~/.cargo/bin/spin
-```
-
 ### Installer 
 
 If you originally followed the documentation's [installer script method](./install#installing-spin), please revisit to reinstall.
@@ -90,16 +79,6 @@ If you originally followed the documentation's [installer script method](./insta
 /usr/local/bin/spin
 ```
 
-### Source
-
-If you followed the documentation's [install from source method](./install#building-spin-from-source) please revisit to reinstall.
-
-> Hint: Your Spin executable will likely be in the following location (where you originally cloned the Spin repository):
-
-```bash
-~/spin/target/release/spin
-```
-
 ### Homebrew
 
 If you installed Spin using [Homebrew](https://brew.sh/) please use the following commands to upgrade Spin.
@@ -109,6 +88,28 @@ If you installed Spin using [Homebrew](https://brew.sh/) please use the followin
 ```bash
 $ brew update
 $ brew upgrade fermyon/tap/spin
+```
+
+### Cargo
+
+If you originally followed the documentation's [Cargo install method](./install#using-cargo-to-install-spin), please revisit to reinstall.
+
+> Hint: Your Spin executable will likely be in the following location:
+
+<!-- @nocpy -->
+
+```bash
+~/.cargo/bin/spin
+```
+
+### Source
+
+If you followed the documentation's [install from source method](./install#building-spin-from-source) please revisit to reinstall.
+
+> Hint: Your Spin executable will likely be in the following location (where you originally cloned the Spin repository):
+
+```bash
+~/spin/target/release/spin
 ```
 
 ## Troubleshooting

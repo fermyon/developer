@@ -135,7 +135,7 @@ To install a specific version, you can pass arguments to the install script this
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v0.10.0
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v1.5.0
 ```
 
 To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
@@ -212,7 +212,7 @@ If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installati
 <!-- @selectiveCpy -->
 
 ```bash
-$ git clone https://github.com/fermyon/spin -b v1.4.1
+$ git clone https://github.com/fermyon/spin -b v2.0.0
 $ cd spin
 $ rustup target add wasm32-wasi
 $ rustup target add wasm32-unknown-unknown
@@ -220,7 +220,7 @@ $ cargo install --locked --path .
 $ spin --help
 ```
 
-> Please note: Installing Spin v1.4.1 from source requires Rust 1.68.0 or newer. You can update Rust using the following command:
+> Please note: Installing Spin v2.0 from source requires Rust 1.71.0 or newer. You can update Rust using the following command:
 
 <!-- @selectiveCpy -->
 
@@ -308,12 +308,12 @@ Fermyon Cloud:
 $ spin plugins install cloud --yes
 ```
 
-To list installed and available plugins, run:
+To list available plugins, run:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin plugins list
+$ spin plugins search
 ```
 
 For more information, please visit the [managing plugins](./managing-plugins) section of the documentation.
