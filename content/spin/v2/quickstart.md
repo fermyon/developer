@@ -80,7 +80,9 @@ Unzip the binary release and place the `spin.exe` in your system path.
 
 ### Install a Template
 
-The quickest and most convenient way to start a new application is to install and use a Spin template for your preferred language:
+> If you used the installer script above, the templates are already installed, and you can skip this section!
+
+The quickest and most convenient way to start a new application is to install and use a Spin template for your preferred language.
 
 {{ tabs "sdk-type" }}
 
@@ -191,6 +193,8 @@ $ rustup target add wasm32-wasi
 
 {{ startTab "TypeScript" }}
 
+> If you used the installer script above, the `js2wasm` plugin is already installed, and you can skip this section!
+
 You'll need the Spin `js2wasm` plugin:
 
 <!-- @selectiveCpy -->
@@ -205,6 +209,8 @@ $ spin plugins install js2wasm --yes
 {{ blockEnd }}
 
 {{ startTab "Python" }}
+
+> If you used the installer script above, the `py2wasm` plugin is already installed, and you can skip this section!
 
 You'll need the Spin `py2wasm` plugin:
 
@@ -221,7 +227,7 @@ $ spin plugins install py2wasm --yes
 
 {{ startTab "TinyGo" }}
 
-You'll need the TinyGo compiler, as the standard Go compiler does not yet support the WASI standard.  See the [TinyGo installation guide](https://tinygo.org/getting-started/install/).
+You'll need the TinyGo compiler, as the standard Go compiler does not yet support WASI exports.  See the [TinyGo installation guide](https://tinygo.org/getting-started/install/).
 
 [Learn more in the language guide.](go-components)
 
@@ -256,7 +262,6 @@ Pick a template to start your application with:
 
 Enter a name for your new application: hello_rust
 Project description: My first Rust Spin application
-HTTP base: /
 HTTP path: /...
 ```
 
@@ -268,8 +273,6 @@ This command created a directory with the necessary files needed to build and ru
 $ cd hello_rust
 $ tree
 .
-├── .cargo
-│   └── config.toml
 ├── .gitignore
 ├── Cargo.toml
 ├── spin.toml
@@ -282,28 +285,30 @@ The additional `spin.toml` file is the manifest file, which tells Spin what even
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello_rust"
+version = "0.1.0"
 authors = ["You <you@yourself.net>"]
 description = "My first Rust Spin application"
-name = "hello_rust"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
-id = "hello-rust"
+[[trigger.http]]
+route = "/..."
+component = "hello-rust"
+
+[component.hello-rust]
 source = "target/wasm32-wasi/release/hello_rust.wasm"
 allowed_http_hosts = []
-[component.trigger]
-route = "/..."
-[component.build]
+[component.hello-rust.build]
 command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
-This represents a simple Spin HTTP application (triggered by an HTTP request), with
-a single component called `hello-rust`. This component is on the route `/...`, which is a wildcard
-meaning it will match any route.  When the application gets an HTTP request, Spin will map its route
-to the `hello-rust` component, and execute the associated `hello_rust.wasm`
-WebAssembly module.
+This represents a simple Spin HTTP application (triggered by an HTTP request).  It has:
+
+* A single HTTP trigger, for the `/...` route, associated with the `hello-rust` component.  `/...` is a wildcard, meaning it will match any route.  When the application gets an HTTP request that matches this route - that is, any HTTP request at all! - Spin will run the `hello-rust` component.
+* A single component called `hello-rust`, whose implementation is in the associated `hello_rust.wasm` WebAssembly component.  When, in response to the HTTP trigger, Spin runs this component, it will execute the HTTP handler in `hello_rust.wasm`.  (We're about to see the source code for that.)
 
 [Learn more about the manifest here.](./writing-apps)
 
@@ -314,20 +319,17 @@ annotated with the `http_component` macro which identifies it as the entry point
 for HTTP requests:
 
 ```rust
-use anyhow::Result;
-use spin_sdk::{
-    http::{Request, Response},
-    http_component,
-};
+use spin_sdk::http::{IntoResponse, Request};
+use spin_sdk::http_component;
 
 /// A simple Spin HTTP component.
 #[http_component]
-fn handle_hello_rust(req: Request) -> Result<Response> {
-    println!("{:?}", req.headers());
+fn handle_hello_rust(req: Request) -> anyhow::Result<impl IntoResponse> {
+    println!("Handling request to {:?}", req.header("spin-full-url"));
     Ok(http::Response::builder()
         .status(200)
-        .header("foo", "bar")
-        .body(Some("Hello, Fermyon".into()))?)
+        .header("content-type", "text/plain")
+        .body("Hello, Fermyon")?)
 }
 ```
 
@@ -346,7 +348,6 @@ Pick a template to start your application with:
 > http-ts (HTTP request handler using Typescript)
 Enter a name for your new application: hello_typescript
 Project description: My first TypeScript Spin application
-HTTP base: /
 HTTP path: /...
 ```
 
@@ -372,28 +373,29 @@ The additional `spin.toml` file is the manifest file, which tells Spin what even
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello_typescript"
+version = "0.1.0"
 authors = ["You <you@yourself.net>"]
 description = "My first TypeScript Spin application"
-name = "hello_typescript"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
-id = "hello-typescript"
-source = "target/spin-http-js.wasm"
-exclude_files = ["**/node_modules"]
-[component.trigger]
+[[trigger.http]]
 route = "/..."
-[component.build]
+component = "hello-typescript"
+
+[component.hello-typescript]
+source = "target/hello-typescript.wasm"
+exclude_files = ["**/node_modules"]
+[component.hello-typescript.build]
 command = "npm run build"
 ```
 
-This represents a simple Spin HTTP application (triggered by an HTTP request), with
-a single component called `hello-typescript`. This component is on the route `/...`, which is a wildcard
-meaning it will match any route.  When the application gets an HTTP request, Spin will map its route
-to the `hello-typescript` component, and execute the associated `spin-http-js.wasm`
-WebAssembly module.
+This represents a simple Spin HTTP application (triggered by an HTTP request).  It has:
+
+* A single HTTP trigger, for the `/...` route, associated with the `hello-typescript` component.  `/...` is a wildcard, meaning it will match any route.  When the application gets an HTTP request that matches this route - that is, any HTTP request at all! - Spin will run the `hello-typescript` component.
+* A single component called `hello-typescript`, whose implementation is in the associated `hello-typescript.wasm` WebAssembly component.  When, in response to the HTTP trigger, Spin runs this component, it will execute the HTTP handler in `hello-typescript.wasm`.  (We're about to see the source code for that.)
 
 [Learn more about the manifest here.](./writing-apps)
 
@@ -405,16 +407,14 @@ the same signature.)  The Spin `js2wasm` plugin looks for the `handleRequest` fu
 by name when building your application into a Wasm module:
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
+import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
 
-const encoder = new TextEncoder()
-
-export const handleRequest: HandleRequest = async function(request: HttpRequest): Promise<HttpResponse> {
-    return {
-      status: 200,
-      headers: { "foo": "bar" },
-      body: encoder.encode("Hello from TS-SDK").buffer
-    }
+export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+  return {
+    status: 200,
+    headers: { "content-type": "text/plain" },
+    body: "Hello from TS-SDK"
+  }
 }
 ```
 
@@ -432,7 +432,6 @@ Pick a template to start your application with:
 > http-py (HTTP request handler using Python)
 Enter a name for your new application: hello_python
 Description: My first Python Spin application
-HTTP base: /
 HTTP path: /...
 ```
 
@@ -455,27 +454,28 @@ The additional `spin.toml` file is the manifest file, which tells Spin what even
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello_python"
+version = "0.1.0"
 authors = ["You <you@yourself.net>"]
 description = "My first Python Spin application"
-name = "hello_python"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
-id = "hello-python"
-source = "app.wasm"
-[component.trigger]
+[[trigger.http]]
 route = "/..."
-[component.build]
+component = "hello-python"
+
+[component.hello-python]
+source = "app.wasm"
+[component.hello-python.build]
 command = "spin py2wasm app -o app.wasm"
 ```
 
-This represents a simple Spin HTTP application (triggered by an HTTP request), with
-a single component called `hello-python`. This component is on the route `/...`, which is a wildcard
-meaning it will match any route.  When the application gets an HTTP request, Spin will map its route
-to the `hello-python` component, and execute the associated `app.wasm`
-WebAssembly module.
+This represents a simple Spin HTTP application (triggered by an HTTP request).  It has:
+
+* A single HTTP trigger, for the `/...` route, associated with the `hello-python` component.  `/...` is a wildcard, meaning it will match any route.  When the application gets an HTTP request that matches this route - that is, any HTTP request at all! - Spin will run the `hello-python` component.
+* A single component called `hello-python`, whose implementation is in the associated `app.wasm` WebAssembly component.  When, in response to the HTTP trigger, Spin runs this component, it will execute the HTTP handler in `app.wasm`.  (We're about to see the source code for that.)
 
 [Learn more about the manifest here.](./writing-apps)
 
@@ -534,28 +534,29 @@ The additional `spin.toml` file is the manifest file, which tells Spin what even
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello_go"
+version = "0.1.0"
 authors = ["You <you@yourself.net>"]
 description = "My first Go Spin application"
-name = "hello_go"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
-id = "hello-go"
+[[trigger.http]]
+route = "/..."
+component = "hello-go"
+
+[component.hello-go]
 source = "main.wasm"
 allowed_http_hosts = []
-[component.trigger]
-route = "/..."
-[component.build]
+[component.hello-go.build]
 command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 ```
 
-This represents a simple Spin HTTP application (triggered by an HTTP request), with
-a single component called `hello-go`. This component is on the route `/...`, which is a wildcard
-meaning it will match any route.  When the application gets an HTTP request, Spin will map its route
-to the `hello-go` component, and execute the associated `main.wasm`
-WebAssembly module.
+This represents a simple Spin HTTP application (triggered by an HTTP request).  It has:
+
+* A single HTTP trigger, for the `/...` route, associated with the `hello-go` component.  `/...` is a wildcard, meaning it will match any route.  When the application gets an HTTP request that matches this route - that is, any HTTP request at all! - Spin will run the `hello-go` component.
+* A single component called `hello-go`, whose implementation is in the associated `main.wasm` WebAssembly component.  When, in response to the HTTP trigger, Spin runs this component, it will execute the HTTP handler in `main.wasm`.  (We're about to see the source code for that.)
 
 [Learn more about the manifest here.](./writing-apps)
 
@@ -610,7 +611,7 @@ Executing the build command for component hello-rust: cargo build --target wasm3
    Compiling spin-sdk v0.10.0 
    Compiling hello-rust v0.1.0 (/home/ivan/testing/start/hello_rust)
     Finished release [optimized] target(s) in 11.94s
-Successfully ran the build command for the Spin components.
+Finished building all Spin components
 ```
 
 If the build fails, check:
@@ -639,9 +640,9 @@ As normal for NPM projects, before you build for the first time, you must run `n
 ```bash
 $ npm install
 
-added 134 packages, and audited 135 packages in 2s
+added 141 packages, and audited 142 packages in 13s
 
-18 packages are looking for funding
+20 packages are looking for funding
   run `npm fund` for details
 
 found 0 vulnerabilities
@@ -667,7 +668,7 @@ Starting to build Spin compatible module
 Preinitiating using Wizer
 Optimizing wasm binary using wasm-opt
 Spin compatible module built successfully
-Successfully ran the build command for the Spin components.
+Finished building all Spin components
 ```
 
 If the build fails, check:
@@ -695,7 +696,7 @@ You can always run this command manually; `spin build` is a shortcut.
 $ spin build
 Executing the build command for component hello-python: spin py2wasm app -o app.wasm
 Spin-compatible module built successfully
-Successfully ran the build command for the Spin components.
+Finished building all Spin components
 ```
 
 If the build fails, check:
@@ -722,7 +723,7 @@ You can always run this command manually; `spin build` is a shortcut.
 $ spin build
 Executing the build command for component hello-go: tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go
 go: downloading github.com/fermyon/spin/sdk/go v0.10.0
-Successfully ran the build command for the Spin components.
+Finished building all Spin components
 ```
 
 If the build fails, check:
@@ -785,7 +786,7 @@ component can now be invoked by making requests to `http://localhost:3000/`
 ```bash
 $ curl -i localhost:3000
 HTTP/1.1 200 OK
-foo: bar
+content-type: text/plain
 content-length: 14
 date = "2023-11-02T16:00:00Z"
 
