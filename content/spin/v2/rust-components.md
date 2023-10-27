@@ -340,17 +340,15 @@ fn publish(_req: Request) -> Result<Response> {
 }
 ```
 
-This HTTP component demonstrates fetching a value from Redis by key, setting a
-key with a value, and publishing a message to a Redis channel. The component is
-triggered by an HTTP request served on the route configured in the `spin.toml`:
+In the same way you have to grant components access to HTTP hosts via `allowed_http_hosts`, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
 
 <!-- @nocpy -->
 
 ```toml
-[[component]]
+[component.redis-test]
 environment = { REDIS_ADDRESS = "redis://127.0.0.1:6379", REDIS_CHANNEL = "messages" }
-[component.trigger]
-route = "/publish"
+# Note this contains only the host and port - do not include the URL!
+allowed_outbound_hosts = ["127.0.0.1:6379"]
 ```
 
 This HTTP component can be paired with a Redis component, triggered on new
@@ -373,14 +371,14 @@ To use the `get_json` and `set_json` helpers, you must enable the Spin SDK's opt
 [dependencies]
 // --snip --
 serde = {version = "1.0.163", features = ["derive"]}
-spin-sdk = {git = "https://github.com/fermyon/spin", version = "1.2.0", features = ["json"]}
+spin-sdk = {git = "https://github.com/fermyon/spin", version = "2.0.0", features = ["json"]}
 // --snip --
 ```
 
 The Rust code below shows how to store and retrieve serializable objects from the key-value store (note how the example below implements Serde's `derive` feature):
 
 ```rust
-use anyhow::Result;
+use anyhow::{anyhow, Result};
 use serde::{Deserialize, Serialize};
 use spin_sdk::{
     http::{Request, Response},
@@ -408,13 +406,16 @@ fn handle_request(_req: Request) -> Result<Response> {
     // Store the User object using the "my_json" key
     store.set_json("my_json", &user)?;
     // Retrieve the user object from the key-value store, using the "my_json" key
-    let retrieved_user: User = store.get_json("my_json")?;
+    let retrieved_user: Option<User> = store.get_json("my_json")?
+        .ok_or_else(|| anyhow!("user not found"))?;
     // Return the user's fingerprint as the response body
     Ok(http::Response::builder()
         .status(200)
         .body(Some(retrieved_user.fingerprint.into()))?)
 }
 ```
+
+> If you are familiar with Spin 1.x, you will be used to `get` and `get_json` returning a `Result<...>`, with "key not found" being one of the error cases. In Spin 2, `get` and `get_json` return `Result<Option<...>>`, with "key not found" represented by `Ok(None)`.
 
 Once built and running (using `spin build` and `spin up`) you can test the above example in your browser (by visiting localhost:3000) or via curl, as shown below:
 
@@ -426,6 +427,8 @@ HTTP/1.1 200 OK
 
 0x1234
 ```
+
+For more information on the Rust key-value API see [the Spin SDK documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/key_value/index.html).
 
 ## Storing Data in SQLite
 

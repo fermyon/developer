@@ -7,6 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/redis-outb
 
 ---
 - [Using Redis From Applications](#using-redis-from-applications)
+- [Granting Network Permissions to Components](#granting-network-permissions-to-components)
 
 Spin provides an interface for you to read and write the Redis key/value store, and to publish Redis pub-sub messages.
 
@@ -52,6 +53,10 @@ let value = redis::get(&address, &key)?;
 * Bytes parameters are of type `&[u8]` and return values are `Vec<u8>`.
 * Numeric return values are of type `i64`.
 * All functions wrap the return in `anyhow::Result`.
+
+**`get` Operation**
+
+* This returns a `Result<Option<Vec<u8>>>`. If the key is not found, the return value is `Ok(None)`.
 
 **`del` Operation**
 
@@ -146,3 +151,14 @@ You can find a complete TinyGo example for using outbound Redis from an HTTP com
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+## Granting Network Permissions to Components
+
+By default, Spin components are not allowed to make outgoing network requests, including Redis. This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing. To grant a component permission to make network requests to a particular host, use the `allowed_outbound_hosts` field in the component manifest, specifying the host and allowed port:
+
+```toml
+[component.uses-redis]
+allowed_outbound_hosts = ["redis.example.com:6379"]
+```
+
+> Do _not_ include the `redis://` URL prefix.
