@@ -111,9 +111,9 @@ job "fermyon-developer" {
       driver = "exec"
 
       artifact {
-        source = "https://github.com/fermyon/spin/releases/download/v1.1.0/spin-v1.1.0-linux-amd64.tar.gz"
+        source = "https://github.com/fermyon/spin/releases/download/v1.5.1/spin-v1.5.1-linux-amd64.tar.gz"
         options {
-          checksum = "sha256:13ecd7be7fb3a054f41b72d65fd6648cd8221e5df57c6694f1a8e5532b79040d"
+          checksum = "sha256:31941a09c870f9bb3e74a068e1573bf7efb60bffdd3c555a1a0fd75d9fa1b217"
         }
       }
 
