@@ -89,7 +89,7 @@ This page contains information about language support for Spin features:
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](./go-components#storing-data-in-redis-from-go-components) | Supported |
-| Serverless AI | Not Supported |
+| [Serverless AI](./go-components#ai-inferencing-from-go-components) | Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
