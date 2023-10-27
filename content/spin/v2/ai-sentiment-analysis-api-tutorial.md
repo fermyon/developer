@@ -95,7 +95,7 @@ Now, let's dive deep into a comprehensive tutorial and unlock your potential to 
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
-
+<!-- TODO - Update the samples in ai-examples -->
 The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-rs)
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
@@ -103,10 +103,9 @@ The Rust code snippets below are taken from the [Fermyon Serverless AI Examples]
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-rust
+$ spin new -t http-rust
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
 HTTP path: /api/...
 ```
 
@@ -119,9 +118,9 @@ The TypeScript code snippets below are taken from the [Fermyon Serverless AI Exa
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 
 <!-- @selectiveCpy -->
-
+<!-- TODO - awaiting JS SDK updates to remove base -->
 ```bash
-$ spin new http-ts
+$ spin new -t http-ts
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
 HTTP base: /
@@ -138,7 +137,7 @@ The Python code snippets below are taken from the [Fermyon Serverless AI Example
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-py
+$ spin new -t http-py
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
 HTTP base: /
@@ -151,7 +150,7 @@ HTTP path: /api/...
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 <!-- @selectiveCpy -->
-
+<!-- TODO - awaiting Python SDK updates to remove base -->
 ```bash
 $ spin new -t http-go sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
@@ -176,6 +175,8 @@ The models need to be in a particular format for Spin to be able to use them (qu
 ### Application Structure
 
 Next, we need to create the appropriate folder structure from within the application directory (alongside our `spin.toml` file). The code below demonstrates the variations in folder structure depending on which model is being used. Once the folder structure is in place, we then fetch the pre-trained AI model for our application:
+
+> Note: Optional, but highly recommended, is to use the [Spin Cloud GPU component](https://github.com/fermyon/spin-cloud-gpu). This offloads inferencing to Fermyon Cloud GPUs, and thus requires a free account to [Fermyon Cloud Serverless AI](https://www.fermyon.com/serverless-ai). This would replace the following steps of having to download the three models below.
 
 **llama2-chat example download**
 
@@ -257,27 +258,16 @@ ln -s ~/my-ai-models/ ~/application-one/.spin/ai-models
 
 ### Application Configuration
 
-Then, we configure the `[[component]]` section of our application's manifest (the `spin.toml` file); explicitly naming our model of choice. For example, in the case of the sentiment analysis application, we specify the `llama2-chat` value for our `ai_models` configuration:
+Then, we configure the `[component.sentiment-analysis]` section of our application's manifest (the `spin.toml` file); explicitly naming our model of choice. For example, in the case of the sentiment analysis application, we specify the `llama2-chat` value for our `ai_models` configuration, and add a `default` key-value store:
+
+> Note: `[component.sentiment-analysis]` contains the name of the component. If you used a different name, when creating the application, this sections name would be different.
 
 ```toml
+[component.sentiment-analysis]
+...
 ai_models = ["llama2-chat"]
 key_value_stores = ["default"]
-```
-
-Note the positioning, of the `ai_models` configuration, shown below:
-
-```toml
-[[component]]
-id = "sentiment-analysis"
-source = "target/spin-http-js.wasm"
-exclude_files = ["**/node_modules"]
-key_value_stores = ["default"]
-ai_models = ["llama2-chat"]
-[component.trigger]
-route = "/api/..."
-[component.build]
-command = "npm run build"
-watch = ["src/**/*", "package.json", "package-lock.json"]
+...
 ```
 
 ### Source Code
@@ -294,17 +284,18 @@ The Rust source code for this sentiment analysis example uses serde. There are a
 
 ```toml
 serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0.85"
+serde_json = "1.0"
 ```
 
 Once you have added serde, as explained above, modify your `src/lib.rs` file to match the following content:
 
+<!-- TODO - Update the samples in ai-examples - Awaiting https://github.com/fermyon/spin/issues/1973 to be able to compile the following - also check the prompt!!! -->
 ```rust
 use std::str::FromStr;
 
 use anyhow::Result;
 use spin_sdk::{
-    http::{Params, Request, Response, Router},
+    http::{IntoResponse, Json, Params, Response, Router},
     http_component,
     key_value::Store,
     llm::{infer_with_options, InferencingModel::Llama2Chat},
@@ -312,7 +303,7 @@ use spin_sdk::{
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 pub struct SentimentAnalysisRequest {
     pub sentence: String,
 }
@@ -344,23 +335,27 @@ User: {SENTENCE}
 
 /// A Spin HTTP component that internally routes requests.
 #[http_component]
-fn handle_route(req: Request) -> Result<Response> {
+fn handle_route(req: http::Request<Json<SentimentAnalysisRequest>>) -> Response {
     let mut router = Router::new();
-    router.post("/api/sentiment-analysis", perform_sentiment_analysis);
     router.any("/api/*", not_found);
+    router.post("/api/sentiment-analysis", perform_sentiment_analysis);
+    // TODO: Awaiting SDK update to support the new Request<Json<T>> type
     router.handle(req)
 }
 
-fn not_found(_: Request, _: Params) -> Result<Response> {
-    Ok(http::Response::builder()
-        .status(404)
-        .body(Some("Not found".into()))?)
+fn not_found(
+    _: http::Request<Json<SentimentAnalysisRequest>>,
+    _: Params,
+) -> Result<impl IntoResponse> {
+    Ok(Response::new(404, "Not found"))
 }
 
-fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response> {
-    let request = body_json_to_map(&req)?;
+fn perform_sentiment_analysis(
+    req: http::Request<Json<SentimentAnalysisRequest>>,
+    _params: Params,
+) -> Result<impl IntoResponse> {
     // Do some basic clean up on the input
-    let sentence = request.sentence.trim();
+    let sentence = req.body().sentence.trim();
     println!("Performing sentiment analysis on: {}", sentence);
 
     // Prepare the KV store
@@ -371,11 +366,11 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response>
         println!("Found sentence in KV store returning cached sentiment");
         let sentiment = kv.get(sentence)?;
         let resp = SentimentAnalysisResponse {
-            sentiment: String::from_utf8(sentiment)?,
+            sentiment: String::from_utf8(sentiment.unwrap())?,
         };
         let resp_str = serde_json::to_string(&resp)?;
 
-        return send_ok_response(200, resp_str)
+        return Ok(Response::new(200, resp_str));
     }
     println!("Sentence not found in KV store");
 
@@ -385,11 +380,13 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response>
         Llama2Chat,
         &PROMPT.replace("{SENTENCE}", sentence),
         spin_sdk::llm::InferencingParams {
-            max_tokens: 6,
+            max_tokens: 8,
             ..Default::default()
         },
     )?;
+
     println!("Inference result {:?}", inferencing_result);
+
     let sentiment = inferencing_result
         .text
         .lines()
@@ -402,8 +399,9 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response>
 
     if let Ok(sentiment) = sentiment {
         println!("Caching sentiment in KV store");
-        let _ = kv.set(sentence, sentiment);
+        let _ = kv.set(sentence, sentiment.as_str().as_bytes());
     }
+
     // Cache the result in the KV store
     let resp = SentimentAnalysisResponse {
         sentiment: sentiment
@@ -413,22 +411,9 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response>
     };
 
     let resp_str = serde_json::to_string(&resp)?;
-    send_ok_response(200, resp_str)
-}
 
-fn send_ok_response(code: u16, resp_str: String) -> Result<Response> {
-    Ok(http::Response::builder()
-    .status(code)
-    .body(Some(resp_str.into()))?)
-}
+    Ok(Response::new(200, resp_str))
 
-fn body_json_to_map(req: &Request) -> Result<SentimentAnalysisRequest> {
-    let body = match req.body().as_ref() {
-        Some(bytes) => bytes,
-        None => anyhow::bail!("Request body was unexpectedly empty"),
-    };
-
-    Ok(serde_json::from_slice(&body)?)
 }
 
 #[derive(Copy, Clone, Debug)]
@@ -454,12 +439,6 @@ impl std::fmt::Display for Sentiment {
     }
 }
 
-impl AsRef<[u8]> for Sentiment {
-    fn as_ref(&self) -> &[u8] {
-        self.as_str().as_bytes()
-    }
-}
-
 impl FromStr for Sentiment {
     type Err = String;
 
@@ -478,6 +457,8 @@ impl FromStr for Sentiment {
 {{ blockEnd }}
 
 {{ startTab "TypeScript"}}
+
+<!-- TODO Check with updates templates -->
 
 ```typescript
 import {
@@ -502,7 +483,11 @@ interface SentimentAnalysisResponse {
 const decoder = new TextDecoder();
 
 const PROMPT = `\
+<<SYS>>
 You are a bot that generates sentiment analysis responses. Respond with a single positive, negative, or neutral.
+<</SYS>>
+<INST>
+Follow the pattern of the following examples:
 
 Hi, my name is Bob
 neutral
@@ -512,6 +497,7 @@ positive
 
 I am so sad today
 negative
+</INST>
 
 <SENTENCE>
 `;
@@ -539,7 +525,7 @@ async function performSentimentAnalysis(request: HttpRequest) {
 
   // Otherwise, perform sentiment analysis
   console.log("Running inference");
-  let options: InferencingOptions = { max_tokens: 10, temperature: 0.5 };
+  let options: InferencingOptions = { maxTokens: 6 };
   let inferenceResult = Llm.infer(
     InferencingModels.Llama2Chat,
     PROMPT.replace("<SENTENCE>", sentence),
@@ -596,7 +582,8 @@ export const handleRequest: HandleRequest = async function (
 ```
 
 {{ blockEnd }}
-
+<!-- TODO Check with updates templates -->
+<!-- TODO Does not use hte KV Store -->
 {{ startTab "Python"}}
 
 ```python
@@ -630,6 +617,8 @@ def handle_request(request):
 ```
 
 {{ blockEnd }}
+
+<!-- TODO Check with updates templates -->
 
 {{ startTab "TinyGo"}}
 
