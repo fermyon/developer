@@ -256,7 +256,6 @@ Pick a template to start your application with:
 
 Enter a name for your new application: hello_rust
 Project description: My first Rust Spin application
-HTTP base: /
 HTTP path: /...
 ```
 
@@ -268,10 +267,8 @@ This command created a directory with the necessary files needed to build and ru
 $ cd hello_rust
 $ tree
 .
-├── .cargo
-│   └── config.toml
-├── .gitignore
 ├── Cargo.toml
+├── .gitignore
 ├── spin.toml
 └── src
     └── lib.rs
@@ -282,21 +279,23 @@ The additional `spin.toml` file is the manifest file, which tells Spin what even
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = "2"
 authors = ["You <you@yourself.net>"]
 description = "My first Rust Spin application"
 name = "hello_rust"
 trigger = { type = "http", base = "/" }
 version = "0.1.0"
 
-[[component]]
-id = "hello-rust"
+[[trigger.http]]
+route = "/..."
+component = "hello-rust"
+
+[component.hello-rust]
 source = "target/wasm32-wasi/release/hello_rust.wasm"
 allowed_http_hosts = []
-[component.trigger]
-route = "/..."
-[component.build]
+[component.hello-rust.build]
 command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
 This represents a simple Spin HTTP application (triggered by an HTTP request), with
@@ -314,21 +313,19 @@ annotated with the `http_component` macro which identifies it as the entry point
 for HTTP requests:
 
 ```rust
-use anyhow::Result;
-use spin_sdk::{
-    http::{Request, Response},
-    http_component,
-};
+use spin_sdk::http::{IntoResponse, Request};
+use spin_sdk::http_component;
 
 /// A simple Spin HTTP component.
 #[http_component]
-fn handle_hello_rust(req: Request) -> Result<Response> {
-    println!("{:?}", req.headers());
+fn handle_hello_rust(req: Request) -> anyhow::Result<impl IntoResponse> {
+    println!("Handling request to {:?}", req.header("spin-full-url"));
     Ok(http::Response::builder()
         .status(200)
-        .header("foo", "bar")
-        .body(Some("Hello, Fermyon".into()))?)
+        .header("content-type", "text/plain")
+        .body("Hello, Fermyon")?)
 }
+
 ```
 
 {{ blockEnd }}
@@ -619,10 +616,10 @@ If the build fails, check:
 * Did you successfully [install the `wasm32-wasi` target](#install-the-tools)?
 * Is your version of Rust up to date (`cargo --version`)?  The Spin SDK needs Rust 1.64 or above.
 
-If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.build` section:
+If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.hello-rust` section:
 
 ```toml
-[component.build]
+[component.hello-rust]
 command = "cargo build --target wasm32-wasi --release"
 ```
 
