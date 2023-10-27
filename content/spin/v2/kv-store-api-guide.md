@@ -61,10 +61,10 @@ fn handle_request(_req: Request) -> Result<Response> {
 **General Notes** 
 
 `set` **Operation**
-- For set, the value argument can be of any type that implements AsRef<[u8]>
+- For set, the value argument can be of any type that implements `AsRef<[u8]>`
 
 `get` **Operation**
-- For get, the return value is of type Vec<u8>. If the key does not exist then Error::NoSuchKey is returned.
+- For get, the return value is of type `Option<Vec<u8>>`. If the key does not exist it returns `None`.
 
 `open` **Operation**
 - The close operation is not surfaced; it is called automatically when the store is dropped.
@@ -98,7 +98,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 `get` **Operation**
 - The result is of the type `ArrayBuffer | null`
-- If the key does not exist, `get` returns `null` (no error is thrown)
+- If the key does not exist, `get` returns `null`
 
 `set` **Operation**
 - The value argument is of the type `ArrayBuffer | string`.
