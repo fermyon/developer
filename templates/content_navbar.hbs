@@ -46,12 +46,12 @@
                     Spin
                 </a>
                 {{else}}
-                {{#if (active_project request.spin-path-info "/cloud/" )}}
+                {{#if (active_project request.spin-full-url "/cloud/" )}}
                 <a class="navbar-link is-active">
                     Cloud
                 </a>
                 {{else}}
-                {{#if (active_project request.spin-path-info "/bartholomew/" )}}
+                {{#if (active_project request.spin-full-url "/bartholomew/" )}}
                 <a class="navbar-link is-active">
                     Bartholomew
                 </a>
@@ -64,7 +64,7 @@
                 {{/if}}
 
                 <div class="navbar-dropdown is-boxed">
-                    <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-path-info " /spin/" )}}
+                    <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-full-url "/spin/" )}}
                         is-active {{/if}}">
                         <div class="project-content">
                             <div class="title">Spin</div>
@@ -72,7 +72,7 @@
                         </div>
                     </a>
 
-                    <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-path-info " /cloud/" )}}
+                    <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-full-url "/cloud/" )}}
                         is-active {{/if}}">
                         <div class="project-content">
                             <div class="title">Cloud</div>
@@ -80,7 +80,7 @@
                         </div>
                     </a>
 
-                    <a href="/bartholomew/index" class="navbar-item{{#if (active_project request.spin-path-info "/bartholomew/" )}} {{/if}}">
+                    <a href="/bartholomew/index" class="navbar-item{{#if (active_project request.spin-full-url "/bartholomew/" )}} {{/if}}">
                         <div class="project-content">
                             <div class="title">Bartholomew</div>
                             <div class="description">Compile WebAssembly-powered websites with this micro CMS</div>

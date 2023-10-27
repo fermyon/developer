@@ -339,7 +339,7 @@ var handleRequest = function (request) {
                     return [2 /*return*/, {
                             status: 302,
                             headers: {
-                                location: reqPath.replace("/spin", "/spin/".concat(latest_spin_version))
+                                location: reqPath.replace("/spin/", "/spin/".concat(latest_spin_version, "/"))
                             }
                         }];
             }

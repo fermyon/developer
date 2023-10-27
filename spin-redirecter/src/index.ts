@@ -29,7 +29,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
   return {
     status: 302,
     headers: {
-      location: reqPath.replace("/spin", `/spin/${latest_spin_version}`)
+      location: reqPath.replace("/spin/", `/spin/${latest_spin_version}/`)
     }
   }
 

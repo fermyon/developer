@@ -31,13 +31,8 @@ In this tutorial we will:
 
 ### Spin
 
-<<<<<<< HEAD:content/_spin/v1/serverless-ai-hello-world.md
 You will need to [install the latest version of Spin](./install#installing-spin). Serverless AI is supported on Spin v1.5 and above
 If you already have Spin installed, [check what version you are on and upgrade](./upgrade#are-you-on-the-latest-version) if required.
-=======
-You will need to [install the latest version of Spin](https://developer.fermyon.com/spin/install#installing-spin). Serverless AI is supported on Spin v1.5 and above
-If you already have Spin installed, [check what version you are on and upgrade](https://developer.fermyon.com/spin/upgrade#are-you-on-the-latest-version) if required.
->>>>>>> 88c74d3 (restructure with a redirect component):content/spin/v1/serverless-ai-hello-world.md
 
 ### Dependencies
  
