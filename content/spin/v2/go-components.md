@@ -52,7 +52,7 @@ import (
  "fmt"
  "net/http"
 
- spinhttp "github.com/fermyon/spin/sdk/go/http"
+ spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
 )
 
 func init() {
@@ -95,7 +95,7 @@ import (
  "net/http"
  "os"
 
- spinhttp "github.com/fermyon/spin/sdk/go/http"
+ spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
 )
 
 func init() {
@@ -191,7 +191,7 @@ package main
 import (
  "fmt"
 
- "github.com/fermyon/spin/sdk/go/redis"
+ "github.com/fermyon/spin/sdk/go/v2/redis"
 )
 
 func init() {
@@ -276,8 +276,8 @@ import (
  "net/http"
  "os"
 
- spin_http "github.com/fermyon/spin/sdk/go/http"
- "github.com/fermyon/spin/sdk/go/redis"
+ spin_http "github.com/fermyon/spin/sdk/go/v2/http"
+ "github.com/fermyon/spin/sdk/go/v2/redis"
 )
 
 func init() {
@@ -295,19 +295,22 @@ func init() {
   // payload is the data publish to the redis channel.
   payload := []byte(`Hello redis from tinygo!`)
 
-  if err := redis.Publish(addr, channel, payload); err != nil {
+  // create a new redis client.
+  rdb := redis.NewClient(addr)
+
+  if err := rdb.Publish(channel, payload); err != nil {
    http.Error(w, err.Error(), http.StatusInternalServerError)
    return
   }
 
   // set redis `mykey` = `myvalue`
-  if err := redis.Set(addr, "mykey", []byte("myvalue")); err != nil {
+  if err := rdb.Set("mykey", []byte("myvalue")); err != nil {
    http.Error(w, err.Error(), http.StatusInternalServerError)
    return
   }
 
   // get redis payload for `mykey`
-  if payload, err := redis.Get(addr, "mykey"); err != nil {
+  if payload, err := rdb.Get("mykey"); err != nil {
    http.Error(w, err.Error(), http.StatusInternalServerError)
   } else {
    w.Write([]byte("mykey value was: "))
