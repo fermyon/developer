@@ -81,20 +81,18 @@ $ spin js2wasm --help
 
 ## Viewing Available Plugins
 
-To see what plugins are available in the catalogue, run `spin plugins list`:
+To see what plugins are available in the catalogue, run `spin plugins search`:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin plugins list
+$ spin plugins search
 befunge2wasm 1.4.0 [incompatible]
 js2wasm 0.3.0 [installed]
 js2wasm 0.4.0
 py2wasm 0.1.0 [installed]
 trigger-sqs 0.1.0
 ```
-
-> The `list` command uses your local cache of the catalogue. This might not include recently added plugins or versions. Run `spin plugins update` to refresh your local cache of the catalogue.
 
 The annotations by the plugins show their status and compatibility:
 

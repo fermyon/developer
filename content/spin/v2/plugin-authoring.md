@@ -45,7 +45,7 @@ installation, if it does not already exist, Spin fetches the remote catalogue
 and creates a local snapshot. To ensure that the local snapshot is up to date,
 it is best to run `spin plugins update` before installing any plugins. 
 
-To list available plugins, run `spin plugins list`. Now, decide which plugin to
+To list available plugins, run `spin plugins search`. Now, decide which plugin to
 install. For example, the `js2wasm` plugin, which is needed in order to build
 JavaScript Spin applications, can be installed by running:
 
