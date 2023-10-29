@@ -169,7 +169,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/llm` package. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/llm) for reference documentation. For example:
+Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/v2/llm` package. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/llm) for reference documentation. For example:
 
 ```go
 package main
@@ -178,8 +178,8 @@ import (
 	"fmt"
 	"net/http"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/http"
-	"github.com/fermyon/spin/sdk/go/llm"
+	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+	"github.com/fermyon/spin/sdk/go/v2/llm"
 )
 
 func init() {

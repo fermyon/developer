@@ -644,9 +644,9 @@ import (
 	"net/http"
 	"strings"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/http"
-	"github.com/fermyon/spin/sdk/go/key_value"
-	"github.com/fermyon/spin/sdk/go/llm"
+	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+	"github.com/fermyon/spin/sdk/go/v2/kv"
+	"github.com/fermyon/spin/sdk/go/v2/llm"
 )
 
 type sentimentAnalysisRequest struct {
@@ -685,15 +685,15 @@ func performSentimentAnalysis(w http.ResponseWriter, r *http.Request, ps spinhtt
 	fmt.Printf("Performing sentiment analysis on: %q\n", req.Sentence)
 
 	// Open the KV store
-	store, err := key_value.Open("default")
+	store, err := kv.OpenStore("default")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	defer key_value.Close(store)
+	defer store.Close()
 
 	// If the sentiment of the sentence is already in the KV store, return it
-	exists, err := key_value.Exists(store, req.Sentence)
+	exists, err := store.Exists(req.Sentence)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -701,7 +701,7 @@ func performSentimentAnalysis(w http.ResponseWriter, r *http.Request, ps spinhtt
 
 	if exists {
 		fmt.Println("Found sentence in KV store returning cached sentiment")
-		value, err := key_value.Get(store, req.Sentence)
+		value, err := store.Get(req.Sentence)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -739,7 +739,7 @@ func performSentimentAnalysis(w http.ResponseWriter, r *http.Request, ps spinhtt
 
 	// Cache the result in the KV store
 	fmt.Println("Caching sentiment in KV store")
-	key_value.Set(store, req.Sentence, []byte(sentiment))
+	store.Set(req.Sentence, []byte(sentiment))
 
 	res := &sentimentAnalysisResponse{
 		Sentiment: sentiment,

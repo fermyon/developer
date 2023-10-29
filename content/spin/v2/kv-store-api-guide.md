@@ -136,18 +136,18 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-Key value functions are provided by the `github.com/fermyon/spin/sdk/go/key_value` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/key_value). For example: 
+Key value functions are provided by the `github.com/fermyon/spin/sdk/go/v2/kv` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/kv). For example:
 
 ```go
-import "github.com/fermyon/spin/sdk/go/key_value"
+import "github.com/fermyon/spin/sdk/go/v2/kv"
 
 func example() error {
-    store, err := key_value.Open("default")
+    store, err := kv.OpenStore("default")
     if err != nil {
         return err
     }
-    defer key_value.Close(store)
-    return key_value.Set(store, "mykey", []byte("myvalue"))
+    defer store.Close()
+    return store.Set("mykey", []byte("myvalue"))
 }
 
 ```
