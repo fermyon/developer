@@ -337,19 +337,19 @@ import (
 	"io"
 	"net/http"
 
-	spin_http "github.com/fermyon/spin/sdk/go/v2/http"
-	"github.com/fermyon/spin/sdk/go/v2/kv"
+	spin_http "github.com/fermyon/spin/sdk/go/http"
+	"github.com/fermyon/spin/sdk/go/key_value"
 )
 
 func init() {
 	// handler for the http trigger
 	spin_http.Handle(func(w http.ResponseWriter, r *http.Request) {
-		store, err := kv.OpenStore("default")
+		store, err := key_value.Open("default")
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		defer store.Close()
+		defer key_value.Close(store)
 
 		body, err := io.ReadAll(r.Body)
 		if err != nil {
@@ -359,7 +359,7 @@ func init() {
 
 		switch r.Method {
 		case http.MethodPost:
-			err := store.Set(r.URL.Path, body)
+			err := key_value.Set(store, r.URL.Path, body)
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
@@ -367,7 +367,7 @@ func init() {
 
 			w.WriteHeader(http.StatusOK)
 		case http.MethodGet:
-			value, err := store.Get(r.URL.Path)
+			value, err := key_value.Get(store, r.URL.Path)
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
@@ -376,7 +376,7 @@ func init() {
 			w.WriteHeader(http.StatusOK)
 			w.Write(value)
 		case http.MethodDelete:
-			err := store.Delete(r.URL.Path)
+			err := key_value.Delete(store, r.URL.Path)
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
@@ -384,7 +384,7 @@ func init() {
 
 			w.WriteHeader(http.StatusOK)
 		case http.MethodHead:
-			exists, err := store.Exists(r.URL.Path)
+			exists, err := key_value.Exists(store, r.URL.Path)
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return

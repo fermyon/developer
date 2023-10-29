@@ -119,15 +119,14 @@ You can find a complete Python code example for using outbound Redis from an HTT
 
 {{ startTab "TinyGo"}}
 
-Redis functions are available in the `github.com/fermyon/spin/sdk/go/v2/redis` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/redis). The function names are TitleCased. For example:
+Redis functions are available in the `github.com/fermyon/spin/sdk/go/redis` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/redis). The function names are TitleCased. For example:
 
 ```go
 import (
-	"github.com/fermyon/spin/sdk/go/v2/redis"
+	"github.com/fermyon/spin/sdk/go/redis"
 )
 
-rdb := redis.NewClient(addr)
-payload, err := rdb.Get(key)
+payload, err := redis.Get(address, key)
 ```
 
 **General Notes**

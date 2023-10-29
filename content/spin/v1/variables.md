@@ -167,7 +167,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-The config function is available in the `github.com/fermyon/spin/sdk/go/v2/config` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/config) for reference documentation.
+The config function is available in the `github.com/fermyon/spin/sdk/go/config` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/config) for reference documentation.
 
 ```go
 import (
@@ -175,8 +175,8 @@ import (
 	"io"
 	"net/http"
 
-	spinconfig "github.com/fermyon/spin/sdk/go/v2/config"
-	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+	spinconfig "github.com/fermyon/spin/sdk/go/config"
+	spinhttp "github.com/fermyon/spin/sdk/go/http"
 )
 
 spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {

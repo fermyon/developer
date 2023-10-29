@@ -161,8 +161,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
-	"github.com/fermyon/spin/sdk/go/v2/sqlite"
+	spinhttp "github.com/fermyon/spin/sdk/go/http"
+	"github.com/fermyon/spin/sdk/go/sqlite"
 )
 
 type Todo struct {
