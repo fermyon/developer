@@ -239,72 +239,7 @@ The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin deploy
 
-{{ tabs "spin-version" }}
-
-{{ startTab "v2.0"}}
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin deploy --help
-
-Package and upload an application to the Fermyon Cloud
-
-USAGE:
-    spin cloud deploy [OPTIONS]
-
-OPTIONS:
-        --build
-            For local apps, specifies to perform `spin build` before deploying the application.
-            
-            This is ignored on remote applications, as they are already built.
-            
-            [env: SPIN_ALWAYS_BUILD=]
-
-        --buildinfo <BUILDINFO>
-            Build metadata to append to the oci tag
-
-        --environment-name <environment-name>
-            Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
-            to the default unnamed instance
-            
-            [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
-
-    -f, --from <APPLICATION>
-            The application to deploy. This may be a manifest (spin.toml) file, a directory
-            containing a spin.toml file, or a remote registry reference. If omitted, it defaults to
-            "spin.toml"
-
-    -h, --help
-            Print help information
-
-        --key-value <KEY_VALUES>
-            Set a key/value pair (key=value) in the deployed application's default store. Any
-            existing value will be overwritten. Can be used multiple times
-
-        --no-buildinfo
-            Disable attaching buildinfo
-            
-            [env: SPIN_DEPLOY_NO_BUILDINFO=]
-
-        --readiness-timeout <READINESS_TIMEOUT_SECS>
-            How long in seconds to wait for a deployed HTTP application to become ready. The default
-            is 60 seconds. Set it to 0 to skip waiting for readiness
-            
-            [default: 60]
-
-    -V, --version
-            Print version information
-
-        --variable <VARIABLES>
-            Set a variable (variable=value) in the deployed application. Any existing value will be
-            overwritten. Can be used multiple times
-
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
+`spin deploy` is a shortcut to [spin cloud deploy](#spin-cloud-deploy).
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin doctor
