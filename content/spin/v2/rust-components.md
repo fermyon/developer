@@ -210,22 +210,27 @@ inserts a custom header into the response before returning:
 ```rust
 use anyhow::Result;
 use spin_sdk::{
-    http::{Request, Response},
+    http::{IntoResponse, Request},
     http_component,
 };
 
-/// Send an HTTP request and return the response.
 #[http_component]
-fn send_outbound(_req: Request) -> Result<Response> {
-    let mut res = spin_sdk::outbound_http::send_request(
-        http::Request::builder()
-            .method("GET")
-            .uri("https://random-data-api.fermyon.app/animals/json")
-            .body(None)?,
-    )?;
+async fn send_outbound(_req: Request) -> Result<impl IntoResponse> {
+    // Create the outbound request object
+    let req = http::Request::builder()
+        .method("GET")
+        .uri("https://random-data-api.fermyon.app/animals/json")
+        .body(())?;
+
+    // Send the request and await the response
+    let mut res: http::Response<()> = spin_sdk::http::send(req).await?;
+
+    // Demonstrate modifying the response before passing it
+    // back to the client
     res.headers_mut()
-        .insert("spin-component", "rust-outbound-http".try_into()?);
-    println!("{:?}", res);
+        .insert("spin-component", "get-animal-fact".try_into()?);
+
+    println!("{:?}", res);  // log the response
     Ok(res)
 }
 ```
@@ -233,39 +238,41 @@ fn send_outbound(_req: Request) -> Result<Response> {
 > The `http::Request::builder()` method is provided by the Rust `http` crate. The `http` crate is already added to projects using the Spin `http-rust` template. If you create a project without using this template, you'll need to add the `http` crate yourself via `cargo add http`.
 
 Before we can execute this component, we need to add the `random-data-api.fermyon.app`
-domain to the application manifest `allowed_http_hosts` list containing the list of
+domain to the component's `allowed_http_hosts` list in the application manifest. This contains the list of
 domains the component is allowed to make HTTP requests to:
 
 <!-- @nocpy -->
 
 ```toml
 # spin.toml
-spin_manifest_version = "1"
-name = "spin-hello-world"
-trigger = { type = "http", base = "/" }
+spin_manifest_version = 2
+
+[application]
+name = "animal-facts"
 version = "1.0.0"
 
-[[component]]
-id = "hello"
-source = "target/wasm32-wasi/release/spinhelloworld.wasm"
-allowed_http_hosts = ["random-data-api.fermyon.app"]
-[component.trigger]
-route = "/outbound"
+[[trigger.http]]
+route = "/..."
+component = "get-animal-fact"
+
+[component.get-animal-fact]
+source = "get-animal-fact/target/wasm32-wasi/release/get_animal_fact.wasm"
+allowed_http_hosts = ["https://random-data-api.fermyon.app"]
 ```
 
-Running the application using `spin up --file spin.toml` will start the HTTP
+Running the application using `spin up` will start the HTTP
 listener locally (by default on `localhost:3000`), and our component can
 now receive requests in route `/outbound`:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/outbound
+$ curl -i localhost:3000
 HTTP/1.1 200 OK
-date: Fri, 18 Mar 2022 03:54:36 GMT
+date: Fri, 27 Oct 2023 03:54:36 GMT
 content-type: application/json; charset=utf-8
 content-length: 185
-server: spin/0.1.0
+spin-component: get-animal-fact
 
 {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}   
 ```
@@ -283,6 +290,8 @@ service, manipulates that result, then responds to the original request.
 This can be the basis for building components that communicate with external
 databases or storage accounts, or even more specialized components like HTTP
 proxies or URL shorteners.
+
+> The Spin SDK for Rust provides more flexibility than we show here, including allowing streaming uploads or downloads. See the [Outbound HTTP API Guide](./http-outbound.md) for more information.
 
 ## Storing Data in Redis From Rust Components
 
