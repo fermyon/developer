@@ -6,8 +6,8 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/redis-trigger.md"
 
 ---
-- [Specifying an Application as Redis](#specifying-an-application-as-redis)
-- [Mapping a Channel to a Component](#mapping-a-channel-to-a-component)
+- [Specifying a Redis Trigger](#specifying-a-redis-trigger)
+- [Redis Trigger Application Settings](#redis-trigger-application-settings)
 - [Redis Components](#redis-components)
 	- [The Message Handler](#the-message-handler)
 - [Inside Redis Components](#inside-redis-components)
@@ -18,19 +18,28 @@ The Redis trigger in Spin subscribes to messages from a given Redis instance, an
 
 > This page deals with the Redis trigger for subscribing to pub-sub messages. For information about reading and writing the Redis key-value store, or for publishing messages, see the Language Guides.
 
-## Specifying an Application as Redis
+## Specifying a Redis Trigger
 
-Every Spin application has a trigger specified in the manifest, which declares the type of events it responds to.
-For Redis applications, the application trigger has `type = "redis"`:
-
-<!-- @nocpy -->
+A Redis trigger maps a Redis channel to a component. For example:
 
 ```toml
-# spin.toml
-trigger = { type = "redis", address = "redis://localhost:6379" }
+[[trigger.redis]]
+channel = "messages"          # the channel that the trigger subscribes to
+component = "my-application"  # the name of the component to handle this route
 ```
 
-The Redis trigger also requires an `address` field.  This is the address of the Redis instance to monitor.  Specify it using the `redis:` URL scheme.
+Such a trigger says that Redis messages on the specified _channel_ should be handled by the specified _component_. The `component` field works the same way across all triggers - see [Triggers](triggers) for the details.
+
+> Spin subscribes only to the channels that are mapped to components. Other channels are ignored.
+
+## Redis Trigger Application Settings
+
+Applications containing Redis triggers must specify the address of the Redis server to subscribe to. This is done via the `[application.trigger.redis]` section of manifest:
+
+```toml
+[application.trigger.redis]
+address = "redis://notifications.example.com:6379"
+```
 
 > If you create an application from a Redis template, the trigger will be already set up for you.
 
@@ -40,24 +49,9 @@ By default, Spin does not authenticate to Redis. You can work around this by pro
 
 > We plan to offer secrets-based authentication in future versions of Spin.
 
-In addition, each component must have Redis-specific configuration in its `[component.trigger]` table.
-
-## Mapping a Channel to a Component
-
-Each component handles one channel, specified in the `channel` field of the component `trigger` table.  For example, Spin will trigger this component when it receives a message on the `purchaseorders` channel:
-
-<!-- @nocpy -->
-
-```toml
-[component.trigger]
-channel = "purchaseorders"
-```
-
-> Spin subscribes only to the channels that are mapped to components. Other channels are ignored.
-
 ## Redis Components
 
-Spin runs Redis components using the [WebAssembly component model](https://github.com/WebAssembly/component-model).  In this model, the Wasm module exports a well-known function that Spin calls to handle the Redis message.
+Spin runs Redis components using the [WebAssembly component model](https://component-model.bytecodealliance.org/).  In this model, the Wasm module exports a well-known interface that Spin calls to handle the Redis message.
 
 ### The Message Handler
 
@@ -132,50 +126,21 @@ func main() {}
 
 For the most part, you'll build Redis component modules using a language SDK (see the Language Guides section), such as a Rust crate or Go package.  If you're interested in what happens inside the SDK, or want to implement Redis components in another language, read on!
 
-> The WebAssembly component model is in its early stages, and over time the triggers and application entry points will undergo changes, both in the definitions of functions and types, and in the binary representations of those definitions and of primitive types (the so-called Application Binary Interface or ABI).  However, Spin ensures binary compatibility over the course of any given major release.  For example, a component built using the Spin 1.0 SDK will work on any version of Spin in the 1.x range.
+The Redis component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin Redis components at [https://github.com/fermyon/spin/tree/main/wit/preview2](https://github.com/fermyon/spin/tree/main/wit/preview2).
 
-The Redis component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin Redis components at [https://github.com/fermyon/spin/blob/main/wit/ephemeral](https://github.com/fermyon/spin/blob/main/wit/ephemeral).
-
-The core Redis types are defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/redis-types.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/redis-types.wit), though note that not all of these are used in the pub-sub Redis trigger:
+In particular, the entry point for Spin Redis components is defined in [the `inbound-redis` interface](https://github.com/fermyon/spin/blob/main/wit/preview2/deps/spin%40unversioned/inbound-redis.wit):
 
 <!-- @nocpy -->
 
 ```fsharp
-// General purpose error.
-enum error {
-    success,
-    error,
+interface inbound-redis {
+  use redis-types.{payload, error}
+
+  // The entrypoint for a Redis handler.
+  handle-message: func(message: payload) -> result<_, error>
 }
-
-// The message payload.
-type payload = list<u8>
-
-// Remaining types are not used in the trigger
 ```
 
-> The same Redis types are also used to model the API for sending outbound Redis requests.
-
-The entry point for Spin Redis components is then defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-redis.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-redis.wit):
-
-<!-- @nocpy -->
-
-```fsharp
-// wit/ephemeral/spin-redis.wit
-
-use * from redis-types
-
-// The entry point for a Redis handler.
-handle-redis-message: func(message: payload) -> expected<unit, error>
-```
-
-This is the function signature that all Redis components must implement, and
+This is the interface that all Redis components must implement, and
 which is used by Spin when instantiating and invoking the component.
-
-This interface (`spin-redis.wit`) can be directly used together with the
-[Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen)
-to build a component that Spin can invoke.
-
-This is exactly how Spin SDKs, such as the [Rust](rust-components) and [Go](go-components) SDKs, are built.
-As more languages add support for the component model, we plan to add support for them in the same way.
-
-> WIT and the ABI are evolving standards.  The latest version of `wit-bindgen` creates binary implementations that do not work with current language implementation of the WebAssembly System Interface (WASI).  Spin remains pinned to an older implementation of `wit-bindgen` until the next generation of the component model stabilizes and achieves language-level support.
+However, it is implemented internally by the Spin SDK - you don't need to implement it directly.
