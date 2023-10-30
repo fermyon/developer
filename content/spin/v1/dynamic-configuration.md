@@ -5,65 +5,52 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/dynamic-configuration.md"
 
 ---
-- [Custom Config Variables](#custom-config-variables)
-  - [Component Custom Config](#component-custom-config)
-- [Custom Config Providers](#custom-config-providers)
-  - [Environment Variable Provider](#environment-variable-provider)
-  - [Vault Config Provider](#vault-config-provider)
-    - [Vault Config Provider Example](#vault-config-provider-example)
 - [Runtime Configuration](#runtime-configuration)
+  - [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
+    - [Environment Variable Provider](#environment-variable-provider)
+    - [Vault Application Variable Provider](#vault-application-variable-provider)
+      - [Vault Application Variable Provider Example](#vault-application-variable-provider-example)
   - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
+    - [Redis Key Value Store Provider](#redis-key-value-store-provider)
+    - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
   - [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
+    - [LibSQL Storage Provider](#libsql-storage-provider)
   - [LLM Runtime Configuration](#llm-runtime-configuration)
+    - [Remote Compute Provider](#remote-compute-provider)
 
-Spin applications may define custom configuration which can be looked up by
-component code via the [spin-config interface](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-config.wit).
+Configuration for Spin applications using features such as [application variables](https://developer.fermyon.com/spin/variable),
+[key value storage](https://developer.fermyon.com/spin/kv-store-api-guide), [SQL storage](https://developer.fermyon.com/spin/sqlite-api-guide)
+and [Serverless AI](https://developer.fermyon.com/spin/serverless-ai-api-guide) can be provided
+dynamically via [runtime configuration](#runtime-configuration).
 
-## Custom Config Variables
+## Runtime Configuration
 
-Application-global custom config variables are defined in the top-level `[variables]`
-section. These entries aren't accessed directly by components but are referenced
-by [component config](#component-custom-config) value templates. Each entry must
-either have a `default` value or be marked as `required = true`. "Required" entries
-must be [provided](#custom-config-providers) with a value.
+For many Spin features, configuration for the backing implementation can be supplied dynamically, i.e. during the application runtime,
+requiring no changes to the application code itself. We call these backing implementations 'providers' and their configuration data
+is stored in the runtime configuration file (`runtime-config.toml`). This file is then passed in via the `--runtime-config-file` flag
+when invoking the `spin up` command.
 
-Configuration keys may only contain lowercase letters and underscores between letters:
+The list of Spin features supporting runtime configuration includes:
 
-<!-- @nocpy -->
+- [Application Variables](#variables-runtime-configuration)
+- [Key Value Storage](#key-value-store-runtime-configuration)
+- [SQL storage](#sqlite-storage-runtime-configuration)
+- [Serverless AI Compute](#llm-runtime-configuration)
 
-```toml
-[variables]
-api_host = { default = "api.example.com" }
-api_key = { required = true }
-```
+Let's look at each configuration category in-depth below.
 
-### Component Custom Config
+### Application Variables Runtime Configuration
 
-The configuration entries available to a component are listed in its
-`[component.config]` section. Configuration values may reference
-[config variables](#custom-config-variables) with simple
-[mustache](https://mustache.github.io/)-inspired string templates:
+[Application Variables](https://developer.fermyon.com/spin/variable) values may be set at runtime by providers. Currently,
+there are two application variable providers: the [environment-variable provider](#environment-variable-provider) and
+the [Vault provider](#vault-application-variable-provider).  The provider examples below show how to use or configure each 
+provider. For examples on how to access these variables values within your application, see
+[Using Variables from Applications](https://developer.fermyon.com/spin/variables#using-variables-from-applications).
 
-<!-- @nocpy -->
+#### Environment Variable Provider
 
-```toml
-[[component]]
-# ...
-[component.config]
-api_base_url = "https://{{ api_host }}/v1"
-api_key = "{{ api_key }}"
-```
-
-## Custom Config Providers
-
-[Custom config variables](#custom-config-variables) values may be set at runtime by
-config "providers". Currently, there are two providers: the environment
-variable provider and vault config provider.
-
-### Environment Variable Provider
-
-The environment variable provider which gets config values from the `spin` process's
-environment (_not_ the component `environment`). Config keys are translated
+The environment variable provider gets variable values from the `spin` process's
+environment (_not_ the component `environment`). Variable keys are translated
 to environment variables by upper-casing and prepending with `SPIN_CONFIG_`:
 
 <!-- @selectiveCpy -->
@@ -73,11 +60,12 @@ $ export SPIN_CONFIG_API_KEY = "1234"  # Sets the `api_key` value.
 $ spin up
 ```
 
-### Vault Config Provider
+#### Vault Application Variable Provider
 
-The Vault config provider gets secret values from [HashiCorp Vault](https://www.vaultproject.io/).
-Currently, only [KV Secrets Engine - Version 2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2) is supported.
-You can set up v2 kv secret engine at any mount point and give Vault information in the [runtime configuration](#runtime-configuration) file:
+The Vault application variable provider gets secret values from [HashiCorp Vault](https://www.vaultproject.io/).
+Currently, only the [KV Secrets Engine - Version 2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2) is supported.
+You can set up the v2 kv secret engine at any mount point and provide Vault information in
+the [runtime configuration](#runtime-configuration) file:
 
 <!-- @nocpy -->
 
@@ -89,7 +77,7 @@ token = "root"
 mount = "secret"
 ```
 
-#### Vault Config Provider Example
+##### Vault Application Variable Provider Example
 
 1. [Install Vault](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install).
 2. Start Vault:
@@ -134,14 +122,11 @@ date: Tue, 18 Oct 2022 12:34:40 GMT
 Got password test_password
 ```
 
-## Runtime Configuration
-
-Runtime configuration contains information for the selected config provider, such as the [Vault config provider](#vault-config-provider).
-You can supply runtime configuration by providing a value for the `--runtime-config-file` flag when invoking the `spin up` command.
-
 ### Key Value Store Runtime Configuration
 
-Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (runtime-config.toml) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The available store options are the embedded SQLite database, an external Redis database or Azure CosmosDB.
+Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (`runtime-config.toml`) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The available store options are the embedded SQLite database, an external Redis database or Azure CosmosDB.
+
+#### Redis Key Value Store Provider
 
 The following is an example of how an application's `runtime-config.toml` file can be configured to use Redis instead. Note the `type` and `url` values, which are set to `redis` and the URL of the Redis host, respectively:
 
@@ -150,6 +135,8 @@ The following is an example of how an application's `runtime-config.toml` file c
 type = "redis"
 url = "redis://localhost"
 ```
+
+#### Azure CosmosDB Key Value Store Provider
 
 Similarly, to implement Azure CosmosDB as a backend for Spin's key/value store, change the type to `azure_cosmos` and specify your database account details:
 
@@ -207,6 +194,8 @@ path = "/super/secret/monies.db"
 
 Spin creates any database files that don't exist.  However, it is up to you to delete them when you no longer need them.
 
+#### LibSQL Storage Provider
+
 Spin can also use [libSQL](https://libsql.org/) databases accessed over HTTPS.  libSQL is fully compatible with SQLite but provides additional features including remote, distributed databases.
 
 > Spin does not provide libSQL access to file-based databases, only databases served over HTTPS. Specifically, Spin supports [the `sqld` libSQL server](https://github.com/libsql/sqld).
@@ -231,7 +220,9 @@ By default, components will not have access to any of these databases (even the 
 
 ### LLM Runtime Configuration
 
-Spin provides a Large Language Model interface for interacting with LLMs for inferencing and embedding. The default host implementation is to use local CPU/GPU compute. However, the Spin runtime configuration file (runtime-config.toml) can be updated to enable Spin to use remote compute using HTTP requests.
+Spin provides a Large Language Model interface for interacting with LLMs for inferencing and embedding. The default host implementation is to use local CPU/GPU compute. However, the Spin runtime configuration file (`runtime-config.toml`) can be updated to enable Spin to use remote compute using HTTP requests.
+
+### Remote Compute Provider
 
 The following is an example of how an application's `runtime-config.toml` file can be configured to use the remote compute option. Note the `type`, `url` and `auth_token` are set to `remote_http`, URL of the server and the auth token for the server. 
 
