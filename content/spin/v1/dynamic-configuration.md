@@ -5,25 +5,22 @@ date = "2022-03-14T00:22:56Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/dynamic-configuration.md"
 
 ---
-- [Runtime Configuration](#runtime-configuration)
-  - [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
-    - [Environment Variable Provider](#environment-variable-provider)
-    - [Vault Application Variable Provider](#vault-application-variable-provider)
-      - [Vault Application Variable Provider Example](#vault-application-variable-provider-example)
-  - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
-    - [Redis Key Value Store Provider](#redis-key-value-store-provider)
-    - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
-  - [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
-    - [LibSQL Storage Provider](#libsql-storage-provider)
-  - [LLM Runtime Configuration](#llm-runtime-configuration)
-    - [Remote Compute Provider](#remote-compute-provider)
+- [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
+  - [Environment Variable Provider](#environment-variable-provider)
+  - [Vault Application Variable Provider](#vault-application-variable-provider)
+    - [Vault Application Variable Provider Example](#vault-application-variable-provider-example)
+- [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
+  - [Redis Key Value Store Provider](#redis-key-value-store-provider)
+  - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
+- [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
+  - [LibSQL Storage Provider](#libsql-storage-provider)
+- [LLM Runtime Configuration](#llm-runtime-configuration)
+- [Remote Compute Provider](#remote-compute-provider)
 
 Configuration for Spin applications using features such as [application variables](https://developer.fermyon.com/spin/variable),
 [key value storage](https://developer.fermyon.com/spin/kv-store-api-guide), [SQL storage](https://developer.fermyon.com/spin/sqlite-api-guide)
 and [Serverless AI](https://developer.fermyon.com/spin/serverless-ai-api-guide) can be provided
 dynamically via [runtime configuration](#runtime-configuration).
-
-## Runtime Configuration
 
 For many Spin features, configuration for the backing implementation can be supplied dynamically, i.e. during the application runtime,
 requiring no changes to the application code itself. We call these backing implementations 'providers' and their configuration data
@@ -32,14 +29,21 @@ when invoking the `spin up` command.
 
 The list of Spin features supporting runtime configuration includes:
 
-- [Application Variables](#variables-runtime-configuration)
-- [Key Value Storage](#key-value-store-runtime-configuration)
-- [SQL storage](#sqlite-storage-runtime-configuration)
-- [Serverless AI Compute](#llm-runtime-configuration)
+- [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
+  - [Environment Variable Provider](#environment-variable-provider)
+  - [Vault Application Variable Provider](#vault-application-variable-provider)
+    - [Vault Application Variable Provider Example](#vault-application-variable-provider-example)
+- [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
+  - [Redis Key Value Store Provider](#redis-key-value-store-provider)
+  - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
+- [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
+  - [LibSQL Storage Provider](#libsql-storage-provider)
+- [LLM Runtime Configuration](#llm-runtime-configuration)
+- [Remote Compute Provider](#remote-compute-provider)
 
 Let's look at each configuration category in-depth below.
 
-### Application Variables Runtime Configuration
+## Application Variables Runtime Configuration
 
 [Application Variables](https://developer.fermyon.com/spin/variable) values may be set at runtime by providers. Currently,
 there are two application variable providers: the [environment-variable provider](#environment-variable-provider) and
@@ -47,7 +51,7 @@ the [Vault provider](#vault-application-variable-provider).  The provider exampl
 provider. For examples on how to access these variables values within your application, see
 [Using Variables from Applications](https://developer.fermyon.com/spin/variables#using-variables-from-applications).
 
-#### Environment Variable Provider
+### Environment Variable Provider
 
 The environment variable provider gets variable values from the `spin` process's
 environment (_not_ the component `environment`). Variable keys are translated
@@ -60,7 +64,7 @@ $ export SPIN_CONFIG_API_KEY = "1234"  # Sets the `api_key` value.
 $ spin up
 ```
 
-#### Vault Application Variable Provider
+### Vault Application Variable Provider
 
 The Vault application variable provider gets secret values from [HashiCorp Vault](https://www.vaultproject.io/).
 Currently, only the [KV Secrets Engine - Version 2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2) is supported.
@@ -77,7 +81,7 @@ token = "root"
 mount = "secret"
 ```
 
-##### Vault Application Variable Provider Example
+#### Vault Application Variable Provider Example
 
 1. [Install Vault](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install).
 2. Start Vault:
@@ -122,11 +126,11 @@ date: Tue, 18 Oct 2022 12:34:40 GMT
 Got password test_password
 ```
 
-### Key Value Store Runtime Configuration
+## Key Value Store Runtime Configuration
 
 Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (`runtime-config.toml`) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The available store options are the embedded SQLite database, an external Redis database or Azure CosmosDB.
 
-#### Redis Key Value Store Provider
+### Redis Key Value Store Provider
 
 The following is an example of how an application's `runtime-config.toml` file can be configured to use Redis instead. Note the `type` and `url` values, which are set to `redis` and the URL of the Redis host, respectively:
 
@@ -136,7 +140,7 @@ type = "redis"
 url = "redis://localhost"
 ```
 
-#### Azure CosmosDB Key Value Store Provider
+### Azure CosmosDB Key Value Store Provider
 
 Similarly, to implement Azure CosmosDB as a backend for Spin's key/value store, change the type to `azure_cosmos` and specify your database account details:
 
@@ -169,7 +173,7 @@ url = "redis://localhost"
 
 You must individually grant each component access to the stores that it needs to use. To do this, use the `component.key_value_stores` entry in the component manifest within `spin.toml`. See [Spin Key Value Store](kv-store-api-guide.md) for more details. 
 
-### SQLite Storage Runtime Configuration
+## SQLite Storage Runtime Configuration
 
 Spin provides built-in SQLite storage. By default, this is backed by a database that Spin creates for you underneath your application directory (in the `.spin` subdirectory). However, you can use the Spin runtime configuration file (`runtime-config.toml`) to add and customize SQLite databases.
 
@@ -194,7 +198,7 @@ path = "/super/secret/monies.db"
 
 Spin creates any database files that don't exist.  However, it is up to you to delete them when you no longer need them.
 
-#### LibSQL Storage Provider
+### LibSQL Storage Provider
 
 Spin can also use [libSQL](https://libsql.org/) databases accessed over HTTPS.  libSQL is fully compatible with SQLite but provides additional features including remote, distributed databases.
 
@@ -218,11 +222,11 @@ The `default` database will still be defined, even if you add other databases.
 
 By default, components will not have access to any of these databases (even the default one). You must grant each component access to the databases that it needs to use. To do this, use the `component.sqlite_databases` entry in the component manifest within `spin.toml`. See [SQLite Database](./sqlite-api-guide.md) for more details. 
 
-### LLM Runtime Configuration
+## LLM Runtime Configuration
 
 Spin provides a Large Language Model interface for interacting with LLMs for inferencing and embedding. The default host implementation is to use local CPU/GPU compute. However, the Spin runtime configuration file (`runtime-config.toml`) can be updated to enable Spin to use remote compute using HTTP requests.
 
-### Remote Compute Provider
+## Remote Compute Provider
 
 The following is an example of how an application's `runtime-config.toml` file can be configured to use the remote compute option. Note the `type`, `url` and `auth_token` are set to `remote_http`, URL of the server and the auth token for the server. 
 
