@@ -182,14 +182,11 @@ is a complete implementation for such a component in TypeScript:
 ```Javascript
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
 
-const encoder = new TextEncoder()
-
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-
     return {
         status: 200,
-        headers: {"foo": "bar"},
-        body: encoder.encode("Hello from JS-SDK").buffer
+        headers: {"content-type": "text/plain"},
+        body: "Hello from JS-SDK"
     }
 }
 ```
@@ -200,7 +197,7 @@ The important things to note in the implementation above:
   entry point for the Spin component.
 - the component returns `HttpResponse`.
 
-Please note: If you need to decode a request body (which is either an `ArrayBuffer` or `ArrayBufferView`) into plain text or JSON please consider using the following:
+If you need to decode a request body (which is either an `ArrayBuffer` or `ArrayBufferView`) into plain text or JSON, you can use the `TextDecoder`:
 
 <!-- @nocpy -->
 
@@ -223,7 +220,6 @@ Let's see an example of a component that makes a request to
 inserts a custom header into the response before returning:
 
 ```javascript
-const encoder = new TextEncoder("utf-8")
 const decoder = new TextDecoder("utf-8")
 
 export async function handleRequest(request) {
@@ -235,8 +231,8 @@ export async function handleRequest(request) {
 
     return {
         status: 200,
-        headers: { "foo": "bar" },
-        body: encoder.encode(body).buffer
+        headers: { "content-type": "text/plain" },
+        body: body
     }
 }
 ```
@@ -249,26 +245,24 @@ domains the component is allowed to make HTTP requests to:
 
 ```toml
 # spin.toml
-spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+spin_manifest_version = 2
+
+[application]
 name = "spin-http-js"
-trigger = { type = "http", base = "/" }
 version = "1.0.0"
 
-[variables]
-object = { default = "teapot" }
+[[trigger.http]]
+route = "/hello"
+component = "hello"
 
-[[component]]
-id = "hello"
+[component.hello]
 source = "target/spin-http-js.wasm"
 allowed_http_hosts = ["random-data-api.fermyon.app"]
-[component.trigger]
-route = "/hello"
-[component.build]
+[component.hello.build]
 command = "npm run build"
 ```
 
-The component can be built using the `spin build` command. Running the application using `spin up --file spin.toml` will start the HTTP
+The component can be built using the `spin build` command. Running the application using `spin up` will start the HTTP
 listener locally (by default on `localhost:3000`), and our component can
 now receive requests in route `/hello`:
 
@@ -313,7 +307,6 @@ Let's see how we can use the JS/TS SDK to connect to Redis:
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse, Redis } from "@fermyon/spin-sdk"
 
-const encoder = new TextEncoder()
 const decoder = new TextDecoder()
 
 const redisAddress = "redis://localhost:6379/"
@@ -333,19 +326,28 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
     return {
         status: 200,
-        headers: {"foo": "bar"},
-        body: encoder.encode("Hello from JS-SDK").buffer
+        headers: { "content-type": "text/plain" },
+        body: "Your data is stored!"
     }
 }
 ```
 
-This HTTP component demonstrates fetching a value from Redis by key, setting a key with a value, and publishing a message to a Redis channel. The component is triggered by an HTTP request served on the route configured in the `spin.toml`:
+This HTTP component demonstrates fetching a value from Redis by key, setting a key with a value, and publishing a message to a Redis channel.
 
 > When using Redis databases hosted on the internet (i.e) not on localhost, the `redisAddress` must be of the format "redis://\<USERNAME\>:\<PASSWORD\>@\<REDIS_URL\>" (e.g) `redis://myUsername:myPassword@redis-database.com`
 
+In the same way you have to grant components access to HTTP hosts via `allowed_http_hosts`, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
+
+<!-- @nocpy -->
+
+```toml
+[component.storage-demo]
+allowed_outbound_hosts = ["localhost:6379"]
+```
+
 ## Routing in a Component
 
-The JavaScript/TypeScript SDK provides a router that makes it easier to handle routing within a component. The router is based on [`itty-router`](https://www.npmjs.com/package/itty-router). An additional function `handleRequest` has been implemented in the router to allow passing in the Spin HTTP request directly. For a more complete documentation on the route, checkout the documentationa at [itty-router](https://github.com/kwhitley/itty-router). An example usage of the router is given below:
+The JavaScript/TypeScript SDK provides a router that makes it easier to handle routing within a component. The router is based on [`itty-router`](https://www.npmjs.com/package/itty-router). An additional function `handleRequest` has been implemented in the router to allow passing in the Spin HTTP request directly. For a more complete documentation on the route, checkout the documentation at [itty-router](https://github.com/kwhitley/itty-router). An example usage of the router is given below:
 
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse, Router} from "@fermyon/spin-sdk"
@@ -355,7 +357,7 @@ let router = Router()
 function handleDefaultRoute() {
   return {
     status: 200,
-      headers: { "content-type": "text/html" },
+    headers: { "content-type": "text/plain" },
     body: "Hello from Default Route"
   }
 }
@@ -363,7 +365,7 @@ function handleDefaultRoute() {
 function handleHomeRoute(id: string) {
   return {
     status: 200,
-      headers: { "content-type": "text/html" },
+    headers: { "content-type": "text/plain" },
     body: "Hello from Home Route with id:" + id
   }
 }
