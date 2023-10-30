@@ -154,6 +154,8 @@ async fn handle(request: http::Request) -> anyhow::Result<http::Response> { ... 
 
 In this form, nothing is sent to the client until the entire response is ready. It is convenient for many use cases, but is not suitable for streaming responses.
 
+> The Rust SDK includes **experimental** support for streaming request and response bodies. We currently recommend that you stick with the simpler non-streaming interfaces if you don't require streaming.
+
 You have some flexibility in choosing the types of the request and response.  The request may be:
 
 * [`http::Request`](https://docs.rs/http/latest/http/request/struct.Request.html)
