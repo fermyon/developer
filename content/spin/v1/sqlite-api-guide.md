@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-04-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/sqlite-api-guide.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/sqlite-api-guide.md"
 
 ---
 - [Granting SQLite Database Permissions to Components](#granting-sqlite-database-permissions-to-components)

@@ -2,7 +2,7 @@ title = "Dynamic and Runtime Application Configuration"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/dynamic-configuration.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/dynamic-configuration.md"
 
 ---
 - [Custom Config Variables](#custom-config-variables)

@@ -2,7 +2,7 @@ title = "Contributing to Docs"
 template = "spin_main"
 date = "2022-01-01T00:00:01Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/contributing-docs.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/contributing-docs.md"
 keywords = "contribute contributing"
 
 ---
@@ -359,7 +359,7 @@ If you create a new markdown file and/or you notice a file without the explicit 
 
 ```
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/contributing-docs.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/contributing-docs.md"
 ```
 
 ### 6.5 How To Properly Edit CSS Styles
