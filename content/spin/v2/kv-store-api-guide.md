@@ -45,16 +45,17 @@ Key value functions are available in the `spin_sdk::key_value` module. The funct
 ```rust
 use anyhow::Result;
 use spin_sdk::{
-    http::{Request, Response},
+    http::{IntoResponse, Request},
     http_component,
     key_value::{Store},
 };
 #[http_component]
-fn handle_request(_req: Request) -> Result<Response> {
+fn handle_request(_req: Request) -> Result<impl IntoResponse> {
     let store = Store::open_default()?;
     store.set("mykey", "myvalue")?;
     let value = store.get("mykey")?;
-    Ok(http::Response::builder().status(200).body(Some(value.into()))?)
+    let response = value.unwrap_or_else(|| "not found".into());
+    Ok(http::Response::builder().status(200).body(response)?)
 }
 ```
 
@@ -136,7 +137,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-Key value functions are provided by the `github.com/fermyon/spin/sdk/go/v2/kv` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/kv). For example:
+Key value functions are provided by the `github.com/fermyon/spin/sdk/go/v2/kv` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/kv) For example:
 
 ```go
 import "github.com/fermyon/spin/sdk/go/v2/kv"

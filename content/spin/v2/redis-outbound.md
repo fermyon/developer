@@ -17,21 +17,22 @@ Spin provides an interface for you to read and write the Redis key/value store, 
 
 The Spin SDK surfaces the Spin Redis interface to your language. The set of operations is common across all SDKs:
 
-| Operation  | Parameters | Returns | Behavior |
-|------------|------------|---------|----------|
+| Operation    | Parameters | Returns | Behavior |
+|--------------|---------------------|---------|----------|
+| `open`       | address    | connection resource | Opens a connection to the specified Redis instance. The host must be listed in `allowed_outbound_hosts`. Other operations must be called through a connection. (Exception: for JavaScript and Python, do not call `open`, and pass the address to each data operation - see the language guides below.) |
 | Single value operations                      |
-| `get`        | address, key        | bytes   | Returns the value of `key`. If the key does not exist, returns a zero-length array. |
-| `set`        | address, key, bytes | -       | Sets the value of `key`, overwriting any existing value. |
-| `incr`       | address, key        | integer | Increments the value at `key` by 1. If the key does not exist, its value is set to 0 first (and immediately incremented to 1). If the current value isn't an integer, or a string that represents an integer, it errors and the value is not changed. |
-| `del`        | address, list of keys | -     | Removes the specified keys. Keys that don't exist are ignored (they do _not_ cause an error). |
+| `get`        | key        | bytes   | Returns the value of `key`. If the key does not exist, returns a zero-length array. |
+| `set`        | key, bytes | -       | Sets the value of `key`, overwriting any existing value. |
+| `incr`       | key        | integer | Increments the value at `key` by 1. If the key does not exist, its value is set to 0 first (and immediately incremented to 1). If the current value isn't an integer, or a string that represents an integer, it errors and the value is not changed. |
+| `del`        | list of keys | -     | Removes the specified keys. Keys that don't exist are ignored (they do _not_ cause an error). |
 | Set value operations                         |
-| `sadd`       | address, key, list of strings | integer | Adds the strings to the set of values of `key`, and returns the number of newly added values. If the key does not exist, its value is set to the set of values |
-| `smembers`   | address, key        | list of strings | Returns the set of values of `key`. if the key does not exist, this is an empty set. |
-| `srem`       | address, key, list of strings | integer | Removes the strings from the set of values of `key`, and returns the number of newly removed values. If the key does not exist, this does nothing. |
+| `sadd`       | key, list of strings | integer | Adds the strings to the set of values of `key`, and returns the number of newly added values. If the key does not exist, its value is set to the set of values |
+| `smembers`   | key        | list of strings | Returns the set of values of `key`. if the key does not exist, this is an empty set. |
+| `srem`       | key, list of strings | integer | Removes the strings from the set of values of `key`, and returns the number of newly removed values. If the key does not exist, this does nothing. |
 | Pub-sub operations                           |
-| `publish`    | address, channel, bytes | - | Publishes a message to the specified channel, with the specified payload bytes. |
+| `publish`    | channel, bytes | - | Publishes a message to the specified channel, with the specified payload bytes. |
 | General operations                           |
-| `execute`    | address, command, list of argument values | list of results | Executes the specified command with the specified arguments. This is a general-purpose 'escape hatch' if you need a command that isn't covered by the built-in operations. |
+| `execute`    | command, list of argument values | list of results | Executes the specified command with the specified arguments. This is a general-purpose 'escape hatch' if you need a command that isn't covered by the built-in operations. |
 
 The exact detail of calling these operations from your application depends on your language:
 
@@ -39,17 +40,26 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
-Redis functions are available in the `spin_sdk::redis` module. The function names match the operations above. For example:
+Redis functions are available in the `spin_sdk::redis` module.
+
+To access a Redis instance, use the `Connection::open` function.
 
 ```rust
-use spin_sdk::redis;
-
-let value = redis::get(&address, &key)?;
+let connection = spin_sdk::redis::Connection::open(&address)?;
 ```
+
+You can then call functions on the `Connection` to work with the Redis instance:
+
+```rust
+connection.set("my-key", &"my-value".into());
+let data = connection.get("my-key")?;
+```
+
+For full details of the Redis API, see the [Spin SDK reference documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/redis/index.html);
 
 **General Notes**
 
-* Address and key parameters are of type `&str`.
+* Keys are of type `&str`.
 * Bytes parameters are of type `&[u8]` and return values are `Vec<u8>`.
 * Numeric return values are of type `i64`.
 * All functions wrap the return in `anyhow::Result`.
@@ -60,11 +70,11 @@ let value = redis::get(&address, &key)?;
 
 **`del` Operation**
 
-* The list of keys is passed as `&[&str]`.
+* The list of keys is passed as `&[String]`.
 
 **Set Operations**
 
-* List arguments are passed as `&[&str]` and returned as `Vec<String>`.
+* List arguments are passed as `&[String]` and returned as `Vec<String>`.
 
 **`execute` Operation**
 
@@ -76,7 +86,7 @@ You can find a complete Rust code example for using outbound Redis from an HTTP 
 
 {{ startTab "TypeScript"}}
 
-Redis functions are available on the `Redis` object. The function names match the operations above. For example:
+Redis functions are available on the `Redis` object. The function names match the operations above, but you must pass the Redis instance address to _each_ operation as its first parameter. For example:
 
 ```javascript
 import {Redis} from "@fermyon/spin-sdk"
@@ -102,7 +112,7 @@ You can find a complete TypeScript example for using outbound Redis from an HTTP
 
 {{ startTab "Python"}}
 
-Redis functions are available in the `spin_redis` module. The function names are prefixed `redis_`. For example:
+Redis functions are available in the `spin_redis` module. The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
 
 ```python
 from spin_redis import redis_get
@@ -124,7 +134,7 @@ You can find a complete Python code example for using outbound Redis from an HTT
 
 {{ startTab "TinyGo"}}
 
-Redis functions are available in the `github.com/fermyon/spin/sdk/go/v2/redis` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/redis). The function names are TitleCased. For example:
+Redis functions are available in the `github.com/fermyon/spin/sdk/go/v2/redis` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/redis) The function names are TitleCased. For example:
 
 ```go
 import (
@@ -137,7 +147,7 @@ payload, err := rdb.Get(key)
 
 **General Notes**
 
-* Address and key parameters are strings.
+* Key parameters are strings.
 * Bytes parameters are byte slices (`[]byte`).
 * Lists are passed as slices. For example, `redis.Del` takes the keys to delete as a `[]string`.
 * Errors are return through the usual Go multiple return values mechanism.

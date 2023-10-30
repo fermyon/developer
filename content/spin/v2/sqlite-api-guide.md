@@ -21,7 +21,7 @@ Spin provides an interface for you to persist data in an SQLite Database managed
 By default, a given component of an app will not have access to any SQLite Databases. Access must be granted specifically to each component via the component manifest.  For example, a component could be given access to the default store using:
 
 ```toml
-[component]
+[component.example]
 sqlite_databases = ["default"]
 ```
 
@@ -51,18 +51,18 @@ SQLite functions are available in the `spin_sdk::sqlite` module. The function na
 use anyhow::Result;
 use serde::Serialize;
 use spin_sdk::{
-    http::{Request, Response},
+    http::{Request, IntoResponse},
     http_component,
-    sqlite::{Connection, Error, ValueParam},
+    sqlite::{Connection, Value},
 };
 
 #[http_component]
-fn handle_request(req: Request) -> Result<Response> {
+fn handle_request(req: Request) -> Result<impl IntoResponse> {
     let connection = Connection::open_default()?;
 
     let execute_params = [
-        ValueParam::Text("Try out Spin SQLite"),
-        ValueParam::Text("Friday"),
+        Value::Text("Try out Spin SQLite".to_owned()),
+        Value::Text("Friday".to_owned()),
     ];
     connection.execute(
         "INSERT INTO todos (description, due) VALUES (?, ?)",
@@ -97,9 +97,9 @@ struct ToDo {
 
 **General Notes** 
 * All functions are on the `spin_sdk::sqlite::Connection` type.
-* Parameters are instances of the `ValueParam` enum; you must wrap raw values in this type.
+* Parameters are instances of the `Value` enum; you must wrap raw values in this type.
 * The `execute` function returns a `QueryResult`. To iterate over the rows use the `rows()` function. This returns an iterator; use `collect()` if you want to load it all into a collection.
-* The values in rows are instances of the `ValueResult` enum.  However, you can use `row.get(column_name)` to extract a specific column from a row.  `get` casts the database value to the target Rust type. If the compiler can't infer the target type, write `row.get::<&str>(column_name)` (or whatever the desired type is).
+* The values in rows are instances of the `Value` enum.  However, you can use `row.get(column_name)` to extract a specific column from a row.  `get` casts the database value to the target Rust type. If the compiler can't infer the target type, write `row.get::<&str>(column_name)` (or whatever the desired type is).
 * All functions wrap the return in `Result`, with the error type being `spin_sdk::sqlite::Error`.
 
 {{ blockEnd }}

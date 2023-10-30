@@ -17,14 +17,14 @@ The nature of AI and LLM workloads on already trained models lends itself very n
 
 ### Configuration
 
-By default, a given component of a Spin application will not have access to any Serverless AI models. Access must be provided explicitly via the Spin application's manifest (the `spin.toml` file).  For example, an individual component in a Spin application could be given access to the llama2-chat model by adding the following `ai_models` configuration inside the specific `[[component]]` section:
+By default, a given component of a Spin application will not have access to any Serverless AI models. Access must be provided explicitly via the Spin application's manifest (the `spin.toml` file).  For example, an individual component in a Spin application could be given access to the llama2-chat model by adding the following `ai_models` configuration inside the specific `[component.(name)]` section:
 
 <!-- @nocpy -->
 
 ```toml
 // -- snip --
 
-[[component]]
+[component.please-send-the-codes]
 ai_models = ["codellama-instruct"]
 
 // -- snip --
