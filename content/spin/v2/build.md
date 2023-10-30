@@ -28,19 +28,16 @@ To make the build process easier, the `spin build` command allows you to build a
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## Setting Up for `spin build`
 
-To use `spin build`, each component that you want to build must specify the command used to build it in `spin.toml`, as part of its `component.build` table:
+To use `spin build`, each component that you want to build must specify the command used to build it in `spin.toml`, as part of its `component.(name).build` table:
 
 ```toml
-[[component]]
-id = "hello"
-[component.trigger]
-route = "/..."
+[component.hello]
 # This is the section you need for `spin build`
-[component.build]
+[component.hello.build]
 command = "npm run build"
 ```
 
-If you generated the component from a Fermyon-supplied template, the `component.build` section should be set up correctly for you.  You don't need to change or add anything.
+If you generated the component from a Fermyon-supplied template, the `build` section should be set up correctly for you.  You don't need to change or add anything.
 
 > Different components may be built from different languages, and so each component can have its own build command.  In addition, some components may be precompiled into Wasm modules, and don't need a build command at all.  If a component doesn't have a build command, `spin build` just skips it.
 
@@ -61,7 +58,7 @@ The build command typically runs `cargo build` with the `wasm32-wasi` target and
 <!-- @nocpy -->
 
 ```toml
-[component.build]
+[component.hello.build]
 command = "cargo build --target wasm32-wasi --release"
 ```
 
@@ -95,7 +92,7 @@ The build command can then call the NPM script:
 <!-- @nocpy -->
 
 ```toml
-[component.build]
+[component.hello.build]
 command = "npm run build"
 ```
 
@@ -117,7 +114,7 @@ The build command then calls `spin py2wasm` on your application file:
 <!-- @nocpy -->
 
 ```toml
-[component.build]
+[component.hello.build]
 command = "spin py2wasm app -o app.wasm"
 ```
 
@@ -132,7 +129,7 @@ The build command calls TinyGo with the WASI backend and appropriate options:
 <!-- @nocpy -->
 
 ```toml
-[component.build]
+[component.hello.build]
 command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 ```
 
@@ -192,7 +189,7 @@ To have the Rust build `command` run in directory `deep`, we can set the compone
 <!-- @nocpy -->
 
 ```toml
-[component.build]
+[component.deep.build]
 # `command` is the normal build command for this language
 command = "cargo build --target wasm32-wasi --release"
 # This tells Spin to run it in the directory of the build file (in this case Cargo.toml)

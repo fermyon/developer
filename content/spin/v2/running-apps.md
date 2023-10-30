@@ -12,6 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/running-ap
 - [Persistent Logs](#persistent-logs)
 - [Trigger-Specific Options](#trigger-specific-options)
 - [Monitoring Applications for Changes](#monitoring-applications-for-changes)
+- [The Always Build Option](#the-always-build-option)
 - [Next Steps](#next-steps)
 
 Once you have created and built your application, it's ready to run.  To run an application, use the `spin up` command.
@@ -65,7 +66,7 @@ By default:
 * If you run an application from the file system (a TOML file), Spin saves a copy of the application output and error messages.  This is saved in the `.spin/logs` directory, under the directory containing the manifest file.
 * If you run an application from a registry reference, Spin does not save a copy of the application output and error messages; they are only printed to the console.
 
-To control logging, pass the `--log-dir` flag.  The logs will be saved to the specified directory (no matter whether the application is local or remote).
+To control logging, pass the `--log-dir` flag.  The logs will be saved to the specified directory (no matter whether the application is local or remote):
 
 <!-- @selectiveCpy -->
 
@@ -100,11 +101,11 @@ The following `spin.toml` configuration (belonging to a Spin `http-rust` applica
 <!-- @nocpy -->
 
  ```toml
-[[component]]
+[component.test]
 // -- snip
 files = ["my-files/changing-file.txt"]
 source = "target/wasm32-wasi/release/test.wasm"
-[component.build]
+[component.test.build]
 command = "cargo build --target wasm32-wasi --release"
 # Example watch configuration for a Rust application
 watch = ["src/**/*.rs", "Cargo.toml"]
@@ -118,18 +119,24 @@ The table below outlines exactly which files `spin watch` will monitor for chang
 
 | Files                   | `spin watch` monitors for changes              | `spin watch --skip-build` monitors for changes |
 | ----------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Application manifest `spin.toml`   | Yes                                            | Yes                                            |
-| `component.build.watch` | Yes                                            | No                                             |
-| `component.files`       | Yes                                            | Yes                                            |
-| `component.source`      | No (Yes if the component has no build command) | Yes  
+| Application manifest `spin.toml`   | Yes                                 | Yes                                            |
+| Component `build.watch` | Yes                                            | No                                             |
+| Component `files`       | Yes                                            | Yes                                            |
+| Component `source`      | No (Yes if the component has no build command) | Yes  
 
 Spin watch waits up to 100 milliseconds before responding to filesystem events, then processes all events that occurred in that interval together. This is so that if you make several changes close together (for example, using a Save All command), you get them all processed in one rebuild/reload cycle, rather than going through a cycle for each one. You can override the interval by passing in the `--debounce` option; e.g. `spin watch --debounce 1000` will make Spin watch respond to filesystem events at most once per second.
 
-> Note: If the build step (`spin build`) fails, `spin up` will not be run.
+> Note: If the build step (`spin build`) fails, `spin up` will not be re-run, and the previous version of the app will remain.
 
 Passing the `--clear` flag clears the screen anytime a rebuild or rerun occurs. Spin watch does not clear the screen between rebuild and rerun as this provides you with an opportunity to see any warnings.
 
 For additional information about Spin's `watch` feature, please see the [Spin watch - live reload for Wasm app development](https://www.fermyon.com/blog/spin-watch-live-reloading) blog article.
+
+> The application manifests shown in the blog post are the version 1 manifest, but the content applies equally to the version 2 format. 
+
+## The Always Build Option
+
+Some people find it frustrating having to remember to build their applications before running `spin up`. If you want to _always_ build your projects when you run them, set the `SPIN_ALWAYS_BUILD` environment variable in your profile or session. If this is set, `spin up` runs [`spin build`](build) before starting your applications.
 
 ## Next Steps
 

@@ -8,7 +8,13 @@ keywords = "structure"
 
 ---
 
-As mentioned in this [blog post](https://www.fermyon.com/blog/spin-application-structure), we are often asked about how to structure Spin applications that involve multiple source code components. There are a few nuances to this discussion, such as the use of different application trigger types and how to modify an existing application's structure. These nuances are discussed in the blog post and also in [this video](https://www.youtube.com/watch?v=QQD-qodabSc). This page, however, will focus only on creating multi-component Spin applications from scratch using the http-empty template. This template serves as the foundation for the recommended Spin application structure when creating applications that respond to HTTP requests.
+A Spin application can contain multiple components. If more than one component is built from source, you should consider how to organise the application project.
+
+> If you have multiple components, but all except one is downloaded from a remote source such as a URL, you don't need to worry about the additional structure recommended on this page here. For example, an application with one custom component and two fileserver components doesn't need to start from the `empty` template.
+
+The discussion on this page assumes that you know from the start that you are going to need to build multiple components. If you've already started a project, you may need to move some existing code around when you add your second built-from-source component. For information about this, see [this Spin Application Structure blog post](https://www.fermyon.com/blog/spin-application-structure) or [this video](https://www.youtube.com/watch?v=QQD-qodabSc).
+
+> The blog post and video show manifest changes in the Spin 1 format. In the Spin 2 manifest format, the changes are similar, affecting the component `source` and `build` sections.
 
 ## Recommended Application Structure
 
@@ -17,10 +23,9 @@ If we start with a blank canvas and use the `http-empty` template we will get a 
 <!-- @selectiveCpy -->
 
 ```console
-$ spin new http-empty
+$ spin new -t http-empty
 Enter a name for your new application: myapp
 Description: My application
-HTTP base: /
 ```
 
 The above command will provide an empty structure, as shown below:
@@ -37,11 +42,11 @@ To add new components to the application, we simply move into the `myapp` direct
 <!-- @selectiveCpy -->
 
 ```console
-$ spin add http-rust
+$ spin add -t http-rust
 Enter a name for your new component: first-http-rust-component
 Description: The first of many new components
 HTTP path: /first/...
-$ spin add http-rust
+$ spin add -t http-rust
 Enter a name for your new component: second-http-rust-component
 Description: The second of many new components
 HTTP path: /second/...
@@ -67,26 +72,22 @@ After adding two new components, we can see the visual representation of our app
 To customize each of the two components, we can modify the `lib.rs` (Rust source code) of each component:
 
 ```rust
-/// A simple Spin HTTP component.
 #[http_component]
 fn handle_first_http_rust_component(req: Request) -> Result<Response> {
-    println!("{:?}", req.headers());
     Ok(http::Response::builder()
         .status(200)
-        .header("foo", "bar")
-        .body(Some("Hello, First Component".into()))?)
+        .header("content-type", "text/plain")
+        .body("Hello, First Component")?)
 }
 ```
 
 ```rust
-/// A simple Spin HTTP component.
 #[http_component]
 fn handle_second_http_rust_component(req: Request) -> Result<Response> {
-    println!("{:?}", req.headers());
     Ok(http::Response::builder()
         .status(200)
-        .header("foo", "bar")
-        .body(Some("Hello, Second Component".into()))?)
+        .header("content-type", "text/plain")
+        .body("Hello, Second Component")?)
 }
 ```
 
@@ -130,49 +131,51 @@ We now have 4 separate components scaffolded for us by Spin. Note the applicatio
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
-authors = ["tpmccallum <tim.mccallum@fermyon.com>"]
-description = "My application"
+spin_manifest_version = 2
+
+[application]
 name = "myapp"
-trigger = { type = "http", base = "/" }
 version = "0.1.0"
 
-[[component]]
-id = "first-http-rust-component"
+[[trigger.http]]
+route = "/first/..."
+component = "first-http-rust-component"
+
+[component.first-http-rust-component]
 source = "first-http-rust-component/target/wasm32-wasi/release/first_http_rust_component.wasm"
 allowed_http_hosts = []
-[component.trigger]
-route = "/first/..."
-[component.build]
+[component.first-http-rust-component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "first-http-rust-component"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
-[[component]]
-id = "second-http-rust-component"
+[[trigger.http]]
+route = "/second/..."
+component = "second-http-rust-component"
+
+[component.second-http-rust-component]
 source = "second-http-rust-component/target/wasm32-wasi/release/second_http_rust_component.wasm"
 allowed_http_hosts = []
-[component.trigger]
-route = "/second/..."
-[component.build]
+[component.second-http-rust-component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "second-http-rust-component"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
-[[component]]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
-id = "assets"
-files = [ { source = "assets", destination = "/" } ]
-[component.trigger]
+[[trigger.http]]
 route = "/static/..."
+component = "assets"
 
-[[component]]
-source = { url = "https://github.com/fermyon/spin-redirect/releases/download/v0.0.1/redirect.wasm", digest = "sha256:d57c3d91e9b62a6b628516c6d11daf6681e1ca2355251a3672074cddefd7f391" }
-id = "additional-component-redirect"
-environment = { DESTINATION = "/static/new.txt" }
-[component.trigger]
+[component.assets]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.1.0/spin_static_fs.wasm", digest = "sha256:96c76d9af86420b39eb6cd7be5550e3cb5d4cc4de572ce0fd1f6a29471536cb4" }
+files = [ { source = "assets", destination = "/" } ]
+
+[[trigger.http]]
+component = "additional-component-redirect"
 route = "/static/old.txt"
-executor = { type = "wagi" }
+
+[component.additional-component-redirect]
+source = { url = "https://github.com/fermyon/spin-redirect/releases/download/v0.1.0/redirect.wasm", digest = "sha256:8bee959843f28fef2a02164f5840477db81d350877e1c22cb524f41363468e52" }
+environment = { DESTINATION = "/static/new.txt" }
 ```
 
 Also, note that the application's folder structure, scaffolded for us by Spin via the spin add commands, is symmetrical and shows no nesting of components:
