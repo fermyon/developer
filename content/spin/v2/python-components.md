@@ -97,19 +97,21 @@ The `spin.toml` file will look similar to the following:
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello-world"
+version = "0.1.0"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
-name = "hello-world"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
-id = "hello-world"
-source = "app.wasm"
-[component.trigger]
+[[trigger.http]]
 route = "/..."
-[component.build]
+component = "hello-world"
+
+[component.hello-world]
+source = "app.wasm"
+[component.hello-world.build]
 command = "spin py2wasm app -o app.wasm"
 ```
 
@@ -195,20 +197,22 @@ The Spin framework protects your code from making outbound requests to just any 
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello-world"
+version = "0.1.0"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
-name = "hello-world"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
-id = "hello-world"
+[[trigger.http]]
+route = "/..."
+component = "hello-world"
+
+[component.hello-world]
 source = "app.wasm"
 allowed_http_hosts = ["random-data-api.fermyon.app"]
-[component.trigger]
-route = "/..."
-[component.build]
+[component.hello-world.build]
 command = "spin py2wasm app -o app.wasm"
 ```
 
@@ -243,25 +247,32 @@ In this final example, we talk to an existing Redis instance. You can find the o
 
 ### Configuration
 
-After installing Redis on localhost, we simply add the `config = { redis_address = "redis://127.0.0.1:6379" }` to the `spin.toml` file, as shown below:
+After installing Redis on localhost, we add two entries to the `spin.toml` file:
+
+* `variables = { redis_address = "redis://127.0.0.1:6379" }` externalizes the URL of the server to access
+* `allowed_outbound_hosts = ["127.0.0.1:6379"]` enables network access to the host and port where Redis is running
 
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello-world"
+version = "0.1.0"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
-name = "hello-world"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
+[[trigger.http]]
+route = "/..."
+component = "hello-world"
+
+[component.hello-world]
 id = "hello-world"
 source = "app.wasm"
-config = { redis_address = "redis://127.0.0.1:6379" }
-[component.trigger]
-route = "/..."
-[component.build]
+variables = { redis_address = "redis://127.0.0.1:6379" }
+allowed_outbound_hosts = ["127.0.0.1:6379"]
+[component.hello-world.build]
 command = "spin py2wasm app -o app.wasm"
 ```
 
@@ -275,7 +286,7 @@ from spin_config import config_get
 
 def handle_request(request):
 
-    redis_address = config_get("redis_address")
+    redis_address = config_get("redis_address")  # fetches from `variables`
     redis_set(redis_address, "foo", b"bar")
     value = redis_get(redis_address, "foo")
     redis_del(redis_address, ["testIncr"])

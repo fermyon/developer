@@ -133,22 +133,22 @@ requests to:
 
 ```toml
 # spin.toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
 name = "spin-hello-tinygo"
-trigger = { type = "http", base = "/" }
 version = "1.0.0"
 
-[[component]]
-id = "tinygo-hello"
+[[trigger.http]]
+route = "/hello"
+component = "tinygo-hello"
+
+[component.tinygo-hello]
 source = "main.wasm"
 allowed_http_hosts = [ "random-data-api.fermyon.app" ]
-[component.trigger]
-route = "/hello"
 ```
 
-> Spin HTTP components written in Go use the Spin executor.
-
-Running the application using `spin up --file spin.toml` will start the HTTP
+Running the application using `spin up` will start the HTTP
 listener locally (by default on `localhost:3000`), and our component can
 now receive requests in route `/hello`:
 
@@ -207,21 +207,27 @@ func init() {
 func main() {}
 ```
 
-The manifest for a Redis application must contain the address of the Redis instance:
+The manifest for a Redis application must contain the address of the Redis instance. This is set at the application level:
 
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
 name = "spin-redis"
-trigger = { type = "redis", address = "redis://localhost:6379" }
+trigger = { type = "redis",  }
 version = "0.1.0"
 
-[[component]]
-id = "echo-message"
-source = "main.wasm"
-[component.trigger]
+[application.trigger.redis]
+address = "redis://localhost:6379"
+
+[[trigger.redis]]
 channel = "messages"
+component = "echo-message"
+
+[component.echo-message]
+source = "main.wasm"
 [component.build]
 command = "tinygo build -wasm-abi=generic -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 ```
@@ -265,7 +271,8 @@ Using the Spin's Go SDK, you can use the Redis key/value store to publish
 messages to Redis channels. This can be used from both HTTP and Redis triggered
 components.
 
-Let's see how we can use the Go SDK to connect to Redis:
+Let's see how we can use the Go SDK to connect to Redis. This HTTP component demonstrates fetching a value from Redis by key, setting a
+key with a value, and publishing a message to a Redis channel:
 
 <!-- @nocpy -->
 
@@ -322,29 +329,24 @@ func init() {
 func main() {}
 ```
 
-This HTTP component demonstrates fetching a value from Redis by key, setting a
-key with a value, and publishing a message to a Redis channel. The component is
-triggered by an HTTP request served on the route configured in the `spin.toml`:
+In the same way you have to grant components access to HTTP hosts via `allowed_http_hosts`, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
 
 <!-- @nocpy -->
 
 ```toml
-[[component]]
+[component.storage-demo]
 environment = { REDIS_ADDRESS = "redis://127.0.0.1:6379", REDIS_CHANNEL = "messages" }
-[component.trigger]
-route = "/publish"
+allowed_outbound_hosts = ["127.0.0.1:6379"]
 ```
 
-This HTTP component can be paired with a Redis component, triggered on new
-messages on the `messages` Redis channel.
+This HTTP component can be paired with a Redis component, triggered on new messages on the `messages` Redis channel, to build an asynchronous messaging application, where the HTTP front-end queues work for a Redis-triggered back-end to execute as capacity is available.
 
 > You can find a complete example for using outbound Redis from an HTTP component
 > in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/tinygo-outbound-redis).
 
 ## Using Go Packages in Spin Components
 
-Any
-[package from the Go standard library](https://tinygo.org/docs/reference/lang-support/stdlib/) that can be imported in TinyGo and that compiles to
+Any [package from the Go standard library](https://tinygo.org/docs/reference/lang-support/stdlib/) that can be imported in TinyGo and that compiles to
 WASI can be used when implementing a Spin component.
 
 > Make sure to read [the page describing the HTTP trigger](./http-trigger.md) for more
