@@ -228,7 +228,8 @@ async fn handle_hello_rust(_req: IncomingRequest, response_out: ResponseOutparam
     for i in 1..20 {
         let payload = format!("Hello {i}\n");
         if let Err(e) = body.send(payload.into()).await {
-            eprintln!("Error sending payload: {e}");
+            eprintln!("Error sending payload: {e:#}");
+            return;
         }
         std::thread::sleep(std::time::Duration::from_millis(100));
     }
@@ -249,7 +250,7 @@ In **JavaScript**, `handleRequest` is declared as `export async function`.  It t
 export async function handleRequest(request) {
     return {
         status: 200,
-        headers: { "foo": "bar" },
+        headers: { "content-type": "text/plain" },
         body: "Hello from JS-SDK"
     }
 }
@@ -263,7 +264,7 @@ import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
 export const handleRequest: HandleRequest = async function(request: HttpRequest): Promise<HttpResponse> {
     return {
       status: 200,
-      headers: { "foo": "bar" },
+        headers: { "content-type": "text/plain" },
       body: "Hello from TS-SDK"
     }
 }
@@ -331,7 +332,7 @@ As well as any headers passed by the client, Spin sets several headers on the re
 > In the following table, the examples suppose that:
 > * Spin is listening on `example.com:8080`
 > * The application `base` is `/shop`
-> * The component `route` is `/users/...`
+> * The trigger `route` is `/users/...`
 > * The request is to `https://example.com:8080/shop/users/1/edit?theme=pink`
 
 | Header Name                  | Value                | Example |
@@ -347,8 +348,6 @@ As well as any headers passed by the client, Spin sets several headers on the re
 ### Inside HTTP Components
 
 For the most part, you'll build HTTP component modules using a language SDK (see the Language Guides section), such as a JavaScript module or a Rust crate.  If you're interested in what happens inside the SDK, or want to implement HTTP components in another language, read on!
-
-> The WebAssembly component model is in its early stages, and over time the triggers and application entry points will undergo changes, both in the definitions of functions and types, and in the binary representations of those definitions and of primitive types (the so-called Application Binary Interface or ABI).  However, Spin ensures binary compatibility over the course of any given major release.  For example, a component built using the Spin 1.0 SDK will work on any version of Spin in the 1.x range.
 
 The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/tree/main/wit/preview2](https://github.com/fermyon/spin/tree/main/wit/preview2).
 
@@ -378,7 +377,7 @@ However, this is not necessarily the interface you, the component author, work w
 In many cases, you will use a more idiomatic wrapper provided by the Spin SDK, which implements the "true" interface internally. In some cases, you will build a Wasm "core module" which implements an earlier version of the Spin HTTP interface, which Spin internally adapts to the "true" interface as it loads your module.
 
 But if you wish, and if your language supports it, you can implement the `incoming-handler` interface directly, using tools such as the
-[Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen). Spin will happily load and run such a component. This is exactly how Spin SDKs, such as the [Rust](rust-components) SDKs is built; as component authoring tools roll out for Go, JavaScript, Python, and other languages, you'll be able to use those tools to build `wasi-http` handlers and therefore Spin HTTP components.
+[Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen). Spin will happily load and run such a component. This is exactly how Spin SDKs, such as the [Rust](rust-components) SDK, are built; as component authoring tools roll out for Go, JavaScript, Python, and other languages, you'll be able to use those tools to build `wasi-http` handlers and therefore Spin HTTP components.
 
 > The WASI family of specifications, and tool support for some component model features that WASI depends on, are not yet fully stabilized. If you implement `wasi-http` directly, you may need to do some trialing to find tool versions which work together and with Spin.
 
