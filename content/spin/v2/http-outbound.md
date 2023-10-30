@@ -26,6 +26,8 @@ The outbound HTTP interface depends on your language.
 
 To send requests, use the [`spin_sdk::http::send`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/fn.send.html) function. This takes a request argument and returns a response (or error). It is `async`, so within an async inbound handler you can have multiple outbound `send`s running concurrently.
 
+> The Rust SDK includes **experimental** support for streaming request and response bodies. We currently recommend that you stick with the simpler non-streaming interfaces if you don't require streaming.
+
 `send` is quite flexible in its request and response types. The request may be:
 
 * [`http::Request`](https://docs.rs/http/latest/http/request/struct.Request.html) - typically constructed via `http::Request::builder()`
