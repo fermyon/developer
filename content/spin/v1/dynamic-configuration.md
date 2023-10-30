@@ -226,7 +226,7 @@ By default, components will not have access to any of these databases (even the 
 
 Spin provides a Large Language Model interface for interacting with LLMs for inferencing and embedding. The default host implementation is to use local CPU/GPU compute. However, the Spin runtime configuration file (`runtime-config.toml`) can be updated to enable Spin to use remote compute using HTTP requests.
 
-## Remote Compute Provider
+### Remote Compute Provider
 
 The following is an example of how an application's `runtime-config.toml` file can be configured to use the remote compute option. Note the `type`, `url` and `auth_token` are set to `remote_http`, URL of the server and the auth token for the server. 
 
