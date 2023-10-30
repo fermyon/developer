@@ -24,7 +24,7 @@ This may sound abstract, so let's walk through a specific example:
 ```toml
 // --snip--
 name = "todo-app"
-[component]
+[component.todo-app]
 id = "todo"
 sqlite_databases = ["data"]
 // --snip--
@@ -69,7 +69,7 @@ Let's kick things up a notch and deploy a second Spin application (`todo-app-v2`
 ```toml
 // --snip--
 name = "todo-app-v2"
-[component]
+[component.todo-app-v2]
 id = "todo"
 sqlite_databases = ["default"]
 // --snip--

@@ -59,32 +59,22 @@ The template we are interested in is `http-rust`.
 
 ## Creating Our New Spin Application
 
-The official Spin CLI documentation also has instructions on how to [create a new Spin application](/cloud/cli-reference#new). Let's go ahead and create a new `http-rust` application: 
+The official Spin CLI documentation also has instructions on how to [create a new Spin application](/cloud/cli-reference#new). Let's go ahead and create a new `http-rust` application:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-rust redisRustApplication
+$ spin new -t http-rust
 ```
 
-The above command will ask you to enter a `Project description`, `HTTP base` (default set to `/` which is fine) and `HTTP path`:
+The above command will ask you to enter a `name`, `description` and `HTTP path` (hit enter to accept the default `/...` HTTP path value when presented):
 
 <!-- @nocpy -->
 
 ```bash
-Project description: 
-HTTP base: /
+Enter a name for your new application: redisRustApplication
+Description []: A new Redis Spin Application.
 HTTP path: /...
-```
-
-You can fill out these values, when prompted, for example:
-
-<!-- @nocpy -->
-
-```bash
-Project description: A new redis-rust Spin Application.
-HTTP base: /
-HTTP path: /data
 ```
 
 > You can change these values later, in the project's `spin.toml` file.
@@ -99,15 +89,23 @@ Once you have logged in to Redislabs click on the `Data Access Control` and `Dat
 
 ## Configuration
 
-Open the Spin application's `spin.toml` file and add an environment configuration value, within the `[[component]]` section. For example:
+Open the Spin application's `spin.toml` file and add an environment configuration value, within the `[component.redis-rust-application]` section. For example:
 
 <!-- @nocpy -->
 
-```bash
+```toml
 environment = { REDIS_ADDRESS = "redis://username:password@redis.cloud.redislabs.com:16675" }
 ```
 
 > Note: As shown above; the format for the `address` is the redis protocol (`redis://`, username, colon (`:`), password, then the at symbol (`@`), database name, colon (`:`) and finally the port number. You can obtain these values from the Redislabs site from the previous step.
+
+You will also need explicitly add the addresses (your Redis database endpoint) to the manifest so that the Wasm component is allowed to send network requests to it. The following example that defines `allowed_outbound_hosts` needs to go within the `[component.redis-rust-application]` section, also.
+
+<!-- @nocpy -->
+
+```toml
+allowed_outbound_hosts = ["https://redis-1234.redislabs.com:15730"]
+```
 
 ## Spin SDK's Redis Implementation
 
@@ -120,31 +118,32 @@ The following is the content which is required in the `src/lib.rs` file. Feel fr
 <!-- @nocpy -->
 
 ```rust
-use anyhow::{anyhow, Result};
-use spin_sdk::{
-    http::{Request, Response},
-    http_component, redis,
-};
+use anyhow::{anyhow};
+use spin_sdk::http::{IntoResponse, Request};
+use spin_sdk::http_component;
+use spin_sdk::redis;
 
 const REDIS_ADDRESS_ENV: &str = "REDIS_ADDRESS";
 
 #[http_component]
-fn publish(_req: Request) -> Result<Response> {
+fn publish(_req: Request) -> anyhow::Result<impl IntoResponse> {
+
     let address = std::env::var(REDIS_ADDRESS_ENV)?;
+    let conn = redis::Connection::open(&address)?;
 
     // Set the Redis key "spin-example" to value "Eureka Cloud!"
-    redis::set(&address, "spin-example", &b"Eureka Cloud!"[..])
+    conn.set("spin-example", &b"Eureka Cloud!"[..].to_vec())
         .map_err(|_| anyhow!("Error executing Redis set command"))?;
 
     // Get the value from the Redis key "spin-example"
     let payload =
-        redis::get(&address, "spin-example").map_err(|_| anyhow!("Error querying Redis"))?;
+        conn.get("spin-example").map_err(|_| anyhow!("Error querying Redis"))?;
 
     // Return the permanently stored value to the user's browser body
     Ok(http::Response::builder()
         .status(200)
         .header("foo", "bar")
-        .body(Some(payload.into()))?)
+        .body(payload)?)
 }
 ```
 

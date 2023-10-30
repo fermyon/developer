@@ -254,8 +254,7 @@ Pick a template to start your application with:
   redis-rust (Redis message handler using Rust)
 
 Enter a name for your new application: hello_rust
-Project description: My first Rust Spin application
-HTTP base: /
+Description: My first Rust Spin application
 HTTP path: /...
 ```
 
@@ -264,21 +263,24 @@ This command created a directory with the necessary files needed to build and ru
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello_rust"
+version = "0.1.0"
 authors = ["Your Name <your-name@example.com>"]
 description = "My first Rust Spin application"
-name = "hello_rust"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
-id = "hello-rust"
+[[trigger.http]]
+route = "/..."
+component = "hello-rust"
+
+[component.hello-rust]
 source = "target/wasm32-wasi/release/hello_rust.wasm"
 allowed_http_hosts = []
-[component.trigger]
-route = "/..."
-[component.build]
+[component.hello-rust.build]
 command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
 {{ blockEnd }}
@@ -295,8 +297,7 @@ Pick a template to start your application with:
   http-js (HTTP request handler using Javascript)
 > http-ts (HTTP request handler using Typescript)
 Enter a name for your new application: hello_typescript
-Project description: My first TypeScript Spin application
-HTTP base: /
+Description: My first TypeScript Spin application
 HTTP path: /...
 ```
 
@@ -305,20 +306,22 @@ This command created a directory with the necessary files needed to build and ru
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
 authors = ["Your Name <your-name@example.com>"]
 description = "My first TypeScript Spin application"
 name = "hello_typescript"
-trigger = { type = "http", base = "/" }
 version = "0.1.0"
 
-[[component]]
-id = "hello-typescript"
-source = "target/spin-http-js.wasm"
-exclude_files = ["**/node_modules"]
-[component.trigger]
+[[trigger.http]]
 route = "/..."
-[component.build]
+component = "hello-typescript"
+
+[component.hello-typescript]
+source = "target/hello-typescript.wasm"
+exclude_files = ["**/node_modules"]
+[component.hello-typescript.build]
 command = "npm run build"
 ```
 
@@ -336,7 +339,6 @@ Pick a template to start your application with:
 > http-py (HTTP request handler using Python)
 Enter a name for your new application: hello_python
 Description: My first Python Spin application
-HTTP base: /
 HTTP path: /...
 ```
 
@@ -345,20 +347,23 @@ This command created a directory with the necessary files needed to build and ru
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
 authors = ["Your Name <your-name@example.com>"]
 description = "My first Python Spin application"
 name = "hello_python"
-trigger = { type = "http", base = "/" }
 version = "0.1.0"
 
-[[component]]
-id = "hello-python"
-source = "app.wasm"
-[component.trigger]
+[[trigger.http]]
 route = "/..."
-[component.build]
+component = "hello-python"
+
+[component.hello-python]
+source = "app.wasm"
+[component.hello-python.build]
 command = "spin py2wasm app -o app.wasm"
+watch = ["app.py", "Pipfile"]
 ```
 
 {{ blockEnd }}
@@ -380,7 +385,6 @@ Pick a template to start your application with:
   http-rust (HTTP request handler using Rust)
 Enter a name for your new application: hello_go
 Description: My first Go Spin application
-HTTP base: /
 HTTP path: /...
 ```
 
@@ -389,21 +393,24 @@ This command created a directory with the necessary files needed to build and ru
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "hello_go"
+version = "0.1.0"
 authors = ["Your Name <your-name@example.com>"]
 description = "My first Go Spin application"
-name = "hello_go"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
 
-[[component]]
-id = "hello-go"
+[[trigger.http]]
+route = "/..."
+component = "hello-go"
+
+[component.hello-go]
 source = "main.wasm"
 allowed_http_hosts = []
-[component.trigger]
-route = "/..."
-[component.build]
+[component.hello-go.build]
 command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+watch = ["**/*.go", "go.mod"]
 ```
 
 {{ blockEnd }}
@@ -420,17 +427,12 @@ Next, let’s build the app:
 
 ```bash
 $ spin build
-Executing the build command for component hello-rust: cargo build --target wasm32-wasi --release
+Building component hello-rust with `cargo build --target wasm32-wasi --release`
     Updating crates.io index
     Updating git repository `https://github.com/fermyon/spin`
-    Updating git repository `https://github.com/bytecodealliance/wit-bindgen`
-   Compiling anyhow v1.0.69
-   Compiling version_check v0.9.4
    # ...
-   Compiling spin-sdk v0.10.0 
-   Compiling hello-rust v0.1.0 (/home/ivan/testing/start/hello_rust)
-    Finished release [optimized] target(s) in 11.94s
-Successfully ran the build command for the Spin components.
+    Finished release [optimized] target(s) in 27.81s
+Finished building all Spin components
 ```
 
 If the build fails, check:
@@ -450,9 +452,9 @@ As normal for NPM projects, before you build for the first time, you must run `n
 ```bash
 $ npm install
 
-added 134 packages, and audited 135 packages in 2s
+added 141 packages, and audited 142 packages in 10s
 
-18 packages are looking for funding
+20 packages are looking for funding
   run `npm fund` for details
 
 found 0 vulnerabilities
@@ -464,21 +466,16 @@ Then run `spin build`:
 
 ```bash
 $ spin build
-Executing the build command for component hello-typescript: npm run build
+Building component hello-typescript with `npm run build`
 
 > hello-typescript@1.0.0 build
-> npx webpack --mode=production && mkdir -p target && spin js2wasm -o target/spin-http-js.wasm dist/spin.js
-
-asset spin.js 4.57 KiB [emitted] (name: main)
-runtime modules 670 bytes 3 modules
-./src/index.ts 2.85 KiB [built] [code generated]
-webpack 5.75.0 compiled successfully in 1026 ms
-
+> npx webpack --mode=production && mkdir -p target && spin js2wasm -o target/hello-typescript.wasm dist/spin.js
+  # ...
 Starting to build Spin compatible module
 Preinitiating using Wizer
 Optimizing wasm binary using wasm-opt
 Spin compatible module built successfully
-Successfully ran the build command for the Spin components.
+Finished building all Spin components
 ```
 
 If the build fails, check:
@@ -495,9 +492,9 @@ If the build fails, check:
 
 ```bash
 $ spin build
-Executing the build command for component hello-python: spin py2wasm app -o app.wasm
+Building component hello-python with `spin py2wasm app -o app.wasm`
 Spin-compatible module built successfully
-Successfully ran the build command for the Spin components.
+Finished building all Spin components
 ```
 
 If the build fails, check:
@@ -512,10 +509,9 @@ If the build fails, check:
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin build
-Executing the build command for component hello-go: tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go
-go: downloading github.com/fermyon/spin/sdk/go v0.10.0
-Successfully ran the build command for the Spin components.
+$ spin build 
+Building component hello-go with `tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go`
+Finished building all Spin components
 ```
 
 If the build fails, check:
@@ -536,6 +532,8 @@ Now it’s time to `spin up` the application:
 
 ```bash
 $ spin up
+Logging component stdio to ".spin/logs/"
+
 Serving http://127.0.0.1:3000
 Available Routes:
   hello-rust: http://127.0.0.1:3000 (wildcard)
@@ -550,8 +548,9 @@ Spin will instantiate all components from the application manifest, and will cre
 ```
 $ curl -i localhost:3000
 HTTP/1.1 200 OK
-foo: bar
-content-length: 15
+content-type: text/plain
+transfer-encoding: chunked
+date: Thu, 02 Nov 2023 02:08:31 GMT
 
 Hello, Fermyon
 ```
