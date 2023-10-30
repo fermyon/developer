@@ -2,7 +2,7 @@ title = "Building Spin components in Rust"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/rust-components.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/rust-components.md"
 
 ---
 - [Prerequisites](#prerequisites)

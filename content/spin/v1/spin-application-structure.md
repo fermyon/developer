@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-08-20T00:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/spin-application-structure.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/spin-application-structure.md"
 keywords = "structure"
 
 ---

@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-05-01T00:01:01Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/upgrade.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/upgrade.md"
 
 ---
 - [Are You on the Latest Version?](#are-you-on-the-latest-version)

@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-04-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/kv-store-api-guide.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/kv-store-api-guide.md"
 
 ---
 - [Using Key Value Store From Applications](#using-key-value-store-from-applications)

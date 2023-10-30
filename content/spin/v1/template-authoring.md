@@ -2,7 +2,7 @@ title = "Creating Spin templates"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/template-authoring.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/template-authoring.md"
 
 ---
 - [Authoring the Content](#authoring-the-content)

@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai-api-guide.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/serverless-ai-api-guide.md"
 
 ---
 - [Using Serverless AI From Applications](#using-serverless-ai-from-applications)
