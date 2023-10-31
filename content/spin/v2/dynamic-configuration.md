@@ -94,8 +94,8 @@ $ vault kv put secret/password value="test_password"
 $ vault kv get secret/password
 ```
 
-4. Go to the [spin/tests/http/vault-config-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-variables-test) folder.
-5. Build and run the `vault-config-test` app:
+4. Go to the [spin/tests/http/vault-variables-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-variables-test) folder.
+5. Build and run the `vault-variables-test` app:
 
 <!-- @selectiveCpy -->
 
