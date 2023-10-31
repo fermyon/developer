@@ -1,6 +1,6 @@
 title = "Sentiment Analysis With Serverless AI"
 template = "spin_main"
-date = "2023-11-02T01:00:00Z"
+date = "2023-11-02T16:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/ai-sentiment-analysis-api-tutorial.md"
@@ -95,7 +95,7 @@ Now, let's dive deep into a comprehensive tutorial and unlock your potential to 
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}
-<!-- TODO - Update the samples in ai-examples -->
+
 The Rust code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-rs)
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
@@ -147,11 +147,11 @@ HTTP path: /api/...
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 <!-- @selectiveCpy -->
-<!-- TODO - awaiting Go SDK updates to remove base -->
+
 ```bash
-$ spin new -t http-go sentiment-analysis
+$ spin new -t http-go
+Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
 HTTP path: /api/...
 ```
 
@@ -286,13 +286,14 @@ serde_json = "1.0"
 
 Once you have added serde, as explained above, modify your `src/lib.rs` file to match the following content:
 
-<!-- TODO - Update the samples in ai-examples - Awaiting https://github.com/fermyon/spin/issues/1973 to be able to compile the following - also check the prompt!!! -->
+<!-- TODO - Awaiting https://github.com/fermyon/spin/issues/1995 -->
+
 ```rust
 use std::str::FromStr;
 
 use anyhow::Result;
 use spin_sdk::{
-    http::{IntoResponse, Json, Params, Response, Router},
+    http::{IntoResponse, Json, Params, Request, Response, Router},
     http_component,
     key_value::Store,
     llm::{infer_with_options, InferencingModel::Llama2Chat},
@@ -332,18 +333,14 @@ User: {SENTENCE}
 
 /// A Spin HTTP component that internally routes requests.
 #[http_component]
-fn handle_route(req: http::Request<Json<SentimentAnalysisRequest>>) -> Response {
+fn handle_route(req: Request) -> Response {
     let mut router = Router::new();
     router.any("/api/*", not_found);
     router.post("/api/sentiment-analysis", perform_sentiment_analysis);
-    // TODO: Awaiting SDK update to support the new Request<Json<T>> type
     router.handle(req)
 }
 
-fn not_found(
-    _: http::Request<Json<SentimentAnalysisRequest>>,
-    _: Params,
-) -> Result<impl IntoResponse> {
+fn not_found(_: Request, _: Params) -> Result<impl IntoResponse> {
     Ok(Response::new(404, "Not found"))
 }
 
@@ -410,7 +407,6 @@ fn perform_sentiment_analysis(
     let resp_str = serde_json::to_string(&resp)?;
 
     Ok(Response::new(200, resp_str))
-
 }
 
 #[derive(Copy, Clone, Debug)]
@@ -449,6 +445,7 @@ impl FromStr for Sentiment {
         Ok(sentiment)
     }
 }
+
 ```
 
 {{ blockEnd }}
@@ -644,8 +641,6 @@ def get_sentiment_from_sentence(sentence) -> str:
 ```
 
 {{ blockEnd }}
-
-<!-- TODO Check with updates templates -->
 
 {{ startTab "TinyGo"}}
 
