@@ -169,7 +169,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-The config function is available in the `github.com/fermyon/spin/sdk/go/v2/config` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/config) for reference documentation.
+The function is available in the `github.com/fermyon/spin/sdk/go/v2/variables` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/variables) for reference documentation.
 
 ```go
 import (
@@ -177,7 +177,7 @@ import (
 	"io"
 	"net/http"
 
-	spinconfig "github.com/fermyon/spin/sdk/go/v2/config"
+	"github.com/fermyon/spin/sdk/go/v2/variables"
 	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
 )
 
@@ -185,7 +185,7 @@ spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
     access := "denied"
     password, err := io.ReadAll(r.Body)
     if err == nil {
-        expected, err := spinconfig.Get("password")
+        expected, err := variables.Get("password")
         if err != nil {
             http.Error(w, err.Error(), http.StatusInternalServerError)
             return
