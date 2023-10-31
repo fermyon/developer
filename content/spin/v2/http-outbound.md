@@ -31,7 +31,8 @@ To send requests, use the [`spin_sdk::http::send`](https://fermyon.github.io/rus
 `send` is quite flexible in its request and response types. The request may be:
 
 * [`http::Request`](https://docs.rs/http/latest/http/request/struct.Request.html) - typically constructed via `http::Request::builder()`
-* [`spin_sdk::http::Request`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Request.html) - typically constructed via `spin_sdk::http::Request::builder()`
+* [`spin_sdk::http::Request`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Request.html) - typically constructed via `spin_sdk::http::Request::get()`, `spin_sdk::http::Request::post()`, or `spin_sdk::http::Request::builder()`
+  * You can also use the [builder type](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.RequestBuilder.html) directly - `build` will be called automatically for you
 * [`spin_sdk::http::OutgoingRequest`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.OutgoingRequest.html) - constructed via `OutgoingRequest::new()`
 * Any type for which you have implemented the `TryInto<spin_sdk::http::OutgoingRequest>` trait
 
@@ -57,10 +58,9 @@ use spin_sdk::http_component;
 // so we can `await` the outbound send.
 async fn handle_request(_req: Request) -> anyhow::Result<impl IntoResponse> {
 
-    // For this example, use the http::Request type for the outbound request
-    let outbound_req = http::Request::builder()
-        .uri("https://www.fermyon.com/")
-        .body(())?;
+    // For this example, use the spin_sdk::http::RequestBuilder type
+    // for the outbound request.
+    let outbound_req = Request::get("https://www.fermyon.com/");
 
     // Send the outbound request, capturing the response as raw bytes
     let response: http::Response<Vec<u8>> = send(outbound_req).await?;
