@@ -118,12 +118,10 @@ The TypeScript code snippets below are taken from the [Fermyon Serverless AI Exa
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 
 <!-- @selectiveCpy -->
-<!-- TODO - awaiting JS SDK updates to remove base -->
 ```bash
 $ spin new -t http-ts
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
 HTTP path: /api/...
 ```
 
@@ -140,7 +138,6 @@ The Python code snippets below are taken from the [Fermyon Serverless AI Example
 $ spin new -t http-py
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
 HTTP path: /api/...
 ```
 
@@ -150,7 +147,7 @@ HTTP path: /api/...
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 <!-- @selectiveCpy -->
-<!-- TODO - awaiting Python SDK updates to remove base -->
+<!-- TODO - awaiting Go SDK updates to remove base -->
 ```bash
 $ spin new -t http-go sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
@@ -458,8 +455,6 @@ impl FromStr for Sentiment {
 
 {{ startTab "TypeScript"}}
 
-<!-- TODO Check with updates templates -->
-
 ```typescript
 import {
   HandleRequest,
@@ -582,13 +577,13 @@ export const handleRequest: HandleRequest = async function (
 ```
 
 {{ blockEnd }}
-<!-- TODO Check with updates templates -->
-<!-- TODO Does not use hte KV Store -->
+
 {{ startTab "Python"}}
 
 ```python
 from spin_http import Response
 from spin_llm import llm_infer
+from spin_key_value import kv_open_default
 import json
 import re
 
@@ -597,23 +592,55 @@ You are a bot that generates sentiment analysis responses. Respond with a single
 <</SYS>>
 [INST]
 Follow the pattern of the following examples:
+
 User: Hi, my name is Bob
 Bot: neutral
+
 User: I am so happy today
 Bot: positive
+
 User: I am so sad today
 Bot: negative
+
 [/INST]
 User: """
 
 def handle_request(request):
+    # Extracting the sentence from the request
     request_body=json.loads(request.body)
     sentence=request_body["sentence"].strip()
-    result=llm_infer("llama2-chat", PROMPT+sentence)
-    response_body=json.dumps({"sentence": re.sub("\\nBot\: ", "", result.text)})
+    print("Performing sentiment analysis on: " + sentence)
+
+    # Open the default KV store
+    store = kv_open_default()
+
+    # Check if the sentence is already in the KV store
+    if store.exists(sentence) is False:
+        result=llm_infer("llama2-chat", PROMPT+sentence).text
+        print("Raw result: " + result)
+        sentiment = get_sentiment_from_sentence(result)
+        print("Storing result in the KV store")
+        store.set(sentence, str.encode(sentiment))
+    else:
+        sentiment = store.get(sentence).decode()
+        print("Found a cached result")
+
+    response_body=json.dumps({"sentence": sentiment})
+
     return Response(200,
                     {"content-type": "application/json"},
                     bytes(response_body, "utf-8"))
+
+def get_sentiment_from_sentence(sentence) -> str:
+    words = sentence.lower().split()
+    sentiments = ["positive", "negative", "neutral"]
+    result = next((word for word in sentiments if word in words), None)
+
+    if result is not None:
+        return result
+    else:
+        print("Inconclusive, returning 'neutral'")
+        return "neutral"
 ```
 
 {{ blockEnd }}
