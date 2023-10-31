@@ -11,7 +11,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/variables.
 
 Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
 
-These variables are defined in a Spin application manifest (in the `[variables]` section), and their values can be set or overridden at runtime by an [application variables provider](./dynamic-configuration.md#application-variables-runtime-configuration). When running Spin locally, the variables provider can be [Hashicorp Vault]((./dynamic-configuration.md#vault-application-variable-provider)) for secrets, or host environment variables.
+These variables are defined in a Spin application manifest (in the `[variables]` section), and their values can be set or overridden at runtime by an [application variables provider](./dynamic-configuration.md#application-variables-runtime-configuration). When running Spin locally, the variables provider can be [Hashicorp Vault](./dynamic-configuration.md#vault-application-variable-provider) for secrets, or host environment variables.
 
 For information about configuring application variables providers, refer to the [dynamic configuration documentation](./dynamic-configuration.md#application-variables-runtime-configuration).
 
