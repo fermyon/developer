@@ -17,29 +17,20 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/dynamic-co
 - [LLM Runtime Configuration](#llm-runtime-configuration)
 - [Remote Compute Provider](#remote-compute-provider)
 
-Configuration for Spin applications using features such as [application variables](https://developer.fermyon.com/spin/variable),
+Configuration for Spin application features such as [application variables](https://developer.fermyon.com/spin/variable),
 [key value storage](https://developer.fermyon.com/spin/kv-store-api-guide), [SQL storage](https://developer.fermyon.com/spin/sqlite-api-guide)
-and [Serverless AI](https://developer.fermyon.com/spin/serverless-ai-api-guide) can be provided
-dynamically via [runtime configuration](#runtime-configuration).
+and [Serverless AI](https://developer.fermyon.com/spin/serverless-ai-api-guide) can be supplied dynamically, i.e. during the application runtime,
+requiring no changes to the application code itself.
 
-For many Spin features, configuration for the backing implementation can be supplied dynamically, i.e. during the application runtime,
-requiring no changes to the application code itself. We call these backing implementations 'providers' and their configuration data
-is stored in the runtime configuration file (`runtime-config.toml`). This file is then passed in via the `--runtime-config-file` flag
+This runtime configuration data is stored in the `runtime-config.toml` file and passed in via the `--runtime-config-file` flag
 when invoking the `spin up` command.
 
 The list of Spin features supporting runtime configuration includes:
 
-- [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
-  - [Environment Variable Provider](#environment-variable-provider)
-  - [Vault Application Variable Provider](#vault-application-variable-provider)
-    - [Vault Application Variable Provider Example](#vault-application-variable-provider-example)
-- [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
-  - [Redis Key Value Store Provider](#redis-key-value-store-provider)
-  - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
-- [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
-  - [LibSQL Storage Provider](#libsql-storage-provider)
-- [LLM Runtime Configuration](#llm-runtime-configuration)
-- [Remote Compute Provider](#remote-compute-provider)
+- [Application Variables](#variables-runtime-configuration)
+- [Key Value Storage](#key-value-store-runtime-configuration)
+- [SQL storage](#sqlite-storage-runtime-configuration)
+- [Serverless AI Compute](#llm-runtime-configuration)
 
 Let's look at each configuration category in-depth below.
 
@@ -49,7 +40,7 @@ Let's look at each configuration category in-depth below.
 there are two application variable providers: the [environment-variable provider](#environment-variable-provider) and
 the [Vault provider](#vault-application-variable-provider).  The provider examples below show how to use or configure each 
 provider. For examples on how to access these variables values within your application, see
-[Using Variables from Applications](https://developer.fermyon.com/spin/variables#using-variables-from-applications).
+[Using Variables from Applications](./variables#using-variables-from-applications).
 
 ### Environment Variable Provider
 
