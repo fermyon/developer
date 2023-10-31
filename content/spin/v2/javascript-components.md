@@ -238,7 +238,7 @@ export async function handleRequest(request) {
 ```
 
 Before we can execute this component, we need to add the `random-data-api.fermyon.app`
-domain to the application manifest `allowed_http_hosts` list containing the list of
+domain to the application manifest `allowed_outbound_hosts` list containing the list of
 domains the component is allowed to make HTTP requests to:
 
 <!-- @nocpy -->
@@ -257,7 +257,7 @@ component = "hello"
 
 [component.hello]
 source = "target/spin-http-js.wasm"
-allowed_http_hosts = ["random-data-api.fermyon.app"]
+allowed_outbound_hosts = ["https://random-data-api.fermyon.app"]
 [component.hello.build]
 command = "npm run build"
 ```
@@ -279,13 +279,13 @@ server: spin/0.1.0
 Here's an animal fact: {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}
 ```
 
-> Without the `allowed_http_hosts` field populated properly in `spin.toml`,
+> Without the `allowed_outbound_hosts` field populated properly in `spin.toml`,
 > the component would not be allowed to send HTTP requests, and sending the
 > request would result in a "Destination not allowed" error.
 
-> You can set `allowed_http_hosts = ["insecure:allow-all"]` if you want to allow
-> the component to make requests to any HTTP host. This is **NOT** recommended
-> for any production or publicly-accessible application.
+> You can set `allowed_outbound_hosts = ["https://*:*"]` if you want to allow
+> the component to make requests to any HTTP host. This is not recommended
+> unless you have a specific need to contact arbitrary servers and perform your own safety checks.
 
 We just built a WebAssembly component that sends an HTTP request to another
 service, manipulates that result, then responds to the original request.
@@ -336,13 +336,13 @@ This HTTP component demonstrates fetching a value from Redis by key, setting a k
 
 > When using Redis databases hosted on the internet (i.e) not on localhost, the `redisAddress` must be of the format "redis://\<USERNAME\>:\<PASSWORD\>@\<REDIS_URL\>" (e.g) `redis://myUsername:myPassword@redis-database.com`
 
-In the same way you have to grant components access to HTTP hosts via `allowed_http_hosts`, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
+As with all networking APIs, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
 
 <!-- @nocpy -->
 
 ```toml
 [component.storage-demo]
-allowed_outbound_hosts = ["localhost:6379"]
+allowed_outbound_hosts = ["redis://localhost:6379"]
 ```
 
 ## Routing in a Component

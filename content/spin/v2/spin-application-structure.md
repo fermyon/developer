@@ -143,7 +143,7 @@ component = "first-http-rust-component"
 
 [component.first-http-rust-component]
 source = "first-http-rust-component/target/wasm32-wasi/release/first_http_rust_component.wasm"
-allowed_http_hosts = []
+allowed_outbound_hosts = []
 [component.first-http-rust-component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "first-http-rust-component"
@@ -155,7 +155,7 @@ component = "second-http-rust-component"
 
 [component.second-http-rust-component]
 source = "second-http-rust-component/target/wasm32-wasi/release/second_http_rust_component.wasm"
-allowed_http_hosts = []
+allowed_outbound_hosts = []
 [component.second-http-rust-component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "second-http-rust-component"

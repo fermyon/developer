@@ -151,5 +151,5 @@ By default, Spin components are not allowed to make outgoing network requests, i
 
 ```toml
 [component.uses-db]
-allowed_outbound_hosts = ["postgres.example.com:5432"]
+allowed_outbound_hosts = ["postgres://postgres.example.com:5432"]
 ```

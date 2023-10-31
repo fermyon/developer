@@ -299,7 +299,7 @@ component = "hello-rust"
 
 [component.hello-rust]
 source = "target/wasm32-wasi/release/hello_rust.wasm"
-allowed_http_hosts = []
+allowed_outbound_hosts = []
 [component.hello-rust.build]
 command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
@@ -548,7 +548,7 @@ component = "hello-go"
 
 [component.hello-go]
 source = "main.wasm"
-allowed_http_hosts = []
+allowed_outbound_hosts = []
 [component.hello-go.build]
 command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 ```

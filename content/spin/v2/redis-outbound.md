@@ -169,7 +169,5 @@ By default, Spin components are not allowed to make outgoing network requests, i
 
 ```toml
 [component.uses-redis]
-allowed_outbound_hosts = ["redis.example.com:6379"]
+allowed_outbound_hosts = ["redis://redis.example.com:6379"]
 ```
-
-> Do _not_ include the `redis://` URL prefix.
