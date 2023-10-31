@@ -5,22 +5,27 @@ date = "2023-11-02T16:00:00Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/deploying-to-fermyon.md"
 
 ---
-- [Deploying Microservices \& Web Apps](#deploying-microservices--web-apps)
-- [Running on Your Workstation](#running-on-your-workstation)
-- [Running on AWS](#running-on-aws)
+- [Fermyon Cloud](#fermyon-cloud)
+- [Fermyon Platform](#fermyon-platform)
+  - [Running on Your Workstation](#running-on-your-workstation)
+  - [Running on AWS](#running-on-aws)
 
-## Deploying Microservices & Web Apps
+## Fermyon Cloud
 
-[Fermyon](https://www.fermyon.dev/) is the frictionless WebAssembly platform for deploying
-microservices and web apps. With Fermyon, you can deploy your spin applications onto a server in
-moments.
+[Fermyon Cloud](/cloud) is a self-service application platform for WebAssembly-based serverless functions and microservices. It enables you to run Spin applications, at scale, in the cloud, without any infrastructure setup or maintenance required.
 
-## Running on Your Workstation
+## Fermyon Platform
+
+[Fermyon Platform](https://www.fermyon.dev/) is a self-host platform for Spin applications. With Fermyon, you can deploy your spin applications onto a server in moments.
+
+> Fermyon Platform does not currently support Spin 2.
+
+### Running on Your Workstation
 
 For instructions guiding you through running the Fermyon platform on your development workstation,
 follow [this guide](https://www.fermyon.dev/quickstart-local).
 
-## Running on AWS
+### Running on AWS
 
 For instructions guiding you through running the Fermyon platform on AWS, follow
 [this guide](https://www.fermyon.dev/quickstart-aws).

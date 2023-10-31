@@ -127,7 +127,7 @@ skip_parameters = ["http-base"]
 component = "component.txt"
 ```
 
-> For examples from the Spin project, see `http-rust` (can be used in both`spin new` and `spin add`) and `static-fileserver` (`spin add` only).
+> For examples from the Spin project, see `http-rust` and `static-fileserver`.
 
 ## Hosting Templates in Git
 

@@ -5,9 +5,17 @@ date = "2023-11-02T16:00:00Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/extending-and-embedding.md"
 
 ---
+- [Extending Spin with a Custom Trigger](#extending-spin-with-a-custom-trigger)
+  - [Implement the Trigger World](#implement-the-trigger-world)
+  - [The Trigger Implements the `TriggerExecutor` Trait](#the-trigger-implements-the-triggerexecutor-trait)
+  - [The Trigger is an Executable](#the-trigger-is-an-executable)
+  - [The Trigger Detects Events...](#the-trigger-detects-events)
+  - [...and Invokes the Guest](#and-invokes-the-guest)
 - [Other Ways to Extend and Use Spin](#other-ways-to-extend-and-use-spin)
 
-> The complete example for extending and embedding Spin [can be found on GitHub](https://github.com/fermyon/spin/tree/main/examples/spin-timer).
+## Extending Spin with a Custom Trigger
+
+> The complete example for a custom trigger [can be found on GitHub](https://github.com/fermyon/spin/tree/main/examples/spin-timer).
 
 Spin currently implements triggers and application models for:
 
@@ -25,160 +33,133 @@ model, as well as how to embed Spin in your application.
 In this article, we will build a Spin trigger to run the applications based on a
 timer, executing Spin components at a configured time interval.
 
-The current application types that can be implemented with Spin have entry points
-defined using
-[WebAssembly Interface (WIT)](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md):
+> Custom triggers are an experimental feature. The trigger APIs are not stabilized, and you may need to tweak your trigger code as you update to new Spin versions.
+
+Application entry points are defined using
+[WebAssembly Interface (WIT)](https://component-model.bytecodealliance.org/design/wit.html). Here's the entry point for HTTP triggers:
 
 <!-- @nocpy -->
 
 ```fsharp
-// The entry point for an HTTP handler.
-handle-http-request: function(req: request) -> response
+interface incoming-handler {
+  use types.{incoming-request, response-outparam}
 
-// The entry point for a Redis handler.
-handle-redis-message: function(msg: payload) -> expected<_, error>
+  handle: func(
+    request: incoming-request,
+    response-out: response-outparam
+  )
+}
 ```
 
-The entry point we want to execute for our timer trigger takes a string as its
-only argument (the trigger will populate that with the current date and time),
-and it expects a string as the only return value. This is purposefully chosen
-to be a simple function signature:
+The entry point we want to execute for our timer trigger takes no input and doesn't return anything. This is purposefully chosen
+to be a simple function signature. For simplicity, we allow guest code to use Spin's [application variables API](./variables.md) but not other Spin APIs.
+
+> Custom trigger guest code can't currently use the Spin SDK and must refer to the Spin WITs directly.
+
+Here is the resulting timer WIT:
 
 <!-- @nocpy -->
 
 ```fsharp
 // examples/spin-timer/spin-timer.wit
-handle-timer-request: function(msg: string) -> string
+package fermyon:example
+
+world spin-timer {
+  import fermyon:spin/variables@2.0.0
+  export handle-timer-request: func()
+}
 ```
 
-This is the function that all components executed by the timer trigger must
+`handle-timer-request` is the function that all components executed by the timer trigger must
 implement, and which is used by the timer executor when instantiating and
 invoking the component.
 
-Let's have a look at building the timer trigger:
+The timer trigger itself is a Spin plugin whose name is `trigger-timer`. The first part must be `trigger` and the second part is the trigger type.
+
+You can see the full timer trigger code at the link above but here are some key features.
+
+### Implement the Trigger World
+
+The timer trigger implements the WIT world described in `spin-timer.wit`. To do that, it uses the [Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen) — this generates code that allows the trigger to invoke the guest's entry point, and allows the guest to invoke the Spin APIs available in the world.
 
 <!-- @nocpy -->
 
 ```rust
 // examples/spin-timer/src/main.rs
-wit_bindgen_wasmtime::import!({paths: ["spin-timer.wit"], async: *});
-type ExecutionContext = spin_engine::ExecutionContext<spin_timer::SpinTimerData>;
+wasmtime::component::bindgen!({
+    path: ".",
+    world: "spin-timer",
+    async: true
+});
+```
 
-/// A custom timer trigger that executes a component on every interval.
-#[derive(Clone)]
-pub struct TimerTrigger {
-    /// The interval at which the component is executed.
-    pub interval: Duration,
-    /// The Spin execution context.
-    engine: Arc<ExecutionContext>,
+### The Trigger Implements the `TriggerExecutor` Trait
+
+Using `TriggerExecutor` allows the trigger to offload a great deal of boilerplate loader work to `spin_trigger::TriggerExecutorCommand`.
+
+```rust
+struct TimerTrigger {
+    engine: TriggerAppEngine<Self>,
+    speedup: u64,
+    component_timings: HashMap<String, u64>,
+}
+
+#[async_trait]
+impl TriggerExecutor for TimerTrigger {
+    // ...
 }
 ```
 
-A few important things to note from the start:
+### The Trigger is an Executable
 
-- we use the WIT defined entry point with the
-[Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen)
-to generate "import" bindings based on the entry point — this generates code that
-allows us to easily invoke the entry point from application components that
-implement our new application model.
-- the new trigger has a field that contains a `Application` —
-in most cases, either `CoreComponent` will have to be updated with new trigger
-and component configuration (not the case for our simple application model),
-or an entirely new component can be defined and used in `Application<T>`.
-- the trigger has a field that contains the Spin execution context — this is the
-part of Spin that instantiates and helps execute the WebAssembly modules. When
-creating the trigger (in the `new` function, you get access to the underlying
-Wasmtime store, instance, and linker, which can be configured as necessary).
-
-Finally, whenever there is a new event (in the case of our timer-based trigger
-every `n` seconds), we execute the entry point of a selected component:
-
-<!-- @nocpy -->
+A trigger is a separate program, so that it can be installed as a plugin. So it is a Rust `bin` project and has a `main` function. It can be useful to also provide a library crate, so that projects that embed Spin can load it in process if desired, but the timer sample doesn't currently show that.
 
 ```rust
-/// Execute the first component in the application manifest.
-async fn handle(&self, msg: String) -> Result<()> {
-    // create a new Wasmtime store and instance based on the first component's WebAssembly module.
-    let (mut store, instance) =
-        self.engine
-            .prepare_component(&self.app.components[0].id, None, None, None, None)?;
+type Command = TriggerExecutorCommand<TimerTrigger>;
 
-    // spawn a new thread and call the entry point function from the WebAssembly module 
-    let res = spawn_blocking(move || -> Result<String> {
-            // use the auto-generated WIT bindings to get the Wasm exports and call the `handle-timer-request` function.
-        let t = spin_timer::SpinTimer::new(&mut store, &instance, |host| {
-            host.data.as_mut().unwrap()
-        })?;
-        Ok(t.handle_timer_request(&mut store, &msg)?)
-    })
-    .await??;
-    // do something with the result.
-    log::info!("{}\n", res);
-    Ok(())
+#[tokio::main]
+async fn main() -> Result<(), Error> {
+    let t = Command::parse();
+    t.run().await
 }
 ```
 
-A few notes:
+### The Trigger Detects Events...
 
-- `prepare_component` is a function implemented by the Spin execution context,
-and it handles taking the Wasmtime pre-instantiated module, mapping all the
-component files, environment variables, and allowed HTTP domains, populating
-the Wasmtime store with the appropriate data, and returning the store and instance.
-- invoking the entry point `handle-timer-request` is done in this example in a new Tokio thread —
-this is an implementation choice based on the needs of the trigger.
-- the return value from the component (a string in this example) can then be
-used — in the case of the HTTP trigger, this is an HTTP response, which is then
-returned to the client.
-
-This is very similar to how the [HTTP](./http-trigger.md) and [Redis](./redis-trigger.md)
-triggers are implemented, and it is the recommended way to extend Spin with your
-own trigger and application model.
-
-Writing components for the new trigger can be done by using the
-[`wit-bindgen` tooling](https://github.com/bytecodealliance/wit-bindgen) from
-Rust and other supported languages (see [the example in Rust](https://github.com/fermyon/spin/tree/main/examples/spin-timer/app-example)):
-
-<!-- @nocpy -->
+In this case the trigger "detects" events by running a timer. In most cases, the trigger detects events by listening on a socket, completion port, or other mechanism, or by polling a resource such as a directory or an HTTP endpoint.
 
 ```rust
-// automatically generate Rust bindings that help us implement the 
-// `handle-timer-request` function that the trigger will execute.
-wit_bindgen_rust::export!("../spin-timer.wit");
-...
-fn handle_timer_request(msg: String) -> String {
-    format!("ECHO: {}", msg)
+for (c, d) in &self.component_timings {
+    scope.spawn(async {
+        let duration = tokio::time::Duration::from_millis(*d * 1000 / speedup);
+        loop {
+            tokio::time::sleep(duration).await;
+            self.handle_timer_event(c).await.unwrap();
+        }
+    });
 }
 ```
 
-Components can be compiled to WebAssembly, then used from a `spin.toml`
-application manifest.
+### ...and Invokes the Guest
 
-Embedding the new trigger in a Rust application is done by creating a new trigger
-instance, then calling its `run` function:
-
-<!-- @nocpy -->
+The `TriggerExecutorCommand` infrastructure equips the trigger object with a `TriggerAppEngine` specialized to the entry point described in the WIT, and already initialized with the guest Wasm. When an event occurs, the trigger invokes the guest via this engine.
 
 ```rust
-// app() is a utility function that generates a complete application configuration.
-let trigger = TimerTrigger::new(Duration::from_secs(1), app()).await?;
-// run the trigger indefinitely
-trigger.run().await
+async fn handle_timer_event(&self, component_id: &str) -> anyhow::Result<()> {
+    // Load the guest...
+    let (instance, mut store) = self.engine.prepare_instance(component_id).await?;
+    let EitherInstance::Component(instance) = instance else {
+        unreachable!()
+    };
+    let instance = SpinTimer::new(&mut store, &instance)?;
+    // ...and call the entry point
+    instance.call_handle_timer_request(&mut store).await
+}
 ```
-
-> We are exploring [APIs for embedding Spin from other programming languages](https://github.com/fermyon/spin/issues/197)
-> such as Go or C#.
-
-In this example, we built a simple timer trigger — building more complex triggers
-would also involve updating the Spin application manifest, and extending
-the application-level trigger configuration, as well as component-level
-trigger configuration (an example of component-level trigger configuration
-for this scenario would be each component being able to define its own
-independent time interval for scheduling the execution).
 
 ## Other Ways to Extend and Use Spin
 
 Besides building custom triggers, the internals of Spin could also be used independently:
 
-- the Spin execution context can be used entirely without a `spin.toml` application manifest — for embedding scenarios, the configuration for the
-execution can be constructed without a `spin.toml` (see [issue #229](https://github.com/fermyon/spin/issues/229) for context)
-- the standard way of distributing a Spin application can be changed by re-implementing the [`loader`](https://github.com/fermyon/spin/tree/main/crates/loader) crate — all is required is that loading the application returns a valid `Application` that the Spin execution context can use to instantiate and execute components.
+- The Spin execution context can be used entirely without a `spin.toml` application manifest — for embedding scenarios, the configuration for the
+execution can be constructed without a `spin.toml`, for example by running applications only from a registry.  See [Building a Host for the Spin Runtime](https://www.fermyon.com/blog/building-host-for-spin-runtime) for a simple example.
