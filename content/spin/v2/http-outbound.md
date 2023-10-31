@@ -149,27 +149,27 @@ You can find a complete example for using outbound HTTP in the [Spin repository 
 
 ## Granting HTTP Permissions to Components
 
-By default, Spin components are not allowed to make outgoing HTTP requests. This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing. To grant a component permission to make HTTP requests to a particular host, use the `allowed_http_hosts` field in the component manifest:
+By default, Spin components are not allowed to make outgoing HTTP requests. This follows the general Wasm rule that modules must be explicitly granted capabilities, which is important to sandboxing. To grant a component permission to make HTTP requests to a particular host, use the `allowed_outbound_hosts` field in the component manifest:
 
 ```toml
 [component]
-allowed_http_hosts = [ "random-data-api.fermyon.app", "api.example.com:8080" ]
+allowed_outbound_hosts = [ "https://random-data-api.fermyon.app", "http://api.example.com:8080" ]
 ```
 
-The Wasm module can make HTTP requests _only_ to the specified hosts. If a port is specified, the module can make requests only to that port; otherwise, the module can make requests only on the default HTTP and HTTPS ports. Requests to other hosts (or ports) will fail with an error.
+The Wasm module can make HTTP requests _only_ to the specified hosts. If a port is specified, the module can make requests only to that port; otherwise, the module can make requests only on the default port for the scheme. Requests to other hosts (or ports) will fail with an error.
 
-For development-time convenience, you can also pass the string `"insecure:allow-all"` in the `allowed_http_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
+For development-time convenience, you can also pass the string `"https://*:*"` in the `allowed_outbound_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
 
 ### Making HTTP Requests Within an Application
 
-In an HTTP component, you can use the special host `self` to make HTTP requests **within the current Spin application**. For example, if you make an outbound HTTP request to http://self/api/customers/, Spin replaces self with whatever host the application is running on. It also replaces the URL scheme (`http` or `https`) with the scheme of the current HTTP request. For example, if the application is running in the cloud, Spin changes `http://self/api` to `https://.../api`.
+In an HTTP component, you can make requests to a path to make HTTP requests **within the current Spin application**. For example, if you make an outbound HTTP request to /api/customers/, Spin replaces self with whatever host the application is running on. It also replaces the URL scheme (`http` or `https`) with the scheme of the current HTTP request. For example, if the application is running in the cloud, Spin changes `/api` to `https://.../api`.
 
-Using `self` means that the application doesn't need to know the URL where it's deployed, or whether it's running locally versus in the cloud.
+Using paths means that the application doesn't need to know the URL where it's deployed, or whether it's running locally versus in the cloud.
 
 > This doesn't work in Redis components because Spin uses the incoming HTTP request to determine the current host.
 
-You must still grant permission by including `self` in `allowed_http_hosts`:
+You must still grant permission by including `self` in `allowed_outbound_hosts`:
 
 ```toml
-allowed_http_hosts = ["self"]
+allowed_outbound_hosts = ["http://self", "https://self"]
 ```

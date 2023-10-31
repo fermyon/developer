@@ -125,7 +125,7 @@ $ tinygo build -wasm-abi=generic -target=wasi -no-debug -o main.wasm main.go
 ```
 
 Before we can execute this component, we need to add the
-`random-data-api.fermyon.app` domain to the application manifest `allowed_http_hosts`
+`random-data-api.fermyon.app` domain to the application manifest `allowed_outbound_hosts`
 list containing the list of domains the component is allowed to make HTTP
 requests to:
 
@@ -145,7 +145,7 @@ component = "tinygo-hello"
 
 [component.tinygo-hello]
 source = "main.wasm"
-allowed_http_hosts = [ "random-data-api.fermyon.app" ]
+allowed_outbound_hosts = [ "https://random-data-api.fermyon.app" ]
 ```
 
 Running the application using `spin up` will start the HTTP
@@ -165,13 +165,13 @@ date = "2023-11-02T01:00:00Z"
 {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}
 ```
 
-> Without the `allowed_http_hosts` field populated properly in `spin.toml`,
+> Without the `allowed_outbound_hosts` field populated properly in `spin.toml`,
 > the component would not be allowed to send HTTP requests, and sending the
 > request would generate in a "Destination not allowed" error.
 
-> You can set `allowed_http_hosts = ["insecure:allow-all"]` if you want to allow
-> the component to make requests to any HTTP host. This is **NOT** recommended
-> for any production or publicly-accessible application.
+> You can set `allowed_outbound_hosts = ["https://*:*"]` if you want to allow
+> the component to make requests to any HTTP host. This is not recommended
+> unless you have a specific need to contact arbitrary servers and perform your own safety checks.
 
 ## Redis Components
 
@@ -329,14 +329,14 @@ func init() {
 func main() {}
 ```
 
-In the same way you have to grant components access to HTTP hosts via `allowed_http_hosts`, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
+As with all networking APIs, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
 
 <!-- @nocpy -->
 
 ```toml
 [component.storage-demo]
 environment = { REDIS_ADDRESS = "redis://127.0.0.1:6379", REDIS_CHANNEL = "messages" }
-allowed_outbound_hosts = ["127.0.0.1:6379"]
+allowed_outbound_hosts = ["redis://127.0.0.1:6379"]
 ```
 
 This HTTP component can be paired with a Redis component, triggered on new messages on the `messages` Redis channel, to build an asynchronous messaging application, where the HTTP front-end queues work for a Redis-triggered back-end to execute as capacity is available.

@@ -112,7 +112,7 @@ version = "0.1.0"
 [[component]]
 id = "spin-key-value"
 source = "target/wasm32-wasi/release/spin-key-value.wasm"
-allowed_http_hosts = []
+allowed_outbound_hosts = []
 # Gives this component access to the default key value store
 key_value_stores = ["default"]
 [component.trigger]

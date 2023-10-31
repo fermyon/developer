@@ -28,7 +28,7 @@ An application manifest can define _named_ components in the `component` section
 ```toml
 [component.checkout]  # The component's name is "checkout"
 source = "target/wasm32-wasi/release/checkout.wasm"
-allowed_http_hosts = ["payment-processing.example.com"]
+allowed_outbound_hosts = ["https://payment-processing.example.com"]
 key_value_stores = ["default"]
 [component.checkout.build]
 command = "cargo build --target wasm32-wasi --release"
@@ -57,7 +57,7 @@ component = { source = "dist/cart.wasm" }
 route = "/cart/..."
 [trigger.http.component]
 source = "target/wasm32-wasi/release/checkout.wasm"
-allowed_http_hosts = ["payment-processing.example.com"]
+allowed_outbound_hosts = ["payment-processing.example.com"]
 ```
 
 These behave in the same way: the inline table syntax is more compact for short declarations, but the nested table syntax is easier to read when there are many fields or the values are long.

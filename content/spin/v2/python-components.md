@@ -192,7 +192,7 @@ def handle_request(request):
 
 ### Configuration
 
-The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `random-data-api.fermyon.app` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_http_hosts`:
+The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `random-data-api.fermyon.app` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_outbound_hosts`:
 
 <!-- @nocpy -->
 
@@ -211,7 +211,7 @@ component = "hello-world"
 
 [component.hello-world]
 source = "app.wasm"
-allowed_http_hosts = ["random-data-api.fermyon.app"]
+allowed_outbound_hosts = ["https://random-data-api.fermyon.app"]
 [component.hello-world.build]
 command = "spin py2wasm app -o app.wasm"
 ```
@@ -250,7 +250,7 @@ In this final example, we talk to an existing Redis instance. You can find the o
 After installing Redis on localhost, we add two entries to the `spin.toml` file:
 
 * `variables = { redis_address = "redis://127.0.0.1:6379" }` externalizes the URL of the server to access
-* `allowed_outbound_hosts = ["127.0.0.1:6379"]` enables network access to the host and port where Redis is running
+* `allowed_outbound_hosts = ["redis://127.0.0.1:6379"]` enables network access to the host and port where Redis is running
 
 <!-- @nocpy -->
 
@@ -271,7 +271,7 @@ component = "hello-world"
 id = "hello-world"
 source = "app.wasm"
 variables = { redis_address = "redis://127.0.0.1:6379" }
-allowed_outbound_hosts = ["127.0.0.1:6379"]
+allowed_outbound_hosts = ["redis://127.0.0.1:6379"]
 [component.hello-world.build]
 command = "spin py2wasm app -o app.wasm"
 ```

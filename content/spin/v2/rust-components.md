@@ -238,8 +238,8 @@ async fn send_outbound(_req: Request) -> Result<impl IntoResponse> {
 > The `http::Request::builder()` method is provided by the Rust `http` crate. The `http` crate is already added to projects using the Spin `http-rust` template. If you create a project without using this template, you'll need to add the `http` crate yourself via `cargo add http`.
 
 Before we can execute this component, we need to add the `random-data-api.fermyon.app`
-domain to the component's `allowed_http_hosts` list in the application manifest. This contains the list of
-domains the component is allowed to make HTTP requests to:
+domain to the component's `allowed_outbound_hosts` list in the application manifest. This contains the list of
+domains the component is allowed to make network requests to:
 
 <!-- @nocpy -->
 
@@ -257,7 +257,7 @@ component = "get-animal-fact"
 
 [component.get-animal-fact]
 source = "get-animal-fact/target/wasm32-wasi/release/get_animal_fact.wasm"
-allowed_http_hosts = ["https://random-data-api.fermyon.app"]
+allowed_outbound_hosts = ["https://random-data-api.fermyon.app"]
 ```
 
 Running the application using `spin up` will start the HTTP
@@ -277,13 +277,13 @@ spin-component: get-animal-fact
 {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}   
 ```
 
-> Without the `allowed_http_hosts` field populated properly in `spin.toml`,
+> Without the `allowed_outbound_hosts` field populated properly in `spin.toml`,
 > the component would not be allowed to send HTTP requests, and sending the
 > request would result in a "Destination not allowed" error.
 
-> You can set `allowed_http_hosts = ["insecure:allow-all"]` if you want to allow
-> the component to make requests to any HTTP host. This is **NOT** recommended
-> for any production or publicly-accessible application.
+> You can set `allowed_outbound_hosts = ["https://*:*"]` if you want to allow
+> the component to make requests to any HTTP host. This is not recommended
+> unless you have a specific need to contact arbitrary servers and perform your own safety checks.
 
 We just built a WebAssembly component that sends an HTTP request to another
 service, manipulates that result, then responds to the original request.
@@ -348,7 +348,7 @@ fn publish(_req: Request) -> Result<Response> {
 }
 ```
 
-In the same way you have to grant components access to HTTP hosts via `allowed_http_hosts`, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
+As with all networking APIs, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
 
 <!-- @nocpy -->
 
@@ -356,7 +356,7 @@ In the same way you have to grant components access to HTTP hosts via `allowed_h
 [component.redis-test]
 environment = { REDIS_ADDRESS = "redis://127.0.0.1:6379", REDIS_CHANNEL = "messages" }
 # Note this contains only the host and port - do not include the URL!
-allowed_outbound_hosts = ["127.0.0.1:6379"]
+allowed_outbound_hosts = ["redis://127.0.0.1:6379"]
 ```
 
 This HTTP component can be paired with a Redis component, triggered on new

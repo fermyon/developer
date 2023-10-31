@@ -315,23 +315,18 @@ To grant a component permission to make outbound requests to a particular addres
 
 ```toml
 [component.talkative]
-allowed_outbound_hosts = ["redis.example.com:6379", "api.example.com:8080"]
+allowed_outbound_hosts = ["redis://redis.example.com:6379", "https://api.example.com:8080"]
 ```
 
-For the special case of HTTP, you can also use the `allowed_http_hosts` field in the component manifest. This permits a port but does not require one:
+If a port is specified, the component can make requests only to that port.  If no port is specified, the component can make requests only to the default port for the scheme (e.g. port 443 for the `https` scheme, port 5432 for the `postgres` scheme).  If you need to allow requests to _any_ port, use the wildcard `*` (e.g. `mysql://db.example.com:*`).
 
-<!-- @nocpy -->
-
-```toml
-[component.talkative]
-allowed_http_hosts = [ "dog-facts.example.com", "api.example.com:8080" ]
-```
-
-In this case, if a port is specified, the module can make requests only to that port; otherwise, the module can make requests only on the default HTTP and HTTPS ports.
+> If you're familiar with Spin 1, `allowed_outbound_hosts` replaces `allowed_http_hosts`. Spin 2 still accepts `allowed_http_hosts` but will recommend migrating to `allowed_outbound_hosts`. Additionally, if your application uses the version 1 manifest format, _and_ the manifest does not specify `allowed_outbound_hosts`, then version 1 components are allowed to use Redis, MySQL and PostgreSQL without restriction.
 
 The Wasm module can send network traffic _only_ to the hosts specified in these two fields. Requests to other hosts (or other ports) will fail with an error.
 
-For development-time convenience, you can also pass the string `"insecure:allow-all"` in the `allowed_http_hosts` collection.  This allows the Wasm module to make HTTP requests to _any_ host and on any port.  However, once you've determined which hosts your code needs, you should remove this string, and list the hosts instead.  Other Spin implementations may restrict host access, and may disallow components that ask to connect to anything and everything!
+{{ details "This feels like extra work! Why do I have to list the hosts?" "This comes from the Wasm principle of deny by default: the user of a component, rather than the component itself, should decide what resource it's allowed to access. But this isn't just abstract principle: it's critical to being able to trust third party components. For example, suppose you add `bad-boy-brians-totally-legitimate-file-server.wasm` to your application. Unless you unwisely grant it network permissions, you can be _provably certain_ that it doesn't access your Postgres database or send information to evildoers." }}
+
+For development-time convenience, you can also pass the string `"*://*:*"` in the `allowed_outbound_hosts` collection.  This allows the component to make network requests to _any_ host and on any port.  However, once you've determined which hosts your code needs, you should remove this string, and list the hosts instead.  Other Spin implementations may restrict host access, and may disallow components that ask to connect to anything and everything!
 
 ## Granting Storage Permissions to Components
 
