@@ -17,9 +17,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-co
 - [LLM Runtime Configuration](#llm-runtime-configuration)
 - [Remote Compute Provider](#remote-compute-provider)
 
-Configuration for Spin application features such as [application variables](https://developer.fermyon.com/spin/variable),
-[key value storage](https://developer.fermyon.com/spin/kv-store-api-guide), [SQL storage](https://developer.fermyon.com/spin/sqlite-api-guide)
-and [Serverless AI](https://developer.fermyon.com/spin/serverless-ai-api-guide) can be supplied dynamically, i.e. during the application runtime,
+Configuration for Spin application features such as [application variables](./variables),
+[key value storage](./kv-store-api-guide), [SQL storage](./sqlite-api-guide)
+and [Serverless AI](./serverless-ai-api-guide) can be supplied dynamically, i.e. during the application runtime,
 requiring no changes to the application code itself.
 
 This runtime configuration data is stored in the `runtime-config.toml` file and passed in via the `--runtime-config-file` flag
@@ -36,7 +36,7 @@ Let's look at each configuration category in-depth below.
 
 ## Application Variables Runtime Configuration
 
-[Application Variables](https://developer.fermyon.com/spin/variable) values may be set at runtime by providers. Currently,
+[Application Variables](./variables) values may be set at runtime by providers. Currently,
 there are two application variable providers: the [environment-variable provider](#environment-variable-provider) and
 the [Vault provider](#vault-application-variable-provider).  The provider examples below show how to use or configure each 
 provider. For examples on how to access these variables values within your application, see
