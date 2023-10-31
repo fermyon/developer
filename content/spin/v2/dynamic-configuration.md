@@ -1,6 +1,6 @@
 title = "Dynamic and Runtime Application Configuration"
 template = "spin_main"
-date = "2023-11-02T16:00:00Z"
+date = "2023-11-02T01:00:00Z"
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-configuration.md"
 
@@ -129,7 +129,7 @@ $ spin up --runtime-config-file runtime_config.toml
 $ curl -i http://127.0.0.1:3000
 HTTP/1.1 200 OK
 content-length: 26
-date = "2023-11-02T16:00:00Z"
+date = "2023-11-02T01:00:00Z"
 
 Got password test_password
 ```

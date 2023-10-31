@@ -1,6 +1,6 @@
 title = "Building Spin components in Rust"
 template = "spin_main"
-date = "2023-11-02T16:00:00Z"
+date = "2023-11-02T01:00:00Z"
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/rust-components.md"
 
