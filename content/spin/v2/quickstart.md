@@ -1,6 +1,6 @@
 title = "Taking Spin for a spin"
 template = "spin_main"
-date = "2023-11-02T16:00:00Z"
+date = "2023-11-02T01:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/quickstart.md"
@@ -788,7 +788,7 @@ $ curl -i localhost:3000
 HTTP/1.1 200 OK
 content-type: text/plain
 content-length: 14
-date = "2023-11-02T16:00:00Z"
+date = "2023-11-02T01:00:00Z"
 
 Hello, Fermyon
 ```

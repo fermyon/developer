@@ -1,6 +1,6 @@
 title = "Building Spin Components in JavaScript"
 template = "spin_main"
-date = "2023-11-02T16:00:00Z"
+date = "2023-11-02T01:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/javascript-components.md"
@@ -271,7 +271,7 @@ now receive requests in route `/hello`:
 ```text
 $ curl -i localhost:3000/hello
 HTTP/1.1 200 OK
-date = "2023-11-02T16:00:00Z"
+date = "2023-11-02T01:00:00Z"
 content-type: application/json; charset=utf-8
 content-length: 185
 server: spin/0.1.0
