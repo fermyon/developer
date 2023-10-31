@@ -26,7 +26,7 @@ The outbound HTTP interface depends on your language.
 
 To send requests, use the [`spin_sdk::http::send`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/fn.send.html) function. This takes a request argument and returns a response (or error). It is `async`, so within an async inbound handler you can have multiple outbound `send`s running concurrently.
 
-> The Rust SDK includes **experimental** support for streaming request and response bodies. We currently recommend that you stick with the simpler non-streaming interfaces if you don't require streaming.
+> Support for streaming request and response bodies is **experimental**. We currently recommend that you stick with the simpler non-streaming interfaces if you don't require streaming.
 
 `send` is quite flexible in its request and response types. The request may be:
 
@@ -119,7 +119,7 @@ You can find a complete example for using outbound HTTP in the [Python SDK repos
 
 {{ startTab "TinyGo"}}
 
-HTTP functions are available in the `github.com/fermyon/spin/sdk/go/v2/http` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/http). The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations. For example:
+HTTP functions are available in the `github.com/fermyon/spin/sdk/go/v2/http` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/http) The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations. For example:
 
 ```go
 import (

@@ -29,54 +29,53 @@ For example, say an application needs to access a secret. A `[variables]` sectio
 secret = { required = true }
 ```
 
-Variables are surfaced to a specific component by adding a `[component.config]` section to the component and referencing them within it. The `[component.config]` section contains a mapping of component variables and values. Entries can be static (like `api_host` below) or reference an updatable application variable (like `password` below) using [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use variables in their configuration section will get access to them. This enables only exposing variables (such as secrets) to the desired components of an application.
+Variables are surfaced to a specific component by adding a `[component.(name).variables]` section to the component and referencing them within it. The `[component.(name).variables]` section contains a mapping of component variables and values. Entries can be static (like `api_host` below) or reference an updatable application variable (like `password` below) using [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use variables in their configuration section will get access to them. This enables only exposing variables (such as secrets) to the desired components of an application.
 
 <!-- @nocpy -->
 
 ```toml
-# Add this below the [component.build] section
-[component.config]
+[component.cart.variables]
 password = "\{{ secret }}"
 api_host = "https://my-api.com"
 ```
 
-When a component configuration variable references an application variable, it's value will dynamically update as the application variable changes. For example, if the `secret` variable is provided using the [Spin Vault provider](./dynamic-configuration.md#vault-config-provider), it can be updated by changing the value in HashiCorp Vault. The next time the component gets the value of `password`, the latest value of `secret` will be returned by the provider. See the [next section](#using-variables-from-applications) to learn how to use Spin's configuration SDKs to get configuration variables within applications.
+When a component variable references an application variable, its value will dynamically update as the application variable changes. For example, if the `secret` variable is provided using the [Spin Vault provider](./dynamic-configuration.md#vault-config-provider), it can be updated by changing the value in HashiCorp Vault. The next time the component gets the value of `password`, the latest value of `secret` will be returned by the provider. See the [next section](#using-variables-from-applications) to learn how to use Spin's configuration SDKs to get configuration variables within applications.
 
-A complete application manifest with a `secret` variable and a component that uses it would look similar to the following, with the `[component.build]` section varying depending on the language used to build the `password_checker` component:
+An application manifest with a `secret` variable and a component that uses it would look similar to the following:
 
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
-description = "A Spin app with a dynamically updatable secret"
-name = "password_checker"
-trigger = { type = "http", base = "/" }
+spin_manifest_version = 2
+
+[application]
+name = "password-checker"
 version = "0.1.0"
+description = "A Spin app with a dynamically updatable secret"
 
 [variables]
 secret = { required = true }
 
-[[component]]
-id = "password_checker"
-source = "app.wasm"
-[component.trigger]
+[[trigger.http]]
 route = "/..."
-[component.build]
-command = "spin py2wasm app -o app.wasm"
-[component.config]
+component = "password-checker"
+
+[component.password-checker]
+source = "app.wasm"
+[component.password-checker.variables]
 password = "\{{ secret }}"
 api_host = "https://my-api.com"
 ```
 
 ## Using Variables From Applications
 
-The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-config.wit) consists of one operation:
+The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit/preview2/variables.wit) consists of one operation:
 
-| Operation  | Parameters                          | Returns             | Behavior |
-|------------|-------------------------------------|---------------------|----------|
-| `get-config`    | Variable name  | Variable value    | Gets the value of the variable from the configured provider |
+| Operation  | Parameters         | Returns             | Behavior |
+|------------|--------------------|---------------------|----------|
+| `get`      | Variable name      | Variable value      | Gets the value of the variable from the configured provider |
 
-To illustrate the config API, each of the following examples receives a password via the HTTP request body, compares it to the value stored in the application variable, and returns a JSON response indicating whether the submitted password matched or not. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications). 
+To illustrate the variables API, each of the following examples receives a password via the HTTP request body, compares it to the value stored in the application variable, and returns a JSON response indicating whether the submitted password matched or not. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications). 
 
 The exact details of calling the config SDK from a Spin application depends on the language:
 
@@ -84,20 +83,20 @@ The exact details of calling the config SDK from a Spin application depends on t
 
 {{ startTab "Rust"}}
 
-The config function is available in the `spin_sdk::config` module and is named `get`.
+The interface is available in the `spin_sdk::variables` module and is named `get`.
 
 ```rust
 use anyhow::Result;
 use spin_sdk::{
-    config,
-    http::{Request, Response},
+    http::{IntoResponse, Request},
     http_component,
+    variables,
 };
 
 #[http_component]
-fn handle_spin_example(req: Request) -> Result<Response> {
-    let password = std::str::from_utf8(req.body().as_ref().unwrap()).unwrap();
-    let expected = config::get("password").expect("could not get variable");
+fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
+    let password = std::str::from_utf8(req.body().as_ref()).unwrap();
+    let expected = variables::get("password").expect("could not get variable");
     let response = if expected == password {
         "accepted"
     } else {
@@ -107,16 +106,17 @@ fn handle_spin_example(req: Request) -> Result<Response> {
     Ok(http::Response::builder()
         .status(200)
         .header("Content-Type", "application/json")
-        .body(Some(response_json.into()))?)
+        .body(response_json)?)
 }
-
 ```
 
 {{ blockEnd }}
 
 {{ startTab "TypeScript"}}
 
-The config function is available in the `Config` package and is named `get`.
+The function is available in the `Config` package and is named `get`.
+
+> Note that the name is `Config` rather than `Variables`.
 
 ```ts
 import { HandleRequest, HttpRequest, HttpResponse, Config } from "@fermyon/spin-sdk"
@@ -146,6 +146,8 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 {{ startTab "Python"}}
 
 The config function is available in the `spin_config` package and is named `config_get`.
+
+> Note that the prefix/suffix is `config` rather than `variables`.
 
 ```py
 from spin_http import Response
