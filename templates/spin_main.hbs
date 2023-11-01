@@ -26,8 +26,8 @@
             <section id="type">
                 {{! This adds an archival notice - needs to styled }}
                 {{#if (active_project request.spin-full-url "/spin/v1" )}}
-                <span style="color:red">This is archived content, find docs for <a href="/spin">the latest
-                        version</a></span>
+                <div class="archived-notice"> This page refers to an older version of Spin. <a href="/spin">Go to the
+                        latest version.</a></div>
                 {{/if}}
                 <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
 
