@@ -779,8 +779,8 @@ We use the `spin add` command to add the new `static-fileserver` that we will na
 ```bash
 $ spin add static-fileserver
 Enter a name for your new component: ui
-HTTP path: /...
-Directory containing the files to serve: assets
+HTTP path [/static/...]: /...
+Directory containing the files to serve [assets]: assets
 
 ```
 
@@ -985,16 +985,8 @@ Then, we again use `spin add` to add the new component. We will name the compone
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin add kv-explorer --accept-defaults
+$ spin add -t kv-explorer --accept-defaults
 Enter a name for your new application: kv-explorer
-```
-
-We create an `assets` directory where we can store files to serve statically (see the `spin.toml` file for more configuration information):
-
-<!-- @selectiveCpy -->
-
-```bash
-$ mkdir assets
 ```
 
 ### Application Manifest
@@ -1004,38 +996,43 @@ As shown below, the Spin framework has done all of the scaffolding for us:
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
-authors = ["tpmccallum <tim.mccallum@fermyon.com>"]
-description = "A sentiment analysis API that demonstrates using LLM inference and KV stores together"
-name = "sentiment-analysis"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
+spin_manifest_version = 2
 
-[[component]]
-id = "sentiment-analysis"
-source = "target/sentiment-analysis.wasm"
-exclude_files = ["**/node_modules"]
+[application]
+name = "sentiment-analysis-rust"
+version = "0.1.0"
+authors = ["Mikkel Mørk Hegnhøj <mikkel@fermyon.com>"]
+description = "Descr"
+
+[[trigger.http]]
+route = "/api/..."
+component = "sentiment-analysis-rust"
+
+[component.sentiment-analysis-rust]
+source = "target/wasm32-wasi/release/sentiment_analysis_rust.wasm"
+allowed_http_hosts = []
 ai_models = ["llama2-chat"]
 key_value_stores = ["default"]
-[component.trigger]
-route = "/api/..."
-[component.build]
-command = "npm run build"
+[component.sentiment-analysis-rust.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
 
-[[component]]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.3/spin_static_fs.wasm", digest = "sha256:38bf971900228222f7f6b2ccee5051f399adca58d71692cdfdea98997965fd0d" }
-id = "ui"
-files = [ { source = "assets", destination = "/" } ]
-[component.trigger]
+[[trigger.http]]
 route = "/..."
+component = "ui"
 
-[[component]]
-source = { url = "https://github.com/radu-matei/spin-kv-explorer/releases/download/v0.9.0/spin-kv-explorer.wasm", digest = "sha256:07f5f0b8514c14ae5830af0f21674fd28befee33cd7ca58bc0a68103829f2f9c" }
-id = "kv-explorer"
+[component.ui]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.1.0/spin_static_fs.wasm", digest = "sha256:96c76d9af86420b39eb6cd7be5550e3cb5d4cc4de572ce0fd1f6a29471536cb4" }
+files = [{ source = "assets", destination = "/" }]
+
+[[trigger.http]]
+route = "/internal/kv-explorer/..."
+component = "kvv2"
+
+[component.kv-explorer]
+source = { url = "https://github.com/radu-matei/spin-kv-explorer/releases/download/v0.6.0/spin-kv-explorer.wasm", digest = "sha256:38110bc277a393cdfb1a885a0fd56923d47314b2086399d1e3bbcb6daa1f04ad" }
 # add or remove stores you want to explore here
 key_value_stores = ["default"]
-[component.trigger]
-route = "/internal/kv-explorer/..."
 ```
 
 ### Building and Deploying Your Spin Application
