@@ -149,6 +149,7 @@ component = "hello-world"
 [component.hello-world]
 source = "target/wasm32-wasi/release/hello_world.wasm"
 allowed_http_hosts = []
+ai_models = ["llama2-chat"]
 [component.hello-world.build]
 command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
@@ -176,6 +177,7 @@ component = "hello-world"
 [component.hello-world]
 source = "target/hello-world.wasm"
 exclude_files = ["**/node_modules"]
+ai_models = ["llama2-chat"]
 [component.hello-world.build]
 command = "npm run build"
 ```
@@ -201,6 +203,7 @@ component = "hello-world"
 
 [component.hello-world]
 source = "app.wasm"
+ai_models = ["llama2-chat"]
 [component.hello-world.build]
 command = "spin py2wasm app -o app.wasm"
 ```
