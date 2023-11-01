@@ -218,20 +218,16 @@ Now let's use the Spin SDK to access the model from our app. Executing inference
 {{ startTab "Rust"}}
  
 ```rust
-use anyhow::{Context, Result};
-use spin_sdk::{
-   http::{Request, Response},
-   http_component, llm,
-};
-/// A simple Spin HTTP component.
+use spin_sdk::{http::{IntoResponse, Request}, http_component, llm};
+
 #[http_component]
-fn hello_world(_req: Request) -> Result<Response> {
+fn hello_world(_req: Request) -> anyhow::Result<impl IntoResponse> {
    let model = llm::InferencingModel::Llama2Chat;
-   let inference = llm::infer(model, "Can you tell me a joke about cats".into());
+   let inference = llm::infer(model, "Can you tell me a joke about cats");
    Ok(http::Response::builder()
        .status(200)
-       .body(Some(format!("{:?}", inference).into()))?)
-}  
+       .body(format!("{:?}", inference))?)
+}
 ```
  
 {{ blockEnd }}
