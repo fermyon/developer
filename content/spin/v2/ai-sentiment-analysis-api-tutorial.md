@@ -103,10 +103,9 @@ The Rust code snippets below are taken from the [Fermyon Serverless AI Examples]
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-rust
+$ spin new -t http-rust
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
 HTTP path: /api/...
 ```
 
@@ -119,12 +118,10 @@ The TypeScript code snippets below are taken from the [Fermyon Serverless AI Exa
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 
 <!-- @selectiveCpy -->
-
 ```bash
-$ spin new http-ts
+$ spin new -t http-ts
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
 HTTP path: /api/...
 ```
 
@@ -138,10 +135,9 @@ The Python code snippets below are taken from the [Fermyon Serverless AI Example
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-py
+$ spin new -t http-py
 Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
 HTTP path: /api/...
 ```
 
@@ -153,9 +149,9 @@ HTTP path: /api/...
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new -t http-go sentiment-analysis
+$ spin new -t http-go
+Enter a name for your new application: sentiment-analysis
 Description: A sentiment analysis API that demonstrates using LLM inferencing and KV stores together
-HTTP base: /
 HTTP path: /api/...
 ```
 
@@ -176,6 +172,8 @@ The models need to be in a particular format for Spin to be able to use them (qu
 ### Application Structure
 
 Next, we need to create the appropriate folder structure from within the application directory (alongside our `spin.toml` file). The code below demonstrates the variations in folder structure depending on which model is being used. Once the folder structure is in place, we then fetch the pre-trained AI model for our application:
+
+> Note: Optional, but highly recommended, is to use the [Spin Cloud GPU component](https://github.com/fermyon/spin-cloud-gpu). This offloads inferencing to Fermyon Cloud GPUs, and thus requires a free account to [Fermyon Cloud Serverless AI](https://www.fermyon.com/serverless-ai). This would replace the following steps of having to download the three models below.
 
 **llama2-chat example download**
 
@@ -257,27 +255,16 @@ ln -s ~/my-ai-models/ ~/application-one/.spin/ai-models
 
 ### Application Configuration
 
-Then, we configure the `[[component]]` section of our application's manifest (the `spin.toml` file); explicitly naming our model of choice. For example, in the case of the sentiment analysis application, we specify the `llama2-chat` value for our `ai_models` configuration:
+Then, we configure the `[component.sentiment-analysis]` section of our application's manifest (the `spin.toml` file); explicitly naming our model of choice. For example, in the case of the sentiment analysis application, we specify the `llama2-chat` value for our `ai_models` configuration, and add a `default` key-value store:
+
+> Note: `[component.sentiment-analysis]` contains the name of the component. If you used a different name, when creating the application, this sections name would be different.
 
 ```toml
+[component.sentiment-analysis]
+...
 ai_models = ["llama2-chat"]
 key_value_stores = ["default"]
-```
-
-Note the positioning, of the `ai_models` configuration, shown below:
-
-```toml
-[[component]]
-id = "sentiment-analysis"
-source = "target/spin-http-js.wasm"
-exclude_files = ["**/node_modules"]
-key_value_stores = ["default"]
-ai_models = ["llama2-chat"]
-[component.trigger]
-route = "/api/..."
-[component.build]
-command = "npm run build"
-watch = ["src/**/*", "package.json", "package-lock.json"]
+...
 ```
 
 ### Source Code
@@ -294,7 +281,7 @@ The Rust source code for this sentiment analysis example uses serde. There are a
 
 ```toml
 serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0.85"
+serde_json = "1.0"
 ```
 
 Once you have added serde, as explained above, modify your `src/lib.rs` file to match the following content:
@@ -304,7 +291,7 @@ use std::str::FromStr;
 
 use anyhow::Result;
 use spin_sdk::{
-    http::{Params, Request, Response, Router},
+    http::{IntoResponse, Json, Params, Request, Response, Router},
     http_component,
     key_value::Store,
     llm::{infer_with_options, InferencingModel::Llama2Chat},
@@ -344,23 +331,23 @@ User: {SENTENCE}
 
 /// A Spin HTTP component that internally routes requests.
 #[http_component]
-fn handle_route(req: Request) -> Result<Response> {
+fn handle_route(req: Request) -> Response {
     let mut router = Router::new();
-    router.post("/api/sentiment-analysis", perform_sentiment_analysis);
     router.any("/api/*", not_found);
+    router.post("/api/sentiment-analysis", perform_sentiment_analysis);
     router.handle(req)
 }
 
-fn not_found(_: Request, _: Params) -> Result<Response> {
-    Ok(http::Response::builder()
-        .status(404)
-        .body(Some("Not found".into()))?)
+fn not_found(_: Request, _: Params) -> Result<impl IntoResponse> {
+    Ok(Response::new(404, "Not found"))
 }
 
-fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response> {
-    let request = body_json_to_map(&req)?;
+fn perform_sentiment_analysis(
+    req: http::Request<Json<SentimentAnalysisRequest>>,
+    _params: Params,
+) -> Result<impl IntoResponse> {
     // Do some basic clean up on the input
-    let sentence = request.sentence.trim();
+    let sentence = req.body().sentence.trim();
     println!("Performing sentiment analysis on: {}", sentence);
 
     // Prepare the KV store
@@ -371,11 +358,11 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response>
         println!("Found sentence in KV store returning cached sentiment");
         let sentiment = kv.get(sentence)?;
         let resp = SentimentAnalysisResponse {
-            sentiment: String::from_utf8(sentiment)?,
+            sentiment: String::from_utf8(sentiment.unwrap())?,
         };
         let resp_str = serde_json::to_string(&resp)?;
 
-        return send_ok_response(200, resp_str)
+        return Ok(Response::new(200, resp_str));
     }
     println!("Sentence not found in KV store");
 
@@ -385,11 +372,13 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response>
         Llama2Chat,
         &PROMPT.replace("{SENTENCE}", sentence),
         spin_sdk::llm::InferencingParams {
-            max_tokens: 6,
+            max_tokens: 8,
             ..Default::default()
         },
     )?;
+
     println!("Inference result {:?}", inferencing_result);
+
     let sentiment = inferencing_result
         .text
         .lines()
@@ -402,8 +391,9 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response>
 
     if let Ok(sentiment) = sentiment {
         println!("Caching sentiment in KV store");
-        let _ = kv.set(sentence, sentiment);
+        let _ = kv.set(sentence, sentiment.as_str().as_bytes());
     }
+
     // Cache the result in the KV store
     let resp = SentimentAnalysisResponse {
         sentiment: sentiment
@@ -413,22 +403,8 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<Response>
     };
 
     let resp_str = serde_json::to_string(&resp)?;
-    send_ok_response(200, resp_str)
-}
 
-fn send_ok_response(code: u16, resp_str: String) -> Result<Response> {
-    Ok(http::Response::builder()
-    .status(code)
-    .body(Some(resp_str.into()))?)
-}
-
-fn body_json_to_map(req: &Request) -> Result<SentimentAnalysisRequest> {
-    let body = match req.body().as_ref() {
-        Some(bytes) => bytes,
-        None => anyhow::bail!("Request body was unexpectedly empty"),
-    };
-
-    Ok(serde_json::from_slice(&body)?)
+    Ok(Response::new(200, resp_str))
 }
 
 #[derive(Copy, Clone, Debug)]
@@ -451,12 +427,6 @@ impl Sentiment {
 impl std::fmt::Display for Sentiment {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str(self.as_str())
-    }
-}
-
-impl AsRef<[u8]> for Sentiment {
-    fn as_ref(&self) -> &[u8] {
-        self.as_str().as_bytes()
     }
 }
 
@@ -502,7 +472,11 @@ interface SentimentAnalysisResponse {
 const decoder = new TextDecoder();
 
 const PROMPT = `\
+<<SYS>>
 You are a bot that generates sentiment analysis responses. Respond with a single positive, negative, or neutral.
+<</SYS>>
+<INST>
+Follow the pattern of the following examples:
 
 Hi, my name is Bob
 neutral
@@ -512,6 +486,7 @@ positive
 
 I am so sad today
 negative
+</INST>
 
 <SENTENCE>
 `;
@@ -539,7 +514,7 @@ async function performSentimentAnalysis(request: HttpRequest) {
 
   // Otherwise, perform sentiment analysis
   console.log("Running inference");
-  let options: InferencingOptions = { max_tokens: 10, temperature: 0.5 };
+  let options: InferencingOptions = { maxTokens: 6 };
   let inferenceResult = Llm.infer(
     InferencingModels.Llama2Chat,
     PROMPT.replace("<SENTENCE>", sentence),
@@ -602,6 +577,7 @@ export const handleRequest: HandleRequest = async function (
 ```python
 from spin_http import Response
 from spin_llm import llm_infer
+from spin_key_value import kv_open_default
 import json
 import re
 
@@ -610,23 +586,55 @@ You are a bot that generates sentiment analysis responses. Respond with a single
 <</SYS>>
 [INST]
 Follow the pattern of the following examples:
+
 User: Hi, my name is Bob
 Bot: neutral
+
 User: I am so happy today
 Bot: positive
+
 User: I am so sad today
 Bot: negative
+
 [/INST]
 User: """
 
 def handle_request(request):
+    # Extracting the sentence from the request
     request_body=json.loads(request.body)
     sentence=request_body["sentence"].strip()
-    result=llm_infer("llama2-chat", PROMPT+sentence)
-    response_body=json.dumps({"sentence": re.sub("\\nBot\: ", "", result.text)})
+    print("Performing sentiment analysis on: " + sentence)
+
+    # Open the default KV store
+    store = kv_open_default()
+
+    # Check if the sentence is already in the KV store
+    if store.exists(sentence) is False:
+        result=llm_infer("llama2-chat", PROMPT+sentence).text
+        print("Raw result: " + result)
+        sentiment = get_sentiment_from_sentence(result)
+        print("Storing result in the KV store")
+        store.set(sentence, str.encode(sentiment))
+    else:
+        sentiment = store.get(sentence).decode()
+        print("Found a cached result")
+
+    response_body=json.dumps({"sentence": sentiment})
+
     return Response(200,
                     {"content-type": "application/json"},
                     bytes(response_body, "utf-8"))
+
+def get_sentiment_from_sentence(sentence) -> str:
+    words = sentence.lower().split()
+    sentiments = ["positive", "negative", "neutral"]
+    result = next((word for word in sentiments if word in words), None)
+
+    if result is not None:
+        return result
+    else:
+        print("Inconclusive, returning 'neutral'")
+        return "neutral"
 ```
 
 {{ blockEnd }}
@@ -771,8 +779,8 @@ We use the `spin add` command to add the new `static-fileserver` that we will na
 ```bash
 $ spin add static-fileserver
 Enter a name for your new component: ui
-HTTP path: /...
-Directory containing the files to serve: assets
+HTTP path [/static/...]: /...
+Directory containing the files to serve [assets]: assets
 
 ```
 
@@ -977,16 +985,8 @@ Then, we again use `spin add` to add the new component. We will name the compone
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin add kv-explorer --accept-defaults
+$ spin add -t kv-explorer --accept-defaults
 Enter a name for your new application: kv-explorer
-```
-
-We create an `assets` directory where we can store files to serve statically (see the `spin.toml` file for more configuration information):
-
-<!-- @selectiveCpy -->
-
-```bash
-$ mkdir assets
 ```
 
 ### Application Manifest
@@ -996,38 +996,43 @@ As shown below, the Spin framework has done all of the scaffolding for us:
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
-authors = ["tpmccallum <tim.mccallum@fermyon.com>"]
-description = "A sentiment analysis API that demonstrates using LLM inference and KV stores together"
-name = "sentiment-analysis"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"
+spin_manifest_version = 2
 
-[[component]]
-id = "sentiment-analysis"
-source = "target/sentiment-analysis.wasm"
-exclude_files = ["**/node_modules"]
+[application]
+name = "sentiment-analysis-rust"
+version = "0.1.0"
+authors = ["Mikkel Mørk Hegnhøj <mikkel@fermyon.com>"]
+description = "Descr"
+
+[[trigger.http]]
+route = "/api/..."
+component = "sentiment-analysis-rust"
+
+[component.sentiment-analysis-rust]
+source = "target/wasm32-wasi/release/sentiment_analysis_rust.wasm"
+allowed_http_hosts = []
 ai_models = ["llama2-chat"]
 key_value_stores = ["default"]
-[component.trigger]
-route = "/api/..."
-[component.build]
-command = "npm run build"
+[component.sentiment-analysis-rust.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
 
-[[component]]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.3/spin_static_fs.wasm", digest = "sha256:38bf971900228222f7f6b2ccee5051f399adca58d71692cdfdea98997965fd0d" }
-id = "ui"
-files = [ { source = "assets", destination = "/" } ]
-[component.trigger]
+[[trigger.http]]
 route = "/..."
+component = "ui"
 
-[[component]]
-source = { url = "https://github.com/radu-matei/spin-kv-explorer/releases/download/v0.9.0/spin-kv-explorer.wasm", digest = "sha256:07f5f0b8514c14ae5830af0f21674fd28befee33cd7ca58bc0a68103829f2f9c" }
-id = "kv-explorer"
+[component.ui]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.1.0/spin_static_fs.wasm", digest = "sha256:96c76d9af86420b39eb6cd7be5550e3cb5d4cc4de572ce0fd1f6a29471536cb4" }
+files = [{ source = "assets", destination = "/" }]
+
+[[trigger.http]]
+route = "/internal/kv-explorer/..."
+component = "kvv2"
+
+[component.kv-explorer]
+source = { url = "https://github.com/radu-matei/spin-kv-explorer/releases/download/v0.6.0/spin-kv-explorer.wasm", digest = "sha256:38110bc277a393cdfb1a885a0fd56923d47314b2086399d1e3bbcb6daa1f04ad" }
 # add or remove stores you want to explore here
 key_value_stores = ["default"]
-[component.trigger]
-route = "/internal/kv-explorer/..."
 ```
 
 ### Building and Deploying Your Spin Application

@@ -18,7 +18,7 @@ A template consists of two directories, `content` and `metadata`.
 * The `content` directory contains all the files you'd like to be copied into
   the Spin application directory, such as source code, the `spin.toml` file,
   standard assets, precompiled modules, etc.  These files can contain placeholders
-  so the user of the template can customise the end result.
+  so the user of the template can customize the end result.
 * The `metadata` directory contains the files the control how the template is
   instantiated.  In this version of Spin, the only file in this directory
   should be the _template manifest_.
@@ -52,7 +52,7 @@ are supported:
 |---------------|--------|
 | `kebab_case`  | Transforms input into kebab case, e.g. `My Application` to `my-application` |
 | `snake_case`  | Transforms input into snake case, e.g. `My Application` to `my_application` |
-| `pascal_case` | Transforms input into Pascal case, e.g. `my appplication` to `MyApplication` |
+| `pascal_case` | Transforms input into Pascal case, e.g. `my application` to `MyApplication` |
 
 ## Authoring the Manifest
 

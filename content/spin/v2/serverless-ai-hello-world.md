@@ -46,7 +46,7 @@ To enable Serverless AI functionality via TypeScript/Javascript, please ensure y
 <!-- @selectiveCpy -->
  
 ```bash
-$ spin templates install --git <https://github.com/fermyon/spin-js-sdk> --upgrade
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 ```
  
 **Python**
@@ -78,10 +78,9 @@ The Rust code snippets below are taken from the [Fermyon Serverless AI Examples]
 <!-- @selectiveCpy -->
  
 ```bash
-$ spin new http-rust
+$ spin new -t http-rust
 Enter a name for your new application: hello-world
 Description: My first Serverless AI app
-HTTP base: /
 HTTP path: /...
 ```
  
@@ -94,10 +93,9 @@ The Python code snippets below are taken from the [Fermyon Serverless AI Example
 <!-- @selectiveCpy -->
  
 ```bash
-$ spin new http-py
+$ spin new -t http-py
 Enter a name for your new application: hello-world
 Description: My first Serverless AI app
-HTTP base: /
 HTTP path: /...
 ```
  
@@ -110,10 +108,9 @@ The TypeScript code snippets below are taken from the [Fermyon Serverless AI Exa
 <!-- @selectiveCpy -->
  
 ```bash
-$ spin new http-ts
+$ spin new -t http-ts
 Enter a name for your new application: hello-world
 Description: My first Serverless AI app
-HTTP base: /
 HTTP path: /...
 ```
  
@@ -122,7 +119,7 @@ HTTP path: /...
  
 ### Configuration Your Application
  
-The `spin.toml` file is the manifest file which tells Spin what events should trigger what components. Configure the `[[component]]` section of our application's manifest explicitly naming our model of choice. For this example, we specify the `llama2-chat` value for our `ai_models` configuration:
+The `spin.toml` file is the manifest file which tells Spin what events should trigger what components. Configure the `[component.hello-world]` section of our application's manifest explicitly naming our model of choice. For this example, we specify the `llama2-chat` value for our `ai_models` configuration:
  
 ```toml
 ai_models = ["llama2-chat"]
@@ -137,21 +134,23 @@ This is what your `spin.toml` file should look like, based on whether you’re u
 <!-- @selectiveCpy -->
  
 ```toml
-spin_manifest_version = "1"
-authors = ["Joe <example@users.noreply.github.com>"]
-description = ""
+spin_manifest_version = 2
+
+[application]
 name = "hello-world"
-trigger = { type = "http", base = "/" }
 version = "0.1.0"
-[[component]]
-id = "hello-world"
-source = "target/wasm32-wasi/release/hello-world.wasm"
-allowed_http_hosts = []
-ai_models = ["llama2-chat"]
-key_value_stores = ["default"]
-[component.trigger]
+authors = ["Joe <example@users.noreply.github.com>"]
+description = "My first Serverless AI app"
+
+[[trigger.http]]
 route = "/..."
-[component.build]
+component = "hello-world"
+
+[component.hello-world]
+source = "target/wasm32-wasi/release/hello_world.wasm"
+allowed_outbound_hosts = []
+ai_models = ["llama2-chat"]
+[component.hello-world.build]
 command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
@@ -163,22 +162,24 @@ watch = ["src/**/*.rs", "Cargo.toml"]
 <!-- @selectiveCpy -->
  
 ```toml
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
 authors = ["Joe <example@users.noreply.github.com>"]
-description = ""
+description = "My first Serverless AI app"
 name = "hello-world"
-trigger = { type = "http", base = "/" }
 version = "0.1.0"
-[[component]]
-id = "hello-world"
+
+[[trigger.http]]
+route = "/..."
+component = "hello-world"
+
+[component.hello-world]
 source = "target/hello-world.wasm"
 exclude_files = ["**/node_modules"]
 ai_models = ["llama2-chat"]
-[component.trigger]
-route = "/..."
-[component.build]
+[component.hello-world.build]
 command = "npm run build"
-watch = ["src/index.ts"]
 ```
  
 {{ blockEnd }}
@@ -188,22 +189,23 @@ watch = ["src/index.ts"]
 <!-- @selectiveCpy -->
  
 ```toml
-spin_manifest_version = "1"
-authors = ["Joe <example@users.noreply.github.com>"]
-description = ""
+spin_manifest_version = 2
+
+[application]
 name = "hello-world"
-trigger = { type = "http", base = "/" }
-version = "0.1.0"  
-[[component]]
-id = "hello-world"
-source = "target/hello-world.wasm"
-exclude_files = ["**/node_modules"]
-ai_models = ["llama2-chat"]
-[component.trigger]
+version = "0.1.0"
+authors = ["Joe <example@users.noreply.github.com>"]
+description = "My first Serverless AI app"
+
+[[trigger.http]]
 route = "/..."
-[component.build]
+component = "hello-world"
+
+[component.hello-world]
+source = "app.wasm"
+ai_models = ["llama2-chat"]
+[component.hello-world.build]
 command = "spin py2wasm app -o app.wasm"
-watch = ["app.py", "Pipfile"]
 ```
  
 {{ blockEnd }}
@@ -218,20 +220,16 @@ Now let's use the Spin SDK to access the model from our app. Executing inference
 {{ startTab "Rust"}}
  
 ```rust
-use anyhow::{Context, Result};
-use spin_sdk::{
-   http::{Request, Response},
-   http_component, llm,
-};
-/// A simple Spin HTTP component.
+use spin_sdk::{http::{IntoResponse, Request}, http_component, llm};
+
 #[http_component]
-fn hello_world(_req: Request) -> Result<Response> {
+fn hello_world(_req: Request) -> anyhow::Result<impl IntoResponse> {
    let model = llm::InferencingModel::Llama2Chat;
-   let inference = llm::infer(model, "Can you tell me a joke about cats".into());
+   let inference = llm::infer(model, "Can you tell me a joke about cats");
    Ok(http::Response::builder()
        .status(200)
-       .body(Some(format!("{:?}", inference).into()))?)
-}  
+       .body(format!("{:?}", inference))?)
+}
 ```
  
 {{ blockEnd }}
@@ -308,9 +306,7 @@ $ spin build
 <!-- @selectiveCpy -->
  
 ```bash
-
 $ spin build
-
 ```
 
 {{ blockEnd }}
