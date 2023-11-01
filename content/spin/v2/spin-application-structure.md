@@ -96,7 +96,7 @@ As an additional example of adding more components, let's add a new static file 
 <!-- @selectiveCpy -->
 
 ```console
-$ spin add static-fileserver
+$ spin add -t static-fileserver
 Enter a name for your new component: assets
 HTTP path: /static/...
 Directory containing the files to serve: assets
@@ -120,7 +120,7 @@ Why stop there? We can add even more functionality to our application. Let's now
 <!-- @selectiveCpy -->
 
 ```console
-$ spin add redirect
+$ spin add -t redirect
 Enter a name for your new component: additional-component-redirect
 Redirect from: /static/old.txt
 Redirect to: /static/new.txt
