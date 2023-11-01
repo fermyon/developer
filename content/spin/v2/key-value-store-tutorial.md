@@ -13,12 +13,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/key-value-
   - [The Spin TOML File](#the-spin-toml-file)
 - [Write Code to Save and Load Data](#write-code-to-save-and-load-data)
   - [The Spin SDK Version](#the-spin-sdk-version)
-  - [Quick Overview - Video](#quick-overview---video)
   - [Source Code](#source-code)
 - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
 - [Storing and Retrieving Data From Your Default Key/Value Store](#storing-and-retrieving-data-from-your-default-keyvalue-store)
 - [Conclusion](#conclusion)
-- [Next Steps](#next-steps)
 
 ## Key Value Store With Spin Applications
 
@@ -201,13 +199,6 @@ In this section, we use the Spin SDK to open and persist our application's data 
 ### The Spin SDK Version
 
 If you have an existing application and would like to try out the key/value feature, please check the Spin SDK reference in your existing application's configuration. It is highly recommended to upgrade Spin and the SDK versions to the latest version available.
-
-### Quick Overview - Video
-
-Before we get into the source code, let's watch a quick overview of the new key/value store feature.
-
-<!-- TODO: Does this video need an update? -->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qNBnVA2pkkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Source Code
 
@@ -536,23 +527,3 @@ As we can see above, there is currently no data found at the `/test` endpoint of
 ## Conclusion
 
 We want to get feedback on the ergonomics of the key value API. We are curious about what new APIs you would suggest we implement and are also interested in learning about what backing stores you would like to see.
-
-## Next Steps
-
-You can read the [improvement proposal for key/value support](https://github.com/fermyon/spin/blob/main/docs/content/sips/010-key-value.md) as well as the implementation for the [current feature](https://github.com/fermyon/spin/pull/1035). Please feel free to ask questions and also share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
-
-
-<!-- TODO Should this be kept around? -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Key/Value Store - Spin 0.10.0",
-  "description": "Overview of the key/value store in Spin v0.10.0",
-  "thumbnailUrl": "https://www.fermyon.com/static/image/twc-spin.png",
-  "uploadDate": "2023-02-25T08:00:00+00:00",
-  "duration": "PT3M16S",
-  "contentUrl": "https://www.youtube.com/watch?v=qNBnVA2pkkY",
-  "embedUrl": "https://www.youtube.com/embed/qNBnVA2pkkY"
-}
-</script>
