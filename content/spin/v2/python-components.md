@@ -78,7 +78,7 @@ A new Python component can be created using the following command:
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-py hello-world --accept-defaults
+$ spin new -t http-py hello-world --accept-defaults
 ```
 
 This creates a directory of the following structure:
@@ -121,7 +121,7 @@ In Spin, HTTP components are triggered by the occurrence of an HTTP request and 
 
 Building a Spin HTTP component using the Python SDK means writing a single function that takes an HTTP request as a parameter, and returns an HTTP response. Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
 
-```
+```python
 from spin_http import Response
 
 def handle_request(request):
