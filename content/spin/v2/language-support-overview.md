@@ -86,8 +86,8 @@ This page contains information about language support for Spin features:
 | [Configuration Variables](./dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](./kv-store-api-guide) | Supported |
 | [SQLite Storage](./sqlite-api-guide) | Supported |
-| MySQL | Not Supported |
-| PostgreSQL | Not Supported |
+| [MySQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [PostgreSQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](./go-components#storing-data-in-redis-from-go-components) | Supported |
 | [Serverless AI](./go-components#ai-inferencing-from-go-components) | Supported |
 | **Extensibility** |
