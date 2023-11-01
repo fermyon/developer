@@ -9,7 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/javascript
 - [Installing Templates](#installing-templates)
 - [Structure of a JS/TS Component](#structure-of-a-jsts-component)
 - [Building and Running the Template](#building-and-running-the-template)
-- [A Quick Note About NPM Scripts](#a-quick-note-about-npm-scripts)
+  - [A Quick Note About the NPM Script and Windows](#a-quick-note-about-the-npm-script-and-windows)
 - [HTTP Components](#http-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
@@ -75,7 +75,7 @@ A new JS/TS component can be created using the following command:
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-ts hello-world --accept-defaults
+$ spin new -t http-ts hello-world --accept-defaults
 ```
 
 This creates a directory of the following structure:
@@ -85,7 +85,6 @@ This creates a directory of the following structure:
 ```text
 hello-world/
 ├── package.json
-├── package-lock.json
 ├── README.md
 ├── spin.toml
 ├── src
@@ -98,29 +97,31 @@ The source for the component is present in `src/index.ts`. [Webpack](https://web
 
 ## Building and Running the Template
 
-First, the dependencies for the template need to be installed and then bundled into a single JavaScript file using the following commands:
+First, the dependencies for the template need to be installed using the following commands:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ cd hello-world
 $ npm install
-$ npm run build
 ```
 
-Once a Spin compatible module is created, it can be run using:
+Next step is to use the `spin build` command to run the build script for the component. Once a Spin compatible module is created, it can be run using `spin up`:
 
 <!-- @selectiveCpy -->
 
 ```bash
+$ spin build
 $ spin up
 ```
 
+`spin build` will execute the command in the `command` key under the `[component.<component-name>.build]` section from `spin.toml` for each component in your application. In this case an `npx` command will be run.
+
 ---
 
-## A Quick Note About NPM Scripts
+### A Quick Note About the NPM Script and Windows
 
-Please note that using pre-built NPM scripts can have different effects on different Operating Systems (OSs). Let's take the `npm run build` command (like [the one in the spin-js-sdk](https://github.com/fermyon/spin-js-sdk/blob/main/examples/javascript/hello_world/package.json)) as an example:
+Please note that using pre-built NPM scripts can have different effects on different Operating Systems (OSs). Let's take a look at the `build` script in the `package.json` file as an example:
 
 <!-- @nocpy -->
 
@@ -131,11 +132,11 @@ Please note that using pre-built NPM scripts can have different effects on diffe
   }
 ```
 
-The `npm run build` command will work on Linux and macOS. However, on Windows it will create both a `-p` directory and a `target` directory.
+The `build` script will work on Linux and macOS. However, on Windows it will create both a `-p` directory and a `target` directory.
 
-On Linux/Unix systems, the `-p` option in the `mkdir` command is designed to prevent an error from occuring in the event that the `target` directory already exists. However, on Windows systems, npm (by default) uses cmd.exe which does not recognize the `-p` option, regarding its `mkdir` command.
+On Linux/Unix systems, the `-p` option in the `mkdir` command is designed to prevent an error from occurring in the event that the `target` directory already exists. However, on Windows systems, npm (by default) uses cmd.exe which does not recognize the `-p` option, regarding its `mkdir` command.
 
-If you run `npm run build` on Windows (more than once) the following error will be encountered:
+If you run the script on Windows (more than once) the following error will be encountered:
 
 <!-- @nocpy -->
 
@@ -179,59 +180,46 @@ Building a Spin HTTP component using the JS/TS SDK means writing a single functi
 that takes an HTTP request as a parameter, and returns an HTTP response — below
 is a complete implementation for such a component in TypeScript:
 
-```Javascript
+```javascript
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
 
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
     return {
         status: 200,
         headers: {"content-type": "text/plain"},
-        body: "Hello from JS-SDK"
+        body: "Hello from TS-SDK"
     }
 }
 ```
 
 The important things to note in the implementation above:
 
-- the `handleRequest` function is the
-  entry point for the Spin component.
-- the component returns `HttpResponse`.
+- the `handleRequest` function is the entry point for the Spin component.
+- the component returns `Promise<HttpResponse>`.
 
-If you need to decode a request body (which is either an `ArrayBuffer` or `ArrayBufferView`) into plain text or JSON, you can use the `TextDecoder`:
-
-<!-- @nocpy -->
-
-```javascript
-// Create new TextDecoder instance
-let decoder = new TextDecoder()
-
-// Then decode request body to text
-let text = decoder.decode(request.body)
-
-// Or decode request body to JSON
-let text = JSON.parse(decoder.decode(request.body))
-```
 
 ## Sending Outbound HTTP Requests
 
 If allowed, Spin components can send outbound HTTP requests.
-Let's see an example of a component that makes a request to
-[an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json) and
-inserts a custom header into the response before returning:
+Let's see an example of a component that makes a request to [an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json)
 
 ```javascript
-const decoder = new TextDecoder("utf-8")
+import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
 
-export async function handleRequest(request) {
-    const animalFact = await fetch("https://random-data-api.fermyon.app/animals/json")
+interface AnimalFact {
+   timestamp: number;
+   fact: string;
+}
 
-    const animalFactBody = decoder.decode(await animalFact.arrayBuffer() || new Uint8Array())
+export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+    const animalFactResponse = await fetch("https://random-data-api.fermyon.app/animals/json")
+    const animalFact = await animalFactResponse.json() as AnimalFact
 
-    const body = `Here's an animal fact: ${animalFactBody}\n`
+    const body = `Here's an animal fact: ${animalFact.fact}\n`
 
     return {
         status: 200,
-        headers: { "content-type": "text/plain" },
+        headers: {"content-type": "text/plain"},
         body: body
     }
 }
@@ -244,39 +232,39 @@ domains the component is allowed to make HTTP requests to:
 <!-- @nocpy -->
 
 ```toml
-# spin.toml
 spin_manifest_version = 2
 
 [application]
-name = "spin-http-js"
-version = "1.0.0"
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+description = ""
+name = "hello-world"
+version = "0.1.0"
 
 [[trigger.http]]
-route = "/hello"
-component = "hello"
+route = "/..."
+component = "hello-world"
 
-[component.hello]
-source = "target/spin-http-js.wasm"
+[component.hello-world]
+source = "target/hello-world.wasm"
+exclude_files = ["**/node_modules"]
 allowed_outbound_hosts = ["https://random-data-api.fermyon.app"]
-[component.hello.build]
+[component.hello-world.build]
 command = "npm run build"
 ```
 
-The component can be built using the `spin build` command. Running the application using `spin up` will start the HTTP
-listener locally (by default on `localhost:3000`), and our component can
-now receive requests in route `/hello`:
+The component can be built using the `spin build` command. Running the application using `spin up` will start the HTTP listener locally (by default on `localhost:3000`):
 
 <!-- @selectiveCpy -->
 
 ```text
-$ curl -i localhost:3000/hello
+$ curl -i localhost:3000
 HTTP/1.1 200 OK
 date = "2023-11-02T01:00:00Z"
 content-type: application/json; charset=utf-8
 content-length: 185
 server: spin/0.1.0
 
-Here's an animal fact: {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}
+Here's an animal fact: Reindeer grow new antlers every year
 ```
 
 > Without the `allowed_outbound_hosts` field populated properly in `spin.toml`,
@@ -316,11 +304,11 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
     Redis.incr(redisAddress, "test")
     Redis.incr(redisAddress, "test")
 
-    console.log(decoder.decode(Redis.get(redisAddress, "test")))
+    console.log(decoder.decode(new Uint8Array(Redis.get(redisAddress, "test"))))
 
     Redis.set(redisAddress, "test-set", encoder.encode("This is a test").buffer)
 
-    console.log(decoder.decode(Redis.get(redisAddress, "test-set")))
+    console.log(decoder.decode(new Uint8Array(Redis.get(redisAddress, "test-set"))))
 
     Redis.publish(redisAddress, "test", encoder.encode("This is a test").buffer)
 
