@@ -500,7 +500,7 @@ $ curl localhost:3000/test
 {"foo": "bar"}
 ```
 
-Great!, the above command successfully returned our data as intended.
+Great!,  The above command successfully returned our data as intended.
 
 Lastly, we show how to create a `DELETE` request that removes the data for this specific component altogether:
 
