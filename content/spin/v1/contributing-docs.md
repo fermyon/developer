@@ -2,7 +2,7 @@ title = "Contributing to Docs"
 template = "spin_main"
 date = "2022-01-01T00:00:01Z"
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/contributing-docs"
+canonical_url = "https://developer.fermyon.com/spin/v2/contributing-docs"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/contributing-docs.md"
 keywords = "contribute contributing"
 

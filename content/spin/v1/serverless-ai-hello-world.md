@@ -5,7 +5,7 @@ template = "spin_main"
 tags = ["ai", "serverless", "getting started"]
 enable_shortcodes = true
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/serverless-ai-hello-world"
+canonical_url = "https://developer.fermyon.com/spin/v2/serverless-ai-hello-world"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/serverless-ai-hello-world.md"
 
 ---

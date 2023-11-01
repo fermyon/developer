@@ -2,7 +2,7 @@ title = "Extending and Embedding Spin"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/extending-and-embedding"
+canonical_url = "https://developer.fermyon.com/spin/v2/extending-and-embedding"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/extending-and-embedding.md"
 
 ---

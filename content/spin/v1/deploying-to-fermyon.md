@@ -2,7 +2,7 @@ title = "Deploying Spin Applications to Fermyon"
 template = "spin_main"
 date = "2022-05-20T00:22:56Z"
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/deploying-to-fermyon"
+canonical_url = "https://developer.fermyon.com/spin/v2/deploying-to-fermyon"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/deploying-to-fermyon.md"
 
 ---

@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2022-06-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/variables"
+canonical_url = "https://developer.fermyon.com/spin/v2/variables"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/variables.md"
 
 ---

@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/serverless-ai-api-guide"
+canonical_url = "https://developer.fermyon.com/spin/v2/serverless-ai-api-guide"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/serverless-ai-api-guide.md"
 
 ---

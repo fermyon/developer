@@ -2,7 +2,7 @@ title = "Spin Application Manifest Reference"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/manifest-reference"
+canonical_url = "https://developer.fermyon.com/spin/v2/manifest-reference"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/manifest-reference.md"
 
 ---

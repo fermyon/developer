@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-02-13T00:00:00Z"
 enable_shortcodes = true
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/troubleshooting-application-dev"
+canonical_url = "https://developer.fermyon.com/spin/v2/troubleshooting-application-dev"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/troubleshooting-application-dev.md"
 
 ---

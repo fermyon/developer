@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-08-20T00:00:00Z"
 enable_shortcodes = true
 [extra]
-canonical = "https://developer.fermyon.com/spin/v2/spin-application-structure"
+canonical_url = "https://developer.fermyon.com/spin/v2/spin-application-structure"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/spin-application-structure.md"
 keywords = "structure"
 
