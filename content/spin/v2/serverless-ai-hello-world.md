@@ -119,7 +119,7 @@ HTTP path: /...
  
 ### Configuration Your Application
  
-The `spin.toml` file is the manifest file which tells Spin what events should trigger what components. Configure the `[[component]]` section of our application's manifest explicitly naming our model of choice. For this example, we specify the `llama2-chat` value for our `ai_models` configuration:
+The `spin.toml` file is the manifest file which tells Spin what events should trigger what components. Configure the `[component.hello-world]` section of our application's manifest explicitly naming our model of choice. For this example, we specify the `llama2-chat` value for our `ai_models` configuration:
  
 ```toml
 ai_models = ["llama2-chat"]
