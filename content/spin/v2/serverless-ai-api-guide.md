@@ -40,7 +40,7 @@ By default, the Spin framework will expect any already trained model files (whic
 code-generator-rs/.spin/ai_models/codellama-instruct
 ```
 
-See the [serverless AI Tutorial](./ai-sentiment-analysis-api-tutoriall) documentation for more concrete examples of implementing the Fermyon Serverless AI API, in your favorite language.
+See the [serverless AI Tutorial](./ai-sentiment-analysis-api-tutorial) documentation for more concrete examples of implementing the Fermyon Serverless AI API, in your favorite language.
 
 > Embeddings models are slightly more complicated; it is expected that both a `tokenizer.json` and a `model.safetensors` are located in the directory named after the model. For example, for the `foo-bar-baz` model, Spin will look in the `.spin/ai-models/foo-bar-baz` directory for `tokenizer.json` and a `model.safetensors`.
 
