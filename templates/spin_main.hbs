@@ -8,12 +8,12 @@
         <div class="menu-wrap is-narrow is-fixed-desktop" id="docsMenu">
             <aside class="menu">
                 {{! This adds the version selector - uncomment after v2 launch }}
-                {{!-- <select class="version-dropdown"
+                <select class="version-dropdown"
                     onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                     <option value="/spin/v2/index">Spin v2.x</option>
                     <option value="/spin/v1/index" {{#if (active_project request.spin-full-url "/spin/v1/" )}} selected
                         {{/if}}>Spin v1.x</option>
-                </select> --}}
+                </select>
                 {{#if (active_project request.spin-full-url "/spin/v2/" )}}
                 {{> spin_sidebar_v2 }}
                 {{else}}
@@ -25,10 +25,10 @@
         <article class="column content content-docs content-docs-wide">
             <section id="type">
                 {{! This adds an archival notice - needs to styled }}
-                {{!-- {{#if (active_project request.spin-full-url "/spin/v1" )}}
+                {{#if (active_project request.spin-full-url "/spin/v1" )}}
                 <span style="color:red">This is archived content, find docs for <a href="/spin">the latest
                         version</a></span>
-                {{/if}} --}}
+                {{/if}}
                 <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
 
                 {{{page.body}}}
