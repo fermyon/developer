@@ -20,7 +20,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/key-value-
 
 ## Key Value Store With Spin Applications
 
-Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times during an application’s execution. [Spin](https://www.fermyon.com/blog/spin-v09) has support for applications that need data in the form of key/value pairs and are satisfied by a Basically Available, Soft State, and Eventually Consistent (BASE) model. Workload examples include general value caching, session caching, counters, and serialized application state. In this tutorial, you will learn how to do the following:
+Spin applications are best suited for event-driven, stateless workloads that have low-latency requirements. Keeping track of the application's state (storing information) is an integral part of any useful product or service. For example, users (and the business) will expect to store and load data/information at all times during an application’s execution. Spin has support for applications that need data in the form of key/value pairs and are satisfied by a Basically Available, Soft State, and Eventually Consistent (BASE) model. Workload examples include general value caching, session caching, counters, and serialized application state. In this tutorial, you will learn how to do the following:
 
 * Create a Spin application with `spin new`
 * Use the key value store SDK to get, set, and list key value pairs
@@ -500,7 +500,7 @@ $ curl localhost:3000/test
 {"foo": "bar"}
 ```
 
-Great!,  The above command successfully returned our data as intended.
+Great!, the above command successfully returned our data as intended.
 
 Lastly, we show how to create a `DELETE` request that removes the data for this specific component altogether:
 
