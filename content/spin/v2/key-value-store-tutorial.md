@@ -96,7 +96,7 @@ $ spin new -t http-go spin-key-value
 
 ## Configuration
 
-Good news - Spin will take care of setting up your key value store. However, in order to make sure your Spin application has permission to access the key value store, you must add the `key_value_stores = ["default"]` line in the `[component.<app-name>]` section of the `spin.toml` file, for each component which needs access to the key-value store. This line is necessary to communicate to Spin that a given component has access to the default key value store. A newly scaffolded Spin application will not have this line; you will need to add it. 
+Good news - Spin will take care of setting up your key value store. However, in order to make sure your Spin application has permission to access the key value store, you must add the `key_value_stores = ["default"]` line in the `[component.<component-name>]` section of the `spin.toml` file, for each component which needs access to the key-value store. This line is necessary to communicate to Spin that a given component has access to the default key value store. A newly scaffolded Spin application will not have this line; you will need to add it. 
 
 > Note: `[component.spin_key_value]` contains the name of the component. If you used a different name, when creating the application, this sections name would be different.
 
@@ -109,11 +109,11 @@ key_value_stores = ["default"]
 
 >> Tip: You can choose between various store implementations by modifying [the runtime configuration](dynamic-configuration.md#key-value-store-runtime-configuration). The default implementation uses [SQLite](https://www.sqlite.org/index.html) within the Spin framework.
 
-Each Spin application's `key_value_stores` instances are implemented on a per-component basis across the entire Spin application. This means that within a multi-component Spin application (which has the same `key_value_stores = ["default"]` configuration line), each `[[component]]` will access that same data store. If one of your application's components creates a new key/value pair, another one of your application's components can update/overwrite that initial key/value after the fact.
+Each Spin application's `key_value_stores` instances are implemented on a per-component basis across the entire Spin application. This means that within a multi-component Spin application (which has the same `key_value_stores = ["default"]` configuration line), each component will access that same data store. If one of your application's components creates a new key/value pair, another one of your application's components can update/overwrite that initial key/value after the fact.
 
 ### The Spin TOML File
 
-We will give our components access to the key value store by adding the `key_value_stores = ["default"]` in the `[[component manifest]]` as shown below:
+We will give our components access to the key value store by adding the `key_value_stores = ["default"]` in the `[component.<component-name>] section as shown below:
 
 ```toml
 spin_manifest_version = 2
@@ -127,6 +127,7 @@ description = "A simple application that exercises key-value storage."
 [[trigger.http]]
 route = "/..."
 component = "spin-key-value"
+
 [component.spin-key-value]
 ...
 key_value_stores = ["default"]
