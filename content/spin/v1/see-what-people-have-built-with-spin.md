@@ -2,6 +2,7 @@ title = "Built With Spin"
 template = "spin_main"
 date = "2023-05-05T00:01:01Z"
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/see-what-people-have-built-with-spin"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/see-what-people-have-built-with-spin.md"
 
 ---

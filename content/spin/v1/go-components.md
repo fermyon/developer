@@ -2,6 +2,7 @@ title = "Building Spin components in Go"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/go-components"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/go-components.md"
 
 ---

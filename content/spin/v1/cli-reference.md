@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-01-01T00:00:01Z"
 enable_shortcodes = true
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/cli-reference"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/cli-reference.md"
 
 ---

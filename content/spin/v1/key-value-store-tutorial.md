@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2023-02-21T00:00:00Z"
 enable_shortcodes = true
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/key-value-store-tutorial"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/key-value-store-tutorial.md"
 
 ---

@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/ai-sentiment-analysis-api-tutorial"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/ai-sentiment-analysis-api-tutorial.md"
 
 ---

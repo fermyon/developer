@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2023-03-01T00:01:01Z"
 enable_shortcodes = true
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/kubernetes"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/kubernetes.md"
 
 ---

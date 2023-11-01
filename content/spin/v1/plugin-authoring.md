@@ -2,6 +2,7 @@ title = "Creating Spin Plugins"
 template = "spin_main"
 date = "2023-02-1T00:22:56Z"
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/plugin-authoring"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/plugin-authoring.md"
 
 ---

@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/http-trigger"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/http-trigger.md"
 
 ---

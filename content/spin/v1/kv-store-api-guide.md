@@ -3,6 +3,7 @@ template = "spin_main"
 date = "2023-04-14T00:22:56Z"
 enable_shortcodes = true
 [extra]
+canonical = "https://developer.fermyon.com/spin/v2/kv-store-api-guide"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/kv-store-api-guide.md"
 
 ---
