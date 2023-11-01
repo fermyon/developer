@@ -286,8 +286,6 @@ serde_json = "1.0"
 
 Once you have added serde, as explained above, modify your `src/lib.rs` file to match the following content:
 
-<!-- TODO - Awaiting https://github.com/fermyon/spin/issues/1995 -->
-
 ```rust
 use std::str::FromStr;
 
@@ -301,7 +299,7 @@ use spin_sdk::{
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize)]
 pub struct SentimentAnalysisRequest {
     pub sentence: String,
 }
@@ -445,7 +443,6 @@ impl FromStr for Sentiment {
         Ok(sentiment)
     }
 }
-
 ```
 
 {{ blockEnd }}

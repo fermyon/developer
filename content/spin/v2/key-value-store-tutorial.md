@@ -16,7 +16,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/key-value-
   - [Source Code](#source-code)
 - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
 - [Storing and Retrieving Data From Your Default Key/Value Store](#storing-and-retrieving-data-from-your-default-keyvalue-store)
-- [Conclusion](#conclusion)
 
 ## Key Value Store With Spin Applications
 
@@ -110,87 +109,30 @@ key_value_stores = ["default"]
 
 >> Tip: You can choose between various store implementations by modifying [the runtime configuration](dynamic-configuration.md#key-value-store-runtime-configuration). The default implementation uses [SQLite](https://www.sqlite.org/index.html) within the Spin framework.
 
-<!-- TODO: Check this section! -->
 Each Spin application's `key_value_stores` instances are implemented on a per-component basis across the entire Spin application. This means that within a multi-component Spin application (which has the same `key_value_stores = ["default"]` configuration line), each `[[component]]` will access that same data store. If one of your application's components creates a new key/value pair, another one of your application's components can update/overwrite that initial key/value after the fact.
 
 ### The Spin TOML File
 
 We will give our components access to the key value store by adding the `key_value_stores = ["default"]` in the `[[component manifest]]` as shown below:
 
-{{ tabs "sdk-type" }}
-
-{{ startTab "Rust"}}
-
 ```toml
-spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
-description = "A simple application that exercises key-value storage."
+spin_manifest_version = 2
+
+[application]
 name = "spin-key-value"
-trigger = { type = "http", base = "/test" }
 version = "0.1.0"
-
-[[component]]
-id = "spin-key-value"
-source = "target/wasm32-wasi/release/spin-key-value.wasm"
-allowed_outbound_hosts = []
-# Gives this component access to the default key value store
-key_value_stores = ["default"]
-[component.trigger]
-route = "/..."
-[component.build]
-command = "cargo build --target wasm32-wasi --release"
-```
-
-{{ blockEnd }}
-
-{{ startTab "TypeScript" }}
-
-```toml
-spin_manifest_version = "1"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "A simple application that exercises key-value storage."
-name = "spin-key-value"
-trigger = { type = "http", base = "/test" }
-version = "0.1.0"
 
-[[component]]
-id = "spin-key-value"
-source = "target/spin-key-value.wasm"
-exclude_files = ["**/node_modules"]
-# Gives this component access to the default key value store
-key_value_stores = ["default"]
-[component.trigger]
+[[trigger.http]]
 route = "/..."
-[component.build]
-command = "npm run build"
+component = "spin-key-value"
+[component.spin-key-value]
+...
+key_value_stores = ["default"]
+...
 ```
 
-{{ blockEnd }}
-
-{{ startTab "TinyGo" }}
-
-```toml
-spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
-description = "A simple application that exercises key-value storage."
-name = "spin-key-value"
-trigger = { type = "http", base = "/test" }
-version = "1.0.0"
-
-[[component]]
-id = "spin-key-value"
-source = "main.wasm"
-# Gives this component access to the default key value store
-key_value_stores = ["default"]
-[component.trigger]
-route = "/..."
-[component.build]
-command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
-```
-
-{{ blockEnd }}
-
-{{ blockEnd }}
 
 ## Write Code to Save and Load Data
 
@@ -500,7 +442,7 @@ $ curl localhost:3000/test
 {"foo": "bar"}
 ```
 
-Great!, the above command successfully returned our data as intended.
+Great!, The above command successfully returned our data as intended.
 
 Lastly, we show how to create a `DELETE` request that removes the data for this specific component altogether:
 
@@ -523,7 +465,3 @@ HTTP/1.1 404 Not Found
 ```
 
 As we can see above, there is currently no data found at the `/test` endpoint of our application.
-
-## Conclusion
-
-We want to get feedback on the ergonomics of the key value API. We are curious about what new APIs you would suggest we implement and are also interested in learning about what backing stores you would like to see.
