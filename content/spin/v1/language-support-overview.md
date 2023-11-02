@@ -26,7 +26,7 @@ This page contains information about language support for Spin features:
 | [MySQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](./rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
-| [Serverless AI](./rust-components.md#ai-inferencing-from-rust-components) | Supported |
+| [Serverless AI](./serverless-ai-api-guide) | Supported |
 | **Extensibility** |
 | [Authoring Custom Triggers](./extending-and-embedding) | Supported |
 
@@ -47,7 +47,7 @@ This page contains information about language support for Spin features:
 | MySQL | Not Supported |
 | PostgreSQL| Not Supported |
 | [Outbound Redis](./javascript-components#storing-data-in-redis-from-jsts-components) | Supported |
-| [Serverless AI](./javascript-components#ai-inferencing-from-jsts-components) | Supported |
+| [Serverless AI](./serverless-ai-api-guide) | Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
@@ -68,7 +68,7 @@ This page contains information about language support for Spin features:
 | MySQL | Not Supported |
 | PostgreSQL | Not Supported |
 | [Outbound Redis](./python-components#an-outbound-redis-example) | Supported |
-| [Serverless AI](./python-components#ai-inferencing-from-python-components) | Supported |
+| [Serverless AI](./serverless-ai-api-guide) | Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
