@@ -121,7 +121,7 @@ spin_manifest_version = 2
 [application]
 name = "spin-key-value"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "A simple application that exercises key-value storage."
 
 [[trigger.http]]

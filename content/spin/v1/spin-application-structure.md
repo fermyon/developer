@@ -131,7 +131,7 @@ We now have 4 separate components scaffolded for us by Spin. Note the applicatio
 
 ```toml
 spin_manifest_version = "1"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "My application"
 name = "myapp"
 trigger = { type = "http", base = "/" }

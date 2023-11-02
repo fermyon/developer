@@ -848,7 +848,7 @@ As shown below, the Spin framework has done all of the scaffolding for us:
 
 ```toml
 spin_manifest_version = "1"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "A sentiment analysis API that demonstrates using LLM inference and KV stores together"
 name = "sentiment-analysis"
 trigger = { type = "http", base = "/" }

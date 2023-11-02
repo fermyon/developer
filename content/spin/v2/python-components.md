@@ -102,7 +102,7 @@ spin_manifest_version = 2
 [application]
 name = "hello-world"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = ""
 
 [[trigger.http]]
@@ -202,7 +202,7 @@ spin_manifest_version = 2
 [application]
 name = "hello-world"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = ""
 
 [[trigger.http]]
@@ -260,7 +260,7 @@ spin_manifest_version = 2
 [application]
 name = "hello-world"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = ""
 
 [[trigger.http]]

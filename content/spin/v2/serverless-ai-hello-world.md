@@ -15,7 +15,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/serverless-ai
 - [Licenses](#licenses)
 - [Serverless AI Inferencing With Spin](#serverless-ai-inferencing-with-spin)
   - [Creating a New Spin Application](#creating-a-new-spin-application)
-  - [Configuration Your Application](#configuration-your-application)
+  - [Configuring Your Application](#configuring-your-application)
   - [Source Code](#source-code)
   - [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
 - [Next Steps](#next-steps)
@@ -117,7 +117,7 @@ HTTP path: /...
 {{ blockEnd }}
 {{ blockEnd }}
  
-### Configuration Your Application
+### Configuring Your Application
  
 The `spin.toml` file is the manifest file which tells Spin what events should trigger what components. Configure the `[component.hello-world]` section of our application's manifest explicitly naming our model of choice. For this example, we specify the `llama2-chat` value for our `ai_models` configuration:
  
@@ -139,7 +139,7 @@ spin_manifest_version = 2
 [application]
 name = "hello-world"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "My first Serverless AI app"
 
 [[trigger.http]]
@@ -165,7 +165,7 @@ watch = ["src/**/*.rs", "Cargo.toml"]
 spin_manifest_version = 2
 
 [application]
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "My first Serverless AI app"
 name = "hello-world"
 version = "0.1.0"
@@ -194,7 +194,7 @@ spin_manifest_version = 2
 [application]
 name = "hello-world"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "My first Serverless AI app"
 
 [[trigger.http]]

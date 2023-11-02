@@ -290,7 +290,7 @@ spin_manifest_version = 2
 [application]
 name = "hello_rust"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "My first Rust Spin application"
 
 [[trigger.http]]
@@ -378,7 +378,7 @@ spin_manifest_version = 2
 [application]
 name = "hello_typescript"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "My first TypeScript Spin application"
 
 [[trigger.http]]
@@ -459,7 +459,7 @@ spin_manifest_version = 2
 [application]
 name = "hello_python"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "My first Python Spin application"
 
 [[trigger.http]]
@@ -539,7 +539,7 @@ spin_manifest_version = 2
 [application]
 name = "hello_go"
 version = "0.1.0"
-authors = ["Your Name<your-name@example.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "My first Go Spin application"
 
 [[trigger.http]]
