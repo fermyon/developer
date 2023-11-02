@@ -103,7 +103,7 @@ We will give our components access to the key value store by adding the `key_val
 
 ```toml
 spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"
 trigger = { type = "http", base = "/test" }
@@ -127,7 +127,7 @@ command = "cargo build --target wasm32-wasi --release"
 
 ```toml
 spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"
 trigger = { type = "http", base = "/test" }
@@ -151,7 +151,7 @@ command = "npm run build"
 
 ```toml
 spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "A simple application that exercises key-value storage."
 name = "spin-key-value"
 trigger = { type = "http", base = "/test" }

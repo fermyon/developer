@@ -265,7 +265,7 @@ This command created a directory with the necessary files needed to build and ru
 
 ```toml
 spin_manifest_version = "1"
-authors = ["You <you@yourself.net>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "My first Rust Spin application"
 name = "hello_rust"
 trigger = { type = "http", base = "/" }
@@ -306,7 +306,7 @@ This command created a directory with the necessary files needed to build and ru
 
 ```toml
 spin_manifest_version = "1"
-authors = ["You <you@yourself.net>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "My first TypeScript Spin application"
 name = "hello_typescript"
 trigger = { type = "http", base = "/" }
@@ -346,7 +346,7 @@ This command created a directory with the necessary files needed to build and ru
 
 ```toml
 spin_manifest_version = "1"
-authors = ["You <you@yourself.net>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "My first Python Spin application"
 name = "hello_python"
 trigger = { type = "http", base = "/" }
@@ -390,7 +390,7 @@ This command created a directory with the necessary files needed to build and ru
 
 ```toml
 spin_manifest_version = "1"
-authors = ["You <you@yourself.net>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "My first Go Spin application"
 name = "hello_go"
 trigger = { type = "http", base = "/" }

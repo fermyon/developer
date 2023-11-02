@@ -98,7 +98,7 @@ The `spin.toml` file will look similar to the following:
 
 ```toml
 spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = ""
 name = "hello-world"
 trigger = { type = "http", base = "/" }
@@ -196,7 +196,7 @@ The Spin framework protects your code from making outbound requests to just any 
 
 ```toml
 spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = ""
 name = "hello-world"
 trigger = { type = "http", base = "/" }
@@ -249,7 +249,7 @@ After installing Redis on localhost, we simply add the `config = { redis_address
 
 ```toml
 spin_manifest_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = ""
 name = "hello-world"
 trigger = { type = "http", base = "/" }

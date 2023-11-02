@@ -235,7 +235,7 @@ domains the component is allowed to make HTTP requests to:
 spin_manifest_version = 2
 
 [application]
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = ""
 name = "hello-world"
 version = "0.1.0"

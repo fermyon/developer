@@ -138,7 +138,7 @@ This is what your `spin.toml` file should look like, based on whether you’re u
  
 ```toml
 spin_manifest_version = "1"
-authors = ["Joe <example@users.noreply.github.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = ""
 name = "hello-world"
 trigger = { type = "http", base = "/" }
@@ -164,7 +164,7 @@ watch = ["src/**/*.rs", "Cargo.toml"]
  
 ```toml
 spin_manifest_version = "1"
-authors = ["Joe <example@users.noreply.github.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = ""
 name = "hello-world"
 trigger = { type = "http", base = "/" }
@@ -189,7 +189,7 @@ watch = ["src/index.ts"]
  
 ```toml
 spin_manifest_version = "1"
-authors = ["Joe <example@users.noreply.github.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = ""
 name = "hello-world"
 trigger = { type = "http", base = "/" }

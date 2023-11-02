@@ -139,7 +139,7 @@ spin_manifest_version = 2
 [application]
 name = "hello-world"
 version = "0.1.0"
-authors = ["Joe <example@users.noreply.github.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "My first Serverless AI app"
 
 [[trigger.http]]
@@ -165,7 +165,7 @@ watch = ["src/**/*.rs", "Cargo.toml"]
 spin_manifest_version = 2
 
 [application]
-authors = ["Joe <example@users.noreply.github.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "My first Serverless AI app"
 name = "hello-world"
 version = "0.1.0"
@@ -194,7 +194,7 @@ spin_manifest_version = 2
 [application]
 name = "hello-world"
 version = "0.1.0"
-authors = ["Joe <example@users.noreply.github.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "My first Serverless AI app"
 
 [[trigger.http]]

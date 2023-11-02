@@ -1001,7 +1001,7 @@ spin_manifest_version = 2
 [application]
 name = "sentiment-analysis-rust"
 version = "0.1.0"
-authors = ["Mikkel Mørk Hegnhøj <mikkel@fermyon.com>"]
+authors = ["Your Name<your-name@example.com>"]
 description = "Descr"
 
 [[trigger.http]]
