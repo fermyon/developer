@@ -1,6 +1,6 @@
 title = "Language Support Overview"
 template = "spin_main"
-date = "2023-11-02T01:00:00Z"
+date = "2023-11-03T01:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/language-support-overview.md"
