@@ -1,6 +1,6 @@
 title = "Contributing to Docs"
 template = "spin_main"
-date = "2023-11-02T01:00:00Z"
+date = "2023-11-03T01:00:00Z"
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/contributing-docs.md"
 keywords = "contribute contributing"
@@ -91,7 +91,7 @@ The value for the `body_source` key, should be the path from which the content i
 ```toml
 title = "Contributing to Docs"
 template = "cloud_main"
-date = "2023-11-02T01:00:00Z"
+date = "2023-11-03T01:00:00Z"
 body_source = "/spin/contributing-docs"
 
 [extra]
