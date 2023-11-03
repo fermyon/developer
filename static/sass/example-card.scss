@@ -1,0 +1,199 @@
+.card-example-list {
+    .card {
+        display: flex;
+        height: 12rem;
+        overflow-y: hidden;
+        flex-direction: column;
+        background: darken($docsbg1, 2.5%);
+        padding: 1.333rem;
+        border-radius: 1.333rem;
+        overflow: hidden;
+        border: 1px solid darken($lavendermid, 5%);
+        transition: background 0.5s ease-in-out 0;
+        transition: border-color 0.3s ease-in-out 0;
+        z-index: 800;
+        box-shadow: 0 0.25rem 0.333rem rgba(0, 0, 0, 0.05);
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-height: 2rem;
+            transition: all 0.5s ease-in-out 0.15s;
+
+            .category {
+                background-color: white;
+                display: inline-block;
+                border-radius: 0.67rem;
+                padding: 0.15rem 0.67rem;
+                margin: 0 0 0 -0.25rem;
+                color: $darkspace;
+                font-size: 0.75rem;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                color: $bluedark;
+                @include upperCase;
+                letter-spacing: 0.05rem;
+                opacity: 1;
+                transition: all 0.5s ease-in-out 0.15s;
+
+                svg {
+                    width: 1rem;
+                    height: 1rem;
+                    margin-left: 0.5rem;
+                    fill: $bluedark;
+                    opacity: 0.8;
+                }
+            }
+
+            .icon {
+                width: 20px;
+                height: 20px;
+
+                path {
+                    stroke: black;
+                }
+            }
+        }
+
+        article {
+            margin-top: 1rem;
+            flex-grow: 1;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: margin-top 0.5s ease-in-out 0.25s;
+            overflow-y: hidden;
+
+            h3 {
+                font-weight: 500;
+                font-size: 1.2rem;
+                color: $oxforddark;
+                font-family: $spaceGro;
+                line-height: 1.35;
+                margin: 0.25rem 0 1rem;
+                padding: 0 !important;
+                letter-spacing: 0.035rem;
+                display: -webkit-box;
+                overflow-y: hidden;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                max-height: 4.5em;
+
+                a {
+                    display: none;
+                }
+            }
+        }
+
+        .summary {
+            font-size: 0.9rem;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            font-weight: 400;
+            color: $bluecallout;
+            transition: opacity 0.5s ease-in-out 0.25s;
+            letter-spacing: 0.05rem;
+        }
+
+        .tags {
+            font-size: 0.75rem;
+            position: absolute;
+            bottom: 1.33rem;
+            left: 1.25rem;
+            right: 1.25rem;
+            overflow: hidden;
+
+            span {
+                padding: 0.2rem;
+                margin-right: 0.5rem;
+                color: $lavenderdark;
+                font-size: 0.7rem;
+                font-style: normal;
+                font-weight: 400;
+                @include upperCase;
+                letter-spacing: 0.0825rem;
+                line-height: 1.21538rem;
+            }
+        }
+
+        &:hover {
+            border-color: $lavenderfloral;
+            background: darken($docsbg1, 1%);
+
+            header {
+                opacity: 0;
+                transform: translateY(-2rem);
+                max-height: 0;
+                margin: 0;
+
+                .category {
+                    opacity: 0.2;
+                }
+            }
+
+            article {
+                flex-grow: 0;
+                margin-top: -0.5rem;
+                max-height: 8.2rem;
+            }
+
+            .summary {
+                max-height: 200px;
+                flex-grow: 1;
+                opacity: 1;
+                line-height: 1.33;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
+
+.dark-theme body {
+    .card-example-list {
+        a.card {
+            background: #202644 !important;
+            border-color: darken($lavenderdark, 7.5%);
+            color: white;
+
+            &:hover {
+                border-color: $lavenderfloral;
+                background:
+                    linear-gradient(105deg,
+                        rgba(56, 44, 81, 1) 0%,
+                        rgba(37, 31, 58, 1) 100%) !important;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+            }
+
+            .category {
+                color: $thistle;
+                background-color: darken($lavenderdark, 33.33%) !important;
+
+                svg {
+                    fill: $lavenderlight;
+                }
+            }
+
+            .summary {
+                color: white !important;
+            }
+
+            .tags {
+                span {
+                    color: lighten($lavenderfloral, 7.5%);
+                }
+            }
+
+            article {
+                color: white;
+
+                h3 {
+                    color: white;
+                }
+            }
+        }
+    }
+}

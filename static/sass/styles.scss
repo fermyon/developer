@@ -43,6 +43,7 @@ Importing color and theme updates for the brand 1.5 refresh
 @import "developer-include-search";
 @import "developer-include-footer";
 @import "developer-include-feedback";
+@import "example-card";
 // device adjustments
 @import "developer-responsive";
 
@@ -232,6 +233,7 @@ Importing color and theme updates for the brand 1.5 refresh
 		h5,
 		h6 {
 			font-family: $spaceGro;
+
 			code {
 				font-size: 0.95em !important;
 				font-weight: 600;
