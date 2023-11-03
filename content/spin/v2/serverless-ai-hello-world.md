@@ -1,4 +1,4 @@
-date = "2023-11-03T01:00:00Z"
+date = "2023-11-04T01:00:00Z"
 title = "Build your first AI app using Serverless AI Inferencing"
 description = "Getting Started with building your AI app in Python, Rust or TypeScript"
 template = "spin_main"
