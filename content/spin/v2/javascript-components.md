@@ -1,6 +1,6 @@
 title = "Building Spin Components in JavaScript"
 template = "spin_main"
-date = "2023-11-04T01:00:00Z"
+date = "2023-11-04T00:00:01Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/javascript-components.md"
@@ -259,7 +259,7 @@ The component can be built using the `spin build` command. Running the applicati
 ```text
 $ curl -i localhost:3000
 HTTP/1.1 200 OK
-date = "2023-11-04T01:00:00Z"
+date = "2023-11-04T00:00:01Z"
 content-type: application/json; charset=utf-8
 content-length: 185
 server: spin/0.1.0

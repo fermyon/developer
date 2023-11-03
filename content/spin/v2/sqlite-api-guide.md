@@ -1,6 +1,6 @@
 title = "SQLite Storage"
 template = "spin_main"
-date = "2023-11-04T01:00:00Z"
+date = "2023-11-04T00:00:01Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/sqlite-api-guide.md"

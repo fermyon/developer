@@ -1,6 +1,6 @@
 title = "Extending and Embedding Spin"
 template = "spin_main"
-date = "2023-11-04T01:00:00Z"
+date = "2023-11-04T00:00:01Z"
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/extending-and-embedding.md"
 
