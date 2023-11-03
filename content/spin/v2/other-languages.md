@@ -1,6 +1,6 @@
 title = "Building Spin components in other languages"
 template = "spin_main"
-date = "2023-11-03T01:00:00Z"
+date = "2023-11-04T01:00:00Z"
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/other-languages.md"
 

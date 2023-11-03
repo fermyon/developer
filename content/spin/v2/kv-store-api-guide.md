@@ -1,6 +1,6 @@
 title = "Key Value Store"
 template = "spin_main"
-date = "2023-11-03T01:00:00Z"
+date = "2023-11-04T01:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/kv-store-api-guide.md"
