@@ -116,9 +116,9 @@ job "fermyon-developer" {
       }
 
       artifact {
-        source = "https://github.com/fermyon/spin/releases/download/v1.5.1/spin-v1.5.1-linux-amd64.tar.gz"
+        source = "https://github.com/fermyon/spin/releases/download/v2.0.0/spin-v2.0.0-linux-amd64.tar.gz"
         options {
-          checksum = "sha256:31941a09c870f9bb3e74a068e1573bf7efb60bffdd3c555a1a0fd75d9fa1b217"
+          checksum = "sha256:ec9a335663c6af3dba34860ba5a0f99916f06f98ad504fae800b329eb41c7595"
         }
       }
 
