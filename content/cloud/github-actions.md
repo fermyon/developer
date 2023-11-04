@@ -53,10 +53,16 @@ Now let's create a Spin HTTP application using a template.
 
 <!-- @selectiveCpy -->
 
+Type the `spin new` command, as shown below:
+
 ```bash
-$ spin new http-rust github-actions-tutorial --accept-defaults
+$ spin new -t http-rust
+Enter a name for your new application: github-actions-tutorial
 # Choose y at the prompt
 github-actions-tutorial already contains other files. Generate into it anyway? [y/n]
+
+Description: A GitHub Actions App
+HTTP path: /...
 ```
 
 > Make sure the name matches the repo you just created, otherwise the application won't be generated into the repo working copy.
@@ -68,7 +74,7 @@ github-actions-tutorial already contains other files. Generate into it anyway? [
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-ts github-actions-tutorial --accept-defaults
+$ spin new -t http-ts github-actions-tutorial --accept-defaults
 # Choose y at the prompt
 github-actions-tutorial already contains other files. Generate into it anyway? [y/n]
 ```
@@ -82,7 +88,7 @@ github-actions-tutorial already contains other files. Generate into it anyway? [
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-py github-actions-tutorial --accept-defaults
+$ spin new -t http-py github-actions-tutorial --accept-defaults
 # Choose y at the prompt
 github-actions-tutorial already contains other files. Generate into it anyway? [y/n]
 ```
@@ -96,7 +102,7 @@ github-actions-tutorial already contains other files. Generate into it anyway? [
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-go github-actions-tutorial --accept-defaults
+$ spin new -t http-go github-actions-tutorial --accept-defaults
 # Choose y at the prompt
 github-actions-tutorial already contains other files. Generate into it anyway? [y/n]
 ```

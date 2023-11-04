@@ -66,9 +66,9 @@ Let's start by [creating a new Spin application](/cloud/cli-reference#new) using
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new http-py pw_checker
-Project description: A Spin app that validates a password
-HTTP base: /
+$ spin new -t http-py           
+Enter a name for your new application: pw_checker
+Description: A Spin app that validates a password
 HTTP path: /...
 ```
 
@@ -81,19 +81,19 @@ In reality, you'd have multiple usernames and password hashes in a database, but
 <!-- @nocpy -->
 
 ```toml
-# Add this above the [component] section
+# Add this above the [component.pw-checker] section
 [variables]
-password = { required = true }
+secret = { required = true }
 ```
 
-To surface the variable to the `pw-checker` component, add a `[component.config]` section in the component and specify the variable within it. Instead of statically assigning the value of the config variable, we are referencing the dynamic variable with [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use the variables in their configuration section will get access to them. This enables only exposing variables and secrets to the desired components of an application:
+To surface the variable to the `pw-checker` component, add a `[component.pw-checker.variables]` section in the component and specify the variable within it. Instead of statically assigning the value of the config variable, we are referencing the dynamic variable with [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use the variables in their configuration section will get access to them. This enables only exposing variables and secrets to the desired components of an application:
 
 <!-- @nocpy -->
 
 ```toml
-# Add this below the [component.build] section
-[component.config]
-password = "\{{ password }}"
+# Add this below the [component.pw-checker.build] section
+[component.pw-checker.variables]
+password = "\{{ secret }}"
 ```
 
 The resulting application manifest should look similar to the following:
@@ -101,24 +101,31 @@ The resulting application manifest should look similar to the following:
 <!-- @nocpy -->
 
 ```toml
-spin_manifest_version = "1"
-description = "A Spin app with a dynamically updatable variable"
+spin_manifest_version = 2
+
+[application]
 name = "pw_checker"
-trigger = { type = "http", base = "/" }
 version = "0.1.0"
+authors = ["Your Name <your-name@example.com>"]
+description = "A Spin app with a dynamically updatable variable"
+
+[[trigger.http]]
+route = "/..."
+component = "pw-checker"
 
 [variables]
-password = { required = true }
+secret = { required = true }
 
-[[component]]
-id = "pw-checker"
-source = "app.wasm"
-[component.trigger]
-route = "/..."
-[component.build]
-command = "spin py2wasm app -o app.wasm"
-[component.config]
-password = "\{{ password }}"
+[component.pw-checker]
+source = "target/wasm32-wasi/release/pw_checker.wasm"
+allowed_http_hosts = []
+
+[component.pw-checker.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
+
+[component.pw-checker.variables]
+password = "\{{ secret }}"
 ```
 
 ## Using Variables in a Spin Application
@@ -141,18 +148,16 @@ def handle_request(request):
                     bytes(response, "utf-8"))
 ```
 
-Build and run the application locally to test it out. We will use the [environment variable provider](/spin/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_CONFIG_`:
+Build and run the application locally to test it out. We will use the [environment variable provider](/spin/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_VARIABLE_`:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin build
-$ SPIN_CONFIG_PASSWORD="123" spin up
-Logging component stdio to ".spin/logs/"
-
-Serving http://127.0.0.1:3000
-Available Routes:
-  pw-checker: http://127.0.0.1:3000 (wildcard)
+Building component pw-checker with `spin py2wasm app -o app.wasm`
+Spin-compatible module built successfully
+Finished building all Spin components
+$ SPIN_VARIABLE_SECRET="123" spin up
 ```
 
 Send a request to the application with the correct password in the body to authenticate successfully:
@@ -171,7 +176,7 @@ Let's deploy our application to the cloud with initial values for our variables.
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin deploy --variable password="123"
+$ spin deploy --variable secret="123"  
 Uploading pw_checker version 0.1.0+r7123456 to Fermyon Cloud...
 Deploying...
 Waiting for application to become ready........... ready
