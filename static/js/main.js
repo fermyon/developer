@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"03a13":[function(require,module,exports) {
+})({"bZYIQ":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 58523;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "42036d7a98ade5a7";
 module.bundle.HMR_BUNDLE_ID = "2a29ff2311f401cb";
@@ -643,6 +643,7 @@ const projectList = [
     "Cloud",
     "Bartholomew"
 ];
+const versionPattern = /^v\d+$/;
 let idx;
 let documents;
 async function getSearchIndex() {
@@ -655,6 +656,16 @@ async function getSearchIndex() {
 }
 async function setupSearch() {
     documents = await getSearchIndex();
+    let currentPath = window.location.pathname;
+    let splitPath = currentPath.split("/");
+    let version = splitPath[2];
+    if (version == "v1") documents = documents.filter((k)=>{
+        if (k.project != "spin") return true;
+        return k.url.includes("spin/v1/");
+    });
+    else documents = documents.filter((k)=>{
+        return k.project != "spin" || !k.url.includes("spin/v1/");
+    });
     idx = lunr(function() {
         this.field("title");
         this.field("subheading");
@@ -1452,5 +1463,5 @@ function createFeedbackElement(handle) {
     mount(handle, feedback);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["03a13","e9rxa"], "e9rxa", "parcelRequire252c")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["bZYIQ","e9rxa"], "e9rxa", "parcelRequire252c")
 

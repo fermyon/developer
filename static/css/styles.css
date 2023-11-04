@@ -3755,6 +3755,15 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
   margin-bottom: 0 !important;
 }
 
+.documentation .content .archived-notice {
+  width: 100%;
+  background-color: #e7d3f2;
+  border-radius: .667rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
 .documentation .content h4 {
   margin: 1.3333em 0 .6666em;
 }
@@ -4572,6 +4581,10 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 .changelog .back-arrow {
   margin-bottom: 1.333rem;
   font-size: .825rem;
+}
+
+html.dark-theme .documentation .content .archived-notice {
+  background-color: #345995;
 }
 
 html.dark-theme .changelog section {

@@ -71,6 +71,16 @@ Importing color and theme updates for the brand 1.5 refresh
 		position: relative;
 		z-index: 555;
 
+		.archived-notice {
+			width: 100%;
+			background-color: red;
+			border-radius: 0.667rem;
+			padding: 1rem;
+			font-size: 1rem;
+			background-color: $thistle;
+			margin-bottom: 4rem;
+		}
+
 		h4 {
 			margin: 1.3333em 0 0.6666em 0;
 		}
@@ -232,6 +242,7 @@ Importing color and theme updates for the brand 1.5 refresh
 		h5,
 		h6 {
 			font-family: $spaceGro;
+
 			code {
 				font-size: 0.95em !important;
 				font-weight: 600;
@@ -1027,6 +1038,14 @@ screen and (max-width:736px) and (orientation:landscape) {
 }
 
 html.dark-theme {
+	.documentation {
+		.content {
+			.archived-notice {
+				background-color: $midblue;
+			}
+		}
+	}
+
 	.changelog {
 
 		section {

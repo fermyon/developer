@@ -10,12 +10,16 @@ For date/time format, see https://www.w3.org/TR/NOTE-datetime
         <priority>0.8</priority>
     </url>
     {{#each (sitemap site.pages) }}
-
     <url>
         <loc>https://developer.fermyon.com{{uri}}</loc>
         {{#if page.head.date }}<lastmod>{{date_format "%Y-%m-%dT%H:%M:%SZ" page.head.date}}</lastmod>{{/if}}
-        <changefreq>{{frequency}}</changefreq>
-        <priority>{{priority}}</priority>
+        {{#if (active_project uri "/spin/v1" )}}
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        {{else}}
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+        {{/if}}
     </url>
     {{/each}}
 </urlset>
