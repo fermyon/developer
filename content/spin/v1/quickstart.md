@@ -233,7 +233,9 @@ You'll need the TinyGo compiler, as the standard Go compiler does not yet suppor
 ## Create Your First Application
 
 {{suh_cards}}
-{{card_element "template" "Zola SSG Tempalte" "A template for using Zola framework to create a static webpage" "https://developer.fermyon.com/hub/preview/template_zola_ssg" "rust" }}
+{{card_element "sample" "Checklist Sample App" "A checklist app that persists data in a key value store" "https://developer.fermyon.com/hub/preview/sample_checklist" "Typescript,Http,Kv" }}
+{{card_element "sample" "AI-assisted News Summarizer" "Read an RSS newsfeed and have AI summarize it for you" "https://developer.fermyon.com/hub/preview/sample_newsreader_ai" "Typescript,Javascript,Ai" }}
+{{suh_cards}}
 {{blockEnd}}
 
 Now you are ready to create your first Spin application:
