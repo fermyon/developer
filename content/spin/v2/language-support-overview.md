@@ -95,25 +95,4 @@ This page contains information about language support for Spin features:
 
 {{ blockEnd }}
 
-{{ startTab "C#"}}
-
-| Feature | SDK Supported? |
-|-----|-----|
-| **Triggers** |
-| [HTTP](https://github.com/fermyon/spin-dotnet-sdk#handling-http-requests) | Supported |
-| Redis | Not Supported |
-| **APIs** |
-| [Outbound HTTP](https://github.com/fermyon/spin-dotnet-sdk#making-outbound-http-requests) | Supported |
-| [Configuration Variables](./dynamic-configuration#custom-config-variables) | Supported |
-| Key Value Storage | Not Supported |
-| SQLite Storage | Not supported |
-| MySQL | Not Supported |
-| [PostgreSQL](https://github.com/fermyon/spin-dotnet-sdk#working-with-postgres) | Supported |
-| [Outbound Redis](https://github.com/fermyon/spin-dotnet-sdk#making-redis-requests) | Supported |
-| Serverless AI | Not Supported |
-| **Extensibility** |
-| Authoring Custom Triggers | Not Supported |
-
-{{ blockEnd }}
-
 {{ blockEnd }}
