@@ -1,6 +1,6 @@
 title = "Fermyon Cloud Serverless AI Open Beta"
 template = "changelog_item"
-date = "2023-11-07T06:00:00Z"
+date = "2023-11-06T06:00:00Z"
 enable_shortcodes = true
 tags = ["ai"]
 [extra]
