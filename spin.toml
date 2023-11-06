@@ -239,7 +239,7 @@ id = "serverless-ai"
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/serverless-ai-hello-world.md" }
 [component.trigger]
-route = "/spin/serverless-ai-hello-world"
+route = "/cloud/serverless-ai"
 executor = { type = "wagi" }
 
 # Component to give us clean versioned URLs for spin from the root
