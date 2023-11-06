@@ -349,9 +349,9 @@ As well as any headers passed by the client, Spin sets several headers on the re
 
 For the most part, you'll build HTTP component modules using a language SDK (see the Language Guides section), such as a JavaScript module or a Rust crate.  If you're interested in what happens inside the SDK, or want to implement HTTP components in another language, read on!
 
-The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/tree/main/wit/preview2](https://github.com/fermyon/spin/tree/main/wit/preview2).
+The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/tree/main/wit](https://github.com/fermyon/spin/tree/main/wit).
 
-The HTTP types and interfaces are defined in [https://github.com/fermyon/spin/tree/main/wit/preview2/deps/http](https://github.com/fermyon/spin/tree/main/wit/preview2/deps/http), which tracks [the `wasi-http` specification](https://github.com/WebAssembly/wasi-http).
+The HTTP types and interfaces are defined in [https://github.com/fermyon/spin/tree/main/wit/deps/http](https://github.com/fermyon/spin/tree/main/wit/deps/http), which tracks [the `wasi-http` specification](https://github.com/WebAssembly/wasi-http).
 
 In particular, the entry point for Spin HTTP components is defined in [the `incoming-handler` interface](https://github.com/fermyon/spin/blob/main/wit/preview2/deps/http/incoming-handler.wit):
 
