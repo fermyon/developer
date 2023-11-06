@@ -30,6 +30,8 @@ The following are the quota for users based, stratified by the three [Subscripti
 | **Rate Limiting Quota** |
 | Request execution count | 100,000  | 1,000,000  | Contact us
 | Request executions per second* | 1,000 | 1,000 | Contact us 
+| Serverless AI inferencing requests per hour* | 75 | 75 | Contact us 
+| Serverless AI embedding requests per hour* | 200 | 200 | Contact us 
 | Spin application deployments per hour* | 100 | 100 | Contact us
 | Outbound requests per hour per Spin app* | 500 | 500 | Contact us
 | **Networking** |
@@ -44,6 +46,8 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Key value storage size (GB) | 1 | 2 | Contact us
 | SQLite database count | 1 | 1 |  Contact us
 | SQLite database size (GB) | 1 | 2 | Contact us
+| **Serverless AI** |
+| Token count per request (response only)* | 1,024 | 1,024 | Contact us
 | **Regions** |
 | Region count| 1 | 1 | Contact us
 
@@ -70,7 +74,7 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Configuration Variables](/spin/variables) | Supported |
 | [Key Value Storage](/spin/kv-store-api-guide) | Supported (only default store) |
 | [SQLite Storage](/spin/sqlite-api-guide) | Supported |
-| [Serverless AI](/spin/serverless-ai-api-guide) | [Private Beta](/cloud/serverless-ai.md) |
+| [Serverless AI](/spin/serverless-ai-api-guide) | Supported |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
@@ -122,6 +126,24 @@ Yes, Fermyon Cloud uses abstract [labels and links](https://developer.fermyon.co
 
 - **Unable to redeploy an app on Fermyon Cloud?**
   - If `spin deploy` fails with the error `No channel with app_id xxxx and name spin-deploy`, but the app works locally (via `spin build --up`), please delete the app from your Fermyon Cloud dashboard and try again.
+
+- **How does Fermyon Serverless AI compare to OpenAI? In what situations am I better off using Fermyon Serverless AI?**
+  - With Fermyon Serverless AI, you don’t need to be worried about vendor lock-in. With Fermyon Serverless AI you can run your inferencing workloads locally with Spin or on your infrastructure of choice with Spin install. In fact, Fermyon Serverless AI is built using open source models that can be used completely outside the context of Spin in case you decide to host your own infrastructure end to end.
+
+- **Which specific model(s) is Fermyon Serverless AI using for inferencing? [i.e. 7B, 13B, 70B] Why was this model chosen?**
+  -  Fermyon Serverless AI is using the 13B model for inferencing, both for `llama2-chat` and `codellama-instruct`, as it strikes an excellent balance of performance and accuracy. If you’re interested in another model, please share this feedback at [github.com/fermyon/feedback](https://github.com/fermyon/feedback).
+
+- **How do I choose which model I’m using?**
+  - `llama2-chat` is trained for chat use cases, although it can be used for general language model tasks as well. `code llama` is meant for generating code based on instructions. However, these are just high-level guideposts. Please visit [Meta AI’s documentation](https://ai.meta.com/resources/models-and-libraries/llama/) for more specific instructions and to learn more about the tradeoffs between llama2 and Code Llama.
+
+- **Do you support Fine Tuning? Bring your own Model? Any models other than LLaMa2 and CodeLlama? Vector Databases?**
+  -  At this time, we do not support Fine Tuning or bringing your own model. Fermyon Serverless AI supports llama2 and CodeLlama. If you’re interested in another model, please share that feedback with our team by raising an issue [here](https://github.com/fermyon/feedback/issues/new/choose). Vector databases, backed by our SQLite Database.
+
+- **I read somewhere that I’ll receive data about my AI inferencing usage — where can I find that data? Where can I find a reference as to the definition(s) of each of those data elements?**
+  - In the request response body, you will see the number of prompt tokens and the number of generated tokens for inferencing requests. For embedding requests, you’ll be presented with the number of prompt tokens.
+
+- **What programming languages / SDKs can I use to invoke Serverless AI?**
+  -  Please visit the [API Guide](https://developer.fermyon.com/cloud/serverless-ai#:~:text=Please%20visit%20the%20API%20Guide%20for%20this%20information) for this information.
 
 ## Next Steps
 

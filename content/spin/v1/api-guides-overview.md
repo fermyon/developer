@@ -19,7 +19,7 @@ The following table shows the status of the interfaces Spin provides to applicat
 | [PostgreSQL](./rdbms-storage)                             | Experimental | Yes |
 | [MySQL](./rdbms-storage)                                  | Experimental | Yes |
 | [Key-value Storage](./kv-store-api-guide)                      | Stabilizing | Yes |
-| [Serverless AI](./serverless-ai-api-guide)                      | Experimental | [Private Beta](/cloud/serverless-ai.md) |
+| [Serverless AI](./serverless-ai-api-guide)                      | Experimental | Yes |
 | [SQLite Storage](./sqlite-api-guide)                      | Experimental | Yes |
 
 For more information about what is possible in the programming language of your choice, please see our [Language Support Overview](./language-support-overview).
