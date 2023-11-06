@@ -19,7 +19,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/manifest-refe
 
 This page describes version 1 of the Spin manifest file, typically called `spin.toml`.
 
-> There are two versions of the manifest format. The manifest format described here (version 1) is used for Spin 1.x, and is supported for backward in Spin 2.x and above. New applications targeting Spin 2 should use the [version 2 manifest format](manifest-reference.md).
+> There are two versions of the manifest format. The manifest format described here (version 1) is used for Spin 1.x, and is supported for backward compatibility in Spin 2.x and above. New applications targeting Spin 2 should use the [version 2 manifest format](manifest-reference.md).
 
 ## Format
 
