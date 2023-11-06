@@ -223,6 +223,7 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/key-value-stor
 route = "/spin/kv-store-tutorial"
 executor = { type = "wagi" }
 
+
 # Redirect /spin/serverless-ai-tutorial to /spin/ai-sentiment-analysis-api-tutorial
 [[component]]
 id = "ai-sentiment-analysis-api-tutorial"
@@ -230,6 +231,15 @@ source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/ai-sentiment-analysis-api-tutorial" }
 [component.trigger]
 route = "/spin/serverless-ai-tutorial"
+executor = { type = "wagi" }
+
+# Redirect /cloud/serverless-ai to /spin/serverless-ai-hello-world
+[[component]]
+id = "serverless-ai"
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/serverless-ai-hello-world.md" }
+[component.trigger]
+route = "/spin/serverless-ai-hello-world"
 executor = { type = "wagi" }
 
 # Component to give us clean versioned URLs for spin from the root
