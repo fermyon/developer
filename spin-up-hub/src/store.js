@@ -97,6 +97,16 @@ const store = createStore({
         return
       }
       data = await res.json()
+      data = data.sort(function (a, b) {
+        if (a.artifactSource) {
+          return -1
+        } else if (b.artifactSource) {
+          return 1
+        }
+        else {
+          return 1
+        }
+      })
       context.state.contentItems = data
       context.state.contentItems.map(k => {
         k.title = unescapeHTML(k.title)
