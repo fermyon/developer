@@ -353,7 +353,7 @@ The HTTP component interface is defined using a WebAssembly Interface (WIT) file
 
 The HTTP types and interfaces are defined in [https://github.com/fermyon/spin/tree/main/wit/deps/http](https://github.com/fermyon/spin/tree/main/wit/deps/http), which tracks [the `wasi-http` specification](https://github.com/WebAssembly/wasi-http).
 
-In particular, the entry point for Spin HTTP components is defined in [the `incoming-handler` interface](https://github.com/fermyon/spin/blob/main/wit/preview2/deps/http/incoming-handler.wit):
+In particular, the entry point for Spin HTTP components is defined in [the `incoming-handler` interface](https://github.com/fermyon/spin/blob/main/wit/deps/http/incoming-handler.wit):
 
 <!-- @nocpy -->
 
