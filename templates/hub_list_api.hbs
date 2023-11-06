@@ -10,7 +10,9 @@
 "lastUpdated": "{{this.page.head.extra.last_updated}}",
 "spinVersion": "{{{this.page.head.extra.spin_version}}}",
 "url": "{{{this.page.head.extra.url}}}",
-{{#with this as data}}"tags": [{{#each this.page.head.tags}} "{{this}}"{{#if @last}}{{else}},{{/if}} {{/each}}]{{/with}},
+{{#if this.page.head.extra.artifact_source}}"artifactSource": "{{{this.page.head.extra.artifact_source}}}",{{/if}}
+{{#with this as data}}"tags": [{{#each this.page.head.tags}} "{{this}}"{{#if @last}}{{else}},{{/if}}
+{{/each}}]{{/with}},
 "path": "{{{this.uri}}}"
 }{{#if @last}}{{else}},{{/if}}
 {{/each}}

@@ -12,7 +12,8 @@ const store = createStore({
         description: '',
         url: "",
         author: "",
-        tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: ""
+        tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: "",
+        artifactSource: ""
       },
       contentTypes: ["Plugin", "Template", "Library", "Sample"],
       languages: ["Rust", "JS/TS", "Go", "Python"],
