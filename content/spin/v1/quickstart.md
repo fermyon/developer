@@ -232,6 +232,10 @@ You'll need the TinyGo compiler, as the standard Go compiler does not yet suppor
 
 ## Create Your First Application
 
+{{suh_cards}}
+{{card_element "template" "Zola SSG Tempalte" "A template for using Zola framework to create a static webpage" "https://developer.fermyon.com/hub/preview/template_zola_ssg" "rust" }}
+{{blockEnd}}
+
 Now you are ready to create your first Spin application:
 
 {{ tabs "sdk-type" }}
