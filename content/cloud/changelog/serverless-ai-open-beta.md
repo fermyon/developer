@@ -14,7 +14,7 @@ Fermyon Cloud now supports Serverless AI in open beta! This means Starter, Growt
 
 To review quotas and FAQs, please visit [Fermyon Cloud FAQ documentation.](https://developer.fermyon.com/cloud/faq)
 
-<img src="/static/image/changelog/twc-open-beta-serverlesss-ai.jpg" alt="Serverless AI Open Beta">
+<img src="/static/image/twc-open-beta-serverlesss-ai.jpg" alt="Serverless AI Open Beta">
 
 <!-- break -->
 
