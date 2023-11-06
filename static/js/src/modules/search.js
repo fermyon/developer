@@ -1,22 +1,38 @@
 const { el, mount, text, list, setChildren, setStyle, setAttr } = redom
 
 const projectList = ["Spin", "Cloud", "Bartholomew"]
-
+const versionPattern = /^v\d+$/;
 let idx
 let documents
 
 async function getSearchIndex() {
-  try {
-    let res = await fetch('/static/data.json')
-    return await res.json()
-  }
-  catch (err) {
-    console.log("cannot load search module")
-  }
+    try {
+        let res = await fetch('/static/data.json')
+        return await res.json()
+    }
+    catch (err) {
+        console.log("cannot load search module")
+    }
 }
 
 async function setupSearch() {
     documents = await getSearchIndex()
+    let currentPath = window.location.pathname
+    let splitPath = currentPath.split("/")
+    let version = splitPath[2]
+    if (version == "v1") {
+        documents = documents.filter(k => {
+            if (k.project != "spin") {
+                return true
+            }
+            return k.url.includes("spin/v1/")
+        })
+    } else {
+        documents = documents.filter(k => {
+            return k.project != "spin" || !k.url.includes("spin/v1/")
+        })
+    }
+
     idx = lunr(function () {
         this.field('title')
         this.field('subheading')
@@ -51,14 +67,14 @@ class SearchResultSubHeading {
         this.el = el("a.result-subitem", { onclick: function (e) { searchModal.close() } }, [this.itemIcon, this.link])
     }
     update(data) {
-            this.link.textContent = data.subheading
-            this.el.href = data.url
-            // Hide listing where the subheading is empty
-            if(data.subheading == ""){
-                setStyle(this.el, {display: "none"})
-            } else {
-                setStyle(this.el, {display: "flex"})
-            }
+        this.link.textContent = data.subheading
+        this.el.href = data.url
+        // Hide listing where the subheading is empty
+        if (data.subheading == "") {
+            setStyle(this.el, { display: "none" })
+        } else {
+            setStyle(this.el, { display: "flex" })
+        }
     }
 }
 
@@ -276,4 +292,4 @@ class SearchModal {
 let searchModal = new SearchModal()
 let searchButton = new SearchButton(searchModal)
 
-export {setupSearch, searchButton, searchModal}
+export { setupSearch, searchButton, searchModal }

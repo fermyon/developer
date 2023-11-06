@@ -1,6 +1,6 @@
 title = "Building Spin components in Go"
 template = "spin_main"
-date = "2023-11-04T01:00:00Z"
+date = "2023-11-04T00:00:01Z"
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/go-components.md"
 
@@ -160,7 +160,7 @@ HTTP/1.1 200 OK
 content-type: text/plain; charset=utf-8
 server: spin/0.1.0
 content-length: 85
-date = "2023-11-04T01:00:00Z"
+date = "2023-11-04T00:00:01Z"
 
 {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}
 ```

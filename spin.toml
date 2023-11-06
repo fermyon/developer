@@ -6,6 +6,7 @@ authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 trigger = { type = "http", base = "/" }
 
 [[component]]
+# Using build from bartholomew main
 source = "modules/bartholomew.wasm"
 id = "bartholomew"
 environment = { PREVIEW_MODE = "0" }
@@ -239,7 +240,7 @@ allowed_http_hosts = ["self"]
 exclude_files = ["**/node_modules"]
 files = ["spin-redirect.json"]
 [component.config]
-latest_spin_version = "v1"
+latest_spin_version = "v2"
 [component.trigger]
 route = "/spin/..."
 # Need to modify action to get the js2wasm plugin
@@ -248,12 +249,11 @@ route = "/spin/..."
 # command = "npm install && npm run build"
 
 [[component]]
+# Using build from bartholomew main
 source = "modules/bartholomew.wasm"
 id = "bartholomew-spin-v1"
 environment = { PREVIEW_MODE = "0" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
-[component.config]
-optional_path_prefix = "/spin/v1/"
 [component.trigger]
 route = "/spin/v1/..."
 [component.build]
@@ -261,12 +261,11 @@ command = "npm run build-index && npm run build-hub-index"
 watch = ["content/**/*", "templates/*"]
 
 [[component]]
+# Using build from bartholomew main
 source = "modules/bartholomew.wasm"
 id = "bartholomew-spin-v2"
 environment = { PREVIEW_MODE = "0" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
-[component.config]
-optional_path_prefix = "/spin/v2/"
 [component.trigger]
 route = "/spin/v2/..."
 [component.build]

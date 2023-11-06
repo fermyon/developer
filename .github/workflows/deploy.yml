@@ -68,7 +68,7 @@ jobs:
           uses: fermyon/actions/spin/setup@v1
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            version: v1.2.1
+            version: v2.0.0
 
         - name: Install npm packages
           run: |

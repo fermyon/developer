@@ -2,6 +2,7 @@ title = "Fermyon Developer"
 base_url = ""
 about = "Fermyon Developer — the home for you as a developer using Fermyon projects and products."
 index_site_pages = ["sitemap", "home", "changelog", "hub_list_api"]
+prepend_route_info = true
 
 [extra]
 copyright = "Fermyon"

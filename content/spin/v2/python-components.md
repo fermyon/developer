@@ -1,6 +1,6 @@
 title = "Building Spin Components in Python"
 template = "spin_main"
-date = "2023-11-04T01:00:00Z"
+date = "2023-11-04T00:00:01Z"
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-components.md"
 
@@ -324,7 +324,7 @@ $ curl -i localhost:3000/hello
 HTTP/1.1 200 OK
 content-type: text/plain
 content-length: 40
-date = "2023-11-04T01:00:00Z"
+date = "2023-11-04T00:00:01Z"
 
 Executed outbound Redis commands: /hello
 ```

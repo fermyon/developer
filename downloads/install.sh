@@ -140,12 +140,12 @@ rm $FILE
 fancy_print 0 "Done...\n"
 
 # Install default templates
-fancy_print 0 "Step 4: Install default templates"
+fancy_print 0 "Step 4: Installing default templates"
 ./spin templates install --git "https://github.com/fermyon/spin" --upgrade
 ./spin templates install --git "https://github.com/fermyon/spin-python-sdk" --upgrade
 ./spin templates install --git "https://github.com/fermyon/spin-js-sdk" --upgrade
 
-fancy_print 0 "Step 5: Install default plugins"
+fancy_print 0 "Step 5: Installing default plugins"
 ./spin plugins update
 if [[ $VERSION = "canary" ]]; then
     ./spin plugins install -u https://github.com/fermyon/spin-js-sdk/releases/download/canary/js2wasm.json --yes
