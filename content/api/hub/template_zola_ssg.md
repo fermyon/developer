@@ -21,7 +21,7 @@ keywords = "rust, SSG, website, framework"
 This is a template for using [Zola framework](https://www.getzola.org/) to create a static webpage.
 
 ## Installation
-Please first install [Zola](). 
+Please first install [Zola](https://www.getzola.org/documentation/getting-started/installation/). 
 
 Then install the template
 
