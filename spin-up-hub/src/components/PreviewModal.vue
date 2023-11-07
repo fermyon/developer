@@ -252,7 +252,7 @@ export default {
                         border-radius: 1rem !important;
                         padding: 0.15rem 1rem;
                         background-color: darken($docsbg1, 5%);
-                        margin: 0 0.5rem 0 0;
+                        margin: 0 0.5rem 0.5rem 0;
                         color: $bluecallout;
                         height: auto;
                         width: auto;
@@ -284,9 +284,10 @@ export default {
                         box-sizing: border-box;
                         flex-grow: 1;
                         border-bottom: 1px solid lighten($lavenderfloral, 15%);
-                        ;
                         width: 100%;
                         height: 80%;
+                        max-height: 80%;
+                        overflow-y: auto;
                     }
 
                     .meta-cta {
@@ -391,6 +392,11 @@ export default {
                 .metadata-space {
                     .metadata-wrap {
                         max-width: calc($modalMaxDesktop / 3) !important;
+                        overflow: auto;
+
+                        .meta-info {
+                            overflow: auto;
+                        }
                     }
 
                     a.button {
@@ -427,6 +433,11 @@ export default {
             width: 90% !important;
             order: 1;
             border-bottom: 1px solid $darkspace;
+
+            .metadata-wrap {
+                height: auto !important;
+                flex-direction: column-reverse !important;
+            }
         }
     }
 
@@ -438,10 +449,11 @@ export default {
 
             .preview-modal.content {
                 z-index: 1002;
-                height: 90vh !important;
+                height: 80vh !important;
+                overflow-y: auto !important;
                 width: 96vw !important;
                 max-width: $modalMaxTablet;
-                margin-top: 20rem !important;
+                margin-top: 15rem !important;
                 margin-bottom: 10rem !important;
 
                 .content-area {
@@ -477,6 +489,8 @@ export default {
                     }
 
                     .metadata-space {
+                        height: auto;
+                        margin-bottom: 1rem;
 
                         .metadata-wrap {
                             position: relative;
@@ -504,7 +518,7 @@ export default {
 
         .preview-wrapper .preview-modal.content {
             max-width: $modalMaxMobile;
-            margin-top: 22rem !important;
+            margin-top: 15rem !important;
             margin-bottom: 12rem !important;
 
             .content-area {
