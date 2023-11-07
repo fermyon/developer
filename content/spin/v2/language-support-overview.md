@@ -44,8 +44,8 @@ This page contains information about language support for Spin features:
 | [Configuration Variables](./dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](./kv-store-api-guide) | Supported |
 | [SQLite Storage](./sqlite-api-guide) | Supported |
-| MySQL | Not Supported |
-| PostgreSQL| Not Supported |
+| [MySQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [PostgreSQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](./javascript-components#storing-data-in-redis-from-jsts-components) | Supported |
 | [Serverless AI](./serverless-ai-api-guide) | Supported |
 | **Extensibility** |

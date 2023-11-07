@@ -68,7 +68,42 @@ For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK refe
 
 {{ startTab "TypeScript"}}
 
-The JavaScript/TypeScript SDK doesn't surface the MySQL or PostgreSQL APIs. However, you can use hosted relational database services that are accessible over HTTP. For an example, see the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/planetscale), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/main/examples/javascript/planetscale)).
+The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_pg) available.
+
+```ts
+import { HandleRequest, HttpRequest, HttpResponse, Mysql } from "@fermyon/spin-sdk"
+
+const encoder = new TextEncoder()
+
+// Connects as the root user without a password 
+const DB_URL = "mysql://root:@127.0.0.1/spin_dev"
+
+/*
+ Run the following commands to setup the instance:
+ create database spin_dev;
+ use spin_dev;
+ create table test(id int, val int);
+ insert into test values (4,4);
+*/
+
+export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+
+    Mysql.execute(DB_URL, "delete from test where id=?", [4])
+    Mysql.execute(DB_URL, "insert into test values (4,5)", [])
+    let test = Mysql.query(DB_URL, "select * from test", [])
+
+    console.log(test.columns)
+    test.rows.map (k => {
+        console.log(k)
+    })
+
+    return {
+        status: 200,
+        headers: {"foo": "bar"},
+        body: encoder.encode("Hello from JS-SDK").buffer
+    }
+}
+```
 
 {{ blockEnd }}
 
