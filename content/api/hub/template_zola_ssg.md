@@ -15,6 +15,7 @@ spin_version = ">v1.0"
 summary = "A template to use Zola SSG with Spin"
 url = "https://github.com/karthik2804/spin-zola"
 keywords = "rust, SSG, website, framework"
+artifact_source = "ghcr.io/karthik2804/spin-zola-ssg:v0.1.0"
 
 ---
 
