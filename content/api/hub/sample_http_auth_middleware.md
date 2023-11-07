@@ -18,7 +18,7 @@ keywords = "rust, http, auth"
 
 ---
 
-This sample shows how to compose a middleware component with a business logic component using Spin 2.0 and the Component Model. 
+This sample shows how to compose a middleware component with a business logic component using [Spin 2.0](https://www.fermyon.com/blog/introducing-spin-v2) and the Component Model. 
 
 ## Instructions
 
