@@ -10,7 +10,7 @@ type = "hub_document"
 category = "Sample"
 language = "rust"
 created_at = "2023-11-03T00:00:00Z"
-last_updated = "2023-11-073T00:00:00Z"
+last_updated = "2023-11-07T00:00:00Z"
 spin_version = ">=v2.0"
 summary =  "Example of how to compose a middleware component with a business logic component"
 url = "https://github.com/fermyon/http-auth-middleware"
@@ -22,7 +22,7 @@ This sample shows how to compose a middleware component with a business logic co
 
 ## Instructions
 
-### Install prerequities
+### Install Prerequisites
 * Install the [cargo component](https://github.com/bytecodealliance/cargo-component):
 
 ```bash
@@ -42,7 +42,7 @@ cargo install --git https://github.com/dicej/wasm-tools --branch wasm-compose-re
   * Save the Client ID
   * Generate a new Client Secret and save that as well
 
-### Build the components and run the Spin App
+### Build And Run The Spin App
 
 ```bash
 
