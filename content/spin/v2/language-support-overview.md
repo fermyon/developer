@@ -13,6 +13,8 @@ This page contains information about language support for Spin features:
 
 {{ startTab "Rust"}}
 
+[Visit the Spin SDK reference documentation.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html)
+
 | Feature | SDK Supported? |
 |-----|-----|
 | **Triggers** |
@@ -75,6 +77,8 @@ This page contains information about language support for Spin features:
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
+
+[Visit the Spin SDK reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
 
 | Feature | SDK Supported? |
 |-----|-----|

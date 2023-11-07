@@ -141,6 +141,8 @@ The exact signature of the HTTP handler, and how a function is identified to be 
 
 {{ startTab "Rust"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/index.html)
+
 In Rust, the handler is identified by the [`#[spin_sdk::http_component]`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/attr.http_component.html) attribute.  The handler function can have one of two forms: _request-response_ or _input-output parameter_.
 
 **Request-Response Handlers**
@@ -288,6 +290,8 @@ def handle_request(request):
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
+
+> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/http)
 
 In Go, you register the handler as a callback in your program's `init` function.  Call `spinhttp.Handle`, passing your handler as the sole argument.  Your handler takes a `http.Request` record, from the standard `net/http` package, and a `ResponseWriter` to construct the response.
 

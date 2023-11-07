@@ -62,6 +62,8 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/llm/index.html)
+
 To use Serverless AI functions, the `llm` module from the Spin SDK provides the methods. The following snippet is from the [Rust code generation example](https://github.com/fermyon/ai-examples/tree/main/code-generator-rs):
 
 <!-- @nocpy -->
@@ -168,6 +170,8 @@ def handle_request(request):
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
+
+> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/llm)
 
 Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/v2/llm` package. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/llm) for reference documentation. For example:
 

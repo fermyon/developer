@@ -40,6 +40,8 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/redis/index.html)
+
 Redis functions are available in the `spin_sdk::redis` module.
 
 To access a Redis instance, use the `Connection::open` function.
@@ -133,6 +135,8 @@ You can find a complete Python code example for using outbound Redis from an HTT
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
+
+> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/redis)
 
 Redis functions are available in the `github.com/fermyon/spin/sdk/go/v2/redis` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/redis) The function names are TitleCased. For example:
 
