@@ -302,10 +302,11 @@ components.
 Let's see how we can use the Rust SDK to connect to Redis:
 
 ```rust
-use anyhow::{anyhow, Result};
+use anyhow::{Context, Result};
 use spin_sdk::{
     http::{internal_server_error, Request, Response},
-    http_component, redis,
+    http_component, 
+    redis::Connection,
 };
 
 // The environment variable set in `spin.toml` that points to the
@@ -326,22 +327,29 @@ fn publish(_req: Request) -> Result<Response> {
     let address = std::env::var(REDIS_ADDRESS_ENV)?;
     let channel = std::env::var(REDIS_CHANNEL_ENV)?;
 
+    // Establish a connection to Redis
+    let conn = Connection::open(&address)?;
+
     // Get the message to publish from the Redis key "mykey"
-    let payload = redis::get(&address, "mykey").map_err(|_| anyhow!("Error querying Redis"))?;
+    let payload = conn
+        .get("mykey")
+        .context("Error querying Redis")?
+        .context("'mykey' was unexpectedly empty")?;
 
     // Set the Redis key "spin-example" to value "Eureka!"
-    redis::set(&address, "spin-example", &b"Eureka!"[..])
-        .map_err(|_| anyhow!("Error executing Redis set command"))?;
+    conn.set("spin-example", &"Eureka!".to_owned().into_bytes())
+        .context("Error executing Redis set command")?;
 
     // Set the Redis key "int-key" to value 0
-    redis::set(&address, "int-key", format!("{:x}", 0).as_bytes())
-        .map_err(|_| anyhow!("Error executing Redis set command"))?;
-    let int_value = redis::incr(&address, "int-key")
-        .map_err(|_| anyhow!("Error executing Redis incr command",))?;
+    conn.set("int-key", &format!("{:x}", 0).into_bytes())
+        .context("Error executing Redis set command")?;
+    let int_value = conn
+        .incr("int-key")
+        .context("Error executing Redis incr command")?;
     assert_eq!(int_value, 1);
 
     // Publish to Redis
-    match redis::publish(&address, &channel, &payload) {
+    match conn.publish(&channel, &payload) {
         Ok(()) => Ok(http::Response::builder().status(200).body(None)?),
         Err(_e) => internal_server_error(),
     }
