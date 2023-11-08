@@ -103,7 +103,7 @@ export default {
                                 </a>
                                 <a v-if="modalData.artifactSource" class="is-btn button is-rounded is-primary"
                                     target="_blank"
-                                    :href="`https://cloud.fermyon.com/deploy?artifact=` + modalData.artifactSource">
+                                    :href="`https://cloud.fermyon.com/deploy?artifact=` + modalData.artifactSource + `${this.$store.state.deployUTM}`">
                                     Deploy to cloud
                                 </a>
                             </div>
