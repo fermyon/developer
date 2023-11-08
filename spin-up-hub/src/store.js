@@ -22,7 +22,8 @@ const store = createStore({
       contentItems: [],
       loadedSearchData: false,
       searchIndex: [],
-      searchTerm: ""
+      searchTerm: "",
+      deployUTM: "&utm_source=hub&utm_medium=btn&utm_campaign=deploy-btn",
     }
   },
   mutations: {
