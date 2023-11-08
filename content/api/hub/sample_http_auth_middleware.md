@@ -29,13 +29,13 @@ This sample shows how to compose a middleware component with a business logic co
 cargo install --git https://github.com/bytecodealliance/cargo-component cargo-component
 ```
 
-* Install a fork of [wasm-tools]():
+* Install a fork of [wasm-tools](https://github.com/dicej/wasm-tools/tree/wasm-compose-resource-imports):
 
 ```bash
 cargo install --git https://github.com/dicej/wasm-tools --branch wasm-compose-resource-imports wasm-tools --locked
 ```
 
-* Install latest [Spin](https://github.com/fermyon/spin)
+* Install latest [Spin](https://developer.fermyon.com/spin/v2/install)
 * Create an OAuth App in your [GitHub Developer Settings](https://github.com/settings/developers). 
   * Set the callback URL to `http://127.0.0.1:3000/login/callback`. 
   * Accept defaults and input dummy values for the rest of the fields.
