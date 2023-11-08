@@ -223,7 +223,7 @@ async fn send_outbound(_req: Request) -> Result<impl IntoResponse> {
         .body(())?;
 
     // Send the request and await the response
-    let mut res: http::Response<()> = spin_sdk::http::send(req).await?;
+    let mut res: http::Response<String> = spin_sdk::http::send(req).await?;
 
     // Demonstrate modifying the response before passing it
     // back to the client
