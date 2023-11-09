@@ -10,7 +10,13 @@ Build and run the website locally:
 1. Run the following npm commands:
 
 ```bash
+git clone https://github.com/fermyon/developer.git
+cd developer
+cd spin-up-hub
 npm install
+cd ../
+npm install
+spin build
 spin watch # Uses spin watch to run the website and reload when content changes
 ```
 
