@@ -45,7 +45,6 @@ cargo install --git https://github.com/dicej/wasm-tools --branch wasm-compose-re
 ### Build And Run The Spin App
 
 ```bash
-
 # Build the middleware
 cargo component build --manifest-path github-oauth/Cargo.toml --release
 
