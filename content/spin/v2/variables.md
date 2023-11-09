@@ -83,6 +83,8 @@ The exact details of calling the config SDK from a Spin application depends on t
 
 {{ startTab "Rust"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/variables/index.html)
+
 The interface is available in the `spin_sdk::variables` module and is named `get`.
 
 ```rust
@@ -168,6 +170,8 @@ def handle_request(request):
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
+
+> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/variables)
 
 The function is available in the `github.com/fermyon/spin/sdk/go/v2/variables` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/variables) for reference documentation.
 

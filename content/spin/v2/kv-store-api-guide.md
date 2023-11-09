@@ -40,6 +40,8 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/key_value/index.html)
+
 Key value functions are available in the `spin_sdk::key_value` module. The function names match the operations above. For example:
 
 ```rust
@@ -136,6 +138,8 @@ def handle_request(request):
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
+
+> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/kv)
 
 Key value functions are provided by the `github.com/fermyon/spin/sdk/go/v2/kv` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/kv) For example:
 

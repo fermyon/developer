@@ -45,6 +45,8 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/sqlite/index.html)
+
 SQLite functions are available in the `spin_sdk::sqlite` module. The function names match the operations above. For example:
 
 ```rust
@@ -151,6 +153,8 @@ def handle_request(request):
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
+
+> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/sqlite)
 
 The Go SDK is implemented as a driver for the standard library's [database/sql](https://pkg.go.dev/database/sql) interface.
 

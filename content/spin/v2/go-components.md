@@ -26,6 +26,8 @@ Using TinyGo to compile components for Spin is currently required, as the
 
 > All examples from this page can be found in [the Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples).
 
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
+
 ## Versions
 
 TinyGo `0.29.0` is recommended, which requires Go `v1.18+` or newer.
