@@ -105,7 +105,7 @@ The important things to note in the implementation above:
 
 - the [`spin_sdk::http_component`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/attr.http_component.html) macro marks the function as the entry point for the Spin component
 - the function signature — `fn hello_world(req: Request) -> Result<impl IntoResponse>` —
-  the Spin HTTP component allows for a flexible set of response types via the [`IntoResponse`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/trait.IntoResponse.html) trait including the SDK's `Response` type and the `Response` type from the Rust [`http` crate](https://crates.io/crates/http). See the section on [using the `http` crate](#using-the-http-crate) for more information.
+  the Spin HTTP component allows for a flexible set of response types via the [`IntoResponse`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/trait.IntoResponse.html) trait, including the SDK's `Response` type and the `Response` type from the Rust [`http` crate](https://crates.io/crates/http). See the section on [using the `http` crate](#using-the-http-crate) for more information.
 
 > If you're familiar with Spin 1.x, you will see some changes when upgrading to the Spin 2 SDK. Mostly these provide more flexibility, but you will likely need to change some details such as module paths. If you don't want to modify your code, you can continue using the 1.x SDK - your components will still run.
 
