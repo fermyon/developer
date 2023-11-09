@@ -23,6 +23,7 @@ This sample shows how to compose a middleware component with a business logic co
 ## Instructions
 
 ### Install Prerequisites
+
 * Install [`cargo component`](https://github.com/bytecodealliance/cargo-component):
 
 ```bash
