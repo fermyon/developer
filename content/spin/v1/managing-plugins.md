@@ -145,3 +145,4 @@ To update your local cache of the catalogue, run `spin plugins update`.
 
 - [Install the JavaScript or Python plugins](quickstart)
 - [Use the JavaScript or Python plugins to build a Wasm module](build)
+- [Checkout the spin cloud plugin](https://github.com/fermyon/cloud-plugin)
