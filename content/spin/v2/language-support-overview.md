@@ -36,6 +36,8 @@ This page contains information about language support for Spin features:
 
 {{ startTab "TypeScript"}}
 
+[Visit the Spin SDK reference documentation.](https://fermyon.github.io/spin-js-sdk/)
+
 | Feature | SDK Supported? |
 |-----|-----|
 | **Triggers** |

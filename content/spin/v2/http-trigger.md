@@ -244,9 +244,11 @@ For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://fer
 
 {{ startTab "TypeScript"}}
 
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+
 In JavaScript or TypeScript, the handler is identified by name.  It must be called `handleRequest`.  The way you declare it is slightly different between the two languages.
 
-In **JavaScript**, `handleRequest` is declared as `export async function`.  It takes a JsvaScript object representing the request, and returns a response object.  The fields of these objects are exactly the same as in TypeScript:
+In **JavaScript**, `handleRequest` is declared as `export async function`.  It takes a JavaScript [object representing the request](https://fermyon.github.io/spin-js-sdk/interfaces/HttpRequest.html), and returns a [response object](https://fermyon.github.io/spin-js-sdk/interfaces/HttpResponse.html).  The fields of these objects are exactly the same as in TypeScript:
 
 ```javascript
 export async function handleRequest(request) {
@@ -258,7 +260,7 @@ export async function handleRequest(request) {
 }
 ```
 
-In **TypeScript**, `handleRequest` is declared as an `export const` of the `HandleRequest` function type - that is, a function literal rather than a function declaration.  It takes a `HttpRequest` object, and returns a `HttpResponse` object, both defined in the `@fermyon/spin-sdk` package:
+In **TypeScript**, `handleRequest` is declared as an `export const` of the [`HandleRequest` function type](https://fermyon.github.io/spin-js-sdk/types/HandleRequest.html) - that is, a function literal rather than a function declaration.  It takes a [`HttpRequest` object](https://fermyon.github.io/spin-js-sdk/interfaces/HttpRequest.html), and returns a [`HttpResponse` object](https://fermyon.github.io/spin-js-sdk/interfaces/HttpResponse.html), both defined in the `@fermyon/spin-sdk` package:
 
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
