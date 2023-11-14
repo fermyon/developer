@@ -108,7 +108,9 @@ struct ToDo {
 
 {{ startTab "Typescript"}}
 
-To use SQLite functions, use the `Sqlite.open` or `Sqlite.openDefault` function to obtain a `Connection` object. `Connection` provides the `execute` method as described above. For example:
+[**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Sqlite.html)
+
+To use SQLite functions, use [the `Sqlite.open` or `Sqlite.openDefault` function](https://fermyon.github.io/spin-js-sdk/variables/Sqlite.html) to obtain [a `SqliteStore` object](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.SqliteStore.html). `SqliteStore` provides the `execute` method as described above. For example:
 
 ```javascript
 import {Sqlite} from "@fermyon/spin-sdk"
@@ -122,7 +124,7 @@ const json = JSON.stringify(result.rows);
 * The `spinSdk` object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the `@fermyon/spin-sdk` package.
 * Parameters are JavaScript values (numbers, strings, byte arrays, or nulls). Spin infers the underlying SQL type.
 * The `execute` function returns an object with `rows` and `columns` properties. `columns` is an array of strings representing column names. `rows` is an array of rows, each of which is an array of JavaScript values (as above) in the same order as `columns`.
-* The `Connection` object doesn't surface the `close` function.
+* The `SqliteStore` object doesn't surface the `close` function.
 * If a Spin SDK function fails, it throws an [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error).
 
 {{ blockEnd }}

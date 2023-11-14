@@ -31,6 +31,8 @@ With JavaScript being a very popular language, Spin provides support for buildin
 
 > All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples).
 
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+
 In order to compile JavaScript programs to Spin components, you also need to install a Spin plugin `js2wasm` using the following command:
 
 <!-- @selectiveCpy -->
@@ -390,7 +392,7 @@ Some NPM packages can be installed and used in the component. If a popular libra
 
 ### Suggested Libraries for Common Tasks
 
-These are some of the suggested libraries that have been tested and confired to work with the SDK for common tasks.
+These are some of the suggested libraries that have been tested and confirmed to work with the SDK for common tasks.
 
 {{ details "HTML parsers" "- [node-html-parser](https://www.npmjs.com/package/node-html-parser)" }}
 
@@ -404,4 +406,4 @@ These are some of the suggested libraries that have been tested and confired to 
 
 - All `spin-sdk` related functions and methods (like `Config`, `Redis`, `Mysql`, `Pg`, `Kv` and `Sqlite`) can be called only inside the `handleRequest` function. This includes the usage of `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
 - Only a subset of the browser and `Node.js` APIs are implemented.
-- The support for Crypto  module is limited. The methods currently supported are `crypto.getRandomValues`, `crypto.subtle.digest`, `cryto.createHash` and `crypto.createHmac`
+- The support for Crypto  module is limited. The methods currently supported are `crypto.getRandomValues`, `crypto.subtle.digest`, `crypto.createHash` and `crypto.createHmac`

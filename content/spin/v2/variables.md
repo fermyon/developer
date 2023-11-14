@@ -116,7 +116,9 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 
 {{ startTab "TypeScript"}}
 
-The function is available in the `Config` package and is named `get`.
+[**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Config.html)
+
+The function is available on [the `Config` object](https://fermyon.github.io/spin-js-sdk/variables/Config.html) and is named [`get`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.SpinConfig.html#get).
 
 > Note that the name is `Config` rather than `Variables`.
 

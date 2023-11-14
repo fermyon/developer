@@ -88,7 +88,9 @@ You can find a complete Rust code example for using outbound Redis from an HTTP 
 
 {{ startTab "TypeScript"}}
 
-Redis functions are available on the `Redis` object. The function names match the operations above, but you must pass the Redis instance address to _each_ operation as its first parameter. For example:
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+
+Redis functions are available on [the `Redis` object](https://fermyon.github.io/spin-js-sdk/variables/Redis.html). The function names match the operations above, but you must pass the Redis instance address to _each_ operation as its first parameter. For example:
 
 ```javascript
 import {Redis} from "@fermyon/spin-sdk"

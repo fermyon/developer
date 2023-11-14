@@ -70,6 +70,8 @@ For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK refe
 
 {{ startTab "TypeScript"}}
 
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+
 The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_pg) available.
 
 ```ts

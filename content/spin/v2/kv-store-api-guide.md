@@ -79,7 +79,9 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
 
 {{ startTab "Typescript"}}
 
-With Typescript, the key value functions can be accessed after opening a store using either the `Kv.open` or the `Kv.openDefault` methods which returns a handle to the store. For example:
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+
+With Typescript, the key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://fermyon.github.io/spin-js-sdk/variables/Kv.html) which returns a [handle to the store](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html). For example:
 
 ```javascript
 import { HandleRequest, HttpRequest, HttpResponse, Kv } from "@fermyon/spin-sdk"
@@ -99,14 +101,14 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 **General Notes**
 - The spinSdk object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the @fermyon/spin-sdk package. For example: 
 
-`get` **Operation**
+[`get` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#get)
 - The result is of the type `ArrayBuffer | null`
 - If the key does not exist, `get` returns `null`
 
-`set` **Operation**
+[`set` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#set)
 - The value argument is of the type `ArrayBuffer | string`.
 
-`setJson` and `getJson` **Operation**
+[`setJson`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#setJson) and [`getJson` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#getJson)
 - JavaScript and TypeScript applications can store JavaScript objects using `setJson`; these are serialized within the store as JSON. These serialized objects can be retrieved and deserialized using `getJson`. If you call `getJson` on a key that doesn't exist then an error is thrown (note that this is different behavior from `get`).
 
 {{ blockEnd }}
