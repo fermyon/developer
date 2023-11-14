@@ -10,7 +10,7 @@ type= "changelog_post"
 
 ## Spin Cloud v0.5.1 Patch Update
 
-Fermyon recently released `spin cloud` v0.5.1 patch update to fix an issue introduced in v0.5.0 where `allowed_http_hosts` behaving unexpectedly (allow-listed domains were still not reachable). This issue has been fixed in this latest patch update. To upgrade your `spin cloud` plugin, please using the following command:
+Fermyon recently released `spin cloud` v0.5.1 patch update to fix an issue introduced in v0.5.0 where `allowed_http_hosts` behaves unexpectedly (allow-listed domains were still not reachable). This issue has been fixed in this latest patch update. To upgrade your `spin cloud` plugin, please using the following command:
 
 ```bash
 spin plugins upgrade cloud
