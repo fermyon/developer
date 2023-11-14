@@ -1,4 +1,4 @@
-title = "Spin Cloud v0.5 Updates"
+title = "Spin Cloud v0.5.1 Patch Update"
 template = "changelog_item"
 date = "2023-11-13T12:00:00Z"
 enable_shortcodes = true
