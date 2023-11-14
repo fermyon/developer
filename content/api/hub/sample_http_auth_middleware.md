@@ -8,7 +8,7 @@ tags = ["rust", "authentication", "http"]
 author = "fermyon"
 type = "hub_document"
 category = "Sample"
-language = “Rust"
+language = "Rust"
 created_at = "2023-11-03T00:00:00Z"
 last_updated = "2023-11-07T00:00:00Z"
 spin_version = ">=v2.0"
