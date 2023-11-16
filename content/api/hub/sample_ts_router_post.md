@@ -1,4 +1,4 @@
-title = "Handle POST requests with Spin's JS/TS Router"
+title = "Handle POST Requests with Spin's JS/TS Router"
 template = "render_hub_content_body"
 date = "2023-11-15T00:00:00Z"
 content-type = "text/html"
