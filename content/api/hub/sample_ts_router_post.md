@@ -25,9 +25,15 @@ This example illustrates how to pass the HTTP body from Spin's SDK all the way t
 ```typescript
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
   let router = Router()
+
+  // This gets the base path from the request, which is considered better
+  // than hardcoding it. Now, when the `route` is changed in spin.toml,
+  // our code does not need to change.
+  let basePath = request.headers["spin-component-route"]
+
   // Note that we pass `request.body` as the second param.
   // That contains an ArrayBuffer with the encoded body.
-  router.post("/", (req, body) => {
+  router.post(basePath, (req, body) => {
 
     // Decode the ArrayBuffer into a string
     let decodedBody = decoder.decode(body)
