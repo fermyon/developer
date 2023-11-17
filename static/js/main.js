@@ -1406,6 +1406,8 @@ class FeedBack {
         if (content) {
             let data = {
                 page: this.pageTitle,
+                url: window.location.pathname,
+                config: localStorage.getItem("toggleTabSelections"),
                 feedback: content
             };
             await fetch("https://submit-form.com/c3jrxv8A", {
