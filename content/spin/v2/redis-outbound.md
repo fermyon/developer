@@ -88,7 +88,7 @@ You can find a complete Rust code example for using outbound Redis from an HTTP 
 
 {{ startTab "TypeScript"}}
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
 Redis functions are available on [the `Redis` object](https://fermyon.github.io/spin-js-sdk/variables/Redis.html). The function names match the operations above, but you must pass the Redis instance address to _each_ operation as its first parameter. For example:
 
@@ -116,7 +116,9 @@ You can find a complete TypeScript example for using outbound Redis from an HTTP
 
 {{ startTab "Python"}}
 
-Redis functions are available in the `spin_redis` module. The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_redis.html)
+
+Redis functions are available in [the `spin_redis` module](https://fermyon.github.io/spin-python-sdk/spin_redis.html). The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
 
 ```python
 from spin_redis import redis_get
@@ -138,7 +140,7 @@ You can find a complete Python code example for using outbound Redis from an HTT
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/redis)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/redis)
 
 Redis functions are available in the `github.com/fermyon/spin/sdk/go/v2/redis` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/redis) The function names are TitleCased. For example:
 

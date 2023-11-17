@@ -59,6 +59,8 @@ This page contains information about language support for Spin features:
 
 {{ startTab "Python"}}
 
+[Visit the Spin SDK reference documentation.](https://fermyon.github.io/spin-python-sdk/)
+
 | Feature | SDK Supported? |
 |-----|-----|
 | **Triggers** |

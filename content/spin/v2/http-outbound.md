@@ -99,7 +99,9 @@ You can find a complete example of using outbound HTTP in the JavaScript SDK rep
 
 {{ startTab "Python"}}
 
-HTTP functions and classes are available in the `spin_http` module. The function name is `http_send`. The request type is `Request`, and the response type is `Response`. For example:
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_http.html)
+
+HTTP functions and classes are available in the `spin_http` module. The function name is [`http_send`](https://fermyon.github.io/spin-python-sdk/spin_http.html#spin_sdk.spin_http.http_send). The [request type](https://fermyon.github.io/spin-python-sdk/spin_http.html#spin_sdk.spin_http.Request) is `Request`, and the [response type](https://fermyon.github.io/spin-python-sdk/spin_http.html#spin_sdk.spin_http.Response) is `Response`. For example:
 
 ```python
 from spin_http import Request, Response, http_send
@@ -121,7 +123,7 @@ You can find a complete example for using outbound HTTP in the [Python SDK repos
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/http)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/http)
 
 HTTP functions are available in the `github.com/fermyon/spin/sdk/go/v2/http` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/http) The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations. For example:
 

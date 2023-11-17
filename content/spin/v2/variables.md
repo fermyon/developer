@@ -116,7 +116,7 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 
 {{ startTab "TypeScript"}}
 
-[**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Config.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Config.html)
 
 The function is available on [the `Config` object](https://fermyon.github.io/spin-js-sdk/variables/Config.html) and is named [`get`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.SpinConfig.html#get).
 
@@ -149,7 +149,9 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-The config function is available in the `spin_config` package and is named `config_get`.
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_config.html)
+
+The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/spin_config.html#spin_sdk.spin_config.config_get).
 
 > Note that the prefix/suffix is `config` rather than `variables`.
 
@@ -173,7 +175,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/variables)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/variables)
 
 The function is available in the `github.com/fermyon/spin/sdk/go/v2/variables` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/variables) for reference documentation.
 

@@ -95,7 +95,7 @@ The Python SDK doesn't currently support Redis components.  Please [let us know]
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/redis)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/redis)
 
 In Go, you register the handler as a callback in your program's `init` function.  Call `redis.Handle` (from the Spin SDK `redis` package), passing your handler as the sole argument.  Your handler takes a single byte slice (`[]byte`) argument, and may return an error or `nil`.
 

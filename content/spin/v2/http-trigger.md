@@ -244,7 +244,7 @@ For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://fer
 
 {{ startTab "TypeScript"}}
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
 In JavaScript or TypeScript, the handler is identified by name.  It must be called `handleRequest`.  The way you declare it is slightly different between the two languages.
 
@@ -278,6 +278,8 @@ export const handleRequest: HandleRequest = async function(request: HttpRequest)
 
 {{ startTab "Python"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/)
+
 In Python, the handler is identified by name.  It must be called `handle_request`.  It takes a request object and must return an instance of `Response`, defined in the `spin_http` package:
 
 ```python
@@ -293,7 +295,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/http)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/http)
 
 In Go, you register the handler as a callback in your program's `init` function.  Call `spinhttp.Handle`, passing your handler as the sole argument.  Your handler takes a `http.Request` record, from the standard `net/http` package, and a `ResponseWriter` to construct the response.
 
