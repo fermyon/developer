@@ -45,6 +45,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/kubernetes
 
 In addition to `spin up` Fermyon also offers Fermyon Cloud to deploy spin apps into production, so why use Spin with Kubernetes? For users that have made existing investments into Kubernetes or have requirements that their applications stay within certain clouds, not be on shared infrastructure, or run on-premise, Kubernetes provides a robust solution.
 
+> Fermyon wants to know how we can build you the best Spin experience on Kuberenetes. Let us know what you need to effeciently run Spin applications at scale on Kubernetes with this [short survey](https://fibsu0jcu2g.typeform.com/to/H8G8Nzgs?utm_campaign=thanks&utm_source=hs_email&utm_medium=email&_hsenc=p2ANqtz-_IwqD36cFYu9skvZBobOVZjjdXtGO3Z126WweaeKBWZz8wM4G_LZG7L0esIOS4tcASX8LM).  
+
 ## How Does It Work?
 
 For Kubernetes to run Spin workloads, it needs to be taught about a new runtime class. To do this, there is a shim for containerd. This compiles to a binary that must be placed on the Kubernetes nodes that host Shim pods. That binary then needs to be registered with Kubernetes as a new RuntimeClass. After that, wasm containers can be deployed to Kubernetes using the Spin k8s plugin.
