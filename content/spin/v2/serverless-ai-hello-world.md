@@ -27,6 +27,10 @@ In this tutorial we will:
 * Create a ‘Hello World’ Serverless AI application
 * Learn about the Serverless AI SDK (in Rust, TypeScript and Python)
 
+Here's a video walkthrough of this tutorial
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TyP-BSy-gi4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+
 ## Tutorial Prerequisites
 
 ### Spin
