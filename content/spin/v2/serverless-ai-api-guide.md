@@ -110,7 +110,7 @@ The `infer_with_options` examples, operation:
 
 {{ startTab "Typescript"}}
 
-[**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Llm.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Llm.html)
 
 To use Serverless AI functions, [the `Llm` module](https://fermyon.github.io/spin-js-sdk/variables/Llm.html) from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example: 
 
@@ -148,6 +148,8 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_llm.html)
+
 ```python
 from spin_http import Response
 from spin_llm import llm_infer
@@ -163,17 +165,17 @@ def handle_request(request):
 
 **General Notes**
 
-`llm_infer` operation:
+[`llm_infer` operation](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.llm_infer):
 
-- It takes in the following arguments - model name and `prompt`. 
+- It takes in a model name, prompt text, and optionally a [parameter object](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.LLMInferencingParams) to control the inferencing. 
 - The model name is passed in as a string (as shown above; `"llama2-chat"`).
-- The return value is a `string`.
+- The return value is am [`InferencingResult` object](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.LLMInferencingResult) - use the `text` attribute to get the inferred response.
 
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/llm)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/llm)
 
 Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/v2/llm` package. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/llm) for reference documentation. For example:
 

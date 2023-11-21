@@ -79,7 +79,7 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
 
 {{ startTab "Typescript"}}
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
 With Typescript, the key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://fermyon.github.io/spin-js-sdk/variables/Kv.html) which returns a [handle to the store](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html). For example:
 
@@ -115,6 +115,8 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_key_value.html)
+
 The key value functions are provided through the `spin_key_value` module in the Python SDK. For example:
 
 ```python
@@ -134,7 +136,7 @@ def handle_request(request):
 
 **General Notes**
 
-`get` **Operation**
+[`get` **Operation**](https://fermyon.github.io/spin-python-sdk/spin_key_value.html#spin_sdk.spin_key_value.Store.get)
 - If a key does not exist, it returns `None`
 
 {{ blockEnd }}

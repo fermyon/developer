@@ -70,7 +70,7 @@ For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK refe
 
 {{ startTab "TypeScript"}}
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
 The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_pg) available.
 
@@ -119,7 +119,7 @@ The Python SDK doesn't currently surface the MySQL or PostgreSQL APIs.
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
 
 MySQL functions are available in the `github.com/fermyon/spin/sdk/go/v2/mysql` package, and PostgreSQL in `github.com/fermyon/spin/sdk/go/v2/pg`. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
 

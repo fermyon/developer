@@ -26,6 +26,8 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 
 > This guide assumes you are familiar with the Python programming language, but if you are just getting started, be sure to check out <a href="https://docs.python.org/3/" target="_blank">the official Python documentation</a> and comprehensive <a href="https://docs.python.org/3/reference/" target="_blank">language reference</a>.
 
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/)
+
 **Please note:** There is a blog article [introducing the release of this Spin Python SDK](https://www.fermyon.com/blog/spin-python-sdk) if you are interested in some further reading; in addition to this technical documentation.
 
 ## Spin's Python Plugin
