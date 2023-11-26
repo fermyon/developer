@@ -244,6 +244,33 @@
 		}
 	}
 
+    body .klaro .cookie-notice:not(.cookie-modal-notice) {
+        padding: 1.5rem 2rem !important;
+
+        .cn-body {
+            .cn-learn-more {
+                position: absolute;
+                left: 2.75rem !important;
+                bottom: 6.25rem !important;
+                color: $lavenderdark;
+            }
+            
+            p {
+                padding-bottom: 2rem;
+            }
+        }
+
+        .cn-body .cn-buttons, .cn-ok {
+            width: 100% !important;
+
+            button {
+                font-size: 0.925rem !important;
+                padding: 0.5rem !important;
+                min-width: 45% !important;
+            }
+        }
+    }
+
 	html.dark-theme {
         .dropdown-content {
             background-color: #213762;
@@ -285,6 +312,10 @@
 			}
 		}
 	}
+
+    body .klaro .cookie-notice .cn-body p {
+        max-width: 67%;
+    }
 }
 
 // small desktops
@@ -334,6 +365,10 @@
 
     .documentation .content.content-docs.content-docs-wide section {
         max-width: 700px !important;
+    }
+
+    body .klaro .cookie-notice .cn-body p {
+        max-width: 67%;
     }
 }
 

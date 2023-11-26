@@ -1,3 +1,32 @@
+var klaroConfig = {
+    version: 1,
+    elementID: 'klaro',
+    styling: {
+        theme: ['light', 'bottom', 'wide'],
+    },
+    noAutoLoad: false,
+    htmlTexts: true,
+    embedded: false,
+    groupByPurpose: true,
+    storageMethod: 'cookie',
+    cookieName: 'klaro',
+    cookieExpiresAfterDays: 365,
+    default: true,
+    mustConsent: false,
+    acceptAll: true,
+    hideDeclineAll: false,
+    hideLearnMore: false,
+    noticeAsModal: false,
+    services: [
+        {
+            name: 'google-tag-manager',
+            title: 'Google Tag Manager',
+            purposes: ['analytics'],
+            cookies: ['_ga', '_gid', '_gat', '_gat_UA-218333798-1', '_ga_DXM7W0VBXS']
+        }
+    ],
+};
+
 // modules are defined as an array
 // [ module function, map of requires ]
 //

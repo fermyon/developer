@@ -473,4 +473,49 @@ html.dark-theme {
             background-color: rgba(124, 109, 185, 0.2);
         }
 	}
+
+    .klaro {
+        .cookie-notice:not(.cookie-modal-notice) {
+            background-color: white !important;
+
+            .cn-body {
+                p {
+                    color: $oxforddark;
+
+                    strong {
+                        color: $oxforddark !important;
+                    }
+
+                    a {
+                        color: $lavenderdark !important;
+                    }
+                }
+
+                .cn-learn-more {
+                    color: $lavenderdark;
+                }
+    
+                .cn-buttons {
+                    button {
+                        color: white;
+    
+                        &.cm-btn.cm-btn-success {
+                            background-color: $seagreen !important;
+                            color: $oxfordblue !important;
+                        }
+    
+                        &.cn-decline {
+                            background-color: transparent !important;
+                            color: $oxforddark !important;
+                            border: 1px solid $oxforddark !important;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .cookie-modal .cm-modal .cm-header h1 {
+            color: $oxforddark;
+        }
+    }
 }
