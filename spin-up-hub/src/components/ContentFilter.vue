@@ -41,20 +41,20 @@ export default {
   <div class="content-filters column is-one-fifth-desktop is-full-touch">
 
     <div class="contribute">
-        <a class="button is-primary is-rounded is-medium" href="/hub/contributing">Add New</a>
+        <a class="button is-primary is-rounded is-medium plausible-event-name=hub-btn-add" href="/hub/contributing">Add New</a>
     </div>
         
     <div class="filter-group">
       <div class="filter-category">Resource Types:</div>
       <div v-for="item in contentTypes" class="tag" v-bind:class="isActiveContentType(item)" @click="toggleContentFilter(item)">
-        <a>{{ item }}</a>
+        <a class="plausible-event-name=hub-filter-type">{{ item }}</a>
       </div>
     </div>
 
     <div class="filter-group">
       <div class="filter-category"> Languages:</div>
       <div v-for="item in languages" class="tag" v-bind:class="isActiveLanguage(item)" @click="toggleLanguageFilter(item)">
-        <a>{{ item }}</a>
+        <a class="plausible-event-name=hub-filter-lang">{{ item }}</a>
       </div>
     </div>
     

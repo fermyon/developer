@@ -58,7 +58,7 @@ export default {
             </h1>
 
             <div class="search-wrap">
-              <input id="hub-search-input" v-model="searchTerm" class="search-input" @focus="loadSearchData" type="text"
+              <input id="hub-search-input" v-model="searchTerm" class="search-input plausible-event-name=hub-search-input" @focus="loadSearchData" type="text"
                 placeholder="Search for Spin app templates, plugins and examples" /><span class="search-icon"></span>
             </div>
           </div>

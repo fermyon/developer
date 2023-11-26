@@ -60,11 +60,11 @@ export default {
                             <div class="meta-info">
                                 <div class="metadata">
                                     <div class="name">Url</div>
-                                    <div class="value"><a :href="modalData.url">{{ modalData.url }}</a></div>
+                                    <div class="value"><a :href="modalData.url" class="plausible-event-name=hub-git-url">{{ modalData.url }}</a></div>
                                 </div>
                                 <div class="metadata">
                                     <div class="name">Submitted by</div>
-                                    <div class="value"><a :href="'https://github.com/' + modalData.author">@{{
+                                    <div class="value"><a :href="'https://github.com/' + modalData.author" class="plausible-event-name=hub-git-author">@{{
                                         modalData.author
                                     }}</a>
                                         <svg v-if="verified" version="1.1" viewBox="0 0 1200 1200"
@@ -98,10 +98,10 @@ export default {
                                 </div>
                             </div>
                             <div class="meta-cta">
-                                <a class="is-btn button is-rounded non-primary" target="_blank" :href="modalData.url">
+                                <a class="is-btn button is-rounded non-primary plausible-event-name=hub-git-btn" target="_blank" :href="modalData.url">
                                     View on Github
                                 </a>
-                                <a v-if="modalData.artifactSource" class="is-btn button is-rounded is-primary"
+                                <a v-if="modalData.artifactSource" class="is-btn button is-rounded is-primary plausible-event-name=hub-btn-deploy"
                                     target="_blank"
                                     :href="`https://cloud.fermyon.com/deploy?artifact=` + modalData.artifactSource + `${this.$store.state.deployUTM}`">
                                     Deploy to cloud
