@@ -454,6 +454,8 @@ As mentioned above, all pages (`.md` files) in the documentation have a UTC date
 {{/if}}
 ```
 
+> In order to keep the code tidy and readable it is advised to remove the `if` logic (from the `.hbs` file) that wraps the content, once the `timed_publish` has elapsed.
+
 ### 7. Checking Web Pages
 
 The `bart check` command can be used to check the content. Simply pass in the content as a parameter. The developer documentation [uses shortcodes](/bartholomew/shortcodes), so always pass `--shortcodes ./shortcodes` as shown below:
