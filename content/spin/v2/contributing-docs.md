@@ -27,6 +27,7 @@ keywords = "contribute contributing"
   - [6.5 How To Properly Edit CSS Styles](#65-how-to-properly-edit-css-styles)
   - [6.6 Checking Your Content - Using Bartholomew's CLI](#66-checking-your-content---using-bartholomews-cli)
   - [6.7 Checking Your Content - Preview a Documentation Page on Localhost](#67-checking-your-content---preview-a-documentation-page-on-localhost)
+  - [6.8 Scheduling Menu Items for Timed Release](#68-scheduling-menu-items-for-timed-release)
   - [7. Checking Web Pages](#7-checking-web-pages)
   - [8. Add Changes](#8-add-changes)
   - [9. Commit Changes](#9-commit-changes)
