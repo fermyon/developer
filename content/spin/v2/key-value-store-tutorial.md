@@ -401,14 +401,15 @@ func main() {}
 
 {{ blockEnd }}
 
-## Building and Deploying Your Spin Application
+## Building and Running Your Spin Application
 
-Now let's build and deploy our Spin Application locally. Run the following command to build your application: 
+Now, let's build and run our Spin Application locally. Run the following command to build your application: 
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin build
+$ spin up
 ```
 
 ## Storing and Retrieving Data From Your Default Key/Value Store
