@@ -439,7 +439,19 @@ $ spin build
 $ spin up -e "PREVIEW_MODE=1"
 ```
 
-> Please note: using the `PREVIEW_MODE=1` as part of a `spin` command is safe on localhost and allows you to view content (even if the `date` setting in the content's `.md` is set to a future date). It is often the case that you will be checking content before the publishing date via your system. The developer documentation's manifest file `spin.toml` has the `PREVIEW_MODE` set to `0` i.e. `environment = { PREVIEW_MODE = "0" }`. This `spin.toml` file is correct for a production environment and should always be `0` (so that the CMS adheres to the publishing `date` setting for content on the public site). Simply put, you can use `PREVIEW_MODE=1` safely in your command line on your locahost but you should never update the `spin.toml` file (in this regard).
+> Please note: using the `PREVIEW_MODE=1` as part of a `spin` command is safe on localhost and allows you to view the content (even if the `date` setting in the content's `.md` is set to a future date). It is often the case that you will be checking content before the publishing date via your system. The developer documentation's manifest file `spin.toml` has the `PREVIEW_MODE` set to `0` i.e. `environment = { PREVIEW_MODE = "0" }`. This `spin.toml` file is correct for a production environment and should always be `0` (so that the CMS adheres to the publishing `date` setting for content on the public site). Simply put, you can use `PREVIEW_MODE=1` safely in your command line on your localhost but you should never update the `spin.toml` file (in this regard).
+
+### 6.8 Scheduling Menu Items for Timed Release
+
+As mentioned above, all pages (`.md` files) in the documentation have a UTC date i.e. `date = "2023-07-25T17:26:00Z"`. The `date` is a page scheduling mechanism whereby each page is only displayed if the `date` has elapsed. Menu items (found in the `/developer/templates/*.hbs` files) that relate to a scheduled page can also be scheduled (so the specific menu item and its associated page appear at the same time). Simply envelope the menu item with the following `if` syntax to synchronize the appearance of the menu item with the related page:
+
+<!-- @nocpy -->
+
+```
+{{#if (timed_publish "2023-07-25T17:26:00Z" env.PREVIEW_MODE)}}
+    // Scheduled menu item for timed release
+{{/if}}
+```
 
 ### 7. Checking Web Pages
 
