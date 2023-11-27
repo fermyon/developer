@@ -94,7 +94,7 @@ Open the Spin application's `spin.toml` file and add an environment configuratio
 <!-- @nocpy -->
 
 ```toml
-environment = { REDIS_ADDRESS = "redis://username:password@redis.cloud.redislabs.com:15730" }
+environment = { REDIS_ADDRESS = "redis://username:password@redis-1234.redislabs.com:15730" }
 ```
 
 > Note: As shown above; the format for the `address` is the redis protocol (`redis://`, username, colon (`:`), password, then the at symbol (`@`), database name, colon (`:`) and finally the port number. You can obtain these values from the Redislabs site from the previous step.
