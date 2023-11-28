@@ -69,7 +69,7 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
 `get` **Operation**
 - For get, the return value is of type `Option<Vec<u8>>`. If the key does not exist it returns `None`.
 
-`open` **Operation**
+`open` and `close` **Operations**
 - The close operation is not surfaced; it is called automatically when the store is dropped.
 
 `set_json` and `get_json` **Operation**
@@ -100,6 +100,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 **General Notes**
 - The spinSdk object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the @fermyon/spin-sdk package. For example: 
+- The JavaScript SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
 [`get` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#get)
 - The result is of the type `ArrayBuffer | null`
@@ -127,14 +128,15 @@ from spin_key_value import kv_open_default
 def handle_request(request):
 
     store = kv_open_default()
-    store.set("mykey", "myvalue")
-    value = store.get()
+    store.set("mykey", b"myvalue")
+    value = store.get("mykey")
     //
     return Response(status, [("content-type", "text/plain")], value)   
 
 ```
 
 **General Notes**
+- The Python SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
 [`get` **Operation**](https://fermyon.github.io/spin-python-sdk/spin_key_value.html#spin_sdk.spin_key_value.Store.get)
 - If a key does not exist, it returns `None`
@@ -156,6 +158,7 @@ func example() error {
         return err
     }
     defer store.Close()
+    previous, err := store.Get("mykey")
     return store.Set("mykey", []byte("myvalue"))
 }
 
