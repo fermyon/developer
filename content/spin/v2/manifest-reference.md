@@ -129,7 +129,7 @@ Each array entry contains a mix of common fields and trigger-specific fields.
 
 ## The `component` Table
 
-The keys of the `component` table, usually written as part of the table syntax e.g. `[component.my-component]`, are user-defined.  (In the preceding example, the key is `my-component`). Component names must be kebab-cased, i.e. the only permitted separator is a hyphen.
+The keys of the `component` table, usually written using TOML table syntax e.g. `[component.my-component]`, are ids of components.  Component ids must be kebab-cased, i.e. the only permitted separator is a hyphen.  In the following example, `my-component` is used as an example component id.
 
 The value of each key is a table with the following fields.
 
@@ -147,8 +147,8 @@ The value of each key is a table with the following fields.
 | `allowed_outbound_hosts` | Optional  | Array of strings | The addresses to which the Wasm component is allowed to send network requests. This applies to the outbound HTTP, outbound Redis, MySQL and PostgreSQL APIs. (It does not apply to built-in storage services such as key-value and SQLite.) Each entry must contain both a scheme, a name (or IP address) and a port in `scheme://name:port` format. For known schemes, you may omit the port if it is the default for the scheme. Use `*` for wildcards. If this field is omitted or an empty list, no outbound access is permitted. | `["mysql://db.example.com", "*://example.com:4567", "http://127.0.0.1:*"]` |
 | `key_value_stores`      | Optional   | Array of strings | An array of key-value stores that the Wasm module is allowed to read or write. A store named `default` is provided by the Spin runtime, though modules must still be permitted to access it. In current versions of Spin, `"default"` is the only store allowed. | `["default"]` |
 | `environment`           | Optional   | Table       | Environment variables to be set for the Wasm module. This is a table. The table keys are user-defined; the values must be strings. | `{ DB_URL = "mysql://spin:spin@localhost/dev" }` |
-| `build`                 | Optional   | Table       | The command that `spin build` uses to build this component. See [The `component.(id).build` Table](#the-componentidbuild-table) below. | `[component.cart.build]`<br />`command = "npm run build"` |
-| `variables`             | Optional   | Table       | Dynamic configuration values to be made available to this component. The table keys are user-defined; the values must be strings, and may use template notation as described under [Dynamic Configuration](dynamic-configuration). | `[component.cart.variables]`<br />`api_base_url = "https://{{ api_host }}/v1"` |
+| `build`                 | Optional   | Table       | The command that `spin build` uses to build this component. See [The `component.(id).build` Table](#the-componentidbuild-table) below. | `[component.my-component.build]`<br />`command = "npm run build"` |
+| `variables`             | Optional   | Table       | Dynamic configuration values to be made available to this component. The table keys are user-defined; the values must be strings, and may use template notation as described under [Dynamic Configuration](dynamic-configuration). | `[component.my-component.variables]`<br />`api_base_url = "https://{{ api_host }}/v1"` |
 
 > If you're familiar with manifest version 1, note that:
 > * The component `id` is no longer a field within a `[[component]]`, but the key of the component in the table, written as part of the `[component.(id)]` header.
