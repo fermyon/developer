@@ -169,7 +169,7 @@ This is equivalent to running `spin up` immediately after `spin build`.  It acce
 
 ## Overriding the Working Directory
 
-By default, the `command` to build a component is executed in the directory containing the `spin.toml` file. If a component's entire build source is under a subdirectory, it is often more convenient to build in that subdirectory rather than try to pass the path to the build command. You can do this by setting the `workdir` option in the `component.build` table.
+By default, the `command` to build a component is executed in the directory containing the `spin.toml` file. If a component's entire build source is under a subdirectory, it is often more convenient to build in that subdirectory rather than try to pass the path to the build command. You can do this by setting the `workdir` option in the `component.(id).build` table.
 
 For example, consider this Rust component located in subdirectory `deep`:
 

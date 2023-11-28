@@ -626,10 +626,10 @@ If the build fails, check:
 * Did you successfully [install the `wasm32-wasi` target](#install-the-tools)?
 * Is your version of Rust up to date (`cargo --version`)?  The Spin SDK needs Rust 1.64 or above.
 
-If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.build` section:
+If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
 ```toml
-[component.build]
+[component.hello-rust.build]
 command = "cargo build --target wasm32-wasi --release"
 ```
 
@@ -683,10 +683,10 @@ If the build fails, check:
 * Did you run `npm install` before building`?
 * Did you install the `js2wasm` plugin?
 
-If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.build` section:
+If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
 ```toml
-[component.build]
+[component.hello-typescript.build]
 command = "npm run build"
 ```
 
@@ -710,10 +710,10 @@ If the build fails, check:
 * Are you in the `hello_python` directory?
 * Did you install the `py2wasm` plugin?
 
-If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.build` section:
+If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
 ```toml
-[component.build]
+[component.hello-python.build]
 command = "spin py2wasm app -o app.wasm"
 ```
 
@@ -739,10 +739,10 @@ If the build fails, check:
 * Are your versions of Go and TinyGo up to date?  The Spin SDK needs TinyGo 0.27 or above.
 * Set Environment Variable `CGO_ENABLED=1`. (Since the Go SDK is built using CGO, it requires the CGO_ENABLED=1 environment variable to be set.)
 
-If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.build` section:
+If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
 ```toml
-[component.build]
+[component.hello-go.build]
 command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 ```
 
