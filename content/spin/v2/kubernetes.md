@@ -253,7 +253,7 @@ Deis Labs provides a preconfigured K3d environment that can be run using this co
 <!-- @selectiveCpy -->
 
 ```console
-$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.8.0 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
+$ k3d cluster create wasm-cluster --image ghcr.io/deislabs/containerd-wasm-shims/examples/k3d:v0.10.0 -p "8081:80@loadbalancer" --agents 2 --registry-create mycluster-registry:12345
 ```
 
 Create a file wasm-runtimeclass.yml and populate with the following information:
@@ -262,7 +262,7 @@ Create a file wasm-runtimeclass.yml and populate with the following information:
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
-  name: "wasmtime-spin-v1"
+  name: "wasmtime-spin"
 handler: "spin"
 ```
 
@@ -295,8 +295,10 @@ We provide the [spin-containerd-shim-installer](https://github.com/fermyon/spin-
 
 The version of the container image and Helm chart directly correlates to the version of the containerd shim. We recommend selecting the shim version that correlates the version of Spin that you use for your application(s). For simplicity, here is a table depicting the version matrix between Spin and the containerd shim.
 
-| [Spin](https://github.com/fermyon/spin/releases)              | [containerd-shim-spin-v1](https://github.com/deislabs/containerd-wasm-shims/releases) |
+| [Spin](https://github.com/fermyon/spin/releases)              | [containerd-shim-spin](https://github.com/deislabs/containerd-wasm-shims/releases) |
 | ------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [v2.0.1](https://github.com/fermyon/spin/releases/tag/v2.0.1) | [v0.10.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.10.0)       |
+| [v1.4.1](https://github.com/fermyon/spin/releases/tag/v1.4.1) | [v0.9.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.9.0)       |
 | [v1.4.0](https://github.com/fermyon/spin/releases/tag/v1.4.0) | [v0.8.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.8.0)       |
 | [v1.3.0](https://github.com/fermyon/spin/releases/tag/v1.3.0) | [v0.7.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.7.0)       |
 | [v1.1.0](https://github.com/fermyon/spin/releases/tag/v1.1.0) | [v0.6.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.6.0)       |
@@ -395,7 +397,7 @@ COPY ./spin_static_fs.wasm ./spin_static_fs.wasm
 COPY ./static ./static
 ```
 
-The deploy.yaml file defines the deployment to the Kubernetes server. By default the replicas is configured as 3, however this can be edited after the scaffolding stage and before the deployment stage. Additionally, the runtimeClassName is defined as wasmtime-spin-v1. It’s critical that that is the exact name used when setting up the Kubernetes service to support Spin, or that the deployment be edited to the appropriate name.
+The deploy.yaml file defines the deployment to the Kubernetes server. By default the replicas is configured as 3, however this can be edited after the scaffolding stage and before the deployment stage. Additionally, the runtimeClassName is defined as wasmtime-spin. It’s critical that that is the exact name used when setting up the Kubernetes service to support Spin, or that the deployment be edited to the appropriate name.
 
 deploy.yaml
 
@@ -414,7 +416,7 @@ spec:
       labels:
         app: test
     spec:
-      runtimeClassName: wasmtime-spin-v1
+      runtimeClassName: wasmtime-spin
       containers:
         - name: test
           image: chrismatteson/test:0.1.5
@@ -485,7 +487,7 @@ $ spin k8s deploy
 
 #### Spin K8s Getsvc
 
-The following command retrieves information about the service that gets deployed (such as it’s external IP):
+The following command retrieves information about the service that gets deployed (such as its external IP):
 
 <!-- @selectiveCpy -->
 
