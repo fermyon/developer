@@ -230,7 +230,7 @@ component = "echo-message"
 
 [component.echo-message]
 source = "main.wasm"
-[component.build]
+[component.echo-message.build]
 command = "tinygo build -wasm-abi=generic -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 ```
 

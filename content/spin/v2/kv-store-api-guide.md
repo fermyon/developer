@@ -177,7 +177,7 @@ Spin defines a key-value store named `"default"` and provides automatic backing 
 By default, a given component of an app will not have access to any key value store. Access must be granted specifically to each component via the component manifest:
 
 ```toml
-[component]
+[component.example]
 # Pass in 1 or more key value stores, based on how many you'd like your component to have access to
 key_value_stores = ["<store 1>", "<store 2>"]
 ```

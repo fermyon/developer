@@ -88,9 +88,9 @@ E.g. `spin watch --listen 127.0.0.1:3001`
 By default, Spin watch monitors:
 
 * The application manifest (`spin.toml` file)
-* Any files specified in the `component.build.watch` sections of the `spin.toml` file
-* Any files specified in the `component.files` sections of the `spin.toml` file
-* The files specified in the `component.source` sections of the `spin.toml` file
+* Any files specified in the `component.(id).build.watch` sections of the `spin.toml` file
+* Any files specified in the `component.(id).files` sections of the `spin.toml` file
+* The files specified in the `component.(id).source` sections of the `spin.toml` file
 
 If any of these change, Spin will rebuild the application if necessary, then restart the application with the new files.
 
@@ -113,7 +113,7 @@ watch = ["src/**/*.rs", "Cargo.toml"]
 
 If the `build` section specifies a `workdir`, then `watch` patterns are relative to that directory. Otherwise, `watch` patterns are relative to the directory containing the `spin.toml` file.
 
-If you would prefer Spin watch to only rerun the application (without a rebuild) when changes occur, you can use the `--skip-build` option when running the `spin watch` command.  In this case, Spin will ignore the `component.build.watch` section, and monitor only the `spin.toml`, `component.source` and `component.files`.
+If you would prefer Spin watch to only rerun the application (without a rebuild) when changes occur, you can use the `--skip-build` option when running the `spin watch` command.  In this case, Spin will ignore the `component.(id).build.watch` section, and monitor only the `spin.toml`, `component.source` and `component.files`.
 
 The table below outlines exactly which files `spin watch` will monitor for changes depending on how you run the command. `spin watch` uses the configuration found on every component in your application.
 

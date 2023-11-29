@@ -24,7 +24,7 @@ For example, say an application needs to access a secret. A `[variables]` sectio
 <!-- @nocpy -->
 
 ```toml
-# Add this above the [component] section
+# Add this above the [component.<id>] section
 [variables]
 secret = { required = true }
 ```

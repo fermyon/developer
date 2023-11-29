@@ -258,17 +258,17 @@ Components can be given access to different databases, and may be granted access
 
 ```toml
 # c1 has no access to any databases
-[component]
+[component.example]
 name = "c1"
 
 # c2 can use the default database, but no custom databases
-[component]
+[component.example]
 name = "c2"
 sqlite_databases = ["default"]
 
 # c3 can use the custom databases "marketing" and "sales", which must be
 # defined in the runtime config file, but cannot use the default database
-[component]
+[component.example]
 name = "c3"
 sqlite_databases = ["marketing", "sales"]
 ```
