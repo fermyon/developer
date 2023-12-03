@@ -34,10 +34,10 @@ ai_models = ["codellama-instruct"]
 
 ### File Structure
 
-By default, the Spin framework will expect any already trained model files (which are configured as per the previous section) to be downloaded by the user and made available inside a `.spin/ai_models/` file path of a given application. For example:
+By default, the Spin framework will expect any already trained model files (which are configured as per the previous section) to be downloaded by the user and made available inside a `.spin/ai-models/` file path of a given application. For example:
 
 ```bash
-code-generator-rs/.spin/ai_models/codellama-instruct
+code-generator-rs/.spin/ai-models/codellama-instruct
 ```
 
 See the [serverless AI Tutorial](./ai-sentiment-analysis-api-tutorial) documentation for more concrete examples of implementing the Fermyon Serverless AI API, in your favorite language.
