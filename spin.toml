@@ -1,283 +1,324 @@
-spin_manifest_version = "1"
+spin_manifest_version = 2
+
+[application]
 name = "fermyon-developer"
 version = "0.1.0"
 description = "The Fermyon Developer website running on... Spin."
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
-trigger = { type = "http", base = "/" }
 
-[[component]]
+[application.trigger.http]
+base = "/"
+
+[[trigger.http]]
+id = "trigger-bartholomew"
+component = "bartholomew"
+route = "/..."
+
+[[trigger.http]]
+id = "trigger-fileserver-static"
+component = "fileserver-static"
+route = "/static/..."
+
+[[trigger.http]]
+id = "trigger-fileserver-downloads"
+component = "fileserver-downloads"
+route = "/downloads/..."
+
+[[trigger.http]]
+id = "trigger-redirect-spin-index"
+component = "redirect-spin-index"
+route = "/spin"
+
+[[trigger.http]]
+id = "trigger-redirect-cloud-index"
+component = "redirect-cloud-index"
+route = "/cloud"
+
+[[trigger.http]]
+id = "trigger-redirect-bartholomew-index"
+component = "redirect-bartholomew-index"
+route = "/bartholomew"
+
+[[trigger.http]]
+id = "trigger-redirect-spin-rust-components-http-trigger"
+component = "redirect-spin-rust-components-http-trigger"
+route = "/spin/rust-components/http-trigger"
+
+[[trigger.http]]
+id = "trigger-spin-contributing-extending-and-embedding"
+component = "spin-contributing-extending-and-embedding"
+route = "/spin/contributing/extending-and-embedding"
+
+[[trigger.http]]
+id = "trigger-spin-rust-components-redis-trigger"
+component = "spin-rust-components-redis-trigger"
+route = "/spin/rust-components/redis-trigger"
+
+[[trigger.http]]
+id = "trigger-spin-configuration"
+component = "spin-configuration"
+route = "/spin/configuration"
+
+[[trigger.http]]
+id = "trigger-spin-configuration-http-trigger"
+component = "spin-configuration-http-trigger"
+route = "/spin/configuration/http-trigger"
+
+[[trigger.http]]
+id = "trigger-spin-configuration-redis-trigger"
+component = "spin-configuration-redis-trigger"
+route = "/spin/configuration/redis-trigger"
+
+[[trigger.http]]
+id = "trigger-spin-quickstart-developing"
+component = "spin-quickstart-developing"
+route = "/spin/quickstart/developing"
+
+[[trigger.http]]
+id = "trigger-spin-quickstart-configuration"
+component = "spin-quickstart-configuration"
+route = "/spin/quickstart/configuration"
+
+[[trigger.http]]
+id = "trigger-spin-quickstart-install"
+component = "spin-quickstart-install"
+route = "/spin/quickstart/install"
+
+[[trigger.http]]
+id = "trigger-spin-quickstart-go-components"
+component = "spin-quickstart-go-components"
+route = "/spin/quickstart/go-components"
+
+[[trigger.http]]
+id = "trigger-spin-quickstart-rust-components"
+component = "spin-quickstart-rust-components"
+route = "/spin/quickstart/rust-components"
+
+[[trigger.http]]
+id = "trigger-spin-contributing"
+component = "spin-contributing"
+route = "/spin/contributing/"
+
+[[trigger.http]]
+id = "trigger-spin-kv-store-tutorial"
+component = "spin-kv-store-tutorial"
+route = "/spin/kv-store"
+
+[[trigger.http]]
+id = "trigger-redirect-contributing-common-to-spin"
+component = "redirect-contributing-common-to-spin"
+route = "/common/cli-reference"
+
+[[trigger.http]]
+id = "trigger-hub-fileserver-static"
+component = "hub-fileserver-static"
+route = "/hub/..."
+
+[[trigger.http]]
+id = "trigger-registry-tutorial"
+component = "registry-tutorial"
+route = "/spin/spin-oci"
+
+[[trigger.http]]
+id = "trigger-url-shortener-tutorial"
+component = "url-shortener-tutorial"
+route = "/spin/url-shortener"
+
+[[trigger.http]]
+id = "trigger-key-value-store-tutorial"
+component = "key-value-store-tutorial"
+route = "/spin/kv-store-tutorial"
+
+[[trigger.http]]
+id = "trigger-ai-sentiment-analysis-api-tutorial"
+component = "ai-sentiment-analysis-api-tutorial"
+route = "/spin/serverless-ai-tutorial"
+
+[[trigger.http]]
+id = "trigger-serverless-ai"
+component = "serverless-ai"
+route = "/cloud/serverless-ai"
+
+[[trigger.http]]
+id = "trigger-spin-version-proxy"
+component = "spin-version-proxy"
+route = "/spin/..."
+
+[[trigger.http]]
+id = "trigger-bartholomew-spin-v1"
+component = "bartholomew-spin-v1"
+route = "/spin/v1/..."
+
+[[trigger.http]]
+id = "trigger-bartholomew-spin-v2"
+component = "bartholomew-spin-v2"
+route = "/spin/v2/..."
+
+[component.bartholomew]
 # Using build from bartholomew main
 source = "modules/bartholomew.wasm"
-id = "bartholomew"
 environment = { PREVIEW_MODE = "0" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
-[component.trigger]
-route = "/..."
-[component.build]
+
+[component.bartholomew.build]
 command = "npm run build-index && npm run build-hub-index"
 watch = ["content/**/*", "templates/*"]
 
-[[component]]
+[component.fileserver-static]
 source = "modules/spin_static_fs.wasm"
-id = "fileserver_static"
 files = [{ source = "static/", destination = "/" }]
-[component.trigger]
-route = "/static/..."
 
-[[component]]
+[component.fileserver-downloads]
 source = "modules/spin_static_fs.wasm"
-id = "fileserver_downloads"
 files = [{ source = "downloads/", destination = "/" }]
-[component.trigger]
-route = "/downloads/..."
 
 # Redirect /spin to /spin/index
-[[component]]
-id = "redirect-spin-index"
+[component.redirect-spin-index]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "/spin/index" }
-[component.trigger]
-route = "/spin"
-executor = { type = "wagi" }
 
 # Redirect /cloud to /cloud/index
-[[component]]
-id = "redirect-cloud-index"
+[component.redirect-cloud-index]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "/cloud/index" }
-[component.trigger]
-route = "/cloud"
-executor = { type = "wagi" }
 
 # Redirect /bartholomew to /bartholomew/index
-[[component]]
-id = "redirect-bartholomew-index"
+[component.redirect-bartholomew-index]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "/bartholomew/index" }
-[component.trigger]
-route = "/bartholomew"
-executor = { type = "wagi" }
 
 # Redirect /spin/rust-components/http-trigger to /spin/http-trigger
-[[component]]
-id = "redirect-spin-rust-components-http-trigger"
+[component.redirect-spin-rust-components-http-trigger]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/http-trigger" }
-[component.trigger]
-route = "/spin/rust-components/http-trigger"
-executor = { type = "wagi" }
 
 # Redirect /spin/contributing/extending-and-embedding to /spin/extending-and-embedding
-[[component]]
-id = "spin-contributing-extending-and-embedding"
+[component.spin-contributing-extending-and-embedding]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/extending-and-embedding" }
-[component.trigger]
-route = "/spin/contributing/extending-and-embedding"
-executor = { type = "wagi" }
 
 # Redirect /spin/rust-components/redis-trigger to /spin/redis-trigger
-[[component]]
-id = "spin-rust-components-redis-trigger"
+[component.spin-rust-components-redis-trigger]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/redis-trigger" }
-[component.trigger]
-route = "/spin/rust-components/redis-trigger"
-executor = { type = "wagi" }
 
 # Redirect /spin/configuration to /spin/writing-apps
-[[component]]
-id = "spin-configuration"
+[component.spin-configuration]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/writing-apps" }
-[component.trigger]
-route = "/spin/configuration"
-executor = { type = "wagi" }
 
 # Redirect /spin/configuration/http-trigger to /spin/http-trigger
-[[component]]
-id = "spin-configuration-http-trigger"
+[component.spin-configuration-http-trigger]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/http-trigger" }
-[component.trigger]
-route = "/spin/configuration/http-trigger"
-executor = { type = "wagi" }
 
 # Redirect /spin/configuration/redis-trigger to /spin/redis-trigger
-[[component]]
-id = "spin-configuration-redis-trigger"
+[component.spin-configuration-redis-trigger]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/redis-trigger" }
-[component.trigger]
-route = "/spin/configuration/redis-trigger"
-executor = { type = "wagi" }
 
 # Redirect /spin/quickstart/developing to /spin/quickstart
-[[component]]
-id = "spin-quickstart-developing"
+[component.spin-quickstart-developing]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/quickstart" }
-[component.trigger]
-route = "/spin/quickstart/developing"
-executor = { type = "wagi" }
 
 # Redirect /spin/quickstart/configuration to /spin/writing-apps
-[[component]]
-id = "spin-quickstart-configuration"
+[component.spin-quickstart-configuration]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/writing-apps" }
-[component.trigger]
-route = "/spin/quickstart/configuration"
-executor = { type = "wagi" }
 
 # Redirect /spin/quickstart/install to /spin/install
-[[component]]
-id = "spin-quickstart-install"
+[component.spin-quickstart-install]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/install" }
-[component.trigger]
-route = "/spin/quickstart/install"
-executor = { type = "wagi" }
 
 # Redirect /spin/quickstart/go-components to /spin/go-components
-[[component]]
-id = "spin-quickstart-go-components"
+[component.spin-quickstart-go-components]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/go-components" }
-[component.trigger]
-route = "/spin/quickstart/go-components"
-executor = { type = "wagi" }
 
 # Redirect /spin/quickstart/rust-components to /spin/rust-components
-[[component]]
-id = "spin-quickstart-rust-components"
+[component.spin-quickstart-rust-components]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/rust-components" }
-[component.trigger]
-route = "/spin/quickstart/rust-components"
-executor = { type = "wagi" }
 
 # Redirect /spin/contributing/ to spin/contributing-spin
-[[component]]
-id = "spin-contributing"
+[component.spin-contributing]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/contributing-spin" }
-[component.trigger]
-route = "/spin/contributing/"
-executor = { type = "wagi" }
 
 # Redirect /spin/kv-store/ to spin/key-value-store-tutorial
-[[component]]
-id = "spin-kv-store-tutorial"
+[component.spin-kv-store-tutorial]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/kv-store-tutorial" }
-[component.trigger]
-route = "/spin/kv-store"
-executor = { type = "wagi" }
-
 
 # Redirecting from common to spin incase someone had it bookmarked before removal of common
-[[component]]
-id = "redirect-contributing-common-to-spin"
+[component.redirect-contributing-common-to-spin]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/cli-reference" }
-[component.trigger]
-route = "/common/cli-reference"
-executor = { type = "wagi" }
 
-[[component]]
+[component.hub-fileserver-static]
 source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
-id = "hub_fileserver_static"
-files = [{ source = "spin-up-hub/dist/", destination = "/" }]
 environment = { FALLBACK_PATH = "./index.html" }
-[component.trigger]
-route = "/hub/..."
-[component.build]
-workdir = "spin-up-hub"
+files = [{ source = "spin-up-hub/dist/", destination = "/" }]
+
+[component.hub-fileserver-static.build]
 command = "npm run build"
+workdir = "spin-up-hub"
 
 # Redirect /spin/spin-oci to /spin/registry-tutorial
-[[component]]
-id = "registry-tutorial"
+[component.registry-tutorial]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/registry-tutorial" }
-[component.trigger]
-route = "/spin/spin-oci"
-executor = { type = "wagi" }
 
 # Redirect /spin/url-shortener to /spin/url-shortener-tutorial
-[[component]]
-id = "url-shortener-tutorial"
+[component.url-shortener-tutorial]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/url-shortener-tutorial" }
-[component.trigger]
-route = "/spin/url-shortener"
-executor = { type = "wagi" }
 
 # Redirect /spin/kv-store-tutorial to /spin/key-value-store-tutorial
-[[component]]
-id = "key-value-store-tutorial"
+[component.key-value-store-tutorial]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/key-value-store-tutorial" }
-[component.trigger]
-route = "/spin/kv-store-tutorial"
-executor = { type = "wagi" }
-
 
 # Redirect /spin/serverless-ai-tutorial to /spin/ai-sentiment-analysis-api-tutorial
-[[component]]
-id = "ai-sentiment-analysis-api-tutorial"
+[component.ai-sentiment-analysis-api-tutorial]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/ai-sentiment-analysis-api-tutorial" }
-[component.trigger]
-route = "/spin/serverless-ai-tutorial"
-executor = { type = "wagi" }
 
 # Redirect /cloud/serverless-ai to /spin/serverless-ai-hello-world
-[[component]]
-id = "serverless-ai"
+[component.serverless-ai]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/serverless-ai-hello-world.md" }
-[component.trigger]
-route = "/cloud/serverless-ai"
-executor = { type = "wagi" }
 
 # Component to give us clean versioned URLs for spin from the root
-[[component]]
-id = "spin-version-proxy"
+[component.spin-version-proxy]
 source = "modules/spin-redirecter.wasm"
-allowed_http_hosts = ["self"]
-exclude_files = ["**/node_modules"]
+variables = { latest_spin_version = "v2" }
 files = ["spin-redirect.json"]
-[component.config]
-latest_spin_version = "v2"
-[component.trigger]
-route = "/spin/..."
+exclude_files = ["**/node_modules"]
+allowed_outbound_hosts = ["http://self"]
 # Need to modify action to get the js2wasm plugin
 # [component.build]
 # workdir = "spin-redirecter"
 # command = "npm install && npm run build"
 
-[[component]]
+[component.bartholomew-spin-v1]
 # Using build from bartholomew main
 source = "modules/bartholomew.wasm"
-id = "bartholomew-spin-v1"
 environment = { PREVIEW_MODE = "0" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
-[component.trigger]
-route = "/spin/v1/..."
-[component.build]
+
+[component.bartholomew-spin-v1.build]
 command = "npm run build-index && npm run build-hub-index"
 watch = ["content/**/*", "templates/*"]
 
-[[component]]
+[component.bartholomew-spin-v2]
 # Using build from bartholomew main
 source = "modules/bartholomew.wasm"
-id = "bartholomew-spin-v2"
 environment = { PREVIEW_MODE = "0" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
-[component.trigger]
-route = "/spin/v2/..."
-[component.build]
+
+[component.bartholomew-spin-v2.build]
 command = "npm run build-index && npm run build-hub-index"
 watch = ["content/**/*", "templates/*"]
