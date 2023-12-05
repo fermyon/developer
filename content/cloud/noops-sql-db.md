@@ -35,7 +35,7 @@ If you already have a Spin application, you can skip this step. If you do not ha
 To tell Spin that we want to use SQLite storage, we only need to [grant SQLite permission to a component in the application’s manifest](/spin/sqlite-api-guide#granting-sqlite-database-permissions-to-components) (the `spin.toml` file) by supplying a [label](linking-applications-to-resources-using-labels.md). For example:
 
 ```
-[component]
+[component.example]
 sqlite_databases = ["default"]
 ```
 
