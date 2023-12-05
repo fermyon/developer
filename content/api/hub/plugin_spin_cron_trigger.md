@@ -11,13 +11,12 @@ category = "Plugin"
 language = "Rust"
 created_at = "2023-12-05T00:22:56Z"
 last_updated = "2023-12-05T00:22:56Z"
-spin_version = ">v1.0"
+spin_version = “>=2.0.1"
 summary = "An experimental cron trigger for Spin apps"
 url = "https://github.com/fermyon/spin-trigger-cron"
 keywords = "trigger, cron"
 
 ---
-
 
 An experimental plugin that enables cron trigger for Spin applications. 
 
