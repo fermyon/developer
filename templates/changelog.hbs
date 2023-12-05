@@ -1,3 +1,7 @@
+---
+read_pages_glob = ["cloud/changelog/*.md"]
+---
+
 {{> content_top }}
 
 <main class="container is-fullwidth is-widescreen page-wrap ">
@@ -18,7 +22,8 @@
                     <li><a href="/bartholomew/index">Bartholomew</a></li>
                 </ul>
 
-                <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/" target="_blank">Login to Cloud</a>
+                <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/"
+                    target="_blank">Login to Cloud</a>
             </aside>
         </div>
 
@@ -27,7 +32,8 @@
                 <div class="column is-half is-full-mobile">
                     <h1>Changelog</h1>
                     <div>
-                        What's new in the Fermyon Cloud &dash; features, fixes and updates. Follow <a href="https://twitter.com/fermyontech" target="_blank">@fermyontech</a> for more.
+                        What's new in the Fermyon Cloud &dash; features, fixes and updates. Follow <a
+                            href="https://twitter.com/fermyontech" target="_blank">@fermyontech</a> for more.
                     </div>
                 </div>
                 <div class="column is-half is-full-mobile changelog-animation is-hidden-touch">
@@ -45,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="columns changelog-content is-flex-wrap-wrap">
                 {{#each (content_filter site.pages "/content/cloud/changelog/" "changelog_post")}}
                 <div class="columns">

@@ -1,3 +1,6 @@
+---
+read_pages_glob = ["events/*.md"]
+---
 {{! This adds the HTML head section and the beginning of the body. See content_top.hbs. }}
 {{> content_top }}
 
@@ -20,8 +23,8 @@
                             class="is-active" {{/if}}>Fermyon Cloud</a></li>
                     <li><a href="/bartholomew/index" {{#if (active_project request.spin-path-info "/cloud/" )}}
                             class="is-active" {{/if}}>Bartholomew</a></li>
-                    <li><a href="/hub" {{#if (active_project request.spin-path-info "/cloud/" )}}
-                            class="is-active" {{/if}}>Spin Up Hub</a></li>
+                    <li><a href="/hub" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active"
+                            {{/if}}>Spin Up Hub</a></li>
                 </ul>
 
                 <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/"
@@ -198,7 +201,7 @@
 
             </section>
 
-             {{> content_footer }}
+            {{> content_footer }}
         </article>
 
         <script src="./static/js/flickity.min.js"></script>
