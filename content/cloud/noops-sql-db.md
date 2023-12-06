@@ -79,6 +79,14 @@ inspirational-pig (default)
 $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
 ```
 
+If you prefer to pass in a file that contains your `.sql` syntax please use the following example:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin cloud sqlite execute -d inspirational-pig @mysql.sql
+```
+
 > Note: The Cloud database is completely unrelated to the local database, and must be prepared separately.
 
 ### Explicitly Create A Database Via `spin cloud sqlite create`
