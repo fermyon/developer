@@ -79,7 +79,7 @@ inspirational-pig (default)
 $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
 ```
 
-If you prefer to pass in a file that contains your `.sql` syntax please use the following example:
+If you prefer to pass a file that contains the SQL you want execute, you can do so by prefixing the file name with an `@` like so:
 
 <!-- @selectiveCpy -->
 
