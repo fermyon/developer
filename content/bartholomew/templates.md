@@ -98,7 +98,7 @@ In addition to the `page` object, there is also a `site` object. `site.pages` co
 ```
 
 Note that the `site.pages` array has access to every single document in the `content` folder.
-This part of the API may change in the future, as it does not scale terribly well. 
+See [below](#values-reference) for example values. This part of the API may change in the future, as it does not scale terribly well.
 
 ### The `env` Object
 
