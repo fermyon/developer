@@ -74,6 +74,14 @@ To control logging, pass the `--log-dir` flag.  The logs will be saved to the sp
 $ spin up --log-dir ~/dev/bugbash
 ```
 
+If you prefer **not** to have the `stdout` and `stderr` of your application's components written to disk (as in the example above), you can pass the `--log-dir` flag with an empty string, like this:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin up --log-dir ""
+```
+
 ## Trigger-Specific Options
 
 Some trigger types support additional `spin up` flags.  For example, HTTP applications can have a `--listen` flag to specify an address and port to listen on.  See the [HTTP trigger](http-trigger) and [Redis trigger](redis-trigger) pages for more details.

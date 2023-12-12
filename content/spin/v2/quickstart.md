@@ -325,14 +325,14 @@ annotated with the `http_component` macro which identifies it as the entry point
 for HTTP requests:
 
 ```rust
-use spin_sdk::http::{IntoResponse, Request};
+use spin_sdk::http::{IntoResponse, Request, Request};
 use spin_sdk::http_component;
 
 /// A simple Spin HTTP component.
 #[http_component]
 fn handle_hello_rust(req: Request) -> anyhow::Result<impl IntoResponse> {
     println!("Handling request to {:?}", req.header("spin-full-url"));
-    Ok(http::Response::builder()
+    Ok(Response::builder()
         .status(200)
         .header("content-type", "text/plain")
         .body("Hello, Fermyon")?)

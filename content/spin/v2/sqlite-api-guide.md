@@ -53,7 +53,7 @@ SQLite functions are available in the `spin_sdk::sqlite` module. The function na
 use anyhow::Result;
 use serde::Serialize;
 use spin_sdk::{
-    http::{Request, IntoResponse},
+    http::{Request, Response, IntoResponse},
     http_component,
     sqlite::{Connection, Value},
 };
@@ -85,7 +85,7 @@ fn handle_request(req: Request) -> Result<impl IntoResponse> {
     ).collect();
 
     let body = serde_json::to_vec(&todos)?;
-    Ok(http::Response::builder().status(200).body(Some(body.into()))?)
+    Ok(Response::builder().status(200).body(Some(body.into()))?)
 }
 
 // Helper for returning the query results as JSON

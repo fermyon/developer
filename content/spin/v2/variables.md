@@ -90,7 +90,7 @@ The interface is available in the `spin_sdk::variables` module and is named `get
 ```rust
 use anyhow::Result;
 use spin_sdk::{
-    http::{IntoResponse, Request},
+    http::{IntoResponse, Request, Response},
     http_component,
     variables,
 };
@@ -105,7 +105,7 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
         "denied"
     };
     let response_json = format!("\{{\"authentication\": \"{}\"}}", response);
-    Ok(http::Response::builder()
+    Ok(Response::builder()
         .status(200)
         .header("Content-Type", "application/json")
         .body(response_json)?)

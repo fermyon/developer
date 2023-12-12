@@ -74,7 +74,7 @@ To customize each of the two components, we can modify the `lib.rs` (Rust source
 ```rust
 #[http_component]
 fn handle_first_http_rust_component(req: Request) -> Result<Response> {
-    Ok(http::Response::builder()
+    Ok(Response::builder()
         .status(200)
         .header("content-type", "text/plain")
         .body("Hello, First Component")?)
@@ -84,7 +84,7 @@ fn handle_first_http_rust_component(req: Request) -> Result<Response> {
 ```rust
 #[http_component]
 fn handle_second_http_rust_component(req: Request) -> Result<Response> {
-    Ok(http::Response::builder()
+    Ok(Response::builder()
         .status(200)
         .header("content-type", "text/plain")
         .body("Hello, Second Component")?)

@@ -144,7 +144,7 @@ See the Language Guides section for how to do this in your preferred language. A
 ```rust
 #[http_component]​
 fn hello_world(_req: Request) -> Result<Response> {​
-    Ok(http::Response::builder()​
+    Ok(Response::builder()​
         .status(200)​
         .body("Hello, Fermyon!")?)​
 }​
@@ -299,7 +299,7 @@ The environment variables can then be accessed inside the component. For example
 #[http_component]
 fn handle_hello_rust(req: Request) -> Result<Response> {
     let response = format!("My {} likes to eat {}", std::env::var("PET")?, std::env::var("FOOD")?);
-    Ok(http::Response::builder()
+    Ok(Response::builder()
         .status(200)
         .body(response)?)
 }

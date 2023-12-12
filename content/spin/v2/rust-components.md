@@ -11,12 +11,14 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/rust-compo
 - [HTTP Components](#http-components)
 - [Redis Components](#redis-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
+- [Routing in a Component](#routing-in-a-component)
 - [Storing Data in Redis From Rust Components](#storing-data-in-redis-from-rust-components)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
   - [Serializing Objects to the Key-Value Store](#serializing-objects-to-the-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
+  - [Using the `http` crate](#using-the-http-crate)
 - [AI Inferencing From Rust Components](#ai-inferencing-from-rust-components)
 - [Troubleshooting](#troubleshooting)
 - [Manually Creating New Projects With Cargo](#manually-creating-new-projects-with-cargo)
@@ -288,6 +290,50 @@ databases or storage accounts, or even more specialized components like HTTP
 proxies or URL shorteners.
 
 > The Spin SDK for Rust provides more flexibility than we show here, including allowing streaming uploads or downloads. See the [Outbound HTTP API Guide](./http-outbound.md) for more information.
+
+## Routing in a Component
+
+The Rust SDK [provides a router](https://github.com/fermyon/spin/tree/main/examples/http-rust-router) that makes it easier to handle synchronous and asynchronous routing within a component:
+
+```rust
+use anyhow::Result;
+use spin_sdk::{
+    http::{IntoResponse, Params, Request, Response, Router},
+    http_component,
+};
+
+/// A Spin HTTP component that internally routes requests.
+#[http_component]
+fn handle_route(req: Request) -> Response {
+    let mut router = Router::new();
+    router.get("/goodbye/:planet", api::goodbye_planet);
+    router.get_async("/hello/:planet", api::hello_planet);
+    router.any_async("/*", api::echo_wildcard);
+    router.handle(req)
+}
+
+mod api {
+    use super::*;
+
+    // /goodbye/:planet
+    pub fn goodbye_planet(_req: Request, params: Params) -> Result<impl IntoResponse> {
+        let planet = params.get("planet").expect("PLANET");
+        Ok(Response::new(200, planet.to_string()))
+    }
+
+    // /hello/:planet
+    pub async fn hello_planet(_req: Request, params: Params) -> Result<impl IntoResponse> {
+        let planet = params.get("planet").expect("PLANET");
+        Ok(Response::new(200, planet.to_string()))
+    }
+
+    // /*
+    pub async fn echo_wildcard(_req: Request, params: Params) -> Result<impl IntoResponse> {
+        let capture = params.wildcard().unwrap_or_default();
+        Ok(Response::new(200, capture.to_string()))
+    }
+}
+```
 
 ## Storing Data in Redis From Rust Components
 

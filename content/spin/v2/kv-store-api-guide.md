@@ -47,7 +47,7 @@ Key value functions are available in the `spin_sdk::key_value` module. The funct
 ```rust
 use anyhow::Result;
 use spin_sdk::{
-    http::{IntoResponse, Request},
+    http::{IntoResponse, Request, Response},
     http_component,
     key_value::{Store},
 };
@@ -57,7 +57,7 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
     store.set("mykey", "myvalue")?;
     let value = store.get("mykey")?;
     let response = value.unwrap_or_else(|| "not found".into());
-    Ok(http::Response::builder().status(200).body(response)?)
+    Ok(Response::builder().status(200).body(response)?)
 }
 ```
 
