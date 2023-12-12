@@ -139,6 +139,32 @@ The important things to note in the implementation above:
 
 The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. 
 
+The following snippet shows how you can access parts of the request e.g. the `request.method` and the `request.body`:
+
+```python
+import json
+from spin_http import Response
+
+def handle_request(request):
+    # Access the request.method
+    if request.method == 'POST':
+        # Read the request.body as a string
+        json_str = request.body.decode('utf-8')
+        # Create a JSON object representation of the request.body
+        json_object = json.loads(json_str)
+        # Access a value in the JSON object
+        name = json_object['name']
+        # Print the variable to console logs
+        print(name)
+        # Print the type of the variable to console logs
+        print(type(name))
+        # Print the available methods of the variable to the console logs
+        print(dir(name))
+    return Response(200,
+                {"content-type": "text/plain"},
+                bytes(f"Practicing reading the request object", "utf-8"))
+```
+
 ### Building and Running the Application
 
 All you need to do is run the `spin build` command from within the project's directory; as shown below:
