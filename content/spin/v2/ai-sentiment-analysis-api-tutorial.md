@@ -1010,7 +1010,7 @@ component = "sentiment-analysis-rust"
 
 [component.sentiment-analysis-rust]
 source = "target/wasm32-wasi/release/sentiment_analysis_rust.wasm"
-allowed_http_hosts = []
+allow_outbound_hosts = []
 ai_models = ["llama2-chat"]
 key_value_stores = ["default"]
 [component.sentiment-analysis-rust.build]

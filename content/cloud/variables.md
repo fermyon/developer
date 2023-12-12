@@ -118,7 +118,7 @@ secret = { required = true }
 
 [component.pw-checker]
 source = "target/wasm32-wasi/release/pw_checker.wasm"
-allowed_http_hosts = []
+allow_outbound_hosts = []
 
 [component.pw-checker.build]
 command = "cargo build --target wasm32-wasi --release"
