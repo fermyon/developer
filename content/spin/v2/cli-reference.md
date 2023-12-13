@@ -1062,7 +1062,7 @@ USAGE:
     spin registry login [OPTIONS] <SERVER>
 
 ARGS:
-    <SERVER>    
+    <SERVER>    OCI registry server (e.g. ghcr.io)
 
 OPTIONS:
     -h, --help                   Print help information
@@ -1117,7 +1117,10 @@ USAGE:
     spin registry pull [OPTIONS] <REFERENCE>
 
 ARGS:
-    <REFERENCE>    Reference of the Spin application
+    <REFERENCE>    Reference in the registry of the published Spin application. This is a string
+                   whose format is defined by the registry standard, and generally consists of
+                   <registry>/<username>/<application-name>:<version>. E.g.
+                   ghcr.io/ogghead/spin-test-app:0.1.0
 
 OPTIONS:
     -h, --help        Print help information
@@ -1175,7 +1178,10 @@ USAGE:
     spin registry push [OPTIONS] <REFERENCE>
 
 ARGS:
-    <REFERENCE>    Reference of the Spin application
+    <REFERENCE>    Reference in the registry of the Spin application. This is a string whose
+                   format is defined by the registry standard, and generally consists of
+                   <registry>/<username>/<application-name>:<version>. E.g.
+                   ghcr.io/ogghead/spin-test-app:0.1.0
 
 OPTIONS:
         --build                       Specifies to perform `spin build` before pushing the
