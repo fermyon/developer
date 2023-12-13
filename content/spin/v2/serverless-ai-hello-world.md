@@ -230,9 +230,11 @@ use spin_sdk::{http::{IntoResponse, Request, Response}, http_component, llm};
 fn hello_world(_req: Request) -> anyhow::Result<impl IntoResponse> {
    let model = llm::InferencingModel::Llama2Chat;
    let inference = llm::infer(model, "Can you tell me a joke about cats");
-   Ok(Response::builder()
-       .status(200)
-       .body(format!("{:?}", inference))?)
+    Ok(Response::builder()
+        .status(200)
+        .header("content-type", "text/plain")
+        .body(format!("{:?}", inference))
+        .build())
 }
 ```
  

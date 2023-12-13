@@ -70,13 +70,13 @@ To use Serverless AI functions, the `llm` module from the Spin SDK provides the 
 
 ```rust
 use spin_sdk::{
-    http::{Request, Response},
+    http::{IntoResponse, Request, Response},
     llm,
 };
 
 // -- snip --
 
-fn handle_code(req: Request) -> Result<Response> {
+fn handle_code(req: Request) -> anyhow::Result<impl IntoResponse> {
     // -- snip --
 
     let result = llm::infer_with_options(

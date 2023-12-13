@@ -89,7 +89,7 @@ pub fn redirect(self, req: Request) -> Result<Response> {
         None => return not_found(),
     };
     // otherwise, return the redirect to the destination
-    let res = Response::builder()
+    let res = http::Response::builder()
         .status(http::StatusCode::PERMANENT_REDIRECT)
         .header(http::header::LOCATION, route.destination)
         .body(None)?;

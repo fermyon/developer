@@ -293,7 +293,7 @@ proxies or URL shorteners.
 
 ## Routing in a Component
 
-The Rust SDK [provides a router](https://github.com/fermyon/spin/tree/main/examples/http-rust-router) that makes it easier to handle synchronous and asynchronous routing within a component:
+The Rust SDK [provides a router](https://github.com/fermyon/spin/tree/main/examples/http-rust-router) that makes it easier to handle routing within a component:
 
 ```rust
 use anyhow::Result;
@@ -307,7 +307,6 @@ use spin_sdk::{
 fn handle_route(req: Request) -> Response {
     let mut router = Router::new();
     router.get("/goodbye/:planet", api::goodbye_planet);
-    router.get_async("/hello/:planet", api::hello_planet);
     router.any_async("/*", api::echo_wildcard);
     router.handle(req)
 }
@@ -321,12 +320,6 @@ mod api {
         Ok(Response::new(200, planet.to_string()))
     }
 
-    // /hello/:planet
-    pub async fn hello_planet(_req: Request, params: Params) -> Result<impl IntoResponse> {
-        let planet = params.get("planet").expect("PLANET");
-        Ok(Response::new(200, planet.to_string()))
-    }
-
     // /*
     pub async fn echo_wildcard(_req: Request, params: Params) -> Result<impl IntoResponse> {
         let capture = params.wildcard().unwrap_or_default();
@@ -334,6 +327,8 @@ mod api {
     }
 }
 ```
+
+> For further reference, see the [Spin SDK HTTP router](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Router.html).
 
 ## Storing Data in Redis From Rust Components
 
@@ -344,9 +339,9 @@ components.
 Let's see how we can use the Rust SDK to connect to Redis:
 
 ```rust
-use anyhow::{Context, Result};
+use anyhow::{Context};
 use spin_sdk::{
-    http::{responses::internal_server_error, Request, Response},
+    http::{responses::internal_server_error, IntoResponse, Request, Response},
     http_component,
     redis::Connection,
 };
@@ -365,7 +360,7 @@ const REDIS_CHANNEL_ENV: &str = "REDIS_CHANNEL";
 /// to a Redis channel. The component is triggered by an HTTP
 /// request served on the route configured in the `spin.toml`.
 #[http_component]
-fn publish(_req: Request) -> Result<Response> {
+fn publish(_req: Request) -> anyhow::Result<impl IntoResponse> {
     let address = std::env::var(REDIS_ADDRESS_ENV)?;
     let channel = std::env::var(REDIS_CHANNEL_ENV)?;
 
@@ -430,6 +425,13 @@ To make your objects serializable, you will also need a reference to `serde`. Th
 // --snip --
 serde = { version = "1.0.163", features = ["derive"] }
 // --snip --
+```
+
+We configure our application to provision the default `key_value_stores` by adding the following line to our application's manifest (the `spin.toml` file), at the component level:
+
+```
+[component.redis-test]
+key_value_stores = ["default"]
 ```
 
 The Rust code below shows how to store and retrieve serializable objects from the key-value store (note how the example below implements Serde's `derive` feature):

@@ -139,15 +139,22 @@ Multiple components can have the same source.  An example is a document archive,
 
 At the Wasm level, a Spin component is a Wasm component or module that exports a handler for the application trigger.  At the developer level, a Spin component is a library or program that implements your event handling logic, and uses Spin interfaces, libraries, or tools to associate that with the events handled by Spin.
 
-See the Language Guides section for how to do this in your preferred language. As an example, this is a component written in the Rust language. The `hello_world` function uses an attribute `#[http_component]` to identify the function as handling a Spin HTTP event. The function takes a `Request` and returns a `Result<Response>`:
+See the Language Guides section for how to do this in your preferred language. As an example, this is a component written in the Rust language. The `hello_world` function uses an attribute `#[http_component]`.
 
 ```rust
-#[http_component]​
-fn hello_world(_req: Request) -> Result<Response> {​
-    Ok(Response::builder()​
-        .status(200)​
-        .body("Hello, Fermyon!")?)​
-}​
+use spin_sdk::http::{IntoResponse, Request, Response};
+use spin_sdk::http_component;
+
+/// A simple Spin HTTP component.
+#[http_component]
+fn hello_world(req: Request) -> anyhow::Result<impl IntoResponse> {
+    println!("Handling request to {:?}", req.header("spin-full-url"));
+    Ok(Response::builder()
+        .status(200)
+        .header("content-type", "text/plain")
+        .body("Hello, Fermyon")
+        .build())
+}​​
 ```
 
 ## Creating an Application From a Template
@@ -295,13 +302,18 @@ The field accepts a map of environment variable key/value pairs. They are mapped
 
 The environment variables can then be accessed inside the component. For example, in Rust:
 
-```rs
+```rust
+use spin_sdk::http::{IntoResponse, Request, Response};
+use spin_sdk::http_component;
+
 #[http_component]
-fn handle_hello_rust(req: Request) -> Result<Response> {
+fn handle_hello_rust(req: Request) -> anyhow::Result<impl IntoResponse> {
     let response = format!("My {} likes to eat {}", std::env::var("PET")?, std::env::var("FOOD")?);
     Ok(Response::builder()
         .status(200)
-        .body(response)?)
+        .header("content-type", "text/plain")
+        .body(response)
+        .build())
 }
 ```
 

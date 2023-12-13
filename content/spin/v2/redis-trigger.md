@@ -30,7 +30,7 @@ component = "my-application"  # the name of the component to handle this route
 
 Such a trigger says that Redis messages on the specified _channel_ should be handled by the specified _component_. The `component` field works the same way across all triggers - see [Triggers](triggers) for the details.
 
-> Spin subscribes only to the channels that are mapped to components. Other channels are ignored. Individual Redis channels can be subscribed to by one or more components (A 1:N relationship exists between an individual component and Redis channels).
+> Spin subscribes only to the channels that are mapped to components. Other channels are ignored. If multiple components subscribe to the same channel, a message on that channel will activate all of the components.
 
 ## Redis Trigger Application Settings
 

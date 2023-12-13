@@ -45,6 +45,14 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
+Please note, we use `serde` in this Rust example, so please add `serde` as a dependency in your application's `Cargo.toml` file:
+
+```toml
+[dependencies]
+serde = {version = "1.0", features = ["derive"]}
+serde_json = "1.0"
+```
+
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/sqlite/index.html)
 
 SQLite functions are available in the `spin_sdk::sqlite` module. The function names match the operations above. For example:
@@ -85,7 +93,11 @@ fn handle_request(req: Request) -> Result<impl IntoResponse> {
     ).collect();
 
     let body = serde_json::to_vec(&todos)?;
-    Ok(Response::builder().status(200).body(Some(body.into()))?)
+    Ok(Response::builder()
+        .status(200)
+        .header("content-type", "text/plain")
+        .body(body)
+        .build())
 }
 
 // Helper for returning the query results as JSON
