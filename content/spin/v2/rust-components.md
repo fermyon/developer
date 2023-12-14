@@ -339,7 +339,7 @@ components.
 Let's see how we can use the Rust SDK to connect to Redis:
 
 ```rust
-use anyhow::{Context};
+use anyhow::Context;
 use spin_sdk::{
     http::{responses::internal_server_error, IntoResponse, Request, Response},
     http_component,
