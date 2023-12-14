@@ -13,7 +13,7 @@ This page contains information about language support for Spin features:
 
 {{ startTab "Rust"}}
 
-[Visit the Spin SDK reference documentation.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html)
+**[📄 Visit the Rust Spin SDK reference documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html) to see specific modules, functions, variables and syntax relating to the following Rust features.**
 
 | Feature | SDK Supported? |
 |-----|-----|
@@ -36,7 +36,7 @@ This page contains information about language support for Spin features:
 
 {{ startTab "TypeScript"}}
 
-[Visit the Spin SDK reference documentation.](https://fermyon.github.io/spin-js-sdk/)
+**[📄 Visit the JS/TS Spin SDK reference documentation](https://fermyon.github.io/spin-js-sdk/) to see specific modules, functions, variables and syntax relating to the following TS/JS features.**
 
 | Feature | SDK Supported? |
 |-----|-----|
@@ -59,7 +59,7 @@ This page contains information about language support for Spin features:
 
 {{ startTab "Python"}}
 
-[Visit the Spin SDK reference documentation.](https://fermyon.github.io/spin-python-sdk/)
+**[📄 Visit the Python Spin SDK reference documentation](https://fermyon.github.io/spin-python-sdk/) to see specific modules, functions, variables and syntax relating to the following Python SDK.**
 
 | Feature | SDK Supported? |
 |-----|-----|
@@ -82,7 +82,7 @@ This page contains information about language support for Spin features:
 
 {{ startTab "TinyGo"}}
 
-[Visit the Spin SDK reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
+**[📄 Visit the TinyGo Spin SDK reference documentation](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2) to see specific modules, functions, variables and syntax relating to the following TinyGo SDK.**
 
 | Feature | SDK Supported? |
 |-----|-----|
