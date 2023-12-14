@@ -298,6 +298,7 @@ Let's see how we can use the JS/TS SDK to connect to Redis:
 import { HandleRequest, HttpRequest, HttpResponse, Redis } from "@fermyon/spin-sdk"
 
 const decoder = new TextDecoder()
+const encoder = new TextEncoder()
 
 const redisAddress = "redis://localhost:6379/"
 

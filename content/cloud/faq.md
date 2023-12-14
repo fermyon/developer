@@ -51,6 +51,8 @@ The following are the quota for users based, stratified by the three [Subscripti
 | **Regions** |
 | Region count| 1 | 1 | Contact us
 
+> Note: The above quota numbers are per month and are spread across all apps for a single Cloud account.
+
 ## Known Limitations
 
 ### Fermyon Cloud Limitations
