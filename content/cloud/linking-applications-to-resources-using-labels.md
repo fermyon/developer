@@ -138,7 +138,7 @@ Now you can see your Spin applications, their respective labels and their connec
 Though not recommended, if you'd like to unlink your resource while your Spin application is running, you can do so with the following command:
 
 ```bash
-spin cloud sqlite unlink --app todo-app data
+spin cloud unlink sqlite --app todo-app data
 ```
 
 Now we've successfully unlinked our `todo-app` from the `projects` database. 
@@ -148,4 +148,4 @@ If you delete a Fermyon Cloud application, it removes any links associated with 
 ## Next Steps
 
 * Review the [SQLite Database Tutorial](noops-sql-db.md) to learn how to use links and labels with your SQLite Database
-* Visit the [Spin Cloud Plugin](cloud-command-reference.md) reference article to learn more about the `spin cloud sqlite link` commands
+* Visit the [Spin Cloud Plugin](cloud-command-reference.md) reference article to learn more about the `spin cloud link sqlite` commands
