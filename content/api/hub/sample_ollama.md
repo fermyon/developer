@@ -2,7 +2,7 @@ title = "Ollama Using Spin"
 template = "render_hub_content_body"
 date = "2022-10-15T00:22:56Z"
 content-type = "text/html"
-tags = ["rust", "ollama"]
+tags = ["rust", "ollama", "llm", "ai"]
 
 [extra]
 author = "Devashish Lal"
@@ -14,6 +14,7 @@ last_updated = "2022-10-15T02:00:0Z"
 spin_version = ">v2.0"
 summary =  "Ollama api implementation using spin"
 url = "https://github.com/BLaZeKiLL/Spin-O-Llama"
+keywords = "rust, ollama, llm, ai"
 
 ---
 
