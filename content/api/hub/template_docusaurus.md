@@ -2,7 +2,7 @@ title = "Spin Docusaurus"
 template = "render_hub_content_body"
 date = "2023-12-14T04:30:32.000Z"
 content-type = "text/html"
-tags = ["javascript", "docusaurus", "react", "typescript"]
+tags = ["javascript", "docusaurus", "react",]
 
 [extra]
 author = "VamshiReddy02"
