@@ -17,7 +17,7 @@ url = "https://github.com/BLaZeKiLL/Spin-O-Llama"
 
 ---
 
-This sample demonstrates how spin can be used to implement the [Ollama api](https://github.com/jmorganca/ollama/blob/main/docs/api.md), which when deployed can be used as any other ollama instance and integrate with llm orchestration framework like Langchain or semantic kernel.
+This sample demonstrates how spin can be used to implement the [Ollama api](https://github.com/jmorganca/ollama/blob/main/docs/api.md), which when deployed can be used as any other Ollama instance. LLM orchestration frameworks like LangChain and semantic kernel can use this instance as a Ollama backend.
 
 ## Quick Start
 - [Install spin](https://developer.fermyon.com/spin/v2/install)
