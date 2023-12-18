@@ -5,7 +5,7 @@ description = "The WebAssembly (Wasm) Meetup - Bengaluru meet-up group is co-org
 [extra]
 type = "event"
 eventdates = "Dec 09 2023"
-eventexpires = "2023-12-10-T01:01:01Z"
+eventexpires = "2023-12-10T01:01:01Z"
 url = "https://www.meetup.com/the-webassembly-wasm-meetup-bangaluru/events/297673749/"
 image = "static/image/avatar.png"
 
