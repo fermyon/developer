@@ -1,6 +1,6 @@
 title = "Devworld Conference 2024"
 date = "2023-12-18T00:00:01Z"
-description = "Ready for the \"#1 Developer Conference on The Planet"\ taking place in Amsterdam, Netherlands? Our Developer Advocate Sohan Maheshwar sure is! Don't miss his presentation \"A Greener, Cost-Effective Cloud with Serverless WebAssembly\" on the DevOps & Cloud track!"
+description = "Ready for the \"#1 Developer Conference on The Planet\" taking place in Amsterdam, Netherlands? Our Developer Advocate Sohan Maheshwar sure is! Don't miss his presentation \"A Greener, Cost-Effective Cloud with Serverless WebAssembly\" on the DevOps & Cloud track!"
 
 [extra]
 type = "event"
