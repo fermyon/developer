@@ -26,7 +26,7 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Spin application count | 5 | 100 | Contact us 
 | Spin application package size (MB)* | 100 | 100 | Contact us
 | Spin application deployments per minute* | 10 | 10 | Contact us
-| Request handler duration (seconds)* | 10  | 10  | Contact us
+| Request handler duration (seconds)* | 30  | 30  | Contact us
 | **Rate Limiting Quota** |
 | Request execution count | 100,000  | 1,000,000  | Contact us
 | Request executions per second* | 1,000 | 1,000 | Contact us 
@@ -50,6 +50,8 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Token count per request (response only)* | 1,024 | 1,024 | Contact us
 | **Regions** |
 | Region count| 1 | 1 | Contact us
+
+> Note: The above quota numbers are per month and are spread across all apps for a single Cloud account.
 
 ## Known Limitations
 

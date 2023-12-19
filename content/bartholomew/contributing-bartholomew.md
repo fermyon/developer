@@ -188,7 +188,7 @@ $ make build
 
 The `make build` command does a `cargo build --target wasm32-wasi --release`.
 
-> `make build` also runs `wasm-opt`, which is part of the [Binaryen](https://webassembly.github.io/binaryen/) project. This reduces the size of the WebAssembly module by optimizing the bytecode.
+> `make build` also runs `wasm-opt`, which is part of the [Binaryen](https://github.com/WebAssembly/binaryen) project. This reduces the size of the WebAssembly module by optimizing the bytecode.
 
 The above `make build` command creates a `bartholomew.wasm` file in the `bartholomew/target/wasm32-wasi/release` directory. You will need to copy that file into Bartholomew's `modules`/` directory for Spin to run Bartholomew.
 

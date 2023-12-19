@@ -60,4 +60,4 @@ spin cloud deploy
 
 ## Running with Wasmtime
 
-Please visit the [G]itHub repository](https://github.com/fermyon/http-auth-middleware#running-with-wasmtime) for detailed instructions on how to run with Wasmtime. 
+Please visit the [GitHub repository](https://github.com/fermyon/http-auth-middleware#running-with-wasmtime) for detailed instructions on how to run with Wasmtime. 

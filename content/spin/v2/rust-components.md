@@ -11,12 +11,14 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/rust-compo
 - [HTTP Components](#http-components)
 - [Redis Components](#redis-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
+- [Routing in a Component](#routing-in-a-component)
 - [Storing Data in Redis From Rust Components](#storing-data-in-redis-from-rust-components)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
   - [Serializing Objects to the Key-Value Store](#serializing-objects-to-the-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in Relational Databases](#storing-data-in-relational-databases)
 - [Using External Crates in Rust Components](#using-external-crates-in-rust-components)
+  - [Using the `http` crate](#using-the-http-crate)
 - [AI Inferencing From Rust Components](#ai-inferencing-from-rust-components)
 - [Troubleshooting](#troubleshooting)
 - [Manually Creating New Projects With Cargo](#manually-creating-new-projects-with-cargo)
@@ -289,6 +291,45 @@ proxies or URL shorteners.
 
 > The Spin SDK for Rust provides more flexibility than we show here, including allowing streaming uploads or downloads. See the [Outbound HTTP API Guide](./http-outbound.md) for more information.
 
+## Routing in a Component
+
+The Rust SDK [provides a router](https://github.com/fermyon/spin/tree/main/examples/http-rust-router) that makes it easier to handle routing within a component:
+
+```rust
+use anyhow::Result;
+use spin_sdk::{
+    http::{IntoResponse, Params, Request, Response, Router},
+    http_component,
+};
+
+/// A Spin HTTP component that internally routes requests.
+#[http_component]
+fn handle_route(req: Request) -> Response {
+    let mut router = Router::new();
+    router.get("/goodbye/:planet", api::goodbye_planet);
+    router.any_async("/*", api::echo_wildcard);
+    router.handle(req)
+}
+
+mod api {
+    use super::*;
+
+    // /goodbye/:planet
+    pub fn goodbye_planet(_req: Request, params: Params) -> Result<impl IntoResponse> {
+        let planet = params.get("planet").expect("PLANET");
+        Ok(Response::new(200, planet.to_string()))
+    }
+
+    // /*
+    pub async fn echo_wildcard(_req: Request, params: Params) -> Result<impl IntoResponse> {
+        let capture = params.wildcard().unwrap_or_default();
+        Ok(Response::new(200, capture.to_string()))
+    }
+}
+```
+
+> For further reference, see the [Spin SDK HTTP router](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Router.html).
+
 ## Storing Data in Redis From Rust Components
 
 Using the Spin's Rust SDK, you can use the Redis key/value store and to publish
@@ -298,9 +339,9 @@ components.
 Let's see how we can use the Rust SDK to connect to Redis:
 
 ```rust
-use anyhow::{Context, Result};
+use anyhow::Context;
 use spin_sdk::{
-    http::{responses::internal_server_error, Request, Response},
+    http::{responses::internal_server_error, IntoResponse, Request, Response},
     http_component,
     redis::Connection,
 };
@@ -319,7 +360,7 @@ const REDIS_CHANNEL_ENV: &str = "REDIS_CHANNEL";
 /// to a Redis channel. The component is triggered by an HTTP
 /// request served on the route configured in the `spin.toml`.
 #[http_component]
-fn publish(_req: Request) -> Result<Response> {
+fn publish(_req: Request) -> anyhow::Result<impl IntoResponse> {
     let address = std::env::var(REDIS_ADDRESS_ENV)?;
     let channel = std::env::var(REDIS_CHANNEL_ENV)?;
 
@@ -384,6 +425,13 @@ To make your objects serializable, you will also need a reference to `serde`. Th
 // --snip --
 serde = { version = "1.0.163", features = ["derive"] }
 // --snip --
+```
+
+We configure our application to provision the default `key_value_stores` by adding the following line to our application's manifest (the `spin.toml` file), at the component level:
+
+```
+[component.redis-test]
+key_value_stores = ["default"]
 ```
 
 The Rust code below shows how to store and retrieve serializable objects from the key-value store (note how the example below implements Serde's `derive` feature):

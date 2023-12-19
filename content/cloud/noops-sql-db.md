@@ -35,7 +35,7 @@ If you already have a Spin application, you can skip this step. If you do not ha
 To tell Spin that we want to use SQLite storage, we only need to [grant SQLite permission to a component in the application’s manifest](/spin/sqlite-api-guide#granting-sqlite-database-permissions-to-components) (the `spin.toml` file) by supplying a [label](linking-applications-to-resources-using-labels.md). For example:
 
 ```
-[component]
+[component.example]
 sqlite_databases = ["default"]
 ```
 
@@ -77,6 +77,14 @@ inspirational-pig (default)
 
 ```bash
 $ spin cloud sqlite execute inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
+```
+
+If you prefer to pass a file that contains the SQL you want to execute, you can do so by prefixing the file name with an `@` like so:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin cloud sqlite execute -d inspirational-pig @mysql.sql
 ```
 
 > Note: The Cloud database is completely unrelated to the local database, and must be prepared separately.
