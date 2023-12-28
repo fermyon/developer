@@ -14,7 +14,7 @@ last_updated = "2023-08-14T00:00:00Z"
 spin_version = ">v1.0"
 summary =  "A sample of using mulitple components to create an app"
 url = "https://github.com/mikkelhegn/redirect"
-keywords = "rust, static content, components, html"
+keywords = "rust, static content, components, html, qr code"
 
 ---
 
