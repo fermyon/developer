@@ -75,7 +75,7 @@ Installing Rust via the<a href="https://www.rust-lang.org/tools/install" target=
 
 **wasm32-wasi**
 
-Installing the <a href="https://doc.rust-lang.org/stable/nightly-rustc/rustc_target/spec/wasm32_wasi/index.html" target="_blank">wasm32-wasi</a> target is done using the following commands:
+To install the `wasm32-wasi` target, run the following commands:
 
 <!-- @selectiveCpy -->
 

@@ -443,8 +443,7 @@ Spin provides clients for MySQL and PostgreSQL. For information about using them
 ## Using External Crates in Rust Components
 
 In Rust, Spin components are regular libraries that contain a function
-annotated using the `http_component` macro, compiled to the
-[`wasm32-wasi` target](https://doc.rust-lang.org/stable/nightly-rustc/rustc_target/spec/wasm32_wasi/index.html).
+annotated using the `http_component` macro, compiled to the `wasm32-wasi` target.
 This means that any [crate](https://crates.io) that compiles to `wasm32-wasi` can
 be used when implementing the component.
 
