@@ -195,7 +195,7 @@ Docker Desktop provides both [an easy way to run Spin apps in containers](https:
 
 ### Setup
 
-Install approproiate Preview Version of Docker Desktop+Wasm Technical Preview 2 from [here](https://www.docker.com/blog/announcing-dockerwasm-technical-preview-2/). Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
+Install appropriate Preview Version of Docker Desktop+Wasm Technical Preview 2 from [here](https://www.docker.com/blog/announcing-dockerwasm-technical-preview-2/). Then [enable containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
 
 Next Enable Kubernetes under Settings → Experimental → Enable Kubernetes, then hit “Apply & Restart”.
 
@@ -246,7 +246,7 @@ If there is not command specified in the Dockerfile, one will need to be passed 
 
 ### Setup
 
-Ensure both Docker and k3d are installed. Then [enable Containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
+Ensure both Docker and k3d are installed. Then [enable containerd](https://docs.docker.com/desktop/containerd/) for Docker in Settings → Experimental → Use containerd for pulling and storing images.
 
 Deis Labs provides a preconfigured K3d environment that can be run using this command:
 
@@ -323,7 +323,7 @@ $ helm install fermyon-spin oci://ghcr.io/fermyon/charts/spin-containerd-shim-in
 
 ### Introduction
 
-This guide demonstrates the commands to run a Spin workload in Kubernetes. It should apply to all Kubernetes varients which have been properly configured using one of the Setup guides.
+This guide demonstrates the commands to run a Spin workload in Kubernetes. It should apply to all Kubernetes variants which have been properly configured using one of the Setup guides.
 
 ### Concepts
 
