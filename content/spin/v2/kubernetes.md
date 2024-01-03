@@ -12,6 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/kubernetes
 - [Setup Azure AKS for Spin](#setup-azure-aks-for-spin)
   - [Introduction](#introduction)
   - [Known Limitations](#known-limitations)
+    - [Note for Rust](#note-for-rust)
   - [Setup](#setup)
 - [Setup Docker Desktop for Spin](#setup-docker-desktop-for-spin)
   - [Introduction](#introduction-1)
@@ -33,13 +34,12 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/kubernetes
   - [Install Plugin](#install-plugin)
   - [Workflow](#workflow)
   - [Detailed Explanation of Steps](#detailed-explanation-of-steps)
-    - [Spin New](#spin-new)
-    - [Spin Build](#spin-build)
-    - [Spin K8s Scaffold](#spin-k8s-scaffold)
-    - [Spin K8s Build](#spin-k8s-build)
-    - [Spin K8s Push](#spin-k8s-push)
-    - [Spin K8s Deploy](#spin-k8s-deploy)
-    - [Spin K8s Getsvc](#spin-k8s-getsvc)
+    - [`spin new`](#spin-new)
+    - [`spin build`](#spin-build)
+    - [Create the Deployment Manifest](#create-the-deployment-manifest)
+    - [`spin registry push`](#spin-registry-push)
+    - [Deploy the Application](#deploy-the-application)
+    - [`spin k8s getsvc`](#spin-k8s-getsvc)
 
 ## Why Use Spin With Kubernetes?
 
@@ -339,25 +339,27 @@ The current Spin k8s plugin relies on Docker and Kubectl under the hood. It’s 
 
 ### Install Plugin
 
-To install this plugin, simply run:
+To install this plugin, run:
 
-```yaml
+<!-- @selectiveCpy -->
+
+```console
 spin plugin install -u https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.json
 ```
 
 ### Workflow
 
-The workflow is very similar to the workflow for Fermyon Cloud. 
+The workflow is very similar to the normal Kubernetes workflow: build and test your application locally, push to a registry, and update the deployment.
 
-The k8s plugin handles all of the tasks necessary to build the docker container, push it to a repository and deploy it into production.
+> If you are using Spin 1.x, or your shim uses Spin 1.x (shim version prior to 0.10.0), [follow the Spin 1.x Kubernetes documentation](../v1/kubernetes#workflow). The workflow here applies only to Spin 2 with shim 0.10.0 and above.
 
-Just like with Fermyon Cloud, when something changes with the application, the workflow is to iterate the version in the spin.toml file, and restart the sequence from spin build.
+Please see the [shim documentation](https://github.com/deislabs/containerd-wasm-shims/blob/main/containerd-shim-spin/quickstart.md) for a full tutorial on deploying Spin 2 applications.
 
 ### Detailed Explanation of Steps
 
-#### Spin New
+#### `spin new`
 
-An optional command to use a template to create a new Spin App:
+An optional command to use a template to create a new Spin app:
 
 <!-- @selectiveCpy -->
 
@@ -365,9 +367,9 @@ An optional command to use a template to create a new Spin App:
 $ spin new
 ```
 
-#### Spin Build
+#### `spin build`
 
-The following command builds a spin app:
+The following command builds a Spin app:
 
 <!-- @selectiveCpy -->
 
@@ -375,9 +377,20 @@ The following command builds a spin app:
 spin build
 ```
 
-#### Spin K8s Scaffold
+#### Create the Deployment Manifest
 
-The following command creates two files necessary for a Spin app to run on Kubernetes. A Dockerfile and deploy.yaml. Scaffold takes in a namespace as a mandatory argument. This can either be a username if using the Docker hub, or can be the entire address if using a separate repository such as ghcr:
+To create a deployment manifest (`deploy.yaml`), you can either:
+
+1. Run `spin k8s scaffold`.
+2. Copy and modify the deployment manifest below.
+
+The `deploy.yaml` file defines the deployment to the Kubernetes server. As you iterate with new versions of the registry image, you'll need to update the deployment manifest to match.
+
+In the `deploy.yaml`, the `runtimeClassName` _must_ be defined as `wasmtime-spin`. It’s critical that that is the exact name used when setting up the Kubernetes service. `spin k8s scaffold` does this, and the example manifest below contains the correct name.
+
+**1. Creating a deployment manifest with the `k8s` plugin**
+
+The following command creates a deployment manifest (`deploy.yaml`) for a Spin app to run on Kubernetes. Scaffold takes in a namespace as a mandatory argument. This can either be a username if using the Docker hub, or can be the entire address if using a separate repository such as `ghcr.io`:
 
 <!-- @selectiveCpy -->
 
@@ -385,21 +398,11 @@ The following command creates two files necessary for a Spin app to run on Kuber
 spin k8s scaffold
 ```
 
-An example Dockerfile is below. The only things which end up in the final image are wasm and other files mentioned as sources in the spin.toml. 
+> `spin k8s scaffold` also creates a Dockerfile. Spin 2.x users do not need the Dockerfile and can safely delete it. (The Dockerfile is created for [Spin 1.x deployments](../v1/kubernetes#workflow).)
 
-Dockerfile
+**2. Copy and modify an existing deployment manifest**
 
-```yaml
-FROM scratch
-COPY ./spin.toml .
-COPY ./target/wasm32-wasi/release/test.wasm ./target/wasm32-wasi/release/test.wasm
-COPY ./spin_static_fs.wasm ./spin_static_fs.wasm
-COPY ./static ./static
-```
-
-The deploy.yaml file defines the deployment to the Kubernetes server. By default the replicas is configured as 3, however this can be edited after the scaffolding stage and before the deployment stage. Additionally, the runtimeClassName is defined as wasmtime-spin. It’s critical that that is the exact name used when setting up the Kubernetes service to support Spin, or that the deployment be edited to the appropriate name.
-
-deploy.yaml
+You can find a sample manifest in the [shim documentation](https://github.com/deislabs/containerd-wasm-shims/blob/main/containerd-shim-spin/quickstart.md#deploy-the-application) or below.
 
 ```yaml
 apiVersion: apps/v1
@@ -435,14 +438,14 @@ metadata:
     selector:
       app: test
 ---
-apiVersion: [networking.k8s.io/v1](http://networking.k8s.io/v1)
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: test
   annotations:
-    [ingress.kubernetes.io/ssl-redirect:](http://ingress.kubernetes.io/ssl-redirect:) "false"
-    [kubernetes.io/ingress.class:](http://kubernetes.io/ingress.class:) traefik
+    ingress.kubernetes.io/ssl-redirect: "false"
 spec:
+  ingressClassName: traefik
   rules:
     - http:
         paths:
@@ -455,37 +458,33 @@ spec:
                   number: 80
 ```
 
-#### Spin K8s Build
+#### `spin registry push`
 
-The following command uses the Dockerfile to locally build a Spin Docker Container. The container is tagged as latest and with the version from the spin.toml:
-
-<!-- @selectiveCpy -->
-
-```console
-$ spin k8s build
-```
-
-#### Spin K8s Push
-
-The following command pushes the Dockerfile to the appropriate repository:
+The following command pushes the Spin application to the appropriate repository:
 
 <!-- @selectiveCpy -->
 
 ```console
-$ spin k8s push
+$ spin registry push chrismatteson/test:0.1.5
 ```
 
-#### Spin K8s Deploy
+> This requires Spin 2 or above. Spin 1.x uses a slightly different registry format, which is not compatible with the Kubernetes shim. If you are on Spin 1.x, [follow the Spin 1.x Kubernetes documentation](../v1/kubernetes#workflow) instead.
+
+#### Deploy the Application
 
 The following command deploys the application to Kubernetes:
 
 <!-- @selectiveCpy -->
 
 ```console
-$ spin k8s deploy
+$ kubectl apply -f deploy.yaml
 ```
 
-#### Spin K8s Getsvc
+> If you are using the `k8s` plugin you can run `spin k8s deploy`.
+
+It may take a few seconds for your application to be ready for use.
+
+#### `spin k8s getsvc`
 
 The following command retrieves information about the service that gets deployed (such as its external IP):
 
