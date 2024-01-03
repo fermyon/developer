@@ -4073,6 +4073,7 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
   border-radius: 1px;
   margin: 0;
   padding: .25rem 0 .25rem .5rem;
+  font-weight: 400;
   line-height: 1.5;
   transition: all .3s ease-in-out;
   display: inline-block;
@@ -4298,6 +4299,10 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 
 .documentation h1:hover > a.anchor-link, .documentation h2:hover > a.anchor-link, .documentation h3:hover > a.anchor-link, .documentation h4:hover > a.anchor-link {
   opacity: 1;
+}
+
+.documentation a {
+  font-weight: 600;
 }
 
 .documentation a.anchor-link:after {
