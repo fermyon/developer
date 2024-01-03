@@ -47,14 +47,14 @@ export default {
     <div class="filter-group">
       <div class="filter-category">Resource Types:</div>
       <div v-for="item in contentTypes" class="tag" v-bind:class="isActiveContentType(item)" @click="toggleContentFilter(item)">
-        <a class="plausible-event-name=hub-filter-type">{{ item }}</a>
+        <a href="#" class="plausible-event-name=hub-filter-type">{{ item }}</a>
       </div>
     </div>
 
     <div class="filter-group">
       <div class="filter-category"> Languages:</div>
       <div v-for="item in languages" class="tag" v-bind:class="isActiveLanguage(item)" @click="toggleLanguageFilter(item)">
-        <a class="plausible-event-name=hub-filter-lang">{{ item }}</a>
+        <a href="#" class="plausible-event-name=hub-filter-lang">{{ item }}</a>
       </div>
     </div>
     
