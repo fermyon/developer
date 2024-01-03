@@ -278,12 +278,14 @@ files = [ "images/**/*.jpg", { source = "styles/dist", destination = "/styles" }
 
 The `files` field is an array listing the files, patterns and directories you want to include. Each element of the array can be:
 
-* A glob pattern, such as `images/**/*.jpg`.  In this case, the files that match the pattern are available to the Wasm code, at the same paths as they are in your file system. For example, if the glob pattern matches `images/photos/lake.jpg`, the Wasm module can access it using the path `images/photos/lake.jpg`.  Glob patterns are relative to the directory containing `spin.toml`, and must be within that directory.
+* A glob pattern, such as `images/**/*.jpg`, or single file path.  In this case, the file or files that match the pattern are available to the Wasm code, at the same paths as they are in your file system. For example, if the glob pattern matches `images/photos/lake.jpg`, the Wasm module can access it using the path `images/photos/lake.jpg`.  Glob patterns are relative to the directory containing `spin.toml`, and must be within that directory.
 * A mapping from a `source` file or directory to a `destination` location, such as `{ source = "styles/dist", destination = "/styles" }`.  In this case, the file, or the entire contents of the source directory, are available to the Wasm code at the destination location.  In this example, if you have a file named `styles/dist/list/exciting.css`, the Wasm module can access it using the path `/styles/list/exciting.css`.  Source locations are relative to the directory containing `spin.toml`; destination locations must be absolute.
 
 If your files list would match some files or directories that you _don't_ want included, you can use the `exclude_files` field to omit them.
 
 > By default, Spin takes a snapshot of your included files, and components access that snapshot. This ensures that when you test your application, you are checking it with the set of files it will be deployed with. However, it also means that your component does not pick up changes to the files while it is running. When testing a Web site, you might want to be able to edit a HTML or CSS file, and see the changes reflected without restarting Spin. You can tell Spin to give components access to the original, "live" files by passing the `--direct-mounts` flag to `spin up`.
+
+> Each component can access _only_ the files included via its `files` section. It does not have access to files included by  other components, to your source code, or to the compiled `.wasm` file (unless you add those to the `files` section).
 
 ## Adding Environment Variables to Components
 
