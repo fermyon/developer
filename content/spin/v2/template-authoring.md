@@ -6,6 +6,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/template-a
 
 ---
 - [Authoring the Content](#authoring-the-content)
+  - [Expression Syntax](#expression-syntax)
 - [Authoring the Manifest](#authoring-the-manifest)
 - [Supporting `spin add`](#supporting-spin-add)
 - [Hosting Templates in Git](#hosting-templates-in-git)
@@ -53,6 +54,12 @@ are supported:
 | `kebab_case`  | Transforms input into kebab case, e.g. `My Application` to `my-application` |
 | `snake_case`  | Transforms input into snake case, e.g. `My Application` to `my_application` |
 | `pascal_case` | Transforms input into Pascal case, e.g. `my application` to `MyApplication` |
+
+### Expression Syntax
+
+Content uses [the Liquid template language](https://shopify.github.io/liquid/). See the Liquid documentation for the available syntax and control tags.
+
+A common pitfall occurs because some entries in `spin.toml`, such as [component variable templates](variables), use the same double-brace syntax as Liquid does. If you want to generate a line such as `my-secret = "{{ secret }}"`, you must escape the double braces, for example using the Liquid [`raw` tag](https://shopify.github.io/liquid/tags/template/). If you don't do this, Liquid will look for a template parameter called `secret` instead!
 
 ## Authoring the Manifest
 
