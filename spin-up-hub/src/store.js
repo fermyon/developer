@@ -115,22 +115,25 @@ const store = createStore({
       })
     },
     async loadSearchData(context) {
-      let data = await fetch(import.meta.env.VITE_API_HOST + "/static/hub-index-data.json")
-      let documents = await data.json()
+      let data = await fetch(import.meta.env.VITE_API_HOST + "/static/hub-index-data.json");
+      let documents = await data.json();
       context.state.searchIndex = lunr(function () {
-        this.field('title')
+        this.field('title', { boost: 100 });  
         this.field('content')
-        this.field('language', { boost: 10 })
+        this.field('language')
         this.field('author'),
-          this.field('tags', { boost: 100 })
+        this.field('tags', { boost: 100 }); 
         this.field('keywords', { boost: 100 })
         this.field('url')
         this.ref('id')
-
+    
         documents.forEach(function (doc) {
-          this.add(doc)
-        }, this)
-      })
+          this.add({
+            id: doc.id,         
+            title: doc.title.toLowerCase(),  
+          });
+        }, this);
+      });
     }
   }
 })
