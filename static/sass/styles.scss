@@ -131,6 +131,7 @@ Importing color and theme updates for the brand 1.5 refresh
 						line-height: 1.5;
 						display: inline-block;
 						color: darken($bluedark, 7.5%);
+						font-weight: 400;
 						@include transition;
 
 						&:hover {
@@ -407,6 +408,10 @@ Importing color and theme updates for the brand 1.5 refresh
 				opacity: 1;
 			}
 		}
+	}
+
+	a {
+		font-weight: 600;
 	}
 
 	a.anchor-link {
