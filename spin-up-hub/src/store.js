@@ -44,10 +44,12 @@ const store = createStore({
       state.isModalOpen = true
       router.push("/hub/preview/" + payload)
     },
-    closePreview(state) {
+    closePreview(state, shouldUpdateHistory = true) {
       state.isModalOpen = false
       document.body.classList.remove("modal-open")
-      router.push("/hub")
+      if (shouldUpdateHistory) {
+        router.push("/hub")
+      }
       document.title = "Spin Up Hub"
     },
     updateModalDescription(state, payload) {
