@@ -286,9 +286,9 @@ For the most part, you'll build HTTP component modules using a language SDK (see
 
 > The WebAssembly component model is in its early stages, and over time the triggers and application entry points will undergo changes, both in the definitions of functions and types, and in the binary representations of those definitions and of primitive types (the so-called Application Binary Interface or ABI).  However, Spin ensures binary compatibility over the course of any given major release.  For example, a component built using the Spin 1.0 SDK will work on any version of Spin in the 1.x range.
 
-The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/blob/main/wit/ephemeral](https://github.com/fermyon/spin/blob/main/wit/ephemeral).
+The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/tree/v1.6/wit/ephemeral](https://github.com/fermyon/spin/tree/v1.6/wit/ephemeral).
 
-The core HTTP types are defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/http-types.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/http-types.wit):
+The core HTTP types are defined in [https://github.com/fermyon/spin/blob/v1.6/wit/ephemeral/http-types.wit](https://github.com/fermyon/spin/blob/v1.6/wit/ephemeral/http-types.wit):
 
 <!-- @nocpy -->
 
@@ -329,7 +329,7 @@ record response {
 
 > The same HTTP types are also used to model the API for sending outbound HTTP requests.
 
-The entry point for Spin HTTP components is then defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-http.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-http.wit):
+The entry point for Spin HTTP components is then defined in [https://github.com/fermyon/spin/blob/v1.6/wit/ephemeral/spin-http.wit](https://github.com/fermyon/spin/blob/v1.6/wit/ephemeral/spin-http.wit):
 
 <!-- @nocpy -->
 

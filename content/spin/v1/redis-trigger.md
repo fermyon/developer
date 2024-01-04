@@ -135,9 +135,9 @@ For the most part, you'll build Redis component modules using a language SDK (se
 
 > The WebAssembly component model is in its early stages, and over time the triggers and application entry points will undergo changes, both in the definitions of functions and types, and in the binary representations of those definitions and of primitive types (the so-called Application Binary Interface or ABI).  However, Spin ensures binary compatibility over the course of any given major release.  For example, a component built using the Spin 1.0 SDK will work on any version of Spin in the 1.x range.
 
-The Redis component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin Redis components at [https://github.com/fermyon/spin/blob/main/wit/ephemeral](https://github.com/fermyon/spin/blob/main/wit/ephemeral).
+The Redis component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the evolving WIT standard here.](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)).  You can find the latest WITs for Spin Redis components at [https://github.com/fermyon/spin/tree/v1.6/wit/ephemeral](https://github.com/fermyon/spin/tree/v1.6/wit/ephemeral).
 
-The core Redis types are defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/redis-types.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/redis-types.wit), though note that not all of these are used in the pub-sub Redis trigger:
+The core Redis types are defined in [https://github.com/fermyon/spin/blob/v1.6/wit/ephemeral/redis-types.wit](https://github.com/fermyon/spin/blob/v1.6/wit/ephemeral/redis-types.wit), though note that not all of these are used in the pub-sub Redis trigger:
 
 <!-- @nocpy -->
 
@@ -156,7 +156,7 @@ type payload = list<u8>
 
 > The same Redis types are also used to model the API for sending outbound Redis requests.
 
-The entry point for Spin Redis components is then defined in [https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-redis.wit](https://github.com/fermyon/spin/blob/main/wit/ephemeral/spin-redis.wit):
+The entry point for Spin Redis components is then defined in [https://github.com/fermyon/spin/blob/v1.6/wit/ephemeral/spin-redis.wit](https://github.com/fermyon/spin/blob/v1.6/wit/ephemeral/spin-redis.wit):
 
 <!-- @nocpy -->
 
