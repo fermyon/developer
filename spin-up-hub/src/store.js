@@ -121,7 +121,7 @@ const store = createStore({
         this.field('title', { boost: 100 })
         this.field('content')
         this.field('language', { boost: 10 })
-        this.field('author'),
+        this.field('author', { boost: 10 }),
         this.field('tags', { boost: 10 })
         this.field('keywords', { boost: 10 })
         this.field('url')

@@ -24,13 +24,13 @@ export default {
             if (this.searchTerm) {
                 let updatedQuery = this.searchTerm
                     .split(" ")
-                    .map(word => word + '^2 ' + word + '* ')
+                    .map(word => word + '^2 ' + word + '*')
                     .join(' ');
                 let result = this.searchIndex.search(updatedQuery)
                 //get only confident results
                 let matches = []
                 result.map(k => {
-                    if (k.score < 1) {
+                    if (k.score < 5) {
                         return
                     }
                     matches.push(data.find(docs => k.ref == docs.id))
