@@ -16,6 +16,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/custom-domai
 
 Custom domains enable you to bring your own domain to Fermyon Cloud.  Unlike generic or randomly generated domains, a custom domain reflects the brand, identity, or purpose of the workload. For a conceptual overview of custom domains on Fermyon Cloud, visit [Custom Domains on Fermyon Cloud](./custom-domain.md). This tutorial will walk you through how to apply a custom domain to your Spin application running on Fermyon Cloud. 
 
+>> Please consider [these limitations of delegating your apex domain to Fermyon Cloud](./faq.md#custom-domains-limitations) first. 
+
 If you prefer video format, you can watch the following instructional video (which is complimentary to the text-based content on this page).
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/TfOPcGMj7Q0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
