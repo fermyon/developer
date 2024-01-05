@@ -9,6 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/faq.md"
 - [Quota Limits](#quota-limits)
 - [Known Limitations](#known-limitations)
   - [Fermyon Cloud Limitations](#fermyon-cloud-limitations)
+  - [Custom Domains Limitations](#custom-domains-limitations)
   - [Spin Limitations](#spin-limitations)
   - [Other Limitations](#other-limitations)
 - [Technical Frequently Asked Questions](#technical-frequently-asked-questions)
@@ -61,6 +62,10 @@ The following are the quota for users based, stratified by the three [Subscripti
 - A user can execute a maximum of 3,000 requests per hour toward the Cloud API. This includes API requests from the CLI (`spin`) and navigating the Fermyon Cloud website.
 - The device and browser token lifetime for Fermyon Cloud Dashboard authentication is 7 days
 - A Spin application can have a maximum of 1 key value store
+
+### Custom Domains Limitations
+
+Additional records for custom domains are not supported on Fermyon Cloud at this time. This means any additional records (such as TXT or MX) that you have already set through your registrar will become inactive once top-level (apex) domain delegation to Fermyon Cloud is completed. Updating your domain's nameserver records will cause any additional records you've set through your registrar to no longer take effect e.g. TXT or MX records for services like Google Workspace. If you need to assign your Spin application to an apex domain (`example.com` rather than a subdomain of the apex domain `app.example.com`) _and_ you also need to set additional DNS records associated with that domain, please share this [feedback here](https://github.com/fermyon/feedback/issues/47). In the meantime, please consider delegating a subdomain or using a [Fermyon custom subdomain for your Spin application](./custom-fermyon-subdomain) instead.
 
 ### Spin Limitations
 

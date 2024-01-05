@@ -21,15 +21,17 @@ If you do not own a domain and you **are** interested in purchasing one, you can
 
 ## Setting Up Custom Domains
 
-To take advantage of Fermyon Cloud Custom Domain, you must delegate your domain to Fermyon Cloud. For a full set of instructions, please follow the [Ferymon Cloud Custom Domains tutorial](./custom-domains-tutorial.md). 
+To take advantage of Fermyon Cloud Custom Domain, you must delegate your domain to Fermyon Cloud. 
+
+>> Please consider [these limitations of delegating your apex domain to Fermyon Cloud](./faq.md#custom-domains-limitations) first. 
+
+For a full set of top-level (apex) domain delegation instructions, follow the [Ferymon Cloud Custom Domains tutorial](./custom-domains-tutorial.md).
 
 ### Relationship Between Custom Domains and Spin Applications
 
 Currently, you can apply a maximum of one custom domain to your Spin application, and a custom domain cannot be shared between multiple Spin applications. If you apply a custom domain to a Spin application and you wish to reassign it, you must first remove the custom domain from the current Spin application and then apply it to your desired Spin application. The Fermyon Cloud Custom Domain feature will generate 4 nameserver records. You must share these with your domain registrar and wait for DNS propagation (the mapping of IP address and DNS record information across nameservers on the internet).
 
 Note that this propagation is generally performed in a reasonable time frame (minutes/hours). However, in some cases, propagation can take up to 72 hours. You can check the DNS record types for your domain name using the [Google Public DNS](https://dns.google/) service.
-
-Be aware that updating your domain's nameserver records will cause any additional records you've set through you registrar to no longer take effect. This includes, for example, TXT or MX records for services like Google Workspace. You can work around this by connecting your Fermyon Cloud app to a subdomain. But if you need to use the apex domain (example.com rather than app.example.com) and you also need to set additional DNS records, you should choose a different hosting service for the time being.
 
 ### Next Steps
 
