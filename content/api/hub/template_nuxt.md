@@ -20,7 +20,6 @@ keywords = "vue, nuxt, js, javascript"
 
 This is a template for using [NuxtJS](https://nuxt.com/docs/getting-started/introduction) to create a static webpage.
 
-
 Install the template
 ```bash
 $ spin templates install --upgrade --git https://github.com/VamshiReddy02/spin-nuxt
