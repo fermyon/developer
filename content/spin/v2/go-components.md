@@ -73,7 +73,7 @@ The Spin HTTP component (written in Go) can be built using the `tingygo` toolcha
 $ tinygo build -o main.wasm -target=wasi main.go
 ```
 
-Once built, we can run our Spin HTTP component (written in Go) using the Spin up command:
+Once built, we can run our Spin HTTP component using the Spin up command:
 
 <!-- @selectiveCpy -->
 
