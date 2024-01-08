@@ -30,9 +30,7 @@ Using TinyGo to compile components for Spin is currently required, as the
 
 ## Versions
 
-TinyGo `0.29.0` is recommended, which requires Go `v1.18+` or newer.
-
-> TinyGo version `0.29.0` is known to have issues with Spin on some systems.
+TinyGo `0.30.0` is recommended, which requires Go `v1.19+`.
 
 ## HTTP Components
 
@@ -65,6 +63,35 @@ func init() {
 }
 
 func main() {}
+```
+
+The Spin HTTP component (written in Go) can be built using the `tingygo` toolchain:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ tinygo build -o main.wasm -target=wasi main.go
+```
+
+Once built, we can run our Spin HTTP component (written in Go) using the Spin up command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin up
+```
+
+The Spin HTTP component (written in Go) can now receive and process incoming requests:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -i localhost:3000
+HTTP/1.1 200 OK
+content-type: text/plain
+content-length: 15
+
+Hello Fermyon!
 ```
 
 The important things to note in the implementation above:
@@ -118,12 +145,12 @@ func init() {
 func main() {}
 ```
 
-The component can be built using the `tingygo` toolchain:
+The Outbound HTTP Request example above can be built using the `tingygo` toolchain:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ tinygo build -wasm-abi=generic -target=wasi -no-debug -o main.wasm main.go
+$ tinygo build -o main.wasm -target=wasi main.go
 ```
 
 Before we can execute this component, we need to add the
@@ -157,12 +184,9 @@ now receive requests in route `/hello`:
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
+$ curl -i localhost:3000
 HTTP/1.1 200 OK
-content-type: text/plain; charset=utf-8
-server: spin/0.1.0
-content-length: 85
-date = "2023-11-04T00:00:01Z"
+content-length: 93
 
 {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}
 ```
@@ -231,7 +255,7 @@ component = "echo-message"
 [component.echo-message]
 source = "main.wasm"
 [component.echo-message.build]
-command = "tinygo build -wasm-abi=generic -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 ```
 
 The application will connect to `redis://localhost:6379`, and for every new message
