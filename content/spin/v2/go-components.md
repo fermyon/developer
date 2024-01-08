@@ -81,7 +81,7 @@ Once built, we can run our Spin HTTP component using the Spin up command:
 $ spin up
 ```
 
-The Spin HTTP component (written in Go) can now receive and process incoming requests:
+The Spin HTTP component can now receive and process incoming requests:
 
 <!-- @selectiveCpy -->
 
