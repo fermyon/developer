@@ -184,7 +184,7 @@ now receive requests in route `/hello`:
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000
+$ curl -i localhost:3000/hello
 HTTP/1.1 200 OK
 content-length: 93
 
