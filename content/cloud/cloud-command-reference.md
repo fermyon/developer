@@ -200,6 +200,37 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud --help
+Fermyon Engineering <engineering@fermyon.com>
+
+USAGE:
+    spin cloud <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    apps         Manage applications deployed to Fermyon Cloud
+    deploy       Package and upload an application to the Fermyon Cloud
+    help         Print this message or the help of the given subcommand(s)
+    link         Link apps to resources
+    login        Log into Fermyon Cloud
+    logout       Log out of Fermyon Cloud
+    logs         Fetch logs for an app from Fermyon Cloud
+    sqlite       Manage Fermyon Cloud SQLite databases
+    unlink       Unlink apps from resources
+    variables    Manage Spin application variables
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -293,6 +324,31 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud apps --help
 
+Manage applications deployed to Fermyon Cloud
+
+USAGE:
+    spin cloud apps <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete an app deployed in Fermyon Cloud
+    help      Print this message or the help of the given subcommand(s)
+    info      Get details about a deployed app in Fermyon Cloud
+    list      List all the apps deployed in Fermyon Cloud
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud apps --help
 Manage applications deployed to Fermyon Cloud
 
 USAGE:
@@ -439,6 +495,28 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud apps delete --help
+Delete an app deployed in Fermyon Cloud
+
+USAGE:
+    spin cloud apps delete <APP>
+
+ARGS:
+    <APP>    Name of Spin app
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -529,6 +607,28 @@ OPTIONS:
 
     -V, --version
             Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud apps info --help
+Get details about a deployed app in Fermyon Cloud
+
+USAGE:
+    spin cloud apps info <APP>
+
+ARGS:
+    <APP>    Name of Spin app
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
 ```
 
 {{ blockEnd }}
@@ -644,6 +744,25 @@ OPTIONS:
 
     -V, --version
             Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud apps list --help
+List all the apps deployed in Fermyon Cloud
+
+USAGE:
+    spin cloud apps list
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
 ```
 
 {{ blockEnd }}
@@ -943,15 +1062,15 @@ USAGE:
 OPTIONS:
         --build
             For local apps, specifies to perform `spin build` before deploying the application.
-            
+
             This is ignored on remote applications, as they are already built.
-            
+
             [env: SPIN_ALWAYS_BUILD=]
 
         --environment-name <environment-name>
             Deploy to the Fermyon instance saved under the specified name. If omitted, Spin deploys
             to the default unnamed instance
-            
+
             [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
 
     -f, --from <APPLICATION>
@@ -969,7 +1088,63 @@ OPTIONS:
         --readiness-timeout <READINESS_TIMEOUT_SECS>
             How long in seconds to wait for a deployed HTTP application to become ready. The default
             is 60 seconds. Set it to 0 to skip waiting for readiness
-            
+
+            [default: 60]
+
+    -V, --version
+            Print version information
+
+        --variable <VARIABLES>
+            Set a variable (variable=value) in the deployed application. Any existing value will be
+            overwritten. Can be used multiple times
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud deploy --help
+Package and upload an application to the Fermyon Cloud
+
+USAGE:
+    spin cloud deploy [OPTIONS]
+
+OPTIONS:
+        --build
+            For local apps, specifies to perform `spin build` before deploying the application.
+
+            This is ignored on remote applications, as they are already built.
+
+            [env: SPIN_ALWAYS_BUILD=]
+
+    -f, --from <APPLICATION>
+            The application to deploy. This may be a manifest (spin.toml) file, a directory
+            containing a spin.toml file, or a remote registry reference. If omitted, it defaults to
+            "spin.toml"
+
+    -h, --help
+            Print help information
+
+        --key-value <KEY_VALUES>
+            Set a key/value pair (key=value) in the deployed application's default store. Any
+            existing value will be overwritten. Can be used multiple times
+
+        --link <LINKS>
+            Specifies how application labels (such as SQLite databases) should be linked if they are
+            not already linked. This is intended for non-interactive environments such as release
+            pipelines; therefore, if any links are specified, all links must be specified.
+
+            Links must be of the form 'sqlite:label=database'. Databases that do not exist will be
+            created.
+
+        --readiness-timeout <READINESS_TIMEOUT_SECS>
+            How long in seconds to wait for a deployed HTTP application to become ready. The default
+            is 60 seconds. Set it to 0 to skip waiting for readiness
+
             [default: 60]
 
     -V, --version
@@ -1145,6 +1320,37 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud help
+Fermyon Engineering <engineering@fermyon.com>
+
+USAGE:
+    spin cloud <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    apps         Manage applications deployed to Fermyon Cloud
+    deploy       Package and upload an application to the Fermyon Cloud
+    help         Print this message or the help of the given subcommand(s)
+    link         Link apps to resources
+    login        Log into Fermyon Cloud
+    logout       Log out of Fermyon Cloud
+    logs         Fetch logs for an app from Fermyon Cloud
+    sqlite       Manage Fermyon Cloud SQLite databases
+    unlink       Unlink apps from resources
+    variables    Manage Spin application variables
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1158,7 +1364,7 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud link
+$ spin cloud link --help
 Link apps to resources
 
 USAGE:
@@ -1187,7 +1393,30 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud link
+$ spin cloud link --help
+Link apps to resources
+
+USAGE:
+    spin cloud link <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    help      Print this message or the help of the given subcommand(s)
+    sqlite    Link an app to a SQLite database
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud link --help
 Link apps to resources
 
 USAGE:
@@ -1277,6 +1506,30 @@ OPTIONS:
 
     -V, --version
             Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud link sqlite --help
+Link an app to a SQLite database
+
+USAGE:
+    spin cloud link sqlite --app <APP> --database <DATABASE> <LABEL>
+
+ARGS:
+    <LABEL>    The name by which the application will refer to the database
+
+OPTIONS:
+    -a, --app <APP>              The app that will be using the database
+    -d, --database <DATABASE>    The database that the app will refer to by the label
+    -h, --help                   Print help information
+    -V, --version                Print version information
 ```
 
 {{ blockEnd }}
@@ -1554,6 +1807,32 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud login --help
+Log into Fermyon Cloud
+
+USAGE:
+    spin cloud login [OPTIONS]
+
+OPTIONS:
+        --auth-method <auth-method>    [env: AUTH_METHOD=] [possible values: github, token]
+    -h, --help                         Print help information
+    -k, --insecure                     Ignore server certificate errors
+        --list                         List saved logins
+        --status                       Display login status
+        --token <TOKEN>                Auth Token [env: SPIN_AUTH_TOKEN=]
+        --url <CLOUD_SERVER_URL>       URL of Fermyon Cloud Instance [env: CLOUD_URL=] [default:
+                                       https://cloud.fermyon.com/]
+    -V, --version                      Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1582,6 +1861,48 @@ OPTIONS:
             Use the Fermyon instance saved under the specified name. If omitted, Spin looks for app
             in default unnamed instance [env: FERMYON_DEPLOYMENT_ENVIRONMENT=]
 
+        --follow
+            Follow logs output
+
+    -h, --help
+            Print help information
+
+        --interval <interval>
+            Interval in seconds to refresh logs from cloud [default: 2]
+
+        --show-timestamps <show-timestamps>
+            Show timestamps [default: true] [possible values: true, false]
+
+        --since <since>
+            Only return logs newer than a relative duration. The duration format is a number and a
+            unit, where the unit is 's' for seconds, 'm' for minutes, 'h' for hours or 'd' for days
+            (e.g. "30m" for 30 minutes ago).  The default it 7 days [default: 7d]
+
+        --tail <tail>
+            Number of lines to show from the end of the logs [default: 10]
+
+    -V, --version
+            Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud logs --help
+Fetch logs for an app from Fermyon Cloud
+
+USAGE:
+    spin cloud logs [OPTIONS] <APP>
+
+ARGS:
+    <APP>    App name
+
+OPTIONS:
         --follow
             Follow logs output
 
@@ -1748,6 +2069,33 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite --help
+Manage Fermyon Cloud SQLite databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    create     Create a SQLite database
+    delete     Delete a SQLite database
+    execute    Execute SQL statements against a SQLite database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all your SQLite databases
+    rename     Rename a SQLite database
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1811,6 +2159,28 @@ OPTIONS:
 
     -V, --version
             Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite create --help
+Create a SQLite database
+
+USAGE:
+    spin cloud sqlite create <NAME>
+
+ARGS:
+    <NAME>    Name of database to create
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
 ```
 
 {{ blockEnd }}
@@ -1987,6 +2357,29 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite delete --help
+Delete a SQLite database
+
+USAGE:
+    spin cloud sqlite delete [OPTIONS] <NAME>
+
+ARGS:
+    <NAME>    Name of database to delete
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+    -y, --yes        Skips prompt to confirm deletion of database
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2157,6 +2550,31 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite execute --help
+Execute SQL statements against a SQLite database
+
+USAGE:
+    spin cloud sqlite execute [OPTIONS] <STATEMENT>
+
+ARGS:
+    <STATEMENT>    Statement to execute
+
+OPTIONS:
+    -a, --app <APP>              App to which label relates
+    -d, --database <DATABASE>    Name of database to execute against
+    -h, --help                   Print help information
+    -l, --label <LABEL>          Label of database to execute against
+    -V, --version                Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2170,7 +2588,7 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud sqlite help    
+$ spin cloud sqlite help
 
 Manage Fermyon Cloud SQLite databases
 
@@ -2196,7 +2614,7 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud sqlite help    
+$ spin cloud sqlite help
 
 Manage Fermyon Cloud SQLite databases
 
@@ -2222,7 +2640,7 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud sqlite help    
+$ spin cloud sqlite help
 
 Manage Fermyon Cloud NoOps SQL databases
 
@@ -2248,7 +2666,7 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud sqlite help    
+$ spin cloud sqlite help
 
 Manage Fermyon Cloud NoOps SQL databases
 
@@ -2276,8 +2694,35 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud sqlite help    
+$ spin cloud sqlite help
 
+Manage Fermyon Cloud SQLite databases
+
+USAGE:
+    spin cloud sqlite <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    create     Create a SQLite database
+    delete     Delete a SQLite database
+    execute    Execute SQL statements against a SQLite database
+    help       Print this message or the help of the given subcommand(s)
+    list       List all your SQLite databases
+    rename     Rename a SQLite database
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite help
 Manage Fermyon Cloud SQLite databases
 
 USAGE:
@@ -2432,7 +2877,6 @@ Spin compatibility: `>= v1.3`
 <!-- @selectiveCpy -->
 ```console
 $ spin cloud sqlite list --help
-
 List all your SQLite databases
 
 USAGE:
@@ -2460,6 +2904,30 @@ OPTIONS:
 
     -V, --version
             Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite list --help
+List all your SQLite databases
+
+USAGE:
+    spin cloud sqlite list [OPTIONS]
+
+OPTIONS:
+    -a, --app <APP>              Filter list by an app
+    -d, --database <DATABASE>    Filter list by a database
+        --format <FORMAT>        Format of list [default: table] [possible values: table, json]
+    -g, --group-by <GROUP_BY>    Grouping strategy of tabular list [default: app] [possible values:
+                                 app, database]
+    -h, --help                   Print help information
+    -V, --version                Print version information
 ```
 
 {{ blockEnd }}
@@ -2533,6 +3001,29 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud sqlite rename --help
+Rename a SQLite database
+
+USAGE:
+    spin cloud sqlite rename <NAME> <NEW_NAME>
+
+ARGS:
+    <NAME>        Current name of database to rename
+    <NEW_NAME>    New name for the database
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2546,7 +3037,7 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud unlink
+$ spin cloud unlink --help
 Unlink apps from resources
 
 USAGE:
@@ -2569,7 +3060,30 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud unlink
+$ spin cloud unlink --help
+Unlink apps from resources
+
+USAGE:
+    spin cloud unlink <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    help      Print this message or the help of the given subcommand(s)
+    sqlite    Unlink an app from a SQLite database
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud unlink --help
 Unlink apps from resources
 
 USAGE:
@@ -2657,12 +3171,35 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud unlink sqlite --help
+Unlink an app from a SQLite database
+
+USAGE:
+    spin cloud unlink sqlite --app <APP> <LABEL>
+
+ARGS:
+    <LABEL>    The name by which the application refers to the database
+
+OPTIONS:
+    -a, --app <APP>    The app that will be using the database
+    -h, --help         Print help information
+    -V, --version      Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud variables
 
-{{ tabs "cloud-plugin-version" }} 
+{{ tabs "cloud-plugin-version" }}
 
 {{ startTab "v0.1.1"}}
 
@@ -2802,6 +3339,31 @@ Spin compatibility: `>= v1.3`
 ```console
 $ spin cloud variables --help
 
+Manage Spin application variables
+
+USAGE:
+    spin cloud variables <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete variables
+    help      Print this message or the help of the given subcommand(s)
+    list      List all variables of an application
+    set       Set variables
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables --help
 Manage Spin application variables
 
 USAGE:
@@ -3025,6 +3587,29 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables delete --help
+Delete variables
+
+USAGE:
+    spin cloud variables delete --app <app> [VARIABLES_TO_DELETE]...
+
+ARGS:
+    <VARIABLES_TO_DELETE>...    Variable pair to set
+
+OPTIONS:
+        --app <app>    Name of Spin app
+    -h, --help         Print help information
+    -V, --version      Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -3188,12 +3773,37 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables help
+Manage Spin application variables
+
+USAGE:
+    spin cloud variables <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    delete    Delete variables
+    help      Print this message or the help of the given subcommand(s)
+    list      List all variables of an application
+    set       Set variables
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud variables list
 
-{{ tabs "cloud-plugin-version" }} 
+{{ tabs "cloud-plugin-version" }}
 
 {{ startTab "v0.1.1"}}
 
@@ -3375,12 +3985,32 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables list --help
+List all variables of an application
+
+USAGE:
+    spin cloud variables list --app <app>
+
+OPTIONS:
+        --app <app>    Name of Spin app
+    -h, --help         Print help information
+    -V, --version      Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud variables set
 
-{{ tabs "cloud-plugin-version" }} 
+{{ tabs "cloud-plugin-version" }}
 
 {{ startTab "v0.1.1"}}
 
@@ -3580,6 +4210,29 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud variables set --help
+Set variables
+
+USAGE:
+    spin cloud variables set --app <app> [VARIABLES_TO_SET]...
+
+ARGS:
+    <VARIABLES_TO_SET>...    Variable pair to set
+
+OPTIONS:
+        --app <app>    Name of Spin app
+    -h, --help         Print help information
+    -V, --version      Print version information
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ## Subcommand Stability Table
@@ -3663,6 +4316,22 @@ Spin compatibility: `>= v1.3`
 {{ blockEnd }}
 
 {{ startTab "v0.5.0"}}
+
+Spin compatibility: `>= v1.3`
+
+| Command                                                    | Stability   |
+| ---------------------------------------------------------- | ----------- |
+| <code>cloud apps</code>                                    | Stabilizing |
+| <code>cloud deploy</code>                                  | Stabilizing |
+| <code>cloud link</code>                                    | Stabilizing |
+| <code>cloud login</code>                                   | Stabilizing |
+| <code>cloud sqlite</code>                                  | Stabilizing |
+| <code>cloud unlink</code>                                  | Stabilizing |
+| <code>cloud variables</code>                               | Stabilizing |
+
+{{ blockEnd }}
+
+{{ startTab "v0.6.0"}}
 
 Spin compatibility: `>= v1.3`
 
