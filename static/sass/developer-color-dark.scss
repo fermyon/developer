@@ -190,6 +190,14 @@ html.dark-theme {
 
         footer.footer-links {
             border-top: 1px solid rgba($lavenderlight, 0.125) !important;
+            .level a {
+                color: #ccb2f0 !important;
+                &:hover {
+                    background: rgba(124, 109, 185, 0.5) !important;
+                    color: #fff !important;
+                    border-radius: 25px;
+                }
+            }
         }
 
         .content {
