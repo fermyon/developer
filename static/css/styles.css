@@ -1518,6 +1518,16 @@ html.dark-theme body.documentation footer.footer-links {
   border-top: 1px solid #e7d3f220 !important;
 }
 
+html.dark-theme body.documentation footer.footer-links .level a {
+  color: #ccb2f0 !important;
+}
+
+html.dark-theme body.documentation footer.footer-links .level a:hover {
+  border-radius: 25px;
+  color: #fff !important;
+  background: #7c6db980 !important;
+}
+
 html.dark-theme body.documentation .content a {
   color: #ccb2f0;
 }
