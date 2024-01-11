@@ -253,7 +253,7 @@ If you followed this guide, you should see the same key/values in your `default`
 
 While Spin supports retrieving secrets from Vault, it's recommended to use the [Vault Secrets Operator](https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator) on Kubernetes. This operator synchronizes secrets between Vault and Kubernetes, making them accessible within a specified namespace. The application accesses these secrets the standard Kubernetes way, without needing Vault-specific authentication details.
 
-If you nevertheless want your component to fetch secrets directly from Vault, follow the [Dynamic Application Configuration](https://developer.fermyon.com/spin/v2/dynamic-configuration#vault-application-variable-provider) documentation.
+If you nevertheless want your component to fetch secrets directly from Vault, follow the [Dynamic Application Configuration](dynamic-configuration#vault-application-variable-provider) documentation.
 
 ### Using Kubernetes Secrets:
 
