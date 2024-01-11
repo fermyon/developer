@@ -243,14 +243,31 @@
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/plugin-authoring">Creating Spin
                                         Plugins</a></li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes">Spin on Kubernetes</a>
-                        </li>
                 </ul>
         </div>
         <div class="accordion-menu-item">
                 <input type="checkbox" id="rd9" name="rd">
                 <label for="rd9" class="accordion-menu-item-label menu-label">
+                        Kubernetes
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes">Spin on Kubernetes</a>
+                        </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-sidecars" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes-sidecars">Using Sidecars</a>
+                        </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-dynamic-configuration" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes-dynamic-configuration">Dynamic Application Configuration on Kubernetes</a>
+                        </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-known-issues" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes-known-issues">Known Issues</a>
+                        </li>
+                </ul>
+        </div>
+        <div class="accordion-menu-item">
+                <input type="checkbox" id="rd10" name="rd">
+                <label for="rd10" class="accordion-menu-item-label menu-label">
                         Contributing
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
