@@ -251,17 +251,21 @@
                         Kubernetes
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes">Spin on Kubernetes</a>
+                        <li><a {{#if (active_content request.spin-path-info "/kubernetes" )}} class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/kubernetes">Spin on Kubernetes</a>
                         </li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-sidecars" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes-sidecars">Using Sidecars</a>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-sidecars" )}}
+                                        class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/kubernetes-sidecars">Using Sidecars</a>
                         </li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-dynamic-configuration" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes-dynamic-configuration">Dynamic Application Configuration on Kubernetes</a>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-dynamic-configuration"
+                                        )}} class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/kubernetes-dynamic-configuration">Dynamic
+                                        Application Configuration on Kubernetes</a>
                         </li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-known-issues" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes-known-issues">Known Issues</a>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/kubernetes-known-issues" )}}
+                                        class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/kubernetes-known-issues">Known Issues</a>
                         </li>
                 </ul>
         </div>
