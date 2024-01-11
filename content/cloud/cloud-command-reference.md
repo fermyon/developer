@@ -17,6 +17,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud link](#spin-cloud-link)
 - [spin cloud link sqlite](#spin-cloud-link-sqlite)
 - [spin cloud login](#spin-cloud-login)
+- [spin cloud logout](#spin-cloud-logout)
 - [spin cloud logs](#spin-cloud-logs)
 - [spin cloud sqlite](#spin-cloud-sqlite)
 - [spin cloud sqlite create](#spin-cloud-sqlite-create)
@@ -1829,6 +1830,32 @@ OPTIONS:
         --url <CLOUD_SERVER_URL>       URL of Fermyon Cloud Instance [env: CLOUD_URL=] [default:
                                        https://cloud.fermyon.com/]
     -V, --version                      Print version information
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud logout
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud logout --help
+Log out of Fermyon Cloud
+
+USAGE:
+    spin cloud logout
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
 ```
 
 {{ blockEnd }}
@@ -4325,6 +4352,7 @@ Spin compatibility: `>= v1.3`
 | <code>cloud deploy</code>                                  | Stabilizing |
 | <code>cloud link</code>                                    | Stabilizing |
 | <code>cloud login</code>                                   | Stabilizing |
+| <code>cloud logs</code>                                    | Stabilizing |
 | <code>cloud sqlite</code>                                  | Stabilizing |
 | <code>cloud unlink</code>                                  | Stabilizing |
 | <code>cloud variables</code>                               | Stabilizing |
@@ -4341,6 +4369,8 @@ Spin compatibility: `>= v1.3`
 | <code>cloud deploy</code>                                  | Stabilizing |
 | <code>cloud link</code>                                    | Stabilizing |
 | <code>cloud login</code>                                   | Stabilizing |
+| <code>cloud logout</code>                                  | Stabilizing |
+| <code>cloud logs</code>                                    | Stabilizing |
 | <code>cloud sqlite</code>                                  | Stabilizing |
 | <code>cloud unlink</code>                                  | Stabilizing |
 | <code>cloud variables</code>                               | Stabilizing |
