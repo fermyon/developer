@@ -58,7 +58,7 @@
 
     <link rel="alternate" type="application/rss+xml" title="{{site.info.title}}" href="{{site.info.base_url}}/atom.xml">
     {{#if page.head.extra.canonical_url}}
-        <link rel="canonical" href="{{page.head.extra.canonical_url}}" />
+    <link rel="canonical" href="{{page.head.extra.canonical_url}}" />
     {{/if}}
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
@@ -128,11 +128,18 @@
         }
         document.head.appendChild(script);
     </script>
+    <!-- Start of Reo Javascript -->
+    <script type="text/plain" data-type="application/javascript" data-name="reo-dev"> !function () {
+            var
+                e, t, n; e = "57fed4b17f82a05", t = function () { Reo.init({ clientID: "57fed4b17f82a05" }) }, (n = document.createElement("script")).src = "https://static.reo.dev/" + e + "/reo.js", n.async = !0, n.onload = t, document.head.appendChild(n)
+        }();
+    </script>
 </head>
 
 <body class="documentation">
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe data-name="google-tag-manager" data-src="https://www.googletagmanager.com/ns.html?id=GTM-T28H3XL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe data-name="google-tag-manager" data-src="https://www.googletagmanager.com/ns.html?id=GTM-T28H3XL"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     {{> content_navbar }}

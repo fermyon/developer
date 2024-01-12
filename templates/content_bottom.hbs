@@ -1,11 +1,47 @@
 <div id="search-modal-container" class="search-modal-container">
     <div class="modal-close"></div>
 </div>
-
+<script>
+    var klaroConfig = {
+        version: 1,
+        elementID: 'klaro',
+        styling: {
+            theme: ['light', 'bottom', 'wide'],
+        },
+        noAutoLoad: false,
+        htmlTexts: true,
+        embedded: false,
+        groupByPurpose: true,
+        storageMethod: 'cookie',
+        cookieName: 'klaro',
+        cookieExpiresAfterDays: 365,
+        default: true,
+        mustConsent: false,
+        acceptAll: true,
+        hideDeclineAll: false,
+        hideLearnMore: false,
+        noticeAsModal: false,
+        services: [
+            {
+                name: 'google-tag-manager',
+                title: 'Google Tag Manager',
+                purposes: ['analytics'],
+                cookies: ['_ga', '_gid', '_gat', '_gat_UA-218333798-1', '_ga_DXM7W0VBXS']
+            },
+            {
+                name: 'reo-dev',
+                title: 'reo dev',
+                purposes: ['analytics'],
+                cookies: ['mp_e54657e02c1d7c89ed388da56c0f327c_mixpanel']
+            }
+        ],
+    };
+</script>
+<script defer data-config="klaroConfig" type="text/javascript"
+    src="https://cdn.kiprotect.com/klaro/v0.7.18/klaro.js"></script>
 <script src="{{site.info.base_url}}/static/js/headroom.min.js"></script>
 <script src="{{site.info.base_url}}/static/js/highlight.min.js"></script>
 <script src="{{site.info.base_url}}/static/js/lunr.min.js"></script>
 <script src="{{site.info.base_url}}/static/js/redom.min.js"></script>
 <script src="{{site.info.base_url}}/static/js/main.js"></script>
-<script defer type="text/javascript" src="https://cdn.kiprotect.com/klaro/v0.7.18/klaro.js"></script>
 <script defer data-domain="developer.fermyon.com" src="https://plausible.io/js/plausible.tagged-events.js"></script>
