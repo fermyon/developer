@@ -51,7 +51,7 @@ to environment variables by upper-casing and prepending with `SPIN_VARIABLE_`:
 <!-- @selectiveCpy -->
 
 ```bash
-$ export SPIN_VARIABLE_API_KEY = "1234"  # Sets the `api_key` value.
+$ export SPIN_VARIABLE_API_KEY="1234"  # Sets the `api_key` value.
 $ spin up
 ```
 
