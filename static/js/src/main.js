@@ -4,35 +4,6 @@ import { addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeE
 import { multiTabContentHandler } from "./modules/multiTab"
 import { createFeedbackElement } from "./modules/feedback";
 
-var klaroConfig = {
-  version: 1,
-  elementID: 'klaro',
-  styling: {
-      theme: ['light', 'bottom', 'wide'],
-  },
-  noAutoLoad: false,
-  htmlTexts: true,
-  embedded: false,
-  groupByPurpose: true,
-  storageMethod: 'cookie',
-  cookieName: 'klaro',
-  cookieExpiresAfterDays: 365,
-  default: true,
-  mustConsent: false,
-  acceptAll: true,
-  hideDeclineAll: false,
-  hideLearnMore: false,
-  noticeAsModal: false,
-  services: [
-      {
-          name: 'google-tag-manager',
-          title: 'Google Tag Manager',
-          purposes: ['analytics'],
-          cookies: ['_ga', '_gid', '_gat', '_gat_UA-218333798-1', '_ga_DXM7W0VBXS']
-      }
-  ],
-};
-
 document.querySelectorAll('.modal-button').forEach(function (el) {
   el.addEventListener('click', function () {
     var target = document.querySelector(el.getAttribute('data-target'));
@@ -99,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault()
             searchBar.focus()
           }
-      }
+        }
       }
     }
     catch (err) {
