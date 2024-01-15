@@ -2794,6 +2794,18 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   inset: 0 0 0 2px;
 }
 
+.mobile-search-container {
+  flex-grow: 1;
+  justify-content: end;
+  display: flex;
+}
+
+@media (min-width: 1025px) {
+  .mobile-search-container {
+    display: none;
+  }
+}
+
 .search-button {
   z-index: 19;
   cursor: text;
@@ -2806,6 +2818,25 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   display: block;
   position: relative;
   border: none !important;
+}
+
+.search-button.mobile {
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  display: none;
+}
+
+.search-button.mobile.enable {
+  display: block;
+}
+
+.search-button.mobile:after {
+  right: 1rem;
+}
+
+.search-button.mobile:before {
+  right: 0;
 }
 
 .search-button:before {
@@ -2911,6 +2942,12 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   box-shadow: 1px 3px 5px #0000000a;
 }
 
+@media (max-width: 1025px) {
+  .modal-box {
+    width: 95%;
+  }
+}
+
 .modal-search-bar {
   box-sizing: border-box;
   width: 100%;
@@ -2967,6 +3004,13 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   position: relative;
 }
 
+@media (max-width: 1025px) {
+  .result-section-container .suggested-project .recommended-navs {
+    padding-left: 2rem;
+    display: block;
+  }
+}
+
 .result-section-container .suggested-project .recommended-navs:before {
   content: "↪";
   width: 2rem;
@@ -3020,6 +3064,18 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   max-width: 80%;
 }
 
+@media (max-width: 1025px) {
+  .result-section-container .result-filters .filter-categories {
+    margin-top: 2rem;
+    position: relative;
+  }
+
+  .result-section-container .result-filters .filter-categories:before {
+    position: absolute;
+    top: -2rem;
+  }
+}
+
 .result-section-container .result-filters .filter-categories:before {
   content: "Filters:";
   color: #ab8cb6;
@@ -3032,6 +3088,12 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 .result-section-container .result-filters .reset-filter {
   color: #ab8cb6;
   font-size: .8rem;
+}
+
+@media (max-width: 1025px) {
+  .result-section-container .result-filters .reset-filter {
+    transform: translateY(-1rem);
+  }
 }
 
 .result-section-container .result-filters code {
@@ -3094,12 +3156,20 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .result-block a span {
+  width: auto;
   line-height: 1.4;
   display: block;
 }
 
 .result-block a:hover {
   color: #14305f;
+}
+
+@media (max-width: 1025px) {
+  .result-block a {
+    padding-right: 0;
+    display: block;
+  }
 }
 
 .result-block code {
@@ -3113,6 +3183,15 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   position: absolute;
   top: .125rem;
   right: 0;
+}
+
+@media (max-width: 1025px) {
+  .result-block code {
+    width: auto;
+    display: inline-block;
+    position: relative;
+    transform: scale(.8)translate(-1.5rem, -.5rem);
+  }
 }
 
 .result-block a.result-subitem {

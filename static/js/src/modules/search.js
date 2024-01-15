@@ -57,6 +57,12 @@ class SearchButton {
                 this.modal.open()
             }.bind(this)
         }, [this.searchPlaceholder, this.searchCommand])
+
+        let mobileSearch = document.getElementById("mobile-search")
+        if (mobileSearch) {
+            mobileSearch.classList.add("enable")
+            mobileSearch.addEventListener("click", () => { this.modal.open() })
+        }
     }
 }
 

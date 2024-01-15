@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"bZYIQ":[function(require,module,exports) {
+})({"4iZu9":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 1234;
+var HMR_PORT = 62230;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "42036d7a98ade5a7";
 module.bundle.HMR_BUNDLE_ID = "2a29ff2311f401cb";
@@ -695,6 +695,13 @@ class SearchButton {
             this.searchPlaceholder,
             this.searchCommand
         ]);
+        let mobileSearch = document.getElementById("mobile-search");
+        if (mobileSearch) {
+            mobileSearch.classList.add("enable");
+            mobileSearch.addEventListener("click", ()=>{
+                this.modal.open();
+            });
+        }
     }
 }
 class SearchResultSubHeading {
@@ -1465,5 +1472,5 @@ function createFeedbackElement(handle) {
     mount(handle, feedback);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["bZYIQ","e9rxa"], "e9rxa", "parcelRequire252c")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["4iZu9","e9rxa"], "e9rxa", "parcelRequire252c")
 
