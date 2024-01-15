@@ -23,6 +23,16 @@
 	z-index: 11;
 }
 
+.mobile-search-container {
+	flex-grow: 1;
+	justify-content: end;
+	display: flex;
+
+	@media (min-width: 1025px) {
+		display: none;
+	}
+}
+
 .search-button {
 	border: none !important;
 	padding: 0.8rem 25rem 0.8rem 0.8rem;
@@ -31,10 +41,29 @@
 	display: block;
 	width: 100%;
 	height: 4.333rem;
-	background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
 	text-align: right;
 	position: relative;
 	@include transition;
+
+	&.mobile {
+		display: none;
+		padding: 0;
+		width: 4rem;
+		height: 4rem;
+
+		&.enable {
+			display: block;
+		}
+
+		&::after {
+			right: 1rem;
+		}
+
+		&::before {
+			right: 0rem;
+		}
+	}
 
 	&:before {
 		height: 2rem;
@@ -84,15 +113,17 @@
 	}
 
 	&:hover {
-		background: rgb(255,255,255);
-		background: linear-gradient(0deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%); 
-		
-		.search-placeholder, .search-command {
+		background: rgb(255, 255, 255);
+		background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+
+		.search-placeholder,
+		.search-command {
 			opacity: 1;
 		}
 	}
 
 	@media screen and (min-width: 1024px) and (max-width: 1214px) {
+
 		.search-placeholder,
 		.search-command {
 			display: none;
@@ -136,12 +167,16 @@
 	flex-direction: column;
 	align-items: center;
 	background: $lightlavender;
-	background: linear-gradient(45deg, rgba(236,229,238,1) 0%, rgba(218,212,223,1) 100%); 
+	background: linear-gradient(45deg, rgba(236, 229, 238, 1) 0%, rgba(218, 212, 223, 1) 100%);
 	border-radius: 0.825rem;
 	box-shadow: rgba(0, 0, 0, 0.04) 1px 3px 5px;
 	padding: 0.67rem;
 	position: fixed;
 	top: 7.5vh;
+
+	@media (max-width: 1025px) {
+		width: 95%;
+	}
 }
 
 .modal-search-bar {
@@ -201,6 +236,11 @@
 			display: flex;
 			position: relative;
 
+			@media (max-width: 1025px) {
+				display: block;
+				padding-left: 2rem;
+			}
+
 			&:before {
 				content: "↪";
 				position: absolute;
@@ -227,7 +267,7 @@
 				margin: 0.1rem 0 !important;
 				@include transition;
 				font-weight: normal !important;
-			
+
 				&:hover {
 					color: lighten($oxfordblue, 7.5%);
 				}
@@ -253,8 +293,19 @@
 		align-items: center;
 		line-height: 2;
 
+
 		.filter-categories {
 			max-width: 80%;
+
+			@media (max-width: 1025px) {
+				margin-top: 2rem;
+				position: relative;
+
+				&:before {
+					position: absolute;
+					top: -2rem;
+				}
+			}
 
 			&:before {
 				display: inline-block;
@@ -269,6 +320,10 @@
 		.reset-filter {
 			font-size: 0.8rem;
 			color: darken($lightplum, 17.5%);
+
+			@media (max-width: 1025px) {
+				transform: translateY(-1rem);
+			}
 		}
 
 		code {
@@ -285,7 +340,8 @@
 			padding-right: 1.5rem;
 			position: relative;
 
-			&:after, &:before {
+			&:after,
+			&:before {
 				display: inline-block;
 				content: " ";
 				background-color: $lightlavender;
@@ -296,6 +352,7 @@
 				right: 0.75rem;
 				top: 0.375rem;
 			}
+
 
 			&:before {
 				transform: rotate(135deg);
@@ -335,10 +392,16 @@
 		span {
 			line-height: 1.4;
 			display: block;
+			width: auto;
 		}
 
 		&:hover {
 			color: lighten($oxfordblue, 7.5%);
+		}
+
+		@media (max-width: 1025px) {
+			display: block;
+			padding-right: 0;
 		}
 	}
 
@@ -354,6 +417,14 @@
 		top: 0.125rem;
 		color: darken($lavender, 15%);
 		background-color: lighten($lightplum, 15%);
+
+		@media (max-width: 1025px) {
+			position: relative;
+			transform: scale(.8)translate(-1.5rem, -0.5rem);
+			display: inline-block;
+			width: auto;
+		}
+
 	}
 
 	a.result-subitem {
@@ -366,7 +437,7 @@
 		margin: 0.2rem 0 !important;
 		@include transition;
 		font-weight: normal !important;
-	
+
 		&:hover {
 			color: lighten($oxfordblue, 7.5%);
 		}
@@ -381,8 +452,8 @@
 // dark search
 html.dark-theme {
 
-    #topbar.navbar .search-button:hover {
-		background: linear-gradient(180deg, rgba(33, 55, 98,0) 0%, rgba(33, 55, 98,0.25) 100%);
+	#topbar.navbar .search-button:hover {
+		background: linear-gradient(180deg, rgba(33, 55, 98, 0) 0%, rgba(33, 55, 98, 0.25) 100%);
 	}
 
 	.search-button-container {
@@ -394,31 +465,31 @@ html.dark-theme {
 	.search-button .search-placeholder {
 		color: $lightlavender;
 	}
-    
-    .search-button {
-        color: white;
-        border: none !important;
+
+	.search-button {
+		color: white;
+		border: none !important;
 
 		&::before {
 			background: rgba($thistle, 0.2) !important;
 		}
-    }
+	}
 
-    .search-command {
-        background-color: rgba($darkspace, 0.5);
-        color: $lightlavender;
-    }
+	.search-command {
+		background-color: rgba($darkspace, 0.5);
+		color: $lightlavender;
+	}
 
-    // results
-    .search-modal-container {
-	
+	// results
+	.search-modal-container {
+
 		.modal-wrapper {
 			background-color: #00000040;
 		}
 
 		.modal-box {
 			background: lighten($darkspace, 12.5%);
-			background: linear-gradient(45deg, rgba(33, 55, 98,1) 0%, rgba(82,92,118,1) 100%); 
+			background: linear-gradient(45deg, rgba(33, 55, 98, 1) 0%, rgba(82, 92, 118, 1) 100%);
 		}
 
 		input[type="text"].modal-search-bar {
@@ -432,76 +503,77 @@ html.dark-theme {
 			}
 		}
 
-        .result-block {
-            background-color: $darkspace;
+		.result-block {
+			background-color: $darkspace;
 
-            a {
-                color: white;
-            }
+			a {
+				color: white;
+			}
 
-            code {
-                background-color: $oxfordblue;
-            }
+			code {
+				background-color: $oxfordblue;
+			}
 
-            a.result-subitem {
-                background-color: transparent;
+			a.result-subitem {
+				background-color: transparent;
 
-                &:hover {
-                    color: lighten($midblue, 12.5%);
-                }
-            }
+				&:hover {
+					color: lighten($midblue, 12.5%);
+				}
+			}
 
-            .result-subheading-container {
-                a {
-                    color: $seagreen;
-                }
-            }
-        }
+			.result-subheading-container {
+				a {
+					color: $seagreen;
+				}
+			}
+		}
 
-        .result-section-container {
-            .result-filters {
+		.result-section-container {
+			.result-filters {
 
-                code, span {
-                    cursor: pointer;
-                    @include transition;
-                }
-                
-                code {
-                    color: $lightlavender !important;
-                    background-color: $darkspace !important;
+				code,
+				span {
+					cursor: pointer;
+					@include transition;
+				}
 
-                    &:hover {
-                        opacity: 0.85;
-                    }
+				code {
+					color: $lightlavender !important;
+					background-color: $darkspace !important;
 
-                    &:before,
-                    &:after {
-                        background-color: $oxfordblue;
-                    }
-                }
+					&:hover {
+						opacity: 0.85;
+					}
 
-                code.active {
-                    background-color: darken($lavender, 10%) !important;
+					&:before,
+					&:after {
+						background-color: $oxfordblue;
+					}
+				}
 
-                    &:before,
-                    &:after {
-                        background-color: darken($darkplum, 5%);
-                    }
-                }
-            }
+				code.active {
+					background-color: darken($lavender, 10%) !important;
 
-            .suggested-project {
-                background-color: $darkspace;
+					&:before,
+					&:after {
+						background-color: darken($darkplum, 5%);
+					}
+				}
+			}
 
-                .project-title {
-                    color: white;
-                }
+			.suggested-project {
+				background-color: $darkspace;
 
-                .suggested-project-link {
-                    background-color: transparent;
-                    color: $seagreen;
-                }
-            }
-        }
+				.project-title {
+					color: white;
+				}
+
+				.suggested-project-link {
+					background-color: transparent;
+					color: $seagreen;
+				}
+			}
+		}
 	}
 }
