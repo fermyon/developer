@@ -1,6 +1,6 @@
 title = "New York Kubernetes Meet-up: WebAssembly/Wasm"
 date = "2024-01-16T00:00:01Z"
-description = "Come and hang out with the local NYC community and learn about WebAssembly at the January New York Kubernetes Meet-up! Chris Matteson will be presenting \"Density is the Key to Cost Savings\", along with joining other prominent members of the Wasm community for a panel."
+description = "Come and hang out with the local NYC community and learn about WebAssembly at the January New York Kubernetes Meet-up! Chris Matteson will be joining other prominent members of the Wasm community for a panel on Wasm what’s, why’s, standards, and considerations on adoption."
 
 [extra]
 type = "event"
