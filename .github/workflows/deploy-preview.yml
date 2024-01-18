@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Setup `spin`
-        uses: fermyon/actions/spin/setup@v1
+        uses: rajatjindal/actions/spin/setup@actions-fixes
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -27,7 +27,7 @@ jobs:
           spin build
 
       - name: build and deploy preview
-        uses: fermyon/actions/spin/preview@v1
+        uses: rajatjindal/actions/spin/preview@actions-fixes
         with:
           fermyon_token: ${{ secrets.FERMYON_CLOUD_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
