@@ -1,4 +1,4 @@
-title = "Tests Dashboard sample"
+title = "Tests Dashboard"
 template = "render_hub_content_body"
 date = "2024-01-15T00:22:56Z"
 content-type = "text/html"

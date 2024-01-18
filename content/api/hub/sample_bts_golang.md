@@ -1,4 +1,4 @@
-title = "Behind the Scenes sample"
+title = "Behind the Scenes"
 template = "render_hub_content_body"
 date = "2024-01-15T00:22:56Z"
 content-type = "text/html"
