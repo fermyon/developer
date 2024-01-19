@@ -522,19 +522,19 @@ SUBCOMMANDS:
 
 {{ startTab "v1.3"}}
 
-The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference).
+The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference).
 
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
 
-The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference).
+The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference).
 
 {{ blockEnd }}
 
 {{ startTab "v1.5"}}
 
-The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference).
+The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference).
 
 {{ blockEnd }}
 
@@ -689,19 +689,19 @@ OPTIONS:
 
 {{ startTab "v1.3"}}
 
-The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-deploy).
+The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-deploy).
 
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
 
-The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-deploy).
+The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-deploy).
 
 {{ blockEnd }}
 
 {{ startTab "v1.5"}}
 
-The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-deploy).
+The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-deploy).
 
 {{ blockEnd }}
 
@@ -888,19 +888,19 @@ OPTIONS:
 
 {{ startTab "v1.3"}}
 
-The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-login).
+The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-login).
 
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
 
-The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-login).
+The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-login).
 
 {{ blockEnd }}
 
 {{ startTab "v1.5"}}
 
-The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-login).
+The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-login).
 
 {{ blockEnd }}
 
@@ -913,19 +913,19 @@ The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](../c
 
 {{ startTab "v1.3"}}
 
-The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-variables).
+The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-variables).
 
 {{ blockEnd }}
 
 {{ startTab "v1.4"}}
 
-The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-variables).
+The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-variables).
 
 {{ blockEnd }}
 
 {{ startTab "v1.5"}}
 
-The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](../cloud/cloud-command-reference#spin-cloud-variables).
+The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-variables).
 
 {{ blockEnd }}
 
