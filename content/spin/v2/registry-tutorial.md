@@ -45,7 +45,7 @@ To use a GHCR instance, you need to set up authentication. Follow [these steps](
 <!-- @nocpy -->
 
 ```bash
-> Login Succeed
+> Login Succeeded
 ```
 
 ## Push a Spin App to GHCR
@@ -100,6 +100,16 @@ Lastly, let's run this Spin application:
  ```bash
 $ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
+
+## Deploy a Spin App from GHCR
+
+You can deploy a Spin app from GHCR by passing the GHCR URL as a query parameter. To do so, just use the URL in this format: 
+
+```
+https://cloud.fermyon.com/deploy?artifact=<GHCR-URL-HERE>&utm_source=hub&utm_medium=btn&utm_campaign=deploy-btn
+```
+
+> **Note:** You need to sign up for a Fermyon cloud account for this. Also, ensure that your package visilibty is set to 'Public' as the default package visibility on Github is private
 
 ## Conclusion
 
