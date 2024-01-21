@@ -5,6 +5,7 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/see-what-people-have-built-with-spin.md"
 
 ---
+- [AI-powered bookmarking app with Python and WebAssembly](#ai-powered-bookmarking-app-with-python-and-webassembly)
 - [Like Button](#like-button)
 - [Social App](#social-app)
 - [Static Content Server](#static-content-server)
@@ -13,9 +14,14 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/see-what-p
 - [Content Management System (CMS)](#content-management-system-cms)
 - [The Finicky Whiskers Game](#the-finicky-whiskers-game)
 - [Accessing External APIs](#accessing-external-apis)
+- [SQLite Storage Using Javascript](#sqlite-storage-using-javascript)
 - [Next Steps](#next-steps)
 
 Spin can be used to build many different types of applications. The following blog articles show how different applications are built with Spin.
+
+## AI-powered bookmarking app with Python and WebAssembly
+
+[How to build an AI-powered bookmarking app with Python and WebAssembly](https://dev.to/fermyon/part-1-how-to-build-an-ai-powered-bookmarking-app-with-python-and-webassembly-2c5b).
 
 ## Like Button
 
