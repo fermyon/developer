@@ -83,33 +83,6 @@ async fn handle_request(_req: Request) -> anyhow::Result<impl IntoResponse> {
 }
 ```
 
-The outbound request will only work if we [grant network permissions to the component](https://developer.fermyon.com/spin/v2/redis-outbound#granting-network-permissions-to-components). Please update the `spin.toml` file at the component level as follows:
-
-```toml
-[component.example]
-allowed_outbound_hosts = ["https://www.fermyon.com:443"]
-```
-
-We can now build and run the application:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin build --up
-Building component example with `cargo build --target wasm32-wasi --release`
-Serving http://127.0.0.1:3000
-Available Routes:
-  example: http://127.0.0.1:3000 (wildcard)
-```
-We can test this out by making a request to the application's endpoint:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ curl localhost:3000
-The test page was 48203 bytes
-```
-
 For an example of receiving the response in a streaming style, [see this example in the Spin repository](https://github.com/fermyon/spin/blob/main/examples/wasi-http-rust-streaming-outgoing-body/src/lib.rs).
 
 {{ blockEnd }}
