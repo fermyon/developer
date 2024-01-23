@@ -95,7 +95,7 @@ We can now build and run the application:
 <!-- @selectiveCpy -->
 
 ```bash
-spin build --up
+$ spin build --up
 Building component example with `cargo build --target wasm32-wasi --release`
 Serving http://127.0.0.1:3000
 Available Routes:
