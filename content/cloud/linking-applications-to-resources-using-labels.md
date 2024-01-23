@@ -17,7 +17,7 @@ To facilitate the seamless transition of applications between different environm
 
 In the Spin development environment, that mapping is handled by the [runtime configuration file](/spin/dynamic-configuration#runtime-configuration).  In Fermyon Cloud, it's managed through _links_.
 
-> Link management is currently available only for SQLite Databases. Fermyon Cloud currently allows applications only the "default" key-value store, which is private to the application and shares the application's lifespan. Key-value link management is planned for a future release of Fermyon Cloud.
+> Link management is currently available for SQLite Databases and Key Value Stores. In this article, we will showcase SQLite Databases, although you can apply the same concepts to Key Value Stores as well. 
 
 This may sound abstract, so let's walk through a specific example:
 
@@ -105,8 +105,6 @@ The Spin application does not need to know the true name of the Cloud resource (
 
 A label is understood by all the components within a single application, but the labels applied do not hold any significance to other Spin applications. 
 
-> At this time, only SQLite Database supports labels. However, in the future other Fermyon Cloud resources such as Key Value Store will support links and labels as well. 
-
 ## Features of Links and Labels
 
 The benefits of using labels and Fermyon Cloud links include:
@@ -119,7 +117,7 @@ The benefits of using labels and Fermyon Cloud links include:
 
 ## Working With Links and Labels
 
-Whenever you add a string to your SQLite Database entry in the component manifest, you're creating a label. When you deploy your Spin application to Fermyon Cloud, you will be prompted to link the label to a specific SQLite Database instance. Later on, if you'd like to update the link you can do so via the `spin cloud link` command. 
+Whenever you add a string to your SQLite Database or Key Value Store entry in the component manifest, you're creating a label. When you deploy your Spin application to Fermyon Cloud, you will be prompted to link the label to a specific SQLite Database instance or Key Value Store instance depending on what you provisioned. Later on, if you'd like to update the link you can do so via the `spin cloud link` command. 
 
 To see your existing labels, run the `spin cloud <resource-type> list` command, where `<resource-type>` is the subcommand for the resource whose links you want to see. For example, if you want to see how your applications and your SQLite Databases are linked, run the following command:
 
@@ -133,7 +131,18 @@ $ spin cloud sqlite list
 +--------------------------------------------------------+
 ```
 
-Now you can see your Spin applications, their respective labels and their connected SQLite Databases.
+If you'd like to see how your applications and your Key Value Stores are linked, run the following command: 
+
+```bash
+$ spin cloud kv list
++--------------------------------------------------------+
+| App                          Label     Key Value Store |
++========================================================+
+| order-processor              orders    test-data       |
++--------------------------------------------------------+
+```
+
+Now using these commands you can see your Spin applications, their respective labels and their connected databases and stores.
 
 Though not recommended, if you'd like to unlink your resource while your Spin application is running, you can do so with the following command:
 
@@ -141,11 +150,16 @@ Though not recommended, if you'd like to unlink your resource while your Spin ap
 spin cloud unlink sqlite --app todo-app data
 ```
 
-Now we've successfully unlinked our `todo-app` from the `projects` database. 
+```bash
+spin cloud unlink kv --app order-processor test-data
+```
 
-If you delete a Fermyon Cloud application, it removes any links associated with the application, but does not delete the linked database.
+Now we've successfully unlinked our `todo-app` from the `projects` database, and unlinked our `order-processor` app from the `test-data` database. 
+
+If you delete a Fermyon Cloud application, it removes any links associated with the application, but does not delete the linked database or key value store. 
 
 ## Next Steps
 
 * Review the [SQLite Database Tutorial](noops-sql-db.md) to learn how to use links and labels with your SQLite Database
+* Review the [Key Value Store Tutorial](../spin/v2/key-value-store-tutorial.md)
 * Visit the [Spin Cloud Plugin](cloud-command-reference.md) reference article to learn more about the `spin cloud link sqlite` commands
