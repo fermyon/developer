@@ -52,29 +52,62 @@ Generally, you should use `IncomingResponse` when you need to stream the respons
 Here is an example of doing outbound HTTP in a simple request-response style:
 
 ```rust
-use spin_sdk::http::{IntoResponse, Request, send};
-use spin_sdk::http_component;
+use spin_sdk::{
+    http::{IntoResponse, Request, Method, Response},
+    http_component,
+};
 
 #[http_component]
 // The trigger handler (in this case an HTTP handler) has to be async
 // so we can `await` the outbound send.
 async fn handle_request(_req: Request) -> anyhow::Result<impl IntoResponse> {
 
-    // For this example, use the spin_sdk::http::RequestBuilder type
-    // for the outbound request.
-    let outbound_req = Request::get("https://www.fermyon.com/");
+    // Create the outbound request object
+    let request = Request::builder()
+        .method(Method::Get)
+        .uri("https://www.fermyon.com/")
+        .build();
 
-    // Send the outbound request, capturing the response as raw bytes
-    let response: http::Response<Vec<u8>> = send(outbound_req).await?;
+    // Send the request and await the response
+    let response: Response = spin_sdk::http::send(request).await?;
 
     // Use the outbound response body
     let response_len = response.body().len();
 
-    Ok(http::Response::builder()
+    // Return the response to the inbound request
+    Ok(Response::builder()
         .status(200)
         .header("content-type", "text/plain")
-        .body(format!("The test page was {response_len} bytes"))?)
+        .body(format!("The test page was {response_len} bytes"))
+        .build())
 }
+```
+
+The outbound request will only work if we [grant network permissions to the component](https://developer.fermyon.com/spin/v2/redis-outbound#granting-network-permissions-to-components). Please update the `spin.toml` file at the component level as follows:
+
+```toml
+[component.example]
+allowed_outbound_hosts = ["https://www.fermyon.com:443"]
+```
+
+We can now build and run the application:
+
+<!-- @selectiveCpy -->
+
+```bash
+spin build --up
+Building component example with `cargo build --target wasm32-wasi --release`
+Serving http://127.0.0.1:3000
+Available Routes:
+  example: http://127.0.0.1:3000 (wildcard)
+```
+We can test this out by making a request to the application's endpoint:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl localhost:3000
+The test page was 48203 bytes
 ```
 
 For an example of receiving the response in a streaming style, [see this example in the Spin repository](https://github.com/fermyon/spin/blob/main/examples/wasi-http-rust-streaming-outgoing-body/src/lib.rs).
