@@ -106,7 +106,12 @@ If you would like to see the key value stores you've created and the linked appl
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin kv list
+$ spin cloud kv list
++---------------------------------------------------------------+
+| App                              Label     Key Value Store |
++====================================+
+| example                      default   mykv                   |
++---------------------------------------------------------------+
 TODO add output
 ```
 
