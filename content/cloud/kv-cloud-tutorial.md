@@ -112,7 +112,6 @@ $ spin cloud kv list
 +====================================+
 | example                      default   mykv                   |
 +---------------------------------------------------------------+
-TODO add output
 ```
 
 ## Deleting the Cloud Key Value Store
