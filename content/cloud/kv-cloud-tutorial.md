@@ -19,7 +19,7 @@ With Spin Key Value Store support in Fermyon Cloud, you can persist non-relation
 
 This tutorial will focus primarily on linking your Spin applications to Key Value Store objects on Fermyon Cloud. To learn more how to configure business login within a Spin application to access key value data, please visit the [Spin Key Value tutorial](../spin/v2/key-value-store-tutorial). If you aren't familiar with the concept of linking your Spin application to a Fermyon Cloud storage object, the short summary is linking connects your Spin application to a Fermyon Cloud managed store via an associated label. That label is scoped to the Spin application you're linking and only that Spin application. This creates a seperation of concerns for application developers who now do not need to worry about the naming specifics of the data store, only that their application should have access. For an indepth review of these concepts, please visit [the links and labels conceptual article](linking-applications-to-resources-using-labels.md)
 
-> Please check that you have [Spin CLI](./cli-reference.md) v2.0 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) v0.7.0 or greater installed. 
+> Please check that you have [Spin CLI](../spin/v2/cli-reference.md) v2.0 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) v0.7.0 or greater installed. 
 
 ## Creating a New Spin Application
 
