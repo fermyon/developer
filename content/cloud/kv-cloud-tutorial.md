@@ -3,7 +3,7 @@ template = "cloud_main"
 date = "2023-07-26T16:00:00Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/cloud/noops-sql-db.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/kv-cloud-tutorial.md"
 
 ---
 - [Creating a New Spin Application](#creating-a-new-spin-application)
