@@ -21,7 +21,6 @@ This tutorial will focus primarily on linking your Spin applications to Key Valu
 
 > Please check that you have [Spin CLI](./cli-reference.md) v2.0 or greater, and [`cloud` plugin](https://github.com/fermyon/cloud-plugin) v0.7.0 or greater installed. 
 
-
 ## Creating a New Spin Application
 
 If you already have a Spin application, you can skip this step. If you do not have a Spin application locally you will need to [create one](/spin/quickstart#create-your-first-application).
