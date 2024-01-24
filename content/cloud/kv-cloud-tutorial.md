@@ -36,7 +36,7 @@ key_value_stores = ["default"]
 
 The new database file (`sqlite_key_value.db`) is created in your application's `.spin` folder when you run this Spin application. The database persists across Spin application invocations and updates. The key value store is empty to start.
 
-## Creating A Key Value Store in Fermyon Cloud
+## Creating a Key Value Store in Fermyon Cloud
 
 You have two options to create your key value store (both are equally valid):
 * Option A: Implicitly create a key value store (with an automatically assigned arbitrary database name) via `spin cloud deploy`. For example `inspirational-pig` or similarly named database will be created.
