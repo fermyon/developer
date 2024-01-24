@@ -109,12 +109,14 @@ $ spin up --runtime-config-file runtime_config.toml
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i http://127.0.0.1:3000
-HTTP/1.1 200 OK
-content-length: 26
-date: Tue, 18 Oct 2022 12:34:40 GMT
+$ curl localhost:3000 --data "test_password"
+{"authentication": "accepted"}
+```
+<!-- @selectiveCpy -->
 
-Got password test_password
+```bash
+$ curl localhost:3000 --data "wrong_password"
+{"authentication": "denied"}
 ```
 
 ## Key Value Store Runtime Configuration
