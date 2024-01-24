@@ -512,7 +512,7 @@ Congratulations, you have a Spin application and associated key value store runn
 ## Next Steps
 
 * Explore the contents of your Key Value store with the [Key Value Store Explorer template](https://developer.fermyon.com/hub/preview/template_kv_explorer)
-* Learn about linking your applications to different [Key Value Stores on Fermyon Cloud](TODO: link tutorial) 
+* Learn about linking your applications to different [Key Value Stores on Fermyon Cloud](../../cloud/kv-cloud-tutorial.md) 
 
 
 
