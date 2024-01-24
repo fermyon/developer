@@ -81,6 +81,8 @@ Key value store  "mykv" created
 
 Now you can deploy your application and select `mykv` as the resource you would like to link your application to: 
 
+<!-- @selectiveCpy -->
+
 ```bash
 spin deploy
 Uploading todo-app version 0.1.0-r234fe5a4 to Fermyon Cloud...
