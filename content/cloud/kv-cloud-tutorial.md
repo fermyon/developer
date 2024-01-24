@@ -65,6 +65,7 @@ inspirational-pig (default)
 
 Congratulations, you now have an application and key value store running on Fermyon Cloud. 
 
+<!-- markdownlint-disable-next-line titlecase-rule -->
 ### Explicitly Create A Database Via `spin cloud kv create`
 
 1. You can create your key value store using the following command:
