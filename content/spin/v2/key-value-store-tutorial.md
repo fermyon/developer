@@ -515,4 +515,3 @@ Congratulations, you have a Spin application and associated key value store runn
 * Learn about linking your applications to different [Key Value Stores on Fermyon Cloud](../../cloud/kv-cloud-tutorial.md) 
 
 
-
