@@ -70,7 +70,7 @@ Congratulations, you now have an application and key value store running on Ferm
 
 1. You can create your key value store using the following command:
 
-``<!-- @selectiveCpy -->
+<!-- @selectiveCpy -->
 
 ```bash
 $ spin cloud kv create mykv
