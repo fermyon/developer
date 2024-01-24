@@ -8,9 +8,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/noops-sql-db
 ---
 - [Creating a New Spin Application](#creating-a-new-spin-application)
 - [Grant Key Value Store Permission](#grant-key-value-store-permission)
-- [Creating A Key Value Store In Fermyon Cloud](#creating-a-key-value-store-in-fermyon-cloud)
+- [Creating a Key Value Store in Fermyon Cloud](#creating-a-key-value-store-in-fermyon-cloud)
   - [Implicitly Create A Key Value Store Via `spin cloud deploy`](#implicitly-create-a-key-value-store-via-spin-cloud-deploy)
-  - [Explicitly Create A Key Value Via `spin cloud kv create`](#explicitly-create-a-key-value-store-via-spin-cloud-kv-create)
+  - [Explicitly Create A Database Via `spin cloud kv create`](#explicitly-create-a-database-via-spin-cloud-kv-create)
 - [Viewing Linked Stores and Labels](#viewing-linked-stores-and-labels)
 - [Deleting the Cloud Key Value Store](#deleting-the-cloud-key-value-store)
 - [Next Steps](#next-steps)
