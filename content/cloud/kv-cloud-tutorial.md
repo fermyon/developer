@@ -111,9 +111,9 @@ If you would like to see the key value stores you've created and the linked appl
 ```bash
 $ spin cloud kv list
 +---------------------------------------------------------------+
-| App                              Label     Key Value Store |
-+====================================+
-| example                      default   mykv                   |
+| App                          Label         Key Value Store    |
++===============================================================+
+| example                      default       mykv               |
 +---------------------------------------------------------------+
 ```
 
