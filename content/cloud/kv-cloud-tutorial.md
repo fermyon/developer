@@ -84,7 +84,7 @@ Now you can deploy your application and select `mykv` as the resource you would 
 <!-- @selectiveCpy -->
 
 ```bash
-spin deploy
+$ spin deploy
 Uploading todo-app version 0.1.0-r234fe5a4 to Fermyon Cloud...
 Deploying...
 App "todo-app" accesses a kv store labeled "default"
