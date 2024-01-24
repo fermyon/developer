@@ -74,6 +74,7 @@ Congratulations, you now have an application and key value store running on Ferm
 
 ```bash
 $ spin cloud kv create mykv
+Key value store  "mykv" created
 ```
 
 > Note: The contents of the Cloud Key Value Store is completely unrelated to the local Key Value Store, and must be prepared separately.
