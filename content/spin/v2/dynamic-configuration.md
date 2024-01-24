@@ -90,8 +90,8 @@ $ vault server -dev -dev-root-token-id root
 ```bash
 $ export VAULT_TOKEN=root
 $ export VAULT_ADDR=http://127.0.0.1:8200
-$ vault kv put secret/password value="test_password"
-$ vault kv get secret/password
+$ vault kv put secret/secret value="test_password"
+$ vault kv get secret/secret
 ```
 
 4. Go to the [spin/tests/http/vault-variables-test](https://github.com/fermyon/spin/tree/main/tests/testcases/vault-variables-test) folder.
