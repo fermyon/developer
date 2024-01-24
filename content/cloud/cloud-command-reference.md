@@ -232,6 +232,18 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -364,6 +376,18 @@ SUBCOMMANDS:
     help      Print this message or the help of the given subcommand(s)
     info      Get details about a deployed app in Fermyon Cloud
     list      List all the apps deployed in Fermyon Cloud
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -518,6 +542,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -630,6 +666,18 @@ ARGS:
 OPTIONS:
     -h, --help       Print help information
     -V, --version    Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -764,6 +812,18 @@ USAGE:
 OPTIONS:
     -h, --help       Print help information
     -V, --version    Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -1158,6 +1218,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1352,6 +1424,18 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1430,6 +1514,18 @@ OPTIONS:
 SUBCOMMANDS:
     help      Print this message or the help of the given subcommand(s)
     sqlite    Link an app to a SQLite database
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -1531,6 +1627,18 @@ OPTIONS:
     -d, --database <DATABASE>    The database that the app will refer to by the label
     -h, --help                   Print help information
     -V, --version                Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -1834,6 +1942,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1856,6 +1976,18 @@ USAGE:
 OPTIONS:
     -h, --help       Print help information
     -V, --version    Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -1952,6 +2084,18 @@ OPTIONS:
 
     -V, --version
             Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -2123,6 +2267,18 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2208,6 +2364,18 @@ ARGS:
 OPTIONS:
     -h, --help       Print help information
     -V, --version    Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -2407,6 +2575,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2602,6 +2782,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2766,6 +2958,18 @@ SUBCOMMANDS:
     help       Print this message or the help of the given subcommand(s)
     list       List all your SQLite databases
     rename     Rename a SQLite database
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -2959,6 +3163,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -3051,6 +3267,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -3123,6 +3351,18 @@ OPTIONS:
 SUBCOMMANDS:
     help      Print this message or the help of the given subcommand(s)
     sqlite    Unlink an app from a SQLite database
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -3217,6 +3457,18 @@ OPTIONS:
     -a, --app <APP>    The app that will be using the database
     -h, --help         Print help information
     -V, --version      Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -3405,6 +3657,18 @@ SUBCOMMANDS:
     help      Print this message or the help of the given subcommand(s)
     list      List all variables of an application
     set       Set variables
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -3637,6 +3901,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -3821,6 +4097,18 @@ SUBCOMMANDS:
     help      Print this message or the help of the given subcommand(s)
     list      List all variables of an application
     set       Set variables
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -4028,6 +4316,18 @@ OPTIONS:
         --app <app>    Name of Spin app
     -h, --help         Print help information
     -V, --version      Print version information
+```
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
 ```
 
 {{ blockEnd }}
@@ -4260,6 +4560,18 @@ OPTIONS:
 
 {{ blockEnd }}
 
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin todo --help
+
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 ## Subcommand Stability Table
@@ -4360,6 +4672,26 @@ Spin compatibility: `>= v1.3`
 {{ blockEnd }}
 
 {{ startTab "v0.6.0"}}
+
+Spin compatibility: `>= v1.3`
+
+| Command                                                    | Stability   |
+| ---------------------------------------------------------- | ----------- |
+| <code>cloud apps</code>                                    | Stabilizing |
+| <code>cloud deploy</code>                                  | Stabilizing |
+| <code>cloud link</code>                                    | Stabilizing |
+| <code>cloud login</code>                                   | Stabilizing |
+| <code>cloud logout</code>                                  | Stabilizing |
+| <code>cloud logs</code>                                    | Stabilizing |
+| <code>cloud sqlite</code>                                  | Stabilizing |
+| <code>cloud unlink</code>                                  | Stabilizing |
+| <code>cloud variables</code>                               | Stabilizing |
+
+{{ blockEnd }}
+
+{{ startTab "v0.7.0"}}
+
+todo
 
 Spin compatibility: `>= v1.3`
 
