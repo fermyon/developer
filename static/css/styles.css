@@ -4386,7 +4386,7 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
   text-decoration: none;
 }
 
-.documentation h1:hover > a.anchor-link, .documentation h2:hover > a.anchor-link, .documentation h3:hover > a.anchor-link, .documentation h4:hover > a.anchor-link {
+.documentation h1:hover > a.anchor-link, .documentation h2:hover > a.anchor-link, .documentation h3:hover > a.anchor-link, .documentation h4:hover > a.anchor-link, .documentation tr:hover > a.anchor-link {
   opacity: 1;
 }
 
@@ -4396,6 +4396,10 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 
 .documentation a.anchor-link:after {
   content: none;
+}
+
+.documentation thead {
+  background-color: #0a1931 !important;
 }
 
 .documentation aside.menu {

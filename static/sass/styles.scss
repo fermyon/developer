@@ -409,6 +409,13 @@ Importing color and theme updates for the brand 1.5 refresh
 			}
 		}
 	}
+	tr {
+		&:hover {
+			>a.anchor-link {
+				opacity: 1;
+			}
+		}
+	}
 
 	a {
 		font-weight: 600;
@@ -418,6 +425,10 @@ Importing color and theme updates for the brand 1.5 refresh
 		&:after {
 			content: none;
 		}
+	}
+
+	thead {
+		background-color: #0a1931 !important;
 	}
 
 	aside.menu {
