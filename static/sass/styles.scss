@@ -426,9 +426,12 @@ Importing color and theme updates for the brand 1.5 refresh
 			content: none;
 		}
 	}
-
-	thead {
-		background-color: #0a1931 !important;
+	
+	tr {
+		overflow-x: hidden;
+		a.anchor-link {
+			position: absolute;
+		}
 	}
 
 	aside.menu {

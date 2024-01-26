@@ -4398,8 +4398,12 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
   content: none;
 }
 
-.documentation thead {
-  background-color: #0a1931 !important;
+.documentation tr {
+  overflow-x: hidden;
+}
+
+.documentation tr a.anchor-link {
+  position: absolute;
 }
 
 .documentation aside.menu {
