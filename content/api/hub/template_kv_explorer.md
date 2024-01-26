@@ -13,12 +13,24 @@ created_at = "2023-10-15T00:22:56Z"
 last_updated = "2023-05-18T00:22:56Z"
 spin_version = ">=v1.0"
 summary =  "A Spin component for exploring the contents of key/value stores."
-url = "https://github.com/radu-matei/spin-kv-explorer"
+url = "https://github.com/fermyon/spin-kv-explorer"
 keywords = "key-value, kv, explorer"
 
 ---
 
-The explorer will use the default store to persist the credentials to access the UI and the API. If no values are set, the first invocation will set a randomly generated pair of username and password under the kv-credentials key, with the value following the user:password format. On the first run, the values will be printed in the logs, and they can be used to log in and change them (creating a new credentials value will override the existing value).
+This template enables managing the key value pairs set in any key value store linked to an application.
 
-*Known limitations* 
-the explorer can only be used with Spin's default key/value store. When this will be configurable, this component will support working with custom stores as well.
+To keep the contents of your key value store secure, the explorer expects the credentials to access the UI and the API to be stored in the configuration store as variables. Values can be set locally using the [variables provider](https://developer.fermyon.com/spin/v2/dynamic-configuration#application-variables-runtime-configuration) or you can skip checking for the credentials on every request by passing the `SPIN_APP_KV_SKIP_AUTH` environment variable. When deploying to cloud, set the `kv_explorer_user` and `kv_explorer_password` variables using the `--variable` flag. These credentials can then be updated at any time using `spin cloud variables set`.
+
+Visit the [GitHub repo](https://github.com/fermyon/spin-kv-explorer) for complete configuration instructions.
+
+## Installation and Use
+
+```sh
+spin templates install --upgrade --git https://github.com/fermyon/spin-kv-explorer
+```
+
+Use the `spin add` command to add the KV explorer to your application, specifying `kv-explorer` as the component name.
+```sh
+spin add kv-explorer -t kv-explorer
+```
