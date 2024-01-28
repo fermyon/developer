@@ -52,28 +52,34 @@ Generally, you should use `IncomingResponse` when you need to stream the respons
 Here is an example of doing outbound HTTP in a simple request-response style:
 
 ```rust
-use spin_sdk::http::{IntoResponse, Request, send};
-use spin_sdk::http_component;
+use spin_sdk::{
+    http::{IntoResponse, Request, Method, Response},
+    http_component,
+};
 
 #[http_component]
 // The trigger handler (in this case an HTTP handler) has to be async
 // so we can `await` the outbound send.
 async fn handle_request(_req: Request) -> anyhow::Result<impl IntoResponse> {
 
-    // For this example, use the spin_sdk::http::RequestBuilder type
-    // for the outbound request.
-    let outbound_req = Request::get("https://www.fermyon.com/");
+    // Create the outbound request object
+    let request = Request::builder()
+        .method(Method::Get)
+        .uri("https://www.fermyon.com/")
+        .build();
 
-    // Send the outbound request, capturing the response as raw bytes
-    let response: http::Response<Vec<u8>> = send(outbound_req).await?;
+    // Send the request and await the response
+    let response: Response = spin_sdk::http::send(request).await?;
 
     // Use the outbound response body
     let response_len = response.body().len();
 
-    Ok(http::Response::builder()
+    // Return the response to the inbound request
+    Ok(Response::builder()
         .status(200)
         .header("content-type", "text/plain")
-        .body(format!("The test page was {response_len} bytes"))?)
+        .body(format!("The test page was {response_len} bytes"))
+        .build())
 }
 ```
 

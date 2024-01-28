@@ -90,12 +90,12 @@ $ vault server -dev -dev-root-token-id root
 ```bash
 $ export VAULT_TOKEN=root
 $ export VAULT_ADDR=http://127.0.0.1:8200
-$ vault kv put secret/password value="test_password"
-$ vault kv get secret/password
+$ vault kv put secret/secret value="test_password"
+$ vault kv get secret/secret
 ```
 
-4. Go to the [spin/tests/http/vault-variables-test](https://github.com/fermyon/spin/tree/main/tests/http/vault-variables-test) folder.
-5. Build and run the `vault-variables-test` app:
+4. Go to the [Vault variable test example](https://github.com/fermyon/spin/tree/main/examples/vault-variable-test) application.
+5. Build and run the `vault-variable-test` app:
 
 <!-- @selectiveCpy -->
 
@@ -109,12 +109,14 @@ $ spin up --runtime-config-file runtime_config.toml
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i http://127.0.0.1:3000
-HTTP/1.1 200 OK
-content-length: 26
-date: Tue, 18 Oct 2022 12:34:40 GMT
+$ curl localhost:3000 --data "test_password"
+{"authentication": "accepted"}
+```
+<!-- @selectiveCpy -->
 
-Got password test_password
+```bash
+$ curl localhost:3000 --data "wrong_password"
+{"authentication": "denied"}
 ```
 
 ## Key Value Store Runtime Configuration
