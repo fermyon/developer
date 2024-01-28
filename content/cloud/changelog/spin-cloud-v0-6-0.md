@@ -1,4 +1,4 @@
-title = "Spin Cloud v0.3 & 0.4 Updates"
+title = "Spin Cloud v0.6 Updates"
 template = "changelog_item"
 date = "2024-1-30T12:00:00Z"
 enable_shortcodes = true
@@ -22,7 +22,7 @@ Highlights include:
 
 <img src="/static/image/changelog/TODO" alt="Spin Cloud 0.6.0 changelog">
 
-Check out our [linking Spin apps to key value stores blog post]() to see these subcommands in action! 
+Check out our [linking Spin apps to key value stores blog post](TODO) to see these subcommands in action! 
 
 <!-- break -->
 
