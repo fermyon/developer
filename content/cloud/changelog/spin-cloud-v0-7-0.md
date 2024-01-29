@@ -5,6 +5,8 @@ enable_shortcodes = true
 tags = ["spin_cloud_plugin"]
 [extra]
 type= "changelog_post"
+twitter_card_type = "summary_large_image" 
+image = "/static/image/changelog/spin-cloud-0.7.0.jpg"
 
 ---
 
