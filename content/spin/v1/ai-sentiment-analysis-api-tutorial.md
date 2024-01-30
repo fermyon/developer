@@ -821,7 +821,7 @@ For this, we install use a pre-made template by pointing to the templates GitHub
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/radu-matei/spin-kv-explorer
+$ spin templates install --git https://github.com/fermyon/spin-kv-explorer
 ```
 
 Then, we again use `spin add` to add the new component. We will name the component  `kv-explorer`):
@@ -829,8 +829,7 @@ Then, we again use `spin add` to add the new component. We will name the compone
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin add kv-explorer --accept-defaults
-Enter a name for your new application: kv-explorer
+$ spin add kv-explorer -t kv-explorer
 ```
 
 We create an `assets` directory where we can store files to serve statically (see the `spin.toml` file for more configuration information):
@@ -874,7 +873,7 @@ files = [ { source = "assets", destination = "/" } ]
 route = "/..."
 
 [[component]]
-source = { url = "https://github.com/radu-matei/spin-kv-explorer/releases/download/v0.9.0/spin-kv-explorer.wasm", digest = "sha256:07f5f0b8514c14ae5830af0f21674fd28befee33cd7ca58bc0a68103829f2f9c" }
+source = { url = "https://github.com/fermyon/spin-kv-explorer/releases/download/v0.9.0/spin-kv-explorer.wasm", digest = "sha256:07f5f0b8514c14ae5830af0f21674fd28befee33cd7ca58bc0a68103829f2f9c" }
 id = "kv-explorer"
 # add or remove stores you want to explore here
 key_value_stores = ["default"]
