@@ -51,7 +51,7 @@ When you first `spin cloud deploy` your application (with the `key_value_stores`
 
 The new database is initially empty, so you will need to create tables (and potentially initial data) before it is useful.  To do this:
 
-1. Find the name of your Cloud database. To do this, run the following command:
+1. Find the name of your Cloud key value store. To do this, run the following command:
 
 <!-- @selectiveCpy -->
 
