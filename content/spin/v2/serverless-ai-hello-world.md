@@ -55,13 +55,7 @@ $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
  
 **Python**
  
-To enable Serverless AI functionality via Python, please ensure you have the latest Python plugin and template installed:
- 
-```bash
-$ spin plugins update
-$ spin plugins install py2wasm
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
-```
+The above installation script automatically installs the latest SDKs for Python, which enables Serverless AI functionality. 
  
 ## Licenses
  
@@ -92,7 +86,7 @@ HTTP path: /...
  
 {{ startTab "Python" }}
  
-The Python code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/).
+The Python code snippets below are taken from the [spin-python-sdk examples](https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-llm).
  
 <!-- @selectiveCpy -->
  
@@ -260,19 +254,23 @@ return {
 {{ startTab "Python"}}
  
 ```python
-from spin_http import Response
-from spin_llm import llm_infer
-import json
-import re
+from spin_sdk.http import simple
+from spin_sdk.http.simple import Request, Response
+from spin_sdk import llm
 
-def handle_request(request):
-    try:
-        result = llm_infer("llama2-chat", "Can you tell me a joke abut cats")
-        return Response(200, {"content-type": "text/plain"}, bytes(result.text, "utf-8"))
-    except Exception as e:
-        return Response(500, {"content-type": "text/plain"}, bytes(f"Error: {str(e)}", "utf-8"))
-
-
+class IncomingHandler(simple.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        res = llm.infer("llama2-chat", "tell me a joke")
+        print(res.text)
+        print(res.usage)
+        res = llm.infer_with_options("llama2-chat", "Can you tell me a joke about cats?", llm.LLMInferencingParams(temperature=0.5))
+        print(res.text)
+        print(res.usage)
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes(res.text, "utf-8")
+        )
 ```
  
 {{ blockEnd }}

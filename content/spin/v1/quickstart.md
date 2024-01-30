@@ -133,7 +133,7 @@ Installing template http-ts...
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update --branch old-sdk
 Copying remote template source
 Installing template http-py...
 +---------------------------------------------+

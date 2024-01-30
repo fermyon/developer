@@ -129,7 +129,7 @@ HTTP path: /api/...
 
 {{ startTab "Python" }}
 
-The Python code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-py)
+The Python code snippets are based on the AI examples in [spin-python-sdk examples](https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-llm).
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 <!-- @selectiveCpy -->
@@ -575,9 +575,10 @@ export const handleRequest: HandleRequest = async function (
 {{ startTab "Python"}}
 
 ```python
-from spin_http import Response
-from spin_llm import llm_infer
-from spin_key_value import kv_open_default
+from spin_sdk.http import simple
+from spin_sdk.http.simple import Request, Response
+from spin_sdk import llm
+from spin_sdk import key_value
 import json
 import re
 
@@ -599,31 +600,30 @@ Bot: negative
 [/INST]
 User: """
 
-def handle_request(request):
-    # Extracting the sentence from the request
-    request_body=json.loads(request.body)
-    sentence=request_body["sentence"].strip()
-    print("Performing sentiment analysis on: " + sentence)
+class IncomingHandler(simple.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        # Extracting the sentence from the request
+        request_body=json.loads(request.body)
+        sentence=request_body["sentence"].strip()
+        print("Performing sentiment analysis on: " + sentence)
 
-    # Open the default KV store
-    store = kv_open_default()
+        store = kv.open_default()
 
-    # Check if the sentence is already in the KV store
-    if store.exists(sentence) is False:
-        result=llm_infer("llama2-chat", PROMPT+sentence).text
-        print("Raw result: " + result)
-        sentiment = get_sentiment_from_sentence(result)
-        print("Storing result in the KV store")
-        store.set(sentence, str.encode(sentiment))
-    else:
-        sentiment = store.get(sentence).decode()
-        print("Found a cached result")
+        if store.exists(sentence) is False:
+            result=llm_infer("llama2-chat", PROMPT+sentence).text
+            print("Raw result: " + result)
+            sentiment = get_sentiment_from_sentence(result)
+            print("Storing result in the KV store")
+            store.set(sentence, str.encode(sentiment))
+        else:
+            sentiment = store.get(sentence).decode()
+            print("Found a cached result")
 
-    response_body=json.dumps({"sentence": sentiment})
+        response_body=json.dumps({"sentence": sentiment})
 
-    return Response(200,
-                    {"content-type": "application/json"},
-                    bytes(response_body, "utf-8"))
+        return Response(200,
+                        {"content-type": "application/json"},
+                        bytes(response_body, "utf-8"))
 
 def get_sentiment_from_sentence(sentence) -> str:
     words = sentence.lower().split()

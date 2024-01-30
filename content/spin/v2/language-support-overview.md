@@ -65,14 +65,14 @@ This page contains information about language support for Spin features:
 |-----|-----|
 | **Triggers** |
 | [HTTP](./python-components#a-simple-http-components-example) | Supported |
-| Redis | Not Supported |
+| Redis | Supported |
 | **APIs** |
 | [Outbound HTTP](./python-components#an-outbound-http-example) | Supported |
 | [Configuration Variables](./dynamic-configuration#custom-config-variables) | Supported |
 | [Key Value Storage](./kv-store-api-guide) | Supported |
 | [SQLite Storage](./sqlite-api-guide) | Supported |
-| MySQL | Not Supported |
-| PostgreSQL | Not Supported |
+| MySQL | Supported |
+| PostgreSQL |  Supported |
 | [Outbound Redis](./python-components#an-outbound-redis-example) | Supported |
 | [Serverless AI](./serverless-ai-api-guide) | Supported |
 | **Extensibility** |

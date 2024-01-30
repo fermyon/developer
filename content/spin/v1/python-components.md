@@ -21,7 +21,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/python-com
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [AI Inferencing From Python Components](#ai-inferencing-from-python-components)
 
-With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
+With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk/tree/old-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
 
 > This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Python templates, installing required tools, and creating Python applications.
 
@@ -46,12 +46,12 @@ $ spin plugin install py2wasm
 
 ## Spin's Python HTTP Request Handler Template
 
-Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk/tree/main/) using the following command:
+Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk/tree/old-sdk) using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update --branch old-sdk
 ```
 
 The above command will install the `http-py` template and produce an output similar to the following:
@@ -169,7 +169,7 @@ content-length: 25
 Hello from the Python SDK
 ```
 
-> **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
+> **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
 
 ## An Outbound HTTP Example
 

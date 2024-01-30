@@ -252,7 +252,7 @@ Spin Python SDK
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade --branch old-sdk
 ```
 
 Spin JS SDK:

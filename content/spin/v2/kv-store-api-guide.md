@@ -24,15 +24,15 @@ The Spin SDK surfaces the Spin key value store interface to your language. The f
 
 The set of operations is common across all SDKs:
 
-| Operation  | Parameters | Returns | Behavior |
-|------------|------------|---------|----------|
-| `open`  | name | store  | Open the store with the specified name. If `name` is the string "default", the default store is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](./dynamic-configuration.md#key-value-store-runtime-configuration) supplied with the application.|
-| `get` | store, key | value | Get the value associated with the specified `key` from the specified `store`. |
-| `set` | store, key, value | - | Set the `value` associated with the specified `key` in the specified `store`, overwriting any existing value. |
-| `delete` | store, key | - | Delete the tuple with the specified `key` from the specified `store`. `error::invalid-store` will be raised if `store` is not a valid handle to an open store.  No error is raised if a tuple did not previously exist for `key`.|
-| `exists` | store, key | boolean | Return whether a tuple exists for the specified `key` in the specified `store`.|
-| `get-keys` | store | list<keys> | Return a list of all the keys in the specified `store`. |
-| `close` | store | - | Close the specified `store`. |
+| Operation  | Parameters        | Returns    | Behavior                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------- | ----------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `open`     | name              | store      | Open the store with the specified name. If `name` is the string "default", the default store is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](./dynamic-configuration.md#key-value-store-runtime-configuration) supplied with the application. |
+| `get`      | store, key        | value      | Get the value associated with the specified `key` from the specified `store`.                                                                                                                                                                                                                                                                                                                             |
+| `set`      | store, key, value | -          | Set the `value` associated with the specified `key` in the specified `store`, overwriting any existing value.                                                                                                                                                                                                                                                                                             |
+| `delete`   | store, key        | -          | Delete the tuple with the specified `key` from the specified `store`. `error::invalid-store` will be raised if `store` is not a valid handle to an open store.  No error is raised if a tuple did not previously exist for `key`.                                                                                                                                                                         |
+| `exists`   | store, key        | boolean    | Return whether a tuple exists for the specified `key` in the specified `store`.                                                                                                                                                                                                                                                                                                                           |
+| `get-keys` | store             | list<keys> | Return a list of all the keys in the specified `store`.                                                                                                                                                                                                                                                                                                                                                   |
+| `close`    | store             | -          | Close the specified `store`.                                                                                                                                                                                                                                                                                                                                                                              |
 
 The exact detail of calling these operations from your application depends on your language:
 
@@ -122,29 +122,30 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_key_value.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/key_value.html)
 
 The key value functions are provided through the `spin_key_value` module in the Python SDK. For example:
 
 ```python
-from spin_http import Response
-from spin_key_value import kv_open_default
+from spin_sdk.http import simple
+from spin_sdk.http.simple import Request, Response
+from spin_sdk import key_value
 
-
-def handle_request(request):
-
-    store = kv_open_default()
-    store.set("mykey", b"myvalue")
-    value = store.get("mykey")
-    //
-    return Response(status, [("content-type", "text/plain")], value)   
-
+class IncomingHandler(simple.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        with key_value.open_default() as a:
+            a.set("test", bytes("hello world!", "utf-8"))
+            val = a.get("test")
+            
+        return Response(
+            200,
+            {"content-type": "text/plain"},val
+        )
 ```
 
 **General Notes**
-- The Python SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
-[`get` **Operation**](https://fermyon.github.io/spin-python-sdk/spin_key_value.html#spin_sdk.spin_key_value.Store.get)
+[`get` **Operation**](https://fermyon.github.io/spin-python-sdk/wit/imports/key_value.html#spin_sdk.wit.imports.key_value.Store.get)
 - If a key does not exist, it returns `None`
 
 {{ blockEnd }}

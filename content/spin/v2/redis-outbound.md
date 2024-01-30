@@ -19,7 +19,7 @@ The Spin SDK surfaces the Spin Redis interface to your language. The set of oper
 
 | Operation    | Parameters | Returns | Behavior |
 |--------------|---------------------|---------|----------|
-| `open`       | address    | connection resource | Opens a connection to the specified Redis instance. The host must be listed in `allowed_outbound_hosts`. Other operations must be called through a connection. (Exception: for JavaScript and Python, do not call `open`, and pass the address to each data operation - see the language guides below.) |
+| `open`       | address    | connection resource | Opens a connection to the specified Redis instance. The host must be listed in `allowed_outbound_hosts`. Other operations must be called through a connection. (Exception: for JavaScript does not call `open`, and pass the address to each data operation - see the language guides below.) |
 | Single value operations                      |
 | `get`        | key        | bytes   | Returns the value of `key`. If the key does not exist, returns a zero-length array. |
 | `set`        | key, bytes | -       | Sets the value of `key`, overwriting any existing value. |
@@ -116,14 +116,15 @@ You can find a complete TypeScript example for using outbound Redis from an HTTP
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_redis.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/redis.html)
 
-Redis functions are available in [the `spin_redis` module](https://fermyon.github.io/spin-python-sdk/spin_redis.html). The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
+Redis functions are available in [the `redis` module](https://fermyon.github.io/spin-python-sdk/redis.html). The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
 
 ```python
-from spin_redis import redis_get
+from spin_sdk import redis
 
-value = redis_get(address, key)
+with redis.open("redis://localhost:6379") as db:
+    val = db.get("test")
 ```
 
 **General Notes**
@@ -134,7 +135,7 @@ value = redis_get(address, key)
 * Lists are passed and returned as Python lists.
 * Errors are signalled through exceptions.
 
-You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outbound_redis). Please also see this, related, [outbound Redis (using Python) section](./python-components#an-outbound-redis-example).
+You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-redis). Please also see this, related, [outbound Redis (using Python) section](./python-components#an-outbound-redis-example).
 
 {{ blockEnd }}
 

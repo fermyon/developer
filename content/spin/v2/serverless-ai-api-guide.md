@@ -50,11 +50,11 @@ The Spin SDK surfaces the Serverless AI interface to a variety of different lang
 
 The set of operations is common across all supporting language SDKs:
 
-| Operation | Parameters | Returns | Behavior |
-|:-----|:----------------|:-------|:----------------|
-| `infer`  | model`string`<br /> prompt`string`| `string`  | The `infer` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `llama2-chat`, `codellama-instruct`, or other; passed in as a `string`).<br /> <br />The second parameter is a prompt; passed in as a `string`.<br />|
-| `infer_with_options`  | model`string`<br /> prompt`string`<br /> params`list` | `string`  | The `infer_with_options` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `llama2-chat`, `codellama-instruct`, or other; passed in as a `string`).<br /><br /> The second parameter is a prompt; passed in as a `string`.<br /><br /> The third parameter is a mix of float and unsigned integers relating to inferencing parameters in this order: <br /><br />- `max-tokens` (unsigned 32 integer) Note: the backing implementation may return less tokens. <br /> Default is 100<br /><br /> - `repeat-penalty` (float 32) The amount the model should avoid repeating tokens. <br /> Default is 1.1<br /><br /> - `repeat-penalty-last-n-token-count` (unsigned 32 integer) The number of tokens the model should apply the repeat penalty to. <br /> Default is 64<br /><br /> - `temperature` (float 32) The randomness with which the next token is selected. <br /> Default is 0.8<br /><br /> - `top-k` (unsigned 32 integer) The number of possible next tokens the model will choose from. <br /> Default is 40<br /><br /> - `top-p` (float 32) The probability total of next tokens the model will choose from. <br /> Default is 0.9<br /><br /> The result from `infer_with_options` is a `string` |
-| `generate-embeddings`  | model`string`<br /> prompt`list<string>`| `string`  | The `generate-embeddings` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `all-minilm-l6-v2`, passed in as a `string`).<br /> <br />The second parameter is a prompt; passed in as a `list` of `string`s.<br /><br /> The result from `generate-embeddings` is a two-dimension array containing float32 type values only |
+| Operation             | Parameters                                            | Returns  | Behavior                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| :-------------------- | :---------------------------------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `infer`               | model`string`<br /> prompt`string`                    | `string` | The `infer` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `llama2-chat`, `codellama-instruct`, or other; passed in as a `string`).<br /> <br />The second parameter is a prompt; passed in as a `string`.<br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `infer_with_options`  | model`string`<br /> prompt`string`<br /> params`list` | `string` | The `infer_with_options` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `llama2-chat`, `codellama-instruct`, or other; passed in as a `string`).<br /><br /> The second parameter is a prompt; passed in as a `string`.<br /><br /> The third parameter is a mix of float and unsigned integers relating to inferencing parameters in this order: <br /><br />- `max-tokens` (unsigned 32 integer) Note: the backing implementation may return less tokens. <br /> Default is 100<br /><br /> - `repeat-penalty` (float 32) The amount the model should avoid repeating tokens. <br /> Default is 1.1<br /><br /> - `repeat-penalty-last-n-token-count` (unsigned 32 integer) The number of tokens the model should apply the repeat penalty to. <br /> Default is 64<br /><br /> - `temperature` (float 32) The randomness with which the next token is selected. <br /> Default is 0.8<br /><br /> - `top-k` (unsigned 32 integer) The number of possible next tokens the model will choose from. <br /> Default is 40<br /><br /> - `top-p` (float 32) The probability total of next tokens the model will choose from. <br /> Default is 0.9<br /><br /> The result from `infer_with_options` is a `string` |
+| `generate-embeddings` | model`string`<br /> prompt`list<string>`              | `string` | The `generate-embeddings` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `all-minilm-l6-v2`, passed in as a `string`).<br /> <br />The second parameter is a prompt; passed in as a `list` of `string`s.<br /><br /> The result from `generate-embeddings` is a two-dimension array containing float32 type values only                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 The exact detail of calling these operations from your application depends on your language:
 
@@ -148,28 +148,38 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_llm.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/llm.html)
 
 ```python
-from spin_http import Response
-from spin_llm import llm_infer
+from spin_sdk.http import simple
+from spin_sdk.http.simple import Request, Response
+from spin_sdk import llm
 
-
-def handle_request(request):
-    prompt="You are a stand up comedy writer. Tell me a joke."
-    result=llm_infer("llama2-chat", prompt)
-    return Response(200,
-                    {"content-type": "text/plain"},
-                    bytes(result.text, "utf-8"))
+class IncomingHandler(simple.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        res = llm.infer("llama2-chat", "tell me a joke")
+        print(res.text)
+        print(res.usage)
+        res = llm.infer_with_options("llama2-chat", "what is the theory of relativity", llm.LLMInferencingParams(temperature=0.5))
+        print(res.text)
+        print(res.usage)
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes("Hello from Python!", "utf-8")
+        )
 ```
 
 **General Notes**
 
-[`llm_infer` operation](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.llm_infer):
+[`infer` operation](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer):
 
-- It takes in a model name, prompt text, and optionally a [parameter object](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.LLMInferencingParams) to control the inferencing. 
 - The model name is passed in as a string (as shown above; `"llama2-chat"`).
-- The return value is am [`InferencingResult` object](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.LLMInferencingResult) - use the `text` attribute to get the inferred response.
+- The return value is am [`InferencingResult` object](https://fermyon.github.io/spin-python-sdk/wit/imports/llm.html#spin_sdk.wit.imports.llm.InferencingResult) - use the `text` attribute to get the inferred response.
+
+[`infer_with_options` operation](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer_with_options):
+
+- It takes in a model name, prompt text, and optionally a [parameter object](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.LLMInferencingParams) to control the inferencing. 
 
 {{ blockEnd }}
 

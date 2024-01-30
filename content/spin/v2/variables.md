@@ -150,26 +150,30 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_config.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/variables.html)
 
-The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/spin_config.html#spin_sdk.spin_config.config_get).
+The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.get).
 
 > Note that the prefix/suffix is `config` rather than `variables`.
 
 ```py
-from spin_http import Response
-from spin_config import config_get
+from spin_sdk.http import simple
+from spin_sdk.http.simple import Request, Response
+from spin_sdk import variables
 
-def handle_request(request):
-    password = request.body.decode("utf-8")
-    expected = config_get("password")
-    access = "denied"
-    if expected == password:
-        access = "accepted"
-    response = f'\{{"authentication": "{access}"}}'
-    return Response(200,
-                    {"content-type": "application/json"},
-                    bytes(response, "utf-8"))
+class IncomingHandler(simple.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        password = request.body.decode("utf-8")
+        expected = variables.get("password")
+        access = "denied"
+        if expected == password:
+            access = "accepted"
+        response = f'\{{"authentication": "{access}"}}'
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes(response, "utf-8")
+        )
 ```
 
 {{ blockEnd }}

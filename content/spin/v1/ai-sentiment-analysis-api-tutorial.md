@@ -69,7 +69,7 @@ Some of the Serverless AI examples are written using Python. To enable Serverles
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade --branch old-sdk
 ```
 
 ## Licenses

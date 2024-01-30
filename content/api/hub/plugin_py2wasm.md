@@ -13,7 +13,7 @@ created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v1.0"
 summary = "A plugin to help build python based Spin apps."
-url = "https://github.com/fermyon/spin-python-sdk"
+url = "https://github.com/fermyon/spin-python-sdk/tree/old-sdk"
 keywords = "web app, sdk, python, api"
 
 ---

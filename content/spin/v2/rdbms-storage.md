@@ -113,7 +113,26 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-The Python SDK doesn't currently surface the MySQL or PostgreSQL APIs.
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/)
+
+The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-postgres) available.
+
+```python
+from spin_sdk.http import simple
+from spin_sdk.http.simple import Request, Response
+from spin_sdk import mysql
+
+class IncomingHandler(simple.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        with mysql.open("mysql://root:@127.0.0.1/spin_dev") as db:
+            print(db.query("select * from test", []))
+        
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes("Hello from Python!", "utf-8")
+        )
+```
 
 {{ blockEnd }}
 
