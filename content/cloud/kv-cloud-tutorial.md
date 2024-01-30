@@ -40,7 +40,7 @@ The new database file (`sqlite_key_value.db`) is created in your application's `
 
 You have two options to create your key value store (both are equally valid):
 * Option A: Implicitly create a key value store (with an automatically assigned arbitrary database name) via `spin cloud deploy`. For example `inspirational-pig` or similarly named database will be created.
-* Option B : Explicitly provide the name of the database to create via the `spin cloud kv create` command. For example, `spin cloud kv create finance-database` creates a database called `finance-database` inside your Fermyon Cloud account.
+* Option B : Create a key value store before deploying an application with the `spin cloud kv create` command. For example, `spin cloud kv create finance-database` creates a key value store called `finance-database` inside your Fermyon Cloud account. Then you can link this store to your application with `spin cloud link kv` or during `spin deploy`.
 
 Please run whatever step is relevant to your needs.
 
