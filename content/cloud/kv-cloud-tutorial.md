@@ -27,7 +27,7 @@ If you already have a Spin application, you can skip this step. If you do not ha
 
 ## Grant Key Value Store Permission
 
-To tell Spin that we want to use a Key Value Store, we only need to [grant Key Value Store permission to a component in the application’s manifest](/spin/kv-store-api-guide#granting-key-value-store-permissions-to-components) (the `spin.toml` file) by supplying a [label](linking-applications-to-resources-using-labels.md). For example:
+To tell Spin that we want to use a key value store, we only need to [grant key value store permission to a component in the application’s manifest](/spin/kv-store-api-guide#granting-key-value-store-permissions-to-components) (the `spin.toml` file) by supplying a [label](linking-applications-to-resources-using-labels.md). For example:
 
 ```
 [component.example]
