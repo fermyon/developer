@@ -1577,6 +1577,8 @@ SUBCOMMANDS:
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud key-value
 
+Alias: `spin cloud kv`
+
 {{ tabs "cloud-plugin-version" }}
 
 {{ startTab "v0.7.0"}}
@@ -1878,6 +1880,8 @@ SUBCOMMANDS:
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud link key-value-store
+
+Alias: `spin cloud link kv`
 
 {{ tabs "cloud-plugin-version" }}
 
