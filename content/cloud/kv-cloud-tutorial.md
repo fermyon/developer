@@ -31,7 +31,7 @@ To tell Spin that we want to use a key value store, we only need to [grant key v
 
 ```
 [component.example]
-key_value_stores = ["default"]
+key_value_stores = ["mylabel"]
 ```
 
 The new database file (`sqlite_key_value.db`) is created in your application's `.spin` folder when you run this Spin application. The database persists across Spin application invocations and updates. The key value store is empty to start.
