@@ -20,13 +20,13 @@ Before the v0.7.0 release of the [`spin cloud` plugin](https://github.com/fermyo
 
 The updated CLI includes all the commands needed to take these management actions:
 
-`spin cloud kv create` will create a key-value store on Fermyon Cloud
-`spin cloud kv delete` will delete a key-value store
-`spin cloud kv rename` will rename a key-value store
-`spin cloud kv set` will set key-value pairs in a key-value store
-`spin cloud link kv` will connect your key-value store to a Spin application
-`spin cloud unlink kv` will disconnect your key-value store from a Spin application
-`spin cloud deploy` will detect whether your application uses key-value stores and prompt you to create new key-value stores or link the application to existing ones.
+- `spin cloud kv create` will create a key-value store on Fermyon Cloud
+- `spin cloud kv delete` will delete a key-value store
+- `spin cloud kv rename` will rename a key-value store
+- `spin cloud kv set` will set key-value pairs in a key-value store
+- `spin cloud link kv` will connect your key-value store to a Spin application
+- `spin cloud unlink kv` will disconnect your key-value store from a Spin application
+- `spin cloud deploy` will detect whether your application uses key-value stores and prompt you to create new key-value stores or link the application to existing ones.
 
 ## Upgrading to Spin Cloud v0.7.0
 

@@ -19,6 +19,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud key-value delete](#spin-cloud-key-value-delete)
 - [spin cloud key-value list](#spin-cloud-key-value-list)
 - [spin cloud key-value rename](#spin-cloud-key-value-rename)
+- [spin cloud key-value set](#spin-cloud-key-value-set)
 - [spin cloud link](#spin-cloud-link)
 - [spin cloud link key-value-store](#spin-cloud-link-key-value-store)
 - [spin cloud link sqlite](#spin-cloud-link-sqlite)
@@ -1327,8 +1328,8 @@ OPTIONS:
             not already linked. This is intended for non-interactive environments such as release
             pipelines; therefore, if any links are specified, all links must be specified.
             
-            Links must be of the form 'sqlite:label=database'. Databases that do not exist will be
-            created.
+            Links must be of the form 'sqlite:label=database' or 'kv:label=store'. Databases or key
+            value stores that do not exist will be created.
 
         --readiness-timeout <READINESS_TIMEOUT_SECS>
             How long in seconds to wait for a deployed HTTP application to become ready. The default
@@ -1728,6 +1729,40 @@ OPTIONS:
     -h, --help       Print help information
     -V, --version    Print version information
 
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin cloud key-value set
+
+{{ tabs "cloud-plugin-version" }}
+
+{{ startTab "v0.7.0"}}
+
+Spin compatibility: `>= v1.3`
+
+<!-- @selectiveCpy -->
+```console
+$ spin cloud key-value set --help
+
+Set a key value pair in a store
+
+USAGE:
+    spin cloud key-value set [OPTIONS] [KEY_VALUES]...
+
+ARGS:
+    <KEY_VALUES>...    A key/value pair (key=value) to set in the store. Any existing value will
+                       be overwritten. Can be used multiple times
+
+OPTIONS:
+    -a, --app <APP>        App to which label relates
+    -h, --help             Print help information
+    -l, --label <LABEL>    Label of the key value store to set pairs in
+    -s, --store <STORE>    The name of the key value store
+    -V, --version          Print version information
 ```
 
 {{ blockEnd }}
