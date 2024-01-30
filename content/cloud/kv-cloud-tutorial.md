@@ -57,8 +57,12 @@ The new key value store is initially empty. You can seed it preliminary values u
 
 ```bash
 $ spin cloud kv list
-Key value stores (1)
-inspirational-pig (default)
++--------------------------------------------+
+| App              Label     Key Value Store |
++============================================+
+| rusty            default   gentle-lemon    |
+| spin-key-value   default   gentle-lemon    |
++--------------------------------------------+
 ```
 
 > Note: The contents of the Cloud Key Value Store is completely unrelated to the local Key Value Store, and must be prepared separately.
