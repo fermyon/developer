@@ -49,7 +49,7 @@ Please run whatever step is relevant to your needs.
 
 When you first `spin cloud deploy` your application (with the `key_value_stores` configuration, as shown above), Fermyon Cloud will prompt you to either create a new key value store or use an existing one for your Cloud application.
 
-The new database is initially empty, so you will need to create tables (and potentially initial data) before it is useful.  To do this:
+The new key value store is initially empty. You can seed it preliminary values using `spin cloud kv set`.
 
 1. Find the name of your Cloud key value store. To do this, run the following command:
 
