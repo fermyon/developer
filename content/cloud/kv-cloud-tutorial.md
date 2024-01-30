@@ -60,8 +60,7 @@ $ spin cloud kv list
 +--------------------------------------------+
 | App              Label     Key Value Store |
 +============================================+
-| rusty            default   gentle-lemon    |
-| spin-key-value   default   gentle-lemon    |
+| example          mylabel   gentle-lemon    |
 +--------------------------------------------+
 ```
 
