@@ -47,7 +47,7 @@ Please run whatever step is relevant to your needs.
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ### Creating Key Value Stores Via `spin cloud deploy`
 
-When you first `spin cloud deploy` your application (with the `key_value_stores` configuration, as shown above), Fermyon Cloud will create a new database for your Cloud application.
+When you first `spin cloud deploy` your application (with the `key_value_stores` configuration, as shown above), Fermyon Cloud will prompt you to either create a new key value store or use an existing one for your Cloud application.
 
 The new database is initially empty, so you will need to create tables (and potentially initial data) before it is useful.  To do this:
 
