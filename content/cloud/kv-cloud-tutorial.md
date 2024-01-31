@@ -1,6 +1,6 @@
 title = "Managing Key Value Stores On Cloud"
 template = "cloud_main"
-date = "2023-07-26T16:00:00Z"
+date = "2024-01-31T12:00:00Z"
 enable_shortcodes = true
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/kv-cloud-tutorial.md"
