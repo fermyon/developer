@@ -21,7 +21,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud key-value rename](#spin-cloud-key-value-rename)
 - [spin cloud key-value set](#spin-cloud-key-value-set)
 - [spin cloud link](#spin-cloud-link)
-- [spin cloud link key-value-store](#spin-cloud-link-key-value-store)
+- [spin cloud link key-value](#spin-cloud-link-key-value)
 - [spin cloud link sqlite](#spin-cloud-link-sqlite)
 - [spin cloud login](#spin-cloud-login)
 - [spin cloud logout](#spin-cloud-logout)
@@ -34,7 +34,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 - [spin cloud sqlite list](#spin-cloud-sqlite-list)
 - [spin cloud sqlite rename](#spin-cloud-sqlite-rename)
 - [spin cloud unlink](#spin-cloud-unlink)
-- [spin cloud unlink key-value-store](#spin-cloud-unlink-key-value-store)
+- [spin cloud unlink key-value](#spin-cloud-unlink-key-value)
 - [spin cloud unlink sqlite](#spin-cloud-unlink-sqlite)
 - [spin cloud variables](#spin-cloud-variables)
 - [spin cloud variables delete](#spin-cloud-variables-delete)
@@ -1870,7 +1870,7 @@ OPTIONS:
 
 SUBCOMMANDS:
     help               Print this message or the help of the given subcommand(s)
-    key-value-store    
+    key-value          Link an app to a key value store
     sqlite             Link an app to a SQLite database
 ```
 
@@ -1879,7 +1879,7 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
-## spin cloud link key-value-store
+## spin cloud link key-value
 
 Alias: `spin cloud link kv`
 
@@ -1891,10 +1891,10 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud link key-value-store --help
+$ spin cloud link key-value --help
 
 USAGE:
-    spin cloud link key-value-store --app <APP> --store <STORE> <LABEL>
+    spin cloud link key-value --app <APP> --store <STORE> <LABEL>
 
 ARGS:
     <LABEL>    The name by which the application will refer to the key value store
@@ -3915,7 +3915,7 @@ OPTIONS:
 
 SUBCOMMANDS:
     help               Print this message or the help of the given subcommand(s)
-    key-value-store    Unlink an app from a key value store
+    key-value          Unlink an app from a key value store
     sqlite             Unlink an app from a SQLite database
 ```
 
@@ -3924,7 +3924,7 @@ SUBCOMMANDS:
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
-## spin cloud unlink key-value-store
+## spin cloud unlink key-value
 
 {{ tabs "cloud-plugin-version" }}
 
@@ -3934,7 +3934,7 @@ Spin compatibility: `>= v1.3`
 
 <!-- @selectiveCpy -->
 ```console
-$ spin cloud unlink key-value-store --help
+$ spin cloud unlink key-value --help
 Unlink an app from a NoOps SQL database
 
 USAGE:
