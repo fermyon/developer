@@ -1,6 +1,6 @@
 title = "Spin Cloud v0.7.0 Updates"
 template = "changelog_item"
-date = "2024-01-25T12:00:00Z"
+date = "2024-01-31T12:00:00Z"
 enable_shortcodes = true
 tags = ["spin_cloud_plugin"]
 [extra]
