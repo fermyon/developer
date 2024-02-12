@@ -130,9 +130,9 @@ func main() {}
 
 For the most part, you'll build Redis component modules using a language SDK (see the Language Guides section), such as a Rust crate or Go package.  If you're interested in what happens inside the SDK, or want to implement Redis components in another language, read on!
 
-The Redis component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin Redis components at [https://github.com/fermyon/spin/tree/main/wit](https://github.com/fermyon/spin/tree/main/wit).
+The Redis component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin Redis components at [https://github.com/fermyon/spin/tree/main/wit-0.2.0](https://github.com/fermyon/spin/tree/main/wit-0.2.0).
 
-In particular, the entry point for Spin Redis components is defined in [the `inbound-redis` interface](https://github.com/fermyon/spin/blob/main/wit/deps/spin%40unversioned/inbound-redis.wit):
+In particular, the entry point for Spin Redis components is defined in [the `inbound-redis` interface](https://github.com/fermyon/spin/blob/main/wit-0.2.0/deps/spin%40unversioned/inbound-redis.wit):
 
 <!-- @nocpy -->
 
