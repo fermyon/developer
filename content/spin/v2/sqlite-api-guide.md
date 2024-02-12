@@ -143,9 +143,9 @@ const json = JSON.stringify(result.rows);
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_sqlite.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html)
 
-To use SQLite functions, use the `spin_sqlite` module in the Python SDK. The [`sqlite_open`](https://fermyon.github.io/spin-python-sdk/spin_sqlite.html#spin_sdk.spin_sqlite.sqlite_open) and [`sqlite_open_default`](https://fermyon.github.io/spin-python-sdk/spin_sqlite.html#spin_sdk.spin_sqlite.sqlite_open_default) functions return a [connection object](https://fermyon.github.io/spin-python-sdk/spin_sqlite.html#spin_sdk.spin_sqlite.SqliteConnection). The connection object provides the [`execute` method](https://fermyon.github.io/spin-python-sdk/spin_sqlite.html#spin_sdk.spin_sqlite.SqliteConnection.execute) as described above. For example:
+To use SQLite functions, use the `spin_sqlite` module in the Python SDK. The [`sqlite_open`](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.sqlite_open) and [`sqlite_open_default`](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.sqlite_open_default) functions return a [connection object](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.SqliteConnection). The connection object provides the [`execute` method](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.SqliteConnection.execute) as described above. For example:
 
 ```python
 from spin_http import Response
@@ -162,7 +162,7 @@ def handle_request(request):
 
 **General Notes**
 * Parameters are Python values (numbers, strings, and lists). Spin infers the underlying SQL type.
-* The `execute` method returns [a `QueryResult` object](https://fermyon.github.io/spin-python-sdk/spin_sqlite.html#spin_sdk.spin_sqlite.QueryResult) with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of Python values (as above) in the same order as `columns`.
+* The `execute` method returns [a `QueryResult` object](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.QueryResult) with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of Python values (as above) in the same order as `columns`.
 * The connection object doesn't surface the `close` function.
 * Errors are surfaced as exceptions.
 

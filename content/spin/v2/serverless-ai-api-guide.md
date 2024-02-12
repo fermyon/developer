@@ -148,7 +148,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_llm.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_llm.html)
 
 ```python
 from spin_http import Response
@@ -165,11 +165,11 @@ def handle_request(request):
 
 **General Notes**
 
-[`llm_infer` operation](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.llm_infer):
+[`llm_infer` operation](https://fermyon.github.io/spin-python-sdk/v1/spin_llm.html#spin_sdk.spin_llm.llm_infer):
 
-- It takes in a model name, prompt text, and optionally a [parameter object](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.LLMInferencingParams) to control the inferencing. 
+- It takes in a model name, prompt text, and optionally a [parameter object](https://fermyon.github.io/spin-python-sdk/v1/spin_llm.html#spin_sdk.spin_llm.LLMInferencingParams) to control the inferencing. 
 - The model name is passed in as a string (as shown above; `"llama2-chat"`).
-- The return value is am [`InferencingResult` object](https://fermyon.github.io/spin-python-sdk/spin_llm.html#spin_sdk.spin_llm.LLMInferencingResult) - use the `text` attribute to get the inferred response.
+- The return value is am [`InferencingResult` object](https://fermyon.github.io/spin-python-sdk/v1/spin_llm.html#spin_sdk.spin_llm.LLMInferencingResult) - use the `text` attribute to get the inferred response.
 
 {{ blockEnd }}
 

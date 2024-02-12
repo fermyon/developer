@@ -105,9 +105,9 @@ You can find a complete example of using outbound HTTP in the JavaScript SDK rep
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_http.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_http.html)
 
-HTTP functions and classes are available in the `spin_http` module. The function name is [`http_send`](https://fermyon.github.io/spin-python-sdk/spin_http.html#spin_sdk.spin_http.http_send). The [request type](https://fermyon.github.io/spin-python-sdk/spin_http.html#spin_sdk.spin_http.Request) is `Request`, and the [response type](https://fermyon.github.io/spin-python-sdk/spin_http.html#spin_sdk.spin_http.Response) is `Response`. For example:
+HTTP functions and classes are available in the `spin_http` module. The function name is [`http_send`](https://fermyon.github.io/spin-python-sdk/v1/spin_http.html#spin_sdk.spin_http.http_send). The [request type](https://fermyon.github.io/spin-python-sdk/v1/spin_http.html#spin_sdk.spin_http.Request) is `Request`, and the [response type](https://fermyon.github.io/spin-python-sdk/v1/spin_http.html#spin_sdk.spin_http.Response) is `Response`. For example:
 
 ```python
 from spin_http import Request, Response, http_send
