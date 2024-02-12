@@ -123,7 +123,7 @@ response = http_send(
 * Request and response headers are dictionaries.
 * Errors are signalled through exceptions.
 
-You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outbound_http).
+You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples/outbound_http).
 
 {{ blockEnd }}
 

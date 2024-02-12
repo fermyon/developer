@@ -134,7 +134,7 @@ value = redis_get(address, key)
 * Lists are passed and returned as Python lists.
 * Errors are signalled through exceptions.
 
-You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outbound_redis). Please also see this, related, [outbound Redis (using Python) section](./python-components#an-outbound-redis-example).
+You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples/outbound_redis). Please also see this, related, [outbound Redis (using Python) section](./python-components#an-outbound-redis-example).
 
 {{ blockEnd }}
 

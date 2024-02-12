@@ -64,7 +64,7 @@ $ spin new -t http-rust spin-key-value
 ```bash
 $ spin new -t http-ts spin-key-value
 
-# Reference: https://github.com/fermyon/spin-python-sdk/tree/main/examples/KV
+# Reference: https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples/KV
 ```
 
 {{ blockEnd }}
