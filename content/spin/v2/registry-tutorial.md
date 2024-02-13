@@ -13,6 +13,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/registry-t
 - [Push a Spin App to GHCR](#push-a-spin-app-to-ghcr)
 - [Pull a Spin App From GHCR](#pull-a-spin-app-from-ghcr)
 - [Run a Spin App From GHCR](#run-a-spin-app-from-ghcr)
+- [Deploy a Spin App from GHCR (or any registry)](#deploy-a-spin-app-from-ghcr-or-any-registry)
 - [Conclusion](#conclusion)
 - [Next Steps](#next-steps)
 
@@ -101,15 +102,12 @@ Lastly, let's run this Spin application:
 $ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
 
-## Deploy a Spin App from GHCR
+## Deploy a Spin App from GHCR (or any registry)
 
-You can deploy a Spin app from GHCR by passing the GHCR URL as a query parameter. To do so, just use the URL in this format: 
+You can deploy a Spin app from any registry such as GHCR or Docker using the CLI command `spin deploy -f <remote-reference-here>` 
 
-```
-https://cloud.fermyon.com/deploy?artifact=<GHCR-URL-HERE>&utm_source=hub&utm_medium=btn&utm_campaign=deploy-btn
-```
+> **Note:** You need to a Fermyon Cloud account to deploy to. The remote-reference can be private, as long as you are authenticated locally to the registry in question, since the CLI will pull it down prior to publishing it to Cloud's internal registry.
 
-> **Note:** You need to sign up for a Fermyon cloud account for this. Also, ensure that your package visilibty is set to 'Public' as the default package visibility on Github is private
 
 ## Conclusion
 
