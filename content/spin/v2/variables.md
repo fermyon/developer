@@ -69,7 +69,7 @@ api_host = "https://my-api.com"
 
 ## Using Variables From Applications
 
-The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit/variables.wit) consists of one operation:
+The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit-0.2.0/variables.wit) consists of one operation:
 
 | Operation  | Parameters         | Returns             | Behavior |
 |------------|--------------------|---------------------|----------|
@@ -150,9 +150,9 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_config.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_config.html)
 
-The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/spin_config.html#spin_sdk.spin_config.config_get).
+The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/v1/spin_config.html#spin_sdk.spin_config.config_get).
 
 > Note that the prefix/suffix is `config` rather than `variables`.
 

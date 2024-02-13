@@ -116,9 +116,9 @@ You can find a complete TypeScript example for using outbound Redis from an HTTP
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/spin_redis.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_redis.html)
 
-Redis functions are available in [the `spin_redis` module](https://fermyon.github.io/spin-python-sdk/spin_redis.html). The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
+Redis functions are available in [the `spin_redis` module](https://fermyon.github.io/spin-python-sdk/v1/spin_redis.html). The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
 
 ```python
 from spin_redis import redis_get
@@ -134,7 +134,7 @@ value = redis_get(address, key)
 * Lists are passed and returned as Python lists.
 * Errors are signalled through exceptions.
 
-You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outbound_redis). Please also see this, related, [outbound Redis (using Python) section](./python-components#an-outbound-redis-example).
+You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples/outbound_redis). Please also see this, related, [outbound Redis (using Python) section](./python-components#an-outbound-redis-example).
 
 {{ blockEnd }}
 
