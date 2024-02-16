@@ -105,15 +105,13 @@ You can find a complete example of using outbound HTTP in the JavaScript SDK rep
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_http.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/http.html)
 
-HTTP functions and classes are available in the `spin_http` module. The function name is [`http_send`](https://fermyon.github.io/spin-python-sdk/v1/spin_http.html#spin_sdk.spin_http.http_send). The [request type](https://fermyon.github.io/spin-python-sdk/v1/spin_http.html#spin_sdk.spin_http.Request) is `Request`, and the [response type](https://fermyon.github.io/spin-python-sdk/v1/spin_http.html#spin_sdk.spin_http.Response) is `Response`. For example:
+HTTP functions and classes are available in the `http` module. The function name is [`send`](https://fermyon.github.io/spin-python-sdk/http/simple.html#spin_sdk.http.send). The [request type](https://fermyon.github.io/spin-python-sdk/http/simple.html#spin_sdk.http.Request) is `Request`, and the [response type](https://fermyon.github.io/spin-python-sdk/http/simple.html#spin_sdk.http.Response) is `Response`. For example:
 
 ```python
-from spin_http import Request, Response, http_send
-
-response = http_send(
-    Request("GET", "https://random-data-api.fermyon.app/animals/json", {}, None))
+from spin_sdk.http import Request, Response, send
+response = send(Request("GET", "https://random-data-api.fermyon.app/animals/json", {}, None))
 ```
 
 **Notes**
@@ -123,7 +121,7 @@ response = http_send(
 * Request and response headers are dictionaries.
 * Errors are signalled through exceptions.
 
-You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples/outbound_http).
+You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outgoing-request).
 
 {{ blockEnd }}
 

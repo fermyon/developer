@@ -278,17 +278,21 @@ export const handleRequest: HandleRequest = async function(request: HttpRequest)
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/)
 
-In Python, the handler is identified by name.  It must be called `handle_request`.  It takes a request object and must return an instance of `Response`, defined in the `spin_http` package:
+In Python, the application must define a top-level class named IncomingHandler which inherits from [IncomingHandler](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.IncomingHandler), overriding the handle_request method."
 
 ```python
-from spin_http import Response
+from spin_sdk import http
+from spin_sdk.http import Request, Response
 
-def handle_request(request):
-    return Response(200,
-                    [("content-type", "text/plain")],
-                    bytes(f"Hello from the Python SDK", "utf-8"))
+class IncomingHandler(http.IncomingHandler):
+      def handle_request(self, request: Request) -> Response:
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes("Hello from Python!", "utf-8")
+        )
 ```
 
 {{ blockEnd }}
@@ -343,15 +347,15 @@ As well as any headers passed by the client, Spin sets several headers on the re
 > * The trigger `route` is `/users/...`
 > * The request is to `https://example.com:8080/shop/users/1/edit?theme=pink`
 
-| Header Name                  | Value                | Example |
-|------------------------------|----------------------|---------|
-| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/edit?theme=pink` |
-| `spin-path-info`             | The request path relative to the component route (including any base) | `/1/edit` |
-| `spin-matched-route`         | The part of the request path that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/...` |
-| `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/...` |
-| `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users` |
-| `spin-base-path`             | The application base path | `/shop` |
-| `spin-client-addr`           | The IP address and port of the client | `127.0.0.1:53152` |
+| Header Name                | Value                                                                                                                                                      | Example                                                 |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| `spin-full-url`            | The full URL of the request. This includes full host and scheme information.                                                                               | `https://example.com:8080/shop/users/1/edit?theme=pink` |
+| `spin-path-info`           | The request path relative to the component route (including any base)                                                                                      | `/1/edit`                                               |
+| `spin-matched-route`       | The part of the request path that was matched by the route (including the base and wildcard indicator if present)                                          | `/shop/users/...`                                       |
+| `spin-raw-component-route` | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/...`                                            |
+| `spin-component-route`     | The component route pattern matched, _excluding_ any wildcard indicator                                                                                    | `/users`                                                |
+| `spin-base-path`           | The application base path                                                                                                                                  | `/shop`                                                 |
+| `spin-client-addr`         | The IP address and port of the client                                                                                                                      | `127.0.0.1:53152`                                       |
 
 ### Inside HTTP Components
 

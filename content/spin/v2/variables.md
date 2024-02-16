@@ -71,9 +71,9 @@ api_host = "https://my-api.com"
 
 The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit-0.2.0/variables.wit) consists of one operation:
 
-| Operation  | Parameters         | Returns             | Behavior |
-|------------|--------------------|---------------------|----------|
-| `get`      | Variable name      | Variable value      | Gets the value of the variable from the configured provider |
+| Operation | Parameters    | Returns        | Behavior                                                    |
+| --------- | ------------- | -------------- | ----------------------------------------------------------- |
+| `get`     | Variable name | Variable value | Gets the value of the variable from the configured provider |
 
 To illustrate the variables API, each of the following examples receives a password via the HTTP request body, compares it to the value stored in the application variable, and returns a JSON response indicating whether the submitted password matched or not. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications). 
 
@@ -117,42 +117,37 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Config.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/variables.html)
 
-The function is available on [the `Config` object](https://fermyon.github.io/spin-js-sdk/variables/Config.html) and is named [`get`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.SpinConfig.html#get).
-
-> Note that the name is `Config` rather than `Variables`.
+The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.get).
 
 ```ts
-import { HandleRequest, HttpRequest, HttpResponse, Config } from "@fermyon/spin-sdk"
+from spin_sdk import http
+from spin_sdk.http import  Request, Response
+from spin_sdk import variables
 
-const decoder = new TextDecoder("utf-8")
-
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-  const expected = decoder.decode(request.body)
-  let password = Config.get("password")
-  let access = "denied"
-  if (expected === password) {
-      access = "accepted"
-  }
-  let responseJson = `{\"authentication\": \"${access}\"}`;
-
-  return {
-    status: 200,
-    headers: { "Content-Type": "application/json" },
-    body: responseJson
-  }
-}
-
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        password = request.body.decode("utf-8")
+        expected = variables.get("password")
+        access = "denied"
+        if expected == password:
+            access = "accepted"
+        response = f'\{{"authentication": "{access}"}}'
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes(response, "utf-8")
+        )
 ```
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_config.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/variables.html)
 
-The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/v1/spin_config.html#spin_sdk.spin_config.config_get).
+The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/variables.html#spin_sdk.spin_config.config_get).
 
 > Note that the prefix/suffix is `config` rather than `variables`.
 

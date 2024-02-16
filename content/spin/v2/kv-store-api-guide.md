@@ -122,29 +122,31 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_key_value.html)
+> [**Want to go straight to the reference documentation?** Find it here.](https://fermyon.github.io/spin-python-sdk/key_value.html)
 
 The key value functions are provided through the `spin_key_value` module in the Python SDK. For example:
 
 ```python
-from spin_http import Response
-from spin_key_value import kv_open_default
+from spin_sdk import http, key_value
+from spin_sdk.http import  Request, Response
 
-
-def handle_request(request):
-
-    store = kv_open_default()
-    store.set("mykey", b"myvalue")
-    value = store.get("mykey")
-    //
-    return Response(status, [("content-type", "text/plain")], value)   
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        with key_value.open_default() as store:
+            store.set("test", bytes("hello world!", "utf-8"))
+            val = a.store("test")
+            
+        return Response(
+            200,
+            {"content-type": "text/plain"},val
+        )
 
 ```
 
 **General Notes**
 - The Python SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
-[`get` **Operation**](https://fermyon.github.io/spin-python-sdk/v1/spin_key_value.html#spin_sdk.spin_key_value.Store.get)
+[`get` **Operation**](https://fermyon.github.io/spin-python-sdk/wit/imports/key_value.html#spin_sdk.wit.imports.key_value.Store.get)
 - If a key does not exist, it returns `None`
 
 {{ blockEnd }}

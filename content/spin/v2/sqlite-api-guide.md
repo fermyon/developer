@@ -33,11 +33,11 @@ The Spin SDK surfaces the Spin SQLite Database interface to your language.
 
 The set of operations is common across all SDKs:
 
-| Operation  | Parameters | Returns | Behavior |
-|------------|------------|---------|----------|
-| `open`  | name | connection  | Open the database with the specified name. If `name` is the string "default", the default database is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](./dynamic-configuration.md#sqlite-storage-runtime-configuration) supplied with the application.|
-| `execute` | connection, sql, parameters | database records | Executes the SQL statement and returns the results of the statement. SELECT statements typically return records or scalars. INSERT, UPDATE, and DELETE statements typically return empty result sets, but may return values in some cases. The `execute` operation recognizes the [SQLite dialect of SQL](https://www.sqlite.org/lang.html). |
-| `close` | connection | - | Close the specified `connection`. |
+| Operation | Parameters                  | Returns          | Behavior                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------- | --------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `open`    | name                        | connection       | Open the database with the specified name. If `name` is the string "default", the default database is opened, provided that the component that was granted access in the component manifest from `spin.toml`. Otherwise, `name` must refer to a store defined and configured in a [runtime configuration file](./dynamic-configuration.md#sqlite-storage-runtime-configuration) supplied with the application. |
+| `execute` | connection, sql, parameters | database records | Executes the SQL statement and returns the results of the statement. SELECT statements typically return records or scalars. INSERT, UPDATE, and DELETE statements typically return empty result sets, but may return values in some cases. The `execute` operation recognizes the [SQLite dialect of SQL](https://www.sqlite.org/lang.html).                                                                   |
+| `close`   | connection                  | -                | Close the specified `connection`.                                                                                                                                                                                                                                                                                                                                                                              |
 
 The exact detail of calling these operations from your application depends on your language:
 
@@ -143,26 +143,31 @@ const json = JSON.stringify(result.rows);
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/sqlite.html)
 
-To use SQLite functions, use the `spin_sqlite` module in the Python SDK. The [`sqlite_open`](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.sqlite_open) and [`sqlite_open_default`](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.sqlite_open_default) functions return a [connection object](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.SqliteConnection). The connection object provides the [`execute` method](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.SqliteConnection.execute) as described above. For example:
+To use SQLite functions, use the `sqlite` module in the Python SDK. The [`sqlite_open`](https://fermyon.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open) and [`sqlite_open_default`](https://fermyon.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open_default) functions return a [connection object](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection). The connection object provides the [`execute` method](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection.execute) as described above. For example:
 
 ```python
-from spin_http import Response
-from spin_sqlite import sqlite_open_default
+from spin_sdk import http
+from spin_sdk.http import  Request, Response
+from spin_sdk import sqlite
+from spin_sdk.wit.imports.sqlite import ValueInteger
 
-def handle_request(request):
-    conn = sqlite_open_default()
-    result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1])
-    rows = result.rows()
-    return Response(200,
-                    {"content-type": "application/json"},
-                    bytes(str(rows), "utf-8"))
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        with sqlite.open_default() as db:
+            result = db.execute("SELECT * FROM todos WHERE id > (?);", [ValueInteger(1)])
+            rows = result.rows
+
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes(str(rows), "utf-8")
+        )
 ```
 
 **General Notes**
-* Parameters are Python values (numbers, strings, and lists). Spin infers the underlying SQL type.
-* The `execute` method returns [a `QueryResult` object](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.QueryResult) with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of Python values (as above) in the same order as `columns`.
+* The `execute` method returns [a `QueryResult` object](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.QueryResult) with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of [`RowResult`](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.RowResult) in the same order as `columns`.
 * The connection object doesn't surface the `close` function.
 * Errors are surfaced as exceptions.
 
