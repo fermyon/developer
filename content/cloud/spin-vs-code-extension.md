@@ -5,15 +5,10 @@ date = "2022-01-01T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/spin-vs-code-extension.md"
 
 ---
-- [Visual Studio Code](#visual-studio-code)
 - [The Spin Extension](#the-spin-extension)
   - [Installation](#installation)
   - [Supported Spin Commands](#supported-spin-commands)
 - [Fermyon Cloud and VS Code](#fermyon-cloud-and-vs-code)
-
-## Visual Studio Code
-
-[VS Code](https://code.visualstudio.com/) is a source-code editor that can be used with a variety of programming languages. It was recently ranked the most popular developer environment tool (by 82, 000 respondents in the [2021 Stack Overflow Developer Survey](https://insights.stackoverflow.com/survey/2021)).
 
 ## The Spin Extension
 

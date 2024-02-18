@@ -46,11 +46,11 @@ The following points will help guide your contribution from a resource-type pers
 
 ### 1. Tutorials
 
-Tutorials are oriented toward learning. Tutorials are designed to get a user started on something new (that they have not tried before). You can think of a tutorial as a lesson i.e. teaching a Spin user [how to use Redis to persist data](../cloud/data-redis). The tutorial may contain many logically ordered steps i.e. installing Spin, installing Redis, using Spin templates, configuring a Spin application and so forth. The desired outcome for a tutorial is for the user to have a working deployment or application. Think of it as a lesson in how to bake a cake.
+Tutorials are oriented toward learning. Tutorials are designed to get a user started on something new (that they have not tried before). You can think of a tutorial as a lesson i.e. teaching a Spin user [how to use Redis to persist data](/cloud/data-redis). The tutorial may contain many logically ordered steps i.e. installing Spin, installing Redis, using Spin templates, configuring a Spin application and so forth. The desired outcome for a tutorial is for the user to have a working deployment or application. Think of it as a lesson in how to bake a cake.
 
 ### 2. How-To Guides
 
-How-to guides are oriented towards showing a user how to solve a problem, which leads them to be able to achieve their own goal. The how-to guide will follow a series of logical steps. Think of it as providing a recipe for the user's creativity. For example, you can show a user how to [develop a Spin application](../cloud/develop) without telling them what the application must do; that is up to the user's imagination.
+How-to guides are oriented towards showing a user how to solve a problem, which leads them to be able to achieve their own goal. The how-to guide will follow a series of logical steps. Think of it as providing a recipe for the user's creativity. For example, you can show a user how to [develop a Spin application](/cloud/develop) without telling them what the application must do; that is up to the user's imagination.
 
 ### 3. Reference
 
@@ -64,11 +64,11 @@ An explanation resource is written using a deep-dive approach i.e. providing a d
 
 You will notice that the menu system is organized in terms of "Tutorial", "How-To", "Reference" and so forth. When you write your contribution please decide which product (Cloud, Spin, Bartholomew) category it falls into and also which resource type it aligns with. Armed with that information you can go ahead and create your new file. For example, your "how-to" resource on "developing a Spin application" in Fermyon cloud would be saved to the `content/cloud/` folder; specifically, `content/cloud/develop.md` and the menu item (for the left-hand-side menu) would be added to the `templates/cloud_sidebar.hbs` file, as shown below.
 
-![cloud develop example](../static/image/docs/cloud-develop-example.png)
+![cloud develop example](/static/image/docs/cloud-develop-example.png)
 
 The resulting output would be as follows.
 
-![cloud develop example](../static/image/docs/cloud-develop-example-2.png)
+![cloud develop example](/static/image/docs/cloud-develop-example-2.png)
 
 ## Documents Relevant to Two or More Projects
 
