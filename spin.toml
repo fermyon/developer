@@ -161,7 +161,7 @@ environment = { PREVIEW_MODE = "0" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 
 [component.bartholomew.build]
-command = "npm run build-index && npm run build-hub-index"
+command = "npm run build-index && npm run build-hub-index && npm run update-wasm-lang"
 watch = ["content/**/*", "templates/*"]
 
 [component.fileserver-static]

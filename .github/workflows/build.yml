@@ -16,6 +16,13 @@ jobs:
         with:
           node-version: 16
 
+      # spin build will attempt to update the wasm-languages submodule via its ssh url
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
       - name: Setup Spin
         uses: fermyon/actions/spin/setup@v1
         with:

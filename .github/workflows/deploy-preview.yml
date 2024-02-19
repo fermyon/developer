@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # spin build will attempt to update the wasm-languages submodule via its ssh url
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -27,9 +28,6 @@ jobs:
         run: |
           npm ci
           npm ci --prefix ./spin-up-hub
-
-      - name: Update wasm-languages submodule
-        run: npm run update-wasm-lang
 
       - name: Build app
         run: |
