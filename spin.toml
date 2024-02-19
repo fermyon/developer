@@ -154,6 +154,11 @@ id = "trigger-bartholomew-spin-v2"
 component = "bartholomew-spin-v2"
 route = "/spin/v2/..."
 
+[[trigger.http]]
+id = "trigger-redirect-wasm-langs-root"
+component = "redirect-wasm-langs-root"
+route = "/wasm-languages/"
+
 [component.bartholomew]
 # Using build from bartholomew main
 source = "modules/bartholomew.wasm"
@@ -290,6 +295,11 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/ai-sentiment-a
 [component.serverless-ai]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/serverless-ai-hello-world.md" }
+
+# Redirect /wasm-languages to /wasm-languages/webassembly-language-support
+[component.redirect-wasm-langs-root]
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "/wasm-languages/webassembly-language-support" }
 
 # Component to give us clean versioned URLs for spin from the root
 [component.spin-version-proxy]
