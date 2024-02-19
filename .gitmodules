@@ -1,0 +1,3 @@
+[submodule "content/wasm-languages"]
+	path = content/wasm-languages
+	url = git@github.com:fermyon/wasm-languages.git
