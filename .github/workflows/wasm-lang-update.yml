@@ -1,0 +1,46 @@
+name: Update wasm-languages
+
+on:
+  repository_dispatch:
+    types: [wasm-languages-updated]
+
+concurrency: ${{ github.workflow }}
+
+jobs:
+  update-wasm-lang:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+
+      - name: Update wasm-languages
+        run: make update-lang
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        env:
+          WASM_LANG_COMMIT: ${{ github.event.client_payload.sha }}
+        with:
+          token: ${{ secrets.PAT }}
+          commit-message: "chore(.gitmodules): update wasm-languages submodule commit"
+          title: "chore(.gitmodules): update wasm-languages submodule commit"
+          body: "Update the wasm-languages git submodule to https://github.com/fermyon/wasm-languages/commit/${{ env.WASM_LANG_COMMIT }}"
+          branch: wasm-lang-submodule-update
+          base: main
+          delete-branch: true
+          committer: fermybot <103076628+fermybot@users.noreply.github.com>
+          author: fermybot <103076628+fermybot@users.noreply.github.com>
+          signoff: true
