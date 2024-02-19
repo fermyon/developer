@@ -71,7 +71,7 @@ jobs:
           npm ci --prefix ./spin-up-hub
 
       - name: Update wasm-languages submodule
-        run: make update-lang
+        run: npm run update-wasm-lang
 
       - name: Build app
         run: |
