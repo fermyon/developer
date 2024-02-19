@@ -104,7 +104,7 @@ $ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
 
 ## Deploy a Spin App from GHCR (or any registry)
 
-You can deploy a Spin app from any registry such as GHCR or Docker using the CLI command `spin deploy -f <remote-reference-here>` 
+You can deploy a Spin app from any registry such as GHCR or DockerHub using the CLI command `spin deploy -f <remote-reference-here>` 
 
 > **Note:** You need to a Fermyon Cloud account to deploy to. The remote-reference can be private, as long as you are authenticated locally to the registry in question, since the CLI will pull it down prior to publishing it to Cloud's internal registry.
 
