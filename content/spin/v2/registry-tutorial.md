@@ -13,6 +13,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/registry-t
 - [Push a Spin App to GHCR](#push-a-spin-app-to-ghcr)
 - [Pull a Spin App From GHCR](#pull-a-spin-app-from-ghcr)
 - [Run a Spin App From GHCR](#run-a-spin-app-from-ghcr)
+- [Deploy a Spin App from GHCR (or any registry)](#deploy-a-spin-app-from-ghcr-or-any-registry)
 - [Conclusion](#conclusion)
 - [Next Steps](#next-steps)
 
@@ -45,7 +46,7 @@ To use a GHCR instance, you need to set up authentication. Follow [these steps](
 <!-- @nocpy -->
 
 ```bash
-> Login Succeed
+> Login Succeeded
 ```
 
 ## Push a Spin App to GHCR
@@ -100,6 +101,13 @@ Lastly, let's run this Spin application:
  ```bash
 $ spin up -f ghcr.io/USERNAME/spin-react-fullstack:v1
 ```
+
+## Deploy a Spin App from GHCR (or any registry)
+
+You can deploy a Spin app from any registry such as GHCR or DockerHub using the CLI command `spin deploy -f <remote-reference-here>` 
+
+> **Note:** You need a Fermyon Cloud account to deploy to. The remote-reference can be private, as long as you are authenticated locally to the registry in question, since the CLI will pull it down prior to publishing it to Cloud's internal registry.
+
 
 ## Conclusion
 
