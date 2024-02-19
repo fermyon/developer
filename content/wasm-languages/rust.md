@@ -8,14 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Rust in WebAssembly](#rust-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Pros and Cons](#pros-and-cons)
-  - [Example](#example)
-    - [Writing Wagi-based Rust Apps](#writing-wagi-based-rust-apps)
-  - [Learn More](#learn-more)
-
 # Rust in WebAssembly
 
 Rust is probably the best supported language of the WebAssembly ecosystem.
@@ -140,7 +132,7 @@ Note that we do _not_ add an `executor` line at the bottom of this file as we do
 
 From there, running the app is as easy as `spin up`!
 
-### Writing Wagi-based Rust Apps
+### Writing Wagi-Based Rust Apps
 
 It is also possible to write a Wagi application in Rust and run it in Spin or Wagi. Examples of this exist [in the Wagi examples repository](https://github.com/deislabs/wagi-examples).
 

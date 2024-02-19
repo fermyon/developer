@@ -9,14 +9,6 @@ last_modified = "2022-03-10T21:50:50Z"
 
 ---
 
-- [AssemblyScript in WebAssembly](#assemblyscript-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Pros and Cons](#pros-and-cons)
-  - [Example](#example)
-    - [Running in `wasmtime`](#running-in-wasmtime)
-  - [Learn More](#learn-more)
-
 # AssemblyScript in WebAssembly
 
 Inspired by [TypeScript](/wasm-langauges/typescript), AssemblyScript is a strongly typed language. It was written specifically with WebAssembly in mind, and the entire toolchain is oriented around WebAssembly.

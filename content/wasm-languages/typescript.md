@@ -8,9 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [TypeScript in WebAssembly](#typescript-in-webassembly)
-  - [Learn More](#learn-more)
-
 # TypeScript in WebAssembly
 
 TypeScript is a popular language in its own right, but it is a very near relative of JavaScript.

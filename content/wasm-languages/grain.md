@@ -8,13 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Grain in WebAssembly](#grain-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Pros and Cons](#pros-and-cons)
-  - [Example](#example)
-  - [Learn More](#learn-more)
-
 # Grain in WebAssembly
 
 Grain is a functional programming language that is designed specifically to compile to WebAssembly.

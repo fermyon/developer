@@ -8,13 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Prolog in WebAssembly](#prolog-in-webassembly)
-	- [Available Implementations](#available-implementations)
-	- [Usage](#usage)
-	- [Pros and Cons](#pros-and-cons)
-	- [Example](#example)
-	- [Learn More](#learn-more)
-
 # Prolog in WebAssembly
 
 <!--

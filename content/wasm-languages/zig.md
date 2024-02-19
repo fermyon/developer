@@ -8,14 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Zig in WebAssembly](#zig-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Pros and Cons](#pros-and-cons)
-  - [Example](#example)
-  - [Learn More](#learn-more)
-  - [Learn More](#learn-more-1)
-
 # Zig in WebAssembly
 
 Zig, a systems language, has official support for WebAssembly.
@@ -41,7 +33,6 @@ Things we like:
 Things we're not big fans of:
 
 - When we get Wasm-related errors, they can be really terse.
-
 
 ## Example
 

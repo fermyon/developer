@@ -9,13 +9,6 @@ type = "page"
 
 ---
 
-- [Contributions](#contributions)
-  - [Adding New Languages](#adding-new-languages)
-    - [Examples](#examples)
-  - [Updating Existing Entries](#updating-existing-entries)
-- [License](#license)
-- [Contributing Guide](#contributing-guide)
-
 ## Contributions
 
 We welcome contributors. To make changes or additions, create new pull requests against this repository.

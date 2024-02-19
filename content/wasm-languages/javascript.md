@@ -8,11 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [JavaScript in WebAssembly](#javascript-in-webassembly)
-  - [Uses](#uses)
-  - [Available JavaScript Implementations](#available-javascript-implementations)
-  - [Learn More](#learn-more)
-
 # JavaScript in WebAssembly
 
 Compiling JavaScript to WebAssembly is different than using JavaScript to talk to a WebAssembly module.

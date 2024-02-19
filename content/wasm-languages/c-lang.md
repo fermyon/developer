@@ -8,15 +8,6 @@ author = "Fermyon Staff"
 last_modified = "2022-03-10T21:50:50Z"
 
 ---
-- [C in WebAssembly](#c-in-webassembly)
-  - [Available Implementations](#available-implementations)
-    - [WASI SDK and Clang/LLVM](#wasi-sdk-and-clangllvm)
-    - [Emscripten](#emscripten)
-  - [Usage](#usage)
-  - [Pros and Cons](#pros-and-cons)
-  - [Examples](#examples)
-    - [Compiling C Using the Zig Compiler Toolchain](#compiling-c-using-the-zig-compiler-toolchain)
-  - [Learn More](#learn-more)
 
 # C in WebAssembly
 

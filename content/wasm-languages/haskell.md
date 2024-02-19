@@ -8,13 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Haskell in WebAssembly](#haskell-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Pros and Cons](#pros-and-cons)
-  - [Example](#example)
-  - [Learn More](#learn-more)
-
 # Haskell in WebAssembly
 
 [Haskell](https://www.haskell.org/) is a purely functional programming language.
@@ -36,7 +29,6 @@ For example, might point out that the Swift runtime requires large binaries or t
 an unofficial implementation lags behind the core language's feature set. Or might
 point out really good tooling or performance.
 
-
 Things we like:
 
 - 
@@ -50,7 +42,6 @@ Things we're not big fans of:
 - 
 -->
 None yet.
-
 
 ## Example
 

@@ -3,9 +3,7 @@ title = "Python in WebAssembly"
 description = "can be compiled to WebAssembly."
 tags = ["language", "webassembly"]
 template = "page_lang"
-<!---
-Delete the published = false line below before creating the PR
--->
+# remove the following published = false line before creating your PR
 published = false
 [extra]
 author = "Fermyon Staff"
@@ -57,7 +55,6 @@ We're neutral about:
 Things we're not big fans of:
 
 - 
-
 
 ## Example
 

@@ -8,10 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Guide to WebAssembly Languages](#guide-to-webassembly-languages)
-  - [Help Us Stay Current](#help-us-stay-current)
-  - [Adding Your Language to the Matrix](#adding-your-language-to-the-matrix)
-
 # Guide to WebAssembly Languages
 
 A wide variety of languages can be compiled to WebAssembly. Our programming language guide focuses on the top 20 programming languages. It also covers interesting programming languages as well as programming languages written specifically for WebAssembly.

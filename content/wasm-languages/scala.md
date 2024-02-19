@@ -8,8 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Scala in WebAssembly](#scala-in-webassembly)
-
 # Scala in WebAssembly
 
 Like Kotlin, Scala began as a JVM-specific language and has moved toward other backends like LLVM.

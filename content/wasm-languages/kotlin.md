@@ -8,18 +8,11 @@ author = "Fermyon Staff"
 
 ---
 
-- [Kotlin in WebAssembly](#kotlin-in-webassembly)
-    - [Kotlin/Wasm](#kotlinwasm)
-    - [Kotlin on JRE](#kotlin-on-jre)
-  - [Uses](#uses)
-  - [Available Implementations](#available-implementations)
-  - [Learn More](#learn-more)
-
 # Kotlin in WebAssembly
 
 Kotlin, like .NET, has an interesting history with WebAssembly.
 
-### Kotlin/Wasm
+## Kotlin Wasm
 
 A few years ago, the Kotlin team introduced experimental WebAssembly support for the browser: A Kotlin Native `wasm32` LLVM-based compiler target.
 However, in 2019 they began a rewrite of the feature.
@@ -27,7 +20,7 @@ In late 2020, they demoed the upcoming version, called "Kotlin/Wasm".
 In early 2023, the new version was released as experimental, and required the Wasm runtime to support the then-experimental Wasm-GC proposal. Kotlin Native `wasm32` target was deprecated.
 In late 2023, Wasm-GC was enabled by default in Chrome and Firefox, and [Kotlin/Wasm went Alpha](https://blog.jetbrains.com/kotlin/2023/12/kotlin-for-webassembly-goes-alpha/).
 
-### Kotlin on JRE
+## Kotlin on JRE
 
 Kotlin compiled to Java bytecode can be executed by the [Java-to-Webassembly tools](/wasm-languages/java).
 

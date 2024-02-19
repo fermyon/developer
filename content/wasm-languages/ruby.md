@@ -8,13 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Ruby in WebAssembly](#ruby-in-webassembly)
-- [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Pros and Cons](#pros-and-cons)
-  - [Example](#example)
-  - [Learn More](#learn-more)
-
 # Ruby in WebAssembly
 
 Ruby is one of the most popular scripting languages.

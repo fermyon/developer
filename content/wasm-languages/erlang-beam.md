@@ -8,13 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Erlang in WebAssembly](#erlang-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Pros and Cons](#pros-and-cons)
-  - [Example](#example)
-  - [Learn More](#learn-more)
-
 # Erlang in WebAssembly
 
 Erlang is the most prominent of the [BEAM languages](https://github.com/llaisdy/beam_languages). Elixir is another popular BEAM language.

@@ -9,12 +9,6 @@ last_modified = "2022-03-10T21:50:50Z"
 
 ---
 
-- [COBOL in WebAssembly](#cobol-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Example](#example)
-  - [Pros and Cons](#pros-and-cons)
-  - [Learn More](#learn-more)
-
 # COBOL in WebAssembly
 
 That venerable business language of the pre-2000 era is back. COBOL can be compiled to WebAssembly. We are not entirely sure, given the [blog's date](https://blog.cloudflare.com/cloudflare-workers-now-support-cobol/) whether this was originally an April Fool's Day joke. But... it does appear to work. This project has since been renamed to Cobweb.

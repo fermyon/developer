@@ -1,19 +1,12 @@
-date = "2022-01-12T00:23:27Z"
 title = "Python in WebAssembly"
+date = "2023-11-04T00:00:01Z"
 description = "Python can almost be compiled to WebAssembly. The implementations are now stable."
 tags = ["python", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
-last_modified = "2023-10-26T00:50:50Z"
 
 ---
-
-- [Python in WebAssembly](#python-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Example](#example)
-  - [Learn More](#learn-more)
 
 # Python in WebAssembly
 

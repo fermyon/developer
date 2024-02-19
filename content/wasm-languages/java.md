@@ -8,11 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Java in WebAssembly](#java-in-webassembly)
-  - [Uses](#uses)
-  - [Available Implementations](#available-implementations)
-  - [Learn More](#learn-more)
-
 # Java in WebAssembly
 
 Many exciting WebAssembly things are happening in the Java ecosystem.

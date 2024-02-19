@@ -8,11 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Shell in WebAssembly](#shell-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-  - [Learn More](#learn-more)
-
 # Shell in WebAssembly
 
 "Shell" refers to the class of UNIX-like languages that are designed for interactive prompts and shell scripts.

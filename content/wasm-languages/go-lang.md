@@ -8,13 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Go in WebAssembly](#go-in-webassembly)
-	- [Available Implementations](#available-implementations)
-	- [Usage](#usage)
-	- [Pros and Cons](#pros-and-cons)
-	- [Example](#example)
-	- [Learn More](#learn-more)
-
 # Go in WebAssembly
 
 Go was early to the WebAssembly game, with the Go compiler producing `wasm32` output alongside its regularly supported build targets.

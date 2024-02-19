@@ -9,10 +9,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Clojure in WebAssembly](#clojure-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Learn More](#learn-more)
-
 # Clojure in WebAssembly
 
 Clojure is a functional programming language that is part of the Java/JVM ecosystem.
@@ -29,7 +25,7 @@ The TeaVM can execute Java Bytecode inside of a WebAssembly runtime. Clojure is 
 
 We track Java Bytecode execution in the [Java section of the WebAssembly Language Guide](java).
 
-It is also likely that you can take [Clojurescript](https://clojure.org/about/clojurescript), transform it to JavaScript (which is normal) and then [use a Javascript Wasm tool](https://clojure.org/about/clojurescript). In this case, it should be possible to use the full [Spin Javascript SDK]() within Clojurescript.
+It is also likely that you can take [Clojurescript](https://clojure.org/about/clojurescript), transform it to JavaScript (which is normal) and then [use a Javascript Wasm tool](https://clojure.org/about/clojurescript). In this case, it should be possible to use the full [Spin Javascript SDK](https://www.fermyon.com/blog/spin-js-sdk) within Clojurescript.
 
 ## Learn More
 

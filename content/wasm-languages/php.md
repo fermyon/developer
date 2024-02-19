@@ -8,11 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [PHP in WebAssembly](#php-in-webassembly)
-  - [Uses](#uses)
-  - [Available Implementations](#available-implementations)
-  - [Learn More](#learn-more)
-
 # PHP in WebAssembly
 
 PHP is a popular web scripting language.

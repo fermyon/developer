@@ -9,11 +9,6 @@ type = "page"
 
 ---
 
-- [The Typical Example](#the-typical-example)
-- [Libraries, SDKs, and Helpers](#libraries-sdks-and-helpers)
-- [Spin Configuration](#spin-configuration)
-- [Wagi Configuration](#wagi-configuration)
-
 The [Fermyon WebAssembly Language Guide](/wasm-languages/webassembly-language-support) tracks languages that can be executed within a WebAssembly runtime. We do our best to keep things consistent across pages. This page explains how we create our examples.
 
 ## The Typical Example

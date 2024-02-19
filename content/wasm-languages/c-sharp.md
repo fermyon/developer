@@ -9,12 +9,6 @@ last_modified = "2022-03-10T21:50:50Z"
 
 ---
 
-- [C# and .NET in WebAssembly](#c-and-net-in-webassembly)
-	- [Available Implementations](#available-implementations)
-	- [Pros and Cons](#pros-and-cons)
-	- [Example](#example)
-	- [Learn More](#learn-more)
-
 # C# and .NET in WebAssembly
 
 The .NET (aka dotnet) ecosystem supports a variety of languages, including C# (C sharp) and ASP.NET. Programs that target .NET are compiled to an intermediary bytecode format that runs in the .NET Common Language Runtime (CLR). This makes .NET an example of a [virtual machine language](/blog/scripts-vs.compiled-wasm.md).

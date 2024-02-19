@@ -8,8 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Objective-C in WebAssembly](#objective-c-in-webassembly)
-
 # Objective-C in WebAssembly
 
 It seems like Objective-C to WebAssembly should be possible in no small part because of LLVM.

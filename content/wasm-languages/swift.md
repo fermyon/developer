@@ -8,14 +8,6 @@ author = "Fermyon Staff"
 
 ---
 
-- [Swift in WebAssembly](#swift-in-webassembly)
-  - [Available Implementations](#available-implementations)
-  - [Usage](#usage)
-    - [Optimizing](#optimizing)
-  - [Pros and Cons](#pros-and-cons)
-  - [Example](#example)
-  - [Learn More](#learn-more)
-
 # Swift in WebAssembly
 
 Swift is a popular language in the Apple ecosystem.

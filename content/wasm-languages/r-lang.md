@@ -9,9 +9,6 @@ last_modified = "2022-02-17T16:55:42Z"
 
 ---
 
-- [R in WebAssembly](#r-in-webassembly)
-  - [Learn More](#learn-more)
-
 # R in WebAssembly
 
 R is a popular statistics-oriented language. An in-browser version of the language is now in development. This version patches the official R repository and adds browser tooling. We are unsure whether this version of R can be run in standalone WebAssembly runtimes like Wasmtime or Wamr.
