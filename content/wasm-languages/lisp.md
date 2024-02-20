@@ -1,4 +1,4 @@
-date = "2022-02-15T00:18:54Z"
+date = "2024-02-18T01:01:01Z"
 title = "Lisp in WebAssembly"
 description = "Lisp can be compiled to WebAssembly."
 tags = ["language", "webassembly"]

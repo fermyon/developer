@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "C# (and .NET) in WebAssembly"
 description = "C# (C-sharp) is backed by the .NET (dotnet) ecosystem, whose Wasm support is rapidly maturing."
 tags = ["c#", "csharp", "dotnet", ".net", "webassembly"]

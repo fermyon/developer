@@ -1,4 +1,4 @@
-date = "2023-10-26T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Prolog in WebAssembly"
 description = "Prolog can be compiled to WebAssembly, and there are many supporting projects."
 tags = ["language", "webassembly"]

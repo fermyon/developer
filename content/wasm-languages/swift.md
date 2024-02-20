@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Swift in WebAssembly"
 description = "Swift can be compiled to WebAssembly and run in-browser, at the CLI, and with WASI enabled."
 tags = ["swift", "webassembly"]

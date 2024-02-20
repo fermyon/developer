@@ -1,4 +1,4 @@
-date = "2022-07-25T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Related Standards"
 description = "WebAssembly relies upon many different standards. This page catalogs standards and where to work on them."
 tags = ["standards", "wasi", "webassembly", "wasm", "components"]

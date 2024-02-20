@@ -1,4 +1,4 @@
-date = "2022-03-27T23:47:57Z"
+date = "2024-02-18T01:01:01Z"
 title = "Motoko in WebAssembly"
 description = "Motoko is a WebAssembly-first language that supports creating Internet Computer canisters."
 tags = ["motoko", "webassembly"]

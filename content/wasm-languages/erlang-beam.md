@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Erlang (BEAM languages) in WebAssembly"
 description = "BEAM-based languages are getting support for a WebAssembly runtime and compiler."
 tags = ["language", "webassembly", "beam", "erlang", "elixir"]

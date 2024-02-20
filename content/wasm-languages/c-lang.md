@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "The C language in WebAssembly"
 description = "C support for WebAssembly is great. As one of the earliest supported languages, it enjoys broad support."
 tags = ["c", "c language", "webassembly"]

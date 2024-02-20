@@ -1,4 +1,4 @@
-date = "2022-01-11T21:06:42Z"
+date = "2024-02-18T01:01:01Z"
 title = "JavaScript in WebAssembly"
 description = "JavaScript can be compiled to WebAssembly. There are even multiple implementations of JavaScript WebAssembly runtimes."
 template = "page_lang"

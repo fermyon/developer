@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "PHP in WebAssembly"
 description = "PHP can be compiled to WebAssembly and run in the browser."
 tags = ["PHP", "webassembly"]

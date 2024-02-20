@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Grain in WebAssembly"
 description = "Grain is a WebAssembly-first language. It supports both in-browser and WASI modes."
 tags = ["grain", "webassembly"]

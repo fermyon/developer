@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "C++ in WebAssembly"
 description = "C++ support is provided via C support."
 tags = ["c++", "cpp", "webassembly", "qt"]

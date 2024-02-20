@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "WebAssembly Languages"
 description = "A wide variety of languages can be compiled to WebAssembly. Our programming language guide focuses on the top 20 programming languages. It also covers interesting programming languages as well as programming languages written specifically for WebAssembly."
 tags = ["webassembly", "programming languages"]

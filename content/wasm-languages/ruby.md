@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Ruby in WebAssembly"
 description = "Ruby can be compiled to WebAssembly. While there are a number of projects to do so, none are complete."
 tags = ["ruby", "webassembly"]

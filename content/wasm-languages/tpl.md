@@ -1,11 +1,16 @@
-# create a meaninful title e.g. Python in WebAssembly
+# Create a Meaningful Title
+
 title = "Template Example"
-# Add the date and time you would like this page to be published
-date = "2032-01-01T01:01:01Z"
+
+# Add Publish Date
+
+date = "2024-02-18T01:01:01Z"
 description = "Python can be compiled to WebAssembly."
 tags = ["language", "webassembly"]
 template = "page_lang"
-# remove the following published = false line before creating your PR
+
+# Remove Published
+
 published = false
 [extra]
 author = "Fermyon Staff"

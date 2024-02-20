@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Perl in WebAssembly"
 description = "A Perl interpreter in WebAssembly is available."
 tags = ["perl", "language", "webassembly"]

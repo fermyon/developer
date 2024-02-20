@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Objective-C in WebAssembly"
 description = "Apple may be working on Objective-C to Wasm compilation."
 tags = ["objective-c", "webassembly"]

@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Java in WebAssembly"
 description = "Java can be compiled to WebAssembly by a number of projects. Most are currently focused on the browser."
 tags = ["java", "webassembly"]

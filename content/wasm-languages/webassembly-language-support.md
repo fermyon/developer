@@ -1,4 +1,4 @@
-date = "2022-01-11T20:08:47Z"
+date = "2024-02-18T01:01:01Z"
 title = "WebAssembly Language Support Matrix"
 description = "Tracking the programming languages that compile to WebAssembly (Wasm). This page stays up to date with information about which languages can compile to Wasm, and what their language characteristics are."
 template = "page"

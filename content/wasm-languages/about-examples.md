@@ -1,4 +1,4 @@
-date = "2022-03-08T23:31:10Z"
+date = "2024-02-18T01:01:01Z"
 title = "About WebAssembly Examples"
 description = "The WebAssembly examples all follow some common patterns. This page explains them"
 template = "page"

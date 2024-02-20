@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "R in WebAssembly"
 description = "R cannot be compiled to WebAssembly yet, but we have seen a few conversations floating around."
 tags = ["r language", "webassembly"]

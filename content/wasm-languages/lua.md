@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Lua in WebAssembly"
 description = "Lua has several interesting WebAssembly projects."
 tags = ["lua", "language", "webassembly"]

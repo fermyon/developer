@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Shell in WebAssembly"
 description = "Various projects are implementing shell-like implementations in WebAssembly"
 tags = ["shell", "bash", "sh", "csh", "unix"]

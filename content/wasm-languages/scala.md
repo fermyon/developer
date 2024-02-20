@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Scala in WebAssembly"
 description = "Scala native can be compiled to WebAssembly with a somewhat lengthy process. Some Java tools work for compiling Scala to WebAssembly, too."
 tags = ["scala", "java", "kotlin", "webassembly"]

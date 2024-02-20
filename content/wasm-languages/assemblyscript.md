@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "AssemblyScript in WebAssembly"
 description = "AssemblyScript is a WebAssembly-centered language. It is one of the best languages if you want to target only WebAssembly."
 tags = ["assemblyscript", "typescript", "javascript", "webassembly"]

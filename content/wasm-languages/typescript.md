@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Typescript in WebAssembly"
 description = "TypeScript can be converted to JavaScript, and JS tools can be used to build Wasm binaries."
 tags = ["typescript", "javascript", "webassembly"]

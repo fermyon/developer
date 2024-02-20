@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Kotlin in WebAssembly"
 description = "Kotlin support for WebAssembly is in the Alpha stage of development"
 tags = ["kotlin", "jvm", "java", "webassembly"]

@@ -1,5 +1,5 @@
+date = "2024-02-18T01:01:01Z"
 title = "Python in WebAssembly"
-date = "2023-11-04T00:00:01Z"
 description = "Python can almost be compiled to WebAssembly. The implementations are now stable."
 tags = ["python", "webassembly"]
 template = "page_lang"

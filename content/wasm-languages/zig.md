@@ -1,4 +1,4 @@
-date = "2022-01-12T00:23:27Z"
+date = "2024-02-18T01:01:01Z"
 title = "Zig in WebAssembly"
 description = "Zig can be compiled to WebAssembly."
 tags = ["zig", "webassembly"]
