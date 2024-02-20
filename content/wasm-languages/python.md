@@ -5,10 +5,9 @@ tags = ["python", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/python.md"
 
 ---
-
-# Python in WebAssembly
 
 Python is one of the most popular programming languages in the world, and its WebAssembly implementation seems to be coming along quickly.
 While it is not yet ready for use, we anticipate it will be functional in the first half of 2022.

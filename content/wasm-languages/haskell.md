@@ -5,10 +5,9 @@ tags = ["haskell", "webassembly", "asterius"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/haskell.md"
 
 ---
-
-# Haskell in WebAssembly
 
 [Haskell](https://www.haskell.org/) is a purely functional programming language.
 

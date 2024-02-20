@@ -5,10 +5,9 @@ tags = ["language", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/prolog.md"
 
 ---
-
-# Prolog in WebAssembly
 
 <!--
 A sentence or two about the language. Make sure to say whether it is scripting, compiled, etc.

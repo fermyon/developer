@@ -5,10 +5,9 @@ tags = ["grain", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/grain.md"
 
 ---
-
-# Grain in WebAssembly
 
 Grain is a functional programming language that is designed specifically to compile to WebAssembly.
 We have enjoyed using it because of its intuitive syntax and great tooling.

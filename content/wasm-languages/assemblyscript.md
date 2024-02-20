@@ -6,10 +6,9 @@ template = "page_lang"
 [extra]
 author = "Fermyon Staff"
 last_modified = "2022-03-10T21:50:50Z"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/assemblyscript.md"
 
 ---
-
-# AssemblyScript in WebAssembly
 
 Inspired by [TypeScript](/wasm-langauges/typescript), AssemblyScript is a strongly typed language. It was written specifically with WebAssembly in mind, and the entire toolchain is oriented around WebAssembly.
 

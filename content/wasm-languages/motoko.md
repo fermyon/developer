@@ -5,10 +5,9 @@ tags = ["motoko", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/motoko.md"
 
 ---
-
-# Motoko in WebAssembly
 
 Motoko is a high-level programming language that is designed for writing Internet Computer canisters. It leverages a simple design for everyday programmers and supports an underlying Wasm and IC execution model. 
 

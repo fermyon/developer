@@ -6,10 +6,9 @@ template = "page"
 [extra]
 author = "Fermyon Staff"
 type = "page"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/CONTRIBUTING.md"
 
 ---
-
-## Contributions
 
 We welcome contributors. To make changes or additions, create new pull requests against this repository.
 

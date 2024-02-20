@@ -5,10 +5,9 @@ tags = ["rust", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/rust.md"
 
 ---
-
-# Rust in WebAssembly
 
 Rust is probably the best supported language of the WebAssembly ecosystem.
 Not only does Rust support several WebAssembly compile targets,

@@ -5,10 +5,9 @@ tags = ["lua", "language", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/lua.md"
 
 ---
-
-# Lua in WebAssembly
 
 [Lua](https://www.lua.org/) is a lightweight scripting language designed to be easily embedded. It enjoys broad usage as a plugin-and-extension language, and has a large ecosystem. But it is not generally considered one of the top programming languages.
 

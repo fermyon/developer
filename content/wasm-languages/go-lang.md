@@ -5,10 +5,9 @@ tags = ["go", "golang", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/go-lang.md"
 
 ---
-
-# Go in WebAssembly
 
 Go was early to the WebAssembly game, with the Go compiler producing `wasm32` output alongside its regularly supported build targets.
 But the core Go tools have fallen behind.

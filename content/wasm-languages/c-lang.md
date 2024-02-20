@@ -6,10 +6,9 @@ template = "page_lang"
 [extra]
 author = "Fermyon Staff"
 last_modified = "2022-03-10T21:50:50Z"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/c-lang.md"
 
 ---
-
-# C in WebAssembly
 
 C is a low-level programming language that is typically compiled into a native executable. It is one of the most well-known and frequently used languages.
 

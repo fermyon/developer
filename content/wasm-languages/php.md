@@ -5,10 +5,9 @@ tags = ["PHP", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/php.md"
 
 ---
-
-# PHP in WebAssembly
 
 PHP is a popular web scripting language.
 So it is unsurprising that one PHP project attempts to make it possible to run PHP inside of the web browser.

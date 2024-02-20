@@ -6,6 +6,7 @@ template = "page_lang"
 [extra]
 author = "Fermyon Staff"
 last_modified = "2022-07-25T21:50:50Z"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/standards.md"
 
 ---
 

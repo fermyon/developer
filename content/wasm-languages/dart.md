@@ -6,10 +6,9 @@ template = "page_lang"
 [extra]
 author = "Fermyon Staff"
 last_modified = "2023-10-26T00:50:50Z"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/dart.md"
 
 ---
-
-# Dart in WebAssembly
 
 Dart is a programming language designed for client development. The Dart team is
 actively developing support for Wasm along with the Chrome team's work on

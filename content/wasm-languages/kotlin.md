@@ -5,10 +5,9 @@ tags = ["kotlin", "jvm", "java", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/kotlin.md"
 
 ---
-
-# Kotlin in WebAssembly
 
 Kotlin, like .NET, has an interesting history with WebAssembly.
 

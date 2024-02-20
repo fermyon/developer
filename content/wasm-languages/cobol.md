@@ -6,10 +6,9 @@ template = "page_lang"
 [extra]
 author = "Fermyon Staff"
 last_modified = "2022-03-10T21:50:50Z"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/cobol.md"
 
 ---
-
-# COBOL in WebAssembly
 
 That venerable business language of the pre-2000 era is back. COBOL can be compiled to WebAssembly. We are not entirely sure, given the [blog's date](https://blog.cloudflare.com/cloudflare-workers-now-support-cobol/) whether this was originally an April Fool's Day joke. But... it does appear to work. This project has since been renamed to Cobweb.
 

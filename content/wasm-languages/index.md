@@ -5,10 +5,9 @@ tags = ["webassembly", "programming languages"]
 template = "page"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/index.md"
 
 ---
-
-# Guide to WebAssembly Languages
 
 A wide variety of languages can be compiled to WebAssembly. Our programming language guide focuses on the top 20 programming languages. It also covers interesting programming languages as well as programming languages written specifically for WebAssembly.
 

@@ -5,10 +5,9 @@ tags = ["swift", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/swift.md"
 
 ---
-
-# Swift in WebAssembly
 
 Swift is a popular language in the Apple ecosystem.
 But it is no longer just for iOS apps.

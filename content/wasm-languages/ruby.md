@@ -5,10 +5,9 @@ tags = ["ruby", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/ruby.md"
 
 ---
-
-# Ruby in WebAssembly
 
 Ruby is one of the most popular scripting languages.
 Famous for the Rails framework, it has been a stalwart for web developers.

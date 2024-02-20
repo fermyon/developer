@@ -5,10 +5,9 @@ tags = ["java", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/java.md"
 
 ---
-
-# Java in WebAssembly
 
 Many exciting WebAssembly things are happening in the Java ecosystem.
 There are a few projects that are rapidly maturing, and that can generate browser-oriented JS.

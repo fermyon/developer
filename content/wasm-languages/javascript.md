@@ -5,10 +5,9 @@ template = "page_lang"
 tags = ["javascript","webassembly"]
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/javascript.md"
 
 ---
-
-# JavaScript in WebAssembly
 
 Compiling JavaScript to WebAssembly is different than using JavaScript to talk to a WebAssembly module.
 This article is focused on how to take JavaScript code and build it into a WebAssembly module.

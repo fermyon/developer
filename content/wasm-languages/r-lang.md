@@ -6,10 +6,9 @@ template = "page_lang"
 [extra]
 author = "Fermyon Staff"
 last_modified = "2022-02-17T16:55:42Z"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/r-lang.md"
 
 ---
-
-# R in WebAssembly
 
 R is a popular statistics-oriented language. An in-browser version of the language is now in development. This version patches the official R repository and adds browser tooling. We are unsure whether this version of R can be run in standalone WebAssembly runtimes like Wasmtime or Wamr.
 

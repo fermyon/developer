@@ -5,10 +5,9 @@ tags = ["shell", "bash", "sh", "csh", "unix"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/shell.md"
 
 ---
-
-# Shell in WebAssembly
 
 "Shell" refers to the class of UNIX-like languages that are designed for interactive prompts and shell scripts.
 This includes sh (Borne Shell), bash (Borne Again Shell), csh (C Shell), and zsh (Z Shell) among others.

@@ -6,10 +6,9 @@ template = "page_lang"
 [extra]
 author = "Fermyon Staff"
 last_modified = "2022-03-10T21:50:50Z"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/c-sharp.md"
 
 ---
-
-# C# and .NET in WebAssembly
 
 The .NET (aka dotnet) ecosystem supports a variety of languages, including C# (C sharp) and ASP.NET. Programs that target .NET are compiled to an intermediary bytecode format that runs in the .NET Common Language Runtime (CLR). This makes .NET an example of a [virtual machine language](/blog/scripts-vs.compiled-wasm.md).
 

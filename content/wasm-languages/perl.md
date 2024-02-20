@@ -6,10 +6,9 @@ template = "page_lang"
 [extra]
 author = "Fermyon Staff"
 last_modified = "2023-10-26T00:50:50Z"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/perl.md"
 
 ---
-
-# Perl in WebAssembly
 
 Perl (Practical Extraction and Reporting Language) was the _lingua franca_ of the early web.
 A powerful scripting language, it became a popular way to write CGI.

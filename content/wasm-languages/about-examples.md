@@ -6,6 +6,7 @@ tags = ["webassembly", "examples"]
 [extra]
 author = "Fermyon Staff"  # Use "Fermyon Staff" for general content
 type = "page"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/about-examples.md"
 
 ---
 

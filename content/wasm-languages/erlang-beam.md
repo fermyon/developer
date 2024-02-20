@@ -5,10 +5,9 @@ tags = ["language", "webassembly", "beam", "erlang", "elixir"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/erlang-beam.md"
 
 ---
-
-# Erlang in WebAssembly
 
 Erlang is the most prominent of the [BEAM languages](https://github.com/llaisdy/beam_languages). Elixir is another popular BEAM language.
 

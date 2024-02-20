@@ -5,10 +5,9 @@ tags = ["objective-c", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/objective-c.md"
 
 ---
-
-# Objective-C in WebAssembly
 
 It seems like Objective-C to WebAssembly should be possible in no small part because of LLVM.
 However, we haven't tracked down any examples or implementations.

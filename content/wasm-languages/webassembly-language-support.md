@@ -5,6 +5,7 @@ template = "page"
 tags = ["webassembly", "programming languages", "javascript", "python", "rust", "dotnet", "ruby"]
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/webassembly-language-support.md.md"
 
 ---
 

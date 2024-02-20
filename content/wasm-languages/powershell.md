@@ -5,10 +5,9 @@ tags = ["powershell", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/powershell.md"
 
 ---
-
-# PowerShell and WebAssembly
 
 PowerShell is consistently ranked among the top programming languages.
 However, it is not generally considered to be a general purpose language like [C](/wasm-languages/c-lang) or [Python](/wasm-languges/python).

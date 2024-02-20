@@ -6,10 +6,9 @@ template = "page_lang"
 
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/clojure.md"
 
 ---
-
-# Clojure in WebAssembly
 
 Clojure is a functional programming language that is part of the Java/JVM ecosystem.
 

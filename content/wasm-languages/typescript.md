@@ -5,10 +5,9 @@ tags = ["typescript", "javascript", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/typescript.md"
 
 ---
-
-# TypeScript in WebAssembly
 
 TypeScript is a popular language in its own right, but it is a very near relative of JavaScript.
 In fact, most of the time, TS code is converted to JavaScript during the development cycle.

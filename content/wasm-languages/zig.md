@@ -5,10 +5,9 @@ tags = ["zig", "webassembly"]
 template = "page_lang"
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/zig.md"
 
 ---
-
-# Zig in WebAssembly
 
 Zig, a systems language, has official support for WebAssembly.
 Zig's implementation uses LLVM to supply the compile target.

@@ -1,16 +1,17 @@
-date = "2022-01-12T00:23:27Z"
-title = "Python in WebAssembly"
-description = "can be compiled to WebAssembly."
+# create a meaninful title e.g. Python in WebAssembly
+title = "Template Example"
+# Add the date and time you would like this page to be published
+date = "2032-01-01T01:01:01Z"
+description = "Python can be compiled to WebAssembly."
 tags = ["language", "webassembly"]
 template = "page_lang"
 # remove the following published = false line before creating your PR
 published = false
 [extra]
 author = "Fermyon Staff"
+url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/tpl.md"
 
 ---
-
-# X in WebAssembly
 
 <!--
 A sentence or two about the language. Make sure to say whether it is scripting, compiled, etc.
