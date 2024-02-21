@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/ass
 
 ---
 
-Inspired by [TypeScript](/wasm-langauges/typescript), AssemblyScript is a strongly typed language. It was written specifically with WebAssembly in mind, and the entire toolchain is oriented around WebAssembly.
+Inspired by [TypeScript](./typescript.md), AssemblyScript is a strongly typed language. It was written specifically with WebAssembly in mind, and the entire toolchain is oriented around WebAssembly.
 
 Since it has a [WASI implementation](https://github.com/jedisct1/as-wasi), AssemblyScript can be used on the Fermyon Platform for writing Wagi or Spin apps.
 
