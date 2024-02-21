@@ -24,7 +24,7 @@ The guide is arranged to break down languages into three categories:
 - WebAssembly Languages: These are languages specifically built for WebAssembly. While we love research languages, we do require that languages in this category have reached certain stability levels as well as a moderate amount of usage.
 - Other Notable Languages: This section is the most permissive. Usually, we focus on historically important languages, languages that didn't quite make the top 20, or languages that seem to be gaining momentum.
 
-To add a new language, open a PR that includes a new language page (see [tpl.md](https://github.com/fermyon/developer/content/wasm-languages/tpl.md) for a template) and also add the language to either the [webassembly-specific-languages](./webassembly-language-support.md#webassembly-specific-languages) or [other-notable-languages](./webassembly-language-support.md#other-notable-languages) section of the [webassembly-language-support.md](./webassembly-language-support.md)` page. Please adhere to the format we have provided. Uniformity is an important quality of entries.
+To add a new language, open a PR that includes a new language page (see [tpl.md](https://github.com/fermyon/developer/tree/main/content/wasm-languages/tpl.md) for a template) and also add the language to either the [webassembly-specific-languages](./webassembly-language-support.md#webassembly-specific-languages) or [other-notable-languages](./webassembly-language-support.md#other-notable-languages) section of the [webassembly-language-support.md](./webassembly-language-support.md)` page. Please adhere to the format we have provided. Uniformity is an important quality of entries.
 
 #### Examples
 
