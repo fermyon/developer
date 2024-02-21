@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/pow
 ---
 
 PowerShell is consistently ranked among the top programming languages.
-However, it is not generally considered to be a general purpose language like [C](/wasm-languages/c-lang) or [Python](/wasm-languges/python).
+However, it is not generally considered to be a general-purpose language like [C](./c-lang.md) or [Python](./python.md).
 So we were a little surprised to find at least some information about PowerShell and WebAssembly.
 
 Most of it stems from the fact that the Blazor WebAssembly framework frequently uses PowerShell [in the examples](https://stackshare.io/stackups/powershell-vs-webassembly).
