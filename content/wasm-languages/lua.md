@@ -38,7 +38,7 @@ Currently, there are no examples. None of the known implementations have WASI su
 
 ## Learn More
 
-Here are some great resources:
+Resources:
 
 - This [fun blog post](https://yiwei.dev/port-lua-to-web-environment-using-webassembly/) explains how to tweak Lua to compile the interpreter to WebAssembly.
 - [Wasm2Lua](https://github.com/SwadicalRag/wasm2lua) is an interesting project that translates Wasm modules to Lua code. 
