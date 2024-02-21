@@ -19,7 +19,7 @@ Fermyon WebAssembly Languages does not track WebAssembly execution environments 
 
 We do our best to keep the information here up to date. But with so many languages, each evolving rapidly, we're bound to miss a thing or two. If you have a correction or update, ping us on Twitter [@fermyontech](https://twitter.com/fermyontech).
 
->> If you are interested in contributing to this guide, head on over to [the GitHub repo](https://github.com/fermyon/wasm-languages).
+>> If you are interested in contributing to this guide, head on over to [the GitHub repo](https://github.com/fermyon/developer/wasm-languages).
 
 ## Adding Your Language to the Matrix
 
