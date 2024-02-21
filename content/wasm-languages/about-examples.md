@@ -64,24 +64,29 @@ In the end, though, every Wagi executor (on Spin) [uses the same CGI-like mechan
 Newer examples use a `spin.toml` to show how the program is executed with Spin. The generic `spin.toml` looks something like this:
 
 ```toml
-spin_version = "1"
+spin_manifest_version = 2
+
+[application]
+name = "spin-hello"
+version = "0.1.0"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = "Hello world app."
-name = "spin-hello"
-trigger = { type = "http", base = "/" }
-version = "1.0.0"
 
-[[component]]
-id = "hello"
-source = "main.wasm"
-[component.trigger]
-route = "/"
-executor = { type = "wagi" }
+[[trigger.http]]
+route = "/..."
+component = "spin-hello"
+
+[component.spin-hello]
+source = "target/wasm32-wasi/release/spin_hello.wasm"
+allowed_outbound_hosts = []
+[component.spin-hello.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
-The format and fields for this are defined in the [official Spin configuration docs](https://spin.fermyon.dev/configuration/).
+The format and fields are defined in the [official Spin configuration docs](https://developer.fermyon.com/spin/v2/manifest-reference).
 
-The command to start a Spin server is `spin up`. This will typically start a server on `http://localhost:3000` unless you specify otherwise.
+The command to build and start a Spin application is `spin build --up`. This will typically start a server on `http://localhost:3000` unless you specify otherwise.
 
 ## Wagi Configuration
 
