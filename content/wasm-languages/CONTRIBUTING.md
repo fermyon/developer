@@ -12,7 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/CON
 
 We welcome contributors. To make changes or additions, create new pull requests against this repository.
 
-The [content template](https://github.com/fermyon/developer/content/wasm-languages/tpl.md) provides the scaffolding for adding a new language. The [About Examples](./about-examples.md) explains how an example should work. (Examples are not required. But when provided, we like to keep them consistent.)
+The [content template](https://github.com/fermyon/developer/tree/main/content/wasm-languages/tpl.md) provides the scaffolding for adding a new language. The [About Examples](./about-examples.md) explains how an example should work. (Examples are not required. But when provided, we like to keep them consistent.)
 
 All community members must abide by the [Code of Conduct](https://www.fermyon.com/code-of-conduct)
 
