@@ -23,4 +23,4 @@ We do our best to keep the information here up to date. But with so many languag
 
 ## Adding Your Language to the Matrix
 
-If you are affiliated with a language project that adds WebAssembly support to a language, ping us on Twitter [@fermyontech](https://twitter.com/fermyontech) and let us know. We are particularly interested in WebAssembly-specific languages as well as WASI support for top-20 languages. When assessing new projects, we do prefer stable and complete codebases over experimental ones. However, given how young the WebAssembly world is, this is not a requirement.
+If you are affiliated with a language project that adds WebAssembly support to a language, please consider [contributing](./CONTRIBUTING.md). We are particularly interested in WebAssembly-specific languages and WASI support for top-20 languages. When assessing new projects, we prefer stable and complete codebases over experimental ones. However, given how young the WebAssembly world is, this is not a requirement.
