@@ -93,7 +93,6 @@ For each environment, we use the following icons to indicate a level of support:
 
 Spin, Fermyon Platform and Fermyon Cloud require [WASI](https://wasi.dev) support. Any language that has a ✅ for WASI should be supported on the Fermyon Platform. The *Spin SDK* indicates that there is additional libraries available for Spin.
 
->> If you are interested in contributing to this guide, head on over to [the GitHub repo](https://github.com/fermyon/developer/wasm-languages).
 
 We are often asked which languages are best supported for production-grade WebAssembly. We suggest [C][C]/[C++][CPLUSPLUS], [Rust][Rust], and [AssemblyScript][AssemblyScript].
 
