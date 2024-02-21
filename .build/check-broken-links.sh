@@ -99,6 +99,8 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://www.namecheap.com/support/knowledgebase/article.aspx/767/10/how-to-change-dns-for-a-domain/'                                                                         \
     --exclude 'https://support.google.com/domains/answer/3290309?hl=en#'                                                                                                                    \
     --exclude 'https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor'                                                                                                              \
+    --exclude 'https://www.reddit.com/r/Clojure/comments/jkznto/web_assembly_clojure_current_state/'                                                                                        \
+    --exclude 'https://www.reddit.com/r/Rlanguage/comments/b4izog/compile_r_to_webassembly_and_use_as_a_data/'                                                                              \
     --exclude 'https://www.tutorialspoint.com/webassembly/webassembly_working_with_cplusplus.htm'                                                                                           \
     --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en' | tee "${report}" || blc_error=true
 
