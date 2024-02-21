@@ -409,6 +409,13 @@ Importing color and theme updates for the brand 1.5 refresh
 			}
 		}
 	}
+	tr {
+		&:hover {
+			>a.anchor-link {
+				opacity: 1;
+			}
+		}
+	}
 
 	a {
 		font-weight: 600;
@@ -417,6 +424,13 @@ Importing color and theme updates for the brand 1.5 refresh
 	a.anchor-link {
 		&:after {
 			content: none;
+		}
+	}
+	
+	tr {
+		overflow-x: hidden;
+		a.anchor-link {
+			position: absolute;
 		}
 	}
 
