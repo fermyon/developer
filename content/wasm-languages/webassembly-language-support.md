@@ -97,7 +97,7 @@ We are often asked which languages are best supported for production-grade WebAs
 
 ## Updates and Additions
 
-The source for the WebAssembly Language Guide is located in a [public GitHub project](https://github.com/fermyon/developer/wasm-languages). If you find errors, want to make additions, or have further corrections for us, the [issue queue](https://github.com/fermyon/developer/issues) is a great place to discuss.
+The source for the WebAssembly Language Guide is located in a [public GitHub project](https://github.com/fermyon/developer/tree/main/content/wasm-languages). If you find errors, want to make additions, or have further corrections for us, the [issue queue](https://github.com/fermyon/developer/issues) is a great place to discuss.
 
 If you're more interested in chatting about things, check out our [Discord server](https://discord.gg/AAFNfS7NGf) or hit us up a [@FermyonTech on Twitter](https://twitter.com/fermyontech)
 
