@@ -28,12 +28,12 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk)
 
-## Componentize-py
+## `componentize-py`
 
-The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It can be installed using the following command:
+The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It is a [Bytecode Alliance](https://bytecodealliance.org/) project that allows converting a Python application to a webassembly component. It can be installed using the following command:
 
 ```bash
-pip3 install componentize-py==0.11.0
+pip3 install componentize-py
 ```
 
 ## Spin's Python HTTP Request Handler Template
@@ -120,7 +120,7 @@ pip3 install -r requirements.txt
 
 In Spin, HTTP components are triggered by the occurrence of an HTTP request and must return an HTTP response at the end of their execution. Components can be built in any language that compiles to WASI. If you would like additional information about building HTTP applications you may find [the HTTP trigger page](./http-trigger.md) useful.
 
-Building a Spin HTTP component using the Python SDK means defining a top-level class named IncomingHandler which inherits from [IncomingHandler]([IncomingHandler](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.IncomingHandler)), overriding the handle_request method.". Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
+Building a Spin HTTP component using the Python SDK means defining a top-level class named IncomingHandler which inherits from [`IncomingHandler`](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.IncomingHandler), overriding the handle_request method.". Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
 
 ```python
 from spin_sdk. import http
@@ -203,7 +203,7 @@ content-length: 25
 Hello from Python!
 ```
 
-> **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
+> **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
 
 ## An Outbound HTTP Example
 
@@ -312,19 +312,19 @@ command = "spin py2wasm app -o app.wasm"
 If you are still following along, please go ahead and update your `app.py` file one more time, as follows:
 
 ```python
-from spin_sdkimport http, redis, variables
+from spin_sdk import http, redis, variables
 from spin_sdk.http import Request, Response
 
 class IncomingHandler(http.IncomingHandler):
     def handle_request(self, request: Request) -> Response:
         with redis.open(variables.get("redis_address").decode) as db:
-            db.set( "foo", b"bar")
-            value = db.get( "foo")
+            db.set("foo", b"bar")
+            value = db.get("foo")
             db.del( ["testIncr"])
-            db.incr( "testIncr")
-            db.sadd( "testSets", ["hello", "world"])
-            content = db.smembers( "testSets")
-            db.srem( "testSets", ["hello"])
+            db.incr("testIncr")
+            db.sadd("testSets", ["hello", "world"])
+            content = db.smembers("testSets")
+            db.srem("testSets", ["hello"])
             assert value == b"bar", f"expected \"bar\", got \"{str(value, 'utf-8')}\"
 
         return Response(200,

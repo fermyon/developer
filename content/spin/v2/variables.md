@@ -71,9 +71,9 @@ api_host = "https://my-api.com"
 
 The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit-0.2.0/variables.wit) consists of one operation:
 
-| Operation | Parameters    | Returns        | Behavior                                                    |
-| --------- | ------------- | -------------- | ----------------------------------------------------------- |
-| `get`     | Variable name | Variable value | Gets the value of the variable from the configured provider |
+| Operation  | Parameters         | Returns             | Behavior |
+|------------|--------------------|---------------------|----------|
+| `get`      | Variable name      | Variable value      | Gets the value of the variable from the configured provider |
 
 To illustrate the variables API, each of the following examples receives a password via the HTTP request body, compares it to the value stored in the application variable, and returns a JSON response indicating whether the submitted password matched or not. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications). 
 
@@ -117,9 +117,9 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/variables.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Config.html)
 
-The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.get).
+> Note that the prefix/suffix is `config` rather than `variables`.
 
 ```ts
 from spin_sdk import http
@@ -149,7 +149,7 @@ class IncomingHandler(http.IncomingHandler):
 
 The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/variables.html#spin_sdk.spin_config.config_get).
 
-> Note that the prefix/suffix is `config` rather than `variables`.
+The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.get).
 
 ```py
 from spin_http import Response

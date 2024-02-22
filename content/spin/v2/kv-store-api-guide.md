@@ -138,7 +138,8 @@ class IncomingHandler(http.IncomingHandler):
             
         return Response(
             200,
-            {"content-type": "text/plain"},val
+            {"content-type": "text/plain"},
+            val
         )
 
 ```
