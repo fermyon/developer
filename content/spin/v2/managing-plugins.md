@@ -149,6 +149,8 @@ $ spin plugins update
 $ spin plugins upgrade --all
 ```
 
+> Note: The above example only installs plugins from the catalogue
+
 The following example shows additional upgrade options. Specifically, how to upgrade using the path to a remote plugin manifest and how to upgrade using the path to a local plugin manifest:
 
 <!-- @selectiveCpy -->
@@ -167,22 +169,12 @@ By default, Spin will only _upgrade_ plugins. Pass the `--downgrade` flag and sp
 ```bash
 $ spin plugins update
 $ spin plugins list
-js2wasm 0.1.0
-js2wasm 0.2.0
-js2wasm 0.3.0
-js2wasm 0.4.0
-js2wasm 0.5.0
-js2wasm 0.5.1
+// --snip--
 js2wasm 0.6.0
 js2wasm 0.6.1 [installed]
 $ spin plugins upgrade js2wasm --downgrade --version 0.6.0
 $ spin plugins list
-js2wasm 0.1.0
-js2wasm 0.2.0
-js2wasm 0.3.0
-js2wasm 0.4.0
-js2wasm 0.5.0
-js2wasm 0.5.1
+// --snip--
 js2wasm 0.6.0 [installed]
 js2wasm 0.6.1
 ```
