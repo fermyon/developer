@@ -119,7 +119,7 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Config.html)
 
-> Note that the prefix/suffix is `config` rather than `variables`.
+> Note that the name is `Config` rather than `Variables`.
 
 ```ts
 from spin_sdk import http
@@ -146,8 +146,6 @@ class IncomingHandler(http.IncomingHandler):
 {{ startTab "Python"}}
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/variables.html)
-
-The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/variables.html#spin_sdk.spin_config.config_get).
 
 The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.get).
 

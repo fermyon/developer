@@ -347,7 +347,6 @@ As well as any headers passed by the client, Spin sets several headers on the re
 > * The trigger `route` is `/users/...`
 > * The request is to `https://example.com:8080/shop/users/1/edit?theme=pink`
 
-
 | Header Name                  | Value                | Example |
 |------------------------------|----------------------|---------|
 | `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/edit?theme=pink` |

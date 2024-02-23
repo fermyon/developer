@@ -210,16 +210,7 @@ $ spin plugins install js2wasm --yes
 
 {{ startTab "Python" }}
 
-> If you used the installer script above, the `py2wasm` plugin is already installed, and you can skip this section!
-
-You'll need the Spin `py2wasm` plugin:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin plugins update
-$ spin plugins install py2wasm --yes
-```
+You'll install all the required Python tools as part of building the application.  We'll cover that in the Build Your Application section below.  For now, there's nothing to do here!
 
 [Learn more in the language guide.](python-components)
 
@@ -451,9 +442,8 @@ $ cd hello_python
 $ tree
 .
 ├── app.py
-├── Pipfile
-├── README.md
-└── spin.toml
+├── spin.toml
+└── requirements.txt 
 ```
 
 The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route.
@@ -491,14 +481,16 @@ code for a Spin HTTP component written in Python — a regular function named `h
 takes an HTTP request as a parameter and returns an HTTP response.  The Spin `py2wasm` plugin looks for the `handle_request` function by name when building your application into a Wasm module.
 
 ```python
-from spin_http import Response
+from spin_sdk. import http
+from spin_sdk.http import Request, Response
 
-def handle_request(request):
-    return Response(200,
-                    [("content-type", "text/plain")],
-                    bytes(f"Hello from the Python SDK", "utf-8"))
-```
-
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes("Hello from the Python SDK!", "utf-8")
+        )
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
@@ -697,25 +689,44 @@ You can always run this command manually; `spin build` is a shortcut.
 
 {{ startTab "Python"}}
 
+As a standard practice for python, create and active a virtual env:
+
+<!-- @nocpy -->
+
+```bash
+$ python3 -m venv venv
+$ source venv/bin/active # If on linux/mac
+$ venv\Scripts\activate
+```
+
+Install `componentize-py` and `spin-sdk` packages
+
+<!-- @selectiveCpy -->
+
+```bash
+$ pip3 install -r requirements.txt
+```
+
+Then run:
+
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin build
-Executing the build command for component hello-python: spin py2wasm app -o app.wasm
-Spin-compatible module built successfully
+Executing the build command for component hello-python: "componentize-py -w spin-http componentize -p . -p $(python3 -c 'import site; print(site.getsitepackages()[0])') app -o app.wasm"
 Finished building all Spin components
 ```
 
 If the build fails, check:
 
 * Are you in the `hello_python` directory?
-* Did you install the `py2wasm` plugin?
+* Did you install the requirements?
 
 If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
 ```toml
 [component.hello-python.build]
-command = "spin py2wasm app -o app.wasm"
+command = "componentize-py -w spin-http componentize -p . -p $(python3 -c 'import site; print(site.getsitepackages()[0])') app -o app.wasm"
 ```
 
 You can always run this command manually; `spin build` is a shortcut.
