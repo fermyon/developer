@@ -146,7 +146,7 @@ The following example shows how to upgrade all installed plugins at once:
 
 ```bash
 $ spin plugins update
-$ spin plugins --all
+$ spin plugins upgrade --all
 ```
 
 The following example shows additional upgrade options. Specifically, how to upgrade using the path to a remote plugin manifest and how to upgrade using the path to a local plugin manifest:
