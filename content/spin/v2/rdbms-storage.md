@@ -62,7 +62,7 @@ match rowset.rows.first() {
 * Modified row counts are returned as `u64`. (MySQL `execute` does not return the modified row count.)
 * All functions wrap the return in `anyhow::Result`.
 
-You can find complete examples for using relational databases in the Spin repository on GitHub ([MySQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/rust-outbound-mysql), [PostgreSQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/rust-outbound-pg)).
+You can find complete examples for using relational databases in the Spin repository on GitHub ([MySQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/mysql), [PostgreSQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/postgres)).
 
 For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK reference documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html).
 
