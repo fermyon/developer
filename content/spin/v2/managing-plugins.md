@@ -15,8 +15,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/managing-p
 - [Viewing Available Plugins](#viewing-available-plugins)
   - [Viewing Installed Plugins](#viewing-installed-plugins)
 - [Uninstalling Plugins](#uninstalling-plugins)
-- [Upgrading Plugins](#upgrading-plugins)
 - [Refreshing the Catalogue](#refreshing-the-catalogue)
+- [Upgrading Plugins](#upgrading-plugins)
+- [Downgrading Plugins](#downgrading-plugins)
 - [Next Steps](#next-steps)
 
 Plugins are a way to extend the functionality of Spin. Spin provides commands for installing and removing them, so you don't need to use separate installation tools. When you have installed a plugin into Spin, you can call it as if it were a Spin subcommand. For example, the JavaScript SDK uses a tool called `js2wasm` to package JavaScript code into a Wasm module, and JavaScript applications run it via the `spin js2wasm` command.
@@ -116,27 +117,69 @@ You can uninstall plugins using `spin plugins uninstall` with the plugin name:
 $ spin plugins uninstall befunge2wasm
 ```
 
-## Upgrading Plugins
-
-To upgrade a plugin to the latest version, run `spin plugins upgrade`. This has the same options as `spin plugins install`, according to whether the plugin comes from the catalogue, a URL, or a file:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin plugins upgrade js2wasm
-$ spin plugins upgrade --url https://github.com/fermyon/spin-befunge-sdk/releases/download/v1.7.0/befunge2wasm.json
-$ spin plugins upgrade --file ~/dev/spin-befunge-sdk/befunge2wasm.json
-```
-
-> When upgrading from the catalogue, the `upgrade` command uses your local cache of the catalogue. This might not include recently added plugins or versions. Run `spin plugins update` to refresh your local cache of the catalogue.
-
-By default, Spin will only _upgrade_ plugins. If you want to allow Spin to roll back to an earlier version, pass the `--downgrade` flag.
-
 ## Refreshing the Catalogue
 
 The first time you install a plugin from the catalogue, Spin creates a local cache of the catalogue. It continues to use this local cache for future install, list and upgrade commands; this is similar to OS package managers such as `apt`, and avoids rate limiting on the catalogue. However, this means that in order to see new catalogue entries - new plugins or new versions - you must first update the cache. 
 
 To update your local cache of the catalogue, run `spin plugins update`.
+
+## Upgrading Plugins
+
+To upgrade a plugin to the latest version, first run `spin plugins update` (to refresh the catalogue), then `spin plugins upgrade`. 
+
+The `spin plugins upgrade` command has the same options as the `spin plugins install` command (according to whether the plugin comes from the catalogue, a URL, or a file). For more information, see the plugins section of the [Spin CLI Reference documentation](cli-reference#spin-plugins). 
+
+> The `upgrade` command uses your local cache of the catalogue. This might not include recently added plugins or versions. So always remember to run `spin plugins update` to refresh your local cache of the catalogue before performing the `spin plugins upgrade` command.
+
+The following example shows how to upgrade one plugin at a time (i.e. the `js2wasm` plugin):
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins update
+$ spin plugins upgrade js2wasm
+```
+
+The following example shows how to upgrade all installed plugins at once:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins update
+$ spin plugins upgrade --all
+```
+
+> Note: The above example only installs plugins from the catalogue
+
+The following example shows additional upgrade options. Specifically, how to upgrade using the path to a remote plugin manifest and how to upgrade using the path to a local plugin manifest:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin plugins upgrade --url https://github.com/fermyon/spin-befunge-sdk/releases/download/v1.7.0/befunge2wasm.json
+$ spin plugins upgrade --file ~/dev/spin-befunge-sdk/befunge2wasm.json
+```
+
+## Downgrading Plugins
+
+By default, Spin will only _upgrade_ plugins. Pass the `--downgrade` flag and specify the `--version` if you want Spin to roll back to an earlier version. The following abridged example (which doesn't list the full console output for simplicity) lists the versions of plugins, downgrades the `js2wasm` to an older version (`0.6.0`) and then lists the versions again to show the results:
+
+<!-- @nocpy -->
+
+```bash
+$ spin plugins update
+$ spin plugins list
+// --snip--
+js2wasm 0.6.0
+js2wasm 0.6.1 [installed]
+$ spin plugins upgrade js2wasm --downgrade --version 0.6.0
+$ spin plugins list
+// --snip--
+js2wasm 0.6.0 [installed]
+js2wasm 0.6.1
+```
+
+After downgrading, the `[installed]` indicator is aligned with the `0.6.0` version of `js2wasm`, as intended in the example.
 
 ## Next Steps
 
