@@ -187,7 +187,7 @@ js2wasm 0.6.0 [installed]
 js2wasm 0.6.1
 ```
 
-After the success of the downgrade process, we can see that the `[installed]` indicator is now aligned with the `0.6.0` version of `js2wasm`, as intended in the example.
+After downgrading, that the `[installed]` indicator is aligned with the `0.6.0` version of `js2wasm`, as intended in the example.
 
 ## Next Steps
 
