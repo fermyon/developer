@@ -83,7 +83,7 @@ async fn handle_request(_req: Request) -> anyhow::Result<impl IntoResponse> {
 }
 ```
 
-For an example of receiving the response in a streaming style, [see this example in the Spin repository](https://github.com/fermyon/spin/blob/main/examples/wasi-http-rust-streaming-outgoing-body/src/lib.rs).
+For an example of receiving the response in a streaming style, [see this example in the Spin repository](https://github.com/fermyon/spin-rust-sdk/blob/main/examples/wasi-http-rust-streaming-outgoing-body/src/lib.rs).
 
 {{ blockEnd }}
 
@@ -153,7 +153,7 @@ res3, err3 := spinhttp.Send(req)
 * The `NewRequest` function is part of the standard library. The `Send` method adapts the standard request type to the underlying Wasm interface.
 * Errors are returned through the usual Go multiple return values mechanism.
 
-You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/http-tinygo-outbound-http).
+You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples/http-outbound).
 
 {{ blockEnd }}
 

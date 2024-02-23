@@ -67,7 +67,7 @@ println!("Status: {}", response.status().as_str());
 * The Rust SDK surfaces the idiomatic `http` types rather than the raw Wasm interface types. For example, the `method` in Rust is a string, not an enum.
 * Request and response bodies are of type `Option<bytes::Bytes>`.
 
-You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/http-rust-outbound-http).
+You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/http-rust-outbound-http).
 
 {{ blockEnd }}
 
@@ -133,7 +133,7 @@ res3, err3 := spinhttp.Send(req)
 * The `NewRequest` function is part of the standard library. The `Send` method adapts the standard request type to the underlying Wasm interface.
 * Errors are returned through the usual Go multiple return values mechanism.
 
-You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/http-tinygo-outbound-http).
+You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples/http-outbound).
 
 {{ blockEnd }}
 

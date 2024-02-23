@@ -203,7 +203,7 @@ Hello, there!
 ```
 
 > You can find a complete example for a Redis triggered component in the
-> [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/redis-rust).
+> [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/redis-rust).
 
 ## Sending Outbound HTTP Requests
 
@@ -362,7 +362,7 @@ This HTTP component can be paired with a Redis component, triggered on new
 messages on the `messages` Redis channel.
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/rust-outbound-redis).
+> in the [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/rust-outbound-redis).
 
 ## Storing Data in the Spin Key-Value Store
 

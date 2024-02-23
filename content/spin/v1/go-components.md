@@ -336,7 +336,7 @@ This HTTP component can be paired with a Redis component, triggered on new
 messages on the `messages` Redis channel.
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples/tinygo-outbound-redis).
+> in the [Spin repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples/redis-outbound).
 
 ## Using Go Packages in Spin Components
 
