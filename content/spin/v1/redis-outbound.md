@@ -66,7 +66,7 @@ let value = redis::get(&address, &key)?;
 
 * The arguments and results are enums, representing integers, binary payloads, and (for results) status and nil values.
 
-You can find a complete Rust code example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/rust-outbound-redis). Please also see this, related, [outbound Redis (using Rust) section](./rust-components#storing-data-in-redis-from-rust-components). 
+You can find a complete Rust code example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using Rust) section](./rust-components#storing-data-in-redis-from-rust-components). 
 
 {{ blockEnd }}
 
