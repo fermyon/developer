@@ -14,11 +14,11 @@ Zig's implementation uses LLVM to supply the compile target.
 
 ## Available Implementations
 
-Zig's official implementation [supports WebAssembly](https://ziglang.org/download/0.4.0/release-notes.html#WebAssembly-Support).
+Zig [supports building for WebAssembly](https://ziglang.org/documentation/0.11.0/#WebAssembly) out of the box.
 
 ## Usage
 
-LLVM has a `wasm32-wasi` target, so Zig should be usable to build Fermyon Platform applications.
+Zig supports [generating code for all targets that LLVM supports](https://ziglang.org/documentation/0.11.0/#Targets). LLVM has a `wasm32-wasi` target, so Zig should be usable to build Fermyon Platform applications.
 It can also be used in the browser.
 
 For the most part, write your Zig code as usual. When compiling, use the target `wasm32-wasi`.
@@ -27,17 +27,41 @@ For the most part, write your Zig code as usual. When compiling, use the target 
 
 Things we like:
 
-- The Zig compiler is so nice, we now use it to compile our C as well as our Zig.
+- The Zig compiler is so nice that we now use it to compile our C and Zig.
 
 Things we're not big fans of:
 
-- When we get Wasm-related errors, they can be really terse.
+- When we get Wasm-related errors, they can be really terse. However, since the original publishing of this page (around Zig 0.4.0) updates have been made to the error section of the official Zig documentation e.g. explaining how [Zig's error handling]((https://ziglang.org/documentation/0.11.0/#toc-Common-errdefer-Slip-Ups)) includes `defer` statements and `errdefer`, which triggers on block-exit errors.(https://ziglang.org/documentation/0.11.0/#toc-Common-errdefer-Slip-Ups). For example:
 
-## Example
+```zig
+fn createFoo(param: i32) !Foo {
+    const foo = try tryToAllocateFoo();
+    // now we have allocated foo. we need to free it if the function fails.
+    // but we want to return it if the function succeeds.
+    errdefer deallocateFoo(foo);
 
->> All of our examples follow [a documented pattern using common tools](/wasm-languages/about-examples).
+    const tmp_buf = allocateTmpBuffer() orelse return error.OutOfMemory;
+    // tmp_buf is truly a temporary resource, and we for sure want to clean it up
+    // before this block leaves scope
+    defer deallocateTmpBuffer(tmp_buf);
 
-You must have [Zig](https://ziglang.org/learn/) installed.
+    if (param > 1337) return error.InvalidParam;
+
+    // here the errdefer will not run since we're returning success from the function.
+    // but the defer will run!
+    return foo;
+}
+```
+
+# Examples
+
+>> All of our examples follow [a documented pattern using common tools](/wasm-languages/about-examples). In these examples, we initially run our applications using the [wasmtime](https://github.com/bytecodealliance/wasmtime) runtime and then progress and demonstrate how to run Zig applications using the [Spin framework](https://developer.fermyon.com/spin/v2/index).
+
+You must have [Zig](https://ziglang.org/learn/) installed. If you haven't already done so, please also go ahead and [install Spin](https://developer.fermyon.com/spin/v2/install).
+
+## Example 1
+
+Below is a WebAssembly System Interface (WASI) example where Zig uses the standard library to read command line arguments:
 
 Create a new Zig program:
 
@@ -45,57 +69,156 @@ Create a new Zig program:
 $ mkdir hello-zig
 $ cd hello-zig
 $ zig init-exe
+info: Created build.zig
+info: Created src/main.zig
+info: Next, try `zig build --help` or `zig build run`
 ```
 
-Inside of the `src/` directory is a file named `main.zig`. Edit it as follows:
+Inside the `src/` directory is a file named `main.zig`. Edit it as follows:
 
 ```zig
 const std = @import("std");
 
 pub fn main() !void {
-    const stdout = std.io.getStdOut().writer();
-    try stdout.print("content-type: text/plain\n\n", .{});
-    try stdout.print("Hello, World!\n", .{});
+    var general_purpose_allocator = std.heap.GeneralPurposeAllocator(.{}){};
+    const gpa = general_purpose_allocator.allocator();
+    const args = try std.process.argsAlloc(gpa);
+    defer std.process.argsFree(gpa, args);
+
+    for (args, 0..) |arg, i| {
+        std.debug.print("{}: {s}\n", .{ i, arg });
+    }
 }
 ```
 
-Now compile the program:
+We can now build and run the WASI example:
 
 ```console
-zig build-exe -O ReleaseSmall -target wasm32-wasi src/main.zig
+$ zig build-exe src/main.zig -target wasm32-wasi
 ```
 
-You can verify that it runs using `wasmtime`:
+As mentioned above, we are going to run our application using the [wasmtime](https://github.com/bytecodealliance/wasmtime) runtime:
 
 ```console
+$ wasmtime src/main.wasm 123 hello
+0: main.wasm
+1: 123
+2: hello
+
+```
+
+## Example 2
+
+In this example we are going to build a hello-world type of example (print a response) and build using Zig. We will then run the application with wasmtime, and then the Zig-built `.wasm` binary will run inside a [Spin](https://developer.fermyon.com/spin/v2/index) application.
+
+Create a new Zig program:
+
+```console
+$ mkdir hello-zig
+$ cd hello-zig
+$ zig init-exe
+info: Created build.zig
+info: Created src/main.zig
+info: Next, try `zig build --help` or `zig build run`
+```
+
+Inside the `src/` directory is a file named `main.zig`. Edit it as follows:
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
+    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
+
+    // stdout is for the actual output of your application, for example if you
+    // are implementing gzip, then only the compressed bytes should be sent to
+    // stdout, not any debugging messages.
+    const stdout_file = std.io.getStdOut().writer();
+    var bw = std.io.bufferedWriter(stdout_file);
+    const stdout = bw.writer();
+
+    try stdout.print("Run `zig build test` to run the tests.\n", .{});
+
+    try bw.flush(); // don't forget to flush!
+}
+
+test "simple test" {
+    var list = std.ArrayList(i32).init(std.testing.allocator);
+    defer list.deinit(); // try commenting this out and see if zig detects the memory leak!
+    try list.append(42);
+    try std.testing.expectEqual(@as(i32, 42), list.pop());
+}
+```
+
+Now compile and run the program using wasmtime:
+
+```console
+$ zig build-exe -O ReleaseSmall -target wasm32-wasi src/main.zig
 $ wasmtime main.wasm
-content-type: text/plain
-
-Hello
+All your codebase are belong to us.
+Run `zig build test` to run the tests.
 ```
 
-Now you should have a `main.wasm` file. Create a `spin.toml` file to load the Zig program:
+Now you should have a `main.wasm` file:
+
+```console
+$ tree .
+.
+├── build.zig
+├── main.wasm
+├── main.wasm.o
+├── src
+│   └── main.zig
+└── zig-cache
+    ├── h
+    ├── o
+    │   └── c8d45f36408768ee488d7b453a8723a3
+    │       └── builtin.zig
+    └── z
+        └── b78f88b24cc6c1a13507ecfccf9702c3
+```
+
+Create a new `spin.toml` file and edit as follows:
 
 ```toml
-spin_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
-description = "A Spin example HTTP application for Zig."
+spin_manifest_version = 2
+
+[application]
 name = "spin-hello-zig"
-trigger = { type = "http", base = "/" }
-version = "1.0.0"
+version = "0.1.0"
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+description = "spin-hello-zig"
 
-[[component]]
-source = "main.wasm"
-id = "zig-hello"
-[component.trigger]
-route = "/zig-hello"
+[[trigger.http]]
+route = "/..."
 executor = { type = "wagi" } # Note: We are running this using the Wagi spec
+component = "spin-hello-zig"
+
+[component.spin-hello-zig]
+source = "main.wasm"
 ```
 
-Run `spin up` and then use `curl` or a web browser to send a request:
+Run `spin up`:
 
-```curl localhost:3000/zig-hello
-Hello, World!
+```console
+spin up     
+Logging component stdio to ".spin/logs/"
+
+Serving http://127.0.0.1:3000
+Available Routes:
+  spin-hello-zig: http://127.0.0.1:3000 (wildcard)
+```
+
+Then, use `curl` (in a new terminal) or a web browser to send a request:
+
+```curl
+$ curl -i localhost:3000
+HTTP/1.1 500 Internal Server Error
+content-length: 61
+date: Mon, 26 Feb 2024 01:18:46 GMT
+
+Exactly one of 'location' or 'content-type' must be specified% 
 ```
 
 ## Learn More
@@ -106,6 +229,6 @@ Here are some great resources:
 
 Here are some great resources:
 
-- The official [release notes](https://ziglang.org/download/0.4.0/release-notes.html#WebAssembly-Support) on WebAssembly support in Zig
+- The official [release notes](https://ziglang.org/download/0.11.0/release-notes.html#WebAssembly-Support) on WebAssembly support in Zig
 - An example repo that shows how to [access the browser DOM](https://github.com/shritesh/zig-wasm-dom) in Zig
 - A [short video](https://youtu.be/gJLIiF15wjQ) on Zig
