@@ -5,7 +5,7 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/manifest-reference.md"
 
 ---
-- [Format](#format)
+- [Manifest Format](#manifest-format)
 - [Manifest Fields](#manifest-fields)
 - [The `application` Table](#the-application-table)
 - [The `application.trigger` Table](#the-applicationtrigger-table)
@@ -24,9 +24,30 @@ This page describes the contents of the Spin manifest file, typically called `sp
 
 > There are two versions of the manifest format. The manifest format described here (version 2) is recommended if you're using Spin 2.0 and above. The [previous format (version 1)](manifest-reference-v1.md) is supported on Spin 2.x for backward compatibility, and is the only format supported by Spin 1.x.
 
-## Format
+## Manifest Format
 
-The manifest is a TOML file, and follows standard TOML syntax.  See the [TOML documentation](https://toml.io/) for information about the TOML syntax.
+The manifest is a TOML file, and follows standard TOML syntax.  See the [TOML documentation](https://toml.io/) for information about the TOML syntax. Here is an example Spin application manifest ( `spin.toml`) that was generated using `spin new -t http-rust spin-manifest-example-in-rust`:
+
+```toml
+spin_manifest_version = 2
+
+[application]
+name = "spin-manifest-example-in-rust"
+version = "0.1.0"
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+description = "An example application to generate a Spin manifest file, in this case, via the HTTP Rust template."
+
+[[trigger.http]]
+route = "/..."
+component = "spin-manifest-example-in-rust"
+
+[component.spin-manifest-example-in-rust]
+source = "target/wasm32-wasi/release/spin_manifest_example_in_rust.wasm"
+allowed_outbound_hosts = []
+[component.spin-manifest-example-in-rust.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
+```
 
 ## Manifest Fields
 
