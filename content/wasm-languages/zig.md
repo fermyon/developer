@@ -31,7 +31,7 @@ Things we like:
 
 Things we're not big fans of:
 
-- When we get Wasm-related errors, they can be really terse. However, since the original publishing of this page (around Zig 0.4.0) updates have been made to the error section of the official Zig documentation e.g. explaining how [Zig's error handling]((https://ziglang.org/documentation/0.11.0/#toc-Common-errdefer-Slip-Ups)) includes `defer` statements and `errdefer`, which triggers on block-exit errors.(https://ziglang.org/documentation/0.11.0/#toc-Common-errdefer-Slip-Ups). For example:
+- When we get Wasm-related errors, they can be really terse. However, since the original publishing of this page (around Zig 0.4.0), updates have been made to the error section of the official Zig documentation e.g. explaining how [Zig's error handling](https://ziglang.org/documentation/0.11.0/#toc-Common-errdefer-Slip-Ups) includes `defer` statements and `errdefer`, which triggers on block-exit errors. For example:
 
 ```zig
 fn createFoo(param: i32) !Foo {
@@ -61,7 +61,7 @@ You must have [Zig](https://ziglang.org/learn/) installed. If you haven't alread
 
 ## Example 1
 
-Below is a WebAssembly System Interface (WASI) example where Zig uses the standard library to read command line arguments:
+Below is a WebAssembly System Interface (WASI) example where Zig uses the standard library to read command line arguments.
 
 Create a new Zig program:
 
@@ -179,7 +179,9 @@ $ tree .
         └── b78f88b24cc6c1a13507ecfccf9702c3
 ```
 
-Create a new `spin.toml` file and edit as follows:
+### Using Spin
+
+We need to perform a couple of steps to make this Zig application run inside the Spin framework. Firstly, we create a new `spin.toml` file and edit it as follows:
 
 ```toml
 spin_manifest_version = 2
@@ -197,6 +199,12 @@ component = "spin-hello-zig"
 
 [component.spin-hello-zig]
 source = "main.wasm"
+```
+
+Next, we have to update the Zig source code slightly to ensure the response object has a `content-type`. If we just use the default Zig source code Spin will produce an error similar to the following:
+
+```console
+ERROR spin_http::wagi: HTTP 500 error error=Exactly one of 'location' or 'content-type' must be specified
 ```
 
 Run `spin up`:
