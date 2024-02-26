@@ -1,4 +1,4 @@
-date = "2024-02-18T01:01:01Z"
+date = "2024-02-25T01:01:01Z"
 title = "Zig in WebAssembly"
 description = "Zig can be compiled to WebAssembly."
 tags = ["zig", "webassembly"]
@@ -33,7 +33,7 @@ Things we're not big fans of:
 
 - When we get Wasm-related errors, they can be really terse. However, since the original publishing of this page (around Zig 0.4.0), updates have been made to the error section of the official Zig documentation e.g. explaining how [Zig's error handling](https://ziglang.org/documentation/0.11.0/#toc-Common-errdefer-Slip-Ups) includes `defer` statements and `errdefer`, which triggers on block-exit errors. For example:
 
-```zig
+```
 fn createFoo(param: i32) !Foo {
     const foo = try tryToAllocateFoo();
     // now we have allocated foo. we need to free it if the function fails.
@@ -76,7 +76,7 @@ info: Next, try `zig build --help` or `zig build run`
 
 Inside the `src/` directory is a file named `main.zig`. Edit it as follows:
 
-```zig
+```
 const std = @import("std");
 
 pub fn main() !void {
@@ -104,12 +104,11 @@ $ wasmtime src/main.wasm 123 hello
 0: main.wasm
 1: 123
 2: hello
-
 ```
 
 ## Example 2
 
-In this example we are going to build a hello-world type of example (print a response) and build using Zig. We will then run the application with wasmtime, and then the Zig-built `.wasm` binary will run inside a [Spin](https://developer.fermyon.com/spin/v2/index) application.
+In this example we are going to build a hello-world-type of example and build using Zig. We will then run the application with wasmtime, and then the Zig-built `.wasm` binary will run inside a [Spin](https://developer.fermyon.com/spin/v2/index) application.
 
 Create a new Zig program:
 
@@ -124,30 +123,13 @@ info: Next, try `zig build --help` or `zig build run`
 
 Inside the `src/` directory is a file named `main.zig`. Edit it as follows:
 
-```zig
+```
 const std = @import("std");
 
 pub fn main() !void {
-    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
-    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
-
-    // stdout is for the actual output of your application, for example if you
-    // are implementing gzip, then only the compressed bytes should be sent to
-    // stdout, not any debugging messages.
-    const stdout_file = std.io.getStdOut().writer();
-    var bw = std.io.bufferedWriter(stdout_file);
-    const stdout = bw.writer();
-
-    try stdout.print("Run `zig build test` to run the tests.\n", .{});
-
-    try bw.flush(); // don't forget to flush!
-}
-
-test "simple test" {
-    var list = std.ArrayList(i32).init(std.testing.allocator);
-    defer list.deinit(); // try commenting this out and see if zig detects the memory leak!
-    try list.append(42);
-    try std.testing.expectEqual(@as(i32, 42), list.pop());
+    const stdout = std.io.getStdOut().writer();
+    try stdout.print("content-type: text/plain\n\n", .{});
+    try stdout.print("Hello, World!\n", .{});
 }
 ```
 
@@ -155,9 +137,9 @@ Now compile and run the program using wasmtime:
 
 ```console
 $ zig build-exe -O ReleaseSmall -target wasm32-wasi src/main.zig
-$ wasmtime main.wasm
-All your codebase are belong to us.
-Run `zig build test` to run the tests.
+$ wasmtime main.wasm    
+content-type: text/plain
+Hello, World!
 ```
 
 Now you should have a `main.wasm` file:
@@ -181,7 +163,7 @@ $ tree .
 
 ### Using Spin
 
-We need to perform a couple of steps to make this Zig application run inside the Spin framework. Firstly, we create a new `spin.toml` file and edit it as follows:
+Create a new `spin.toml` file and edit it as follows:
 
 ```toml
 spin_manifest_version = 2
@@ -201,13 +183,7 @@ component = "spin-hello-zig"
 source = "main.wasm"
 ```
 
-Next, we have to update the Zig source code slightly to ensure the response object has a `content-type`. If we just use the default Zig source code Spin will produce an error similar to the following:
-
-```console
-ERROR spin_http::wagi: HTTP 500 error error=Exactly one of 'location' or 'content-type' must be specified
-```
-
-Run `spin up`:
+Once we have the Spin manifest file (`spin.toml`), we can run `spin up`:
 
 ```console
 spin up     
@@ -222,16 +198,13 @@ Then, use `curl` (in a new terminal) or a web browser to send a request:
 
 ```curl
 $ curl -i localhost:3000
-HTTP/1.1 500 Internal Server Error
-content-length: 61
-date: Mon, 26 Feb 2024 01:18:46 GMT
+HTTP/1.1 200 OK
+content-type: text/plain
+content-length: 14
+date: Mon, 26 Feb 2024 02:08:33 GMT
 
-Exactly one of 'location' or 'content-type' must be specified% 
+Hello, World!
 ```
-
-## Learn More
-
-Here are some great resources:
 
 ## Learn More
 
@@ -239,4 +212,4 @@ Here are some great resources:
 
 - The official [release notes](https://ziglang.org/download/0.11.0/release-notes.html#WebAssembly-Support) on WebAssembly support in Zig
 - An example repo that shows how to [access the browser DOM](https://github.com/shritesh/zig-wasm-dom) in Zig
-- A [short video](https://youtu.be/gJLIiF15wjQ) on Zig
+- The [Zig GitHub repository](https://github.com/ziglang/zig)
