@@ -27,13 +27,9 @@ Recently, Suborbital has introduced a version of [Javy](https://github.com/subor
 
 You can compile JavaScript and TypeScript to Wasm for the Spin runtime using [the Spin JavaScript SDK](https://github.com/fermyon/spin-js-sdk). The Spin SDK borrows heavily from Javy, using the same approach of providing a CLI utility to convert a JS file into a Wasm file.
 
-## Usage
+## Example (Using Spin)
 
 The Spin SDK makes it very easy to build Javascript/TypeScript Wasm applications simply by using a Spin template that handles all of the heavy lifting. If you would like to try out the Spin SDK for Javascript please follow along with the example below.
-
-## Example
-
-In this example, we will create a Spin application using Javascript.
 
 ### Prerequisites
 
@@ -44,21 +40,25 @@ If you have not done so already, please [install Spin](/spin/v2/install). Having
 ```console
 $ spin plugin update
 $ spin plugin install js2wasm
-Plugin information updated successfully
-Are you sure you want to install plugin 'js2wasm' with license Apache-2.0 from https://github.com/fermyon/spin-js-sdk/releases/download/v0.6.1/js2wasm-v0.6.1-linux-amd64.tar.gz? yes
-
-Plugin 'js2wasm' was installed successfully!
-
-Description:
-	A plugin to convert js files to Spin compatible modules
-
-Homepage:
-	https://github.com/fermyon/spin-js-sdk
 ```
 
-### Example
+### The Spin JS/TS SDK Template
 
-Create a new project:
+The Spin JS/TS SDK provides a couple of Spin templates for quickly starting a new JS or TS application. These templates can be installed using the following command:
+
+```console
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk
+```
+
+You will now see `http-ts` and `http-js` available when listing installed templates:
+
+```console
+$ spin templates list
+```
+
+### Application
+
+Create a new Spin application, using the `http-js` template:
 
 ```console
 $ spin new -t http-js javascript-example --accept-defaults
