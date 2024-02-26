@@ -18,7 +18,7 @@ Zig [supports building for WebAssembly](https://ziglang.org/documentation/0.11.0
 
 ## Usage
 
-Zig supports [generating code for all targets that LLVM supports](https://ziglang.org/documentation/0.11.0/#Targets). LLVM has a `wasm32-wasi` target, so Zig should be usable to build Fermyon Platform applications.
+Zig supports [generating code for all targets that LLVM supports](https://ziglang.org/documentation/0.11.0/#Targets). LLVM has a `wasm32-wasi` target, so Zig is usable to build Fermyon Platform applications.
 It can also be used in the browser.
 
 For the most part, write your Zig code as usual. When compiling, use the target `wasm32-wasi`.
@@ -31,33 +31,13 @@ Things we like:
 
 Things we're not big fans of:
 
-- When we get Wasm-related errors, they can be really terse. However, since the original publishing of this page (around Zig 0.4.0), updates have been made to the error section of the official Zig documentation e.g. explaining how [Zig's error handling](https://ziglang.org/documentation/0.11.0/#toc-Common-errdefer-Slip-Ups) includes `defer` statements and `errdefer`, which triggers on block-exit errors. For example:
-
-```
-fn createFoo(param: i32) !Foo {
-    const foo = try tryToAllocateFoo();
-    // now we have allocated foo. we need to free it if the function fails.
-    // but we want to return it if the function succeeds.
-    errdefer deallocateFoo(foo);
-
-    const tmp_buf = allocateTmpBuffer() orelse return error.OutOfMemory;
-    // tmp_buf is truly a temporary resource, and we for sure want to clean it up
-    // before this block leaves scope
-    defer deallocateTmpBuffer(tmp_buf);
-
-    if (param > 1337) return error.InvalidParam;
-
-    // here the errdefer will not run since we're returning success from the function.
-    // but the defer will run!
-    return foo;
-}
-```
+- When we get Wasm-related errors, they can be really terse.
 
 # Examples
 
->> All of our examples follow [a documented pattern using common tools](/wasm-languages/about-examples). In these examples, we initially run our applications using the [wasmtime](https://github.com/bytecodealliance/wasmtime) runtime and then progress and demonstrate how to run Zig applications using the [Spin framework](https://developer.fermyon.com/spin/v2/index).
+>> All of our examples follow [a documented pattern using common tools](/wasm-languages/about-examples). In these examples, we initially run our applications using the [wasmtime](https://github.com/bytecodealliance/wasmtime) runtime and then progress and demonstrate how to run Zig applications using the [Spin framework](../spin/v2/index).
 
-You must have [Zig](https://ziglang.org/learn/) installed. If you haven't already done so, please also go ahead and [install Spin](https://developer.fermyon.com/spin/v2/install).
+You must have [Zig](https://ziglang.org/learn/) installed. If you haven't already done so, please also go ahead and [install Spin](../spin/v2/install).
 
 ## Example 1
 
@@ -65,7 +45,7 @@ Below is a WebAssembly System Interface (WASI) example where Zig uses the standa
 
 Create a new Zig program:
 
-```console
+```bash
 $ mkdir hello-zig
 $ cd hello-zig
 $ zig init-exe
@@ -93,13 +73,13 @@ pub fn main() !void {
 
 We can now build and run the WASI example:
 
-```console
+```bash
 $ zig build-exe src/main.zig -target wasm32-wasi
 ```
 
 As mentioned above, we are going to run our application using the [wasmtime](https://github.com/bytecodealliance/wasmtime) runtime:
 
-```console
+```bash
 $ wasmtime src/main.wasm 123 hello
 0: main.wasm
 1: 123
@@ -108,11 +88,11 @@ $ wasmtime src/main.wasm 123 hello
 
 ## Example 2
 
-In this example we are going to build a hello-world-type of example and build using Zig. We will then run the application with wasmtime, and then the Zig-built `.wasm` binary will run inside a [Spin](https://developer.fermyon.com/spin/v2/index) application.
+In this example we are going to build a "hello world" WAGI application using Zig. We will then run the Wasm binary with wasmtime to view the output in the console, and then run it again as a [Spin](../spin/v2/index) application served over HTTP.
 
 Create a new Zig program:
 
-```console
+```bash
 $ mkdir hello-zig
 $ cd hello-zig
 $ zig init-exe
@@ -135,30 +115,11 @@ pub fn main() !void {
 
 Now compile and run the program using wasmtime:
 
-```console
+```bash
 $ zig build-exe -O ReleaseSmall -target wasm32-wasi src/main.zig
 $ wasmtime main.wasm    
 content-type: text/plain
 Hello, World!
-```
-
-Now you should have a `main.wasm` file:
-
-```console
-$ tree .
-.
-├── build.zig
-├── main.wasm
-├── main.wasm.o
-├── src
-│   └── main.zig
-└── zig-cache
-    ├── h
-    ├── o
-    │   └── c8d45f36408768ee488d7b453a8723a3
-    │       └── builtin.zig
-    └── z
-        └── b78f88b24cc6c1a13507ecfccf9702c3
 ```
 
 ### Using Spin
@@ -185,7 +146,7 @@ source = "main.wasm"
 
 Once we have the Spin manifest file (`spin.toml`), we can run `spin up`:
 
-```console
+```bash
 spin up     
 Logging component stdio to ".spin/logs/"
 
@@ -196,7 +157,7 @@ Available Routes:
 
 Then, use `curl` (in a new terminal) or a web browser to send a request:
 
-```curl
+```bash
 $ curl -i localhost:3000
 HTTP/1.1 200 OK
 content-type: text/plain
