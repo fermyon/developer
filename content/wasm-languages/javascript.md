@@ -25,7 +25,7 @@ There are three popular ways of building JavaScript into WebAssembly.
 
 Recently, Suborbital has introduced a version of [Javy](https://github.com/suborbital/javy) that supports some of their extensions.
 
-An experimental SDK for building Spin apps using JavaScript (and TypeScript) was [introduced in a Fermyon blog article](https://www.fermyon.com/blog/spin-js-sdk) back in December 2022. This [Spin SDK for Javascript](https://github.com/fermyon/spin-js-sdk) borrows heavily from Javy, using the same approach of providing a CLI utility to convert a JS file into a Wasm file.
+You can compile JavaScript and TypeScript to Wasm for the Spin runtime using [the Spin JavaScript SDK](https://github.com/fermyon/spin-js-sdk). The Spin SDK borrows heavily from Javy, using the same approach of providing a CLI utility to convert a JS file into a Wasm file.
 
 ## Usage
 
