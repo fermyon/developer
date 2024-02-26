@@ -26,7 +26,7 @@ This page describes the contents of the Spin manifest file, typically called `sp
 
 ## Manifest Format
 
-The manifest is a TOML file, and follows standard TOML syntax.  See the [TOML documentation](https://toml.io/) for information about the TOML syntax. Here is an example Spin application manifest ( `spin.toml`) that was generated using `spin new -t http-rust spin-manifest-example-in-rust`:
+The manifest is a TOML file, and follows standard TOML syntax.  See the [TOML documentation](https://toml.io/) for information about the TOML syntax. Here is an example Spin application manifest (`spin.toml`) that was generated using `spin new -t http-rust spin-manifest-example-in-rust`:
 
 ```toml
 spin_manifest_version = 2
