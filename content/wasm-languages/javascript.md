@@ -37,7 +37,7 @@ In this example, we will create a Spin application using Javascript.
 
 ### Prerequisites
 
-If you have not done so already, please [install Spin](https://developer.fermyon.com/spin/v2/install). Having Spin installed will allow us to easily use js2wasm and Spin application templates.
+If you have not done so already, please [install Spin](/spin/v2/install). Having Spin installed will allow us to easily use js2wasm and Spin application templates.
 
 ### Js2Wasm 
 
