@@ -481,7 +481,7 @@ code for a Spin HTTP component written in Python — a regular function named `h
 takes an HTTP request as a parameter and returns an HTTP response.  The Spin `py2wasm` plugin looks for the `handle_request` function by name when building your application into a Wasm module.
 
 ```python
-from spin_sdk. import http
+from spin_sdk import http
 from spin_sdk.http import Request, Response
 
 class IncomingHandler(http.IncomingHandler):
@@ -689,14 +689,21 @@ You can always run this command manually; `spin build` is a shortcut.
 
 {{ startTab "Python"}}
 
-As a standard practice for python, create and active a virtual env:
+As a standard practice for Python, create and activate a virtual env:
 
-<!-- @nocpy -->
+
+If you are on a Mac/linux based operating system use the following commands:
 
 ```bash
 $ python3 -m venv venv
-$ source venv/bin/active # If on linux/mac
-$ venv\Scripts\activate
+$ source venv/bin/activate
+```
+
+If you are using Windows, use the following commands:
+
+```bash
+C:\Work> python3 -m venv venv
+C:\Work> venv\Scripts\activate
 ```
 
 Install `componentize-py` and `spin-sdk` packages

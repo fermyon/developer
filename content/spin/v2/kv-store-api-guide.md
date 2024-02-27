@@ -128,7 +128,7 @@ The key value functions are provided through the `spin_key_value` module in the 
 
 ```python
 from spin_sdk import http, key_value
-from spin_sdk.http import  Request, Response
+from spin_sdk.http import Request, Response
 
 class IncomingHandler(http.IncomingHandler):
     def handle_request(self, request: Request) -> Response:

@@ -89,7 +89,7 @@ The JavaScript/TypeScript SDK doesn't currently support Redis components.  Pleas
 
 {{ startTab "Python"}}
 
-In Python, to handler needs to implement the [`InboundRedis`](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.InboundRedis) class, and override the `handle_message` method:
+In Python, the handler needs to implement the [`InboundRedis`](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.InboundRedis) class, and override the `handle_message` method:
 
 ```python
 from spin_sdk.wit import exports

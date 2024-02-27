@@ -152,7 +152,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 ```python
 from spin_sdk import http
-from spin_sdk.http import  Request, Response
+from spin_sdk.http import Request, Response
 from spin_sdk import llm
 
 class IncomingHandler(http.IncomingHandler):

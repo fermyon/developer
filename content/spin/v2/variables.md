@@ -123,7 +123,7 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 
 ```ts
 from spin_sdk import http
-from spin_sdk.http import  Request, Response
+from spin_sdk.http import Request, Response
 from spin_sdk import variables
 
 class IncomingHandler(http.IncomingHandler):

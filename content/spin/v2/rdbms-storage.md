@@ -119,7 +119,7 @@ The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-py
 
 ```python
 from spin_sdk import http
-from spin_sdk.http import  Request, Response
+from spin_sdk.http import Request, Response
 from spin_sdk import mysql
 
 class IncomingHandler(http.IncomingHandler):
