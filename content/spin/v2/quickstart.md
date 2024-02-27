@@ -713,7 +713,7 @@ Then run:
 
 ```bash
 $ spin build
-Executing the build command for component hello-python: "componentize-py -w spin-http componentize -p . -p $(python3 -c 'import site; print(site.getsitepackages()[0])') app -o app.wasm"
+Executing the build command for component hello-python: "componentize-py -w spin-http componentize app -o app.wasm"
 Finished building all Spin components
 ```
 
@@ -726,7 +726,7 @@ If you would like to know what build command Spin runs for a component, you can 
 
 ```toml
 [component.hello-python.build]
-command = "componentize-py -w spin-http componentize -p . -p $(python3 -c 'import site; print(site.getsitepackages()[0])') app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
 ```
 
 You can always run this command manually; `spin build` is a shortcut.

@@ -114,7 +114,7 @@ The build command then calls `componentize-py` on your application file:
 
 ```toml
 [component.hello.build]
-command = "componentize-py -w spin-http componentize -p . -p $(python3 -c 'import site; print(site.getsitepackages()[0])') app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
 ```
 
 {{ blockEnd }}

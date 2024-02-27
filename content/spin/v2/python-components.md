@@ -5,7 +5,7 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-components.md"
 
 ---
-- [Componentize-py](#componentize-py)
+- [`componentize-py`](#componentize-py)
 - [Spin's Python HTTP Request Handler Template](#spins-python-http-request-handler-template)
 - [Structure of a Python Component](#structure-of-a-python-component)
 - [A Simple HTTP Components Example](#a-simple-http-components-example)
@@ -105,7 +105,7 @@ component = "hello-world"
 [component.hello-world]
 source = "app.wasm"
 [component.hello-world.build]
-command = "componentize-py -w spin-http componentize -p . -p $(python3 -c 'import site; print(site.getsitepackages()[0])') app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
 ```
 
 The `requirements.txt` by default contains the references to the `spin-sdk` and `componentie-py` packages. These can be installed using:
