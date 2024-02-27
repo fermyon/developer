@@ -148,7 +148,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/llm.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/llm.html)
 
 ```python
 from spin_sdk import http

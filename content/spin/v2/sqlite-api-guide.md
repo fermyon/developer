@@ -148,17 +148,16 @@ const json = JSON.stringify(result.rows);
 To use SQLite functions, use the `sqlite` module in the Python SDK. The [`sqlite_open`](https://fermyon.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open) and [`sqlite_open_default`](https://fermyon.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open_default) functions return a [connection object](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection). The connection object provides the [`execute` method](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection.execute) as described above. For example:
 
 ```python
-from spin_sdk import http
-from spin_sdk.http import  Request, Response
-from spin_sdk import sqlite
-from spin_sdk.wit.imports.sqlite import ValueInteger
+from spin_sdk import http, sqlite
+from spin_sdk.http import Request, Response
+from spin_sdk.sqlite import ValueInteger
 
 class IncomingHandler(http.IncomingHandler):
     def handle_request(self, request: Request) -> Response:
         with sqlite.open_default() as db:
             result = db.execute("SELECT * FROM todos WHERE id > (?);", [ValueInteger(1)])
             rows = result.rows
-
+        
         return Response(
             200,
             {"content-type": "text/plain"},
