@@ -9,8 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-languages/jav
 
 ---
 
-Compiling JavaScript to WebAssembly is different than using JavaScript to talk to a WebAssembly module.
-This article is focused on how to take JavaScript code and build it into a WebAssembly module.
+Compiling JavaScript to WebAssembly is different than using JavaScript to talk to a WebAssembly module. This article is focused on how to take JavaScript code and build it into a WebAssembly module.
 
 ## Uses
 
@@ -25,6 +24,82 @@ There are three popular ways of building JavaScript into WebAssembly.
 3. Use the Ducktape implementation of a JavaScript runtime, usually to "safe eval" JS inside of JS using Wasm as an indirection layer 
 
 Recently, Suborbital has introduced a version of [Javy](https://github.com/suborbital/javy) that supports some of their extensions.
+
+You can compile JavaScript and TypeScript to Wasm for the Spin runtime using [the Spin JavaScript SDK](https://github.com/fermyon/spin-js-sdk). The Spin SDK borrows heavily from Javy, using the same approach of providing a CLI utility to convert a JS file into a Wasm file.
+
+[JCO](https://bytecodealliance.github.io/jco/) is a fully native tool for working with WebAssembly Components in JavaScript.
+
+## Example (Using Spin)
+
+The Spin SDK makes it very easy to build Javascript/TypeScript Wasm applications simply by using a Spin template that handles all of the heavy lifting. If you would like to try out the Spin SDK for Javascript please follow along with the example below.
+
+### Prerequisites
+
+If you have not done so already, please [install Spin](/spin/v2/install). Having Spin installed will allow us to easily use js2wasm and Spin application templates.
+
+### Js2Wasm 
+
+```console
+$ spin plugin update
+$ spin plugin install js2wasm
+```
+
+### The Spin JS/TS SDK Template
+
+The Spin JS/TS SDK provides a couple of Spin templates for quickly starting a new JS or TS application. These templates can be installed using the following command:
+
+```console
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk
+```
+
+You will now see `http-ts` and `http-js` available when listing installed templates:
+
+```console
+$ spin templates list
+```
+
+### Application
+
+Create a new Spin application, using the `http-js` template:
+
+```console
+$ spin new -t http-js javascript-example --accept-defaults
+```
+
+Take a look at the scaffolded program in `javascript-example/src/index.js`:
+
+```javascript
+export async function handleRequest(request) {
+
+    return {
+        status: 200,
+        headers: { "content-type": "text/plain" },
+        body: "Hello from JS-SDK"
+    }
+}
+```
+
+Compile a Wasm binary and then start up a local server:
+
+```console
+$ cd javascript-example
+$ npm install
+$ spin build --up
+Building component javascript-example with `npm run build`
+// --snip--
+Serving http://127.0.0.1:3000
+Available Routes:
+  javascript-example: http://127.0.0.1:3000 (wildcard)
+```
+
+Test it with `curl`:
+
+```console
+$ curl localhost:3000/
+Hello from JS-SDK
+```
+
+The Wasm binary can be found at `target/javascript-example.wasm`.
 
 ## Learn More
 
