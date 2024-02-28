@@ -100,22 +100,21 @@ command = "npm run build"
 
 {{ startTab "Python" }}
 
-For Python applications, you must have the `py2wasm` Spin plugin installed:
+For Python applications, you must have [`componentize-py`](https://pypi.org/project/componentize-py/) installed:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin plugins update
-$ spin plugins install py2wasm --yes
+$ pip3 install componentize-py
 ```
 
-The build command then calls `spin py2wasm` on your application file:
+The build command then calls `componentize-py` on your application file:
 
 <!-- @nocpy -->
 
 ```toml
 [component.hello.build]
-command = "spin py2wasm app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
 ```
 
 {{ blockEnd }}

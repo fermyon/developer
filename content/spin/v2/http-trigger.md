@@ -278,17 +278,21 @@ export const handleRequest: HandleRequest = async function(request: HttpRequest)
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/)
 
-In Python, the handler is identified by name.  It must be called `handle_request`.  It takes a request object and must return an instance of `Response`, defined in the `spin_http` package:
+In Python, the application must define a top-level class named IncomingHandler which inherits from [IncomingHandler](https://fermyon.github.io/spin-python-sdk/http/index.html#spin_sdk.http.IncomingHandler), overriding the `handle_request` method.
 
 ```python
-from spin_http import Response
+from spin_sdk import http
+from spin_sdk.http import Request, Response
 
-def handle_request(request):
-    return Response(200,
-                    [("content-type", "text/plain")],
-                    bytes(f"Hello from the Python SDK", "utf-8"))
+class IncomingHandler(http.IncomingHandler):
+      def handle_request(self, request: Request) -> Response:
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes("Hello from Python!", "utf-8")
+        )
 ```
 
 {{ blockEnd }}

@@ -143,26 +143,30 @@ const json = JSON.stringify(result.rows);
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/sqlite.html)
 
-To use SQLite functions, use the `spin_sqlite` module in the Python SDK. The [`sqlite_open`](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.sqlite_open) and [`sqlite_open_default`](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.sqlite_open_default) functions return a [connection object](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.SqliteConnection). The connection object provides the [`execute` method](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.SqliteConnection.execute) as described above. For example:
+To use SQLite functions, use the `sqlite` module in the Python SDK. The [`sqlite_open`](https://fermyon.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open) and [`sqlite_open_default`](https://fermyon.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open_default) functions return a [connection object](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection). The connection object provides the [`execute` method](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection.execute) as described above. For example:
 
 ```python
-from spin_http import Response
-from spin_sqlite import sqlite_open_default
+from spin_sdk import http, sqlite
+from spin_sdk.http import Request, Response
+from spin_sdk.sqlite import ValueInteger
 
-def handle_request(request):
-    conn = sqlite_open_default()
-    result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1])
-    rows = result.rows()
-    return Response(200,
-                    {"content-type": "application/json"},
-                    bytes(str(rows), "utf-8"))
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        with sqlite.open_default() as db:
+            result = db.execute("SELECT * FROM todos WHERE id > (?);", [ValueInteger(1)])
+            rows = result.rows
+        
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes(str(rows), "utf-8")
+        )
 ```
 
 **General Notes**
-* Parameters are Python values (numbers, strings, and lists). Spin infers the underlying SQL type.
-* The `execute` method returns [a `QueryResult` object](https://fermyon.github.io/spin-python-sdk/v1/spin_sqlite.html#spin_sdk.spin_sqlite.QueryResult) with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of Python values (as above) in the same order as `columns`.
+* The `execute` method returns [a `QueryResult` object](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.QueryResult) with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of [`RowResult`](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.RowResult) in the same order as `columns`.
 * The connection object doesn't surface the `close` function.
 * Errors are surfaced as exceptions.
 

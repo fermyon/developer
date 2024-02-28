@@ -148,28 +148,30 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_llm.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/llm.html)
 
 ```python
-from spin_http import Response
-from spin_llm import llm_infer
+from spin_sdk import http
+from spin_sdk.http import Request, Response
+from spin_sdk import llm
 
-
-def handle_request(request):
-    prompt="You are a stand up comedy writer. Tell me a joke."
-    result=llm_infer("llama2-chat", prompt)
-    return Response(200,
-                    {"content-type": "text/plain"},
-                    bytes(result.text, "utf-8"))
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        prompt="You are a stand up comedy writer. Tell me a joke."
+        result = llm.infer("llama2-chat", prompt)
+        return Response(200,
+                        {"content-type": "application/json"},
+                        bytes(result.text, "utf-8"))
 ```
 
 **General Notes**
 
-[`llm_infer` operation](https://fermyon.github.io/spin-python-sdk/v1/spin_llm.html#spin_sdk.spin_llm.llm_infer):
+[`infer` operation](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer):
 
-- It takes in a model name, prompt text, and optionally a [parameter object](https://fermyon.github.io/spin-python-sdk/v1/spin_llm.html#spin_sdk.spin_llm.LLMInferencingParams) to control the inferencing. 
 - The model name is passed in as a string (as shown above; `"llama2-chat"`).
-- The return value is am [`InferencingResult` object](https://fermyon.github.io/spin-python-sdk/v1/spin_llm.html#spin_sdk.spin_llm.LLMInferencingResult) - use the `text` attribute to get the inferred response.
+[`infer_with_options` operation](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer_with_options):
+
+- It takes in a model name, prompt text, and optionally a [parameter object](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.InferencingParams) to control the inferencing. 
 
 {{ blockEnd }}
 

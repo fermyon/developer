@@ -119,42 +119,35 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Config.html)
 
-The function is available on [the `Config` object](https://fermyon.github.io/spin-js-sdk/variables/Config.html) and is named [`get`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.SpinConfig.html#get).
-
 > Note that the name is `Config` rather than `Variables`.
 
 ```ts
-import { HandleRequest, HttpRequest, HttpResponse, Config } from "@fermyon/spin-sdk"
+from spin_sdk import http
+from spin_sdk.http import Request, Response
+from spin_sdk import variables
 
-const decoder = new TextDecoder("utf-8")
-
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-  const expected = decoder.decode(request.body)
-  let password = Config.get("password")
-  let access = "denied"
-  if (expected === password) {
-      access = "accepted"
-  }
-  let responseJson = `{\"authentication\": \"${access}\"}`;
-
-  return {
-    status: 200,
-    headers: { "Content-Type": "application/json" },
-    body: responseJson
-  }
-}
-
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        password = request.body.decode("utf-8")
+        expected = variables.get("password")
+        access = "denied"
+        if expected == password:
+            access = "accepted"
+        response = f'\{{"authentication": "{access}"}}'
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes(response, "utf-8")
+        )
 ```
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1/spin_config.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/variables.html)
 
-The config function is available in the `spin_config` package and is named [`config_get`](https://fermyon.github.io/spin-python-sdk/v1/spin_config.html#spin_sdk.spin_config.config_get).
-
-> Note that the prefix/suffix is `config` rather than `variables`.
+The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.get).
 
 ```py
 from spin_http import Response

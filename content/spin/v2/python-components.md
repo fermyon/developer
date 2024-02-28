@@ -5,7 +5,7 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-components.md"
 
 ---
-- [Spin's Python Plugin](#spins-python-plugin)
+- [`componentize-py`](#componentize-py)
 - [Spin's Python HTTP Request Handler Template](#spins-python-http-request-handler-template)
 - [Structure of a Python Component](#structure-of-a-python-component)
 - [A Simple HTTP Components Example](#a-simple-http-components-example)
@@ -26,24 +26,15 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 
 > This guide assumes you are familiar with the Python programming language, but if you are just getting started, be sure to check out <a href="https://docs.python.org/3/" target="_blank">the official Python documentation</a> and comprehensive <a href="https://docs.python.org/3/reference/" target="_blank">language reference</a>.
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/v1)
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk)
 
-**Please note:** There is a blog article [introducing the release of this Spin Python SDK](https://www.fermyon.com/blog/spin-python-sdk) if you are interested in some further reading; in addition to this technical documentation.
+## `componentize-py`
 
-## Spin's Python Plugin
-
-To compile Python programs to Spin components, you need to install a Spin plugin called `py2wasm`. The following commands will ensure that you have the latest version of the plugin installed:
-
-<!-- @selectiveCpy -->
+The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It is a [Bytecode Alliance](https://bytecodealliance.org/) project that allows converting a Python application to a webassembly component. It can be installed using the following command:
 
 ```bash
-# Fetch all of the latest Spin plugins from the spin-plugins repository
-$ spin plugin update
-# Install py2wasm plugin
-$ spin plugin install py2wasm
+pip3 install componentize-py
 ```
-
-**Please note:** For more information about managing `spin plugins`, see the [plugins section](./cli-reference#plugins) in the Spin Command Line Interface (CLI) documentation.
 
 ## Spin's Python HTTP Request Handler Template
 
@@ -90,8 +81,8 @@ This creates a directory of the following structure:
 ```text
 hello-world/
 ├── app.py
-├── Pipfile
-└── spin.toml
+├── spin.toml
+└── requirements.txt 
 ```
 
 The `spin.toml` file will look similar to the following:
@@ -114,28 +105,40 @@ component = "hello-world"
 [component.hello-world]
 source = "app.wasm"
 [component.hello-world.build]
-command = "spin py2wasm app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
+```
+
+The `requirements.txt` by default contains the references to the `spin-sdk` and `componentie-py` packages. These can be installed using:
+
+<!-- @selectiveCpy -->
+
+```bash
+pip3 install -r requirements.txt
 ```
 
 ## A Simple HTTP Components Example
 
 In Spin, HTTP components are triggered by the occurrence of an HTTP request and must return an HTTP response at the end of their execution. Components can be built in any language that compiles to WASI. If you would like additional information about building HTTP applications you may find [the HTTP trigger page](./http-trigger.md) useful.
 
-Building a Spin HTTP component using the Python SDK means writing a single function that takes an HTTP request as a parameter, and returns an HTTP response. Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
+Building a Spin HTTP component using the Python SDK means defining a top-level class named IncomingHandler which inherits from [`IncomingHandler`](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.IncomingHandler), overriding the `handle_request` method. Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
 
 ```python
-from spin_http import Response
+from spin_sdk import http
+from spin_sdk.http import Request, Response
 
-def handle_request(request):
-    return Response(200,
-                    {"content-type": "text/plain"},
-                    bytes(f"Hello from the Python SDK", "utf-8"))
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes("Hello from the Python SDK!", "utf-8")
+        )
 ```
 
 The important things to note in the implementation above:
 
-- the `handle_request` function is the entry point for the Spin component.
-- the component returns a `spin_http.Response`.
+- the `handle_request` method is the entry point for the Spin component.
+- the component returns a `spin_sdk.http.Response`.
 
 The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. 
 
@@ -143,26 +146,28 @@ The following snippet shows how you can access parts of the request e.g. the `re
 
 ```python
 import json
-from spin_http import Response
+from spin_sdk import http
+from spin_sdk.http import Request, Response
 
-def handle_request(request):
-    # Access the request.method
-    if request.method == 'POST':
-        # Read the request.body as a string
-        json_str = request.body.decode('utf-8')
-        # Create a JSON object representation of the request.body
-        json_object = json.loads(json_str)
-        # Access a value in the JSON object
-        name = json_object['name']
-        # Print the variable to console logs
-        print(name)
-        # Print the type of the variable to console logs
-        print(type(name))
-        # Print the available methods of the variable to the console logs
-        print(dir(name))
-    return Response(200,
-                {"content-type": "text/plain"},
-                bytes(f"Practicing reading the request object", "utf-8"))
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        # Access the request.method
+        if request.method == 'POST':
+            # Read the request.body as a string
+            json_str = request.body.decode('utf-8')
+            # Create a JSON object representation of the request.body
+            json_object = json.loads(json_str)
+            # Access a value in the JSON object
+            name = json_object['name']
+            # Print the variable to console logs
+            print(name)
+            # Print the type of the variable to console logs
+            print(type(name))
+            # Print the available methods of the variable to the console logs
+            print(dir(name))
+        return Response(200,
+                    {"content-type": "text/plain"},
+                    bytes(f"Practicing reading the request object", "utf-8"))
 ```
 
 ### Building and Running the Application
@@ -195,27 +200,27 @@ HTTP/1.1 200 OK
 content-type: text/plain
 content-length: 25
 
-Hello from the Python SDK
+Hello from Python!
 ```
 
-> **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
+> **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
 
 ## An Outbound HTTP Example
 
 This next example will create an outbound request, to obtain a random fact about animals, which will be returned to the calling code. If you would like to try this out, you can go ahead and update your existing `app.py` file from the previous step; using the following source code:
 
 ```python
-from spin_http import Request, Response, http_send
+from spin_sdk import http   
+from spin_sdk.http import Request, Response, send
 
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        resp = send(Request("GET", "https://random-data-api.fermyon.app/animals/json", {}, None))
 
-def handle_request(request):
-
-    response = http_send(
-        Request("GET", "https://random-data-api.fermyon.app/animals/json", {}, None))
-
-    return Response(200,
+        return  Response(200,
                     {"content-type": "text/plain"},
-                    bytes(f"Here is an animal fact: {str(response.body, 'utf-8')}", "utf-8"))
+                    bytes(f"Here is an animal fact: {str(resp.body, 'utf-8')}", "utf-8"))
+
 ```
 
 ### Configuration
@@ -307,26 +312,22 @@ command = "spin py2wasm app -o app.wasm"
 If you are still following along, please go ahead and update your `app.py` file one more time, as follows:
 
 ```python
-from spin_http import Response
-from spin_redis import redis_del, redis_get, redis_incr, redis_set, redis_sadd, redis_srem, redis_smembers
-from spin_config import config_get
+from spin_sdk import http, redis, variables
+from spin_sdk.http import Request, Response
 
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        with redis.open(variables.get("redis_address").decode) as db:
+            db.set("foo", b"bar")
+            value = db.get("foo")
+            db.del( ["testIncr"])
+            db.incr("testIncr")
+            db.sadd("testSets", ["hello", "world"])
+            content = db.smembers("testSets")
+            db.srem("testSets", ["hello"])
+            assert value == b"bar", f"expected \"bar\", got \"{str(value, 'utf-8')}\"
 
-def handle_request(request):
-
-    redis_address = config_get("redis_address")  # fetches from `variables`
-    redis_set(redis_address, "foo", b"bar")
-    value = redis_get(redis_address, "foo")
-    redis_del(redis_address, ["testIncr"])
-    redis_incr(redis_address, "testIncr")
-
-    redis_sadd(redis_address, "testSets", ["hello", "world"])
-    content = redis_smembers(redis_address, "testSets")
-    redis_srem(redis_address, "testSets", ["hello"])
-
-    assert value == b"bar", f"expected \"bar\", got \"{str(value, 'utf-8')}\""
-
-    return Response(200,
+        return Response(200,
                     {"content-type": "text/plain"},
                     bytes(f"Executed outbound Redis commands: {request.uri}", "utf-8"))
 ```

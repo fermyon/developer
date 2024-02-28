@@ -64,7 +64,7 @@ $ spin new -t http-rust spin-key-value
 ```bash
 $ spin new -t http-ts spin-key-value
 
-# Reference: https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples/KV
+# Reference: https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-kv
 ```
 
 {{ blockEnd }}
@@ -275,41 +275,38 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 {{ startTab "Python" }}
 
 ```python
-from spin_http import Response
-from spin_key_value import kv_open_default
+from spin_sdk import http, key_value
+from spin_sdk.http import Request, Response
 
-
-def handle_request(request):
-
-    store = kv_open_default()
-
-    match request.method:
-        case "GET":
-            value = store.get(request.uri)
-            if value:
-                status = 200
-                print(f"Found key {request.uri}")
-            else:
-                status = 404
-                print(f"Key {request.uri} not found")
-            return Response(status, {"content-type": "text/plain"}, value)
-        case "POST":
-            store.set(request.uri, request.body)
-            print(f"Stored key {request.uri}")
-            return Response(200, {"content-type": "text/plain"})
-        case "DELETE":
-            store.delete(request.uri)
-            print(f"Deleted key {request.uri}")
-            return Response(200, {"content-type": "text/plain"})
-        case "HEAD":
-            if store.exists(request.uri):
-                print(f"Found key {request.uri}")
-                return Response(200, {"content-type": "text/plain"})
-            print(f"Key not found {request.uri}")
-            return Response(404, {"content-type": "text/plain"})
-        case default:
-            return Response(405, {"content-type": "text/plain"})
-```
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        with key_value.open_default() as store:
+            match request.method:
+                case "GET":
+                    value = store.get(request.uri)
+                    if value:
+                        status = 200
+                        print(f"Found key {request.uri}")
+                    else:
+                        status = 404
+                        print(f"Key {request.uri} not found")
+                    return Response( status, {"content-type": "text/plain"}, value)
+                case "POST":
+                    store.set(request.uri, request.body)
+                    print(f"Stored key {request.uri}")
+                    return Response(200, {"content-type": "text/plain"})
+                case "DELETE":
+                    store.delete(request.uri)
+                    print(f"Deleted key {request.uri}")
+                    return Response(200, {"content-type": "text/plain"})
+                case "HEAD":
+                    if store.exists(request.uri):
+                        print(f"Found key {request.uri}")
+                        return Response(200, {"content-type": "text/plain"})
+                    print(f"Key not found {request.uri}")
+                    return Response(404, {"content-type": "text/plain"})
+                case default:
+                    return Response(405, {"content-type": "text/plain"})
 
 {{ blockEnd }}
 
