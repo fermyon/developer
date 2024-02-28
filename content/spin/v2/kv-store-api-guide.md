@@ -134,7 +134,7 @@ class IncomingHandler(http.IncomingHandler):
     def handle_request(self, request: Request) -> Response:
         with key_value.open_default() as store:
             store.set("test", bytes("hello world!", "utf-8"))
-            val = a.store("test")
+            val = store.get("test")
             
         return Response(
             200,
