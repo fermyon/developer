@@ -149,11 +149,9 @@ fancy_print 0 "Step 5: Installing default plugins"
 ./spin plugins update
 if [[ $VERSION = "canary" ]]; then
     ./spin plugins install -u https://github.com/fermyon/spin-js-sdk/releases/download/canary/js2wasm.json --yes
-    ./spin plugins install -u https://github.com/fermyon/spin-python-sdk/releases/download/canary/py2wasm.json --yes
     ./spin plugins install -u https://github.com/fermyon/cloud-plugin/releases/download/canary/cloud.json --yes
 else
     ./spin plugins install js2wasm --yes
-    ./spin plugins install py2wasm --yes
     ./spin plugins install cloud --yes
 fi
 
