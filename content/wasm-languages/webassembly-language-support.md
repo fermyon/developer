@@ -37,7 +37,7 @@ Some languages, like CSS, PowerShell, and "Shell", don't really have a meaningfu
 | [Go][Go]                  | ✅    | ✅      | ✅   | ✅       |
 | [PowerShell][PowerShell]  | ❌    | ❌      | ❌   | ❌       |
 | [Kotlin (JVM)][Kotlin]    | ✅    | ✅      | ✅   | ⏳       |
-| [Kotlin (Wasm)][Kotlin]   | ⏳    | ✅      | ⏳   | ❌       |
+| [Kotlin (Wasm)][Kotlin]   | ⏳    | ✅      | ✅   | ❌       |
 | [Rust][Rust]              | ✅    | ✅      | ✅   | ✅       |
 | [Dart][Dart]              | ❌    | ⏳      | ❌   | ❌       |
 
