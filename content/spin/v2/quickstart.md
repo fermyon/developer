@@ -491,6 +491,8 @@ class IncomingHandler(http.IncomingHandler):
             {"content-type": "text/plain"},
             bytes("Hello from the Python SDK!", "utf-8")
         )
+```
+
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
