@@ -17,7 +17,7 @@ An application can contain multiple triggers.
 
 In Spin 2.2 and earlier, all triggers must be of the same type.  For example, an application can contain triggers for multiple HTTP routes, or for multiple Redis pub-sub channels, but not both.
 
-in Spin 2.3 and later, an application can contain triggers of different types.  For example, a single application can serve HTTP on one or more routes, and at the same time subscribe to one or more Redis pub-sub channels. 
+In Spin 2.3 and later, an application can contain triggers of different types.  For example, a single application can serve HTTP on one or more routes, and at the same time subscribe to one or more Redis pub-sub channels. 
 
 > Currently, only the HTTP template supports the `spin add` command. If you wish to use `spin add` to build an application with multiple triggers, **including a Redis trigger**, you should begin with the Redis trigger application. Then, `spin add` your HTTP trigger component(s) as demonstrated below. Please note that additional Redis trigger components cannot be added via `spin add` at this time.
 
