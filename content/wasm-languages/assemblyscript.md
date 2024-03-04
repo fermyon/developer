@@ -237,7 +237,6 @@ Hello, World
 
 The module emits `content-type` information and an empty line, so it can be executed in any Wagi runtime such as Wagi, Spin, or Wagi.NET.
 
-
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ### Running using `spin up`
 
@@ -285,7 +284,7 @@ date: Mon, 04 Mar 2024 05:09:15 GMT
 
 Hello, World
 ```
- 
+
 For more on running AssemblyScript in the browser, read the [AssemblyScript documentation](https://www.assemblyscript.org/)
 
 ## Learn More
