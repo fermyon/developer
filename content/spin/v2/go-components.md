@@ -24,7 +24,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/go-compone
 Using TinyGo to compile components for Spin is currently required, as the
 [Go compiler doesn't currently have support for compiling to WASI](https://github.com/golang/go/issues/31105).
 
-> All examples from this page can be found in [the Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples).
+> All examples from this page can be found in [the Spin Go SDK repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples).
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
 

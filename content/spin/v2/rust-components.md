@@ -33,7 +33,7 @@ writing such components should be familiar for Rust developers.
 > but if you are just getting started, be sure to check [the
 official resources for learning Rust](https://www.rust-lang.org/learn).
 
-> All examples from this page can be found in [the Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples).
+> All examples from this page can be found in [the Spin Rust SDK repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples).
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html)
 
