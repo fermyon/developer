@@ -2561,7 +2561,6 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
-| <code>spin bindle</code>                                                              | Deprecated   |
 
 {{ blockEnd }}
 
@@ -2579,7 +2578,6 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
-| <code>spin bindle</code>                                                              | Deprecated   |
 
 {{ blockEnd }}
 
@@ -2597,7 +2595,6 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
-| <code>spin bindle</code>                                                              | Deprecated   |
 
 {{ blockEnd }}
 
