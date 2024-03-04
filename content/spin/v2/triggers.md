@@ -10,12 +10,17 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/triggers.md"
   - [Mapping a Trigger to a Named Component](#mapping-a-trigger-to-a-named-component)
   - [Writing the Component Inside the Trigger](#writing-the-component-inside-the-trigger)
   - [Choosing Between the Approaches](#choosing-between-the-approaches)
+  - [Setting Up Multiple Trigger Types](#setting-up-multiple-trigger-types)
 
 A Spin _trigger_ maps an event, such as an HTTP request or a Redis pub-sub message, to a component that handles that event.
 
-An application can contain multiple triggers, but they must all be the same type. For example, an application can contain triggers for multiple HTTP routes, or for multiple Redis pub-sub channels, but can't contain both an HTTP _and_ a Redis trigger.
+An application can contain multiple triggers.
 
-> If you're familiar with Spin 1.x, note that Spin 2 uses the term "trigger" to refer to each individual route or channel, rather than the trigger type. It's closer to the `[component.trigger]` usage than to the application trigger.
+In Spin 2.2 and earlier, all triggers must be of the same type.  For example, an application can contain triggers for multiple HTTP routes, or for multiple Redis pub-sub channels, but not both.
+
+In Spin 2.3 and later, an application can contain triggers of different types.  For example, a single application can serve HTTP on one or more routes, and at the same time subscribe to one or more Redis pub-sub channels. 
+
+> If you're familiar with [Spin 1.x](/spin/manifest-reference-v1#the-trigger-table), note that [Spin 2 uses the term "trigger"](/spin/manifest-reference#the-trigger-table) to refer to each individual route or channel, rather than the trigger type. It's closer to the `[component.trigger]` usage than to the application trigger.
 
 ## Triggers and Components
 
@@ -69,7 +74,7 @@ These ways of writing components achieve the same thing, so which should you cho
 Named components have the following advantages:
 
 * Reuse. If you want two triggers to behave in the same way, they can refer to the same named component. Remember this means they are not just handled by the same Wasm file, but with the same settings.
-* Named. If an error occurs, Spin can tell your the name of the component where the error happened. With inline components, Spin has to synthesize a name. This isn't a big deal in single-component apps, but make diagnostics harder in larger apps.
+* Named. If an error occurs, Spin can tell you the name of the component where the error happened. With inline components, Spin has to synthesize a name. This isn't a big deal in single-component apps, but makes diagnostics harder in larger apps.
 
 Inline components have the following advantages:
 
@@ -77,3 +82,49 @@ Inline components have the following advantages:
 * One place to look. Both the trigger event and the handling details are always in the same piece of TOML.
 
 If you are not sure, or are not experienced, we recommend using named components at first, and adopting inline components as and when you find cases where you prefer them.
+
+### Setting Up Multiple Trigger Types
+
+In this section, we build an application that contains multiple triggers.
+
+> Note: Not all templates support the `spin add` command. In particular, at the time of writing, none of the default Redis templates support being added to existing applications. Therefore, if you want to use `spin add` to build an application with both Redis and HTTP triggers, you should first create a Redis application, then use `spin add` to add HTTP triggers, as shown below. (You won't be able to add additiona Redis triggers this way; if you need those, you'll need to set them up manually for now.)
+
+Here is an example of creating an application with both HTTP and Redis triggers:
+
+<!-- @nocpy -->
+
+```bash
+# Start with a Redis trigger application
+$ spin new -t redis-rust trigger-example
+Description: A multiple trigger example
+Redis address: redis://localhost:6379
+Redis channel: one
+# Change into to the application directory
+$ cd trigger-example 
+# Create HTTP trigger application
+$ spin add -t http-rust http-trigger-example  
+Description: A HTTP trigger example
+HTTP path: /...
+```
+
+The above `spin new` and `spin add` commands will scaffold a Spin manifest (`spin.toml` file) with the following triggers:
+
+<!-- @nocpy -->
+
+```toml
+spin_manifest_version = 2
+
+[application]
+name = "trigger-example"
+
+[application.trigger.redis]
+address = "redis://localhost:6379"
+
+[[trigger.redis]]
+channel = "one"
+component = "trigger-example"
+
+[[trigger.http]]
+route = "/..."
+component = "http-trigger-example"
+```
