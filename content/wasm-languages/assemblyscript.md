@@ -58,7 +58,7 @@ $ npm init
 # Answer questions
 ```
 
-Install the TS compiler:
+Install the AssemblyScript compiler:
 
 ```bash
 $ npm install --save-dev assemblyscript
