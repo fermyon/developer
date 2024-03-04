@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/triggers.md"
   - [Mapping a Trigger to a Named Component](#mapping-a-trigger-to-a-named-component)
   - [Writing the Component Inside the Trigger](#writing-the-component-inside-the-trigger)
   - [Choosing Between the Approaches](#choosing-between-the-approaches)
-  - [Setting up Multiple Trigger Types](#setting-up-multiple-trigger-types)
+  - [Setting Up Multiple Trigger Types](#setting-up-multiple-trigger-types)
 
 A Spin _trigger_ maps an event, such as an HTTP request or a Redis pub-sub message, to a component that handles that event.
 
@@ -83,7 +83,7 @@ Inline components have the following advantages:
 
 If you are not sure, or are not experienced, we recommend using named components at first, and adopting inline components as and when you find cases where you prefer them.
 
-### Setting up Multiple Trigger Types
+### Setting Up Multiple Trigger Types
 
 In this section, we build an application that contains multiple triggers.
 
@@ -107,7 +107,7 @@ Description: A HTTP trigger example
 HTTP path: /...
 ```
 
-The above `spin new` and `spin add` commands will automatically scaffold the following Spin manifest (`spin.toml` file):
+The above `spin new` and `spin add` commands will automatically scaffold a Spin manifest (`spin.toml` file) similar to the following:
 
 <!-- @nocpy -->
 
@@ -124,19 +124,7 @@ address = "redis://localhost:6379"
 channel = "one"
 component = "trigger-example"
 
-[component.trigger-example]
-source = "target/wasm32-wasi/release/trigger_example.wasm"
-
-[component.trigger-example.build]
-command = "cargo build --target wasm32-wasi --release"
-
 [[trigger.http]]
 route = "/..."
 component = "http-trigger-example"
-
-[component.http-trigger-example]
-source = "http-trigger-example/target/wasm32-wasi/release/http_trigger_example.wasm"
-
-[component.http-trigger-example.build]
-command = "cargo build --target wasm32-wasi --release"
 ```
