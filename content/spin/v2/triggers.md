@@ -134,7 +134,7 @@ These ways of writing components achieve the same thing, so which should you cho
 Named components have the following advantages:
 
 * Reuse. If you want two triggers to behave in the same way, they can refer to the same named component. Remember this means they are not just handled by the same Wasm file, but with the same settings.
-* Named. If an error occurs, Spin can tell you the name of the component where the error happened. With inline components, Spin has to synthesize a name. This isn't a big deal in single-component apps but makes diagnostics harder in larger apps.
+* Named. If an error occurs, Spin can tell you the name of the component where the error happened. With inline components, Spin has to synthesize a name. This isn't a big deal in single-component apps, but makes diagnostics harder in larger apps.
 
 Inline components have the following advantages:
 
