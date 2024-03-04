@@ -107,7 +107,7 @@ Description: A HTTP trigger example
 HTTP path: /...
 ```
 
-The above `spin new` and `spin add` commands will automatically scaffold a Spin manifest (`spin.toml` file) similar to the following:
+The above `spin new` and `spin add` commands will scaffold a Spin manifest (`spin.toml` file) with the following triggers:
 
 <!-- @nocpy -->
 
