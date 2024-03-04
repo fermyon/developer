@@ -54,6 +54,8 @@ This section provides a basic example of building AssemblyScript from source.
 Set up the project like this:
 
 ```bash
+$ mkdir typescript-example
+$ cd typescript-example
 $ npm init
 # Answer questions
 ```
@@ -65,7 +67,7 @@ $ npm install --save-dev assemblyscript
 $ npm install --save @assemblyscript/loader
 ```
 
-Install the WASI shim
+Install the [WASI shim](https://github.com/AssemblyScript/wasi-shim)
 
 ```bash
 $ npm install --save-dev @assemblyscript/wasi-shim
@@ -78,7 +80,7 @@ $ npx asinit .
 Version: 0.27.24
 
 This command will make sure that the following files exist in the project
-directory '/Users/Fermyon/typescript-example':
+directory 'typescript-example':
 
   ./assembly
   Directory holding the AssemblyScript sources being compiled to WebAssembly.
@@ -108,42 +110,42 @@ directory '/Users/Fermyon/typescript-example':
   Starter HTML file that loads the module in a browser.
 
 The command will try to update existing files to match the correct settings
-for this instance of the compiler in '/Users/Fermyon/typescript-example/node_modules/assemblyscript'.
+for this instance of the compiler in 'typescript-example/node_modules/assemblyscript'.
 
 Do you want to proceed? [Y/n] Y
 
 - Making sure that the project directory exists...
-  Exists: /Users/Fermyon/typescript-example
+  Exists: typescript-example
 
 - Making sure that the 'assembly' directory exists...
-  Created: /Users/Fermyon/typescript-example/assembly
+  Created: typescript-example/assembly
 
 - Making sure that 'assembly/tsconfig.json' is set up...
-  Created: /Users/Fermyon/typescript-example/assembly/tsconfig.json
+  Created: typescript-example/assembly/tsconfig.json
 
 - Making sure that 'assembly/index.ts' exists...
-  Created: /Users/Fermyon/typescript-example/assembly/index.ts
+  Created: typescript-example/assembly/index.ts
 
 - Making sure that the 'build' directory exists...
-  Created: /Users/Fermyon/typescript-example/build
+  Created: typescript-example/build
 
 - Making sure that 'build/.gitignore' is set up...
-  Created: /Users/Fermyon/typescript-example/build/.gitignore
+  Created: typescript-example/build/.gitignore
 
 - Making sure that 'package.json' contains the build commands...
-  Updated: /Users/Fermyon/typescript-example/package.json
+  Updated: typescript-example/package.json
 
 - Making sure that 'asconfig.json' is set up...
-  Created: /Users/Fermyon/typescript-example/asconfig.json
+  Created: typescript-example/asconfig.json
 
 - Making sure that the 'tests' directory exists...
-  Created: /Users/Fermyon/typescript-example/tests
+  Created: typescript-example/tests
 
 - Making sure that 'tests/index.js' exists...
-  Created: /Users/Fermyon/typescript-example/tests/index.js
+  Created: typescript-example/tests/index.js
 
 - Making sure that 'index.html' exists...
-  Created: /Users/Fermyon/typescript-example/index.html
+  Created: typescript-example/index.html
 
 Done!
 
@@ -212,7 +214,7 @@ $ tree -L 2
 
 The `assembly/` directory is where the code lives.
 
-Now, we can write a simple AssemblyScript module:
+Now, we can write a simple AssemblyScript module in the `assembly/index.ts` file, as shown below:
 
 ```typescript
 console.log("content-type: text/plain");
