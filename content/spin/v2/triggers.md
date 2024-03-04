@@ -21,7 +21,7 @@ In Spin 2.3 and later, an application can contain triggers of different types.  
 
 > Not all templates support the `spin add` command. In particular, at the time of writing, none of the default Redis templates support being added to existing applications. Therefore, if you want to use `spin add` to build an application with both Redis and HTTP triggers, you should first create a Redis application, then use `spin add` to add HTTP triggers, as shown below. (You won't be able to add additiona Redis triggers this way; if you need those, you'll need to set them up manually for now.)
 
-Here is a quick example of creating an application with both HTTP and Redis triggers:
+Here is an example of creating an application with both HTTP and Redis triggers:
 
 <!-- @nocpy -->
 
