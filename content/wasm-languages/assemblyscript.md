@@ -78,7 +78,7 @@ $ npx asinit .
 Version: 0.27.24
 
 This command will make sure that the following files exist in the project
-directory '/Users/ts-user/Fermyon/typescript-deleteme':
+directory '/Users/Fermyon/typescript-example':
 
   ./assembly
   Directory holding the AssemblyScript sources being compiled to WebAssembly.
@@ -108,42 +108,42 @@ directory '/Users/ts-user/Fermyon/typescript-deleteme':
   Starter HTML file that loads the module in a browser.
 
 The command will try to update existing files to match the correct settings
-for this instance of the compiler in '/Users/ts-user/Fermyon/typescript-deleteme/node_modules/assemblyscript'.
+for this instance of the compiler in '/Users/Fermyon/typescript-example/node_modules/assemblyscript'.
 
 Do you want to proceed? [Y/n] Y
 
 - Making sure that the project directory exists...
-  Exists: /Users/ts-user/Fermyon/typescript-deleteme
+  Exists: /Users/Fermyon/typescript-example
 
 - Making sure that the 'assembly' directory exists...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/assembly
+  Created: /Users/Fermyon/typescript-example/assembly
 
 - Making sure that 'assembly/tsconfig.json' is set up...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/assembly/tsconfig.json
+  Created: /Users/Fermyon/typescript-example/assembly/tsconfig.json
 
 - Making sure that 'assembly/index.ts' exists...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/assembly/index.ts
+  Created: /Users/Fermyon/typescript-example/assembly/index.ts
 
 - Making sure that the 'build' directory exists...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/build
+  Created: /Users/Fermyon/typescript-example/build
 
 - Making sure that 'build/.gitignore' is set up...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/build/.gitignore
+  Created: /Users/Fermyon/typescript-example/build/.gitignore
 
 - Making sure that 'package.json' contains the build commands...
-  Updated: /Users/ts-user/Fermyon/typescript-deleteme/package.json
+  Updated: /Users/Fermyon/typescript-example/package.json
 
 - Making sure that 'asconfig.json' is set up...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/asconfig.json
+  Created: /Users/Fermyon/typescript-example/asconfig.json
 
 - Making sure that the 'tests' directory exists...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/tests
+  Created: /Users/Fermyon/typescript-example/tests
 
 - Making sure that 'tests/index.js' exists...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/tests/index.js
+  Created: /Users/Fermyon/typescript-example/tests/index.js
 
 - Making sure that 'index.html' exists...
-  Created: /Users/ts-user/Fermyon/typescript-deleteme/index.html
+  Created: /Users/Fermyon/typescript-example/index.html
 
 Done!
 
