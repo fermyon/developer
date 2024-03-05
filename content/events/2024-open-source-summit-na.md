@@ -1,7 +1,6 @@
 title = "Open Source Summit NA '24"
 date = "2023-03-04T00:00:01Z"
 description = "We're excited to be heading back to Open Source Summit NA '24 in Seattle this year! Start out the conference with our PM MacKenzie Olson & Engineer Kate Goldenring as they cover \"Revolutionizing Cloud Native: WebAssembly's Role in Serverless Kubernetes\" on Tuesday afternoon at 2:15PM. Then, on Wednesday you can find Kate again at her talk \"A Greener, Cost-Effective Cloud with Serverless WebAssembly\" at 2:55PM, and end the day with intro content to WebAssembly in CEO Matt Butcher and Head of Community Karen Chu's session \"
- Phippy’s Field Guide to Wasm\" on Wednesday at 4:55 PM."
 
 [extra]
 type = "event"
