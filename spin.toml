@@ -291,6 +291,11 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/key-value-stor
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/ai-sentiment-analysis-api-tutorial" }
 
+# Redirect /spin/kubernetes to /spin/spin-in-pods-legacy 
+[component.kubernetes]
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "/spin/spin-in-pods-legacy" }  
+
 # Redirect /cloud/serverless-ai to /spin/serverless-ai-hello-world
 [component.serverless-ai]
 source = "modules/redirect.wasm"
