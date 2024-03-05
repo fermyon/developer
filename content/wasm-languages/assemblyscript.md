@@ -54,8 +54,8 @@ This section provides a basic example of building AssemblyScript from source.
 Set up the project like this:
 
 ```bash
-$ mkdir typescript-example
-$ cd typescript-example
+$ mkdir AssemblyScript-example
+$ cd AssemblyScript-example
 $ npm init
 # Answer questions
 ```
@@ -80,7 +80,7 @@ $ npx asinit .
 Version: 0.27.24
 
 This command will make sure that the following files exist in the project
-directory 'typescript-example':
+directory 'AssemblyScript-example':
 
   ./assembly
   Directory holding the AssemblyScript sources being compiled to WebAssembly.
@@ -110,42 +110,42 @@ directory 'typescript-example':
   Starter HTML file that loads the module in a browser.
 
 The command will try to update existing files to match the correct settings
-for this instance of the compiler in 'typescript-example/node_modules/assemblyscript'.
+for this instance of the compiler in 'AssemblyScript-example/node_modules/assemblyscript'.
 
 Do you want to proceed? [Y/n] Y
 
 - Making sure that the project directory exists...
-  Exists: typescript-example
+  Exists: AssemblyScript-example
 
 - Making sure that the 'assembly' directory exists...
-  Created: typescript-example/assembly
+  Created: AssemblyScript-example/assembly
 
 - Making sure that 'assembly/tsconfig.json' is set up...
-  Created: typescript-example/assembly/tsconfig.json
+  Created: AssemblyScript-example/assembly/tsconfig.json
 
 - Making sure that 'assembly/index.ts' exists...
-  Created: typescript-example/assembly/index.ts
+  Created: AssemblyScript-example/assembly/index.ts
 
 - Making sure that the 'build' directory exists...
-  Created: typescript-example/build
+  Created: AssemblyScript-example/build
 
 - Making sure that 'build/.gitignore' is set up...
-  Created: typescript-example/build/.gitignore
+  Created: AssemblyScript-example/build/.gitignore
 
 - Making sure that 'package.json' contains the build commands...
-  Updated: typescript-example/package.json
+  Updated: AssemblyScript-example/package.json
 
 - Making sure that 'asconfig.json' is set up...
-  Created: typescript-example/asconfig.json
+  Created: AssemblyScript-example/asconfig.json
 
 - Making sure that the 'tests' directory exists...
-  Created: typescript-example/tests
+  Created: AssemblyScript-example/tests
 
 - Making sure that 'tests/index.js' exists...
-  Created: typescript-example/tests/index.js
+  Created: AssemblyScript-example/tests/index.js
 
 - Making sure that 'index.html' exists...
-  Created: typescript-example/index.html
+  Created: AssemblyScript-example/index.html
 
 Done!
 
