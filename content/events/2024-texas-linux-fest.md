@@ -4,8 +4,8 @@ description = "Coupled with Kubernetes Community Day (KCD) Texas '24, Texas Linu
 
 [extra]
 type = "event"
-eventdates = "Mar 12 - 13 2024"
-eventexpires = "2024-03-14T01:01:01Z"
+eventdates = "April 12 - 13 2024"
+eventexpires = "2024-04-14T01:01:01Z"
 url = "https://2024.texaslinuxfest.org/"
 image = "static/image/avatar.png"
 
