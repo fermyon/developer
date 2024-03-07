@@ -7,7 +7,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/spin-in-po
 
 ---
 - [Spin In Pods (Legacy)](#spin-in-pods-legacy)
-- [How Does It Work?](#how-does-it-work)
 - [Next Steps](#next-steps)
 - [Setup Azure AKS for Spin](#setup-azure-aks-for-spin)
   - [Introduction](#introduction)
@@ -43,7 +42,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/spin-in-po
 
 ## Spin In Pods (Legacy)
 
-> Warning - this is the legacy experience for running Spin and Kubernetes. For the best experience, please visit [SpinKube](https://spinkube.dev).
+> **Warning - this is the legacy experience for running Spin and Kubernetes.** For the best experience, please visit [SpinKube](https://spinkube.dev).
 
 For Kubernetes to run Spin workloads, it needs to be taught about a new runtime class. To do this, there is a shim for containerd. This compiles to a binary that must be placed on the Kubernetes nodes that host Shim pods. That binary then needs to be registered with Kubernetes as a new RuntimeClass. After that, wasm containers can be deployed to Kubernetes using the legacy Spin k8s plugin.
 
@@ -55,6 +54,8 @@ For Kubernetes to run Spin workloads, it needs to be taught about a new runtime 
 {{ tabs "platforms" }}
 
 {{ startTab "Azure AKS"}}
+
+> **Warning: This is legacy content.** For a better experience, please visit [SpinKube](https://spinkube.dev/).
 
 ## Setup Azure AKS for Spin
 
@@ -177,6 +178,8 @@ $ kubectl describe runtimeclass wasmtime-spin-v1
 
 {{ startTab "Docker Desktop"}}
 
+> **Warning: This is legacy content.** For a better experience, please visit [SpinKube](https://spinkube.dev/).
+
 ## Setup Docker Desktop for Spin
 
 ### Introduction
@@ -229,6 +232,8 @@ If there is not command specified in the Dockerfile, one will need to be passed 
 
 {{ startTab "K3d"}}
 
+> **Warning: This is legacy content.** For a better experience, please visit [SpinKube](https://spinkube.dev/).
+
 ## Setup K8s for Spin
 
 ### Introduction
@@ -273,6 +278,8 @@ $ kubectl apply -f wasm-runtimeclass.yaml
 {{ blockEnd }}
 
 {{ startTab "Generic Kubernetes"}}
+
+> **Warning: This is legacy content.** For a better experience, please visit [SpinKube](https://spinkube.dev/).
 
 ## Setup Generic Kubernetes for Spin
 
@@ -343,6 +350,8 @@ To install this plugin, run:
 spin plugin install -u https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.json
 ```
 
+> **Warning: This is legacy content.** For a better experience, please visit [SpinKube](https://spinkube.dev/). In particular, the [SpinKube documentation](https://spinkube.dev/docs/spin-plugin-kube/installation/) that introduces the new `spin kube` command.
+
 ### Workflow
 
 The workflow is very similar to the normal Kubernetes workflow: build and test your application locally, push to a registry, and update the deployment.
@@ -353,6 +362,7 @@ Please see the [shim documentation](https://github.com/deislabs/containerd-wasm-
 
 ### Detailed Explanation of Steps
 
+<!-- markdownlint-disable-next-line titlecase-rule -->
 #### `spin new`
 
 An optional command to use a template to create a new Spin app:
@@ -363,6 +373,7 @@ An optional command to use a template to create a new Spin app:
 $ spin new
 ```
 
+<!-- markdownlint-disable-next-line titlecase-rule -->
 #### `spin build`
 
 The following command builds a Spin app:
