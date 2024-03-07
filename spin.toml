@@ -162,22 +162,22 @@ route = "/wasm-languages/"
 [[trigger.http]]
 id = "trigger-spin-kubernetes-dynamic-configuration"
 component = "redirect-spin-kubernetes-dynamic-configuration"
-route = "/spin/kubernetes-dynamic-configuration"
+route = "/spin/v2/kubernetes-dynamic-configuration"
 
 [[trigger.http]]
 id = "trigger-spin-kubernetes-sidecars"
 component = "redirect-spin-kubernetes-sidecars"
-route = "/spin/kubernetes-sidecars"
+route = "/spin/v2/kubernetes-sidecars"
 
 [[trigger.http]]
 id = "trigger-spin-kubernetes"
 component = "redirect-spin-kubernetes"
-route = "/spin/kubernetes"
+route = "/spin/v2/kubernetes"
 
 [[trigger.http]]
 id = "trigger-spin-kubernetes-known-issues"
 component = "redirect-spin-kubernetes-known-issues"
-route = "/spin/kubernetes-known-issues"
+route = "/spin/v2/kubernetes-known-issues"
 
 [component.bartholomew]
 # Using build from bartholomew main
