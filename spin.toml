@@ -159,6 +159,21 @@ id = "trigger-redirect-wasm-langs-root"
 component = "redirect-wasm-langs-root"
 route = "/wasm-languages/"
 
+[[trigger.http]]
+id = "trigger-spin-kubernetes-dynamic-configuration"
+component = "redirect-spin-kubernetes-dynamic-configuration"
+route = "/spin/v2/kubernetes-dynamic-configuration"
+
+[[trigger.http]]
+id = "trigger-spin-kubernetes-sidecars"
+component = "redirect-spin-kubernetes-sidecars"
+route = "/spin/v2/kubernetes-sidecars"
+
+[[trigger.http]]
+id = "trigger-spin-kubernetes-known-issues"
+component = "redirect-spin-kubernetes-known-issues"
+route = "/spin/v2/kubernetes-known-issues"
+
 [component.bartholomew]
 # Using build from bartholomew main
 source = "modules/bartholomew.wasm"
@@ -261,6 +276,21 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/kv-store-tutor
 [component.redirect-contributing-common-to-spin]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://developer.fermyon.com/spin/cli-reference" }
+
+# Redirect /spin/kubernetes-dynamic-configuration to /spin/kubernetes
+[component.redirect-spin-kubernetes-dynamic-configuration]
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" } 
+
+# Redirect /spin/kubernetes-sidecars  to /spin/kubernetes
+[component.redirect-spin-kubernetes-sidecars]
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" } 
+
+# Redirect /spin/kubernetes-known-issues  to /spin/kubernetes
+[component.redirect-spin-kubernetes-known-issues]
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" }  
 
 [component.hub-fileserver-static]
 source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
