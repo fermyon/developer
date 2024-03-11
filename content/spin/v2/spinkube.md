@@ -17,6 +17,4 @@ There are a few options for running Spin on Kubernetes:
 
   >> If you've been following Fermyon for a while, you may have tried our [legacy Spin integration with Kubernetes], where you bundled Spin applications as OCI containers and ran them in a pod. While a convenient set up for testing, this format introduces limitations such as the need to keep a long running container. For the best experience, we recommend you migrate to [SpinKube](https://spinkube.dev)
 
-* **Fermyon Platform for Kubernetes** is a managed distribution of SpinKube, currently in private beta, that can be run on your existing Kubernetes infrastructure for enhanced performance and density for your SpinApps. If this of interest to your team, please [schedule a demo](TODO://link-to-demo).
-
-For inspiration on what to build, find answers to your questions, or simply engage with the SpinKube community, check out the [SpinKube Slack channel](TODO:://link-to-demo). 
+* **Fermyon Platform for Kubernetes** is a managed distribution of SpinKube, currently in private beta, that can be run on your existing Kubernetes infrastructure for enhanced performance and density for your SpinApps. If this is of interest to your team, please [schedule a demo](https://github.com/fermyon/developer/pull/www.fermyon.com/demo).
