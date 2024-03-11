@@ -285,22 +285,22 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/cli-reference"
 # Redirect /spin/kubernetes-dynamic-configuration to /spin/spinkube
 [component.redirect-spin-kubernetes-dynamic-configuration]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "/spin/spinkube" } 
+environment = { DESTINATION = "https://developer.fermyon.com/spin/spinkube" } 
 
 # Redirect /spin/kubernetes-sidecars  to /spin/spinkube
 [component.redirect-spin-kubernetes-sidecars]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "/spin/spinkube" } 
+environment = { DESTINATION = "https://developer.fermyon.com/spin/spinkube" } 
 
 # Redirect /spin/kubernetes  to /spin/spinkube
 [component.redirect-spin-kubernetes]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "/spin/spinkube" } 
+environment = { DESTINATION = "https://developer.fermyon.com/spin/spinkube" } 
 
 # Redirect /spin/kubernetes-known-issues  to /spin/spinkube
 [component.redirect-spin-kubernetes-known-issues]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "/spin/spinkube" }  
+environment = { DESTINATION = "https://developer.fermyon.com/spin/spinkube" }  
 
 [component.hub-fileserver-static]
 source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
@@ -334,7 +334,7 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/ai-sentiment-a
 # Redirect /spin/kubernetes to /spin/spin-in-pods-legacy 
 [component.kubernetes]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "/spin/spin-in-pods-legacy" }  
+environment = { DESTINATION = "https://developer.fermyon.com/spin/spinkube" } 
 
 # Redirect /cloud/serverless-ai to /spin/serverless-ai-hello-world
 [component.serverless-ai]
