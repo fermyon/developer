@@ -15,7 +15,7 @@ const store = createStore({
         tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: "",
         artifactSource: ""
       },
-      contentTypes: ["Plugin", "Template", "Library", "Sample"],
+      contentTypes: ["Plugin", "Template", "Library", "Sample", "Component"],
       languages: ["Rust", "JS/TS", "Go", "Python"],
       contentFilters: [],
       languageFilters: [],
