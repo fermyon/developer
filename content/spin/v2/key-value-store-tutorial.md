@@ -52,7 +52,7 @@ Let's create a Spin application that will send and retrieve data from a key valu
 ```bash
 $ spin new -t http-rust spin-key-value
 
-# Reference: https://github.com/fermyon/spin/tree/main/examples/rust-key-value
+# Reference: https://github.com/fermyon/spin-rust-sdk/tree/stable/examples/rust-key-value
 ```
 
 {{ blockEnd }}
@@ -64,7 +64,7 @@ $ spin new -t http-rust spin-key-value
 ```bash
 $ spin new -t http-ts spin-key-value
 
-# Reference: https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-kv
+# Reference: https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/spin_kv
 ```
 
 {{ blockEnd }}
@@ -76,7 +76,7 @@ $ spin new -t http-ts spin-key-value
 ```bash
 $ spin new -t http-py spin-key-value
 
-# Reference: https://github.com/fermyon/spin/tree/main/examples/tinygo-key-value
+# Reference: https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-kv
 ```
 
 {{ blockEnd }}
@@ -88,7 +88,7 @@ $ spin new -t http-py spin-key-value
 ```bash
 $ spin new -t http-go spin-key-value
 
-# Reference: https://github.com/fermyon/spin/tree/main/examples/tinygo-key-value
+# Reference: https://github.com/fermyon/spin-go-sdk/tree/stable/examples/key-value
 ```
 
 {{ blockEnd }}
