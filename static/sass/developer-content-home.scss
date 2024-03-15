@@ -93,6 +93,17 @@
 			}
 		}
 
+		span.tag {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			background-color: rgba($docsbg1, 0.5);
+			color: darken($vistablue, 5%);
+			border-radius: 1rem;
+			font-weight: 400;
+			z-index: 750;
+		}
+
 		.card-content {
 			padding: 0.5rem 2.6rem;
 		}
