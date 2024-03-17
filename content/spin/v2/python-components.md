@@ -30,7 +30,7 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 
 ## `componentize-py`
 
-The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It is a [Bytecode Alliance](https://bytecodealliance.org/) project that allows converting a Python application to a webassembly component. It can be installed using the following command:
+The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It is a [Bytecode Alliance](https://bytecodealliance.org/) project that allows converting a Python application to a WebAssembly component. It can be installed using the following command:
 
 ```bash
 pip3 install componentize-py
@@ -108,12 +108,13 @@ source = "app.wasm"
 command = "componentize-py -w spin-http componentize app -o app.wasm"
 ```
 
-The `requirements.txt` by default contains the references to the `spin-sdk` and `componentie-py` packages. These can be installed using:
+The `requirements.txt` by default contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed using:
 
 <!-- @selectiveCpy -->
 
 ```bash
-pip3 install -r requirements.txt
+$ cd hello-world
+$ pip3 install -r requirements.txt
 ```
 
 ## A Simple HTTP Components Example
