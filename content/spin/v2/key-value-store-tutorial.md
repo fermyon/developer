@@ -502,7 +502,7 @@ Would you like to link an existing key value store or create a new key value sto
   Create a new key value store and link the app to it
 ```
 
->> If you're interested in learning more about how to link your Spin app to different key value store instances on Fermyon Cloud, chek out our Key Value Links and Labels tutorial. 
+>> If you're interested in learning more about how to link your Spin app to different key value store instances on Fermyon Cloud, check out our Key Value Links and Labels tutorial. 
 
 Congratulations, you have a Spin application and associated key value store running up in Fermyon Cloud! You can visit it by clicking on the Spin application's domain name generated in the CLI output, which has the following pattern: `spin-key-value-<RANDOM>.fermyon.app`. 
 
