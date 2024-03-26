@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-outbo
 ---
 - [Using HTTP From Applications](#using-http-from-applications)
 - [Granting HTTP Permissions to Components](#granting-http-permissions-to-components)
+  - [Configuration-Based Permissions](#configuration-based-permissions)
 - [Making HTTP Requests Within an Application](#making-http-requests-within-an-application)
   - [Local Service Chaining](#local-service-chaining)
   - [Intra-Application HTTP Requests by Route](#intra-application-http-requests-by-route)
@@ -178,6 +179,10 @@ allowed_outbound_hosts = [ "https://*.example.com" ]
 ```
 
 For development-time convenience, you can also pass the string `"https://*:*"` in the `allowed_outbound_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
+
+### Configuration-Based Permissions
+
+You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `allowed_outbound_hosts` field. However, this feature is not yet available on Fermyon Cloud.
 
 ## Making HTTP Requests Within an Application
 
