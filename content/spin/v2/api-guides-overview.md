@@ -20,5 +20,6 @@ The following table shows the status of the interfaces Spin provides to applicat
 | [Key-value Storage](./kv-store-api-guide)    | Stabilizing  | Yes |
 | [Serverless AI](./serverless-ai-api-guide)   | Experimental | Yes |
 | [SQLite Storage](./sqlite-api-guide)         | Experimental | Yes |
+| [MQTT Messaging](./mqtt-outbound)             | Experimental | No  |
 
 For more information about what is possible in the programming language of your choice, please see our [Language Support Overview](./language-support-overview).
