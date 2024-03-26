@@ -170,6 +170,10 @@ The Wasm module can make HTTP requests _only_ to the specified hosts. If a port 
 
 For development-time convenience, you can also pass the string `"https://*:*"` in the `allowed_outbound_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
 
+### Configuration-Based Permissions
+
+You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `allowed_outbound_hosts` field. However, this feature is not yet available on Fermyon Cloud.
+
 ### Making HTTP Requests Within an Application
 
 In an HTTP component, you can make requests to a path to make HTTP requests **within the current Spin application**. For example, if you make an outbound HTTP request to /api/customers/, Spin replaces self with whatever host the application is running on. It also replaces the URL scheme (`http` or `https`) with the scheme of the current HTTP request. For example, if the application is running in the cloud, Spin changes `/api` to `https://.../api`.
