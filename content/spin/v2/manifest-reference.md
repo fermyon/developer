@@ -6,6 +6,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/manifest-r
 
 ---
 - [Manifest Format](#manifest-format)
+- [Using Variables in the Manifest](#using-variables-in-the-manifest)
 - [Manifest Fields](#manifest-fields)
 - [The `application` Table](#the-application-table)
 - [The `application.trigger` Table](#the-applicationtrigger-table)
@@ -48,6 +49,20 @@ allowed_outbound_hosts = []
 command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
+
+## Using Variables in the Manifest
+
+The following fields allow you to use [expressions](./variables.md#adding-variables-to-your-applications) in their values:
+
+* `application.trigger.redis.address`
+* `trigger.redis.channel`
+* `component.*.allowed_outbound_hosts`
+
+Spin resolves manifest expressions at application load time. Subsequent changes to variables do not update expression-based values.
+
+The only variables permitted in manifest expressions are application variables.
+
+> Manifest expressions are not yet supported on Fermyon Cloud.
 
 ## Manifest Fields
 
