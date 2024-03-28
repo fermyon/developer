@@ -33,7 +33,7 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It is a [Bytecode Alliance](https://bytecodealliance.org/) project that allows converting a Python application to a WebAssembly component. It can be installed using the following command:
 
 ```bash
-pip3 install componentize-py
+pip3 install componentize-py==0.12.0
 ```
 
 ## Spin's Python HTTP Request Handler Template
