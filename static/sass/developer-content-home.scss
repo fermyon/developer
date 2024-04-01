@@ -74,14 +74,15 @@
 	}
 
 	.card.project {
-		background: $lightlavender;
-		min-height: 460px;
+		min-height: 484px;
 		padding-bottom: 5rem;
 		border-radius: 0.67rem;
 		margin-bottom: 3.333rem;
-		border: none !important;
+		border: 1px solid $lavenderfloral;
+		background: darken($docsbg1, 1.5%);
 		box-shadow: rgba(0, 0, 0, 0.04) 1px 3px 5px;
 		overflow: hidden;
+		border-radius: 1rem;
 		@include transition;
 
 		&:hover {
@@ -110,10 +111,12 @@
 
 		h3 {
 			margin: 0.67rem 0 1.5rem;
-			line-height: 1.5;
-			font-size: 1.75vw;
-			color: darken($darkblue, 10%) !important;
-			font-weight: 500;
+			line-height: 1.425;
+			font-size: 1.67rem;
+			padding-right: 5%;
+			color: $oxforddark !important;
+			font-weight: 400;
+			font-family: $spaceGro;
 
 			a {
 				color: $darkblue !important;
@@ -123,10 +126,13 @@
 		p {
 			color: darken($darkblue, 10%) !important;
 			line-height: 1.5;
+			font-size: 0.875rem;
+			font-weight: normal;
+			font-family: $work;
 		}
 
 		span {
-			color: $darkplum !important;
+			color: $oxforddark !important;
 
 			&:after {
 				display: none !important;
@@ -166,6 +172,54 @@
 				background-color: $seagreen !important;
 				border-color: lighten($seagreen, 1%);
 				box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.187);
+			}
+		}
+	}
+
+	.wasm-lang {
+		position: relative;
+		box-shadow: rgba(0, 0, 0, 0.04) 1px 3px 5px;
+		overflow: hidden;
+		background: $lightlavender;
+		min-height: 140px;
+		margin-bottom: 6.25em;
+		border: 1px solid $lavenderfloral;
+		background: darken($docsbg1, 1.5%) url(/static/image/arrow-right.png) no-repeat 95% center;
+		border-radius: 1rem;
+		@include transition;
+
+		figure.image {
+			margin: 0;
+		}
+		.card-image {
+			position: absolute;
+			left: 1.5rem;
+			top: 0.5rem;
+		}
+
+		.card-content {
+			padding-left: 12rem;
+
+			h3 {
+				margin: 0.67rem 0;
+				line-height: 1.425;
+				font-size: 1.67rem;
+				padding-right: 5%;
+				color: $oxforddark !important;
+				font-weight: 400;
+				font-family: $spaceGro;
+	
+				a {
+					color: $darkblue !important;
+				}
+			}
+	
+			p {
+				color: darken($darkblue, 10%) !important;
+				line-height: 1.5;
+				font-size: 0.875rem;
+				font-weight: normal;
+				font-family: $work;
 			}
 		}
 	}

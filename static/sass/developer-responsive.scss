@@ -170,8 +170,12 @@
                 }
 
                 h3 {
-                    font-size: 1.2rem !important;
+                    font-size: 1.5rem !important;
                     margin-top: 0;
+                }
+
+                p {
+                    margin-bottom: 1rem;
                 }
             }
 
@@ -431,10 +435,6 @@
 					}
 				}
 			}
-		}
-
-		.developer-home-wrap .card.project h3 {
-			font-size: 1.825rem;
 		}
 	}
 }

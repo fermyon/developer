@@ -1757,6 +1757,19 @@ html.dark-theme .developer-home-wrap .card.project .button, html.dark-theme .dev
   color: #0d203f !important;
 }
 
+html.dark-theme .developer-home-wrap .wasm-lang {
+  background: #110b36 url("arrow-right.b9889f0e.png") 95% no-repeat;
+  border: 1px solid #a87ce6;
+}
+
+html.dark-theme .developer-home-wrap .wasm-lang .card-content h3 {
+  color: #fff !important;
+}
+
+html.dark-theme .developer-home-wrap .wasm-lang .card-content p {
+  color: #d3c3d9 !important;
+}
+
 html.dark-theme .developer-home-wrap .flickity-button {
   background: #525776;
 }
@@ -1888,15 +1901,15 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .card.project {
-  background: #ece5ee;
-  border-radius: .67rem;
-  min-height: 460px;
+  background: #fbf0ff;
+  border: 1px solid #a87ce6;
+  border-radius: 1rem;
+  min-height: 484px;
   margin-bottom: 3.333rem;
   padding-bottom: 5rem;
   transition: all .3s ease-in-out;
   overflow: hidden;
   box-shadow: 1px 3px 5px #0000000a;
-  border: none !important;
 }
 
 .documentation > .developer-home-wrap .card.project:hover {
@@ -1925,10 +1938,12 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 
 .documentation > .developer-home-wrap .card.project h3 {
   margin: .67rem 0 1.5rem;
-  font-size: 1.75vw;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #27426f !important;
+  padding-right: 5%;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
+  font-size: 1.67rem;
+  font-weight: 400;
+  line-height: 1.425;
+  color: #0e092d !important;
 }
 
 .documentation > .developer-home-wrap .card.project h3 a {
@@ -1936,12 +1951,15 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .card.project p {
+  font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
+  font-size: .875rem;
+  font-weight: normal;
   line-height: 1.5;
   color: #27426f !important;
 }
 
 .documentation > .developer-home-wrap .card.project span {
-  color: #525776 !important;
+  color: #0e092d !important;
 }
 
 .documentation > .developer-home-wrap .card.project span:after {
@@ -1987,6 +2005,54 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   border-color: #39e9be;
   box-shadow: 0 .2rem .5rem #00000030;
   background-color: #34e8bd !important;
+}
+
+.documentation > .developer-home-wrap .wasm-lang {
+  background: #fbf0ff url("arrow-right.b9889f0e.png") 95% no-repeat;
+  border: 1px solid #a87ce6;
+  border-radius: 1rem;
+  min-height: 140px;
+  margin-bottom: 6.25em;
+  transition: all .3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 1px 3px 5px #0000000a;
+}
+
+.documentation > .developer-home-wrap .wasm-lang figure.image {
+  margin: 0;
+}
+
+.documentation > .developer-home-wrap .wasm-lang .card-image {
+  position: absolute;
+  top: .5rem;
+  left: 1.5rem;
+}
+
+.documentation > .developer-home-wrap .wasm-lang .card-content {
+  padding-left: 12rem;
+}
+
+.documentation > .developer-home-wrap .wasm-lang .card-content h3 {
+  margin: .67rem 0;
+  padding-right: 5%;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
+  font-size: 1.67rem;
+  font-weight: 400;
+  line-height: 1.425;
+  color: #0e092d !important;
+}
+
+.documentation > .developer-home-wrap .wasm-lang .card-content h3 a {
+  color: #345995 !important;
+}
+
+.documentation > .developer-home-wrap .wasm-lang .card-content p {
+  font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
+  font-size: .875rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #27426f !important;
 }
 
 .documentation > .developer-home-wrap .community-highlight {
@@ -3919,7 +3985,11 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 
   .documentation > .developer-home-wrap .card.project h3 {
     margin-top: 0;
-    font-size: 1.2rem !important;
+    font-size: 1.5rem !important;
+  }
+
+  .documentation > .developer-home-wrap .card.project p {
+    margin-bottom: 1rem;
   }
 
   .documentation > .developer-home-wrap .community-highlight {
@@ -4135,10 +4205,6 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 
   .documentation .content > section ul:nth-child(2), .documentation .content > section ul:nth-child(3) {
     right: 5vw;
-  }
-
-  .documentation .developer-home-wrap .card.project h3 {
-    font-size: 1.825rem;
   }
 }
 

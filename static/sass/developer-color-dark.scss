@@ -480,6 +480,19 @@ html.dark-theme {
 				color: $oxfordblue !important;
 			}
 		}
+        .wasm-lang {
+            border: 1px solid $lavenderfloral;
+            background: lighten($oxforddark, 2%) url(/static/image/arrow-right.png) no-repeat 95% center;
+
+            .card-content {
+                h3 {
+                    color: white !important;
+                }
+                p {
+                    color: $lightplum !important;
+                }
+            }
+        }
 
 		.flickity-button {
 			background: $darkplum;
