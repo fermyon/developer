@@ -350,25 +350,40 @@
         }
     }
 
-    .documentation aside.menu {
-        width: 225px;
-    }
-
     .menu-wrap.is-fixed-desktop,
     .documentation aside.menu .button-wrap {
         width: 240px;
-    }
-
-    .documentation aside.menu .accordion-tabs .accordion-menu-item .menu-label {
-        width: 90%;
     }
 
     .menu-wrap + article.content {
         padding-left: 260px;
     }
 
-    .documentation .content.content-docs.content-docs-wide section {
-        max-width: 700px !important;
+    .documentation {
+        .content.content-docs.content-docs-wide section {
+            max-width: 700px !important;
+        }
+
+        aside.menu {
+            width: 225px;
+        }
+
+        aside.menu .accordion-tabs .accordion-menu-item .menu-label {
+            width: 90%;
+        }
+
+        & > .developer-home-wrap {
+            .card.project {
+                min-height: 422px;
+                
+                .card-content {
+                    padding: .5rem 1.2rem
+                }
+                h3 {
+                    font-size: 1.2rem;
+                }
+            }
+        }
     }
 
     body .klaro .cookie-notice .cn-body p {
@@ -436,5 +451,14 @@
 				}
 			}
 		}
+
+        & > .developer-home-wrap {
+            .card.project {
+                h3 {
+                    font-size: 1.67rem;
+                    line-height: 1.425;
+                }
+            }
+        }
 	}
 }
