@@ -43,33 +43,7 @@ read_pages_glob = ["events/*.md"]
 
                     <!-- projects here -->
                     <div class="column is-one-third-desktop is-full-touch">
-                        <a class="card-link" href="/cloud/index" target="_self">
-                            <div class="card card-one project">
-                                <div class="card-image dark">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-cloud-dark.png"
-                                            alt="Fermyon Cloud" />
-                                    </figure>
-                                </div>
-                                <div class="card-image light">
-                                    <figure class="image"><img
-                                            src="{{site.info.base_url}}/static/image/project-left-cloud-light.png"
-                                            alt="Fermyon Cloud" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>Deploy &amp; manage cloud native WebAssembly apps</span>
-                                    </h3>
-                                    <p>Go from blinking cursor to deployed app in two minutes.</p>
-
-                                    <span class="button is-rounded is-primary" href="/spin/index">Learn More</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <a class="card-link" href="/spin/index" target="_self">
+                        <a class="card-link" href="/spin/quickstart" target="_self">
                             <div class="card card-two project">
                                 <div class="card-image dark">
                                     <figure class="image">
@@ -84,10 +58,35 @@ read_pages_glob = ["events/*.md"]
                                     </figure>
                                 </div>
                                 <div class="card-content">
-                                    <h3><span>Developer tool for serverless WebAssembly apps</span></h3>
-                                    <p>Compose serverless applications and quickly deploy to Fermyon Cloud.</p>
+                                    <h3><span>The open source developer tool for WebAssembly apps</span></h3>
+                                    <p>Spin's intuitive CLI and extensive features helps you get started with building, running and deploying Wasm applications.</p>
+                                    <span class="button is-rounded is-primary">Start Building</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
-                                    <span class="button is-rounded is-primary">Learn More</span>
+                    <div class="column is-one-third-desktop is-full-touch">
+                        <a class="card-link" href="/cloud/quickstart" target="_self">
+                            <div class="card card-one project">
+                                <div class="card-image dark">
+                                    <figure class="image">
+                                        <img src="{{site.info.base_url}}/static/image/project-left-cloud-dark.png"
+                                            alt="Fermyon Cloud" />
+                                    </figure>
+                                </div>
+                                <div class="card-image light">
+                                    <figure class="image"><img
+                                            src="{{site.info.base_url}}/static/image/project-left-cloud-light.png"
+                                            alt="Fermyon Cloud" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h3><span>The quickest way to deploy and manage WebAssembly apps</span>
+                                    </h3>
+                                    <p>Go from blinking cursor to deployed app in less than two minutes. Fermyon Cloud has free and paid usage tiers.</p>
+
+                                    <span class="button is-rounded is-primary" href="/cloud/quickstart">Deploy Apps</span>
                                 </div>
                             </div>
                         </a>
@@ -112,7 +111,7 @@ read_pages_glob = ["events/*.md"]
                                     </figure>
                                 </div>
                                 <div class="card-content">
-                                    <h3><span>Run WebAssembly apps on Kubernetes</span></h3>
+                                    <h3><span>Run WebAssembly apps on your Kubernetes</span></h3>
                                     <p>Fermyon contributes to the SpinKube community project in conjunction with Microsoft, Liquid Reply, SUSE and others.</p>
 
                                     <span class="button is-rounded is-primary">Learn More</span>
@@ -121,15 +120,9 @@ read_pages_glob = ["events/*.md"]
                         </a>
                     </div>
 
-                    {{!-- <div class="column is-full">
+                    <div class="column is-full">
                         <a class="card-link" href="/wasm-languages/webassembly-language-support" target="_self">
-                            <div class="card card-one project project-lang">
-                                <div class="card-image dark">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-wasm-dark.png"
-                                            alt="WasmLanguages" />
-                                    </figure>
-                                </div>
+                            <div class="card card-one wasm-lang">
                                 <div class="card-image light">
                                     <figure class="image">
                                         <img src="{{site.info.base_url}}/static/image/project-left-wasm-light.png"
@@ -142,7 +135,7 @@ read_pages_glob = ["events/*.md"]
                                 </div>
                             </div>
                         </a>
-                    </div> --}}
+                    </div>
 
                 </div>
             </section>
