@@ -15,7 +15,7 @@ const store = createStore({
         tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: "",
         artifactSource: ""
       },
-      contentTypes: ["Plugin", "Template", "Library", "Sample", "Component"],
+      contentTypes: ["Plugin", "Template", "Library", "Sample", "Component", "Pattern", "Architecture"],
       languages: ["Rust", "JS/TS", "Go", "Python"],
       contentFilters: [],
       languageFilters: [],
@@ -124,11 +124,11 @@ const store = createStore({
         this.field('content')
         this.field('language', { boost: 10 })
         this.field('author'),
-        this.field('tags', { boost: 10 })
+          this.field('tags', { boost: 10 })
         this.field('keywords', { boost: 10 })
         this.field('url')
         this.ref('id')
-    
+
         documents.forEach(function (doc) {
           this.add(doc)
         }, this)
