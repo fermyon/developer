@@ -17,7 +17,7 @@ url = "https://github.com/fermyon/enterprise-architectures-and-patterns/tree/mai
 keywords = "Architecture"
 
 ---
-This sample contains a Publish-Subscribe pattern implemented using different programming languages.
+This sample contains a Publish-Subscribe (sometimes referred to as _pub/sub_) pattern implemented using different programming languages.
 
 ### What is Publish-Subscribe
 
