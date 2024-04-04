@@ -199,9 +199,6 @@ OPTIONS:
                                        specified in the file
 ```
 
-
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -339,8 +336,6 @@ OPTIONS:
             Run the application after building
 ```
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -369,8 +364,6 @@ The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](/cloud/clo
 {{ startTab "v2.4"}}
 
 The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference).
-
-
 
 {{ blockEnd }}
 
@@ -401,8 +394,6 @@ The `spin cloud apps` command is implemented by the [Fermyon Cloud Plugin](/clou
 
 The `spin cloud apps` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-apps).
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -431,8 +422,6 @@ The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](/cl
 {{ startTab "v2.4"}}
 
 The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-deploy).
-
-
 
 {{ blockEnd }}
 
@@ -463,8 +452,6 @@ The `spin cloud link` command is implemented by the [Fermyon Cloud Plugin](/clou
 
 The `spin cloud link` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-link).
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -493,8 +480,6 @@ The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](/clo
 {{ startTab "v2.4"}}
 
 The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-login).
-
-
 
 {{ blockEnd }}
 
@@ -525,8 +510,6 @@ The `spin cloud sqlite` command is implemented by the [Fermyon Cloud Plugin](/cl
 
 The `spin cloud sqlite` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-sqlite).
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -556,8 +539,6 @@ The `spin cloud unlink` command is implemented by the [Fermyon Cloud Plugin](/cl
 
 The `spin cloud unlink` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-unlink).
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -586,8 +567,6 @@ The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](
 {{ startTab "v2.4"}}
 
 The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-variables).
-
-
 
 {{ blockEnd }}
 
@@ -687,8 +666,6 @@ OPTIONS:
     -h, --help                        Print help information
 ```
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -717,8 +694,6 @@ OPTIONS:
 {{ startTab "v2.4"}}
 
 > Please note: Spin `help` is a convenient way to access help using a subcommand, instead of using the `--help` option. For example, `spin help cloud` will give you the same output as `spin cloud --help`. Similarly, `spin help build` will give you the same output as `spin build --help` and so forth.
-
-
 
 {{ blockEnd }}
 
@@ -755,6 +730,7 @@ OPTIONS:
     -h, --help                         Print help information
         --init                         Create the new application or component in the current
                                        directory
+        --no-vcs                       An optional argument that allows to skip creating .gitignore
     -o, --output <OUTPUT_PATH>         The directory in which to create the new application or
                                        component. The default is the name argument
     -t, --template <TEMPLATE_ID>       The template from which to create the new application or
@@ -877,8 +853,6 @@ OPTIONS:
                                        format. Parameters passed as CLI option overwrite parameters
                                        specified in the file
 ```
-
-
 
 {{ blockEnd }}
 
@@ -1001,8 +975,6 @@ SUBCOMMANDS:
     update       Fetch the latest Spin plugins from the spin-plugins repository
     upgrade      Upgrade one or all plugins
 ```
-
-
 
 {{ blockEnd }}
 
@@ -1173,8 +1145,6 @@ OPTIONS:
             Skips prompt to accept the installation of the plugin
 ```
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1264,8 +1234,6 @@ OPTIONS:
         --installed          List only installed plugins
 ```
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1354,8 +1322,6 @@ ARGS:
 OPTIONS:
     -h, --help    Print help information
 ```
-
-
 
 {{ blockEnd }}
 
@@ -1450,8 +1416,6 @@ OPTIONS:
     -h, --help    Print help information
 ```
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1532,8 +1496,6 @@ USAGE:
 OPTIONS:
     -h, --help    Print help information
 ```
-
-
 
 {{ blockEnd }}
 
@@ -1716,8 +1678,6 @@ OPTIONS:
             Skips prompt to accept the installation of the plugin[s]
 ```
 
-
-
 {{ blockEnd }}
 
 **Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
@@ -1820,8 +1780,6 @@ SUBCOMMANDS:
     pull     Pull a Spin application from a registry
     push     Push a Spin application to a registry
 ```
-
-
 
 {{ blockEnd }}
 
@@ -1928,8 +1886,6 @@ OPTIONS:
     -u, --username <USERNAME>    Username for the registry
 ```
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2035,8 +1991,6 @@ OPTIONS:
     -h, --help        Print help information
     -k, --insecure    Ignore server certificate errors
 ```
-
-
 
 {{ blockEnd }}
 
@@ -2163,8 +2117,6 @@ OPTIONS:
     -h, --help                        Print help information
     -k, --insecure                    Ignore server certificate errors
 ```
-
-
 
 {{ blockEnd }}
 
@@ -2374,8 +2326,6 @@ OPTIONS:
             If present, updates existing templates instead of skipping
 ```
 
-
-
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2464,8 +2414,6 @@ OPTIONS:
         --tag <TAGS>    Filter templates matching all provided tags
         --verbose       Whether to show additional template details in the list
 ```
-
-
 
 {{ blockEnd }}
 
@@ -2561,8 +2509,6 @@ ARGS:
 OPTIONS:
     -h, --help    Print help information
 ```
-
-
 
 {{ blockEnd }}
 
@@ -2705,8 +2651,6 @@ OPTIONS:
             prompting
 ```
 
-
-
 {{ blockEnd }}
 
 **Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
@@ -2736,6 +2680,7 @@ USAGE:
 OPTIONS:
         --build                 For local apps, specifies to perform `spin build` before running the
                                 application [env: SPIN_ALWAYS_BUILD=]
+        --cache-dir <CACHE_DIR>    Cache directory for downloaded components and assets
         --direct-mounts         For local apps with directory mounts and no excluded files, mount
                                 them directly instead of using a temporary directory
     -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
@@ -3027,8 +2972,6 @@ HTTP TRIGGER OPTIONS:
             For local apps, this defaults to `.spin/` relative to the `spin.toml` file. For remote
             apps, this has no default (unset). Passing an empty value forces the value to be unset.
 ```
-
-
 
 {{ blockEnd }}
 
@@ -3138,8 +3081,6 @@ The following additional trigger options are available for the [spin up](#spin-u
     
     [env: SPIN_TLS_KEY=]
 ```
-
-
 
 {{ blockEnd }}
 
@@ -3262,8 +3203,6 @@ OPTIONS:
                                       artifacts change
 ```
 
-
-
 {{ blockEnd }}
 
 ## Stability Table
@@ -3342,7 +3281,5 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
-
-
 
 {{ blockEnd }}
