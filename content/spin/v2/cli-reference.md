@@ -742,7 +742,6 @@ OPTIONS:
     -h, --help                         Print help information
         --init                         Create the new application or component in the current
                                        directory
-        --no-vcs                       An optional argument that allows to skip creating .gitignore
     -o, --output <OUTPUT_PATH>         The directory in which to create the new application or
                                        component. The default is the name argument
     -t, --template <TEMPLATE_ID>       The template from which to create the new application or
@@ -854,6 +853,7 @@ OPTIONS:
     -h, --help                         Print help information
         --init                         Create the new application or component in the current
                                        directory
+        --no-vcs                       An optional argument that allows to skip creating .gitignore
     -o, --output <OUTPUT_PATH>         The directory in which to create the new application or
                                        component. The default is the name argument
     -t, --template <TEMPLATE_ID>       The template from which to create the new application or
@@ -2708,7 +2708,6 @@ USAGE:
 OPTIONS:
         --build                 For local apps, specifies to perform `spin build` before running the
                                 application [env: SPIN_ALWAYS_BUILD=]
-        --cache-dir <CACHE_DIR>    Cache directory for downloaded components and assets
         --direct-mounts         For local apps with directory mounts and no excluded files, mount
                                 them directly instead of using a temporary directory
     -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
@@ -2940,6 +2939,7 @@ USAGE:
 OPTIONS:
         --build                 For local apps, specifies to perform `spin build` before running the
                                 application [env: SPIN_ALWAYS_BUILD=]
+        --cache-dir <CACHE_DIR>    Cache directory for downloaded components and assets
         --direct-mounts         For local apps with directory mounts and no excluded files, mount
                                 them directly instead of using a temporary directory
     -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
