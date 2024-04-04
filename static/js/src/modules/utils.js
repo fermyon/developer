@@ -87,14 +87,17 @@ const addAnchorLinks = () => {
     elementsToProcess.forEach(element => {
         let uniqueId;
         if (element.tagName.toLowerCase() === 'tr') {
-            const closestHeading = element.closest('.content').querySelector('.heading-anchor');
-            const rowText = Array.from(element.cells).map(cell => cell.textContent.trim()).join(' ').toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+            let closestHeading = element.closest('table').previousElementSibling;
+            while(closestHeading && !closestHeading.matches('h1, h2, h3, h4')) {
+                closestHeading = closestHeading.previousElementSibling;
+            }
+            const firstColumnName = element.cells[0].textContent.trim().toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
 
             if (closestHeading) {
-                const headingText = closestHeading.textContent.trim().toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
-                uniqueId = `${headingText}-${rowText}`;
+                const headingId = closestHeading.getAttribute('id');
+                uniqueId = `${headingId}-${firstColumnName}`;
             } else {
-                uniqueId = rowText;
+                uniqueId = firstColumnName;
             }
         } else {
             uniqueId = element.textContent.trim().toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
@@ -110,10 +113,15 @@ const addAnchorLinks = () => {
         anchor.addEventListener("click", (e) => {
             e.preventDefault();
             window.location = anchor.href;
-            document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            })
+            let targetId = anchor.getAttribute('href').substring(1);
+            let targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                })
+            }
+            
         })
     })
 }
