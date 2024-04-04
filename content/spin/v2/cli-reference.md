@@ -200,6 +200,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin build
@@ -337,6 +338,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud
@@ -365,6 +367,7 @@ The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](/cloud/clo
 
 The `spin cloud` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference).
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -395,6 +398,7 @@ The `spin cloud apps` command is implemented by the [Fermyon Cloud Plugin](/clou
 The `spin cloud apps` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-apps).
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud deploy
@@ -423,6 +427,7 @@ The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](/cl
 
 The `spin cloud deploy` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-deploy).
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -453,6 +458,7 @@ The `spin cloud link` command is implemented by the [Fermyon Cloud Plugin](/clou
 The `spin cloud link` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-link).
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud login
@@ -481,6 +487,7 @@ The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](/clo
 
 The `spin cloud login` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-login).
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -511,6 +518,7 @@ The `spin cloud sqlite` command is implemented by the [Fermyon Cloud Plugin](/cl
 The `spin cloud sqlite` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-sqlite).
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud unlink
@@ -540,6 +548,7 @@ The `spin cloud unlink` command is implemented by the [Fermyon Cloud Plugin](/cl
 The `spin cloud unlink` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-unlink).
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud variables
@@ -568,6 +577,7 @@ The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](
 
 The `spin cloud variables` command is implemented by the [Fermyon Cloud Plugin](/cloud/cloud-command-reference#spin-cloud-variables).
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -667,6 +677,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin help
@@ -695,6 +706,7 @@ OPTIONS:
 
 > Please note: Spin `help` is a convenient way to access help using a subcommand, instead of using the `--help` option. For example, `spin help cloud` will give you the same output as `spin cloud --help`. Similarly, `spin help build` will give you the same output as `spin build --help` and so forth.
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -855,6 +867,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 **Please note: `spin new` vs `spin add`**.  These commands are similar except that:
 
@@ -976,6 +989,7 @@ SUBCOMMANDS:
     upgrade      Upgrade one or all plugins
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1146,6 +1160,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin plugins list
@@ -1235,6 +1250,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin plugins search
@@ -1323,6 +1339,7 @@ OPTIONS:
     -h, --help    Print help information
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1417,6 +1434,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin plugins update
@@ -1497,6 +1515,7 @@ OPTIONS:
     -h, --help    Print help information
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1679,6 +1698,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 **Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
 
@@ -1781,6 +1801,7 @@ SUBCOMMANDS:
     push     Push a Spin application to a registry
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -1887,6 +1908,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin registry pull
@@ -1992,6 +2014,7 @@ OPTIONS:
     -k, --insecure    Ignore server certificate errors
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2118,6 +2141,7 @@ OPTIONS:
     -k, --insecure                    Ignore server certificate errors
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2327,6 +2351,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin templates list
@@ -2415,6 +2440,7 @@ OPTIONS:
         --verbose       Whether to show additional template details in the list
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2510,6 +2536,7 @@ OPTIONS:
     -h, --help    Print help information
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -2651,6 +2678,7 @@ OPTIONS:
             prompting
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 **Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
@@ -2974,6 +3002,7 @@ HTTP TRIGGER OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 > **Please note:** If the `-f` or `--from` options do not accurately infer the intended registry or `.toml` file for your application, then you can explicitly specify either the `--from-registry` or  `--from-file` options to clarify this.
 
@@ -3082,6 +3111,7 @@ The following additional trigger options are available for the [spin up](#spin-u
     [env: SPIN_TLS_KEY=]
 ```
 
+{{ blockEnd }}
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -3204,6 +3234,7 @@ OPTIONS:
 ```
 
 {{ blockEnd }}
+{{ blockEnd }}
 
 ## Stability Table
 
@@ -3282,4 +3313,5 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
 
+{{ blockEnd }}
 {{ blockEnd }}
