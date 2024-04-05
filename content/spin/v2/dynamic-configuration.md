@@ -5,18 +5,6 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-configuration.md"
 
 ---
-- [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
-  - [Environment Variable Provider](#environment-variable-provider)
-  - [Vault Application Variable Provider](#vault-application-variable-provider)
-    - [Vault Application Variable Provider Example](#vault-application-variable-provider-example)
-- [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
-  - [Redis Key Value Store Provider](#redis-key-value-store-provider)
-  - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
-- [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
-  - [LibSQL Storage Provider](#libsql-storage-provider)
-- [LLM Runtime Configuration](#llm-runtime-configuration)
-  - [Remote Compute Provider](#remote-compute-provider)
-- [Observing Applications](#observing-applications)
 
 Configuration for Spin application features such as [application variables](./variables),
 [key value storage](./kv-store-api-guide), [SQL storage](./sqlite-api-guide)
@@ -39,7 +27,6 @@ The list of Spin features supporting runtime configuration includes:
   - [LibSQL Storage Provider](#libsql-storage-provider)
 - [LLM Runtime Configuration](#llm-runtime-configuration)
   - [Remote Compute Provider](#remote-compute-provider)
-- [Observing Applications](#observing-applications)
 
 Let's look at each configuration category in-depth below.
 
@@ -242,7 +229,3 @@ auth_token = "<auth_token>"
 Currently, the remote compute option requires an user to deploy their own LLM proxy service. Fermyon Cloud users can do this using the [`cloud-gpu` plugin](https://github.com/fermyon/spin-cloud-gpu).  If you prefer to create and deploy your own proxy service, you can find a reference implementation of the proxy protocol in the [`spin-cloud-gpu plugin repository`](https://github.com/fermyon/spin-cloud-gpu/blob/main/fermyon-cloud-gpu/src/index.ts). 
 
 By default, componenets will not have access to the LLM models unless granted explicit access through the `component.ai_models` entry in the component manifest within `spin.toml`. See [Serverless AI](./serverless-ai-api-guide) for more details.
-
-## Observing Applications
-
-Learn how to use persistent logs and also leverage Spin's experimental OpenTelemetry (OTEL) support in the [observing applications section](./observing-apps.md).
