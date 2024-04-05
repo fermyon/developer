@@ -6,8 +6,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-co
 
 ---
 
-The list of Spin features supporting runtime configuration includes:
-
 - [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
   - [Environment Variable Provider](#environment-variable-provider)
   - [Vault Application Variable Provider](#vault-application-variable-provider)
