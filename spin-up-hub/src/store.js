@@ -16,7 +16,7 @@ const store = createStore({
         artifactSource: ""
       },
       contentTypes: ["Plugin", "Template", "Library", "Sample", "Component", "Pattern", "Architecture"],
-      languages: ["Rust", "JS/TS", "Go", "Python"],
+      languages: ["Rust", "JS/TS", "Go", "Python", "Polyglot"],
       contentFilters: [],
       languageFilters: [],
       contentItems: [],
