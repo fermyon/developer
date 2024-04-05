@@ -20,7 +20,7 @@ keywords = "Patterns, HTTP"
 
 This Spin App illustrates how to implement content negotiation in Rust
 
-### What is Content Negotiation
+### What Is Content Negotiation
 
 Content negotiation is a crucial concept in API development that allows clients and servers to agree on the format and structure of exchanged data. It enables interoperability between different systems by enabling them to communicate using various data formats, such as JSON, XML, or even HTML. Typically, content negotiation occurs during the HTTP request process, where the client expresses its preferences for the data format through request headers like 'Accept'. The server then examines these preferences and selects the most suitable representation of the requested resource, taking into account factors like available formats and the client's stated preferences.
 
