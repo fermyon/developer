@@ -20,6 +20,6 @@ keywords = "Architecture, HTTP"
 
 This example illustrates how to implement caching when building HTTP APIs.
 
-### What is a Transparent Cache
+### What Is a Transparent Cache
 
 A transparent cache is a caching mechanism that operates without the explicit involvement or awareness of the end user or client application. In other words, users interacting with a system are unaware that caching is taking place behind the scenes. From the perspective of the user or client application, the caching process is invisible and does not impact the functionality or behavior of the system. Transparent caching is commonly employed in systems where performance optimization is crucial, such as web applications or content delivery networks (CDNs), to reduce latency and server load without affecting user experience.
