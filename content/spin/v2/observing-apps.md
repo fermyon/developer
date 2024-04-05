@@ -30,7 +30,7 @@ Now, you can start your Spin app, setting the endpoint of the OTEL collector in 
 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 spin up
 ```
 
-After sending some requests to your Spin app, navigate to Jaeger ([http://localhost:16686](http://localhost:16686)) to view the traces.
+After sending some requests to your Spin app, navigate to Jaeger `http://localhost:16686` to view the traces.
 
 ![Traces from app](/static/image/jaeger-traces.png)
 
