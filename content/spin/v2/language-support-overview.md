@@ -67,7 +67,7 @@ This page contains information about language support for Spin features:
 |-----|-----|
 | **Triggers** |
 | [HTTP](./python-components#a-simple-http-components-example) | Supported |
-| Redis | Supported |
+| [Redis](./redis-trigger) | Supported |
 | **APIs** |
 | [Outbound HTTP](./python-components#an-outbound-http-example) | Supported |
 | [Configuration Variables](./dynamic-configuration#custom-config-variables) | Supported |
