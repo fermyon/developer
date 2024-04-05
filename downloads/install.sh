@@ -89,12 +89,28 @@ case $UNAME_ARC in
     ;;
 esac
 
+# If OS uses musl, set distinct OS type to ensure the binary
+# with statically linked libraries and dependencies is used
+if command -v ldd >/dev/null 2>&1 && [[ "$(ldd /bin/ls | grep -m1 'musl')" ]]; then
+    OSTYPE="linux-musl"
+fi
+
 case $OSTYPE in
 "linux-gnu"*)
     OS="linux"
+    STATIC="false"
     ;;
 "darwin"*)
     OS="macos"
+    STATIC="false"
+    ;;
+"linux-musl"*)
+    OS="linux"
+    STATIC="true"
+    ;;
+"linux"*)
+    OS="linux"
+    STATIC="false"
     ;;
 *)
     fancy_print 1 "The OSTYPE: ${OSTYPE} is not supported by this script."
@@ -109,17 +125,21 @@ if [[ $VERSION = "" ]]; then
 fi
 
 # Constructing download FILE and URL
-FILE="spin-${VERSION}-${OS}-${ARC}.tar.gz"
+if [[ $STATIC = "true" ]]; then
+    FILE="spin-${VERSION}-static-${OS}-${ARC}.tar.gz"
+else
+    FILE="spin-${VERSION}-${OS}-${ARC}.tar.gz"
+fi
 URL="https://github.com/spinframework/spin/releases/download/${VERSION}/${FILE}"
 
 # Establish the location of current working environment
 current_dir=$(pwd)
 
 # Define Spin directory name
-spin_directory_name=("/spin")
+spin_directory_name="/spin"
 
-if [ -d "${current_dir}${spin_directory_name}" ]; then
-    fancy_print 1 "Error: .${spin_directory_name} already exists, please delete ${current_dir}${spin_directory_name} and run the installer again."
+if [ -d "${current_dir}$spin_directory_name" ]; then
+    fancy_print 1 "Error: .$spin_directory_name already exists, please delete ${current_dir}$spin_directory_name and run the installer again."
     exit 1
 fi
 
