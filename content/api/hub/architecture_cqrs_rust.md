@@ -1,4 +1,4 @@
-title = "CQRS with Rust"
+title = "CQRS With Rust"
 template = "render_hub_content_body"
 date = "2024-04-03T13:50:00Z"
 content-type = "text/plain"
