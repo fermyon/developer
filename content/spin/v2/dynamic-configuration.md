@@ -16,7 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-co
   - [LibSQL Storage Provider](#libsql-storage-provider)
 - [LLM Runtime Configuration](#llm-runtime-configuration)
   - [Remote Compute Provider](#remote-compute-provider)
-- [OpenTelemetry (OTEL) Observability](#opentelemetry-otel-observability)
+- [Observing Applications](#observing-applications)
 
 Configuration for Spin application features such as [application variables](./variables),
 [key value storage](./kv-store-api-guide), [SQL storage](./sqlite-api-guide)
@@ -28,10 +28,18 @@ when invoking the `spin up` command.
 
 The list of Spin features supporting runtime configuration includes:
 
-- [Application Variables](#variables-runtime-configuration)
-- [Key Value Storage](#key-value-store-runtime-configuration)
-- [SQL storage](#sqlite-storage-runtime-configuration)
-- [Serverless AI Compute](#llm-runtime-configuration)
+- [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
+  - [Environment Variable Provider](#environment-variable-provider)
+  - [Vault Application Variable Provider](#vault-application-variable-provider)
+    - [Vault Application Variable Provider Example](#vault-application-variable-provider-example)
+- [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
+  - [Redis Key Value Store Provider](#redis-key-value-store-provider)
+  - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
+- [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
+  - [LibSQL Storage Provider](#libsql-storage-provider)
+- [LLM Runtime Configuration](#llm-runtime-configuration)
+  - [Remote Compute Provider](#remote-compute-provider)
+- [Observing Applications](#observing-applications)
 
 Let's look at each configuration category in-depth below.
 
@@ -235,6 +243,6 @@ Currently, the remote compute option requires an user to deploy their own LLM pr
 
 By default, componenets will not have access to the LLM models unless granted explicit access through the `component.ai_models` entry in the component manifest within `spin.toml`. See [Serverless AI](./serverless-ai-api-guide) for more details.
 
-## OpenTelemetry (OTEL) Observability
+## Observing Applications
 
-Learn how to leverage Spin's [experimental OpenTelemetry (OTEL) support](./open-telemetry-observability) to add observability to your Spin applications, enabling you to trace app interactions and improve monitoring.
+Learn how to use persistent logs and also leverage Spin's experimental OpenTelemetry (OTEL) support in the [observing applications section](./observing-apps.md).
