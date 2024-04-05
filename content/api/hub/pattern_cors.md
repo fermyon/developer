@@ -20,7 +20,7 @@ keywords = "Patterns, HTTP, CORS"
 
 This Spin App illustrates how to implement CORS (Cross-Origin Resource Sharing) in Rust
 
-### What is Cross-Origin Resource Sharing (CORS)?
+### What Is Cross-Origin Resource Sharing (CORS)?
 
 CORS, or Cross-Origin Resource Sharing, is a security mechanism implemented by web browsers to control access to resources located on different domains. As an API developer, understanding CORS is crucial when building web APIs that need to be accessed by client-side scripts from web browsers. CORS prevents a web page from making requests to a different domain than the one that served the page, known as the same-origin policy, unless explicitly permitted. This restriction helps mitigate certain types of cross-site scripting (XSS) attacks.
 
