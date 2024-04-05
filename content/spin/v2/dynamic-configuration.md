@@ -6,14 +6,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-co
 
 ---
 
-Configuration for Spin application features such as [application variables](./variables),
-[key value storage](./kv-store-api-guide), [SQL storage](./sqlite-api-guide)
-and [Serverless AI](./serverless-ai-api-guide) can be supplied dynamically, i.e. during the application runtime,
-requiring no changes to the application code itself.
-
-This runtime configuration data is stored in the `runtime-config.toml` file and passed in via the `--runtime-config-file` flag
-when invoking the `spin up` command.
-
 The list of Spin features supporting runtime configuration includes:
 
 - [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
@@ -27,6 +19,14 @@ The list of Spin features supporting runtime configuration includes:
   - [LibSQL Storage Provider](#libsql-storage-provider)
 - [LLM Runtime Configuration](#llm-runtime-configuration)
   - [Remote Compute Provider](#remote-compute-provider)
+
+Configuration for Spin application features such as [application variables](./variables),
+[key value storage](./kv-store-api-guide), [SQL storage](./sqlite-api-guide)
+and [Serverless AI](./serverless-ai-api-guide) can be supplied dynamically, i.e. during the application runtime,
+requiring no changes to the application code itself.
+
+This runtime configuration data is stored in the `runtime-config.toml` file and passed in via the `--runtime-config-file` flag
+when invoking the `spin up` command.
 
 Let's look at each configuration category in-depth below.
 
