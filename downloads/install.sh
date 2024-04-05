@@ -96,10 +96,6 @@ if command -v ldd >/dev/null 2>&1 && [[ "$(ldd /bin/ls | grep -m1 'musl')" ]]; t
 fi
 
 case $OSTYPE in
-"linux-gnu"*)
-    OS="linux"
-    STATIC="false"
-    ;;
 "darwin"*)
     OS="macos"
     STATIC="false"
@@ -120,7 +116,7 @@ case $OSTYPE in
 esac
 
 # Check desired version. Default to latest if no desired version was requested
-if [[ $VERSION = "" ]]; then
+if [[ -z $VERSION ]]; then
     VERSION=$(curl -so- https://github.com/spinframework/spin/releases | grep 'href="/spinframework/spin/releases/tag/v[0-9]*.[0-9]*.[0-9]*\"' | sed -E 's/.*\/spinframework\/spin\/releases\/tag\/(v[0-9\.]+)".*/\1/g' | head -1)
 fi
 
@@ -145,7 +141,10 @@ fi
 
 # Download file, exit if not found - e.g. version does not exist
 fancy_print 0 "Step 1: Downloading: ${URL}"
-curl -fsOL $URL || (fancy_print 1 "Error downloading the file: ${FILE}"; exit 1)
+curl -fsOL $URL || (
+    fancy_print 1 "Error downloading the file: ${FILE}"
+    exit 1
+)
 fancy_print 0 "Done...\n"
 
 # Decompress the file
@@ -165,17 +164,21 @@ fancy_print 0 "Step 4: Installing default templates"
 ./spin templates install --git "https://github.com/spinframework/spin-python-sdk" --upgrade
 ./spin templates install --git "https://github.com/spinframework/spin-js-sdk" --upgrade
 
-fancy_print 0 "Step 5: Installing default plugins"
-./spin plugins update
-if [[ $VERSION = "canary" ]]; then
-    ./spin plugins install -u https://github.com/fermyon/cloud-plugin/releases/download/canary/cloud.json --yes
-else
-    ./spin plugins install cloud --yes
-fi
+if [[ $STATIC = "false" ]]; then
+    fancy_print 0 "Step 5: Installing default plugins"
+    ./spin plugins update
+    if [[ $VERSION = "canary" ]]; then
+        ./spin plugins install -u https://github.com/fermyon/cloud-plugin/releases/download/canary/cloud.json --yes
+    else
+        ./spin plugins install cloud --yes
+    fi
 
-if [[ $VERSION = "canary" ]]; then
-    fancy_print 3 "Warning: You are using canary Spin, but templates use latest stable SDKs."
-    fancy_print 3 "Be sure to update templates to point to 'canary' SDKs."
+    if [[ $VERSION = "canary" ]]; then
+        fancy_print 3 "Warning: You are using canary Spin, but templates use latest stable SDKs."
+        fancy_print 3 "Be sure to update templates to point to 'canary' SDKs."
+    fi
+else
+    fancy_print 0 "Step 5: Skipping plugin installation for OS with musl"
 fi
 # Direct to quicks-start doc
 fancy_print 0 "You're good to go. Check here for the next steps: https://developer.fermyon.com/spin/quickstart"
