@@ -47,6 +47,11 @@
                                         href="{{site.info.base_url}}/spin/v2/distributing-apps">Publishing and
                                         Distribution</a>
                         </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/observing-apps" )}}
+                                        class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/observing-apps">Observing
+                                        Applications</a>
+                        </li>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/troubleshooting-application-dev"
                                         )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/troubleshooting-application-dev">Troubleshooting
