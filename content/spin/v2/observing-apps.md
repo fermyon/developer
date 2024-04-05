@@ -16,7 +16,9 @@ Spin handles application logs by default, storing output and error messages from
 
 ## OpenTelemetry (OTEL)
 
-Spin now has experimental support for the [OpenTelemetry (OTEL)](https://opentelemetry.io/) observability standard. When configured, Spin will now emit traces of your Spin App as an OTEL [signal](https://opentelemetry.io/docs/concepts/signals/). Here is a teaser of how to configure it.
+Spin has experimental support for the [OpenTelemetry (OTEL)](https://opentelemetry.io/) observability standard. When configured, Spin will emit traces of your Spin App as an OTEL [signal](https://opentelemetry.io/docs/concepts/signals/). Here is a teaser of how to configure it.
+
+> OpenTelemetry support requires Spin 2.4 or above.
 
 First, run an OTEL compliant [collector](https://opentelemetry.io/docs/collector/) to collect the traces. [Jaeger](https://www.jaegertracing.io/) is an open source distributed tracing platform that can act as an OTEL collector and enables viewing taces. You can run Jaeger using Docker:
 
