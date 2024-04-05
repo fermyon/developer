@@ -15,7 +15,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-co
 - [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
   - [LibSQL Storage Provider](#libsql-storage-provider)
 - [LLM Runtime Configuration](#llm-runtime-configuration)
-- [Remote Compute Provider](#remote-compute-provider)
+  - [Remote Compute Provider](#remote-compute-provider)
+- [OpenTelemetry (OTEL) Observability](#opentelemetry-otel-observability)
 
 Configuration for Spin application features such as [application variables](./variables),
 [key value storage](./kv-store-api-guide), [SQL storage](./sqlite-api-guide)
@@ -233,3 +234,7 @@ auth_token = "<auth_token>"
 Currently, the remote compute option requires an user to deploy their own LLM proxy service. Fermyon Cloud users can do this using the [`cloud-gpu` plugin](https://github.com/fermyon/spin-cloud-gpu).  If you prefer to create and deploy your own proxy service, you can find a reference implementation of the proxy protocol in the [`spin-cloud-gpu plugin repository`](https://github.com/fermyon/spin-cloud-gpu/blob/main/fermyon-cloud-gpu/src/index.ts). 
 
 By default, componenets will not have access to the LLM models unless granted explicit access through the `component.ai_models` entry in the component manifest within `spin.toml`. See [Serverless AI](./serverless-ai-api-guide) for more details.
+
+## OpenTelemetry (OTEL) Observability
+
+Learn how to leverage Spin's [experimental OpenTelemetry (OTEL) support](./open-telemetry-observability) to add observability to your Spin applications, enabling you to trace app interactions and improve monitoring.
