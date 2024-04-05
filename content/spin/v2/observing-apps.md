@@ -12,7 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/observing-
 
 ## Logs
 
-Spin handles application logs by default, storing output and error messages from file system-run applications in the `.spin/logs` directory alongside the manifest file's location. Users have the option to direct logs to a specific folder using the `--log-dir` flag of the `spin up` command. Additionally, if users wish to prevent `stdout` and `stderr` from being written to disk, they can specify an empty string for the `--log-dir` flag, i.e. `spin up --log-dir ""` - effectively disabling log storage. See the [persistent logs](./running-apps#persistent-logs) section for more details.
+Spin handles application logs by default, storing output and error messages from file system-run applications in the `.spin/logs` directory alongside the manifest file's location. You can direct logs to a specific folder using the `--log-dir` flag of the `spin up` command. Additionally, if you wish to prevent `stdout` and `stderr` from being written to disk, you can specify an empty string for the `--log-dir` flag, i.e. `spin up --log-dir ""` - effectively disabling log storage. See the [persistent logs](./running-apps#persistent-logs) section for more details.
 
 ## OpenTelemetry (OTEL)
 
