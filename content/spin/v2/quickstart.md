@@ -730,6 +730,7 @@ If the build fails, check:
 
 * Are you in the `hello_python` directory?
 * Did you install the requirements?
+* Is your virtual environment still activated?
 
 If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
