@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/bartholomew/themes
 - [Template Precedence](#template-precedence)
 - [Creating a Theme](#creating-a-theme)
 
-Bartholomew supports theming which allows for easy customization of the site along with the user-defined tempaltes.
+Bartholomew supports theming which allows for easy customization of the site along with the user-defined templates.
 
 ## Adding a Theme
 
