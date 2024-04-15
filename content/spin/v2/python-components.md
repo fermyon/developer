@@ -94,14 +94,6 @@ Once the component is created, we can change into the `hello-world` directory, c
 $ cd hello-world
 ```
 
-Install the `virtualenv` tool:
-
-<!-- @selectiveCpy -->
-
-```console
-$ pip install virtualenv
-```
-
 Create a virtual environment directory (we are still inside the Spin app directory):
 
 <!-- @selectiveCpy -->
