@@ -38,8 +38,10 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 
 The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It is a [Bytecode Alliance](https://bytecodealliance.org/) project that allows converting a Python application to a WebAssembly component. It can be installed using the following command:
 
+<!-- @selectiveCpy -->
+
 ```bash
-pip3 install componentize-py==0.12.0
+$ pip3 install componentize-py==0.12.0
 ```
 
 > **Please note:** The `hello-world` sample below installs `componentize-py` automatically via the `pip3 install -r requirements.txt` command - so feel free to skip this step if you are following the `hello-world` sample with us.
@@ -436,15 +438,14 @@ from spin_sdk.http import Request, Response
 
 class IncomingHandler(http.IncomingHandler):
     def handle_request(self, request: Request) -> Response:
-        with redis.open(variables.get("redis_address").decode) as db:
+        with redis.open(variables.get("redis_address")) as db:
             db.set("foo", b"bar")
             value = db.get("foo")
-            db.del( ["testIncr"])
             db.incr("testIncr")
             db.sadd("testSets", ["hello", "world"])
             content = db.smembers("testSets")
             db.srem("testSets", ["hello"])
-            assert value == b"bar", f"expected \"bar\", got \"{str(value, 'utf-8')}\"
+            assert value == b"bar", f"expected \"bar\", got \"{str(value, 'utf-8')}\""
 
         return Response(200,
                     {"content-type": "text/plain"},
@@ -453,28 +454,26 @@ class IncomingHandler(http.IncomingHandler):
 
 ### Building and Running the Application
 
-After we re-build and re-run, again, we can make one final request to our Spin application:
+Run the `spin build --up` command from within the project's directory; as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin build
-$ spin up
+$ spin build --up
 ```
 
-This latest request correctly returns the correct output, in accordance with our Python source code from above:
+In a new terminal, make the request via the curl command, as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
-
+$ curl -i localhost:3000
 HTTP/1.1 200 OK
 content-type: text/plain
-content-length: 40
-date = "2023-11-04T00:00:01Z"
+content-length: 35
+date: Mon, 15 Apr 2024 05:53:17 GMT
 
-Executed outbound Redis commands: /hello
+Executed outbound Redis commands: /
 ```
 
 If we go into our Redis CLI on localhost we can see that the value `foo` which was set in the Python source code ( `redis_set(redis_address, "foo", b"bar")` ) is now correctly set to the value of `bar`:
@@ -502,6 +501,8 @@ For more information about using Serverless AI from Python, see the [Serverless 
 ## Troubleshooting
 
 If you bump into issues when installing the requirements.txt. For example:
+
+<!-- @nocpy -->
 
 ```console
 error: externally-managed-environment
