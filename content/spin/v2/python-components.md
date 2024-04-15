@@ -12,13 +12,14 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-com
   - [Requirements](#requirements)
 - [Structure of a Python Component](#structure-of-a-python-component)
 - [A Simple HTTP Components Example](#a-simple-http-components-example)
-- [Building and Running the Application](#building-and-running-the-application)
+  - [Building and Running the Application](#building-and-running-the-application)
+- [A HTTP Request Parsing Example](#a-http-request-parsing-example)
   - [Building and Running the Application](#building-and-running-the-application-1)
 - [An Outbound HTTP Example](#an-outbound-http-example)
-  - [Configuration](#configuration)
+- [Configuring Outbound Requests](#configuring-outbound-requests)
   - [Building and Running the Application](#building-and-running-the-application-2)
 - [An Outbound Redis Example](#an-outbound-redis-example)
-  - [Configuration](#configuration-1)
+  - [Configuration](#configuration)
   - [Building and Running the Application](#building-and-running-the-application-3)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
@@ -176,6 +177,8 @@ In Spin, HTTP components are triggered by the occurrence of an HTTP request and 
 
 Building a Spin HTTP component using the Python SDK means defining a top-level class named IncomingHandler which inherits from [`IncomingHandler`](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.IncomingHandler), overriding the `handle_request` method. Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
 
+<!-- @nocpy -->
+
 ```python
 from spin_sdk import http
 from spin_sdk.http import Request, Response
@@ -196,7 +199,7 @@ The important things to note in the implementation above:
 
 The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. 
 
-## Building and Running the Application
+### Building and Running the Application
 
 All you need to do is run the `spin build` command from within the project's directory; as shown below:
 
@@ -228,7 +231,11 @@ content-length: 25
 Hello from Python!
 ```
 
+## A HTTP Request Parsing Example
+
 The following snippet shows how you can access parts of the request e.g. the `request.method` and the `request.body`:
+
+<!-- @nocpy -->
 
 ```python
 import json
@@ -258,20 +265,12 @@ class IncomingHandler(http.IncomingHandler):
 
 ### Building and Running the Application
 
-All you need to do is run the `spin build` command from within the project's directory; as shown below:
+All you need to do is run the `spin build --up` command from within the project's directory; as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin build
-```
-
-Essentially, we have just created a new Spin compatible module which can now be run using the `spin up` command, as shown below:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin up
+$ spin build --up
 ```
 
 With Spin running our application in our terminal, we can now go ahead (grab a new terminal) and call the Spin application via an HTTP request:
@@ -326,6 +325,8 @@ The methods available to that type:
 
 This next example will create an outbound request, to obtain a random fact about animals, which will be returned to the calling code. If you would like to try this out, you can go ahead and update your existing `app.py` file from the previous step; using the following source code:
 
+<!-- @nocpy -->
+
 ```python
 from spin_sdk import http   
 from spin_sdk.http import Request, Response, send
@@ -340,7 +341,7 @@ class IncomingHandler(http.IncomingHandler):
 
 ```
 
-### Configuration
+## Configuring Outbound Requests
 
 The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `random-data-api.fermyon.app` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_outbound_hosts`:
 
@@ -368,27 +369,26 @@ command = "spin py2wasm app -o app.wasm"
 
 ### Building and Running the Application
 
-If we re-build the application with this new configuration and re-run, we will get our new animal fact:
+Run the `spin build --up` command from within the project's directory; as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin build
-$ spin up
+$ spin build --up
 ```
 
-A new request now correctly returns an animal fact from the API endpoint.
+With Spin running our application in our terminal, we can now go ahead (grab a new terminal) and call the Spin application via an HTTP request:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
-
+$ curl -i localhost:3000
 HTTP/1.1 200 OK
 content-type: text/plain
-content-length: 130
+content-length: 99
+date: Mon, 15 Apr 2024 04:52:45 GMT
 
-Here is an animal fact: {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}   
+Here is an animal fact: {"timestamp":1713156765221,"fact":"Bats are the only mammals that can fly"}
 ```
 
 ## An Outbound Redis Example
@@ -427,6 +427,8 @@ command = "spin py2wasm app -o app.wasm"
 ```
 
 If you are still following along, please go ahead and update your `app.py` file one more time, as follows:
+
+<!-- @nocpy -->
 
 ```python
 from spin_sdk import http, redis, variables
