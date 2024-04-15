@@ -358,7 +358,7 @@ The workflow is very similar to the normal Kubernetes workflow: build and test y
 
 > If you are using Spin 1.x, or your shim uses Spin 1.x (shim version prior to 0.10.0), [follow the Spin 1.x Kubernetes documentation](../v1/kubernetes#workflow). The workflow here applies only to Spin 2 with shim 0.10.0 and above.
 
-Please see the [shim documentation](https://github.com/deislabs/containerd-wasm-shims/blob/main/containerd-shim-spin/quickstart.md) for a full tutorial on deploying Spin 2 applications.
+Please see the [shim documentation](https://github.com/deislabs/containerd-wasm-shims/blob/68a5581fe3e5c004e5cd9f9109c119688bf561f3/containerd-shim-spin/quickstart.md) for a full tutorial on deploying Spin 2 applications.
 
 ### Detailed Explanation of Steps
 
@@ -409,7 +409,7 @@ spin k8s scaffold
 
 **2. Copy and modify an existing deployment manifest**
 
-You can find a sample manifest in the [shim documentation](https://github.com/deislabs/containerd-wasm-shims/blob/main/containerd-shim-spin/quickstart.md#deploy-the-application) or below.
+You can find a sample manifest in the [shim documentation](https://github.com/deislabs/containerd-wasm-shims/blob/68a5581fe3e5c004e5cd9f9109c119688bf561f3/containerd-shim-spin/quickstart.md#deploy-the-application) or below.
 
 ```yaml
 apiVersion: apps/v1

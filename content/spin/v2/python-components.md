@@ -5,20 +5,26 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-components.md"
 
 ---
-- [`componentize-py`](#componentize-py)
+- [Componentize-Py](#componentize-py)
 - [Spin's Python HTTP Request Handler Template](#spins-python-http-request-handler-template)
+- [Creating a New Python Component](#creating-a-new-python-component)
+  - [System Housekeeping (Use a Virtual Environment)](#system-housekeeping-use-a-virtual-environment)
+  - [Requirements](#requirements)
 - [Structure of a Python Component](#structure-of-a-python-component)
 - [A Simple HTTP Components Example](#a-simple-http-components-example)
   - [Building and Running the Application](#building-and-running-the-application)
-- [An Outbound HTTP Example](#an-outbound-http-example)
-  - [Configuration](#configuration)
+- [A HTTP Request Parsing Example](#a-http-request-parsing-example)
   - [Building and Running the Application](#building-and-running-the-application-1)
-- [An Outbound Redis Example](#an-outbound-redis-example)
-  - [Configuration](#configuration-1)
+- [An Outbound HTTP Example](#an-outbound-http-example)
+  - [Configuring Outbound Requests](#configuring-outbound-requests)
   - [Building and Running the Application](#building-and-running-the-application-2)
+- [An Outbound Redis Example](#an-outbound-redis-example)
+  - [Configuring Outbound Redis](#configuring-outbound-redis)
+  - [Building and Running the Application](#building-and-running-the-application-3)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [AI Inferencing From Python Components](#ai-inferencing-from-python-components)
+- [Troubleshooting](#troubleshooting)
 
 With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
 
@@ -28,13 +34,17 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk)
 
-## `componentize-py`
+## Componentize-Py
 
 The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It is a [Bytecode Alliance](https://bytecodealliance.org/) project that allows converting a Python application to a WebAssembly component. It can be installed using the following command:
 
+<!-- @selectiveCpy -->
+
 ```bash
-pip3 install componentize-py==0.12.0
+$ pip3 install componentize-py==0.12.0
 ```
+
+> **Please note:** The `hello-world` sample below installs `componentize-py` automatically via the `pip3 install -r requirements.txt` command - so feel free to skip this step if you are following the `hello-world` sample with us.
 
 ## Spin's Python HTTP Request Handler Template
 
@@ -64,7 +74,7 @@ Installed 1 template(s)
 
 **Please note:** For more information about managing `spin templates`, see the [templates section](./cli-reference#templates) in the Spin Command Line Interface (CLI) documentation.
 
-## Structure of a Python Component
+## Creating a New Python Component
 
 A new Python component can be created using the following command:
 
@@ -74,12 +84,59 @@ A new Python component can be created using the following command:
 $ spin new -t http-py hello-world --accept-defaults
 ```
 
-This creates a directory of the following structure:
+### System Housekeeping (Use a Virtual Environment)
+
+Once the component is created, we can change into the `hello-world` directory, create and activate a virtual environment and then install the component's requirements:
+
+<!-- @selectiveCpy -->
+
+```console
+$ cd hello-world
+```
+
+Create a virtual environment directory (we are still inside the Spin app directory):
+
+<!-- @selectiveCpy -->
+
+```console
+# python<version> -m venv <virtual-environment-name>
+$ python3 -m venv venv-dir
+```
+
+Activate the virtual environment (this command depends on which operating system you are using):
+
+<!-- @selectiveCpy -->
+
+```console
+# macOS command to activate
+$ source venv-dir/bin/activate
+```
+
+The `(venv-dir)` will prefix your terminal prompt now:
+
+<!-- @nocpy -->
+
+```console
+(venv-dir) user@123-456-7-8 hello-world %
+```
+
+### Requirements
+
+The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed in your virtual environment using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ pip3 install -r requirements.txt
+```
+
+## Structure of a Python Component
+
+The `hello-world` directory structure created by the Spin `http-py` template is shown below:
 
 <!-- @nocpy -->
 
 ```text
-hello-world/
 ├── app.py
 ├── spin.toml
 └── requirements.txt 
@@ -108,20 +165,13 @@ source = "app.wasm"
 command = "componentize-py -w spin-http componentize app -o app.wasm"
 ```
 
-The `requirements.txt` by default contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed using:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ cd hello-world
-$ pip3 install -r requirements.txt
-```
-
 ## A Simple HTTP Components Example
 
 In Spin, HTTP components are triggered by the occurrence of an HTTP request and must return an HTTP response at the end of their execution. Components can be built in any language that compiles to WASI. If you would like additional information about building HTTP applications you may find [the HTTP trigger page](./http-trigger.md) useful.
 
 Building a Spin HTTP component using the Python SDK means defining a top-level class named IncomingHandler which inherits from [`IncomingHandler`](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.IncomingHandler), overriding the `handle_request` method. Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
+
+<!-- @nocpy -->
 
 ```python
 from spin_sdk import http
@@ -143,7 +193,43 @@ The important things to note in the implementation above:
 
 The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. 
 
+### Building and Running the Application
+
+All you need to do is run the `spin build` command from within the project's directory; as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin build
+```
+
+Essentially, we have just created a new Spin compatible module which can now be run using the `spin up` command, as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin up
+```
+
+With Spin running our application in our terminal, we can now go ahead (grab a new terminal) and call the Spin application via an HTTP request:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -i localhost:3000
+
+HTTP/1.1 200 OK
+content-type: text/plain
+content-length: 25
+
+Hello from Python!
+```
+
+## A HTTP Request Parsing Example
+
 The following snippet shows how you can access parts of the request e.g. the `request.method` and the `request.body`:
+
+<!-- @nocpy -->
 
 ```python
 import json
@@ -173,21 +259,12 @@ class IncomingHandler(http.IncomingHandler):
 
 ### Building and Running the Application
 
-All you need to do is run the `spin build` command from within the project's directory; as shown below:
+All you need to do is run the `spin build --up` command from within the project's directory; as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd hello-world
-$ spin build
-```
-
-Essentially, we have just created a new Spin compatible module which can now be run using the `spin up` command, as shown below:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin up
+$ spin build --up
 ```
 
 With Spin running our application in our terminal, we can now go ahead (grab a new terminal) and call the Spin application via an HTTP request:
@@ -195,13 +272,45 @@ With Spin running our application in our terminal, we can now go ahead (grab a n
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
+$ curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"name":"Python"}' \
+  http://localhost:3000/
 
 HTTP/1.1 200 OK
 content-type: text/plain
-content-length: 25
+content-length: 37
+date: Mon, 15 Apr 2024 04:26:00 GMT
 
-Hello from Python!
+Practicing reading the request object
+```
+
+The response "Practicing reading the request object" is returned as expected. In addition, if we check the terminal where Spin is running, we will see that the console logs printed the following:
+
+The value of the variable called `name`:
+
+<!-- @nocpy -->
+
+```bash
+Python
+```
+
+The `name` variable type (in this case a Python string):
+
+<!-- @nocpy -->
+
+```bash
+<class 'str'>
+```
+
+The methods available to that type:
+
+<!-- @nocpy -->
+
+```bash
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__',
+... abbreviated ...
+'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 ```
 
 > **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
@@ -209,6 +318,8 @@ Hello from Python!
 ## An Outbound HTTP Example
 
 This next example will create an outbound request, to obtain a random fact about animals, which will be returned to the calling code. If you would like to try this out, you can go ahead and update your existing `app.py` file from the previous step; using the following source code:
+
+<!-- @nocpy -->
 
 ```python
 from spin_sdk import http   
@@ -224,7 +335,7 @@ class IncomingHandler(http.IncomingHandler):
 
 ```
 
-### Configuration
+### Configuring Outbound Requests
 
 The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `random-data-api.fermyon.app` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_outbound_hosts`:
 
@@ -252,34 +363,33 @@ command = "spin py2wasm app -o app.wasm"
 
 ### Building and Running the Application
 
-If we re-build the application with this new configuration and re-run, we will get our new animal fact:
+Run the `spin build --up` command from within the project's directory; as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin build
-$ spin up
+$ spin build --up
 ```
 
-A new request now correctly returns an animal fact from the API endpoint.
+With Spin running our application in our terminal, we can now go ahead (grab a new terminal) and call the Spin application via an HTTP request:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
-
+$ curl -i localhost:3000
 HTTP/1.1 200 OK
 content-type: text/plain
-content-length: 130
+content-length: 99
+date: Mon, 15 Apr 2024 04:52:45 GMT
 
-Here is an animal fact: {"timestamp":1684299253331,"fact":"Reindeer grow new antlers every year"}   
+Here is an animal fact: {"timestamp":1713156765221,"fact":"Bats are the only mammals that can fly"}
 ```
 
 ## An Outbound Redis Example
 
 In this final example, we talk to an existing Redis instance. You can find the official [instructions on how to install Redis here](https://redis.io/docs/getting-started/installation/). We also gave a quick run-through on setting up Redis with Spin in our previous article called [Persistent Storage in Webassembly Applications](https://www.fermyon.com/blog/persistent-storage-in-webassembly-applications), so please take a look at that blog if you need a hand.
 
-### Configuration
+### Configuring Outbound Redis
 
 After installing Redis on localhost, we add two entries to the `spin.toml` file:
 
@@ -312,21 +422,22 @@ command = "spin py2wasm app -o app.wasm"
 
 If you are still following along, please go ahead and update your `app.py` file one more time, as follows:
 
+<!-- @nocpy -->
+
 ```python
 from spin_sdk import http, redis, variables
 from spin_sdk.http import Request, Response
 
 class IncomingHandler(http.IncomingHandler):
     def handle_request(self, request: Request) -> Response:
-        with redis.open(variables.get("redis_address").decode) as db:
+        with redis.open(variables.get("redis_address")) as db:
             db.set("foo", b"bar")
             value = db.get("foo")
-            db.del( ["testIncr"])
             db.incr("testIncr")
             db.sadd("testSets", ["hello", "world"])
             content = db.smembers("testSets")
             db.srem("testSets", ["hello"])
-            assert value == b"bar", f"expected \"bar\", got \"{str(value, 'utf-8')}\"
+            assert value == b"bar", f"expected \"bar\", got \"{str(value, 'utf-8')}\""
 
         return Response(200,
                     {"content-type": "text/plain"},
@@ -335,28 +446,26 @@ class IncomingHandler(http.IncomingHandler):
 
 ### Building and Running the Application
 
-After we re-build and re-run, again, we can make one final request to our Spin application:
+Run the `spin build --up` command from within the project's directory; as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin build
-$ spin up
+$ spin build --up
 ```
 
-This latest request correctly returns the correct output, in accordance with our Python source code from above:
+In a new terminal, make the request via the curl command, as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
-
+$ curl -i localhost:3000
 HTTP/1.1 200 OK
 content-type: text/plain
-content-length: 40
-date = "2023-11-04T00:00:01Z"
+content-length: 35
+date: Mon, 15 Apr 2024 05:53:17 GMT
 
-Executed outbound Redis commands: /hello
+Executed outbound Redis commands: /
 ```
 
 If we go into our Redis CLI on localhost we can see that the value `foo` which was set in the Python source code ( `redis_set(redis_address, "foo", b"bar")` ) is now correctly set to the value of `bar`:
@@ -380,3 +489,20 @@ For more information about using SQLite from Python, see [SQLite storage](sqlite
 ## AI Inferencing From Python Components
 
 For more information about using Serverless AI from Python, see the [Serverless AI](serverless-ai-api-guide) API guide.
+
+## Troubleshooting
+
+If you bump into issues when installing the requirements.txt. For example:
+
+<!-- @nocpy -->
+
+```console
+error: externally-managed-environment
+× This environment is externally managed
+```
+
+Please note, this error is specific to Homebrew-installed Python installations and occurs because installing a **non-brew-packaged** Python package requires you to either:
+- create a virtual environment using `python3 -m venv path/to/venv`, or
+- use the `--break-system-packages` option in your `pip3 install` command i.e. `pip3 install -r requirements.txt --break-system-packages`
+
+We recommend installing a virtual environment using `venv`, as shown in the [system housekeeping section](#system-housekeeping-use-a-virtual-environment) above.

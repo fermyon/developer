@@ -24,24 +24,106 @@ There is also a [Spin SDK for Python](https://github.com/fermyon/spin-python-sdk
 
 The Spin SDK makes it very easy to build Python-based Wasm applications simply by using a Spin template that handles all of the heavy lifting.
 
+## Spin's Python HTTP Request Handler Template
+
+Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk/tree/main/) using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+```
+
+The above command will install the `http-py` template and produce an output similar to the following:
+
+<!-- @nocpy -->
+
+```text
+Copying remote template source
+Installing template http-py...
+Installed 1 template(s)
+
++---------------------------------------------+
+| Name      Description                       |
++=============================================+
+| http-py   HTTP request handler using Python |
++---------------------------------------------+
+```
+
+**Please note:** For more information about managing `spin templates`, see the [templates section](../spin/v2/cli-reference#spin-templates) in the Spin Command Line Interface (CLI) documentation.
+
 ## Example
 
-Create a new project:
+Let's use Spin's Python HTTP request handler template, to create a new project:
 
 ```console
-$ spin new http-py python-example --accept-defaults
+$ spin new python-example -t http-py --accept-defaults
+```
+
+## System Housekeeping (Use a Virtual Environment)
+
+Once the app is created, we can change into the `python-example` directory, create and activate a virtual environment and then install the apps requirements:
+
+<!-- @selectiveCpy -->
+
+```console
+$ cd python-example
+```
+
+Create a virtual environment directory (we are still inside the Spin app directory):
+
+<!-- @selectiveCpy -->
+
+```console
+# python<version> -m venv <virtual-environment-name>
+$ python3 -m venv venv-dir
+```
+
+Activate the virtual environment (this command depends on which operating system you are using):
+
+<!-- @selectiveCpy -->
+
+```console
+# macOS command to activate
+$ source venv-dir/bin/activate
+```
+
+The `(venv-dir)` will prefix your terminal prompt now:
+
+<!-- @nocpy -->
+
+```console
+(venv-dir) user@123-456-7-8 python-example %
+```
+
+## Requirements
+
+The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed right there in your virtual environment using:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ pip3 install -r requirements.txt
 ```
 
 Take a look at the scaffolded program in `app.py`:
 
 ```python
-from spin_http import Response
+from spin_sdk.http import IncomingHandler, Request, Response
 
-def handle_request(request):
+class IncomingHandler(IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes("Hello from Python!", "utf-8")
+        )
+```
 
-    return Response(200,
-                    {"content-type": "text/plain"},
-                    bytes(f"Hello from the Python SDK", "utf-8"))
+Change into the app directory and install the requirements:
+
+```console
+$ pip3 install -r requirements.txt
 ```
 
 Compile a Wasm binary with the scripts preloaded, and then start up a local server:
@@ -74,9 +156,13 @@ $ ls -lah app.wasm
 
 ## Learn More
 
-Joel's video on Spin, Python, and Components:
+Live Code Tuesday Video (Python & Wasm - Let's talk about componentize-py w/ Joel Dice, Streamed live on Mar 13, 2024)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PkAO17lmqsI?si=mO2rY-u06IvWB-gv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="854" height="480" src="https://www.youtube.com/embed/JeRyh-Jj7wk?si=Bzfm97YGaJmiPVHD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Joel's video on Spin, Python, and Components (Recorded at WasmCon on Sep 12, 2023):
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/PkAO17lmqsI?si=mO2rY-u06IvWB-gv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Here are some great resources:
 - A tutorial for building [Python Wasm apps with Spin](https://dev.to/technosophos/building-a-serverless-webassembly-app-with-spin-5dh9)
@@ -91,3 +177,18 @@ Here are some great resources:
 - An in-browser [Python shell in Wasm](https://github.com/ethanhs/python-wasm) (Not the preferred path)
 - One version of [CPython + Wasm](https://github.com/ethanhs/python-wasm), where they are working on [WASI support](https://github.com/ethanhs/python-wasm/issues/18)
 - [SingleStore's wasi-python project](https://github.com/singlestore-labs/python-wasi) is another approach
+
+## Troubleshooting
+
+If you bump into issues when installing the requirements.txt. For example:
+
+```console
+error: externally-managed-environment
+× This environment is externally managed
+```
+
+Please note, this error is specific to Homebrew-installed Python installations and occurs because installing a **non-brew-packaged** Python package requires you to either:
+- create a virtual environment using `python3 -m venv path/to/venv`, or
+- use the `--break-system-packages` option in your `pip3 install` command i.e. `pip3 install -r requirements.txt --break-system-packages`
+
+We recommend installing a virtual environment using `venv`, as shown in the [system housekeeping section](#system-housekeeping-use-a-virtual-environment) above.
