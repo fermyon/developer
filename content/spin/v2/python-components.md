@@ -5,8 +5,11 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-components.md"
 
 ---
-- [`componentize-py`](#componentize-py)
+- [Componentize-Py](#componentize-py)
 - [Spin's Python HTTP Request Handler Template](#spins-python-http-request-handler-template)
+- [Creating a New Python Component](#creating-a-new-python-component)
+  - [System Housekeeping (Use a Virtual Environment)](#system-housekeeping-use-a-virtual-environment)
+  - [Requirements](#requirements)
 - [Structure of a Python Component](#structure-of-a-python-component)
 - [A Simple HTTP Components Example](#a-simple-http-components-example)
   - [Building and Running the Application](#building-and-running-the-application)
@@ -19,6 +22,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-com
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [AI Inferencing From Python Components](#ai-inferencing-from-python-components)
+- [Troubleshooting](#troubleshooting)
 
 With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
 
@@ -28,13 +32,15 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk)
 
-## `componentize-py`
+## Componentize-Py
 
 The Python SDK is built using [`componentize-py`](https://github.com/bytecodealliance/componentize-py). It is a [Bytecode Alliance](https://bytecodealliance.org/) project that allows converting a Python application to a WebAssembly component. It can be installed using the following command:
 
 ```bash
 pip3 install componentize-py==0.12.0
 ```
+
+> **Please note:** The `hello-world` sample below installs `componentize-py` automatically via the `pip3 install -r requirements.txt` command - so feel free to skip this step if you are following the `hello-world` sample with us.
 
 ## Spin's Python HTTP Request Handler Template
 
@@ -64,7 +70,7 @@ Installed 1 template(s)
 
 **Please note:** For more information about managing `spin templates`, see the [templates section](./cli-reference#templates) in the Spin Command Line Interface (CLI) documentation.
 
-## Structure of a Python Component
+## Creating a New Python Component
 
 A new Python component can be created using the following command:
 
@@ -74,12 +80,67 @@ A new Python component can be created using the following command:
 $ spin new -t http-py hello-world --accept-defaults
 ```
 
-This creates a directory of the following structure:
+### System Housekeeping (Use a Virtual Environment)
+
+Once the component is created, we can change into the `hello-world` directory, create and activate a virtual environment and then install the component's requirements:
+
+<!-- @selectiveCpy -->
+
+```console
+$ cd hello-world
+```
+
+Install a virtual environment:
+
+<!-- @selectiveCpy -->
+
+```console
+$ pip install virtualenv
+```
+
+Create a virtual environment directory (we are still inside the Spin app directory):
+
+<!-- @selectiveCpy -->
+
+```console
+# python<version> -m venv <virtual-environment-name>
+$ python3.12 -m venv venv-dir
+```
+
+Activate the virtual environment (this command depends on which operating system you are using):
+
+<!-- @selectiveCpy -->
+
+```console
+# macOS command to activate
+$ source venv-dir/bin/activate
+```
+
+The `(venv-dir)` will prefix your terminal prompt now:
+
+<!-- @nocpy -->
+
+```console
+(venv-dir) user@123-456-7-8 hello-world %
+```
+
+### Requirements
+
+The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed in your virtual environment using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ pip3 install -r requirements.txt
+```
+
+## Structure of a Python Component
+
+The `hello-world` directory structure created by the Spin `http-py` template is shown below:
 
 <!-- @nocpy -->
 
 ```text
-hello-world/
 ├── app.py
 ├── spin.toml
 └── requirements.txt 
@@ -106,15 +167,6 @@ component = "hello-world"
 source = "app.wasm"
 [component.hello-world.build]
 command = "componentize-py -w spin-http componentize app -o app.wasm"
-```
-
-The `requirements.txt` by default contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed using:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ cd hello-world
-$ pip3 install -r requirements.txt
 ```
 
 ## A Simple HTTP Components Example
@@ -178,7 +230,6 @@ All you need to do is run the `spin build` command from within the project's dir
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd hello-world
 $ spin build
 ```
 
@@ -380,3 +431,18 @@ For more information about using SQLite from Python, see [SQLite storage](sqlite
 ## AI Inferencing From Python Components
 
 For more information about using Serverless AI from Python, see the [Serverless AI](serverless-ai-api-guide) API guide.
+
+## Troubleshooting
+
+If you bump into issues when installing the requirements.txt. For example:
+
+```console
+error: externally-managed-environment
+× This environment is externally managed
+```
+
+Please note, this error occurs because installing a **non-brew-packaged** Python package requires you to either:
+- create a virtual environment using `python3 -m venv path/to/venv`, or
+- use the `--break-system-packages` option in your `pip3 install` command i.e. `pip3 install -r requirements.txt --break-system-packages`
+
+We recommend installing a virtual environment using `venv`, as shown in the [system housekeeping section](#system-housekeeping-use-a-virtual-environment) above.
