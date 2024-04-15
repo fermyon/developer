@@ -195,7 +195,7 @@ error: externally-managed-environment
 × This environment is externally managed
 ```
 
-Please note, this error occurs because installing a **non-brew-packaged** Python package requires you to either:
+Please note, this error is specific to Homebrew-installed Python installations and occurs because installing a **non-brew-packaged** Python package requires you to either:
 - create a virtual environment using `python3 -m venv path/to/venv`, or
 - use the `--break-system-packages` option in your `pip3 install` command i.e. `pip3 install -r requirements.txt --break-system-packages`
 
