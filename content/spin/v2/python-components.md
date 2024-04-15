@@ -16,10 +16,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-com
 - [A HTTP Request Parsing Example](#a-http-request-parsing-example)
   - [Building and Running the Application](#building-and-running-the-application-1)
 - [An Outbound HTTP Example](#an-outbound-http-example)
-- [Configuring Outbound Requests](#configuring-outbound-requests)
+  - [Configuring Outbound Requests](#configuring-outbound-requests)
   - [Building and Running the Application](#building-and-running-the-application-2)
 - [An Outbound Redis Example](#an-outbound-redis-example)
-  - [Configuration](#configuration)
+  - [Configuring Outbound Redis](#configuring-outbound-redis)
   - [Building and Running the Application](#building-and-running-the-application-3)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
@@ -343,7 +343,7 @@ class IncomingHandler(http.IncomingHandler):
 
 ```
 
-## Configuring Outbound Requests
+### Configuring Outbound Requests
 
 The Spin framework protects your code from making outbound requests to just any URL. For example, if we try to run the above code **without any additional configuration**, we will correctly get the following error `AssertionError: HttpError::DestinationNotAllowed`. To allow our component to request the `random-data-api.fermyon.app` domain, all we have to do is add that domain to the specific component of the application that is making the request. Here is an example of an updated `spin.toml` file where we have added `allowed_outbound_hosts`:
 
@@ -397,7 +397,7 @@ Here is an animal fact: {"timestamp":1713156765221,"fact":"Bats are the only mam
 
 In this final example, we talk to an existing Redis instance. You can find the official [instructions on how to install Redis here](https://redis.io/docs/getting-started/installation/). We also gave a quick run-through on setting up Redis with Spin in our previous article called [Persistent Storage in Webassembly Applications](https://www.fermyon.com/blog/persistent-storage-in-webassembly-applications), so please take a look at that blog if you need a hand.
 
-### Configuration
+### Configuring Outbound Redis
 
 After installing Redis on localhost, we add two entries to the `spin.toml` file:
 
