@@ -12,13 +12,14 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-com
   - [Requirements](#requirements)
 - [Structure of a Python Component](#structure-of-a-python-component)
 - [A Simple HTTP Components Example](#a-simple-http-components-example)
-  - [Building and Running the Application](#building-and-running-the-application)
+- [Building and Running the Application](#building-and-running-the-application)
+  - [Building and Running the Application](#building-and-running-the-application-1)
 - [An Outbound HTTP Example](#an-outbound-http-example)
   - [Configuration](#configuration)
-  - [Building and Running the Application](#building-and-running-the-application-1)
+  - [Building and Running the Application](#building-and-running-the-application-2)
 - [An Outbound Redis Example](#an-outbound-redis-example)
   - [Configuration](#configuration-1)
-  - [Building and Running the Application](#building-and-running-the-application-2)
+  - [Building and Running the Application](#building-and-running-the-application-3)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [AI Inferencing From Python Components](#ai-inferencing-from-python-components)
@@ -195,6 +196,38 @@ The important things to note in the implementation above:
 
 The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. 
 
+## Building and Running the Application
+
+All you need to do is run the `spin build` command from within the project's directory; as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin build
+```
+
+Essentially, we have just created a new Spin compatible module which can now be run using the `spin up` command, as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin up
+```
+
+With Spin running our application in our terminal, we can now go ahead (grab a new terminal) and call the Spin application via an HTTP request:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -i localhost:3000
+
+HTTP/1.1 200 OK
+content-type: text/plain
+content-length: 25
+
+Hello from Python!
+```
+
 The following snippet shows how you can access parts of the request e.g. the `request.method` and the `request.body`:
 
 ```python
@@ -246,13 +279,45 @@ With Spin running our application in our terminal, we can now go ahead (grab a n
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000/hello
+$ curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"name":"Python"}' \
+  http://localhost:3000/
 
 HTTP/1.1 200 OK
 content-type: text/plain
-content-length: 25
+content-length: 37
+date: Mon, 15 Apr 2024 04:26:00 GMT
 
-Hello from Python!
+Practicing reading the request object
+```
+
+The response "Practicing reading the request object" is returned as expected. In addition, if we check the terminal where Spin is running, we will see that the console logs printed the following:
+
+The value of the variable called `name`:
+
+<!-- @nocpy -->
+
+```bash
+Python
+```
+
+The `name` variable type (in this case a Python string):
+
+<!-- @nocpy -->
+
+```bash
+<class 'str'>
+```
+
+The methods available to that type:
+
+<!-- @nocpy -->
+
+```bash
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__',
+... abbreviated ...
+'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 ```
 
 > **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
