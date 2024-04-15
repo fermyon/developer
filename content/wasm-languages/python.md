@@ -70,14 +70,6 @@ Once the app is created, we can change into the `python-example` directory, crea
 $ cd python-example
 ```
 
-Install the `virtualenv` tool:
-
-<!-- @selectiveCpy -->
-
-```console
-$ pip install virtualenv
-```
-
 Create a virtual environment directory (we are still inside the Spin app directory):
 
 <!-- @selectiveCpy -->
