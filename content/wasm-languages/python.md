@@ -84,7 +84,7 @@ Create a virtual environment directory (we are still inside the Spin app directo
 
 ```console
 # python<version> -m venv <virtual-environment-name>
-$ python3.12 -m venv venv-dir
+$ python3 -m venv venv-dir
 ```
 
 Activate the virtual environment (this command depends on which operating system you are using):
