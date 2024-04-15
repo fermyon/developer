@@ -90,7 +90,7 @@ Once the component is created, we can change into the `hello-world` directory, c
 $ cd hello-world
 ```
 
-Install a virtual environment:
+Install the `virtualenv` tool:
 
 <!-- @selectiveCpy -->
 

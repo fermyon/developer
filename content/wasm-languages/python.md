@@ -70,7 +70,7 @@ Once the app is created, we can change into the `python-example` directory, crea
 $ cd python-example
 ```
 
-Install a virtual environment:
+Install the `virtualenv` tool:
 
 <!-- @selectiveCpy -->
 
@@ -200,4 +200,3 @@ Please note, this error occurs because installing a **non-brew-packaged** Python
 - use the `--break-system-packages` option in your `pip3 install` command i.e. `pip3 install -r requirements.txt --break-system-packages`
 
 We recommend installing a virtual environment using `venv`, as shown in the [system housekeeping section](#system-housekeeping-use-a-virtual-environment) above.
-
