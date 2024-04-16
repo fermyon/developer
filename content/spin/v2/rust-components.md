@@ -330,7 +330,7 @@ mod api {
 }
 ```
 
-> For further reference, see the [Spin SDK HTTP router](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Router.html).
+> The Spin SDK HTTP router has additional async methods. For example, the `get_async` and `post_async` methods register an async handler at the path for the HTTP GET and HTTP POST methods. For further reference, see the [Spin SDK HTTP router](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Router.html).
 
 ## Storing Data in Redis From Rust Components
 
