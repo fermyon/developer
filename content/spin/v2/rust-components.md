@@ -293,6 +293,8 @@ proxies or URL shorteners.
 
 ## Routing in a Component
 
+<!-- @searchTerm "async" -->
+
 The Rust SDK [provides a router](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/http-router) that makes it easier to handle routing within a component:
 
 ```rust
@@ -327,6 +329,8 @@ mod api {
     }
 }
 ```
+
+Handlers within a `Router` can be sync or async. Use `Router`'s "plain" methods (e.g. `get`, `post`) to assign synchronous handlers, and its "async" methods (e.g. `get_async`, `post_async`) for asynchronous handlers.  You can mix sync and async handlers in the same `Router`, and can use `handle` or `handle_async` to invoke `Router` processing, regardless of whether invididual handlers are sync or async.
 
 > For further reference, see the [Spin SDK HTTP router](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Router.html).
 
