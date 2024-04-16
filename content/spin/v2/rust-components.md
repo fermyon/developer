@@ -293,6 +293,8 @@ proxies or URL shorteners.
 
 ## Routing in a Component
 
+<!-- @searchTerm "async" -->
+
 The Rust SDK [provides a router](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/http-router) that makes it easier to handle routing within a component:
 
 ```rust
