@@ -290,7 +290,17 @@ If you have not done so already, please go ahead and perform the `npm install` c
 $ npm install
 ```
 
-With all Node dependencies installed, you can now check for broken links (which takes several minutes) and also lint your markdown files. Simply run the following command, from the root of the developer repository:
+On top of the Node dependencies the `timeout` executable must be installed on your system and added to the `PATH` environment variable. The `timeout` executable is included in the [gnu coreutils package](https://www.gnu.org/software/coreutils/) which should be present in most Linux distributions. 
+
+On macOS you can install the `timeout` binary using the Homebrew package manager as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ brew install coreutils
+```
+
+Having all dependencies installed, you can now check for broken links (which takes several minutes) and also lint your markdown files. Simply run the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 
