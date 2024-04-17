@@ -96,7 +96,7 @@ We require commits to be signed both with an email address and with a GPG signat
 $ git commit -S -s -m "<your commit message>"
 ```
 
-> Some contributors like to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) convention for commit messages.
+> Some contributors like to follow the [Conventional Commits](https://github.com/conventional-commits) convention for commit messages.
 
 We try to only keep useful changes as separate commits — if you prefer to commit
 often, please
