@@ -28,7 +28,7 @@ from the community and the maintainers before you start working on your feature.
 The following guide is intended to make sure your contribution can get merged as
 soon as possible. First, make sure you have Rust installed.
 
-![Rust Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffermyon%2Fspin%2Fmain%2FCargo.toml&query=$[%27workspace%27][%27package%27][%27rust-version%27]&label=Rust%20Version&logo=Rust)
+![Rust Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffermyon%2Fspin%2Fmain%2FCargo.toml&query=$[%27workspace%27][%27package%27][%27rust-version%27]&label=Rust%20Version&logo=Rust&color=orange)
 
 After [installing Rust](https://www.rust-lang.org/tools/install) please ensure the `wasm32-wasi` and
   `wasm32-unknown-unknown` targets are configured. For example:

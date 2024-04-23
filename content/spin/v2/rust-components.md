@@ -547,7 +547,7 @@ If you bump into issues building and running your Rust component, here are some 
 - Make sure `cargo` is present in your path.
 - Make sure the [Rust](https://www.rust-lang.org/) version is recent.
 
-![Rust Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffermyon%2Fspin%2Fmain%2FCargo.toml&query=$[%27workspace%27][%27package%27][%27rust-version%27]&label=Rust%20Version&logo=Rust)
+![Rust Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffermyon%2Fspin%2Fmain%2FCargo.toml&query=$[%27workspace%27][%27package%27][%27rust-version%27]&label=Rust%20Version&logo=Rust&color=orange)
 
   - To check: run  `cargo --version`.  
   - To update: run `rustup update`.
