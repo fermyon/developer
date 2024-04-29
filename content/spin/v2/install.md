@@ -286,51 +286,9 @@ Then install plugins by name.
 
 Python:
 
-> Historic: You may have seen a `py2wasm` plugin in your travels. Please note, `py2wasm` has since been replaced by `componentize-py`. 
+> Historic: You may have seen a `py2wasm` plugin in your travels. Please note, that `py2wasm` has since been replaced by `componentize-py`. (The `componentize-py` workflow is different from the historical `py2wasm` plugin-based approach.)
 
-The process of getting your system ready to write Wasm-powered Python applications using `componentize-py` is as follows. Create a virtual environment directory (we are still inside the Spin app directory):
-
-<!-- @selectiveCpy -->
-
-```console
-# python<version> -m venv <virtual-environment-name>
-$ python3 -m venv venv-dir
-```
-
-Activate the virtual environment (this command depends on which operating system you are using):
-
-<!-- @selectiveCpy -->
-
-```console
-# macOS command to activate
-$ source venv-dir/bin/activate
-```
-
-If you are using Windows, use the following commands:
-
-```bash
-C:\Work> python3 -m venv venv
-C:\Work> venv\Scripts\activate
-```
-
-The `(venv-dir)` will prefix your terminal prompt now:
-
-<!-- @nocpy -->
-
-```console
-(venv-dir) user@123-456-7-8 hello-python %
-```
-
-The `spin-python=sdk` template contains a [requirements.txt file] that specifies the `spin-sdk` and `componentize-py` packages (as well as the version numbers). You can fetch the requirements.txt file and install the dependencies in your virtual environment using the following command:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ wget https://raw.githubusercontent.com/fermyon/spin-python-sdk/main/templates/http-py/content/requirements.txt
-$ pip3 install -r requirements.txt 
-```
-
-> You may prefer to reference the [requirements.txt file](https://github.com/fermyon/spin-python-sdk/blob/main/templates/http-py/content/requirements.txt) and install each of the dependencies manually.
+The process of getting your system ready to write Wasm-powered Python applications using `componentize-py` can now be found in (the Building Spin Components in Python)[./python-components.md#componentize-py] area of the documentation.
 
 Javascript:
 
