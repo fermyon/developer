@@ -118,7 +118,7 @@ command = "componentize-py -w spin-http componentize app -o app.wasm"
 watch = ["*.py", "requirements.txt"]
 
 [component.pw-checker.variables]
-password = "\{{ secret }}"
+password = "{{ secret }}"
 ```
 
 The resulting application manifest should look similar to the following:
@@ -173,9 +173,8 @@ class IncomingHandler(IncomingHandler):
         response = f'\{{"authentication": "{access}"}}'
         return Response(
             200,
-            {"content-type": "text/plain"},
-            bytes("Hello from Python!", "utf-8")
-        )
+            {"content-type": "application/json"},
+            bytes(response, "utf-8"))
 ```
 
 Build and run the application locally to test it out. We will use the [environment variable provider](/spin/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_VARIABLE_`:
