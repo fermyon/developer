@@ -166,7 +166,7 @@ from spin_sdk.variables import get
 class IncomingHandler(IncomingHandler):
     def handle_request(self, request: Request) -> Response:
         password = request.body.decode("utf-8")
-        expected = config_get("password")
+        expected = get("password")
         access = "denied"
         if expected == password:
             access = "accepted"
