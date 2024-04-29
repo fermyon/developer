@@ -205,7 +205,7 @@ $ spin plugins install js2wasm --yes
 
 {{ startTab "Python" }}
 
-You may have see a `py2wasm` plugin in your travels. Please note, `py2wasm` (an experiment to build a Spin Python SDK using CPython, Wizer, and PyO3) has since been replaced by Componentize-Py. The process of getting your system ready to write Wasm-powered Python applications is as follows:
+You may have seen a `py2wasm` plugin in your travels. Please note, `py2wasm` (an experiment to build a Spin Python SDK using CPython, Wizer, and PyO3) has since been replaced by `componentize-py`. The process of getting your system ready to write Wasm-powered Python applications is as follows:
 
 <!-- @selectiveCpy -->
 
