@@ -348,14 +348,6 @@ The `requirements.txt`, by default, contains the references to the `spin-sdk` an
 $ pip3 install -r requirements.txt 
 ```
 
-From here the App is ready to build and run:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin build -u
-```
-
 Javascript:
 
 <!-- @selectiveCpy -->

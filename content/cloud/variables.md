@@ -161,7 +161,7 @@ Now that we have defined our variables and surfaced them to our component, we ar
 
 ```py
 from spin_sdk.http import IncomingHandler, Request, Response
-from spin_config import config_get
+from spin_sdk.variables import get
 
 class IncomingHandler(IncomingHandler):
     def handle_request(self, request: Request) -> Response:

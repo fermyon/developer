@@ -528,7 +528,7 @@ spin_manifest_version = 2
 name = "hello-python"
 version = "0.1.0"
 authors = ["Your Name <your-name@example.com>"]
-description = ""
+description = "My first Python Spin application"
 
 [[trigger.http]]
 route = "/..."
@@ -560,7 +560,7 @@ class IncomingHandler(IncomingHandler):
         return Response(
             200,
             {"content-type": "text/plain"},
-            bytes("Hello from Python!", "utf-8")
+            bytes("Hello from the Python SDK!", "utf-8")
         )
 ```
 
