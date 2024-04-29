@@ -477,7 +477,7 @@ Activate the virtual environment (this command depends on which operating system
 <!-- @selectiveCpy -->
 
 ```console
-# macOS command to activate
+# macOS & Linux command to activate
 $ source venv-dir/bin/activate
 ```
 
