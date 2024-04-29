@@ -286,21 +286,22 @@ Then install plugins by name.
 
 Python:
 
-You may have see a `py2wasm` plugin in your travels. Please note, `py2wasm` (an experiment to build a Spin Python SDK using CPython, Wizer, and PyO3) has since been replaced by Componentize-Py. The process of getting your system ready to write Wasm-powered Python applications is as follows:
+> Historic: You may have see a `py2wasm` plugin in your travels. Please note, `py2wasm` (an experiment to build a Spin Python SDK using CPython, Wizer, and PyO3) has since been replaced by `componentize-py`. 
+
+The process of getting your system ready to write Wasm-powered Python applications, using `componentize-py` is as follows:
 
 <!-- @selectiveCpy -->
 
 ```bash
-# As shown above, we install the Python SDK (which provides us with Spin's http-py tempate)
 $ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
 ```
 
-Once we have the above `spin-python-sdk` installed we can scaffold out a new App using the `http-py` template. The scaffolded App has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and run harness the `requirements.txt`:
+Once we have the above `spin-python-sdk` installed we can scaffold out a new app using the `http-py` template. The scaffolded app has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and run harness the `requirements.txt`:
 
 <!-- @selectiveCpy -->
 
 ```bash
-# We then create our App using http-py
+# We then create our app using http-py
 $ spin new -t http-py hello-python --accept-defaults
 ```
 
@@ -309,7 +310,7 @@ Once the component is created, we can change into the `hello-python` directory, 
 <!-- @selectiveCpy -->
 
 ```bash
-# Change into the App directory
+# Change into the app directory
 $ cd hello-python
 ```
 
@@ -329,6 +330,13 @@ Activate the virtual environment (this command depends on which operating system
 ```console
 # macOS command to activate
 $ source venv-dir/bin/activate
+```
+
+If you are using Windows, use the following commands:
+
+```bash
+C:\Work> python3 -m venv venv
+C:\Work> venv\Scripts\activate
 ```
 
 The `(venv-dir)` will prefix your terminal prompt now:

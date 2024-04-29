@@ -421,7 +421,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk/tree/main/) using the following command:
+You can install the Spin template for Python HTTP handlers from the [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk) using the following command:
 
 <!-- @selectiveCpy -->
 
@@ -541,7 +541,7 @@ command = "componentize-py -w spin-http componentize app -o app.wasm"
 ```
 This represents a simple Spin HTTP application (triggered by an HTTP request).  It has:
 
-* A single HTTP trigger, for the `/...` route, is associated with the `hello-python` component.  `/...` is a wildcard, meaning it will match any route.  When the application gets an HTTP request that matches this route - that is, any HTTP request at all! - Spin will run the `hello-python` component.
+* A single HTTP trigger, for the `/...` route, associated with the `hello-python` component.  `/...` is a wildcard, meaning it will match any route.  When the application gets an HTTP request that matches this route - that is, any HTTP request at all! - Spin will run the `hello-python` component.
 * A single component called `hello-python`, whose implementation is in the associated `app.wasm` WebAssembly component.  When, in response to the HTTP trigger, Spin runs this component, it will execute the HTTP handler in `app.wasm`.  (We're about to see the source code for that.)
 
 [Learn more about the manifest here.](./writing-apps)

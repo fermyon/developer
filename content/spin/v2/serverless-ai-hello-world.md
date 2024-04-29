@@ -113,9 +113,9 @@ The Python code snippets below are taken from the [Fermyon Serverless AI Example
 <!-- @selectiveCpy -->
  
 ```bash
-# Create new App
+# Create new app
 $ spin new -t http-py hello-world --accept-defaults
-# Change into App directory
+# Change into app directory
 $ cd hello-world
 Enter a name for your new application: hello-world
 Description: My first Serverless AI app
