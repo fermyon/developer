@@ -288,30 +288,12 @@ Python:
 
 > Historic: You may have seen a `py2wasm` plugin in your travels. Please note, `py2wasm` has since been replaced by `componentize-py`. 
 
-The process of getting your system ready to write Wasm-powered Python applications, using `componentize-py` is as follows:
+The process of getting your system ready to write Wasm-powered Python applications using `componentize-py` is as follows:
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
-```
-
-Once we have the above `spin-python-sdk` installed we can scaffold out a new app using the `http-py` template. The scaffolded app has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and install the `requirements.txt`:
-
-<!-- @selectiveCpy -->
-
-```bash
-# We then create our app using http-py
-$ spin new -t http-py hello-python --accept-defaults
-```
-
-Once the component is created, we can change into the `hello-python` directory, create and activate a virtual environment and then install the component's requirements:
-
-<!-- @selectiveCpy -->
-
-```bash
-# Change into the app directory
-$ cd hello-python
 ```
 
 Create a virtual environment directory (we are still inside the Spin app directory):
@@ -347,14 +329,16 @@ The `(venv-dir)` will prefix your terminal prompt now:
 (venv-dir) user@123-456-7-8 hello-python %
 ```
 
-The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed in your virtual environment using the following command:
+The `spin-python=sdk` template contains a [requirements.txt file] that specifies the `spin-sdk` and `componentize-py` packages (as well as the version numbers). You can fetch the requirements.txt file and install the dependencies in your virtual environment using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-# Now we can install Componentize-Py and the Spin SDK via the requirements file
+$ wget https://raw.githubusercontent.com/fermyon/spin-python-sdk/main/templates/http-py/content/requirements.txt
 $ pip3 install -r requirements.txt 
 ```
+
+> You may prefer to reference the [requirements.txt file](https://github.com/fermyon/spin-python-sdk/blob/main/templates/http-py/content/requirements.txt) and install each of the dependencies manually.
 
 Javascript:
 
