@@ -286,10 +286,74 @@ Then install plugins by name.
 
 Python:
 
+You may have see a `py2wasm` plugin in your travels. Please note, `py2wasm` (an experiment to build a Spin Python SDK using CPython, Wizer, and PyO3) has since been replaced by Componentize-Py. The process of getting your system ready to write Wasm-powered Python applications is as follows:
+
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin plugins install py2wasm --yes
+# As shown above, we install the Python SDK (which provides us with Spin's http-py tempate)
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+```
+
+Once we have the above `spin-python-sdk` installed we can scaffold out a new App using the `http-py` template. The scaffolded App has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and run harness the `requirements.txt`:
+
+<!-- @selectiveCpy -->
+
+```bash
+# We then create our App using http-py
+$ spin new -t http-py hello-python --accept-defaults
+```
+
+Once the component is created, we can change into the `hello-python` directory, create and activate a virtual environment and then install the component's requirements:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Change into the App directory
+$ cd hello-python
+```
+
+Create a virtual environment directory (we are still inside the Spin app directory):
+
+<!-- @selectiveCpy -->
+
+```console
+# python<version> -m venv <virtual-environment-name>
+$ python3 -m venv venv-dir
+```
+
+Activate the virtual environment (this command depends on which operating system you are using):
+
+<!-- @selectiveCpy -->
+
+```console
+# macOS command to activate
+$ source venv-dir/bin/activate
+```
+
+The `(venv-dir)` will prefix your terminal prompt now:
+
+<!-- @nocpy -->
+
+```console
+(venv-dir) user@123-456-7-8 hello-python %
+```
+
+The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed in your virtual environment using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Now we can install Componentize-Py and the Spin SDK via the requirements file
+$ pip3 install -r requirements.txt 
+```
+
+From here the App is ready to build and run:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin build -u
 ```
 
 Javascript:

@@ -54,8 +54,30 @@ $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 ```
  
 **Python**
+
+Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk/tree/main/) using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+```
  
-The above installation script automatically installs the latest SDKs for Python, which enables Serverless AI functionality.
+As a standard practice for Python, create and activate a virtual env:
+
+If you are on a Mac/linux based operating system use the following commands:
+
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+```
+
+If you are using Windows, use the following commands:
+
+```bash
+C:\Work> python3 -m venv venv
+C:\Work> venv\Scripts\activate
+```
  
 ## Licenses
  
@@ -91,10 +113,47 @@ The Python code snippets below are taken from the [Fermyon Serverless AI Example
 <!-- @selectiveCpy -->
  
 ```bash
-$ spin new -t http-py
+# Create new App
+$ spin new -t http-py hello-world --accept-defaults
+# Change into App directory
+$ cd hello-world
 Enter a name for your new application: hello-world
 Description: My first Serverless AI app
 HTTP path: /...
+```
+
+Create a virtual environment directory (we are still inside the Spin app directory):
+
+<!-- @selectiveCpy -->
+
+```console
+# python<version> -m venv <virtual-environment-name>
+$ python3 -m venv venv-dir
+```
+
+Activate the virtual environment (this command depends on which operating system you are using):
+
+<!-- @selectiveCpy -->
+
+```console
+# macOS command to activate
+$ source venv-dir/bin/activate
+```
+
+The `(venv-dir)` will prefix your terminal prompt now:
+
+<!-- @nocpy -->
+
+```console
+(venv-dir) user@123-456-7-8 hello-world %
+```
+
+The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed in your virtual environment using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ pip3 install -r requirements.txt 
 ```
  
 {{ blockEnd }}
@@ -190,10 +249,10 @@ command = "npm run build"
 spin_manifest_version = 2
 
 [application]
+authors = ["Your Name <your-name@example.com>"]
+description = ""
 name = "hello-world"
 version = "0.1.0"
-authors = ["Your Name <your-name@example.com>"]
-description = "My first Serverless AI app"
 
 [[trigger.http]]
 route = "/..."
@@ -201,9 +260,9 @@ component = "hello-world"
 
 [component.hello-world]
 source = "app.wasm"
-ai_models = ["llama2-chat"]
 [component.hello-world.build]
-command = "spin py2wasm app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
+watch = ["*.py", "requirements.txt"]
 ```
  
 {{ blockEnd }}
