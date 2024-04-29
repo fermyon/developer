@@ -55,7 +55,7 @@ $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
  
 **Python**
 
-Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk/tree/main/) using the following command:
+To enable Serverless AI functionality via Python, please ensure you have the latest Python template installed:
 
 <!-- @selectiveCpy -->
 
