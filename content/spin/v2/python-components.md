@@ -363,7 +363,8 @@ component = "hello-world"
 source = "app.wasm"
 allowed_outbound_hosts = ["https://random-data-api.fermyon.app"]
 [component.hello-world.build]
-command = "spin py2wasm app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
+watch = ["*.py", "requirements.txt"]
 ```
 
 ### Building and Running the Application

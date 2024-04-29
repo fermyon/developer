@@ -398,7 +398,7 @@ Use the `spin new` command and the `http-py` template to scaffold a new Spin app
 $ spin new
 Pick a template to start your application with:
 > http-py (HTTP request handler using Python)
-Enter a name for your new application: hello_python
+Enter a name for your new application: hello-python
 Description: My first Python Spin application
 HTTP path: /...
 ```
@@ -413,7 +413,7 @@ spin_manifest_version = 2
 [application]
 authors = ["Your Name <your-name@example.com>"]
 description = "My first Python Spin application"
-name = "hello_python"
+name = "hello-python"
 version = "0.1.0"
 
 [[trigger.http]]
@@ -423,8 +423,8 @@ component = "hello-python"
 [component.hello-python]
 source = "app.wasm"
 [component.hello-python.build]
-command = "spin py2wasm app -o app.wasm"
-watch = ["app.py", "Pipfile"]
+command = "componentize-py -w spin-http componentize app -o app.wasm"
+watch = ["*.py", "requirements.txt"]
 ```
 
 {{ blockEnd }}
@@ -553,15 +553,14 @@ If the build fails, check:
 
 ```bash
 $ spin build
-Building component hello-python with `spin py2wasm app -o app.wasm`
-Spin-compatible module built successfully
+Building component hello-python with `componentize-py -w spin-http componentize app -o app.wasm`
+Component built successfully
 Finished building all Spin components
 ```
 
 If the build fails, check:
 
-* Are you in the `hello_python` directory?
-* Did you install the `py2wasm` plugin?
+* Are you in the `hello-python` directory?
 
 {{ blockEnd }}
 
