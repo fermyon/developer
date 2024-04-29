@@ -570,6 +570,8 @@ Finished building all Spin components
 If the build fails, check:
 
 * Are you in the `hello-python` directory?
+* Did you install the requirements?
+* Is your virtual environment still activated?
 
 {{ blockEnd }}
 
