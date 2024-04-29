@@ -214,7 +214,7 @@ You may have seen a `py2wasm` plugin in your travels. Please note, `py2wasm` (an
 $ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
 ```
 
-Once we have the above `spin-python-sdk` installed we can scaffold out a new App using the `http-py` template. The scaffolded App has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and run harness the `requirements.txt`:
+Once we have the above `spin-python-sdk` installed we can scaffold out a new app using the `http-py` template. The scaffolded app has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and install the contents of `requirements.txt`:
 
 <!-- @selectiveCpy -->
 
