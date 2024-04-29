@@ -288,15 +288,7 @@ Python:
 
 > Historic: You may have seen a `py2wasm` plugin in your travels. Please note, `py2wasm` has since been replaced by `componentize-py`. 
 
-The process of getting your system ready to write Wasm-powered Python applications using `componentize-py` is as follows:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
-```
-
-Create a virtual environment directory (we are still inside the Spin app directory):
+The process of getting your system ready to write Wasm-powered Python applications using `componentize-py` is as follows. Create a virtual environment directory (we are still inside the Spin app directory):
 
 <!-- @selectiveCpy -->
 
