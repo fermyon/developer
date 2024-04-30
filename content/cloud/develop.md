@@ -212,7 +212,7 @@ The process of getting your system ready to write Wasm-powered Python applicatio
 <!-- @selectiveCpy -->
 
 ```bash
-# As shown above, we install the Python SDK (which provides us with Spin's http-py tempate)
+# As shown above, we install the Python SDK (which provides us with Spin's http-py template)
 $ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
 ```
 
