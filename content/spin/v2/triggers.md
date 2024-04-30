@@ -115,7 +115,7 @@ spin_manifest_version = 2
 [application]
 name = "http-trigger-example"
 version = "0.1.0"
-authors = ["tpmccallum <tim.mccallum@fermyon.com>"]
+authors = ["Your Name <your-name@example.com>"]
 description = "A HTTP trigger example"
 
 [[trigger.http]]
