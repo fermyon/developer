@@ -97,9 +97,9 @@ $ spin new -t http-rust http-trigger-example
 Description: A HTTP trigger example
 HTTP path: /...
 # Change into to the application directory
-$ cd trigger-example 
+$ cd http-trigger-example 
 # Add a Redis trigger application
-$ spin add -t redis-rust trigger-example
+$ spin add -t redis-rust redis-trigger-example
 Description: A multiple trigger example
 Redis address: redis://localhost:6379
 Redis channel: one
@@ -115,7 +115,7 @@ spin_manifest_version = 2
 [application]
 name = "http-trigger-example"
 version = "0.1.0"
-authors = ["Your Name <your-name@example.com>"]
+authors = ["tpmccallum <tim.mccallum@fermyon.com>"]
 description = "A HTTP trigger example"
 
 [[trigger.http]]
@@ -129,18 +129,18 @@ allowed_outbound_hosts = []
 command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
-[application.trigger.redis]
-address = "redis://localhost:6379"
-
 [[trigger.redis]]
 channel = "one"
-component = "trigger-example"
+component = "redis-trigger-example"
 
-[component.trigger-example]
-source = "trigger-example/target/wasm32-wasi/release/trigger_example.wasm"
+[component.redis-trigger-example]
+source = "redis-trigger-example/target/wasm32-wasi/release/redis_trigger_example.wasm"
 allowed_outbound_hosts = []
-[component.trigger-example.build]
+[component.redis-trigger-example.build]
 command = "cargo build --target wasm32-wasi --release"
-workdir = "trigger-example"
-watch = ["src/**/*.rs", "Cargo.toml"]                                
+workdir = "redis-trigger-example"
+watch = ["src/**/*.rs", "Cargo.toml"]
+
+[application.trigger.redis]
+address = "redis://localhost:6379"                               
 ```
