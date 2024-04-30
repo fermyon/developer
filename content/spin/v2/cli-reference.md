@@ -3832,22 +3832,22 @@ The following additional trigger options are available for the [spin up](#spin-u
 <!-- @selectiveCpy -->
 
 ```console
-    --listen <ADDRESS>
-        IP address and port to listen on
-        
-        [default: 127.0.0.1:3000]
+--listen <ADDRESS>
+    IP address and port to listen on
+    
+    [default: 127.0.0.1:3000]
 
-    --tls-cert <TLS_CERT>
-        The path to the certificate to use for https, if this is not set, normal http will be
-        used. The cert should be in PEM format
-        
-        [env: SPIN_TLS_CERT=]
+--tls-cert <TLS_CERT>
+    The path to the certificate to use for https, if this is not set, normal http will be
+    used. The cert should be in PEM format
+    
+    [env: SPIN_TLS_CERT=]
 
-    --tls-key <TLS_KEY>
-        The path to the certificate key to use for https, if this is not set, normal http will
-        be used. The key should be in PKCS#8 format
-        
-        [env: SPIN_TLS_KEY=]
+--tls-key <TLS_KEY>
+    The path to the certificate key to use for https, if this is not set, normal http will
+    be used. The key should be in PKCS#8 format
+    
+    [env: SPIN_TLS_KEY=]
 ```
 
 {{ blockEnd }}
