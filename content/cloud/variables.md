@@ -29,7 +29,7 @@ Since this example is written in Python, make sure you have the required tools i
 <!-- @selectiveCpy -->
 
 ```bash
-# As shown above, we install the Python SDK (which provides us with Spin's http-py tempate)
+# As shown above, we install the Python SDK (which provides us with Spin's http-py template)
 $ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
 ```
 
