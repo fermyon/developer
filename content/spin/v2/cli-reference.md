@@ -20,6 +20,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/cli-refere
 - [spin doctor](#spin-doctor)
 - [spin help](#spin-help)
 - [spin kube](#spin-kube)
+- [spin kube completion](#spin-kube-completion)
+- [spin kube scaffold](#spin-kube-scaffold)
 - [spin login](#spin-login)
 - [spin new](#spin-new)
 - [spin plugins](#spin-plugins)
@@ -872,11 +874,33 @@ OPTIONS:
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin kube
 
-{ tabs "spin-version" }}
+{ tabs "spin-version" }
 
 {{ startTab "v2.5"}}
 
-The `spin kube` command is implemented by the [spin-plugin-kube](https://www.spinkube.dev/docs/spin-plugin-kube/reference/).
+The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/).
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin kube completion
+
+{ tabs "spin-version" }
+
+{{ startTab "v2.5"}}
+
+The `spin kube completion` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/#spin-kube-completion).
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin kube scaffold
+
+{ tabs "spin-version" }
+
+{{ startTab "v2.5"}}
+
+The `spin kube scaffold` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/#spin-kube-scaffold).
 
 {{ blockEnd }}
 
