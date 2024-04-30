@@ -112,6 +112,13 @@ Activate the virtual environment (this command depends on which operating system
 $ source venv-dir/bin/activate
 ```
 
+If you are using Windows, use the following commands:
+
+```bash
+C:\Work> python3 -m venv venv
+C:\Work> venv\Scripts\activate
+```
+
 The `(venv-dir)` will prefix your terminal prompt now:
 
 <!-- @nocpy -->
@@ -197,8 +204,6 @@ The important things to note in the implementation above:
 
 - the `handle_request` method is the entry point for the Spin component.
 - the component returns a `spin_sdk.http.Response`.
-
-The source code for this Python HTTP component example is in the `app.py` file. The `app.py` file is compiled into a `.wasm` module thanks to the `py2wasm` plugin. This all happens behind the scenes. 
 
 ### Building and Running the Application
 
@@ -365,7 +370,8 @@ component = "hello-world"
 source = "app.wasm"
 allowed_outbound_hosts = ["https://random-data-api.fermyon.app"]
 [component.hello-world.build]
-command = "spin py2wasm app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
+watch = ["*.py", "requirements.txt"]
 ```
 
 ### Building and Running the Application

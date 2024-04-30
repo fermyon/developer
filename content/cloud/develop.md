@@ -205,13 +205,83 @@ $ spin plugins install js2wasm --yes
 
 {{ startTab "Python" }}
 
-You'll need the Spin `py2wasm` plugin:
+> Historic: You may have seen a `py2wasm` plugin in your travels. Please note, `py2wasm` has since been replaced by `componentize-py`. 
+
+The process of getting your system ready to write Wasm-powered Python applications, using `componentize-py` is as follows:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin plugins update
-$ spin plugins install py2wasm --yes
+# As shown above, we install the Python SDK (which provides us with Spin's http-py template)
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+```
+
+Once we have the Spin template(s) from the `spin-python-sdk` repository we can scaffold out a new app. For this example, we will be using the `http-py` template. The scaffolded app, that the `http-py` template creates, has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and install the contents of `requirements.txt`:
+
+<!-- @selectiveCpy -->
+
+```bash
+# We then create our app using http-py
+$ spin new -t http-py hello-python --accept-defaults
+```
+
+Once the component is created, we can change into the `hello-python` directory, create and activate a virtual environment and then install the component's requirements:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Change into the app directory
+$ cd hello-python
+```
+
+Create a virtual environment directory (we are still inside the Spin app directory):
+
+<!-- @selectiveCpy -->
+
+```console
+# python<version> -m venv <virtual-environment-name>
+$ python3 -m venv venv-dir
+```
+
+Activate the virtual environment (this command depends on which operating system you are using):
+
+<!-- @selectiveCpy -->
+
+```console
+# macOS & Linux command to activate
+$ source venv-dir/bin/activate
+```
+
+If you are using Windows, use the following commands:
+
+```bash
+C:\Work> python3 -m venv venv
+C:\Work> venv\Scripts\activate
+```
+
+The `(venv-dir)` will prefix your terminal prompt now:
+
+<!-- @nocpy -->
+
+```console
+(venv-dir) user@123-456-7-8 hello-python %
+```
+
+The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed in your virtual environment using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Now we can install Componentize-Py and the Spin SDK via the requirements file
+$ pip3 install -r requirements.txt 
+```
+
+From here the app is ready to build and run:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin build --up
 ```
 
 [Learn more in the language guide.](/spin/python-components)
@@ -337,7 +407,7 @@ Use the `spin new` command and the `http-py` template to scaffold a new Spin app
 $ spin new
 Pick a template to start your application with:
 > http-py (HTTP request handler using Python)
-Enter a name for your new application: hello_python
+Enter a name for your new application: hello-python
 Description: My first Python Spin application
 HTTP path: /...
 ```
@@ -352,7 +422,7 @@ spin_manifest_version = 2
 [application]
 authors = ["Your Name <your-name@example.com>"]
 description = "My first Python Spin application"
-name = "hello_python"
+name = "hello-python"
 version = "0.1.0"
 
 [[trigger.http]]
@@ -362,8 +432,8 @@ component = "hello-python"
 [component.hello-python]
 source = "app.wasm"
 [component.hello-python.build]
-command = "spin py2wasm app -o app.wasm"
-watch = ["app.py", "Pipfile"]
+command = "componentize-py -w spin-http componentize app -o app.wasm"
+watch = ["*.py", "requirements.txt"]
 ```
 
 {{ blockEnd }}
@@ -492,15 +562,16 @@ If the build fails, check:
 
 ```bash
 $ spin build
-Building component hello-python with `spin py2wasm app -o app.wasm`
-Spin-compatible module built successfully
+Building component hello-python with `componentize-py -w spin-http componentize app -o app.wasm`
+Component built successfully
 Finished building all Spin components
 ```
 
 If the build fails, check:
 
-* Are you in the `hello_python` directory?
-* Did you install the `py2wasm` plugin?
+* Are you in the `hello-python` directory?
+* Did you install the requirements?
+* Is your virtual environment still activated?
 
 {{ blockEnd }}
 

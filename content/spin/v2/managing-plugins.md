@@ -91,7 +91,6 @@ $ spin plugins search
 befunge2wasm 1.4.0 [incompatible]
 js2wasm 0.3.0 [installed]
 js2wasm 0.4.0
-py2wasm 0.1.0 [installed]
 trigger-sqs 0.1.0
 ```
 

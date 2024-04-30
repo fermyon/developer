@@ -127,10 +127,12 @@ Compile a Wasm binary with the scripts preloaded, and then start up a local serv
 
 ```console
 $ spin build --up
-Building component python-example with `spin py2wasm app -o app.wasm`
-Spin-compatible module built successfully
+Building component python-example with `componentize-py -w spin-http componentize app -o app.wasm`
+Component built successfully
 Finished building all Spin components
 Logging component stdio to ".spin/logs/"
+Preparing Wasm modules is taking a few seconds...
+
 
 Serving http://127.0.0.1:3000
 Available Routes:

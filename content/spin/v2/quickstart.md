@@ -12,6 +12,7 @@ keywords = "quickstart"
   - [Install a Template](#install-a-template)
   - [Install the Tools](#install-the-tools)
 - [Create Your First Application](#create-your-first-application)
+- [Structure of a Python Component](#structure-of-a-python-component)
 - [Build Your Application](#build-your-application)
 - [Run Your Application](#run-your-application)
 - [Deploy Your Application to Fermyon Cloud](#deploy-your-application-to-fermyon-cloud)
@@ -420,27 +421,104 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 
 {{ startTab "Python"}}
 
-Use the `spin new` command and the `http-py` template to scaffold a new Spin application.
+You can install the Spin template for Python HTTP handlers from the [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk) using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new
-Pick a template to start your application with:
-> http-py (HTTP request handler using Python)
-Enter a name for your new application: hello_python
-Description: My first Python Spin application
-HTTP path: /...
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
 ```
+
+The above command will install the `http-py` template and produce an output similar to the following:
+
+<!-- @nocpy -->
+
+```text
+Copying remote template source
+Installing template http-py...
+Installed 1 template(s)
+
++---------------------------------------------+
+| Name      Description                       |
++=============================================+
+| http-py   HTTP request handler using Python |
++---------------------------------------------+
+```
+
+**Please note:** For more information about managing `spin templates`, see the [templates section](./cli-reference#templates) in the Spin Command Line Interface (CLI) documentation.
 
 This command created a directory with the necessary files needed to build and run a Python Spin application.  Change to that directory, and look at the files.  It contains a minimal Python application:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd hello_python
-$ tree
-.
+$ spin new -t http-py hello-python --accept-defaults
+```
+
+Once the component is created, we can change into the `hello-python` directory, create and activate a virtual environment and then install the component's requirements:
+
+<!-- @selectiveCpy -->
+
+```console
+$ cd hello-python
+```
+
+Create a virtual environment directory (we are still inside the Spin app directory):
+
+<!-- @selectiveCpy -->
+
+```console
+# python<version> -m venv <virtual-environment-name>
+$ python3 -m venv venv-dir
+```
+
+Activate the virtual environment (this command depends on which operating system you are using):
+
+<!-- @selectiveCpy -->
+
+```console
+# macOS & Linux command to activate
+$ source venv-dir/bin/activate
+```
+
+If you are using Windows, use the following commands:
+
+```bash
+C:\Work> python3 -m venv venv
+C:\Work> venv\Scripts\activate
+```
+
+The `(venv-dir)` will prefix your terminal prompt now:
+
+<!-- @nocpy -->
+
+```console
+(venv-dir) user@123-456-7-8 hello-python %
+```
+
+The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed in your virtual environment using the following command:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ pip3 install -r requirements.txt 
+Collecting spin-sdk==3.1.0 (from -r requirements.txt (line 1))
+  Using cached spin_sdk-3.1.0-py3-none-any.whl.metadata (16 kB)
+Collecting componentize-py==0.13.3 (from -r requirements.txt (line 2))
+  Using cached componentize_py-0.13.3-cp37-abi3-macosx_10_12_x86_64.whl.metadata (3.4 kB)
+Using cached spin_sdk-3.1.0-py3-none-any.whl (94 kB)
+Using cached componentize_py-0.13.3-cp37-abi3-macosx_10_12_x86_64.whl (38.8 MB)
+Installing collected packages: spin-sdk, componentize-py
+Successfully installed componentize-py-0.13.3 spin-sdk-3.1.0
+```
+
+## Structure of a Python Component
+
+The `hello-python` directory structure created by the Spin `http-py` template is shown below:
+
+<!-- @nocpy -->
+
+```text
 ├── app.py
 ├── spin.toml
 └── requirements.txt 
@@ -454,7 +532,7 @@ The additional `spin.toml` file is the manifest file, which tells Spin what even
 spin_manifest_version = 2
 
 [application]
-name = "hello_python"
+name = "hello-python"
 version = "0.1.0"
 authors = ["Your Name <your-name@example.com>"]
 description = "My first Python Spin application"
@@ -466,9 +544,8 @@ component = "hello-python"
 [component.hello-python]
 source = "app.wasm"
 [component.hello-python.build]
-command = "spin py2wasm app -o app.wasm"
+command = "componentize-py -w spin-http componentize app -o app.wasm"
 ```
-
 This represents a simple Spin HTTP application (triggered by an HTTP request).  It has:
 
 * A single HTTP trigger, for the `/...` route, associated with the `hello-python` component.  `/...` is a wildcard, meaning it will match any route.  When the application gets an HTTP request that matches this route - that is, any HTTP request at all! - Spin will run the `hello-python` component.
@@ -478,13 +555,14 @@ This represents a simple Spin HTTP application (triggered by an HTTP request).  
 
 Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in Python — a regular function named `handle_request` that
-takes an HTTP request as a parameter and returns an HTTP response.  The Spin `py2wasm` plugin looks for the `handle_request` function by name when building your application into a Wasm module.
+takes an HTTP request as a parameter and returns an HTTP response.
+
+<!-- @nocpy -->
 
 ```python
-from spin_sdk import http
-from spin_sdk.http import Request, Response
+from spin_sdk.http import IncomingHandler, Request, Response
 
-class IncomingHandler(http.IncomingHandler):
+class IncomingHandler(IncomingHandler):
     def handle_request(self, request: Request) -> Response:
         return Response(
             200,
@@ -693,7 +771,6 @@ You can always run this command manually; `spin build` is a shortcut.
 
 As a standard practice for Python, create and activate a virtual env:
 
-
 If you are on a Mac/linux based operating system use the following commands:
 
 ```bash
@@ -728,7 +805,7 @@ Finished building all Spin components
 
 If the build fails, check:
 
-* Are you in the `hello_python` directory?
+* Are you in the `hello-python` directory?
 * Did you install the requirements?
 * Is your virtual environment still activated?
 

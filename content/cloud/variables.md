@@ -8,7 +8,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/variables.md
 ---
 
 - [Prerequisites](#prerequisites)
-- [Creating Our Spin Application](#creating-our-spin-application)
 - [Adding Variables to an Application Component](#adding-variables-to-an-application-component)
 - [Using Variables in a Spin Application](#using-variables-in-a-spin-application)
 - [Deploying the Application to Fermyon Cloud](#deploying-the-application-to-fermyon-cloud)
@@ -25,51 +24,73 @@ This tutorial will guide you through the process of creating a simple applicatio
 
 Before starting, ensure that you have Spin v1.3.0 or greater installed on your computer. You can follow the official Fermyon Cloud Quickstart guide to [install Spin](/cloud/quickstart#install-spin) and [log into Fermyon Cloud](/cloud/quickstart#log-in-to-the-fermyon-cloud).
 
-Since this example is written in Python, make sure you have the required tools installed to write Spin applications in Python. The Spin CLI facilitates the creation of new Spin applications using application [templates](/cloud/cli-reference#templates). In this tutorial, we will use the `http-py` template. Install it along with the `py2wasm` Spin plugin, which enables compiling Python apps to Wasm, using the following commands:
+Since this example is written in Python, make sure you have the required tools installed to write Spin applications in Python. The Spin CLI facilitates the creation of new Spin applications using application [templates](/cloud/cli-reference#templates). In this tutorial, we will use the `http-py` template that provides a `requirements.txt` file to handle dependencies:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
-$ spin plugins update
-$ spin plugins install py2wasm --yes
+# As shown above, we install the Python SDK (which provides us with Spin's http-py template)
+$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
 ```
 
-The output from the above commands should be similar to the following:
+Once we have the Spin template(s) from the `spin-python-sdk` repository we can scaffold out a new app. For this example, we will be using the `http-py` template. The scaffolded app, that the `http-py` template creates, has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and install the contents of `requirements.txt`:
+
+<!-- @selectiveCpy -->
+
+```bash
+# We then create our app using http-py
+$ spin new -t http-py pw_checker --accept-defaults
+```
+
+Once the component is created, we can change into the `pw_checker` directory, create and activate a virtual environment and then install the component's requirements:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Change into the app directory
+$ cd pw_checker
+```
+
+Create a virtual environment directory (we are still inside the Spin app directory):
+
+<!-- @selectiveCpy -->
+
+```console
+# python<version> -m venv <virtual-environment-name>
+$ python3 -m venv venv-dir
+```
+
+Activate the virtual environment (this command depends on which operating system you are using):
+
+<!-- @selectiveCpy -->
+
+```console
+# macOS & Linux command to activate
+$ source venv-dir/bin/activate
+```
+
+If you are using Windows, use the following commands:
+
+```bash
+C:\Work> python3 -m venv venv
+C:\Work> venv\Scripts\activate
+```
+
+The `(venv-dir)` will prefix your terminal prompt now:
 
 <!-- @nocpy -->
 
-```text
-Copying remote template source
-Installing template http-py...
-Installed 1 template(s)
-
-+---------------------------------------------+
-| Name      Description                       |
-+=============================================+
-| http-py   HTTP request handler using Python |
-+---------------------------------------------+
-
-Plugin 'py2wasm' was installed successfully!
-
-Description:
-	A plugin to convert Python applications to Spin compatible modules
-
-Homepage:
-	https://github.com/fermyon/spin-python-sdk
+```console
+(venv-dir) user@123-456-7-8 pw_checker %
 ```
 
-## Creating Our Spin Application
-
-Let's start by [creating a new Spin application](/cloud/cli-reference#new) using the Python template. Follow the steps below:
+The `requirements.txt`, by default, contains the references to the `spin-sdk` and `componentize-py` packages. These can be installed in your virtual environment using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin new -t http-py           
-Enter a name for your new application: pw_checker
-Description: A Spin app that validates a password
-HTTP path: /...
+# Now we can install Componentize-Py and the Spin SDK via the requirements file
+$ pip3 install -r requirements.txt 
 ```
 
 ## Adding Variables to an Application Component
@@ -81,9 +102,13 @@ In reality, you'd have multiple usernames and password hashes in a database, but
 <!-- @nocpy -->
 
 ```toml
-# Add this above the [component.pw-checker] section
+# Add the [variables] above the [component.pw-checker] section, as shown below
+
 [variables]
 secret = { required = true }
+
+[component.pw-checker]
+source = "app.wasm"
 ```
 
 To surface the variable to the `pw-checker` component, add a `[component.pw-checker.variables]` section in the component and specify the variable within it. Instead of statically assigning the value of the config variable, we are referencing the dynamic variable with [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use the variables in their configuration section will get access to them. This enables only exposing variables and secrets to the desired components of an application:
@@ -91,9 +116,14 @@ To surface the variable to the `pw-checker` component, add a `[component.pw-chec
 <!-- @nocpy -->
 
 ```toml
-# Add this below the [component.pw-checker.build] section
+# Add the [component.pw-checker.variables] below the [component.pw-checker.build] section, as shown below
+
+[component.pw-checker.build]
+command = "componentize-py -w spin-http componentize app -o app.wasm"
+watch = ["*.py", "requirements.txt"]
+
 [component.pw-checker.variables]
-password = "\{{ secret }}"
+password = "{{ secret }}"
 ```
 
 The resulting application manifest should look similar to the following:
@@ -125,27 +155,31 @@ command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
 [component.pw-checker.variables]
-password = "\{{ secret }}"
+password = "{{ secret }}"
 ```
 
 ## Using Variables in a Spin Application
 
 Now that we have defined our variables and surfaced them to our component, we are ready to implement our Spin application. The application should get the user-provided password from the body of the HTTP request, compare it to the expected password set in our configuration variable, and authenticate accordingly. We will use the Spin `spin_config` module to retrieve the value of the `password` variable:
 
-```py
-from spin_http import Response
-from spin_config import config_get
+<!-- @selectiveCpy -->
 
-def handle_request(request):
-    password = request.body.decode("utf-8")
-    expected = config_get("password")
-    access = "denied"
-    if expected == password:
-        access = "accepted"
-    response = f'\{{"authentication": "{access}"}}'
-    return Response(200,
-                    {"content-type": "application/json"},
-                    bytes(response, "utf-8"))
+```py
+from spin_sdk.http import IncomingHandler, Request, Response
+from spin_sdk.variables import get
+
+class IncomingHandler(IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        password = request.body.decode("utf-8")
+        expected = get("password")
+        access = "denied"
+        if expected == password:
+            access = "accepted"
+        response = f'\{{"authentication": "{access}"}}'
+        return Response(
+            200,
+            {"content-type": "application/json"},
+            bytes(response, "utf-8"))
 ```
 
 Build and run the application locally to test it out. We will use the [environment variable provider](/spin/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_VARIABLE_`:
