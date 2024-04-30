@@ -224,6 +224,7 @@ OPTIONS:
     -h, --help                         Print help information
         --init                         Create the new application or component in the current
                                        directory
+        --no-vcs                       An optional argument that allows to skip creating .gitignore
     -o, --output <OUTPUT_PATH>         The directory in which to create the new application or
                                        component. The default is the name argument
     -t, --template <TEMPLATE_ID>       The template from which to create the new application or
@@ -2487,8 +2488,9 @@ ARGS:
                    ghcr.io/ogghead/spin-test-app:0.1.0
 
 OPTIONS:
-    -h, --help        Print help information
-    -k, --insecure    Ignore server certificate errors
+        --cache-dir <CACHE_DIR>    Cache directory for downloaded registry data
+    -h, --help                     Print help information
+    -k, --insecure                 Ignore server certificate errors
 ```
 
 {{ blockEnd }}
@@ -2641,8 +2643,12 @@ ARGS:
                    ghcr.io/ogghead/spin-test-app:0.1.0
 
 OPTIONS:
+        --annotation <ANNOTATIONS>    Specifies the OCI image manifest annotations (in key=value
+                                      format). Any existing value will be overwritten. Can be used
+                                      multiple times
         --build                       Specifies to perform `spin build` before pushing the
                                       application [env: SPIN_ALWAYS_BUILD=]
+        --cache-dir <CACHE_DIR>       Cache directory for downloaded registry data
     -f, --from <APP_MANIFEST_FILE>    The application to push. This may be a manifest (spin.toml)
                                       file, or a directory containing a spin.toml file. If omitted,
                                       it defaults to "spin.toml" [default: spin.toml]
@@ -3644,19 +3650,19 @@ USAGE:
     spin up [OPTIONS]
 
 OPTIONS:
-        --build                 For local apps, specifies to perform `spin build` before running the
-                                application [env: SPIN_ALWAYS_BUILD=]
+        --build                    For local apps, specifies to perform `spin build` before running
+                                   the application [env: SPIN_ALWAYS_BUILD=]
         --cache-dir <CACHE_DIR>    Cache directory for downloaded components and assets
-        --direct-mounts         For local apps with directory mounts and no excluded files, mount
-                                them directly instead of using a temporary directory
-    -e, --env <ENV>             Pass an environment variable (key=value) to all components of the
-                                application
-    -f, --from <APPLICATION>    The application to run. This may be a manifest (spin.toml) file, a
-                                directory containing a spin.toml file, or a remote registry
-                                reference. If omitted, it defaults to "spin.toml"
-    -h, --help                  
-    -k, --insecure              Ignore server certificate errors from a registry
-        --temp <TMP>            Temporary directory for the static assets of the components
+        --direct-mounts            For local apps with directory mounts and no excluded files, mount
+                                   them directly instead of using a temporary directory
+    -e, --env <ENV>                Pass an environment variable (key=value) to all components of the
+                                   application
+    -f, --from <APPLICATION>       The application to run. This may be a manifest (spin.toml) file,
+                                   a directory containing a spin.toml file, or a remote registry
+                                   reference. If omitted, it defaults to "spin.toml"
+    -h, --help                     
+    -k, --insecure                 Ignore server certificate errors from a registry
+        --temp <TMP>               Temporary directory for the static assets of the components
 
 HTTP TRIGGER OPTIONS:
         --allow-transient-write
@@ -3826,22 +3832,22 @@ The following additional trigger options are available for the [spin up](#spin-u
 <!-- @selectiveCpy -->
 
 ```console
---listen <ADDRESS>
-    IP address and port to listen on
-    
-    [default: 127.0.0.1:3000]
+    --listen <ADDRESS>
+        IP address and port to listen on
+        
+        [default: 127.0.0.1:3000]
 
---tls-cert <TLS_CERT>
-    The path to the certificate to use for https, if this is not set, normal http will be
-    used. The cert should be in PEM format
-    
-    [env: SPIN_TLS_CERT=]
+    --tls-cert <TLS_CERT>
+        The path to the certificate to use for https, if this is not set, normal http will be
+        used. The cert should be in PEM format
+        
+        [env: SPIN_TLS_CERT=]
 
---tls-key <TLS_KEY>
-    The path to the certificate key to use for https, if this is not set, normal http will
-    be used. The key should be in PKCS#8 format
-    
-    [env: SPIN_TLS_KEY=]
+    --tls-key <TLS_KEY>
+        The path to the certificate key to use for https, if this is not set, normal http will
+        be used. The key should be in PKCS#8 format
+        
+        [env: SPIN_TLS_KEY=]
 ```
 
 {{ blockEnd }}
