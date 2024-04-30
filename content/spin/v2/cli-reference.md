@@ -19,6 +19,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/cli-refere
 - [spin deploy](#spin-deploy)
 - [spin doctor](#spin-doctor)
 - [spin help](#spin-help)
+- [spin kube](#spin-kube)
 - [spin login](#spin-login)
 - [spin new](#spin-new)
 - [spin plugins](#spin-plugins)
@@ -863,6 +864,19 @@ OPTIONS:
 {{ startTab "v2.5"}}
 
 > Please note: Spin `help` is a convenient way to access help using a subcommand, instead of using the `--help` option. For example, `spin help cloud` will give you the same output as `spin cloud --help`. Similarly, `spin help build` will give you the same output as `spin build --help` and so forth.
+
+{{ blockEnd }}
+
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin kube
+
+{ tabs "spin-version" }}
+
+{{ startTab "v2.5"}}
+
+The `spin kube` command is implemented by the [spin-plugin-kube](https://www.spinkube.dev/docs/spin-plugin-kube/reference/).
 
 {{ blockEnd }}
 
@@ -4099,7 +4113,7 @@ CLI commands have four phases that indicate levels of stability:
 | <code>spin registry</code>                                                            | Stabilizing  |
 | <code>spin doctor</code>                                                              | Experimental |
 | <code>spin watch</code>                                                               | Experimental |
-
+| <code>spin test</code>                                                               | Experimental |
 {{ blockEnd }}
 
 {{ blockEnd }}
