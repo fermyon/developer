@@ -12,6 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-outbo
 - [Making HTTP Requests Within an Application](#making-http-requests-within-an-application)
   - [Local Service Chaining](#local-service-chaining)
   - [Intra-Application HTTP Requests by Route](#intra-application-http-requests-by-route)
+  - [Private Endpoints](#private-endpoints)
 
 Spin provides an interface for you to make outgoing HTTP requests.
 
