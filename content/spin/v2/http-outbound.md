@@ -224,3 +224,7 @@ You must still grant permission by including `self` in `allowed_outbound_hosts`:
 ```toml
 allowed_outbound_hosts = ["http://self", "https://self"]
 ```
+
+### Private Endpoints
+
+Private endpoints represent internal microservices that are shielded from external network exposure. These endpoints do not have public HTTP routes and can only be accessed internally within the application's architecture.
