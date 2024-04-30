@@ -87,24 +87,22 @@ If you are not sure, or are not experienced, we recommend using named components
 
 In this section, we build an application that contains multiple triggers.
 
-> Note: Not all templates support the `spin add` command. In particular, at the time of writing, none of the default Redis templates support being added to existing applications. Therefore, if you want to use `spin add` to build an application with both Redis and HTTP triggers, you should first create a Redis application, then use `spin add` to add HTTP triggers, as shown below. (You won't be able to add additiona Redis triggers this way; if you need those, you'll need to set them up manually for now.)
-
 Here is an example of creating an application with both HTTP and Redis triggers:
 
 <!-- @nocpy -->
 
 ```bash
-# Start with a Redis trigger application
-$ spin new -t redis-rust trigger-example
+# Start with HTTP trigger application
+$ spin new -t http-rust http-trigger-example  
+Description: A HTTP trigger example
+HTTP path: /...
+# Change into to the application directory
+$ cd trigger-example 
+# Add a Redis trigger application
+$ spin add -t redis-rust trigger-example
 Description: A multiple trigger example
 Redis address: redis://localhost:6379
 Redis channel: one
-# Change into to the application directory
-$ cd trigger-example 
-# Create HTTP trigger application
-$ spin add -t http-rust http-trigger-example  
-Description: A HTTP trigger example
-HTTP path: /...
 ```
 
 The above `spin new` and `spin add` commands will scaffold a Spin manifest (`spin.toml` file) with the following triggers:
@@ -115,7 +113,21 @@ The above `spin new` and `spin add` commands will scaffold a Spin manifest (`spi
 spin_manifest_version = 2
 
 [application]
-name = "trigger-example"
+name = "http-trigger-example"
+version = "0.1.0"
+authors = ["Your Name <your-name@example.com>"]
+description = "A HTTP trigger example"
+
+[[trigger.http]]
+route = "/..."
+component = "http-trigger-example"
+
+[component.http-trigger-example]
+source = "target/wasm32-wasi/release/http_trigger_example.wasm"
+allowed_outbound_hosts = []
+[component.http-trigger-example.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
 
 [application.trigger.redis]
 address = "redis://localhost:6379"
@@ -124,7 +136,11 @@ address = "redis://localhost:6379"
 channel = "one"
 component = "trigger-example"
 
-[[trigger.http]]
-route = "/..."
-component = "http-trigger-example"
+[component.trigger-example]
+source = "trigger-example/target/wasm32-wasi/release/trigger_example.wasm"
+allowed_outbound_hosts = []
+[component.trigger-example.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "trigger-example"
+watch = ["src/**/*.rs", "Cargo.toml"]                                
 ```
