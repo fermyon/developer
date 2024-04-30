@@ -481,6 +481,13 @@ Activate the virtual environment (this command depends on which operating system
 $ source venv-dir/bin/activate
 ```
 
+If you are using Windows, use the following commands:
+
+```bash
+C:\Work> python3 -m venv venv
+C:\Work> venv\Scripts\activate
+```
+
 The `(venv-dir)` will prefix your terminal prompt now:
 
 <!-- @nocpy -->
