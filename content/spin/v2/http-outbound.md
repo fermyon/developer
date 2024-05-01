@@ -12,7 +12,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-outbo
 - [Making HTTP Requests Within an Application](#making-http-requests-within-an-application)
   - [Local Service Chaining](#local-service-chaining)
   - [Intra-Application HTTP Requests by Route](#intra-application-http-requests-by-route)
-  - [Private Endpoints](#private-endpoints)
 
 Spin provides an interface for you to make outgoing HTTP requests.
 
@@ -198,7 +197,7 @@ Both of these work only from HTTP components. That is, if you want to make an in
 
 To make an HTTP request to another component in your application, use the special `<component-id>.spin.internal` host name. For example, an outbound HTTP request to `authz.spin.internal` will be handled by the `authz` component.
 
-In this way of doing self-requests, the request is passed in memory without ever leaving the Spin host process. This is extremely fast, as the two components are wired almost directly together, but may reduce deployment flexibility depending on the nature of the microservices. Also, components that are the target of service chaining requests may see URLs in both routed and chained forms: therefore, if they parse the URL (for example, extracting a resource identifier from the path), they must ensure both forms are correctly handled.
+In this way of doing self-requests, the request is passed in memory without ever leaving the Spin host process. Local service chaining allows applications to have "private endpoints" (HTTP components that are never routed but instead reachable via service chaining). Service chaining is the only way to call these "private endpoints". This is extremely fast, as the two components are wired almost directly together, but may reduce deployment flexibility depending on the nature of the microservices. Also, components that are the target of service chaining requests may see URLs in both routed and chained forms: therefore, if they parse the URL (for example, extracting a resource identifier from the path), they must ensure both forms are correctly handled.
 
 You must still grant permission by including the relevant `spin.internal` hosts in `allowed_outbound_hosts`:
 
@@ -225,7 +224,3 @@ You must still grant permission by including `self` in `allowed_outbound_hosts`:
 ```toml
 allowed_outbound_hosts = ["http://self", "https://self"]
 ```
-
-### Private Endpoints
-
-Private endpoints represent internal microservices that are shielded from external network exposure. These endpoints do not have public HTTP routes and can only be accessed internally within the application's architecture.
