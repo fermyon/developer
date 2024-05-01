@@ -12,7 +12,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/rust-compo
 - [Redis Components](#redis-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Routing in a Component](#routing-in-a-component)
-- [Granular Routing](#granular-routing)
 - [Storing Data in Redis From Rust Components](#storing-data-in-redis-from-rust-components)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
   - [Serializing Objects to the Key-Value Store](#serializing-objects-to-the-key-value-store)
@@ -334,10 +333,6 @@ mod api {
 Handlers within a `Router` can be sync or async. Use `Router`'s "plain" methods (e.g. `get`, `post`) to assign synchronous handlers, and its "async" methods (e.g. `get_async`, `post_async`) for asynchronous handlers.  You can mix sync and async handlers in the same `Router`, and can use `handle` or `handle_async` to invoke `Router` processing, regardless of whether invididual handlers are sync or async.
 
 > For further reference, see the [Spin SDK HTTP router](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Router.html).
-
-## Granular Routing
-
-Granular routing allows for more precise control over the request-handling process. Based on the [routefinder](https://crates.io/crates/routefinder) crate, granular routing in Spin allows users to define dynamic routes where certain parts of the URL can change based on the input provided. A colon (`:`) precedes a variable segment in a URL. This segment captures part of the URL as a variable, which can be used in your route handler. For example, `/goodbye/:planet`. In this route, `:planet` is a variable segment. When a user accesses a URL like `/goodbye/mars`, the router matches this to the `/goodbye/:planet` pattern, and `mars` is captured as the value of `planet`. The `RouteMatch` for this request would include the handler associated with the pattern and a parameter map containing `planet: mars`; this parameter map is what your application uses to handle and subsequently process the request.
 
 ## Storing Data in Redis From Rust Components
 

@@ -78,6 +78,8 @@ route = "/users/..."
 component = "user-manager"
 ```
 
+Granular routing in Spin allows users to define dynamic routes where certain parts of the URL can change based on the input provided. A colon (`:`) precedes a variable segment in a URL. This variable segment captures part of the URL as a variable, which can be used in your route handler. For example, `/goodbye/:planet`. In this route, `:planet` is a variable segment. When a user accesses a URL like `/goodbye/mars`, the router matches this to the `/goodbye/:planet` pattern, and `mars` is captured as the value of `planet`.
+
 ### Routing with an Application `base`
 
 You can set a base path for the entire application using the optional `[application.trigger.http]` section:
