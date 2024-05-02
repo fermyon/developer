@@ -10,6 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-trigg
 - [HTTP Trigger Routes](#http-trigger-routes)
   - [Routing with an Application `base`](#routing-with-an-application-base)
   - [Resolving Overlapping Routes](#resolving-overlapping-routes)
+  - [Private Endpoints](#private-endpoints)
   - [Health Check Route](#health-check-route)
 - [Authoring HTTP Components](#authoring-http-components)
   - [The Request Handler](#the-request-handler)
@@ -123,6 +124,20 @@ component = "admin"
 route = "/..."
 component = "shop"
 ```
+
+### Private Endpoints
+
+Private endpoints are where an internal microservice is not exposed to the network (does not have an HTTP route) and so is accessible only from within the application.
+
+<!-- @nocpy -->
+
+```toml
+[[trigger.http]]
+route = { private = true }
+component = "internal"
+```
+
+Private endpoints still require the `allowed_outbound_hosts` to be set. See [local service chaining documentation](./http-outbound#local-service-chaining) for more information about configuring self-requests (where the request is passed in memory without ever leaving the Spin host process).
 
 ### Health Check Route
 
