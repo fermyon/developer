@@ -65,7 +65,7 @@ route = "/cart/checkout"
 component = "checkout"
 ```
 
-A _wildcard_ route matches the given route and any route under it.  A route is a wildcard if it ends in `/...`.  For example, `/users/...` matches `/users`, `/users/1`, `/users/1/edit`, and so on.  Any of these routes will run the mapped component.
+You can use wildcards to match 'patterns' of routes. Spin supports two kinds of wildcards: single-segment wildcards and trailing wildcards. A _wildcard_ route matches the given route and any route under it.  A route is a wildcard if it ends in `/...`.  For example, `/users/...` matches `/users`, `/users/1`, `/users/1/edit`, and so on.  Any of these routes will run the mapped component.
 
 > In particular, the route `/...` matches all routes.
 
@@ -78,8 +78,6 @@ A _wildcard_ route matches the given route and any route under it.  A route is a
 route = "/users/..."
 component = "user-manager"
 ```
-
-You can use wildcards to match 'patterns' of routes. Spin supports two kinds of wildcard: single-segment wildcards and trailing wildcards.
 
 A single-segment wildcard uses the syntax `:name`, where `name` is a name that identifies the wildcard. Such a wildcard will match only a single segment of a path, and allows further matching on segments beyond it. For example, `/users/:userid/edit` matches `/users/1/edit` and `/users/alice/edit`, but does not match `/users`, `/users/1`, or `/users/1/edit/cart`.
 
