@@ -90,8 +90,8 @@ $ vault kv put secret/secret value="test_password"
 $ vault kv get secret/secret
 ```
 
-4. Go to the [Vault variable test example](https://github.com/fermyon/spin/tree/main/examples/vault-variable-test) application.
-5. Build and run the `vault-variable-test` app:
+4. Go to the [Vault variable provider example](https://github.com/fermyon/enterprise-architectures-and-patterns/tree/main/application-variable-providers/vault-provider) application.
+5. Build and run the `vault-provider` app:
 
 <!-- @selectiveCpy -->
 
@@ -201,12 +201,12 @@ $ az role assignment create --assignee $CLIENT_ID \
   --scope $KV_SCOPE
 ```
 
-4. Go to the [Azure Key Vault variable test example](https://github.com/fermyon/spin/tree/main/examples/azure-key-vault-variable-test) application.
+4. Go to the [Azure Key Vault variable provider example](https://github.com/fermyon/enterprise-architectures-and-patterns/tree/main/application-variable-providers/azure-key-vault-provider) application.
 5. Replace Tokens in `runtime_config.toml`
 
-The `azure-key-vault-variable-test` application contains a `runtime_config.toml` file. Replace all tokens (e.g. `$KV_NAME$`) with the corresponding shell variables you created in the previous steps.   
+The `azure-key-vault-provider` application contains a `runtime_config.toml` file. Replace all tokens (e.g. `$KV_NAME$`) with the corresponding shell variables you created in the previous steps.   
 
-6. Build and run the `azure-key-vault-variable-test` app:
+6. Build and run the `azure-key-vault-provider` app:
 
 <!-- @selectiveCpy -->
 
