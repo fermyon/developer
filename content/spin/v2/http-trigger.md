@@ -356,7 +356,7 @@ func main() {}
 
 Exactly how the Spin SDK surfaces the request and response types varies from language to language; this section calls out general features.
 
-* In the request record, the URL contains the path and query, but not the scheme and host.  For example, in a request to `https://example.com/shop/users/1/cart/items/3`, the URL contains `/shop/users/1/cart/items/3`.  If you need the full URL, you can get it from the `spin-full-url` header - see the table below.
+* In the request record, the URL contains the path and query, but not the scheme and host.  For example, in a request to `https://example.com/shop/users/1/cart/items/3/edit?theme=pink`, the URL contains `/shop/users/1/cart/items/3/edit?theme=pink`.  If you need the full URL, you can get it from the `spin-full-url` header - see the table below.
 
 ### Additional Request Information
 
