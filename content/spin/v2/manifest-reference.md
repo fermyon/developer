@@ -152,7 +152,7 @@ Each array entry contains a mix of common fields and trigger-specific fields.
 
 | Name                    | Required?  | Type        | Value    | Example   |
 |-------------------------|------------|-------------|----------|-----------|
-| `route`                 | Required   | String or Table     | The route which this component handles. Requests to the route will cause the component to execute. | |
+| `route`                 | Required   | String or table     | The route which this component handles. Requests to the route will cause the component to execute. | |
 |                         |            | String     | This may be an exact route (`/example`), which matches on the given path, or a wildcard route indicated by the suffix `/...` (`/example/...`), which matches any route under this prefix. If two routes overlap, requests are directed to the matching route with the longest prefix - see [the HTTP trigger documentation](http-trigger) for details and examples. | `"/api/cart/..."` |
 |                         |            | Table     | If the component is a private endpoint used for [local service chaining](http-outbound#local-service-chaining) then use the table value shown here.  | `{ private = true }`|
 | `executor`              | Optional   | Table       | How Spin should invoke the component. If present, this is a table.  The `type` key is required and may have the values `"spin"` or `"wagi"`. If omitted. the default is `{ type = "spin"}`. See [the HTTP trigger documentation](http-trigger) for details. | `{ type = "wagi" }` |
