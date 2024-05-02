@@ -79,7 +79,11 @@ route = "/users/..."
 component = "user-manager"
 ```
 
-Granular routing in Spin allows users to define dynamic routes where certain parts of the URL can change based on the input provided. A colon (`:`) precedes a variable segment in a URL. This variable segment captures part of the URL as a variable, which can be used in your route handler. For example, `/goodbye/:planet`. In this route, `:planet` is a variable segment. When a user accesses a URL like `/goodbye/mars`, the router matches this to the `/goodbye/:planet` pattern, and `mars` is captured as the value of `planet`.
+You can use wildcards to match 'patterns' of routes. Spin supports two kinds of wildcard: single-segment wildcards and trailing wildcards.
+
+A single-segment wildcard uses the syntax `:name`, where `name` is a name that identifies the wildcard. Such a wildcard will match only a single segment of a path, and allows further matching on segments beyond it. For example, `/users/:userid/edit` matches `/users/1/edit` and `/users/alice/edit`, but does not match `/users`, `/users/1`, or `/users/1/edit/cart`.
+
+A trailing wildcard uses the syntax `/...` and matches the given route and any route under it.
 
 ### Routing with an Application `base`
 
@@ -362,13 +366,13 @@ As well as any headers passed by the client, Spin sets several headers on the re
 > * Spin is listening on `example.com:8080`
 > * The application `base` is `/shop`
 > * The trigger `route` is `/users/:userid/cart/...`
-> * The request is to `https://example.com:8080/shop/users/1/cart/items/3`
+> * The request is to `https://example.com:8080/shop/users/1/cart/items/3/edit?theme=pink`
 
 | Header Name                  | Value                | Example |
 |------------------------------|----------------------|---------|
-| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/cart/items/3` |
+| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/cart/items/3/edit?theme=pink` |
 | `spin-path-info`             | The request path relative to the component route (including any base) | `/items/3` |
-| `spin-matched-route`         | The part of the request path that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/:userid/cart/...` |
+| `spin-matched-route`         | The part of the trigger route that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/:userid/cart/...` |
 | `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/:userid/cart/...` |
 | `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users/:userid/cart` |
 | `spin-base-path`             | The application base path | `/shop` |
