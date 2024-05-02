@@ -141,7 +141,7 @@ route = { private = true }
 component = "internal"
 ```
 
-Private endpoints still require the `allowed_outbound_hosts` to be set. See [local service chaining documentation](./http-outbound#local-service-chaining) for more information about configuring self-requests (where the request is passed in memory without ever leaving the Spin host process).
+To access a private endpoint, use [local service chaining](./http-outbound#local-service-chaining) (where the request is passed in memory without ever leaving the Spin host process). Such calls still require the internal endpoint to be included in `allowed_outbound_hosts`.
 
 ### Health Check Route
 
