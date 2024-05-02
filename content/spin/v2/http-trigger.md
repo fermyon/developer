@@ -337,7 +337,7 @@ func main() {}
 
 Exactly how the Spin SDK surfaces the request and response types varies from language to language; this section calls out general features.
 
-* In the request record, the URL contains the path and query, but not the scheme and host.  For example, in a request to `https://example.com/shop/users/1?theme=pink`, the URL contains `/shop/users/1?theme=pink`.  If you need the full URL, you can get it from the `spin-full-url` header - see the table below.
+* In the request record, the URL contains the path and query, but not the scheme and host.  For example, in a request to `https://example.com/shop/users/1/cart/items/3`, the URL contains `/shop/users/1/cart/items/3`.  If you need the full URL, you can get it from the `spin-full-url` header - see the table below.
 
 ### Additional Request Information
 
@@ -346,16 +346,16 @@ As well as any headers passed by the client, Spin sets several headers on the re
 > In the following table, the examples suppose that:
 > * Spin is listening on `example.com:8080`
 > * The application `base` is `/shop`
-> * The trigger `route` is `/users/...`
-> * The request is to `https://example.com:8080/shop/users/1/edit?theme=pink`
+> * The trigger `route` is `/users/:userid/cart/...`
+> * The request is to `https://example.com:8080/shop/users/1/cart/items/3`
 
 | Header Name                  | Value                | Example |
 |------------------------------|----------------------|---------|
-| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/edit?theme=pink` |
-| `spin-path-info`             | The request path relative to the component route (including any base) | `/1/edit` |
-| `spin-matched-route`         | The part of the request path that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/...` |
-| `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/...` |
-| `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users` |
+| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/cart/items/3` |
+| `spin-path-info`             | The request path relative to the component route (including any base) | `/items/3` |
+| `spin-matched-route`         | The part of the request path that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/:userid/cart/...` |
+| `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/:userid/cart/...` |
+| `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users/:userid/cart` |
 | `spin-base-path`             | The application base path | `/shop` |
 | `spin-client-addr`           | The IP address and port of the client | `127.0.0.1:53152` |
 
