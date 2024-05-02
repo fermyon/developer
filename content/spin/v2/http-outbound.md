@@ -197,7 +197,9 @@ Both of these work only from HTTP components. That is, if you want to make an in
 
 To make an HTTP request to another component in your application, use the special `<component-id>.spin.internal` host name. For example, an outbound HTTP request to `authz.spin.internal` will be handled by the `authz` component.
 
-In this way of doing self-requests, the request is passed in memory without ever leaving the Spin host process. Local service chaining allows applications to have "private endpoints" (HTTP components that are never routed but instead reachable via service chaining). Service chaining is the only way to call these "private endpoints". This is extremely fast, as the two components are wired almost directly together, but may reduce deployment flexibility depending on the nature of the microservices. Also, components that are the target of service chaining requests may see URLs in both routed and chained forms: therefore, if they parse the URL (for example, extracting a resource identifier from the path), they must ensure both forms are correctly handled.
+In this way of doing self-requests, the request is passed in memory without ever leaving the Spin host process. This is extremely fast, as the two components are wired almost directly together, but may reduce deployment flexibility depending on the nature of the microservices. Also, public components that are the target of service chaining requests may see URLs in both routed and chained forms: therefore, if they parse the URL (for example, extracting a resource identifier from the path), they must ensure both forms are correctly handled.
+
+> Service chaining is the only way to call private endpoints.
 
 You must still grant permission by including the relevant `spin.internal` hosts in `allowed_outbound_hosts`:
 
