@@ -370,6 +370,7 @@ As well as any headers passed by the client, Spin sets several headers on the re
 |------------------------------|----------------------|---------|
 | `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/cart/items/3/edit?theme=pink` |
 | `spin-path-info`             | The request path relative to the component route (including any base) | `/items/3` |
+| `spin-path-match-n`          | Where `n` is the pattern for our single-segment wildcard value (e.g. `spin-path-match-userid` will access the value in the URL that represents `:userid`)  | `1` |
 | `spin-matched-route`         | The part of the trigger route that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/:userid/cart/...` |
 | `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/:userid/cart/...` |
 | `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users/:userid/cart` |
