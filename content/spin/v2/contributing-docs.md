@@ -175,9 +175,9 @@ hello
 
 The no copy annotation (`<!-- @nocpy -->`) precedes a code block where no copy and pasting of code is intended. If using the no copy attribute please still be sure to add the appropriate syntax highlighting to your code block (for display purposes). For example:
 
-`<!-- @nocpy -->`
+<!-- @nocpy -->
 
-```bash
+```text
 Some generic code not intended for copying/pasting
 ```
 
@@ -187,7 +187,7 @@ If you want the code in a code block to be copyable with no "smarts" to remove t
 
 **Multi-tab code blocks**
 
-Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](./install#installing-spin) installer documentation](./install#installing-spin) and [Spin Key/Value documentation](./key-value-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
+Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin installer documentation](./install#installing-spin) and [Spin Key/Value documentation](./key-value-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
 
 The first step to implementing multi-tab code blocks is placing the `enable_shortcodes = true` configuration at the start of the `.md` file. Specifically, in the `.md` file's frontmatter.
 
