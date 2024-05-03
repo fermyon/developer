@@ -83,10 +83,6 @@ route = "/users/..."
 component = "user-manager"
 ```
 
-A single-segment wildcard uses the syntax `:name`, where `name` is a name that identifies the wildcard. Such a wildcard will match only a single segment of a path, and allows further matching on segments beyond it. For example, `/users/:userid/edit` matches `/users/1/edit` and `/users/alice/edit`, but does not match `/users`, `/users/1`, or `/users/1/edit/cart`.
-
-A trailing wildcard uses the syntax `/...` and matches the given route and any route under it.
-
 ### Routing with an Application `base`
 
 You can set a base path for the entire application using the optional `[application.trigger.http]` section:
