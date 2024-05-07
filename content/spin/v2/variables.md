@@ -226,7 +226,7 @@ To test the application, we use pass in the password in the body of the request:
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000 -d "password"  
+$ curl -i localhost:3000 -d "your-password-here"  
 HTTP/1.1 200 OK
 content-type: application/json
 content-length: 30
