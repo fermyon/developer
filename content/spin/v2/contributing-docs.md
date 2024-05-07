@@ -175,6 +175,10 @@ hello
 
 The no copy annotation (`<!-- @nocpy -->`) precedes a code block where no copy and pasting of code is intended. If using the no copy attribute please still be sure to add the appropriate syntax highlighting to your code block (for display purposes). For example:
 
+![No Copy Source Code Example](/static/image/no-copy-source-code-example.png)
+
+The above markdown will render the following code block:
+
 <!-- @nocpy -->
 
 ```text
