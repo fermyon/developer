@@ -122,23 +122,25 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 > Note that the name is `Config` rather than `Variables`.
 
 ```ts
-from spin_sdk import http
-from spin_sdk.http import Request, Response
-from spin_sdk import variables
+import { HandleRequest, HttpRequest, HttpResponse, Config } from "@fermyon/spin-sdk"
 
-class IncomingHandler(http.IncomingHandler):
-    def handle_request(self, request: Request) -> Response:
-        password = request.body.decode("utf-8")
-        expected = variables.get("password")
-        access = "denied"
-        if expected == password:
-            access = "accepted"
-        response = f'\{{"authentication": "{access}"}}'
-        return Response(
-            200,
-            {"content-type": "text/plain"},
-            bytes(response, "utf-8")
-        )
+const decoder = new TextDecoder("utf-8")
+
+export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+  const expected = decoder.decode(request.body)
+  let password = Config.get("password")
+  let access = "denied"
+  if (expected === password) {
+      access = "accepted"
+  }
+  let responseJson = `{\"authentication\": \"${access}\"}`;
+
+  return {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+    body: responseJson
+  }
+}
 ```
 
 {{ blockEnd }}
