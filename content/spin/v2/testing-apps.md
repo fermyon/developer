@@ -76,7 +76,7 @@ Before you can run the test, you'll need to tell `spin-test` where your test liv
 [component.my-component.tool.spin-test]
 # A relative path to where the built test component binary will live.
 source = "my-test/target/wasm32-wasi/release/test.wasm"
-# A command for building the target component.
+# A command for building the test component.
 build = "cargo component build --release"
 # The directory where the `build` command should be run.
 dir = "my-test"
