@@ -67,7 +67,8 @@ fn cache_hit() {
 
 The test above will run inside of WebAssembly. The calls to the key-value store and the Spin app itself never leave the WebAssembly sandbox. This means your tests are quick and reproducible as you don’t need to rely on running an actual web server, and you don’t need to ensure any of your app’s dependencies are running. Everything your app interacts with is mocked for you.
 
-## Configure Spin Test
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## Configure `spin-test`
 
 Before we can run the test, we'll need to tell `spin-test` where our test lives and how to build it. We do this from inside our app’s manifest (the `spin.toml` file). Let's imagine our app has a component named "my-component" that we want to test. In the manifest we can add the following configuration:
 
