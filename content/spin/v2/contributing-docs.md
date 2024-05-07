@@ -177,7 +177,17 @@ The no copy annotation (`<!-- @nocpy -->`) precedes a code block where no copy a
 
 ![No Copy Source Code Example](/static/image/no-copy-source-code-example.png)
 
-The above markdown will render the following code block:
+Please find copyable snippet below, for your convenience:
+
+````
+<!-- @nocpy -->
+
+```text
+Some generic code not intended for copying/pasting
+```
+````
+
+The above markdown will render the following code block on the web page:
 
 <!-- @nocpy -->
 
