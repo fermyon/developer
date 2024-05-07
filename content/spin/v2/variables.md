@@ -35,7 +35,7 @@ Variables are surfaced to a specific component by adding a `[component.(name).va
 
 ```toml
 [component.cart.variables]
-password = "{{ secret }}"
+password = "\{{ secret }}"
 api_host = "https://my-api.com"
 ```
 
@@ -63,7 +63,7 @@ component = "password-checker"
 [component.password-checker]
 source = "app.wasm"
 [component.password-checker.variables]
-password = "{{ secret }}"
+password = "\{{ secret }}"
 api_host = "https://my-api.com"
 ```
 

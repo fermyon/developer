@@ -123,7 +123,7 @@ command = "componentize-py -w spin-http componentize app -o app.wasm"
 watch = ["*.py", "requirements.txt"]
 
 [component.pw-checker.variables]
-password = "{{ secret }}"
+password = "\{{ secret }}"
 ```
 
 The resulting application manifest should look similar to the following:
@@ -155,7 +155,7 @@ command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
 [component.pw-checker.variables]
-password = "{{ secret }}"
+password = "\{{ secret }}"
 ```
 
 ## Using Variables in a Spin Application
