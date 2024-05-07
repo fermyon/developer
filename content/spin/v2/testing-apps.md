@@ -84,7 +84,7 @@ dir = "my-test"
 
 ## Running the Test
 
-Finally, we're ready for our test to be run. We can do this simply by invoking `spin-test` from the directory where our Spin application lives:
+Finally, we're ready for our test to be run. We can do this by invoking `spin-test` from the directory where our Spin application lives:
 
 ```bash
 $ spin-test
