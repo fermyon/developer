@@ -202,7 +202,7 @@ $ az role assignment create --assignee $CLIENT_ID \
 ```
 
 4. Go to the [Azure Key Vault variable provider example](https://github.com/fermyon/enterprise-architectures-and-patterns/tree/main/application-variable-providers/azure-key-vault-provider) application.
-5. Replace Tokens in `runtime_config.toml`
+5. Replace Tokens in `runtime_config.toml`.
 
 The `azure-key-vault-provider` application contains a `runtime_config.toml` file. Replace all tokens (e.g. `$KV_NAME$`) with the corresponding shell variables you created in the previous steps.   
 
