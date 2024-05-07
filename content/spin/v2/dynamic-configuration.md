@@ -161,7 +161,7 @@ $ az keyvault create -n $KV_NAME \
 $ KV_SCOPE=$(az keyvault show -n $KV_NAME -g $RG_NAME -otsv --query "id")
 ```
 
-2. Add a Secret to the Azure Key Vault instance
+2. Add a Secret to the Azure Key Vault instance:
 
 <!-- @selectiveCpy -->
 
