@@ -216,7 +216,7 @@ To build and run the application, we issue the following commands:
 # Build the application
 $ spin build
 # Export the value of the secret, using the `SPIN_VARIABLE` prefix (upper case is necessary as shown here)
-$ export SPIN_VARIABLE_SECRET="password"
+$ export SPIN_VARIABLE_SECRET="your-password-here"
 # Run the application
 $ spin up
 ```
