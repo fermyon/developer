@@ -140,7 +140,7 @@ authority_host = "AzurePublicCloud"
 
 #### Azure Key Vault Application Variable Provider Example
 
-1. Deploy Azure Key Vault
+1. Deploy Azure Key Vault:
 
 <!-- @selectiveCpy -->
 
