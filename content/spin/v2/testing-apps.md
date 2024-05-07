@@ -70,7 +70,7 @@ The test above will run inside of WebAssembly. The calls to the key-value store 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## Configure `spin-test`
 
-Before we can run the test, we'll need to tell `spin-test` where our test lives and how to build it. We do this from inside our app’s manifest (the `spin.toml` file). Let's imagine our app has a component named "my-component" that we want to test. In the manifest we can add the following configuration:
+Before you can run the test, you'll need to tell `spin-test` where your test lives and how to build it. You do this from inside our app’s manifest (the `spin.toml` file). Let's imagine your app has a component named "my-component" that you want to test. In the manifest, you would add the following configuration:
 
 ```toml
 [component.my-component.tool.spin-test]
