@@ -207,3 +207,30 @@ spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+To build and run the application, we issue the following commands:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Build the application
+$ spin build
+# Export the value of the secret, using the `SPIN_VARIABLE` prefix (upper case is necessary as shown here)
+$ export SPIN_VARIABLE_SECRET="password"
+# Run the application
+$ spin up
+```
+
+To test the application, we use pass in the password in the body of the request:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -i localhost:3000 -d "password"  
+HTTP/1.1 200 OK
+content-type: application/json
+content-length: 30
+date: Tue, 07 May 2024 02:33:10 GMT
+
+{"authentication": "accepted"}
+```
