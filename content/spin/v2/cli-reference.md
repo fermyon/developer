@@ -3358,6 +3358,8 @@ OPTIONS:
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin test
 
+{{ tabs "spin-version" }}
+
 {{ startTab "v2.5"}}
 
 <!-- @selectiveCpy -->
