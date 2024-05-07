@@ -40,6 +40,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/cli-refere
 - [spin templates list](#spin-templates-list)
 - [spin templates uninstall](#spin-templates-uninstall)
 - [spin templates upgrade](#spin-templates-upgrade)
+- [spin test](#spin-test)
 - [spin up](#spin-up)
   - [spin up (HTTP Trigger)](#spin-up-http-trigger)
 - [spin watch](#spin-watch)
@@ -3353,6 +3354,36 @@ OPTIONS:
 {{ blockEnd }}
 
 **Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin test
+
+{{ startTab "v2.5"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin test --help
+
+By default `spin-test` will invoke the `run` subcommand.
+
+Usage: test [COMMAND]
+
+Commands:
+  run   Run a test suite against a Spin application
+  help  Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help
+          Print help (see a summary with '-h')
+
+  -V, --version
+          Print version
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin up
