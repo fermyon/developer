@@ -10,6 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-trigg
 - [HTTP Trigger Routes](#http-trigger-routes)
   - [Routing with an Application `base`](#routing-with-an-application-base)
   - [Resolving Overlapping Routes](#resolving-overlapping-routes)
+  - [Private Endpoints](#private-endpoints)
   - [Health Check Route](#health-check-route)
 - [Authoring HTTP Components](#authoring-http-components)
   - [The Request Handler](#the-request-handler)
@@ -64,7 +65,11 @@ route = "/cart/checkout"
 component = "checkout"
 ```
 
-A _wildcard_ route matches the given route and any route under it.  A route is a wildcard if it ends in `/...`.  For example, `/users/...` matches `/users`, `/users/1`, `/users/1/edit`, and so on.  Any of these routes will run the mapped component.
+You can use wildcards to match 'patterns' of routes. Spin supports two kinds of wildcards: single-segment wildcards and trailing wildcards.
+
+A single-segment wildcard uses the syntax `:name`, where `name` is a name that identifies the wildcard. Such a wildcard will match only a single segment of a path, and allows further matching on segments beyond it. For example, `/users/:userid/edit` matches `/users/1/edit` and `/users/alice/edit`, but does not match `/users`, `/users/1`, or `/users/1/edit/cart`.
+
+A trailing wildcard uses the syntax `/...` and matches the given route and any route under it.  For example, `/users/...` matches `/users`, `/users/1`, `/users/1/edit`, and so on. Any of these routes will run the mapped component.
 
 > In particular, the route `/...` matches all routes.
 
@@ -121,6 +126,20 @@ component = "admin"
 route = "/..."
 component = "shop"
 ```
+
+### Private Endpoints
+
+Private endpoints are where an internal microservice is not exposed to the network (does not have an HTTP route) and so is accessible only from within the application.
+
+<!-- @nocpy -->
+
+```toml
+[[trigger.http]]
+route = { private = true }
+component = "internal"
+```
+
+To access a private endpoint, use [local service chaining](./http-outbound#local-service-chaining) (where the request is passed in memory without ever leaving the Spin host process). Such calls still require the internal endpoint to be included in `allowed_outbound_hosts`.
 
 ### Health Check Route
 
@@ -335,7 +354,7 @@ func main() {}
 
 Exactly how the Spin SDK surfaces the request and response types varies from language to language; this section calls out general features.
 
-* In the request record, the URL contains the path and query, but not the scheme and host.  For example, in a request to `https://example.com/shop/users/1?theme=pink`, the URL contains `/shop/users/1?theme=pink`.  If you need the full URL, you can get it from the `spin-full-url` header - see the table below.
+* In the request record, the URL contains the path and query, but not the scheme and host.  For example, in a request to `https://example.com/shop/users/1/cart/items/3/edit?theme=pink`, the URL contains `/shop/users/1/cart/items/3/edit?theme=pink`.  If you need the full URL, you can get it from the `spin-full-url` header - see the table below.
 
 ### Additional Request Information
 
@@ -344,16 +363,17 @@ As well as any headers passed by the client, Spin sets several headers on the re
 > In the following table, the examples suppose that:
 > * Spin is listening on `example.com:8080`
 > * The application `base` is `/shop`
-> * The trigger `route` is `/users/...`
-> * The request is to `https://example.com:8080/shop/users/1/edit?theme=pink`
+> * The trigger `route` is `/users/:userid/cart/...`
+> * The request is to `https://example.com:8080/shop/users/1/cart/items/3/edit?theme=pink`
 
 | Header Name                  | Value                | Example |
 |------------------------------|----------------------|---------|
-| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/edit?theme=pink` |
-| `spin-path-info`             | The request path relative to the component route (including any base) | `/1/edit` |
-| `spin-matched-route`         | The part of the request path that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/...` |
-| `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/...` |
-| `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users` |
+| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/cart/items/3/edit?theme=pink` |
+| `spin-path-info`             | The request path relative to the component route (including any base) | `/items/3` |
+| `spin-path-match-n`          | Where `n` is the pattern for our single-segment wildcard value (e.g. `spin-path-match-userid` will access the value in the URL that represents `:userid`)  | `1` |
+| `spin-matched-route`         | The part of the trigger route that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/:userid/cart/...` |
+| `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/:userid/cart/...` |
+| `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users/:userid/cart` |
 | `spin-base-path`             | The application base path | `/shop` |
 | `spin-client-addr`           | The IP address and port of the client | `127.0.0.1:53152` |
 
