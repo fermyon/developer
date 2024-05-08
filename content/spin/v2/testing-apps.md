@@ -185,9 +185,10 @@ $ spin build
 $ spin-test
 
 running 1 test
-test cache-hit ... ok
+Handling request to Some(HeaderValue { inner: String("http://localhost/?user_id=123") })
+test it-works ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.46s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.68s
 ```
 
 ## Next Steps
