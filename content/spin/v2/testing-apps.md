@@ -38,13 +38,23 @@ $ cd my-component/
 $ spin add -t http-rust my-component --accept-defaults
 ```
 
-## Creating Test Suite
-
-We use `cargo new` to create a test suite, and then change into that directory:
+We then go into the component directory and add the spin-test SDK:
 
 <!-- @selectiveCpy -->
 
 ```bash
+cd my-component
+cargo add spin-test-sdk --git https://github.com/fermyon/spin-test
+```
+
+## Creating Test Suite
+
+We, change back into the app's root directory and use `cargo new` to create a test suite, and then change into that directory:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ cd ..
 $ cargo new tests --lib
 $ cd tests
 ```
