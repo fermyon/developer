@@ -14,9 +14,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/key-value-
 - [Write Code to Save and Load Data](#write-code-to-save-and-load-data)
   - [The Spin SDK Version](#the-spin-sdk-version)
   - [Source Code](#source-code)
-- [Building and Deploying Your Spin Application](#building-and-deploying-your-spin-application)
+- [Building and Running Your Spin Application](#building-and-running-your-spin-application)
 - [Storing and Retrieving Data From Your Default Key/Value Store](#storing-and-retrieving-data-from-your-default-keyvalue-store)
-- [(Optional) Deploy Your App To Fermyon Cloud](#(optional)deploy-you-app-to-fermyon-cloud)
+- [(Optional) Deploy Your App To Fermyon Cloud](#optional-deploy-your-app-to-fermyon-cloud)
+- [Next Steps](#next-steps)
 
 ## Key Value Store With Spin Applications
 
@@ -97,7 +98,7 @@ $ spin new -t http-go spin-key-value
 
 ## Configuration
 
-Good news - Spin will take care of setting up your key value store. However, in order to make sure your Spin application has permission to access the key value store, you must add the `key_value_stores = ["default"]` line in the `[component.<component-name>]` section of the `spin.toml` file, for each component which needs access to the key-value store. This line is necessary to communicate to Spin that a given component has access to the default key value store. A newly scaffolded Spin application will not have this line; you will need to add it. 
+Good news - Spin will take care of setting up your Key Value store. However, in order to make sure your Spin application has permission to access the Key Value store, you must add the `key_value_stores = ["default"]` line in the `[component.<component-name>]` section of the `spin.toml` file, for each component which needs access to the Key Value store. This line is necessary to communicate to Spin that a given component has access to the default Key Value store. A newly scaffolded Spin application will not have this line; you will need to add it. 
 
 > Note: `[component.spin_key_value]` contains the name of the component. If you used a different name, when creating the application, this sections name would be different.
 
@@ -502,9 +503,9 @@ Would you like to link an existing key value store or create a new key value sto
   Create a new key value store and link the app to it
 ```
 
->> If you're interested in learning more about how to link your Spin app to different key value store instances on Fermyon Cloud, check out our Key Value Links and Labels tutorial. 
+>> If you're interested in learning more about how to link your Spin app to different key value store instances on Fermyon Cloud, check out our [Key Value Links and Labels tutorial](../../cloud/linking-applications-to-resources-using-labels.md). 
 
-Congratulations, you have a Spin application and associated key value store running up in Fermyon Cloud! You can visit it by clicking on the Spin application's domain name generated in the CLI output, which has the following pattern: `spin-key-value-<RANDOM>.fermyon.app`. 
+Congratulations, you have a Spin application and associated Key Value store running up in Fermyon Cloud! You can visit it by clicking on the Spin application's domain name generated in the CLI output, which has the following pattern: `spin-key-value-<RANDOM>.fermyon.app`. 
 
 ## Next Steps
 

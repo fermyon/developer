@@ -9,9 +9,11 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/linking-appl
 
 - [Features of Links and Labels](#features-of-links-and-labels)
 - [Working With Links and Labels](#working-with-links-and-labels)
+  - [Linking Resources Between Applications](#linking-resources-between-applications)
+  - [Unlinking](#unlinking)
 - [Next Steps](#next-steps)
 
-Many Spin applications require data storage between invocations. Fermyon Cloud offers two methods for this: key-value storage and SQLite databases. However, the relationship between applications and databases isn't strictly one-to-one. A single database might be used by multiple applications, while an application could utilize several databases. There might even be a need to maintain a database that isn't utilized by any applications, perhaps for analytics or compliance reasons. All of these scenarios can occur as applications are independently deployed, upgraded, and retired, without any particular application needing to be aware of how others might be using the same databases.
+Many Spin applications require data storage between invocations. Fermyon Cloud offers two methods for this: Key Value storage and SQLite databases. However, the relationship between applications and databases isn't strictly one-to-one. A single database might be used by multiple applications, while an application could utilize several databases. There might even be a need to maintain a database that isn't utilized by any applications, perhaps for analytics or compliance reasons. All of these scenarios can occur as applications are independently deployed, upgraded, and retired, without any particular application needing to be aware of how others might be using the same databases.
 
 To facilitate the seamless transition of applications between different environments, such as from a local development environment to Fermyon Cloud, Spin applications don't reference databases by their physical location, like a connection string. Instead, they use a label. A label is an abstract identifier, such as "default," "user-accounts," or "transactions." The environment determines how this label is mapped to a physical database.
 
@@ -143,6 +145,52 @@ $ spin cloud kv list
 ```
 
 Now using these commands you can see your Spin applications, their respective labels and their connected databases and stores.
+
+### Linking Resources Between Applications
+
+Sometimes, you want applications to share persistent data stores.  For example, you might have a shopping application and its admin console deployed as separate applications, but sharing data.  You can do this in Fermyon Cloud by linking the same SQLite and Key Value resources to multiple applications. Here is an example of how you would link (share) a Key Value resource between two applications in Fermyon Cloud. Let's start by creating a new Key Value resource:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin cloud key-value create my-shared-kv
+Key value store  "my-shared-kv" created
+```
+
+Let's now link one application to this shared resource:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin cloud link key-value --app todo-app --store my-shared-kv shared
+Key value store "my-shared-kv" is now linked to app "todo-app" with the label "shared"
+```
+
+And then link another application to that same resource:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin cloud link key-value --app todo-app-v2 --store my-shared-kv shared
+Key value store "my-shared-kv" is now linked to app "todo-app-v2" with the label "shared"
+```
+
+If we run the `spin cloud kv list` command again, we can see that the Key Value resource called `my-shared-kv` is now shared between `todo-app` and `todo-app-v2` under the label `shared`:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin cloud kv list
++--------------------------------------------------------+
+| App                          Label     Key Value Store |
++========================================================+
+| order-processor              orders    test-data       |
+| todo-app                     shared    my-shared-kv    |
+| todo-app-v2                  shared    my-shared-kv    |
++--------------------------------------------------------+
+```
+
+### Unlinking
 
 Though not recommended, if you'd like to unlink your resource while your Spin application is running, you can do so with the following command:
 
