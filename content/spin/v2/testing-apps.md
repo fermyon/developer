@@ -40,7 +40,7 @@ $ spin add -t http-rust my-component --accept-defaults
 
 ## Creating a Test Suite
 
-We, change back into the app's root directory and use `cargo new` to create a test suite, and then change into that directory:
+We use `cargo new` to create a test suite, and then change into that `tests` directory:
 
 <!-- @selectiveCpy -->
 
@@ -57,7 +57,7 @@ From within that test suite, we then add the spin-test SDK reference:
 $ cargo add spin-test-sdk --git https://github.com/fermyon/spin-test
 ```
 
-Then, we open the `Cargo.toml` file and edit to add the crate-type of `cdylib`:
+Then, we open the `Cargo.toml` file from within in the `tests` directory and edit to add the `crate-type` of `cdylib`:
 
 <!-- @selectiveCpy -->
 
@@ -83,7 +83,7 @@ spin-test-sdk = { git = "https://github.com/fermyon/spin-test", version = "0.1.0
 
 ## Writing a Test
 
-Next, create a test test that `spin-test` can run as a compiled WebAssembly component.
+Next, create a test that `spin-test` can run as a compiled WebAssembly component.
 
 There is currently first-class support for Rust, but any language with support for writing WebAssembly components can be used as long as the `fermyon:spin-test/test` world is targeted. You can find the definition of this world [here](https://github.com/fermyon/spin-test/blob/4dcaf79c10fc29a8da2750bdaa383b5869db1715/host-wit/world.wit#L13-L16).
 
@@ -155,7 +155,7 @@ spin_manifest_version = 2
 [application]
 name = "my-component"
 version = "0.1.0"
-authors = ["tpmccallum <tim.mccallum@fermyon.com>"]
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 description = ""
 
 [[trigger.http]]
