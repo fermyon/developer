@@ -148,7 +148,7 @@ Now using these commands you can see your Spin applications, their respective la
 
 ### Linking Resources Between Applications
 
-Linking SQLite and Key Value resources between applications in Fermyon Cloud is possible. Here is an example of how you would link (share) a Key Value resource between two applications in Fermyon Cloud. Let's start by creating a new Key Value resource:
+Sometimes, you want applications to share persistent data stores.  For example, you might have a shopping application and its admin console deployed as separate applications, but sharing data.  You can do this in Fermyon Cloud by linking the same SQLite and Key Value resources to multiple applications. Here is an example of how you would link (share) a Key Value resource between two applications in Fermyon Cloud. Let's start by creating a new Key Value resource:
 
 <!-- @selectiveCpy -->
 
