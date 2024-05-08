@@ -38,15 +38,6 @@ $ cd my-component/
 $ spin add -t http-rust my-component --accept-defaults
 ```
 
-We then go into the component directory and add the spin-test SDK:
-
-<!-- @selectiveCpy -->
-
-```bash
-cd my-component
-cargo add spin-test-sdk --git https://github.com/fermyon/spin-test
-```
-
 ## Creating a Test Suite
 
 We, change back into the app's root directory and use `cargo new` to create a test suite, and then change into that directory:
@@ -54,7 +45,6 @@ We, change back into the app's root directory and use `cargo new` to create a te
 <!-- @selectiveCpy -->
 
 ```bash
-$ cd ..
 $ cargo new tests --lib
 $ cd tests
 ```
@@ -99,7 +89,7 @@ There is currently first-class support for Rust, but any language with support f
 
 Here’s an example of a test written in Rust using the [Spin Test Rust SDK](https://github.com/fermyon/spin-test/tree/main/crates/spin-test-sdk) that tests to ensure that the Spin app responds properly when the key-value store has a certain key already set.
 
-Open the `my-component/my-component/src/lib.rs` file and fill it with the following content:
+Open the `my-component/tests/src/lib.rs` file and fill it with the following content:
 
 ```rust
 use spin_test_sdk::{
