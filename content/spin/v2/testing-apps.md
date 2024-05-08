@@ -47,7 +47,7 @@ cd my-component
 cargo add spin-test-sdk --git https://github.com/fermyon/spin-test
 ```
 
-## Creating Test Suite
+## Creating a Test Suite
 
 We, change back into the app's root directory and use `cargo new` to create a test suite, and then change into that directory:
 
