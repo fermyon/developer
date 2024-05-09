@@ -178,7 +178,7 @@ fn send_get_request_with_invalid_key_id() {
 fn cache_hit() {
     let user_json = r#"{"id":123,"name":"Ryan"}"#;
 
-    // Configure the app's 'cache' key-value store
+    // Configure the app's virtualised 'default' key-value store ready for the test
     let key_value = spin_test_virt::key_value::Store::open("default");
     // Set a specific key with a specific value
     key_value.set("123", user_json.as_bytes());
