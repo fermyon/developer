@@ -10,7 +10,7 @@ The [spin test plugin](https://github.com/fermyon/spin-test) allows you to run t
 
 To use `spin-test` you write test scenarios for your app in any language with WebAssembly component support, and mock out all interactions your app has with the outside world without requiring any code changes to the app itself. That means the code you test in development is the same code that runs in production.
 
-> Note: `spin-test` is still under active development and so the details here may have changed since this post was first published. Check [the spin-test repo](https://github.com/fermyon/spin-test) for the latest information on installation and usage.
+> Note: `spin test` is still under active development and so the details here may have changed since this post was first published. Check [the spin-test repo](https://github.com/fermyon/spin-test) for the latest information on installation and usage.
 
 ## Prerequisites
 
@@ -53,9 +53,9 @@ my-app/
 
 ## Creating a Test Suite
 
-There is currently first-class support for Rust, but any language with support for writing WebAssembly components can be used as long as the `fermyon:spin-test/test` world is targeted. You can find the definition of this world [here](https://github.com/fermyon/spin-test/blob/4dcaf79c10fc29a8da2750bdaa383b5869db1715/host-wit/world.wit#L13-L16).
+There is currently first-class support for writing tests in Rust, but any language with support for writing WebAssembly components can be used as long as the `fermyon:spin-test/test` world is targeted. You can find the definition of this world [here](https://github.com/fermyon/spin-test/blob/4dcaf79c10fc29a8da2750bdaa383b5869db1715/host-wit/world.wit#L13-L16). For this example, we'll use Rust.
 
-We use `cargo` (Rust's package manager & build system) to create a test suite, and then change into our newly created `tests` directory:
+We use `cargo` to create a test suite, and then change into our newly created `tests` directory:
 
 <!-- @selectiveCpy -->
 
@@ -115,7 +115,7 @@ crate-type = ["cdylib"]
 
 ## Writing a Test
 
-Next, create a test that `spin-test` can run as a compiled WebAssembly component.
+Next, create a test that `spin test` can run as a compiled WebAssembly component.
 
 Here’s an example of two tests written in Rust using the [Spin Test Rust SDK](https://github.com/fermyon/spin-test/tree/main/crates/spin-test-sdk). The first test ensures that the Spin app responds properly to an HTTP request. The second test ensures that the Spin app responds properly when the key-value store has a certain key already set.
 
