@@ -8,7 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/testing-ap
 
 The [spin test plugin](https://github.com/fermyon/spin-test) allows you to run tests, written in WebAssembly, against a Spin application (where all Spin and WASI APIs are configurable mocks).
 
-To use `spin-test` you write test scenarios for your app in any language with WebAssembly component support, and mock out all interactions your app has with the outside world without requiring any code changes to the app itself. That means the code you test in development is the same code that runs in production.
+To use `spin test` you write test scenarios for your app in any language with WebAssembly component support, and mock out all interactions your app has with the outside world without requiring any code changes to the app itself. That means the code you test in development is the same code that runs in production.
 
 > Note: `spin test` is still under active development and so the details here may have changed since this post was first published. Check [the spin-test repo](https://github.com/fermyon/spin-test) for the latest information on installation and usage.
 
