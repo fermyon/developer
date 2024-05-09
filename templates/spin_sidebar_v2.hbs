@@ -35,9 +35,16 @@
                                         href="{{site.info.base_url}}/spin/v2/spin-application-structure">Structuring
                                         Applications</a>
                         </li>
+
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/build" )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/build">Compiling
                                         Applications</a></li>
+
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/testing-apps" )}}
+                                        class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/testing-apps">Testing Applications</a>
+                        </li>
+
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/running-apps" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v2/running-apps">Running
                                         Applications</a>
@@ -186,10 +193,6 @@
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/managing-plugins" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/managing-plugins">Managing Plugins</a>
-                        </li>
-                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/testing-apps" )}}
-                                        class="active" {{/if}}
-                                        href="{{site.info.base_url}}/spin/v2/testing-apps">Testing Applications</a>
                         </li>
                 </ul>
         </div>
