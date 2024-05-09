@@ -12,3 +12,5 @@ static/data.json
 static/hub-index-data.json
 # The build version of spin up hub
 spin-up-hub/dist/
+package-lock.json
+spin-up-hub/package-lock.json
