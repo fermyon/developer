@@ -340,4 +340,4 @@ test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 `spin-test` is still in the early days of development, so you’re likely to run into things that don’t quite work yet. We’d love to hear about your experience so we can prioritize which features and bugs to fix first. We’re excited about the future potential of using WebAssembly components for testing, and we look forward to hearing about your experiences as we continue the development of `spin-test`.
 
-You might also like to learn about `spin doctor` which is a command-line tool that detects and helps fix issues preventing applications from building and running. For more information see the [trouble shooting applications page](./troubleshooting-application-dev.md).
+You might also like to learn about `spin doctor` which is a command-line tool that detects and helps fix issues preventing applications from building and running. For more information see the [troubleshooting applications page](./troubleshooting-application-dev.md).
