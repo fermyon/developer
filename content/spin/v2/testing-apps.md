@@ -231,6 +231,21 @@ build = "cargo component build --release"
 dir = "tests"
 ```
 
+## Configure App Storage
+
+We are using Key Value storage in the application and therefore need to configure the list of allowed `key_value_stores` in our `spin.toml` file (in this case we are just using the `default`). Go ahead and the `key_value_stores` configuration directly inside the `[component.spin_key_value]` section, as shown below:
+
+<!-- @nocpy -->
+
+```toml
+[component.my-component]
+...
+key_value_stores = ["default"]
+...
+```
+
+> If you would like to learn more about Key Value storage, see [this tutorial](./key-value-store-tutorial.md).
+
 After editing, the whole `my-app/spin.toml` file will look like the following:
 
 ```toml
@@ -249,6 +264,7 @@ component = "my-component"
 [component.my-component]
 source = "my-component/target/wasm32-wasi/release/my_component.wasm"
 allowed_outbound_hosts = []
+key_value_stores = ["default"]
 [component.my-component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "my-component"
@@ -259,21 +275,6 @@ source = "tests/target/wasm32-wasi/release/tests.wasm"
 build = "cargo component build --release"
 dir = "tests"
 ```
-
-## Configure App Storage
-
-We are using Key Value storage in the application and therefore need to configure the list of allowed `key_value_stores` in our `spin.toml` file (in this case we are just using the `default`). Go ahead and the `key_value_stores` configuration directly inside the `[component.spin_key_value]` section, as shown below:
-
-<!-- @nocpy -->
-
-```toml
-[component.my-component]
-...
-key_value_stores = ["default"]
-...
-```
-
-> If you would like to learn more about Key Value storage, see [this tutorial](./key-value-store-tutorial.md).
 
 ## Adding Business Logic
 
