@@ -278,7 +278,7 @@ dir = "tests"
 
 ## Adding Business Logic
 
-The goal of tests is to ensure that the business logic in our application works as intended. For this example, copy and paste the following code into the application's source file ( located at `my-app/my-component/src/lib.rs`):
+The goal of tests is to ensure that the business logic in our application works as intended. We haven't yet updated our "business logic" frrom the "Hello, Fermyon" app. To make our new tests pass, copy and paste the following code into the application's source file (located at `my-app/my-component/src/lib.rs`):
 
 ```rust
 use spin_sdk::{
