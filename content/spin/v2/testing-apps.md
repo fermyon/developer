@@ -124,28 +124,54 @@ Open the `my-app/tests/src/lib.rs` file and fill it with the following content:
 <!-- Leaving out annotation so this can just be copied by the user without any frills -->
 
 ```rust
-use spin_test_sdk::bindings::{
-    // fermyon::spin_test_virt::{http_handler, key_value},
-    wasi::http,
-};
 use spin_test_sdk::{
-    bindings::{fermyon::spin_test_virt, wasi},
+    bindings::{fermyon::spin_test_virt, wasi, wasi::http},
     spin_test,
 };
 
 #[spin_test]
-fn it_works() {
-    make_request();
+fn request_without_key() {
+    send_get_request_without_key();
 }
 
-fn make_request() {
+fn send_get_request_without_key() {
     // Perform the request
     let request = http::types::OutgoingRequest::new(http::types::Headers::new());
-    request.set_path_with_query(Some("/?user_id=123")).unwrap();
+    request.set_path_with_query(Some("/")).unwrap();
     let response = spin_test_sdk::perform_request(request);
 
-    // Assert response status and body
-    assert_eq!(response.status(), 200);
+    // Assert response status and body is 404
+    assert_eq!(response.status(), 404);
+}
+
+#[spin_test]
+fn request_with_invalid_key() {
+    send_get_request_with_invalid_key();
+}
+
+fn send_get_request_with_invalid_key() {
+    // Perform the request
+    let request = http::types::OutgoingRequest::new(http::types::Headers::new());
+    request.set_path_with_query(Some("/x?123")).unwrap();
+    let response = spin_test_sdk::perform_request(request);
+
+    // Assert response status and body is 404
+    assert_eq!(response.status(), 404);
+}
+
+#[spin_test]
+fn request_with_invalid_key_id() {
+    send_get_request_with_invalid_key_id();
+}
+
+fn send_get_request_with_invalid_key_id() {
+    // Perform the request
+    let request = http::types::OutgoingRequest::new(http::types::Headers::new());
+    request.set_path_with_query(Some("/user?0")).unwrap();
+    let response = spin_test_sdk::perform_request(request);
+
+    // Assert response status and body is 404
+    assert_eq!(response.status(), 404);
 }
 
 #[spin_test]
@@ -153,13 +179,13 @@ fn cache_hit() {
     let user_json = r#"{"id":123,"name":"Ryan"}"#;
 
     // Configure the app's 'cache' key-value store
-    let key_value = spin_test_virt::key_value::Store::open("cache");
+    let key_value = spin_test_virt::key_value::Store::open("default");
     // Set a specific key with a specific value
     key_value.set("123", user_json.as_bytes());
 
     // Make the request against the Spin app
     let request = wasi::http::types::OutgoingRequest::new(wasi::http::types::Headers::new());
-    request.set_path_with_query(Some("/user_id?id=123")).unwrap();
+    request.set_path_with_query(Some("/user?123")).unwrap();
     let response = spin_test_sdk::perform_request(request);
 
     // Assert the response status and body
@@ -234,62 +260,24 @@ build = "cargo component build --release"
 dir = "tests"
 ```
 
-## Building and Running the Test
+## Configure App Storage
 
-Finally, we're ready for our test to be run. We can do this by invoking `spin-test` from the directory where our Spin application lives:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin build
-$ spin test
-
-running 2 tests
-Handling request to Some(HeaderValue { inner: String("http://localhost/?user_id=123") })
-thread '<unnamed>' panicked at src/lib.rs:42:5:
-assertion `left == right` failed
-  left: "Hello, Fermyon"
- right: "{\"id\":123,\"name\":\"Ryan\"}"
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-test cache-hit ... FAILED
-Handling request to Some(HeaderValue { inner: String("http://localhost/?user_id=123") })
-test it-works  ... ok
-
-failures:
-
----- cache-hit ----
-test 'spin-test-cache-hit' failed 
-
-
-failures:
-    cache-hit
-
-test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.16s
-```
-
-When running the above `spin test` command, we now notice that one of the tests fails. This output is correct and a good example of how the tests can catch missed implementation in the application's code. 
-
-The reason that one test fails is we still need to update the application code to store and retrieve data from the Key Value store. The other test that is successfully passing is doing so because it is correctly receiving a response code of `200`. (We will still see this correct response once we update the logic to return the Key Value data in the response.)
-
-The templated application source code is as follows:
+We are using Key Value storage in the application and therefore need to configure the list of allowed `key_value_stores` in our `spin.toml` file (in this case we are just using the `default`). Go ahead and the `key_value_stores` configuration directly inside the `[component.spin_key_value]` section, as shown below:
 
 <!-- @nocpy -->
 
-```
-#[http_component]
-fn handle_my_component(req: Request) -> anyhow::Result<impl IntoResponse> {
-    println!("Handling request to {:?}", req.header("spin-full-url"));
-    Ok(Response::builder()
-        .status(200)
-        .header("content-type", "text/plain")
-        .body("Hello, Fermyon")
-        .build())
-}
+```toml
+[component.my-component]
+...
+key_value_stores = ["default"]
+...
 ```
 
-Update the application's code in `my-app/my-component/src/lib.rs` to match the following:
+> If you would like to learn more about Key Value storage, see [this tutorial](./key-value-store-tutorial.md).
 
-<!-- @selectiveCpy -->
+## Adding Business Logic
+
+The goal of tests is to ensure that the business logic in our application works as intended. For this example, copy and paste the following code into the application's source file ( located at `my-app/my-component/src/lib.rs`):
 
 ```rust
 use spin_sdk::{
@@ -315,13 +303,13 @@ fn handle_request(req: Request) -> anyhow::Result<impl IntoResponse> {
         }
         Method::Get => {
             // Get the value associated with the request URI, or return a 404 if it's not present
-            match store.get(req.path())? {
+            match store.get(req.query())? {
                 Some(value) => {
-                    println!("Found value for the key {:?}", req.path());
+                    println!("Found value for the key {:?}", req.query());
                     (200, Some(value))
                 }
                 None => {
-                    println!("No value found for the key {:?}", req.path());
+                    println!("No value found for the key {:?}", req.query());
                     (404, None)
                 }
             }
@@ -350,51 +338,27 @@ fn handle_request(req: Request) -> anyhow::Result<impl IntoResponse> {
 }
 ```
 
-Then add the following line to the application's manifest (the `my-app/spin.toml` file) (within the `[component.my-component]` section):
+## Building and Running the Test
 
-```toml
-[component.my-component]
-...
-key_value_stores = ["default"]
-...
-```
-
-> If you would like to learn more about Key Value storage, see [this tutorial](./key-value-store-tutorial.md).
-
-Next, we can build and run the application and store a value inside the Key Value store:
+Finally, we're ready for our test to be run. We can do this by invoking `spin-test` from the application's root directory (`my-app`):
 
 <!-- @selectiveCpy -->
 
-```
 ```bash
 $ spin build
-$ spin up
-```
-
-In a fresh terminal, issue the following command that performs a POST request with our data:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ curl localhost:3000/user_id -H 'Content-Type: application/json' -d '{"id":123, "name": "Ryan"}'
-```
-
-We can check the data is in there using the following command (which is same logic as our test):
-
-<!-- @selectiveCpy -->
-
-```bash
-$ curl localhost:3000/user_id?id=123
-```
-
-With that data in place, the `spin test` command (that uses a GET request to obtail the `user_id` where `123` is the `id`) will yield two passing tests:
-
-<!-- @selectiveCpy -->
-
-```bash
 $ spin test
 
+running 4 tests
+No value found for the key "123"
+test request-with-invalid-key    ... ok
+Found value for the key "123"
+test cache-hit                   ... ok
+No value found for the key "0"
+test request-with-invalid-key-id ... ok
+No value found for the key ""
+test request-without-key         ... ok
 
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.08s
 ```
 
 ## Next Steps
