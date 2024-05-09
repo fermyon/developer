@@ -205,7 +205,7 @@ The following points are intended to unpack the above example for your understan
 
 - Each function marked with `#[spin_test]` will be run as a separate test.
 - Each test can perform any setup to their environment by using the APIs available in `spin_test_sdk::bindings::fermyon::spin_test_virt`
-- After requests are made, you can use the APIs in `spin_test_sdk::bindings::fermyon::spin_test_virt` to make assertions that confirm that the request has been responded to (i.e. response status equals 200) or that the state of various resources (i.e. key/value store) have been changed.
+- After requests are made, you can use the APIs in `spin_test_sdk::bindings::fermyon::spin_test_virt` to make assertions that confirm that the request has been responded to (e.g. response status equals 200) or that expected Spin API calls (e.g. `get` to the key/value API) have been made.
 
 The tests above run inside of WebAssembly. Calls, such as Key Value storage and retrieval, never actually leave the WebAssembly sandbox. This means your tests are quick and reproducible as you don’t need to rely on running an actual web server, and you don’t need to ensure any of your app’s dependencies are running. Everything your app interacts with is mocked for you.
 
