@@ -233,7 +233,7 @@ dir = "tests"
 
 ## Configure App Storage
 
-We are using Key Value storage in the application and therefore need to configure the list of allowed `key_value_stores` in our `spin.toml` file (in this case we are just using the `default`). Go ahead and the `key_value_stores` configuration directly inside the `[component.spin_key_value]` section, as shown below:
+We are using Key Value storage in the application and therefore need to configure the list of allowed `key_value_stores` in our `spin.toml` file (in this case we are just using the `default`). Go ahead and paste the `key_value_stores` configuration directly inside the `[component.my-component]` section, as shown below:
 
 <!-- @nocpy -->
 
