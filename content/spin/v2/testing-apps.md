@@ -91,8 +91,6 @@ $ cargo add spin-test-sdk --git https://github.com/fermyon/spin-test
 
 Then, we open the `Cargo.toml` file from within in the `tests` directory and edit to add the `crate-type` of `cdylib`:
 
-<!-- Leaving out annotation so this can just be copied by the user without any frills -->
-
 ```toml
 [lib]
 crate-type = ["cdylib"]
@@ -121,8 +119,6 @@ In this example, we will write some tests appropriate to a JSON API service for 
 
 Open the `my-app/tests/src/lib.rs` file and fill it with the following content:
 
-<!-- Leaving out annotation so this can just be copied by the user without any frills -->
-
 ```rust
 use spin_test_sdk::{
     bindings::{fermyon::spin_test_virt, wasi, wasi::http},
@@ -130,10 +126,6 @@ use spin_test_sdk::{
 };
 
 #[spin_test]
-fn request_without_key() {
-    send_get_request_without_key();
-}
-
 fn send_get_request_without_key() {
     // Perform the request
     let request = http::types::OutgoingRequest::new(http::types::Headers::new());
@@ -145,10 +137,6 @@ fn send_get_request_without_key() {
 }
 
 #[spin_test]
-fn request_with_invalid_key() {
-    send_get_request_with_invalid_key();
-}
-
 fn send_get_request_with_invalid_key() {
     // Perform the request
     let request = http::types::OutgoingRequest::new(http::types::Headers::new());
@@ -160,10 +148,6 @@ fn send_get_request_with_invalid_key() {
 }
 
 #[spin_test]
-fn request_with_invalid_key_id() {
-    send_get_request_with_invalid_key_id();
-}
-
 fn send_get_request_with_invalid_key_id() {
     // Perform the request
     let request = http::types::OutgoingRequest::new(http::types::Headers::new());
@@ -207,7 +191,7 @@ The following points are intended to unpack the above example for your understan
 - Each test can perform any setup to their environment by using the APIs available in `spin_test_sdk::bindings::fermyon::spin_test_virt`
 - After requests are made, you can use the APIs in `spin_test_sdk::bindings::fermyon::spin_test_virt` to make assertions that confirm that the request has been responded to (e.g. response status equals 200) or that expected Spin API calls (e.g. `get` to the key/value API) have been made.
 
-The tests above run inside of WebAssembly. Calls, such as Key Value storage and retrieval, never actually leave the WebAssembly sandbox. This means your tests are quick and reproducible as you don’t need to rely on running an actual web server, and you don’t need to ensure any of your app’s dependencies are running. Everything your app interacts with is mocked for you.
+The tests above run inside of WebAssembly. Calls, such as Key Value storage and retrieval, never actually leave the WebAssembly sandbox. This means your tests are quick and reproducible as you don’t need to rely on running an actual web server, and you don’t need to ensure any of your app’s dependencies are running. Everything your app interacts with is mocked for you. The isolation benefits from this mocking mean that your application's actual data is never touched. There is also the added benefit of reproducibility whereby you never have to worry about leftover data from previous tests.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## Configure `spin-test`
@@ -222,8 +206,6 @@ $ cd ..
 
 Then we edit the `my-app` application's manifest (the `spin.toml` file) by adding the following block:
 
-<!-- Leaving out annotation so this can just be copied by the user without any frills -->
-
 ```toml
 [component.my-component.tool.spin-test]
 source = "tests/target/wasm32-wasi/release/tests.wasm"
@@ -231,7 +213,11 @@ build = "cargo component build --release"
 dir = "tests"
 ```
 
-## Configure App Storage
+## Updating the App to Pass the Tests
+
+This section provides configuration and business logic at the application level. 
+
+### Configure App Storage
 
 We are using Key Value storage in the application and therefore need to configure the list of allowed `key_value_stores` in our `spin.toml` file (in this case we are just using the `default`). Go ahead and paste the `key_value_stores` configuration directly inside the `[component.my-component]` section, as shown below:
 
@@ -276,7 +262,7 @@ build = "cargo component build --release"
 dir = "tests"
 ```
 
-## Adding Business Logic
+### Adding Business Logic
 
 The goal of tests is to ensure that the business logic in our application works as intended. We haven't yet updated our "business logic" frrom the "Hello, Fermyon" app. To make our new tests pass, copy and paste the following code into the application's source file (located at `my-app/my-component/src/lib.rs`):
 
@@ -315,7 +301,7 @@ fn handle_request(req: Request) -> anyhow::Result<impl IntoResponse> {
 
 ## Building and Running the Test
 
-Finally, we're ready for our test to be run. We can do this by invoking `spin-test` from the application's root directory (`my-app`):
+With the application's configuration and business logic done, we're ready for our test to be run. We can do this by invoking `spin-test` from the application's root directory (`my-app`):
 
 <!-- @selectiveCpy -->
 
