@@ -117,7 +117,7 @@ crate-type = ["cdylib"]
 
 Next, create a test that `spin test` can run as a compiled WebAssembly component.
 
-Here’s an example of two tests written in Rust using the [Spin Test Rust SDK](https://github.com/fermyon/spin-test/tree/main/crates/spin-test-sdk). The first test ensures that the Spin app responds properly to an HTTP request. The second test ensures that the Spin app responds properly when the key-value store has a certain key already set.
+In this example, we will write some tests appropriate to a JSON API service for information about service users. Here are two such tests written in Rust using the [Spin Test Rust SDK](https://github.com/fermyon/spin-test/tree/main/crates/spin-test-sdk). The first test ensures that the Spin app responds properly to an HTTP request. The second test ensures that the Spin app responds properly when the user data is present in the key-value store - for testing purposes, simulated by inserting it into a "virtual" store.
 
 Open the `my-app/tests/src/lib.rs` file and fill it with the following content:
 
