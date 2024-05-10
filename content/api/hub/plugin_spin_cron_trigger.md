@@ -24,27 +24,21 @@ An experimental plugin that enables cron trigger for Spin applications.
 
 You can install the template using the following command:
 
-<!-- @selectiveCpy -->
-
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-trigger-cron
+spin templates install --git https://github.com/fermyon/spin-trigger-cron
 ```
 
 Once the template is installed, you can create a new application using:
 
-<!-- @selectiveCpy -->
-
 ```bash
-$ spin new -t cron-rust hello_cron --accept-defaults
+spin new -t cron-rust hello_cron --accept-defaults
 ```
 
 To run the newly created app:
 
-<!-- @selectiveCpy -->
-
 ```bash
-$ cd hello_cron
-$ spin build --up
+cd hello_cron
+spin build --up
 ```
 
 ### Configuring the Cron Trigger
