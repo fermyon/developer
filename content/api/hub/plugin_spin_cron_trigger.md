@@ -2,7 +2,7 @@ title = "Spin Cron Trigger"
 template = "render_hub_content_body"
 date = "2022-10-15T00:22:56Z"
 content-type = "text/plain"
-tags = ["trigger", "rust"]
+tags = ["trigger", "rust", "plugins"]
 
 [extra]
 author = "Fermyon"
@@ -21,6 +21,7 @@ keywords = "trigger, cron"
 An experimental plugin that enables cron trigger for Spin applications.
 
 ## Installing Template
+
 You can install the template using the following command:
 
 <!-- @selectiveCpy -->
@@ -42,7 +43,7 @@ To run the newly created app:
 <!-- @selectiveCpy -->
 
 ```bash
-$cd hello_cron
+$ cd hello_cron
 $ spin build --up
 ```
 
@@ -55,7 +56,7 @@ The following options are available to set in the [[trigger.cron]] section:
 | Name                  | Type             | Required? | Description |
 |-----------------------|------------------|-----------|-------------|
 | `component`           | string or table  | required  | The component to run on the schedule given in `cron_expression`. (This is the standard Spin trigger component field.) |
-| `cron_expression`     | string           | required  | The `cron` expresison describing the schedule on which to execute the component. |
+| `cron_expression`     | string           | required  | The `cron` expression describing the schedule on which to execute the component. |
 
 ```toml
 [[trigger.cron]]
