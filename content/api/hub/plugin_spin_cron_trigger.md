@@ -18,39 +18,37 @@ keywords = "trigger, cron"
 
 ---
 
-An experimental plugin that enables cron trigger for Spin applications. 
+An experimental plugin that enables cron trigger for Spin applications.
 
-### Prerequisites
-
-* [Rust](https://www.rust-lang.org/tools/install)
-* `pluginify` plugin (see below)
-
-```bash
-spin plugins install --url https://github.com/itowlson/spin-pluginify/releases/download/canary/pluginify.json
-```
 ## Installing Template
 You can install the template using the following command:
 
+<!-- @selectiveCpy -->
+
 ```bash
-spin templates install --git https://github.com/fermyon/spin-trigger-cron
+$ spin templates install --git https://github.com/fermyon/spin-trigger-cron
 ```
 
 Once the template is installed, you can create a new application using:
 
+<!-- @selectiveCpy -->
+
 ```bash
-spin new -t cron-rust hello_cron --accept-defaults
+$ spin new -t cron-rust hello_cron --accept-defaults
 ```
 
 To run the newly created app:
 
+<!-- @selectiveCpy -->
+
 ```bash
-cd hello_cron
-spin build --up
+$cd hello_cron
+$ spin build --up
 ```
 
-### Modifying The Cron Trigger
+### Configuring the Cron Trigger
 
-The trigger type is cron and there are no application-level configuration options.
+The trigger type is `cron` and there are no application-level configuration options.
 
 The following options are available to set in the [[trigger.cron]] section:
 
