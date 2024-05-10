@@ -20,6 +20,14 @@ keywords = "trigger, cron"
 
 An experimental plugin that enables cron trigger for Spin applications.
 
+## Installing Plugin
+
+You can install the plugin using the following command:
+
+```bash
+spin plugins install --url https://github.com/fermyon/spin-trigger-cron/releases/download/canary/trigger-cron.json
+```
+
 ## Installing Template
 
 You can install the template using the following command:
