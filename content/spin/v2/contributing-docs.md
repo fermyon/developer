@@ -296,12 +296,12 @@ If you create content with many headings it is highly recommended to place a ToC
 
 Once you are satisfied with your contribution, you can programmatically check your content.
 
-If you have not done so already, please go ahead and perform the `npm install` command; to enable Node dependencies such as `markdownlint-cli2`. Simply run the following command, from the root of the developer repository:
+If you have not done so already, please go ahead and perform the `npm ci` (npm clean install) command; to enable Node dependencies such as `markdownlint-cli2`. Simply run the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ npm install
+$ npm ci
 ```
 
 On top of the Node dependencies the `timeout` executable must be installed on your system and added to the `PATH` environment variable. The `timeout` executable is included in the [gnu coreutils package](https://www.gnu.org/software/coreutils/) which should be present in most Linux distributions. 
@@ -456,9 +456,9 @@ You can host your changes to the developer documentation on your own machine (lo
 <!-- @selectiveCpy -->
 
 ```bash
-$ npm install
+$ npm ci
 $ cd spin-up-hub
-$ npm install
+$ npm ci
 $ cd ..
 $ spin build
 $ spin up -e "PREVIEW_MODE=1"
