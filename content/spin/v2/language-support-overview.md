@@ -29,6 +29,7 @@ This page contains information about language support for Spin features:
 | [PostgreSQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](./rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
 | [Serverless AI](./serverless-ai-api-guide) | Supported |
+| [MQTT Messaging](./mqtt-outbound) | Supported |
 | **Extensibility** |
 | [Authoring Custom Triggers](./extending-and-embedding) | Supported |
 
@@ -52,6 +53,7 @@ This page contains information about language support for Spin features:
 | [PostgreSQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](./javascript-components#storing-data-in-redis-from-jsts-components) | Supported |
 | [Serverless AI](./serverless-ai-api-guide) | Supported |
+| [MQTT Messaging](./mqtt-outbound) | Not Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
@@ -65,7 +67,7 @@ This page contains information about language support for Spin features:
 |-----|-----|
 | **Triggers** |
 | [HTTP](./python-components#a-simple-http-components-example) | Supported |
-| Redis | Supported |
+| [Redis](./redis-trigger) | Supported |
 | **APIs** |
 | [Outbound HTTP](./python-components#an-outbound-http-example) | Supported |
 | [Configuration Variables](./dynamic-configuration#custom-config-variables) | Supported |
@@ -75,6 +77,7 @@ This page contains information about language support for Spin features:
 | PostgreSQL |  Supported |
 | [Outbound Redis](./python-components#an-outbound-redis-example) | Supported |
 | [Serverless AI](./serverless-ai-api-guide) | Supported |
+| [MQTT Messaging](./mqtt-outbound) | Not Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 
@@ -98,6 +101,7 @@ This page contains information about language support for Spin features:
 | [PostgreSQL](./rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](./go-components#storing-data-in-redis-from-go-components) | Supported |
 | [Serverless AI](./serverless-ai-api-guide) | Supported |
+| [MQTT Messaging](./mqtt-outbound) | Not Supported |
 | **Extensibility** |
 | Authoring Custom Triggers | Not Supported |
 

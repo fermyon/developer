@@ -286,11 +286,7 @@ Then install plugins by name.
 
 Python:
 
-<!-- @selectiveCpy -->
-
-```bash
-$ spin plugins install py2wasm --yes
-```
+> Historic: You may have seen a `py2wasm` plugin in your travels. Please note, that `py2wasm` has since been replaced by `componentize-py`.  You no longer need to install additional tools as part of Spin installation.  (Refer to [Building Spin Components in Python](./python-components.md#componentize-py) for the new way of building Python applications.)
 
 Javascript:
 

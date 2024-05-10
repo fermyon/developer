@@ -162,8 +162,8 @@ Next, we need to create the appropriate folder structure from within the applica
 
 ```bash
 # llama2-chat
-$ mkdir -p .spin/ai-models
-$ cd .spin/ai-models
+$ mkdir -p .spin/ai-models/llama
+$ cd .spin/ai-models/llama
 $ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/a17885f653039bd07ed0f8ff4ecc373abf5425fd/llama-2-13b-chat.ggmlv3.q3_K_L.bin
 $ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin llama2-chat
 ```
@@ -174,7 +174,8 @@ $ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin llama2-chat
 tree .spin
 .spin
 └── ai-models
-    └── llama2-chat
+    └── llama
+        └── llama2-chat
 ```
 
 **codellama-instruct example download**
@@ -185,8 +186,8 @@ tree .spin
 
 ```bash
 # codellama-instruct
-$ mkdir -p .spin/ai-models
-$ cd .spin/ai-models
+$ mkdir -p .spin/ai-models/llama
+$ cd .spin/ai-models/llama
 $ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/b3dc9d8df8b4143ee18407169f09bc12c0ae09ef/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
 $ mv codellama-13b-instruct.ggmlv3.Q3_K_L.bin codellama-instruct
 ```
@@ -197,7 +198,8 @@ $ mv codellama-13b-instruct.ggmlv3.Q3_K_L.bin codellama-instruct
 tree .spin
 .spin
 └── ai-models
-    └── codellama-instruct
+    └── llama
+        └── codellama-instruct
 ```
 
 **all-minilm-l6-v2 example download**

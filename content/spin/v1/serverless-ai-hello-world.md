@@ -336,7 +336,7 @@ Available Routes:
 hello-world: https://hello-world-XXXXXX.fermyon.app (wildcard)
 ```
  
-The app’s manifest file reads the line `ai-models = ["llama2-chat"]` and uses that model in the cloud. For any changes to take effect in the app, it needs to be re-deployed to the cloud.
+The app’s manifest file reads the line `ai_models = ["llama2-chat"]` and uses that model in the cloud. For any changes to take effect in the app, it needs to be re-deployed to the cloud.
  
 **Using the Cloud-GPU plugin to test locally**
  

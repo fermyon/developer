@@ -58,7 +58,7 @@ html.dark-theme {
                     color: white;
         
                     &:hover {
-                        background: rgba(124, 109, 185, 0.5) !important;
+                        background: rgba(124, 109, 185, 0.25) !important;
                     }
                 }
 
@@ -71,11 +71,11 @@ html.dark-theme {
 
                     &.is-active {
                         color: white !important;
-                        background: rgba(124, 109, 185, 0.425) !important;
+                        background: rgba(124, 109, 185, 0.25) !important;
                     }
 
                     &:hover {
-                        background: rgba(124, 109, 185, 0.5) !important;
+                        background: rgba(124, 109, 185, 0.35) !important;
                     }
 
                     &.dark-mode {
@@ -384,7 +384,7 @@ html.dark-theme {
 				.navbar-item {
 					.project-content {
 						.title {
-							color: $midgreen;
+							color: white;
 						}
 
 						.description {
@@ -413,9 +413,14 @@ html.dark-theme {
 
 				&.is-active {
 					span {
-						background: $darkspace;
+						background: rgba($darkspace, 0.333);
 					}
 				}
+
+                span.tag {
+                    color: $thistle !important;
+                    background-color: rgba($oxforddark, 0.2) !important;
+                }
 			}
 		}
 	}
@@ -440,6 +445,11 @@ html.dark-theme {
 		.card.project {
 			background: linear-gradient(47deg, rgba(124, 109, 185, 0.12)  0%, rgba(124, 109, 185, 0.17) 100%);
 			outline: none;
+
+            span.tag {
+                background-color: rgba($oxforddark, 0.5);
+                color: white !important;
+            }
 
 			&:hover .card-image.dark {
 				background: rgba(124, 109, 185, 0.07);
@@ -470,6 +480,19 @@ html.dark-theme {
 				color: $oxfordblue !important;
 			}
 		}
+        .wasm-lang {
+            border: 1px solid $lavenderfloral;
+            background: lighten($oxforddark, 2%) url(/static/image/arrow-right.png) no-repeat 95% center;
+
+            .card-content {
+                h3 {
+                    color: white !important;
+                }
+                p {
+                    color: $lightplum !important;
+                }
+            }
+        }
 
 		.flickity-button {
 			background: $darkplum;

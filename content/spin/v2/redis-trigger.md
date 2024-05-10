@@ -9,7 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/redis-trig
 - [Specifying a Redis Trigger](#specifying-a-redis-trigger)
 - [Redis Trigger Application Settings](#redis-trigger-application-settings)
 - [Redis Components](#redis-components)
-	- [The Message Handler](#the-message-handler)
+  - [The Message Handler](#the-message-handler)
 - [Inside Redis Components](#inside-redis-components)
 
 Pub-sub (publish-subscribe) messaging is a popular architecture for asynchronous message processing. Spin has built-in support to creating and running applications in response to messages on [pub-sub Redis channels](https://redis.io/topics/pubsub).
@@ -32,6 +32,8 @@ Such a trigger says that Redis messages on the specified _channel_ should be han
 
 > Spin subscribes only to the channels that are mapped to components. Other channels are ignored. If multiple components subscribe to the same channel, a message on that channel will activate all of the components.
 
+You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `channel` field. However, this feature is not yet available on Fermyon Cloud.
+
 ## Redis Trigger Application Settings
 
 Applications containing Redis triggers must specify the address of the Redis server to subscribe to. This is done via the `[application.trigger.redis]` section of manifest:
@@ -48,6 +50,8 @@ By default, Spin does not authenticate to Redis. You can work around this by pro
 > Do not use passwords in code committed to version control systems.
 
 > We plan to offer secrets-based authentication in future versions of Spin.
+
+You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `address` field. This can be particularly useful for credentials, allowing you to pass credentials in via [variables providers](./dynamic-configuration.md#application-variables-runtime-configuration) rather than including them in `spin.toml`. However, this feature is not yet available on Fermyon Cloud.
 
 ## Redis Components
 

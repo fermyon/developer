@@ -175,9 +175,23 @@ hello
 
 The no copy annotation (`<!-- @nocpy -->`) precedes a code block where no copy and pasting of code is intended. If using the no copy attribute please still be sure to add the appropriate syntax highlighting to your code block (for display purposes). For example:
 
-`<!-- @nocpy -->`
+![No Copy Source Code Example](/static/image/no-copy-source-code-example.png)
 
-```bash
+Please find copyable snippet below, for your convenience:
+
+````
+<!-- @nocpy -->
+
+```text
+Some generic code not intended for copying/pasting
+```
+````
+
+The above markdown will render the following code block on the web page:
+
+<!-- @nocpy -->
+
+```text
 Some generic code not intended for copying/pasting
 ```
 
@@ -187,7 +201,7 @@ If you want the code in a code block to be copyable with no "smarts" to remove t
 
 **Multi-tab code blocks**
 
-Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](./install#installing-spin) installer documentation](./install#installing-spin) and [Spin Key/Value documentation](./key-value-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
+Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin installer documentation](./install#installing-spin) and [Spin Key/Value documentation](./key-value-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
 
 The first step to implementing multi-tab code blocks is placing the `enable_shortcodes = true` configuration at the start of the `.md` file. Specifically, in the `.md` file's frontmatter.
 
@@ -290,7 +304,17 @@ If you have not done so already, please go ahead and perform the `npm install` c
 $ npm install
 ```
 
-With all Node dependencies installed, you can now check for broken links (which takes several minutes) and also lint your markdown files. Simply run the following command, from the root of the developer repository:
+On top of the Node dependencies the `timeout` executable must be installed on your system and added to the `PATH` environment variable. The `timeout` executable is included in the [gnu coreutils package](https://www.gnu.org/software/coreutils/) which should be present in most Linux distributions. 
+
+On macOS you can install the `timeout` binary using the Homebrew package manager as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ brew install coreutils
+```
+
+Having all dependencies installed, you can now check for broken links (which takes several minutes) and also lint your markdown files. Simply run the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 

@@ -35,9 +35,16 @@
                                         href="{{site.info.base_url}}/spin/v2/spin-application-structure">Structuring
                                         Applications</a>
                         </li>
+
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/build" )}} class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/build">Compiling
                                         Applications</a></li>
+
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/testing-apps" )}}
+                                        class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/testing-apps">Testing Applications</a>
+                        </li>
+
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/running-apps" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v2/running-apps">Running
                                         Applications</a>
@@ -46,6 +53,11 @@
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/distributing-apps">Publishing and
                                         Distribution</a>
+                        </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/observing-apps" )}}
+                                        class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v2/observing-apps">Observing
+                                        Applications</a>
                         </li>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/troubleshooting-application-dev"
                                         )}} class="active" {{/if}}
@@ -117,6 +129,9 @@
                                         href="{{site.info.base_url}}/spin/v2/kv-store-api-guide">Key
                                         Value
                                         Store</a></li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v2/mqtt-outbound" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v2/mqtt-outbound">MQTT Messaging</a>
+                        </li>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/serverless-ai-api-guide" )}}
                                         class="active" {{/if}}
                                         href="{{site.info.base_url}}/spin/v2/serverless-ai-api-guide">Serverless
@@ -255,7 +270,7 @@
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/spinkube" )}} class="active"
-                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes">Spin in Kubernetes</a>
+                                        {{/if}} href="{{site.info.base_url}}/spin/v2/kubernetes">Spin on Kubernetes</a>
                         <li><a {{#if (active_project request.spin-full-url "/spin/v2/spin-in-pods-legacy" )}} class="active"
                                         {{/if}} href="{{site.info.base_url}}/spin/v2/spin-in-pods-legacy">Spin in Pods (Legacy)</a>
                         </li>

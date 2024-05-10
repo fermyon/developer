@@ -293,6 +293,8 @@ proxies or URL shorteners.
 
 ## Routing in a Component
 
+<!-- @searchTerm "async" -->
+
 The Rust SDK [provides a router](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/http-router) that makes it easier to handle routing within a component:
 
 ```rust
@@ -327,6 +329,8 @@ mod api {
     }
 }
 ```
+
+Handlers within a `Router` can be sync or async. Use `Router`'s "plain" methods (e.g. `get`, `post`) to assign synchronous handlers, and its "async" methods (e.g. `get_async`, `post_async`) for asynchronous handlers.  You can mix sync and async handlers in the same `Router`, and can use `handle` or `handle_async` to invoke `Router` processing, regardless of whether invididual handlers are sync or async.
 
 > For further reference, see the [Spin SDK HTTP router](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Router.html).
 
@@ -540,9 +544,12 @@ For more information about using Serverless AI from Rust, see the [Serverless AI
 
 If you bump into issues building and running your Rust component, here are some common causes of problems:
 
-- Make sure `cargo` is present in your path
+- Make sure `cargo` is present in your path.
 - Make sure the [Rust](https://www.rust-lang.org/) version is recent.
-  - To check: run  `cargo --version`.  The Spin SDK needs Rust 1.64 or above.
+
+![Rust Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffermyon%2Fspin%2Fmain%2FCargo.toml&query=$[%27workspace%27][%27package%27][%27rust-version%27]&label=Rust%20Version&logo=Rust&color=orange)
+
+  - To check: run  `cargo --version`.  
   - To update: run `rustup update`.
 - Make sure the `wasm32-wasi` compiler target is installed.
   - To check: run `rustup target list --installed` and check that `wasm32-wasi` is on the list.

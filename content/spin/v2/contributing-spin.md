@@ -26,24 +26,26 @@ from the community and the maintainers before you start working on your feature.
 ## Making Code Contributions to Spin
 
 The following guide is intended to make sure your contribution can get merged as
-soon as possible. First, make sure you have the following prerequisites
-configured:
+soon as possible. First, make sure you have Rust installed.
 
-- [Rust](https://www.rust-lang.org/) at
-  [1.68+](https://www.rust-lang.org/tools/install) with the `wasm32-wasi` and
-  `wasm32-unknown-unknown` targets configured
-  (`rustup target add wasm32-wasi && rustup target add wasm32-unknown-unknown`)
-- [`rustfmt`](https://github.com/rust-lang/rustfmt) and
-  [`clippy`](https://github.com/rust-lang/rust-clippy) configured for your Rust
-  installation
+![Rust Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffermyon%2Fspin%2Fmain%2FCargo.toml&query=$[%27workspace%27][%27package%27][%27rust-version%27]&label=Rust%20Version&logo=Rust&color=orange)
+
+After [installing Rust](https://www.rust-lang.org/tools/install) please ensure the `wasm32-wasi` and
+  `wasm32-unknown-unknown` targets are configured. For example:
+  
+```bash
+rustup target add wasm32-wasi && rustup target add wasm32-unknown-unknown
+```
+
+In addition, make sure you have the following prerequisites configured:
+
+- [`rustfmt`](https://github.com/rust-lang/rustfmt)
+- [`clippy`](https://github.com/rust-lang/rust-clippy) 
 - `make`
-- if you are a VS Code user, we recommend the [`rust-analyzer`](https://rust-analyzer.github.io/) extension.
-- please ensure you
-  [configure adding a GPG signature to your commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)
-  as well as appending a sign-off message (`git commit -S -s`)
+- [`rust-analyzer`](https://rust-analyzer.github.io/) extension (for Visual Studio Code users)
+- [GPG signature verification for your GitHub commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) and remember to use a sign-off message (`git commit -S -s`) on each of your commits
 
-Once you have set up the prerequisites and identified the contribution you want
-to make to Spin, make sure you can correctly build the project:
+Once you have set up the prerequisites and identified the contribution you want to make to Spin, make sure you can correctly build the project:
 
 <!-- @selectiveCpy -->
 
@@ -95,7 +97,7 @@ We require commits to be signed both with an email address and with a GPG signat
 $ git commit -S -s -m "<your commit message>"
 ```
 
-> Some contributors like to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) convention for commit messages.
+> Some contributors like to follow the [Conventional Commits](https://github.com/conventional-commits) convention for commit messages.
 
 We try to only keep useful changes as separate commits — if you prefer to commit
 often, please

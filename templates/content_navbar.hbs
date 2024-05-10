@@ -45,48 +45,48 @@
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
                 {{#if (active_project request.spin-full-url "/spin/" )}}
-                <a class="navbar-link is-active">
-                    Spin
-                </a>
+                    <a class="navbar-link is-active">
+                        Spin
+                    </a>
                 {{else}}
-                {{#if (active_project request.spin-full-url "/cloud/" )}}
-                <a class="navbar-link is-active">
-                    Cloud
-                </a>
-                {{else}}
-                {{#if (active_project request.spin-full-url "/bartholomew/" )}}
-                <a class="navbar-link is-active">
-                    Bartholomew
-                </a>
-                {{else}}
-                <a class="navbar-link is-active">
-                    Docs
-                </a>
-                {{/if}}
-                {{/if}}
+                    {{#if (active_project request.spin-full-url "/cloud/" )}}
+                        <a class="navbar-link is-active">
+                            Cloud
+                        </a>
+                    {{else}}
+                        <a class="navbar-link">
+                            Docs
+                        </a>
+                    {{/if}}
                 {{/if}}
 
                 <div class="navbar-dropdown is-boxed">
                     <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-full-url "/spin/" )}}
                         is-active {{/if}}">
+                        <i><img src="/static/image/product-spin.png" alt="Spin" style="margin-top: 0.825rem !important;" /></i>
                         <div class="project-content">
                             <div class="title">Spin</div>
-                            <div class="description">A framework for quickly composing serverless apps.</div>
+                            <div class="description">Open source developer tool for composing serverless WebAssembly apps.</div>
                         </div>
                     </a>
 
                     <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-full-url "/cloud/" )}}
                         is-active {{/if}}">
+                        <i><img src="/static/image/product-cloud.png" alt="Cloud" /></i>
                         <div class="project-content">
                             <div class="title">Cloud</div>
-                            <div class="description">The easiest way to deploy & manage WebAssembly apps</div>
+                            <div class="description">Fermyon's hosted cloud is the quickest and easiest way to run and manage WebAssembly apps.</div>
                         </div>
                     </a>
 
-                    <a href="/bartholomew/index" class="navbar-item{{#if (active_project request.spin-full-url "/bartholomew/" )}} {{/if}}">
+                    <a href="http://www.spinkube.dev" class="navbar-item">
+                        <i><img src="/static/image/product-spinkube.png" alt="SpinKube" /></i>
                         <div class="project-content">
-                            <div class="title">Bartholomew</div>
-                            <div class="description">Compile WebAssembly-powered websites with this micro CMS</div>
+                            <div class="title">
+                                SpinKube&nbsp;
+                                <span class="tag">spinkube.dev&nbsp;<svg class="external-icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.33333 1.86667H3.77333C2.80267 1.86667 2.31733 1.86667 1.9464 2.0556C1.62023 2.22173 1.35506 2.4869 1.18893 2.81307C1 3.184 1 3.66933 1 4.64V11.2267C1 12.1973 1 12.6827 1.18893 13.0536C1.35511 13.3797 1.62027 13.6449 1.9464 13.8111C2.31647 14 2.8018 14 3.77073 14H10.3626C11.3315 14 11.816 14 12.1861 13.8111C12.5128 13.6447 12.778 13.3795 12.9444 13.0536C13.1333 12.6827 13.1333 12.1982 13.1333 11.2293V9.66667M14 5.33333V1M14 1H9.66667M14 1L7.93333 7.06667" stroke="#E7D3F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </div>
+                            <div class="description">Run WebAssembly workloads on Kubernetes. An open source community project.</div>
                         </div>
                     </a>
                 </div>

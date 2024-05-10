@@ -5,17 +5,20 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/dynamic-configuration.md"
 
 ---
+
 - [Application Variables Runtime Configuration](#application-variables-runtime-configuration)
   - [Environment Variable Provider](#environment-variable-provider)
   - [Vault Application Variable Provider](#vault-application-variable-provider)
     - [Vault Application Variable Provider Example](#vault-application-variable-provider-example)
+  - [Azure Key Vault Application Variable Provider](#azure-key-vault-application-variable-provider)
+    - [Azure Key Vault Application Variable Provider Example](#azure-key-vault-application-variable-provider-example)
 - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
   - [Redis Key Value Store Provider](#redis-key-value-store-provider)
   - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
 - [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
   - [LibSQL Storage Provider](#libsql-storage-provider)
 - [LLM Runtime Configuration](#llm-runtime-configuration)
-- [Remote Compute Provider](#remote-compute-provider)
+  - [Remote Compute Provider](#remote-compute-provider)
 
 Configuration for Spin application features such as [application variables](./variables),
 [key value storage](./kv-store-api-guide), [SQL storage](./sqlite-api-guide)
@@ -25,20 +28,13 @@ requiring no changes to the application code itself.
 This runtime configuration data is stored in the `runtime-config.toml` file and passed in via the `--runtime-config-file` flag
 when invoking the `spin up` command.
 
-The list of Spin features supporting runtime configuration includes:
-
-- [Application Variables](#variables-runtime-configuration)
-- [Key Value Storage](#key-value-store-runtime-configuration)
-- [SQL storage](#sqlite-storage-runtime-configuration)
-- [Serverless AI Compute](#llm-runtime-configuration)
-
 Let's look at each configuration category in-depth below.
 
 ## Application Variables Runtime Configuration
 
 [Application Variables](./variables) values may be set at runtime by providers. Currently,
-there are two application variable providers: the [environment-variable provider](#environment-variable-provider) and
-the [Vault provider](#vault-application-variable-provider).  The provider examples below show how to use or configure each 
+there are three application variable providers: the [environment-variable provider](#environment-variable-provider), 
+the [Vault provider](#vault-application-variable-provider) and the [Azure Key Vault provider](#azure-key-vault-application-variable-provider). The provider examples below show how to use or configure each 
 provider. For examples on how to access these variables values within your application, see
 [Using Variables from Applications](./variables#using-variables-from-applications).
 
@@ -94,8 +90,8 @@ $ vault kv put secret/secret value="test_password"
 $ vault kv get secret/secret
 ```
 
-4. Go to the [Vault variable test example](https://github.com/fermyon/spin/tree/main/examples/vault-variable-test) application.
-5. Build and run the `vault-variable-test` app:
+4. Go to the [Vault variable provider example](https://github.com/fermyon/enterprise-architectures-and-patterns/tree/main/application-variable-providers/vault-provider) application.
+5. Build and run the `vault-provider` app:
 
 <!-- @selectiveCpy -->
 
@@ -117,6 +113,115 @@ $ curl localhost:3000 --data "test_password"
 ```bash
 $ curl localhost:3000 --data "wrong_password"
 {"authentication": "denied"}
+```
+
+### Azure Key Vault Application Variable Provider
+
+The Azure Key Vault application variable provider gets secret values from [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault).
+
+Currently, only receiving the latest version of a secret is supported.
+
+For authenticating against Azure Key Vault, you must use the client credentials flow. To do so, create a Service Principal (SP) within your Microsoft Entra ID (previously known as Azure Active Directory) and assign the `Key Vault Secrets User` role to the SP on the scope of your Azure Key Vault instance.
+
+You can set up Azure Key Vault application variable provider in
+the [runtime configuration](#runtime-configuration) file:
+
+<!-- @nocpy -->
+
+```toml
+[[config_provider]]
+type = "azure_key_vault"
+vault_url = "https://spin.vault.azure.net/"
+client_id = "12345678-1234-1234-1234-123456789012"
+client_secret = "some.generated.password"
+tenant_id = "12345678-1234-1234-1234-123456789012"
+authority_host = "AzurePublicCloud"
+```
+
+#### Azure Key Vault Application Variable Provider Example
+
+1. Deploy Azure Key Vault:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Variable Definition
+$ KV_NAME=spin123
+$ LOCATION=germanywestcentral
+$ RG_NAME=rg-spin-azure-key-vault
+
+# Create an Azure Resource Group and an Azure Key Vault
+$ az group create -n $RG_NAME -l $LOCATION
+$ az keyvault create -n $KV_NAME \
+  -g $RG_NAME \
+  -l $LOCATION \
+  --enable-rbac-authorization true
+
+# Grab the Azure Resource Identifier of the Azure Key Vault instance
+$ KV_SCOPE=$(az keyvault show -n $KV_NAME -g $RG_NAME -otsv --query "id")
+```
+
+2. Add a Secret to the Azure Key Vault instance:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Grab the ID of the currently signed in user in Azure CLI
+$ CURRENT_USER_ID=$(az ad signed-in-user show -otsv --query "id")
+
+# Make the currently signed in user a "Key Vault Secrets Officer"
+# on the scope of the new Azure Key Vault instance
+$ az role assignment create --assignee $CURRENT_USER_ID \
+  --role "Key Vault Secrets Officer" \
+  --scope $KV_SCOPE
+
+# Create a test secret called `secret` in the Azure Key Vault instance
+$ az keyvault secret set -n secret --vault-name $KV_NAME --value secret_value --onone
+```
+
+3. Create a Service Principal and Role Assignment for Spin:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ export SP_NAME=sp-spin
+
+# Create the SP
+$ SP=$(az ad sp create-for-rbac -n $SP_NAME -ojson)
+
+# Populate local shell variables from the SP JSON
+$ CLIENT_ID=$(echo $SP | jq -r '.appId')
+$ CLIENT_SECRET=$(echo $SP | jq -r '.password')
+$ TENANT_ID=$(echo $SP | jq -r '.tenant')
+
+# Assign the "Key Vault Secrets User" role to the SP
+# allowing it to read secrets from the Azure Key Vault instance
+$ az role assignment create --assignee $CLIENT_ID \
+  --role "Key Vault Secrets User" \
+  --scope $KV_SCOPE
+```
+
+4. Go to the [Azure Key Vault variable provider example](https://github.com/fermyon/enterprise-architectures-and-patterns/tree/main/application-variable-providers/azure-key-vault-provider) application.
+5. Replace Tokens in `runtime_config.toml`.
+
+The `azure-key-vault-provider` application contains a `runtime_config.toml` file. Replace all tokens (e.g. `$KV_NAME$`) with the corresponding shell variables you created in the previous steps.   
+
+6. Build and run the `azure-key-vault-provider` app:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin build
+$ spin up --runtime-config-file runtime_config.toml
+```
+
+7. Test the app:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl localhost:3000
+Loaded Secret from Azure Key Vault: secret_value
 ```
 
 ## Key Value Store Runtime Configuration

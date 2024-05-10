@@ -11,7 +11,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/variables.
 
 Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
 
-These variables are defined in a Spin application manifest (in the `[variables]` section), and their values can be set or overridden at runtime by an [application variables provider](./dynamic-configuration.md#application-variables-runtime-configuration). When running Spin locally, the variables provider can be [Hashicorp Vault](./dynamic-configuration.md#vault-application-variable-provider) for secrets, or host environment variables.
+These variables are defined in a Spin application manifest (in the `[variables]` section), and their values can be set or overridden at runtime by an [application variables provider](./dynamic-configuration.md#application-variables-runtime-configuration). When running Spin locally, the variables provider can be [Hashicorp Vault](./dynamic-configuration.md#vault-application-variable-provider) for secrets, [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault), or host environment variables.
 
 For information about configuring application variables providers, refer to the [dynamic configuration documentation](./dynamic-configuration.md#application-variables-runtime-configuration).
 
@@ -122,23 +122,25 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 > Note that the name is `Config` rather than `Variables`.
 
 ```ts
-from spin_sdk import http
-from spin_sdk.http import Request, Response
-from spin_sdk import variables
+import { HandleRequest, HttpRequest, HttpResponse, Config } from "@fermyon/spin-sdk"
 
-class IncomingHandler(http.IncomingHandler):
-    def handle_request(self, request: Request) -> Response:
-        password = request.body.decode("utf-8")
-        expected = variables.get("password")
-        access = "denied"
-        if expected == password:
-            access = "accepted"
-        response = f'\{{"authentication": "{access}"}}'
-        return Response(
-            200,
-            {"content-type": "text/plain"},
-            bytes(response, "utf-8")
-        )
+const decoder = new TextDecoder("utf-8")
+
+export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+  const expected = decoder.decode(request.body)
+  let password = Config.get("password")
+  let access = "denied"
+  if (expected === password) {
+      access = "accepted"
+  }
+  let responseJson = `{\"authentication\": \"${access}\"}`;
+
+  return {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+    body: responseJson
+  }
+}
 ```
 
 {{ blockEnd }}
@@ -205,3 +207,30 @@ spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+To build and run the application, we issue the following commands:
+
+<!-- @selectiveCpy -->
+
+```bash
+# Build the application
+$ spin build
+# Export the value of the secret, using the `SPIN_VARIABLE` prefix (upper case is necessary as shown here)
+$ export SPIN_VARIABLE_SECRET="your-password-here"
+# Run the application
+$ spin up
+```
+
+To test the application, we use pass in the password in the body of the request:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ curl -i localhost:3000 -d "your-password-here"  
+HTTP/1.1 200 OK
+content-type: application/json
+content-length: 30
+date: Tue, 07 May 2024 02:33:10 GMT
+
+{"authentication": "accepted"}
+```

@@ -8,7 +8,10 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/http-outbo
 ---
 - [Using HTTP From Applications](#using-http-from-applications)
 - [Granting HTTP Permissions to Components](#granting-http-permissions-to-components)
-  - [Making HTTP Requests Within an Application](#making-http-requests-within-an-application)
+  - [Configuration-Based Permissions](#configuration-based-permissions)
+- [Making HTTP Requests Within an Application](#making-http-requests-within-an-application)
+  - [Local Service Chaining](#local-service-chaining)
+  - [Intra-Application HTTP Requests by Route](#intra-application-http-requests-by-route)
 
 Spin provides an interface for you to make outgoing HTTP requests.
 
@@ -168,15 +171,55 @@ allowed_outbound_hosts = [ "https://random-data-api.fermyon.app", "http://api.ex
 
 The Wasm module can make HTTP requests _only_ to the specified hosts. If a port is specified, the module can make requests only to that port; otherwise, the module can make requests only on the default port for the scheme. Requests to other hosts (or ports) will fail with an error.
 
+You can use a wildcard to allow requests to any subdomain of a domain:
+
+```toml
+[component.example]
+allowed_outbound_hosts = [ "https://*.example.com" ]
+```
+
 For development-time convenience, you can also pass the string `"https://*:*"` in the `allowed_outbound_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
 
-### Making HTTP Requests Within an Application
+### Configuration-Based Permissions
 
-In an HTTP component, you can make requests to a path to make HTTP requests **within the current Spin application**. For example, if you make an outbound HTTP request to /api/customers/, Spin replaces self with whatever host the application is running on. It also replaces the URL scheme (`http` or `https`) with the scheme of the current HTTP request. For example, if the application is running in the cloud, Spin changes `/api` to `https://.../api`.
+You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `allowed_outbound_hosts` field. However, this feature is not yet available on Fermyon Cloud.
 
-Using paths means that the application doesn't need to know the URL where it's deployed, or whether it's running locally versus in the cloud.
+## Making HTTP Requests Within an Application
 
-> This doesn't work in Redis components because Spin uses the incoming HTTP request to determine the current host.
+If your Spin application functions as a set of microservices, you'll often want to make requests directly from one component to another within the same application. It's best not to use a full URL for this, because that's not portable across different deployment environments - the URL in the cloud is different from the one in your development environment. Instead, Spin provides two ways to make inter-component requests:
+
+* By component ID ("local service chaining")
+* By route
+
+Both of these work only from HTTP components. That is, if you want to make an intra-application request from, say, a Redis trigger, you must use a full URL.
+
+### Local Service Chaining
+
+To make an HTTP request to another component in your application, use the special `<component-id>.spin.internal` host name. For example, an outbound HTTP request to `authz.spin.internal` will be handled by the `authz` component.
+
+In this way of doing self-requests, the request is passed in memory without ever leaving the Spin host process. This is extremely fast, as the two components are wired almost directly together, but may reduce deployment flexibility depending on the nature of the microservices. Also, public components that are the target of service chaining requests may see URLs in both routed and chained forms: therefore, if they parse the URL (for example, extracting a resource identifier from the path), they must ensure both forms are correctly handled.
+
+> Service chaining is the only way to call [private endpoints](./http-trigger#private-endpoints).
+
+You must still grant permission by including the relevant `spin.internal` hosts in `allowed_outbound_hosts`:
+
+```toml
+allowed_outbound_hosts = ["http://authz.spin.internal", "https://reporting.spin.internal"]
+```
+
+To allow local chaining to _any_ component in your application, use a subdomain wildcard:
+
+```toml
+allowed_outbound_hosts = ["*://*.spin.internal"]
+```
+
+> Local service chaining is not currently supported on Fermyon Cloud.
+
+### Intra-Application HTTP Requests by Route
+
+To make an HTTP request to another route with your application, you can pass just the route as the URL. For example, if you make an outbound HTTP request to `/api/customers/`, Spin prepends the route with whatever host the application is running on. It also replaces the URL scheme (`http` or `https`) with the scheme of the current HTTP request. For example, if the application is running in the cloud, Spin changes `/api` to `https://.../api`.
+
+In this way of doing self-requests, the request undergoes normal HTTP processing once Spin has prepended the host. For example, in a cloud deployment, the request passes through the network, and potentially back in through a load balancer or other gateway. The benefit of this is that it allows load to be distributed across the environment, but it may count against your use of bandwidth.
 
 You must still grant permission by including `self` in `allowed_outbound_hosts`:
 

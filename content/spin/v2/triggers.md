@@ -87,24 +87,25 @@ If you are not sure, or are not experienced, we recommend using named components
 
 In this section, we build an application that contains multiple triggers.
 
-> Note: Not all templates support the `spin add` command. In particular, at the time of writing, none of the default Redis templates support being added to existing applications. Therefore, if you want to use `spin add` to build an application with both Redis and HTTP triggers, you should first create a Redis application, then use `spin add` to add HTTP triggers, as shown below. (You won't be able to add additiona Redis triggers this way; if you need those, you'll need to set them up manually for now.)
-
 Here is an example of creating an application with both HTTP and Redis triggers:
 
 <!-- @nocpy -->
 
 ```bash
-# Start with a Redis trigger application
-$ spin new -t redis-rust trigger-example
-Description: A multiple trigger example
+# Start with an empty application
+$ spin new -t http-empty multiple-trigger-example
+Description: An application that handles both HTTP requests and Redis messages
+# Change into to the application directory
+$ cd multiple-trigger-example
+# Add an HTTP trigger application
+$ spin add -t http-rust rust-http-trigger-example
+Description: A Rust HTTP example
+HTTP path: /...
+# Add a Redis trigger application
+$ spin add -t redis-rust rust-redis-trigger-example
+Description: A Rust redis example
 Redis address: redis://localhost:6379
 Redis channel: one
-# Change into to the application directory
-$ cd trigger-example 
-# Create HTTP trigger application
-$ spin add -t http-rust http-trigger-example  
-Description: A HTTP trigger example
-HTTP path: /...
 ```
 
 The above `spin new` and `spin add` commands will scaffold a Spin manifest (`spin.toml` file) with the following triggers:
@@ -115,16 +116,35 @@ The above `spin new` and `spin add` commands will scaffold a Spin manifest (`spi
 spin_manifest_version = 2
 
 [application]
-name = "trigger-example"
+name = "multiple-trigger-example"
+version = "0.1.0"
+authors = ["Your Name <your-name@example.com>"]
+description = "An application that handles both HTTP requests and Redis messages"
+
+[[trigger.http]]
+route = "/..."
+component = "rust-http-trigger-example"
+
+[component.rust-http-trigger-example]
+source = "rust-http-trigger-example/target/wasm32-wasi/release/rust_http_trigger_example.wasm"
+allowed_outbound_hosts = []
+[component.rust-http-trigger-example.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "rust-http-trigger-example"
+watch = ["src/**/*.rs", "Cargo.toml"]
 
 [application.trigger.redis]
 address = "redis://localhost:6379"
 
 [[trigger.redis]]
 channel = "one"
-component = "trigger-example"
+component = "rust-redis-trigger-example"
 
-[[trigger.http]]
-route = "/..."
-component = "http-trigger-example"
+[component.rust-redis-trigger-example]
+source = "rust-redis-trigger-example/target/wasm32-wasi/release/rust_redis_trigger_example.wasm"
+allowed_outbound_hosts = []
+[component.rust-redis-trigger-example.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "rust-redis-trigger-example"
+watch = ["src/**/*.rs", "Cargo.toml"]                             
 ```
