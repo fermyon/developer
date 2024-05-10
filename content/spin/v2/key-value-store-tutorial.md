@@ -409,6 +409,8 @@ $ spin build
 $ spin up
 ```
 
+> If you ever receive the error `Handler returned an error: Error::AccessDenied`, please make sure you've included a list of allowed `key_value_stores` in your `spin.toml` file (as shown above in the [configuration](#configuration) section).
+
 ## Storing and Retrieving Data From Your Default Key/Value Store
 
 Once you have completed this minimal configuration and deployed your application, data will be persisted across requests. Let's begin by creating a `POST` request that stores a JSON key/value object:
