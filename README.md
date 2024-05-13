@@ -11,9 +11,9 @@ Build and run the website locally:
 
 ```bash
 cd spin-up-hub
-npm install
+npm ci
 cd ../
-npm install
+npm ci
 spin build
 spin watch # Uses spin watch to run the website and reload when content changes.
 ```
