@@ -875,7 +875,7 @@ OPTIONS:
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin kube
 
-{ tabs "spin-version" }
+{{ tabs "spin-version" }}
 
 {{ startTab "v2.5"}}
 
@@ -883,10 +883,12 @@ The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.s
 
 {{ blockEnd }}
 
+{{ blockEnd }}
+
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin kube completion
 
-{ tabs "spin-version" }
+{{ tabs "spin-version" }}
 
 {{ startTab "v2.5"}}
 
@@ -894,10 +896,12 @@ The `spin kube completion` command is implemented by the [`spin-kube` plugin](ht
 
 {{ blockEnd }}
 
+{{ blockEnd }}
+
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin kube scaffold
 
-{ tabs "spin-version" }
+{{ tabs "spin-version" }}
 
 {{ startTab "v2.5"}}
 
