@@ -5,7 +5,7 @@ content-type = "text/plain"
 tags = ["trigger", "rust", "plugins"]
 
 [extra]
-author = "Fermyon"
+author = "fermyon"
 type = "hub_document"
 category = "Plugin"
 language = "Rust"
