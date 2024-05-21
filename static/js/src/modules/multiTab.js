@@ -26,15 +26,23 @@ class multiTabBlockHandler {
     constructor(nodes, tabClass, activeValue, parentCallback) {
         this.tabClass = tabClass
         this.parentCallback = parentCallback
-        // this.active = 0
         this.nodes = Array.from(nodes)
         this.langs = this.nodes.map(k => { return k.dataset.title })
         this.active = this.langs.indexOf(activeValue)
-        this.active = this.active > 0 ? this.active : 0
+        if (tabClass != "spin-version") {
+            this.active = this.active > 0 ? this.active : 0
+        } else {
+            this.active = this.active > 0 ? this.active : this.nodes.length - 1
+        }
         this.tabs = list("ul", codeblockLanguageTab, null, this.ChildEventHandler.bind(this))
         this.el = el("div.tabs.is-boxed", this.tabs)
 
-        this.tabs.update(this.langs, { active: 0 })
+        // If the tabClass is `spin-version` reverse the order of the list
+        if (tabClass === "spin-version") {
+            setStyle(this.tabs, { display: "flex", "flex-direction": "row-reverse" })
+        }
+
+        this.tabs.update(this.langs, { active: this.active })
         this.updateTabContent(this.active)
     }
     ChildEventHandler(data, element) {
@@ -67,7 +75,7 @@ class multiTabContentHandler {
         })
 
         // If no OS preference set, try detect the user OS
-        if (this.selectedTab.os == null ) {
+        if (this.selectedTab.os == null) {
             this.selectedTab.os = detectOS()
         }
         this.handler = []
@@ -147,7 +155,7 @@ function filterMultitabQuery() {
     }).reduce((obj, key) => {
         obj[key.replace("multitab_", "")] = query[key];
         return obj;
-      }, {});
+    }, {});
     return multitabQuery
 }
 
