@@ -80,17 +80,17 @@ Databases (1)
 inspirational-pig (default)
 ```
 
-2. Run `spin cloud sqlite `, passing the name of the database and the SQL statement(s) needed to create your Cloud database's tables and initial data.
+2. Run `spin cloud sqlite execute`, passing the name of the database and the SQL statement(s) needed to create your Cloud database's tables and initial data.
 
 > See the [SQLite documentation](https://www.sqlite.org/lang.html) for information about the SQLite dialect of SQL.
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin cloud sqlite  -d inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
+$ spin cloud sqlite execute -d inspirational-pig "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY AUTOINCREMENT,description TEXT NOT NULL,due_date DATE,starred BOOLEAN DEFAULT 0,is_completed BOOLEAN DEFAULT 0)"
 ```
 
-If you prefer to pass a file that contains the SQL you want to , you can do so by prefixing the file name with an `@` like so:
+If you prefer to pass a file that contains the SQL you want to execute, you can do so by prefixing the file name with an `@` like so:
 
 <!-- @selectiveCpy -->
 
