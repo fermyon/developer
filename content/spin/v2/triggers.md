@@ -158,7 +158,7 @@ watch = ["src/**/*.rs", "Cargo.toml"]
 
 ## Cron Trigger
 
-Spin has experimental support for creating and running components driven by time. Please note, that there are only working Cron Trigger app samples written in [Rust](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-rust) and [Python](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-python) at present.
+Spin has experimental support for creating and running components on a schedule. Please note that there are only working Cron Trigger app samples written in [Rust](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-rust) and [Python](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-python) at present.
 
 > Please note: You can not `spin deploy` an application to Fermyon Cloud if it uses `cron` because Non-HTTP triggers are not supported in Fermyon Cloud.
 
