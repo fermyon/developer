@@ -162,7 +162,7 @@ Spin has experimental support for creating and running components on a schedule.
 
 > Please note: You can not `spin deploy` an application to Fermyon Cloud if it uses `cron` because non-HTTP triggers are not supported in Fermyon Cloud.
 
-Let's look at how the [experimental Cron trigger for Spin](https://github.com/fermyon/spin-trigger-cron) allows you to deploy a web application that is driven by time. A Cron trigger maps a cron expression (a schedule) to a specific component. For example:
+Let's look at how the [experimental Cron trigger for Spin](https://github.com/fermyon/spin-trigger-cron) allows you to deploy an application that runs on a schedule. A Cron trigger maps a cron expression (a schedule) to a specific component. For example:
 
 <!-- @nocpy -->
 
