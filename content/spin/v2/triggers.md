@@ -156,7 +156,7 @@ workdir = "rust-redis-trigger-example"
 watch = ["src/**/*.rs", "Cargo.toml"]                             
 ```
 
-## Spin Cron Trigger
+## Cron Trigger
 
 Spin has experimental support for creating and running components driven by time. Please note, that there are only working Cron Trigger app samples written in [Rust](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-rust) and [Python](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-python) at present.
 
