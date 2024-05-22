@@ -209,7 +209,7 @@ Then, we install the template:
 spin templates install --git https://github.com/fermyon/spin-trigger-cron
 ```
 
-### Creating the Web Application
+### Creating the Application
 
 With the plugin and template installed, we create a new application:
 
