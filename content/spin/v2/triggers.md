@@ -174,7 +174,20 @@ cron_expression = "1/2 * * * * *"
 
 ### Cron Trigger Expressions
 
-The expression is based on the crontab (cron table) syntax whereby each line is made up of 5 fields that represent the time to execute. Let's look at a time-based workload inside a Rust application.
+The expression is based on the crontab (cron table) syntax whereby each line is made up of 7 fields that represent the time to execute. Let's look at a time-based workload inside a Rust application:
+
+```bash
+#  ┌──────────── sec (0–59)
+#  |    ┌───────────── min (0–59)
+#  |    │  ┌───────────── hour (0–23)
+#  |    │  │  ┌───────────── day of month (1–31)
+#  |    │  │  │  ┌───────────── month (1–12)
+#  |    │  │  │  │  ┌───────────── day of week (0–6)
+#  |    │  │  │  │  |  ┌─────────────- year
+#  |    │  │  │  │  |  │
+#  |    │  │  │  │  |  │
+  1/30  *  *  *  *  *  * 
+```
 
 ### Installing the Cron Trigger Plugin
 
