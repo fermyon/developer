@@ -12,6 +12,7 @@ The following table shows the status of the interfaces Spin provides to applicat
 |----------------------------------------------|--------------|---------|
 | [HTTP Trigger](./http-trigger)               | Stable       | Yes |
 | [Redis Trigger](./redis-trigger)             | Stable       | No  |
+| [Cron Trigger](./triggers)               | Experimental | No  |
 | [Outbound HTTP](./http-outbound)             | Stable       | Yes |
 | [Outbound Redis](./redis-outbound)           | Stable       | Yes |
 | [Configuration Variables](./variables)       | Stable       | Yes |

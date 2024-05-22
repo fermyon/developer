@@ -11,6 +11,13 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/triggers.md"
   - [Writing the Component Inside the Trigger](#writing-the-component-inside-the-trigger)
   - [Choosing Between the Approaches](#choosing-between-the-approaches)
   - [Setting Up Multiple Trigger Types](#setting-up-multiple-trigger-types)
+- [Spin Cron Trigger](#spin-cron-trigger)
+  - [Cron Trigger Expressions](#cron-trigger-expressions)
+  - [Installing the Cron Trigger Plugin](#installing-the-cron-trigger-plugin)
+  - [Installing the Cron Trigger Template](#installing-the-cron-trigger-template)
+  - [Creating the Web Application](#creating-the-web-application)
+  - [Inspecting the Source Code](#inspecting-the-source-code)
+  - [Building and Running the Application](#building-and-running-the-application)
 
 A Spin _trigger_ maps an event, such as an HTTP request or a Redis pub-sub message, to a component that handles that event.
 
@@ -24,7 +31,7 @@ In Spin 2.3 and later, an application can contain triggers of different types.  
 
 ## Triggers and Components
 
-How events are specified depends on the type of trigger involved. For example, an [HTTP trigger](./http-trigger.md) is specified by the route it handles; a [Redis trigger](./redis-trigger.md) is specified by the channel it monitors. A trigger always, however, has a `component` field, specifying the component that handles matching events.  The `component` can be specified in two ways.
+How events are specified depends on the type of trigger involved. For example, an [HTTP trigger](./http-trigger.md) is specified by the route it handles. A [Cron Trigger](#spin-cron-trigger) is specified by the schedule on which it runs. A [Redis trigger](./redis-trigger.md) is specified by the channel it monitors. A trigger always, however, has a `component` field, specifying the component that handles matching events.  The `component` can be specified in two ways.
 
 ### Mapping a Trigger to a Named Component
 
@@ -148,3 +155,108 @@ command = "cargo build --target wasm32-wasi --release"
 workdir = "rust-redis-trigger-example"
 watch = ["src/**/*.rs", "Cargo.toml"]                             
 ```
+
+## Cron Trigger
+
+Spin has experimental support for creating and running components on a schedule. Please note that there are only working Cron Trigger app samples written in [Rust](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-rust) and [Python](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-python) at present.
+
+> Please note: You can not `spin deploy` an application to Fermyon Cloud if it uses `cron` because non-HTTP triggers are not supported in Fermyon Cloud.
+
+Let's look at how the [experimental Cron trigger for Spin](https://github.com/fermyon/spin-trigger-cron) allows you to deploy an application that runs on a schedule. A Cron trigger maps a cron expression (a schedule) to a specific component. For example:
+
+<!-- @nocpy -->
+
+```toml
+[[trigger.cron]]
+component = "hello-cron"
+cron_expression = "1/2 * * * * *"
+```
+
+### Cron Trigger Expressions
+
+The expression is based on the crontab (cron table) syntax whereby each line is made up of 7 fields that represent the time to execute.
+
+```bash
+#  ┌──────────── sec (0–59)
+#  |    ┌───────────── min (0–59)
+#  |    │  ┌───────────── hour (0–23)
+#  |    │  │  ┌───────────── day of month (1–31)
+#  |    │  │  │  ┌───────────── month (1–12)
+#  |    │  │  │  │  ┌───────────── day of week (0–6)
+#  |    │  │  │  │  |  ┌─────────────- year
+#  |    │  │  │  │  |  │
+#  |    │  │  │  │  |  │
+  1/30  *  *  *  *  *  * 
+```
+
+> For more information about setting the schedule, please see the [Spin Cron Trigger repository](https://github.com/fermyon/spin-trigger-cron?tab=readme-ov-file#trigger-configuration). 
+
+Let's look at a time-based workload inside a Rust application.
+
+### Installing the Cron Trigger Plugin
+
+First, we install the plugin:
+
+```bash
+spin plugins install --url https://github.com/fermyon/spin-trigger-cron/releases/download/canary/trigger-cron.json
+```
+
+### Installing the Cron Trigger Template
+
+Then, we install the template:
+
+```bash
+spin templates install --git https://github.com/fermyon/spin-trigger-cron
+```
+
+### Creating the Application
+
+With the plugin and template installed, we create a new application:
+
+```bash
+spin new -t cron-rust hello_cron --accept-defaults
+```
+
+### Inspecting the Source Code
+
+The Rust source code for this application is as follows:
+
+```Rust
+use spin_cron_sdk::{cron_component, Error, Metadata};
+use spin_sdk::variables;
+
+#[cron_component]
+async fn handle_cron_event(metadata: Metadata) -> Result<(), Error> {
+    let key = variables::get("something").unwrap_or_default();
+    println!(
+        "[{}] Hello this is me running every {}",
+        metadata.timestamp, key
+    );
+    Ok(())
+}
+```
+
+### Building and Running the Application
+
+We can immediately run this pre-written (template) application and observe the time-driven execution:
+
+```bash
+cd hello_cron
+spin build --up
+
+Building component hello-cron with `cargo build --target wasm32-wasi --release`
+
+...
+
+Finished building all Spin components
+[1715640447] Hello from a cron component
+[1715640449] Hello from a cron component
+[1715640451] Hello from a cron component
+[1715640453] Hello from a cron component
+[1715640455] Hello from a cron component
+[1715640457] Hello from a cron component
+```
+
+As we can see from the above output, our application is now running and executing the function every two seconds without the need for any incoming requests or any intervention from users or other machines.
+
+If you would like to learn more about using the Spin Cron Trigger, please check out [the Spin Cron Trigger blog post](https://www.fermyon.com/blog/spin-cron-trigger) and the [Spin Cron Trigger GitHub repository](https://github.com/fermyon/spin-trigger-cron).
