@@ -85,6 +85,7 @@ blc --recursive http://127.0.0.1:3000                                           
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
+    --exclude 'https://dotnet.microsoft.com/en-us/download/dotnet/8.0'                                                                                                                      \
     --exclude 'https://www.developerweek.com/'                                                                                                                                              \
     --exclude 'https://marketplace.visualstudio.com/items?itemName=fermyon.spin-vscode&ssr=false#overview'                                                                                  \
     --exclude 'https://marketplace.visualstudio.com/items?itemName=fermyon.autobindle'                                                                                                      \
