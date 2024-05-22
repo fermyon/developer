@@ -259,4 +259,4 @@ Finished building all Spin components
 
 As we can see from the above output, our application is now running and executing the function every two seconds without the need for any incoming requests or any intervention from users or other machines.
 
-If you would like to learn more about using the Spin Cron Trigger, please check out [the Spin Cron Trigger blog post](https://www.fermyon.com/blog/spin-cron-trigger) and the [Spin Cron Trigger GitHub Repository](https://github.com/fermyon/spin-trigger-cron).
+If you would like to learn more about using the Spin Cron Trigger, please check out [the Spin Cron Trigger blog post](https://www.fermyon.com/blog/spin-cron-trigger) and the [Spin Cron Trigger GitHub repository](https://github.com/fermyon/spin-trigger-cron).
