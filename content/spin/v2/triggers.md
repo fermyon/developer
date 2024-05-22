@@ -31,7 +31,7 @@ In Spin 2.3 and later, an application can contain triggers of different types.  
 
 ## Triggers and Components
 
-How events are specified depends on the type of trigger involved. For example, an [HTTP trigger](./http-trigger.md) is specified by the route it handles. A [Cron Trigger](./cron-trigger.md) is specified by elapsed time. A [Redis trigger](./redis-trigger.md) is specified by the channel it monitors. A trigger always, however, has a `component` field, specifying the component that handles matching events.  The `component` can be specified in two ways.
+How events are specified depends on the type of trigger involved. For example, an [HTTP trigger](./http-trigger.md) is specified by the route it handles. A [Cron Trigger](#spin-cron-trigger) is specified by the schedule on which it runs. A [Redis trigger](./redis-trigger.md) is specified by the channel it monitors. A trigger always, however, has a `component` field, specifying the component that handles matching events.  The `component` can be specified in two ways.
 
 ### Mapping a Trigger to a Named Component
 
