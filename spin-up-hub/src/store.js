@@ -113,6 +113,7 @@ const store = createStore({
       context.state.contentItems = data
       context.state.contentItems.map(k => {
         k.title = unescapeHTML(k.title)
+        k.summary = unescapeHTML(k.summary)
         k.id = k.path.substring(k.path.lastIndexOf('/') + 1)
       })
     },
@@ -148,7 +149,7 @@ const unescapeHTML = str =>
       '&#39;': "'",
       '&quot;': '"',
       '&#x3D;': '=',
-      '&#x27;': '\''
+      '&#x27;': "'",
     }[tag] || tag)
   );
 
