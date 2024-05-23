@@ -211,14 +211,6 @@ HTTP path: /...
 
 {{ startTab "Python"}}
 
-Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
-
-```bash
-python3 --version
-```
-
-If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
-
 Choose the `http-py` template to create a new HTTP application.
 
 > The Python development kit doesn't yet support Redis applications.

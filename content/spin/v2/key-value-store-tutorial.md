@@ -8,8 +8,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/key-value-
 ---
 - [Key Value Store With Spin Applications](#key-value-store-with-spin-applications)
 - [Tutorial Prerequisites](#tutorial-prerequisites)
+  - [Python](#python)
 - [Creating a New Spin Application](#creating-a-new-spin-application)
-- [Prerequisite](#prerequisite)
 - [Configuration](#configuration)
   - [The Spin TOML File](#the-spin-toml-file)
 - [Write Code to Save and Load Data](#write-code-to-save-and-load-data)
@@ -39,7 +39,17 @@ First, follow [this guide](./install.md) to install Spin. To ensure you have the
 $ spin --version
 ```
 
-> Please ensure you're on version 2.0 or newer.
+> Please ensure you're on Dpin version 2.0 or newer.
+
+### Python
+
+If you are planning on using Python for this tutorial, please ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
 
 ## Creating a New Spin Application
 
@@ -72,17 +82,6 @@ $ spin new -t http-ts spin-key-value
 {{ blockEnd }}
 
 {{ startTab "Python" }}
-
-## Prerequisite
-
-Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
-
-```bash
-python3 --version
-```
-
-If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
-
 
 <!-- @selectiveCpy -->
 

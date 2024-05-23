@@ -9,7 +9,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/ai-sentime
 - [Tutorial Prerequisites](#tutorial-prerequisites)
   - [Spin](#spin)
   - [Dependencies](#dependencies)
-- [Prerequisite](#prerequisite)
 - [Licenses](#licenses)
 - [Serverless AI Inferencing With Spin Applications](#serverless-ai-inferencing-with-spin-applications)
   - [Creating a New Spin Application](#creating-a-new-spin-application)
@@ -63,8 +62,6 @@ $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 ```
 
 **Python**
-
-## Prerequisite
 
 Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
 

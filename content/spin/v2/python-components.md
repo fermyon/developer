@@ -530,3 +530,11 @@ Please note, this error is specific to Homebrew-installed Python installations a
 - use the `--break-system-packages` option in your `pip3 install` command i.e. `pip3 install -r requirements.txt --break-system-packages`
 
 We recommend installing a virtual environment using `venv`, as shown in the [system housekeeping section](#system-housekeeping-use-a-virtual-environment) above.
+
+For all Python examples, please ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
