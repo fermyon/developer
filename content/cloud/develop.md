@@ -126,6 +126,14 @@ Installing template http-ts...
 
 {{ startTab "Python" }}
 
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
+
 <!-- @selectiveCpy -->
 
 ```bash

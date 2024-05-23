@@ -100,6 +100,14 @@ command = "npm run build"
 
 {{ startTab "Python" }}
 
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
+
 For Python applications, you must have [`componentize-py`](https://pypi.org/project/componentize-py/) installed:
 
 <!-- @selectiveCpy -->

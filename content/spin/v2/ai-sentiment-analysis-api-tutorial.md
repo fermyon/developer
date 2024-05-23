@@ -63,6 +63,14 @@ $ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
 
 **Python**
 
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
+
 Some of the Serverless AI examples are written using Python. To enable Serverless AI functionality via Python, please ensure you have the latest Python template installed:
 
 <!-- @selectiveCpy -->

@@ -211,6 +211,14 @@ $ spin plugins install js2wasm --yes
 
 {{ startTab "Python" }}
 
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
+
 You'll install all the required Python tools as part of building the application.  We'll cover that in the Build Your Application section below.  For now, there's nothing to do here!
 
 [Learn more in the language guide.](python-components)

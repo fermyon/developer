@@ -17,6 +17,16 @@ WebAssembly support is officially available in CPython 3.11 and after. The [GitH
 
 There is also a [Spin SDK for Python](https://github.com/fermyon/spin-python-sdk) that uses CPython, but reduces startup time by preloading and initializing the scripts. There's a [detailed blog post about Python on Fermyon.com](https://www.fermyon.com/blog/spin-python-sdk) that explains this.
 
+## Prerequisite
+
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
+
 ## Usage
 
 The Spin SDK makes it very easy to build Python-based Wasm applications simply by using a Spin template that handles all of the heavy lifting.

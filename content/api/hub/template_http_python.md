@@ -18,6 +18,16 @@ keywords = "web app, http, api"
 
 ---
 
+## Prerequisite
+
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
+
 This is the default HTTP trigger template for Python. It installs by default with the [Spin install script](https://developer.fermyon.com/spin/install#installing-spin).
 
 This guide walks you through how to use it: [Structure of a Python Component](https://developer.fermyon.com/spin/python-components#structure-of-a-python-component)
