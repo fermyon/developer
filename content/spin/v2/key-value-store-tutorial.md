@@ -9,6 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/key-value-
 - [Key Value Store With Spin Applications](#key-value-store-with-spin-applications)
 - [Tutorial Prerequisites](#tutorial-prerequisites)
 - [Creating a New Spin Application](#creating-a-new-spin-application)
+- [Prerequisite](#prerequisite)
 - [Configuration](#configuration)
   - [The Spin TOML File](#the-spin-toml-file)
 - [Write Code to Save and Load Data](#write-code-to-save-and-load-data)
@@ -71,6 +72,17 @@ $ spin new -t http-ts spin-key-value
 {{ blockEnd }}
 
 {{ startTab "Python" }}
+
+## Prerequisite
+
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
+
 
 <!-- @selectiveCpy -->
 

@@ -12,6 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/writing-ap
   - [The Component `source`](#the-component-source)
 - [Writing a Component Wasm Module](#writing-a-component-wasm-module)
 - [Creating an Application From a Template](#creating-an-application-from-a-template)
+- [Prerequisite](#prerequisite)
 - [Adding a New Component to an Application](#adding-a-new-component-to-an-application)
 - [Including Files with Components](#including-files-with-components)
 - [Adding Environment Variables to Components](#adding-environment-variables-to-components)
@@ -210,6 +211,16 @@ HTTP path: /...
 {{ blockEnd }}
 
 {{ startTab "Python"}}
+
+## Prerequisite
+
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
 
 Choose the `http-py` template to create a new HTTP application.
 

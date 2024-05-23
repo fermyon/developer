@@ -10,6 +10,7 @@ keywords = "quickstart"
 - [Install Spin](#install-spin)
 - [Install the Prerequisites](#install-the-prerequisites)
   - [Install a Template](#install-a-template)
+- [Prerequisite](#prerequisite)
   - [Install the Tools](#install-the-tools)
 - [Create Your First Application](#create-your-first-application)
 - [Structure of a Python Component](#structure-of-a-python-component)
@@ -131,6 +132,16 @@ Installing template http-ts...
 {{ blockEnd }}
 
 {{ startTab "Python" }}
+
+## Prerequisite
+
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
 
 <!-- @selectiveCpy -->
 

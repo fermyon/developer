@@ -24,6 +24,14 @@ This tutorial will guide you through the process of creating a simple applicatio
 
 Before starting, ensure that you have Spin v1.3.0 or greater installed on your computer. You can follow the official Fermyon Cloud Quickstart guide to [install Spin](/cloud/quickstart#install-spin) and [log into Fermyon Cloud](/cloud/quickstart#log-in-to-the-fermyon-cloud).
 
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
+
 Since this example is written in Python, make sure you have the required tools installed to write Spin applications in Python. The Spin CLI facilitates the creation of new Spin applications using application [templates](/cloud/cli-reference#templates). In this tutorial, we will use the `http-py` template that provides a `requirements.txt` file to handle dependencies:
 
 <!-- @selectiveCpy -->

@@ -5,6 +5,7 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-components.md"
 
 ---
+- [Prerequisite](#prerequisite)
 - [Componentize-Py](#componentize-py)
 - [Spin's Python HTTP Request Handler Template](#spins-python-http-request-handler-template)
 - [Creating a New Python Component](#creating-a-new-python-component)
@@ -33,6 +34,16 @@ With <a href="https://www.python.org/" target="_blank">Python</a> being a very p
 > This guide assumes you are familiar with the Python programming language, but if you are just getting started, be sure to check out <a href="https://docs.python.org/3/" target="_blank">the official Python documentation</a> and comprehensive <a href="https://docs.python.org/3/reference/" target="_blank">language reference</a>.
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk)
+
+## Prerequisite
+
+Ensure that you have Python 3.10 or later installed on your system. You can check your Python version by running:
+
+```bash
+python3 --version
+```
+
+If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
 
 ## Componentize-Py
 
