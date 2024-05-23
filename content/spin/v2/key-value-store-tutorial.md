@@ -39,7 +39,7 @@ First, follow [this guide](./install.md) to install Spin. To ensure you have the
 $ spin --version
 ```
 
-> Please ensure you're on Dpin version 2.0 or newer.
+> Please ensure you're on Spin version 2.0 or newer.
 
 ### Python
 
