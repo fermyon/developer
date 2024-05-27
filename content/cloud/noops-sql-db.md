@@ -47,10 +47,19 @@ See [preparing an SQLite Database](https://developer.fermyon.com/spin/sqlite-api
 
 When developing locally, you may also want to test queries, check tables were created properly, or inspect the data in your local SQLite database. [`sqlite3`](https://sqlite.org/cli.html) is a command line program that allows users to evaluate queries interactively. You can point the `sqlite3` CLI to the `.spin/sqlite_db.db` file, located in your application directory, to view or modify your database directly. _Note: `.spin/sqlite_db.db` is created on `spin up`._
 
+The following initializes an sqlite3 CLI that is connected to the `./spin/sqlite_db.db` database:
+
+<!-- @selectiveCpy -->
+
 ```bash
 $ sqlite3 .spin/sqlite_db.db
 SQLite version 3.43.2 2023-10-10 13:08:14
 Enter ".help" for usage hints.
+```
+
+After connecting you can go ahead and execute SQLite commands in the CLI:
+
+```bash
 sqlite> .tables
 Users
 sqlite> SELECT * FROM Users;
@@ -124,9 +133,10 @@ $ spin cloud sqlite execute -d mydb "CREATE TABLE IF NOT EXISTS todos (id INTEGE
 
 Now you can deploy your application and select `mydb` as the resource you would like to link your application to: 
 
+<!-- @selectiveCpy -->
+
 ```bash
-```bash
-spin deploy
+$ spin deploy
 Uploading todo-app version 0.1.0-r234fe5a4 to Fermyon Cloud...
 Deploying...
 App "todo-app" accesses a database labeled "default"
