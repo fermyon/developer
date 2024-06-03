@@ -236,7 +236,7 @@ A convenience function `sqlite.Open()` is provided to create a database connecti
 
 {{ blockEnd }}
 
-> Using `COMMIT;` in SQLite is crucial as it finalizes a transaction, ensuring that all changes made during the transaction are saved permanently to the database. If you do not use `COMMIT,` you will get undesirable side effects in your database.
+> Using `COMMIT;` on `INSERT`, `UPDATE` and `DELETE` statements in SQLite is crucial as it finalizes a transaction, ensuring that all changes made during the transaction are saved permanently to the database. If you do not use `COMMIT;` you will get undesirable side effects in your database.
 
 ## Preparing an SQLite Database
 
