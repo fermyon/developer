@@ -236,6 +236,8 @@ A convenience function `sqlite.Open()` is provided to create a database connecti
 
 {{ blockEnd }}
 
+> Using `COMMIT;` in SQLite is crucial as it finalizes a transaction, ensuring that all changes made during the transaction are saved permanently to the database. If you do not use `COMMIT,` you will get undesirable side effects in your database.
+
 ## Preparing an SQLite Database
 
 Although Spin provides SQLite as a built-in database, SQLite still needs you to create its tables.  In most cases, the most convenient way to do this is to use the `spin up --sqlite` option to run whatever SQL statements you need before your application starts.  This is typically used to create or alter tables, but can be used for whatever other maintenance or troubleshooting tasks you need.
