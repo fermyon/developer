@@ -787,7 +787,7 @@ We use the `spin add` command to add the new `static-fileserver` that we will na
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin add static-fileserver
+$ spin add -t static-fileserver
 Enter a name for your new component: ui
 HTTP path [/static/...]: /...
 Directory containing the files to serve [assets]: assets
