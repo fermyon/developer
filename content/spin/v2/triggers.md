@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-11-04T00:00:01Z"
 enable_shortcodes = true
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/triggers.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/triggers.md"
 
 ---
 - [Triggers and Components](#triggers-and-components)
@@ -171,6 +171,8 @@ Let's look at how the [experimental Cron trigger for Spin](https://github.com/fe
 component = "hello-cron"
 cron_expression = "1/2 * * * * *"
 ```
+
+> Note: The 7th field (year) for the `cron_expression` is optional.
 
 ### Cron Trigger Expressions
 
