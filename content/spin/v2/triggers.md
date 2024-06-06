@@ -172,7 +172,7 @@ component = "hello-cron"
 cron_expression = "1/2 * * * * *"
 ```
 
-> Note: The 7th field (year), for the `cron_expression` is optional in the application manifest.
+> Note: The 7th field (year) for the `cron_expression` is optional.
 
 ### Cron Trigger Expressions
 
