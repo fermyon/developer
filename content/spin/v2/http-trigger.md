@@ -160,9 +160,9 @@ The exact signature of the HTTP handler, and how a function is identified to be 
 
 {{ startTab "Rust"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/index.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/http/index.html)
 
-In Rust, the handler is identified by the [`#[spin_sdk::http_component]`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/attr.http_component.html) attribute.  The handler function can have one of two forms: _request-response_ or _input-output parameter_.
+In Rust, the handler is identified by the [`#[spin_sdk::http_component]`](https://docs.rs/spin-sdk/latest/spin_sdk/attr.http_component.html) attribute.  The handler function can have one of two forms: _request-response_ or _input-output parameter_.
 
 **Request-Response Handlers**
 
@@ -180,15 +180,15 @@ In this form, nothing is sent to the client until the entire response is ready. 
 You have some flexibility in choosing the types of the request and response.  The request may be:
 
 * [`http::Request`](https://docs.rs/http/latest/http/request/struct.Request.html)
-* [`spin_sdk::http::Request`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Request.html)
-* [`spin_sdk::http::IncomingRequest`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.IncomingRequest.html)
-* Any type for which you have implemented the [`spin_sdk::http::conversions::TryFromIncomingRequest`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/conversions/trait.TryFromIncomingRequest.html) trait
+* [`spin_sdk::http::Request`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.Request.html)
+* [`spin_sdk::http::IncomingRequest`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.IncomingRequest.html)
+* Any type for which you have implemented the [`spin_sdk::http::conversions::TryFromIncomingRequest`](https://docs.rs/spin-sdk/latest/spin_sdk/http/conversions/trait.TryFromIncomingRequest.html) trait
 
 The response may be:
 
 * [`http::Response`](https://docs.rs/http/latest/http/response/struct.Response.html) - typically constructed via `Response::builder()`
-* [`spin_sdk::http::Response`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Response.html) - typically constructed via a [`ResponseBuilder`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.ResponseBuilder.html)
-* Any type for which you have implemented the [`spin_sdk::http::IntoResponse`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/trait.IntoResponse.html) trait
+* [`spin_sdk::http::Response`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.Response.html) - typically constructed via a [`ResponseBuilder`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.ResponseBuilder.html)
+* Any type for which you have implemented the [`spin_sdk::http::IntoResponse`](https://docs.rs/spin-sdk/latest/spin_sdk/http/trait.IntoResponse.html) trait
 * A `Result` where the success type is one of the above and the error type is `anyhow::Error` or another error type for which you have implemented `spin_sdk::http::IntoResponse` (such as `anyhow::Result<http::Response>`)
 
 For example:
@@ -214,11 +214,11 @@ To extract data from the request, specify a body type as the generic parameter f
 
 **Input-Output Parameter Handlers**
 
-In this form, the handler function receives the request as an argument of type [`spin_sdk::http::IncomingRequest`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.IncomingRequest.html). It also receives an argument of type [`spin_sdk::http::ResponseOutparam`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.ResponseOutparam.html), through which is sends the response. The function does not return a value. This form is recommended for streaming responses.
+In this form, the handler function receives the request as an argument of type [`spin_sdk::http::IncomingRequest`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.IncomingRequest.html). It also receives an argument of type [`spin_sdk::http::ResponseOutparam`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.ResponseOutparam.html), through which is sends the response. The function does not return a value. This form is recommended for streaming responses.
 
 To send a response:
 
-1. Create a [`spin_sdk::http::OutgoingResponse`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.OutgoingResponse.html).
+1. Create a [`spin_sdk::http::OutgoingResponse`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.OutgoingResponse.html).
 2. Call `take_body()` on the `OutgoingResponse` - this gives you a [`futures::Sink`](https://docs.rs/futures/latest/futures/sink/trait.Sink.html) that you can later use to send data via the response.
 3. Call `set` on the `ResponseOutparam`, passing the `OutgoingResponse`.
 4. Call `send` on the `Sink` as many times as you like. Each send is carried out as you call it, so you can send the first part of the response without waiting for the whole response to be ready.
@@ -257,7 +257,7 @@ async fn handle_hello_rust(_req: IncomingRequest, response_out: ResponseOutparam
 }
 ```
 
-For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html).
+For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://docs.rs/spin-sdk/latest/spin_sdk/index.html).
 
 {{ blockEnd }}
 

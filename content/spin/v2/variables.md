@@ -83,7 +83,7 @@ The exact details of calling the config SDK from a Spin application depends on t
 
 {{ startTab "Rust"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/variables/index.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/variables/index.html)
 
 The interface is available in the `spin_sdk::variables` module and is named `get`.
 
