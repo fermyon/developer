@@ -20,7 +20,7 @@ A template consists of two directories, `content` and `metadata`.
   the Spin application directory, such as source code, the `spin.toml` file,
   standard assets, precompiled modules, etc.  These files can contain placeholders
   so the user of the template can customize the end result.
-* The `metadata` directory contains the files the control how the template is
+* The `metadata` directory contains the files that control how the template is
   instantiated.  In this version of Spin, the only file in this directory
   should be the _template manifest_.
 
