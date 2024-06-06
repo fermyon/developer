@@ -34,7 +34,7 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/index.html)
 
 MySQL functions are available in the `spin_sdk::mysql` module, and PostgreSQL functions in the `spin_sdk::pg` module. The function names match the operations above. This example shows MySQL:
 
@@ -64,7 +64,7 @@ match rowset.rows.first() {
 
 You can find complete examples for using relational databases in the Spin repository on GitHub ([MySQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/mysql), [PostgreSQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/postgres)).
 
-For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK reference documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html).
+For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK reference documentation](https://docs.rs/spin-sdk/latest/spin_sdk/index.html).
 
 {{ blockEnd }}
 

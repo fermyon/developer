@@ -40,7 +40,7 @@ The exact detail of calling these operations from your application depends on yo
 
 {{ startTab "Rust"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/key_value/index.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/key_value/index.html)
 
 Key value functions are available in the `spin_sdk::key_value` module. The function names match the operations above. For example:
 

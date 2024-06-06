@@ -35,7 +35,7 @@ official resources for learning Rust](https://www.rust-lang.org/learn).
 
 > All examples from this page can be found in [the Spin Rust SDK repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples).
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html)
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/index.html)
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ for writing Spin components with the Spin Rust SDK.
 > Make sure to read [the page describing the HTTP trigger](./http-trigger.md) for more
 > details about building HTTP applications.
 
-Building a Spin HTTP component using the Rust SDK means writing a single function decorated with the [`#[http_component]`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/attr.http_component.html) attribute. The function can have one of two forms:
+Building a Spin HTTP component using the Rust SDK means writing a single function decorated with the [`#[http_component]`](https://docs.rs/spin-sdk/latest/spin_sdk/attr.http_component.html) attribute. The function can have one of two forms:
 
 * takes an HTTP request as a parameter, and returns an HTTP response — shown below
 * taken as parameters _both_ the HTTP request and an object through which to write a response - see [the HTTP trigger page](./http-trigger#authoring-http-components) for an example.
@@ -107,9 +107,9 @@ async fn handle_hello_rust(_req: Request) -> anyhow::Result<impl IntoResponse> {
 
 The important things to note in the implementation above:
 
-- the [`spin_sdk::http_component`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/attr.http_component.html) macro marks the function as the entry point for the Spin component
+- the [`spin_sdk::http_component`](https://docs.rs/spin-sdk/latest/spin_sdk/attr.http_component.html) macro marks the function as the entry point for the Spin component
 - the function signature — `fn hello_world(req: Request) -> Result<impl IntoResponse>` —
-  the Spin HTTP component allows for a flexible set of response types via the [`IntoResponse`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/trait.IntoResponse.html) trait, including the SDK's `Response` type and the `Response` type from the Rust [`http` crate](https://crates.io/crates/http). See the section on [using the `http` crate](#using-the-http-crate) for more information.
+  the Spin HTTP component allows for a flexible set of response types via the [`IntoResponse`](https://docs.rs/spin-sdk/latest/spin_sdk/http/trait.IntoResponse.html) trait, including the SDK's `Response` type and the `Response` type from the Rust [`http` crate](https://crates.io/crates/http). See the section on [using the `http` crate](#using-the-http-crate) for more information.
 
 > If you're familiar with Spin 1.x, you will see some changes when upgrading to the Spin 2 SDK. Mostly these provide more flexibility, but you will likely need to change some details such as module paths. If you don't want to modify your code, you can continue using the 1.x SDK - your components will still run.
 
@@ -332,7 +332,7 @@ mod api {
 
 Handlers within a `Router` can be sync or async. Use `Router`'s "plain" methods (e.g. `get`, `post`) to assign synchronous handlers, and its "async" methods (e.g. `get_async`, `post_async`) for asynchronous handlers.  You can mix sync and async handlers in the same `Router`, and can use `handle` or `handle_async` to invoke `Router` processing, regardless of whether invididual handlers are sync or async.
 
-> For further reference, see the [Spin SDK HTTP router](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Router.html).
+> For further reference, see the [Spin SDK HTTP router](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.Router.html).
 
 ## Storing Data in Redis From Rust Components
 
@@ -491,7 +491,7 @@ HTTP/1.1 200 OK
 0x1234
 ```
 
-For more information on the Rust key-value API see [the Spin SDK documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/key_value/index.html).
+For more information on the Rust key-value API see [the Spin SDK documentation](https://docs.rs/spin-sdk/latest/spin_sdk/key_value/index.html).
 
 ## Storing Data in SQLite
 
@@ -595,4 +595,4 @@ spin-sdk = { git = "https://github.com/fermyon/spin" }
 
 ## Read the Rust Spin SDK Documentation
 
-Although you learned a lot by following the concepts and samples shown here, you can dive even deeper and read the [Rust Spin SDK documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html).
+Although you learned a lot by following the concepts and samples shown here, you can dive even deeper and read the [Rust Spin SDK documentation](https://docs.rs/spin-sdk/latest/spin_sdk/index.html).

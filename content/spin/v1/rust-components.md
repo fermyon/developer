@@ -511,4 +511,4 @@ wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", re
 
 ## Read the Rust Spin SDK Documentation
 
-Although you learned a lot by following the concepts and samples shown here, you can dive even deeper and read the [Rust Spin SDK documentation](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/index.html).
+Although you learned a lot by following the concepts and samples shown here, you can dive even deeper and read the [Rust Spin SDK documentation](https://docs.rs/spin-sdk/latest/spin_sdk/index.html).

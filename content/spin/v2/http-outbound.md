@@ -27,18 +27,18 @@ The outbound HTTP interface depends on your language.
 
 {{ startTab "Rust"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/index.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/http/index.html)
 
-To send requests, use the [`spin_sdk::http::send`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/fn.send.html) function. This takes a request argument and returns a response (or error). It is `async`, so within an async inbound handler you can have multiple outbound `send`s running concurrently.
+To send requests, use the [`spin_sdk::http::send`](https://docs.rs/spin-sdk/latest/spin_sdk/http/fn.send.html) function. This takes a request argument and returns a response (or error). It is `async`, so within an async inbound handler you can have multiple outbound `send`s running concurrently.
 
 > Support for streaming request and response bodies is **experimental**. We currently recommend that you stick with the simpler non-streaming interfaces if you don't require streaming.
 
 `send` is quite flexible in its request and response types. The request may be:
 
 * [`http::Request`](https://docs.rs/http/latest/http/request/struct.Request.html) - typically constructed via `http::Request::builder()`
-* [`spin_sdk::http::Request`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Request.html) - typically constructed via `spin_sdk::http::Request::get()`, `spin_sdk::http::Request::post()`, or `spin_sdk::http::Request::builder()`
-  * You can also use the [builder type](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.RequestBuilder.html) directly - `build` will be called automatically for you
-* [`spin_sdk::http::OutgoingRequest`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.OutgoingRequest.html) - constructed via `OutgoingRequest::new()`
+* [`spin_sdk::http::Request`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.Request.html) - typically constructed via `spin_sdk::http::Request::get()`, `spin_sdk::http::Request::post()`, or `spin_sdk::http::Request::builder()`
+  * You can also use the [builder type](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.RequestBuilder.html) directly - `build` will be called automatically for you
+* [`spin_sdk::http::OutgoingRequest`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.OutgoingRequest.html) - constructed via `OutgoingRequest::new()`
 * Any type for which you have implemented the `TryInto<spin_sdk::http::OutgoingRequest>` trait
 
 Generally, you should use `OutgoingRequest` when you need to stream the outbound request body; otherwise, the `Request` types are usually simpler.
@@ -46,9 +46,9 @@ Generally, you should use `OutgoingRequest` when you need to stream the outbound
 The response may be:
 
 * [`http::Response`](https://docs.rs/http/latest/http/response/struct.Response.html)
-* [`spin_sdk::http::Response`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.Response.html)
-* [`spin_sdk::http::IncomingResponse`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/struct.IncomingResponse.html)
-* Any type for which you have implemented the [spin_sdk::http::conversions::TryFromIncomingResponse](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/conversions/trait.TryFromIncomingResponse.html) trait
+* [`spin_sdk::http::Response`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.Response.html)
+* [`spin_sdk::http::IncomingResponse`](https://docs.rs/spin-sdk/latest/spin_sdk/http/struct.IncomingResponse.html)
+* Any type for which you have implemented the [spin_sdk::http::conversions::TryFromIncomingResponse](https://docs.rs/spin-sdk/latest/spin_sdk/http/conversions/trait.TryFromIncomingResponse.html) trait
 
 Generally, you should use `IncomingResponse` when you need to stream the response body; otherwise, the `Response` types are usually simpler.
 

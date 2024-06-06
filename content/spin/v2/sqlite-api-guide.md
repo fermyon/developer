@@ -53,7 +53,7 @@ serde = {version = "1.0", features = ["derive"]}
 serde_json = "1.0"
 ```
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/sqlite/index.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/sqlite/index.html)
 
 SQLite functions are available in the `spin_sdk::sqlite` module. The function names match the operations above. For example:
 
