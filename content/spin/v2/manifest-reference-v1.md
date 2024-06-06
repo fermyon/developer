@@ -2,7 +2,7 @@ title = "Spin Application Manifest (Version 1) Reference"
 template = "spin_main"
 date = "2023-11-04T00:00:01Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/manifest-reference-v1.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/manifest-reference-v1.md"
 
 ---
 - [Format](#format)
