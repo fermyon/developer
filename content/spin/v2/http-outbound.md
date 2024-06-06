@@ -27,7 +27,7 @@ The outbound HTTP interface depends on your language.
 
 {{ startTab "Rust"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/index.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/http/index.html)
 
 To send requests, use the [`spin_sdk::http::send`](https://fermyon.github.io/rust-docs/spin/main/spin_sdk/http/fn.send.html) function. This takes a request argument and returns a response (or error). It is `async`, so within an async inbound handler you can have multiple outbound `send`s running concurrently.
 
