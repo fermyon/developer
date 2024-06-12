@@ -178,6 +178,13 @@ You can use a wildcard to allow requests to any subdomain of a domain:
 allowed_outbound_hosts = [ "https://*.example.com" ]
 ```
 
+You can also pass an IPv4 CIDR address:
+
+```toml
+[component.example]
+allowed_outbound_hosts = [ "https://192.168.1.0/24" ]
+```
+
 For development-time convenience, you can also pass the string `"https://*:*"` in the `allowed_outbound_hosts` collection. This allows the Wasm module to make HTTP requests to _any_ host and on any port. However, once you've determined which hosts your code needs, you should remove this string and list the hosts instead.  Other Spin implementations may restrict host access and disallow components that ask to connect to anything and everything!
 
 ### Configuration-Based Permissions
