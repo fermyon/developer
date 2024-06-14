@@ -7,33 +7,90 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/observing-
 
 ---
 
-- [Logs](#logs)
-- [OpenTelemetry (OTEL)](#opentelemetry-otel)
+- [Application Logs](#application-logs)
+- [OpenTelemetry (OTel)](#opentelemetry-otel)
+  - [Running An Observability Stack](#running-an-observability-stack)
+  - [Configuring Spin](#configuring-spin)
+  - [Traces](#traces)
+  - [Metrics](#metrics)
+  - [Logs](#logs)
 
-## Logs
+## Application Logs
 
 Spin handles application logs by default, storing output and error messages from file system-run applications in the `.spin/logs` directory alongside the manifest file's location. Users have the option to direct logs to a specific folder using the `--log-dir` flag of the `spin up` command. Additionally, if users wish to prevent `stdout` and `stderr` from being written to disk, they can specify an empty string for the `--log-dir` flag, i.e. `spin up --log-dir ""` - effectively disabling log storage. See the [persistent logs](./running-apps#persistent-logs) section for more details.
 
-## OpenTelemetry (OTEL)
+## OpenTelemetry (OTel)
 
-Spin now has experimental support for the [OpenTelemetry (OTEL)](https://opentelemetry.io/) observability standard. When configured, Spin will now emit traces of your Spin App as an OTEL [signal](https://opentelemetry.io/docs/concepts/signals/). Here is a brief overview of how to configure it.
+Spin now has support for the [OpenTelemetry (OTel)](https://opentelemetry.io/) observability standard. You can learn more about observability [here](https://opentelemetry.io/docs/concepts/observability-primer/). When configured, Spin will emit telemetry about your Spin App in the form of OTel [signals](https://opentelemetry.io/docs/concepts/signals/): traces, metrics, and logs.
 
-First, run an OTEL compliant [collector](https://opentelemetry.io/docs/collector/) to collect the traces. [Jaeger](https://www.jaegertracing.io/) is an open source distributed tracing platform that can act as an OTEL collector and enables viewing taces. You can run Jaeger using Docker:
+### Running An Observability Stack
 
-```bash
-docker run -d -p16686:16686 -p4317:4317 -p4318:4318 -e COLLECTOR_OTLP_ENABLED=true jaegertracing/all-in-one:latest
+In order to view the telemetry data you need to run an OTel compliant [collector](https://opentelemetry.io/docs/collector/) and the proper backends for each signal type. If you have Docker on your system you can easily start all the observability tools you need with the following commands:
+
+```sh
+cd  ~
+git clone git@github.com:fermyon/spin.git
+cd spin/hack/o11y-stack
+docker compose up -d
 ```
 
-Now, you can start your Spin app, setting the endpoint of the OTEL collector in the **`OTEL_EXPORTER_OTLP_ENDPOINT`** environment variable:
+This will start the following services:
 
-```bash
+- [OTel Collector](https://opentelemetry.io/docs/collector/): Collector to receive OTel signals from Spin and forward to the appropriate backends.
+- [Jaeger](https://www.jaegertracing.io/): Backend for traces.
+- [Tempo](https://grafana.com/oss/tempo/): Alternative backend for traces.
+- [Loki](https://grafana.com/oss/loki/): Backend for logs.
+- [Prometheus](https://prometheus.io/): Backend for metrics.
+- [Grafana](https://grafana.com/oss/grafana/): Dashboard for viewing data stored in Tempo, Loki, and Prometheus.
+
+### Configuring Spin
+
+To have Spin export OTel telemetry to the collector you need to set the following environment variable:
+
+```sh
 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 spin up
 ```
 
-After sending some requests to your Spin app, navigate to Jaeger `http://localhost:16686` to view the traces.
+This will enable all OTel signals. If you only want to enable specific signals you can set the following environment variables individually:
+
+- Traces: `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`
+- Metrics: `OTEL_EXPORTER_OTLP_METRICS_ENDPOINT`
+- Logs: `OTEL_EXPORTER_OTLP_LOGS_ENDPOINT`
+
+For example this would enable exporting of traces and metrics:
+
+```sh
+OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://localhost:4318/v1/traces OTEL_EXPORTER_OTLP_METRICS_ENDPOINT=http://localhost:4318/v1/metrics spin up
+```
+
+Storing lots of trace data can get expensive. You may want to sample traces to reduce the amount of data stored. You can set the following environment variable to control the sampling rate:
+
+```sh
+OTEL_TRACES_SAMPLER=traceidratio OTEL_TRACES_SAMPLER_ARG={desired_ratio} OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 spin up
+```
+
+Under high request loads Spin will start dropping OTel data. If keeping all of this data is important to you there are [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#batch-span-processor) you can set:
+
+```sh
+OTEL_BSP_MAX_CONCURRENT_EXPORTS=4 OTEL_BSP_MAX_QUEUE_SIZE=4096 OTEL_BSP_SCHEDULE_DELAY=1000 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 spin up
+```
+
+Spin supports a wide array of OTel configuration options beyond what we've covered here. You can read more about them [here](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) and [here](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#general-sdk-configuration).
+
+### Traces
+
+After sending some requests to your Spin app, navigate to Jaeger [http://localhost:16686](http://localhost:16686) to view the traces.
 
 ![Traces from app](/static/image/jaeger-traces.png)
 
 Spin supports both inbound and outbound [trace context propagation](https://opentelemetry.io/docs/concepts/context-propagation/). This allows you to include Spin in your distributed traces that span all your services.
 
-This observability support in Spin is still experimental. Only the HTTP trigger, the LLM host component, and outbound HTTP requests are implemented at this time. Going forward, we will be adding tracing to the remainder of Spin triggers and host components. We also hope to add support for the OTEL metrics signal in the future. Try it out, let us know what you think and help us improve the observability experience in Spin!
+### Metrics
+
+Navigate to [http://localhost:5050/explore](http://localhost:5050/explore) to view the metrics in Grafana. Make sure to choose the Prometheus data source from the top left dropdown menu.
+
+### Logs
+
+Navigate to [http://localhost:5050/explore](http://localhost:5050/explore) to view the logs in Grafana. Make sure to choose the Loki data source from the top left dropdown menu.
+
+Spin will still emit application logs as described in the [Application Logs](#application-logs) section. However, it will also send the logs to the OTel collector.
