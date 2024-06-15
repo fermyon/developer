@@ -13,7 +13,7 @@ created_at = "2024-06-14T04:30:32.000Z"
 last_updated = "2024-06-14T04:30:32.000Z"
 spin_version = ">v1.3"
 summary =  "A template to use Jekyll with Spin"
-url = "https://github.com/VamshiReddy02/spin-11ty"
+url = "https://github.com/VamshiReddy02/spin-jekyll"
 keywords = "html, Jekyll, ruby"
 
 ---
