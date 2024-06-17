@@ -4672,7 +4672,8 @@ The following additional trigger options are available for the [spin up](#spin-u
 ```console
 --listen <ADDRESS>
     IP address and port to listen on
-    
+
+    [env: SPIN_HTTP_LISTEN_ADDR=]
     [default: 127.0.0.1:3000]
 
 --tls-cert <TLS_CERT>
