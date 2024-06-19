@@ -1,11 +1,19 @@
+- [Prerequisites](#prerequisites)
 - [Migration Scripts](#migration-scripts)
   - [Create Mappings](#create-mappings)
+- [Move files](#move-files)
+- [Create redirects](#create-redirects)
   - [Sidebar Unification](#sidebar-unification)
 - [Check That All Pages Are Linked to in the Sidebar](#check-that-all-pages-are-linked-to-in-the-sidebar)
 - [Position Files and Folders - Ready For Testing](#position-files-and-folders---ready-for-testing)
 - [Testing Changes Locally](#testing-changes-locally)
 - [Push Changes](#push-changes)
 
+# Prerequisites
+
+```bash
+pip3 install openpyxl
+```
 
 # Migration Scripts
 
@@ -33,7 +41,23 @@ Run the create_url_vs_markdown_file_vs_toc_label_mapping.py script. It will gene
 create_url_vs_markdown_file_vs_toc_label_mapping.py
 ```
 
-Open the mapping_information.xlsx spreadsheet and fill in the file path and label values that correspond to the url in question. Save the file.
+Open the mapping_information.xlsx spreadsheet and fill in the original file path, unified file path and label values that correspond to the URL in question. Save the file.
+
+# Move files
+
+Run the following scripts to move files to their new location on disk:
+
+```bash
+#TODO move_markdown_files_to_unified_location.py
+```
+
+# Create redirects
+
+Run the following scripts to generate the redirect code for the spin.toml file:
+
+```bash
+#TODO create_redirect_syntax_for_manifest.py
+```
 
 ## Sidebar Unification
 

@@ -1,6 +1,7 @@
 import re
 import openpyxl
 from openpyxl import Workbook
+import requests
 
 # Remove formatting from the Handlebars template
 def remove_formatting(text):
@@ -44,7 +45,7 @@ ws = wb.active
 ws.title = "Links"
 
 # Write the headers
-ws.append(["url_path", "file_path", "toc_label"])
+ws.append(["url_path", "original_file_path", "unified_file_path", "toc_label"])
 
 # Write the links to column A and leave columns B and C blank
 for link in all_links:
