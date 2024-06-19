@@ -1,4 +1,5 @@
 - [Migration Scripts](#migration-scripts)
+  - [Create Mappings](#create-mappings)
   - [Sidebar Unification](#sidebar-unification)
 - [Check That All Pages Are Linked to in the Sidebar](#check-that-all-pages-are-linked-to-in-the-sidebar)
 - [Position Files and Folders - Ready For Testing](#position-files-and-folders---ready-for-testing)
@@ -24,9 +25,19 @@ Change into the migration_scripts directory and then run the following scripts:
 cd migration_scripts
 ```
 
+## Create Mappings
+
+Run the create_url_vs_markdown_file_vs_toc_label_mapping.py script. It will generate a spreadsheet called mapping_information.xlsx which will contain all of the current url paths from the existing spin v2 sidebar template and the cloud sidebar template:
+
+```bash
+create_url_vs_markdown_file_vs_toc_label_mapping.py
+```
+
+Open the mapping_information.xlsx spreadsheet and fill in the file path and label values that correspond to the url in question. Save the file.
+
 ## Sidebar Unification
 
-The following script generates a new sidebar `.hbs` file (that will be the replacement sidebar for the original cloud and spin sidebars):
+The following script reads the mappings from above and generates a new sidebar `.hbs` file (that will be the replacement sidebar for the original cloud and spin sidebars):
 
 ```bash
 python3 create_unified_sidebar.py
