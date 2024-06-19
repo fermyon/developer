@@ -153,49 +153,62 @@ sidebar_structure = {
     "Resources": []
 }
 
-# Function to generate Handlebars template
-def generate_handlebars_template(structure, indent=0):
+# Function to generate Handlebars template using actual elements and attributes from the original templates
+def generate_handlebars_template(structure, indent=0, idx=0):
     handlebars = ""
     for key, value in structure.items():
+        current_id = f"rd{idx}"
         if isinstance(value, dict):
-            handlebars += ' ' * indent + f'<li><span class="caret">{key}</span>\n'
-            handlebars += ' ' * indent + f'<ul class="nested">\n'
-            handlebars += generate_handlebars_template(value, indent + 4)
-            handlebars += ' ' * indent + f'</ul>\n'
-            handlebars += ' ' * indent + f'</li>\n'
+            handlebars += ' ' * indent + f'<div class="accordion-menu-item">\n'
+            handlebars += ' ' * indent + f'  <input type="checkbox" id="{current_id}" name="rd">\n'
+            handlebars += ' ' * indent + f'  <label for="{current_id}" class="accordion-menu-item-label menu-label">\n'
+            handlebars += ' ' * indent + f'    {key}\n'
+            handlebars += ' ' * indent + f'  </label>\n'
+            handlebars += ' ' * indent + f'  <ul class="menu-list accordion-menu-item-content">\n'
+            handlebars += generate_handlebars_template(value, indent + 4, idx + 1)
+            handlebars += ' ' * indent + f'  </ul>\n'
+            handlebars += ' ' * indent + f'</div>\n'
         elif isinstance(value, list):
             if len(value) > 0 and isinstance(value[0], dict):
-                handlebars += ' ' * indent + f'<li><span class="caret">{key}</span>\n'
-                handlebars += ' ' * indent + f'<ul class="nested">\n'
+                handlebars += ' ' * indent + f'<div class="accordion-menu-item">\n'
+                handlebars += ' ' * indent + f'  <input type="checkbox" id="{current_id}" name="rd">\n'
+                handlebars += ' ' * indent + f'  <label for="{current_id}" class="accordion-menu-item-label menu-label">\n'
+                handlebars += ' ' * indent + f'    {key}\n'
+                handlebars += ' ' * indent + f'  </label>\n'
+                handlebars += ' ' * indent + f'  <ul class="menu-list accordion-menu-item-content">\n'
                 for item in value:
-                    handlebars += generate_handlebars_template(item, indent + 4)
-                handlebars += ' ' * indent + f'</ul>\n'
-                handlebars += ' ' * indent + f'</li>\n'
+                    handlebars += generate_handlebars_template(item, indent + 4, idx + 1)
+                handlebars += ' ' * indent + f'  </ul>\n'
+                handlebars += ' ' * indent + f'</div>\n'
             else:
-                handlebars += ' ' * indent + f'<li><span class="caret">{key}</span>\n'
-                handlebars += ' ' * indent + f'<ul class="nested">\n'
+                handlebars += ' ' * indent + f'<div class="accordion-menu-item">\n'
+                handlebars += ' ' * indent + f'  <input type="checkbox" id="{current_id}" name="rd">\n'
+                handlebars += ' ' * indent + f'  <label for="{current_id}" class="accordion-menu-item-label menu-label">\n'
+                handlebars += ' ' * indent + f'    {key}\n'
+                handlebars += ' ' * indent + f'  </label>\n'
+                handlebars += ' ' * indent + f'  <ul class="menu-list accordion-menu-item-content">\n'
                 for item in value:
-                    handlebars += ' ' * (indent + 4) + f'<li>{{{{#link "{spin_links.pop(0) if spin_links else "#"}}}}}{item}{{{{/link}}}}</li>\n'
-                handlebars += ' ' * indent + f'</ul>\n'
-                handlebars += ' ' * indent + f'</li>\n'
+                    link = spin_links.pop(0) if spin_links else "#"
+                    handlebars += ' ' * (indent + 4) + f'    <li><a href="{link}" class="accordion-link">{item}</a></li>\n'
+                handlebars += ' ' * indent + f'  </ul>\n'
+                handlebars += ' ' * indent + f'</div>\n'
         else:
-            handlebars += ' ' * indent + f'<li>{key}</li>\n'
+            handlebars += ' ' * indent + f'<div class="accordion-menu-item">\n'
+            handlebars += ' ' * indent + f'  <input type="checkbox" id="{current_id}" name="rd">\n'
+            handlebars += ' ' * indent + f'  <label for="{current_id}" class="accordion-menu-item-label menu-label">\n'
+            handlebars += ' ' * indent + f'    {key}\n'
+            handlebars += ' ' * indent + f'  </label>\n'
+            handlebars += ' ' * indent + f'  <ul class="menu-list accordion-menu-item-content">\n'
+            handlebars += ' ' * indent + f'  </ul>\n'
+            handlebars += ' ' * indent + f'</div>\n'
+        idx += 1
     return handlebars
 
 # Generating the combined sidebar Handlebars template
 handlebars_template = f"""
-<ul id="myUL">
+<div class="accordion-tabs">
     {generate_handlebars_template(sidebar_structure)}
-</ul>
-<script>
-    var toggler = document.getElementsByClassName("caret");
-    for (var i = 0; i < toggler.length; i++) {{
-        toggler[i].addEventListener("click", function() {{
-            this.parentElement.querySelector(".nested").classList.toggle("active");
-            this.classList.toggle("caret-down");
-        }});
-    }}
-</script>
+</div>
 """
 
 # Save the Handlebars template to a file

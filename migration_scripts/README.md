@@ -8,6 +8,22 @@
 
 # Migration Scripts
 
+Fork the developer repository, clone your fork, create a new branch, set the remote:
+
+```bash
+cd ~
+git clone git@github.com:yourusername/developer.git
+cd developer
+git checkout -b my_new_branch
+git remote add upstream https://github.com/fermyon/developer
+```
+
+Change into the migration_scripts directory and then run the following scripts:
+
+```bash
+cd migration_scripts
+```
+
 ## Sidebar Unification
 
 The following script generates a new sidebar `.hbs` file (that will be the replacement sidebar for the original cloud and spin sidebars):
@@ -23,6 +39,8 @@ Run the following script to make sure that all pages on the website are listed i
 ```bash
 python3 check_that_all_pages_are_linked_to_in_sidebar.py
 ```
+
+The above script will list all pages with either a cross ❌ or a check mark ✔ next to the file's name (we want all ✔ before we proceed). 
 
 # Position Files and Folders - Ready For Testing
 
