@@ -381,6 +381,6 @@ This was just a small example of what Serverless AI Inferencing can do. To check
 - Read [our in-depth tutorial](../../spin/ai-sentiment-analysis-api-tutorial) on building a Sentiment Analysis API with Serverless AI
 - Look at the [Serverless AI API Guide](../../spin/serverless-ai-api-guide)
 - Try the numerous Serverless AI examples in our GitHub repository called [ai-examples](https://github.com/fermyon/ai-examples).
-- [Contribute](../../api/hub/contributing) your Serverless AI app to our [Spin Up Hub](../../api/hub).
+- [Contribute](https://developer.fermyon.com/hub/contributing) your Serverless AI app to our [Spin Up Hub](https://developer.fermyon.com/hub).
 - Ask questions and share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
 ---
