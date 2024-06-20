@@ -103,6 +103,9 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://www.reddit.com/r/Clojure/comments/jkznto/web_assembly_clojure_current_state/'                                                                                        \
     --exclude 'https://www.reddit.com/r/Rlanguage/comments/b4izog/compile_r_to_webassembly_and_use_as_a_data/'                                                                              \
     --exclude 'https://www.tutorialspoint.com/webassembly/webassembly_working_with_cplusplus.htm'                                                                                           \
+    --exclude 'http://localhost:16686/'                                                                                                                                                     \
+    --exclude 'http://localhost:5050/explore'                                                                                                                                               \
+    --exclude 'http://localhost:5050/explore'                                                                                                                                               \
     --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en' | tee "${report}" || blc_error=true
 
 cat "${report}" | grep "├─BROKEN─" > broken_links || true
