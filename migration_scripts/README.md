@@ -48,7 +48,7 @@ Open the mapping_information.xlsx spreadsheet and fill in the original file path
 Run the following scripts to move files to their new location on disk:
 
 ```bash
-#TODO move_markdown_files_to_unified_location.py
+python3 move_markdown_files_to_unified_location.py
 ```
 
 # Create redirects
@@ -56,7 +56,15 @@ Run the following scripts to move files to their new location on disk:
 Run the following scripts to generate the redirect code for the spin.toml file:
 
 ```bash
-#TODO create_redirect_syntax_for_manifest.py
+python3 create_redirect_syntax_for_manifest.py
+```
+
+The script above will generate a new `spin.toml` file.
+
+Go ahead and copy the `spin.toml` file from the migration_scripts directory, over to the application's root:
+
+```bash
+mv updated_spin.toml ../spin.toml
 ```
 
 ## Sidebar Unification

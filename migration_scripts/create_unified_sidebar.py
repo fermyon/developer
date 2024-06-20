@@ -9,13 +9,15 @@ def read_excel_to_dict(file_path):
 
     # Skip the header row
     for row in ws.iter_rows(min_row=2, values_only=True):
-        url_path, file_path, toc_label = row
+        original_url_path, unified_url_path, original_file_path, unified_file_path, original_toc_label, unified_toc_label = row
         data.append({
-            "url_path": url_path,
-            "file_path": file_path,
-            "toc_label": toc_label
+            "original_url_path": original_url_path,
+            "unified_url_path": unified_url_path,
+            "original_file_path": original_file_path,
+            "unified_file_path": unified_file_path,
+            "original_toc_label": original_toc_label,
+            "unified_toc_label": unified_toc_label
         })
-
     return data
 
 file_path = "mapping_information.xlsx"

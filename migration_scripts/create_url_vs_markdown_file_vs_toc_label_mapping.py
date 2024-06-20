@@ -5,7 +5,10 @@ import requests
 
 # Remove formatting from the Handlebars template
 def remove_formatting(text):
-    return text.replace('\n', '').replace('\t', '').replace(' ', '')
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'\t+', '', text)
+    text = re.sub(r'\n+', '', text)
+    return text
 
 # Function to fetch the content of a file from a GitHub repository
 def fetch_file_from_github(repo, filepath):
@@ -22,13 +25,14 @@ spin_sidebar_v2 = remove_formatting(original_spin_sidebar_v2)
 original_cloud_sidebar = fetch_file_from_github(repo, "templates/cloud_sidebar.hbs")
 cloud_sidebar = remove_formatting(original_cloud_sidebar)
 
-print(f"Cleaned Spin Sidebar Content\n{spin_sidebar_v2}")
-print(f"Cleaned Cloud Sidebar Content\n{cloud_sidebar}")
+#print(f"Cleaned Spin Sidebar Content\n{spin_sidebar_v2}")
+#print(f"Cleaned Cloud Sidebar Content\n{cloud_sidebar}")
 
 # Parsing the original Handlebars templates to extract links
 def extract_links(handlebars_template):
-    pattern = r'href="\{\{site\.info\.base_url\}\}/[^"]+"'
+    pattern = r'"{{site\.info\.base_url}}(/(?:spin/v2|cloud|wasm-languages|static/image)/[\.a-zA-Z0-9/-]*)">([^<]+)</a>'
     matches = re.findall(pattern, handlebars_template)
+    print(f"Found {matches} links in the sidebar.")
     return [match for match in matches]
 
 spin_links = extract_links(spin_sidebar_v2)
@@ -45,11 +49,11 @@ ws = wb.active
 ws.title = "Links"
 
 # Write the headers
-ws.append(["url_path", "original_file_path", "unified_file_path", "toc_label"])
+ws.append(["original_url_path", "unified_url_path", "original_file_path", "unified_file_path", "original_toc_label", "unified_toc_label"])
 
 # Write the links to column A and leave columns B and C blank
 for link in all_links:
-    ws.append([link, "", ""])
+    ws.append([link[0], "", "", "", link[1], ""])
 
 # Save the workbook to a file
 wb.save("mapping_information.xlsx")
