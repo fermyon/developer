@@ -53,10 +53,9 @@ ws.append(["original_url_path", "unified_url_path", "original_file_path", "unifi
 
 # Write the links to column A and leave columns B and C blank
 for link in all_links:
-    ws.append([link[0], "", "", "", link[1], ""])
+    ws.append([link[0], "", "", link[0], link[1], ""])
 
 # Save the workbook to a file
 wb.save("mapping_information.xlsx")
 
 print("Links have been written to extracted_links.xlsx")
-
