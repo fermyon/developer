@@ -12,7 +12,7 @@ image = "/static/image/twc-open-beta-serverlesss-ai.jpg"
 
 Fermyon Cloud now supports Serverless AI in open beta! This means Starter, Growth, and Enterprise plan users can all access serverless AI, no sign-up required. We're looking forward to hearing your feedback. Let us know what you think on [Discord](https://discord.com/invite/AAFNfS7NGf) or on our [GitHub feedback repo](https://github.com/fermyon/feedback). 
 
-To review quotas and FAQs, please visit [Fermyon Cloud FAQ documentation.](https://developer.fermyon.com/cloud/faq)
+To review quotas and FAQs, please visit [Fermyon Cloud FAQ documentation.](faq)
 
 <img src="/static/image/twc-open-beta-serverlesss-ai.jpg" alt="Serverless AI Open Beta">
 
@@ -20,6 +20,6 @@ To review quotas and FAQs, please visit [Fermyon Cloud FAQ documentation.](https
 
 References:
 
-- [Serverless AI API Guide](https://developer.fermyon.com/spin/v2/serverless-ai-api-guide)
-- [Serverless AI Tutorial](https://developer.fermyon.com/spin/v2/serverless-ai-hello-world.md)
-- [`spin cloud GPU` plugin](https://developer.fermyon.com/hub/preview/plugin_spin_cloud_gpu)
+- [Serverless AI API Guide](../../spin/v2/serverless-ai-api-guide)
+- [Serverless AI Tutorial](../../spin/v2/serverless-ai-hello-world.md)
+- [`spin cloud GPU` plugin](hub/preview/plugin_spin_cloud_gpu)

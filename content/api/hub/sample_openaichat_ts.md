@@ -67,7 +67,7 @@ $ curl -d "Will I get a pet tortoise?" http://127.0.0.1:3000/question
 The HTTP request is handled by the `handleRequest` function. Following is an overview of the process flow:
 
 - Retreive the question by decoding the response body
-- Fetch the OpenAPI Key from the Spin Config [Reference](https://developer.fermyon.com/spin/dynamic-configuration#custom-config-providers)
+- Fetch the OpenAPI Key from the Spin Config [Reference](../../spin/dynamic-configuration#custom-config-providers)
 - Structure the request to be sent to OpenAI 
 - Decode the response
 - Structure and return the response to the client.
@@ -76,8 +76,8 @@ Please refer to the code for the details of the implementation.
 
 ## References
 
-- [Sending Outbound HTTP Requests](https://developer.fermyon.com/spin/javascript-components#sending-outbound-http-requests)
+- [Sending Outbound HTTP Requests](../../spin/javascript-components#sending-outbound-http-requests)
 
-- [Spin Config](https://developer.fermyon.com/spin/dynamic-configuration#custom-config-providers)
+- [Spin Config](../../spin/dynamic-configuration#custom-config-providers)
 
 - [Create chat completion](https://platform.openai.com/docs/api-reference/chat/create)

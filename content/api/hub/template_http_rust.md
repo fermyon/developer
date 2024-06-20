@@ -18,6 +18,6 @@ keywords = "web app, http, api"
 
 ---
 
-This is the default HTTP trigger template for Rust. It installs by default with the [Spin install script](https://developer.fermyon.com/spin/install#installing-spin).
+This is the default HTTP trigger template for Rust. It installs by default with the [Spin install script](../../spin/install#installing-spin).
 
-This guide walks you through how to use it: [HTTP Components](https://developer.fermyon.com/spin/rust-components#http-components)
+This guide walks you through how to use it: [HTTP Components](../../spin/rust-components#http-components)

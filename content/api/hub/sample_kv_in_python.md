@@ -18,4 +18,4 @@ keywords = "python, JSON, key-value"
 
 ---
 
-Simple example of how to use Spin's built-in [key-value store](https://developer.fermyon.com/spin/v2/key-value-store-tutorial) to store and retrieve JSON documents in Python. 
+Simple example of how to use Spin's built-in [key-value store](../../spin/v2/key-value-store-tutorial) to store and retrieve JSON documents in Python. 

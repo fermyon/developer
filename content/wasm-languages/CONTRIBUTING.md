@@ -56,4 +56,4 @@ The contents of this repository are licensed under the [Creative Commons 4.0 Att
 
 ## Contributing Guide
 
-To learn more about formatting options, testing your new content, previewing your contributions locally before submitting etc. read the [Contributing guide](https://developer.fermyon.com/spin/v2/contributing-docs).
+To learn more about formatting options, testing your new content, previewing your contributions locally before submitting etc. read the [Contributing guide](../spin/v2/contributing-docs).

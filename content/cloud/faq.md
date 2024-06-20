@@ -108,7 +108,7 @@ At this time, Fermyon Cloud does not have a data export feature. We'd love to he
 Yes, as long as you haven't deleted your database, the instance will be running and stateful. 
 
 - **If I delete and redeploy my Spin application, can I still access the same instance of my SQLite Database?**
-Yes, Fermyon Cloud uses abstract [labels and links](https://developer.fermyon.com/cloud/linking-applications-to-resources-using-labels) to enable seamless database sharing and management among Spin applications.
+Yes, Fermyon Cloud uses abstract [labels and links](linking-applications-to-resources-using-labels) to enable seamless database sharing and management among Spin applications.
 
 <!-- @nocpy -->
 
@@ -151,7 +151,7 @@ Yes, Fermyon Cloud uses abstract [labels and links](https://developer.fermyon.co
   - In the request response body, you will see the number of prompt tokens and the number of generated tokens for inferencing requests. For embedding requests, you’ll be presented with the number of prompt tokens.
 
 - **What programming languages / SDKs can I use to invoke Serverless AI?**
-  -  Please visit the [API Guide](https://developer.fermyon.com/cloud/serverless-ai#:~:text=Please%20visit%20the%20API%20Guide%20for%20this%20information) for this information.
+  -  Please visit the [API Guide](serverless-ai#:~:text=Please%20visit%20the%20API%20Guide%20for%20this%20information) for this information.
 
 ## Next Steps
 

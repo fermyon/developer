@@ -20,7 +20,7 @@ In this article, we describe the core technologies and concepts, which are part 
 
 ## OCI - the Open Container Initiative
 
-The [Fermyon Cloud Plugin for Spin](https://developer.fermyon.com/cloud/cloud-command-reference) uses the [OCI Image](https://github.com/opencontainers/image-spec) and [OCI Distribution](https://github.com/opencontainers/distribution-spec) Specifications to move applications to the Cloud. These specifications enables the use of existing infrastructure to distribute applications between Spin and Fermyon Cloud.
+The [Fermyon Cloud Plugin for Spin](cloud-command-reference) uses the [OCI Image](https://github.com/opencontainers/image-spec) and [OCI Distribution](https://github.com/opencontainers/distribution-spec) Specifications to move applications to the Cloud. These specifications enables the use of existing infrastructure to distribute applications between Spin and Fermyon Cloud.
 
 It's important to note that Spin applications deployed using the Cloud Plugin, are not, however, compatible with being run by an [OCI runtime](https://github.com/opencontainers/runtime-spec) compatible runtime, like [runc](https://github.com/opencontainers/runc). If you want to explore running Spin applications using a container runtime, you can do so using [`containerd` and `runwasi`](https://github.com/containerd/runwasi).
 
@@ -40,6 +40,6 @@ When you run the `spin cloud deploy` command, the following happens:
 
 ## Deprecating Bindle - An Aggregate Object Storage System
 
-With the release of the [Spin Cloud Plugin](https://developer.fermyon.com/cloud/cloud-command-reference) [v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.3.0), the deployment mechanism is OCI, not Bindle. 
+With the release of the [Spin Cloud Plugin](cloud-command-reference) [v0.3.0](https://github.com/fermyon/cloud-plugin/releases/tag/v0.3.0), the deployment mechanism is OCI, not Bindle. 
 
 The Fermyon Cloud will soon stop supporting [Bindle](https://github.com/deislabs/bindle) for deploying Spin applications. It is highly recommended to start using OCI and the latest version of the Cloud Plugin.

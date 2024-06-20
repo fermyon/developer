@@ -128,7 +128,7 @@ Please reach out to <a href="mailto:sales@fermyon.com">our team</a> about our En
 
 **I'm interested in increasing a quota limit on a resource not listed in Fermyon's pricing plan, can you help?**
 
-Fermyon will happily consider the request! Please reach out to <a href="mailto:sales@fermyon.com">our team</a> sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of Fermyon Cloud quota limits [here](https://developer.fermyon.com/cloud/faq#quota-limits).
+Fermyon will happily consider the request! Please reach out to <a href="mailto:sales@fermyon.com">our team</a> sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of Fermyon Cloud quota limits [here](faq#quota-limits).
 
 ### GDPR
 

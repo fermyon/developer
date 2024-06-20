@@ -18,7 +18,7 @@ keywords = "plugins, packaging plugins, javascript, typescript"
 
 ---
 
-This is an SDK for building Spin apps using JavaScript (and TypeScript). It installs by default with the [Spin install script](https://developer.fermyon.com/spin/install#installing-spin).
+This is an SDK for building Spin apps using JavaScript (and TypeScript). It installs by default with the [Spin install script](../../spin/install#installing-spin).
 
 ## Installation
 
@@ -26,4 +26,4 @@ This is an SDK for building Spin apps using JavaScript (and TypeScript). It inst
 spin plugins install js2wasm
 ```
 
-This guide walks you through how to use it: [HTTP Components](https://developer.fermyon.com/spin/javascript-components)
+This guide walks you through how to use it: [HTTP Components](../../spin/javascript-components)

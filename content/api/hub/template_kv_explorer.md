@@ -20,7 +20,7 @@ keywords = "key-value, kv, explorer"
 
 This template enables managing the key value pairs set in any key value store linked to an application.
 
-To keep the contents of your key value store secure, the explorer expects the credentials to access the UI and the API to be stored in the configuration store as variables. Values can be set locally using the [variables provider](https://developer.fermyon.com/spin/v2/dynamic-configuration#application-variables-runtime-configuration) or you can skip checking for the credentials on every request by passing the `SPIN_APP_KV_SKIP_AUTH` environment variable. When deploying to cloud, set the `kv_explorer_user` and `kv_explorer_password` variables using the `--variable` flag. These credentials can then be updated at any time using `spin cloud variables set`.
+To keep the contents of your key value store secure, the explorer expects the credentials to access the UI and the API to be stored in the configuration store as variables. Values can be set locally using the [variables provider](../../spin/v2/dynamic-configuration#application-variables-runtime-configuration) or you can skip checking for the credentials on every request by passing the `SPIN_APP_KV_SKIP_AUTH` environment variable. When deploying to cloud, set the `kv_explorer_user` and `kv_explorer_password` variables using the `--variable` flag. These credentials can then be updated at any time using `spin cloud variables set`.
 
 Visit the [GitHub repo](https://github.com/fermyon/spin-kv-explorer) for complete configuration instructions.
 

@@ -18,9 +18,9 @@ keywords = "router, python"
 
 ---
 
-This project showcases how to do internal HTTP routing in a Spin Python application. It is similar to [the Spin JS router](https://developer.fermyon.com/spin/v2/javascript-components#routing-in-a-component) as well as the Django router.
+This project showcases how to do internal HTTP routing in a Spin Python application. It is similar to [the Spin JS router](../../spin/v2/javascript-components#routing-in-a-component) as well as the Django router.
 
-If you are interested in external routing (where the routing table is declared in the spin.toml), the [Application Structure guide](https://developer.fermyon.com/spin/v2/spin-application-structure) covers this.
+If you are interested in external routing (where the routing table is declared in the spin.toml), the [Application Structure guide](../../spin/v2/spin-application-structure) covers this.
 
 This uses the absolutely fantastic [http_router](https://pypi.org/project/http-router/) project. You will likely want to reference the API docs:
 * https://github.com/klen/http-router. 
