@@ -269,6 +269,7 @@ component = "hello-world"
 
 [component.hello-world]
 source = "app.wasm"
+ai_models = ["llama2-chat"]
 [component.hello-world.build]
 command = "componentize-py -w spin-http componentize app -o app.wasm"
 watch = ["*.py", "requirements.txt"]
