@@ -522,6 +522,6 @@ Congratulations, you have a Spin application and associated Key Value store runn
 
 ## Next Steps
 
-* Explore the contents of your Key Value store with the [Key Value Store Explorer template](hub/preview/template_kv_explorer)
+* Explore the contents of your Key Value store with the [Key Value Store Explorer template](../../api/hub/preview/template_kv_explorer)
 * Learn about linking your applications to different [Key Value Stores on Fermyon Cloud](../../cloud/kv-cloud-tutorial.md) 
 
