@@ -1030,8 +1030,6 @@ The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.s
 
 {{ blockEnd }}
 
-{{ tabs "spin-version" }}
-
 {{ startTab "v2.6"}}
 
 The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/).
@@ -1051,8 +1049,6 @@ The `spin kube completion` command is implemented by the [`spin-kube` plugin](ht
 
 {{ blockEnd }}
 
-{{ tabs "spin-version" }}
-
 {{ startTab "v2.6"}}
 
 The `spin kube completion` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/#spin-kube-completion).
@@ -1071,8 +1067,6 @@ The `spin kube completion` command is implemented by the [`spin-kube` plugin](ht
 The `spin kube scaffold` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/#spin-kube-scaffold).
 
 {{ blockEnd }}
-
-{{ tabs "spin-version" }}
 
 {{ startTab "v2.6"}}
 
@@ -3276,6 +3270,136 @@ SUBCOMMANDS:
 
 {{ blockEnd }}
 
+{{ startTab "v2.2"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin templates --help    
+
+spin-templates 
+Commands for working with WebAssembly component templates
+
+USAGE:
+    spin templates <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help    Print help information
+
+SUBCOMMANDS:
+    help         Print this message or the help of the given subcommand(s)
+    install      Install templates from a Git repository or local directory
+    list         List the installed templates
+    uninstall    Remove a template from your installation
+    upgrade      Upgrade templates to match your current version of Spin
+```
+
+{{ blockEnd }}
+
+{{ startTab "v2.3"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin templates --help    
+
+spin-templates 
+Commands for working with WebAssembly component templates
+
+USAGE:
+    spin templates <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help    Print help information
+
+SUBCOMMANDS:
+    help         Print this message or the help of the given subcommand(s)
+    install      Install templates from a Git repository or local directory
+    list         List the installed templates
+    uninstall    Remove a template from your installation
+    upgrade      Upgrade templates to match your current version of Spin
+```
+
+{{ blockEnd }}
+
+{{ startTab "v2.4"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin templates --help    
+
+spin-templates 
+Commands for working with WebAssembly component templates
+
+USAGE:
+    spin templates <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help    Print help information
+
+SUBCOMMANDS:
+    help         Print this message or the help of the given subcommand(s)
+    install      Install templates from a Git repository or local directory
+    list         List the installed templates
+    uninstall    Remove a template from your installation
+    upgrade      Upgrade templates to match your current version of Spin
+```
+
+{{ blockEnd }}
+
+{{ startTab "v2.5"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin templates --help    
+
+spin-templates 
+Commands for working with WebAssembly component templates
+
+USAGE:
+    spin templates <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help    Print help information
+
+SUBCOMMANDS:
+    help         Print this message or the help of the given subcommand(s)
+    install      Install templates from a Git repository or local directory
+    list         List the installed templates
+    uninstall    Remove a template from your installation
+    upgrade      Upgrade templates to match your current version of Spin
+```
+
+{{ blockEnd }}
+
+{{ startTab "v2.6"}}
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin templates --help    
+
+spin-templates 
+Commands for working with WebAssembly component templates
+
+USAGE:
+    spin templates <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help    Print help information
+
+SUBCOMMANDS:
+    help         Print this message or the help of the given subcommand(s)
+    install      Install templates from a Git repository or local directory
+    list         List the installed templates
+    uninstall    Remove a template from your installation
+    upgrade      Upgrade templates to match your current version of Spin
+```
+
+{{ blockEnd }}
+
 {{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
@@ -4020,8 +4144,6 @@ Options:
 
 **Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
 
-{{ tabs "spin-version" }}
-
 {{ startTab "v2.6"}}
 
 <!-- @selectiveCpy -->
@@ -4047,7 +4169,7 @@ Options:
 
 {{ blockEnd }}
 
- {{ blockEnd }}
+{{ blockEnd }}
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin up
