@@ -1,9 +1,25 @@
-- [Check CLI Output](#check-cli-output)
+- [Write Codeblocks](#write-codeblocks)
   - [Usage](#usage)
+- [Check CLI Output](#check-cli-output)
+  - [Usage](#usage-1)
+
+# Write Codeblocks
+
+The `update_spin_cli_reference.py` script will fetch the current Spin CLI reference document from the web and write a fresh copy of the file (with the new version of code blocks added) to your local disk. This new markdown is the start of a PR that contains CLI commands for the new version of Spin.
+
+## Usage
+
+Edit the version numbers in the file i.e. `2.4`, `2.5` etc. and run the script:
+
+```bash
+python3 update_spin_cli_reference.py
+```
+
+The following `check_cli_output.py` script will tell you what the changes are (between versions) these scripts are designed to quickly kick off the edit, review, approve, and merge process at the time of release.
 
 # Check CLI Output
 
-The check_cli_output.py script will run `spin --help` for all subcommands recursively. This is useful for quickly detecting changes in the Spin CLI's output between different versions (i.e. when updating the Spin CLI Reference page in the documentation during each release).
+The `check_cli_output.py` script will run `spin --help` for all subcommands recursively. This is useful for quickly detecting changes in the Spin CLI's output between different versions (i.e. when updating the Spin CLI Reference page in the documentation during each release).
 
 ## Usage
 
