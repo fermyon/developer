@@ -38,7 +38,7 @@ If your manifest is named something different, or isn't in your current director
 
 ## Specifying the Wasm File to Run
 
-The `spin up -f` can point to a pre-existing Wasm binary executable instead of an application's manifest:
+The `spin up -f` option can point to a pre-existing Wasm binary executable instead of an application's manifest:
 
 <!-- @selectiveCpy -->
 
