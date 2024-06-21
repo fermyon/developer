@@ -23,6 +23,8 @@ The outbound HTTP interface depends on your language.
 
 > Under the surface, Spin uses the `wasi-http` interface. If your tools support the Wasm Component Model, you can work with that directly; but for most languages the Spin SDK is more idiomatic.
 
+**Please note:** When using Spin `v2.6.0` or newer, Spin app guest modules can no longer set the `Host` header on outbound requests. (The Wasmtime runtime, that underpins Spin, has recently updated how headers are handled).
+
 {{ tabs "sdk-type" }}
 
 {{ startTab "Rust"}}

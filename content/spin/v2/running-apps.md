@@ -7,6 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/running-ap
 
 ---
 - [Specifying the Application to Run](#specifying-the-application-to-run)
+- [Specifying the Wasm File to Run](#specifying-the-wasm-file-to-run)
   - [Testing HTTP Applications](#testing-http-applications)
 - [Application Output](#application-output)
 - [Persistent Logs](#persistent-logs)
@@ -34,6 +35,18 @@ If your manifest is named something different, or isn't in your current director
 > If you see the error `failed to resolve content at "example.wasm"` (where `example.wasm` is the module file of a component), check that the application has been built.
 
 > If your application doesn't run, you can [run `spin doctor`](./troubleshooting-application-dev.md) to check for problems with your Spin configuration and tools.
+
+## Specifying the Wasm File to Run
+
+The `spin up -f` option can point to a pre-existing Wasm binary executable instead of an application's manifest:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin up -f mymodule.wasm
+```
+
+Please note that the uses for performing `spin up` using just a Wasm file are very limited outside of basic testing of the Wasm file. This is because Wasm files run in this way have no access to application-level configuration that allows storage, outbound HTTP and so on.
 
 ### Testing HTTP Applications
 

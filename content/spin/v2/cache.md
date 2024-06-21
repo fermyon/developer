@@ -32,6 +32,8 @@ These directories are based on the [XDG specification](https://specifications.fr
 
 > If Spin cannot resolve a base directory as listed above, it falls back to `$HOME/.spin` (`%USERPROFILE%\.spin` on Windows).
 
+> Spin's data directory (`DATA_DIR`) can be overridden via the `SPIN_DATA_DIR` environment variable.
+
 ## Plugins
 
 Installed plugins are stored in `(DATA_DIR)/spin/plugins`.  A snapshot of the plugins registry is also stored under that directory at `(DATA_DIR)/spin/plugins/.spin-plugins`; this is structured as a Git repository.
