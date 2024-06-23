@@ -38,15 +38,15 @@ If your manifest is named something different, or isn't in your current director
 
 ## Specifying the Wasm File to Run
 
-The `spin up -f` option can point to a pre-existing Wasm binary executable instead of an application's manifest:
+The `spin up --from` (`spin up -f`) option can point to a pre-existing Wasm binary executable instead of an application's manifest:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin up -f mymodule.wasm
+$ spin up --from mymodule.wasm
 ```
 
-Please note that the uses for performing `spin up` using just a Wasm file are very limited outside of basic testing of the Wasm file. This is because Wasm files run in this way have no access to application-level configuration that allows storage, outbound HTTP and so on.
+Please note that the uses for performing `spin up` using just a Wasm file are very limited outside of basic testing of the Wasm file. This is because Wasm files run in this way have no access to application-level configuration that allows storage, outbound HTTP and so on. Only incoming HTTP handlers are supported.
 
 ### Testing HTTP Applications
 
