@@ -39,8 +39,7 @@ the [Vault provider](#vault-application-variable-provider) and the [Azure Key Va
 Multiple application variable providers can be configured in Spin. Providers are
 prioritized top-down in the runtime configuration file, with higher-listed providers
 taking precedence. The environment variable provider always has the highest
-priority. For example, if the variable foo is set to "bar" in the environment
-variable provider and "baz" in vault, the value "bar" will be returned.
+priority.
 
 The provider examples below show how to use or configure each 
 provider. For examples on how to access these variables values within your application, see
