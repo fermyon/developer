@@ -9,14 +9,14 @@ def download_markdown(url):
     response.raise_for_status() 
     return response.text
 
-def update_markdown_content(content):
+def update_markdown_content(content, current_version, new_version):
     updated_content = ""
     blocks = content.split('{{ blockEnd }}')
 
     for block in blocks[:-1]: 
         updated_content += block + '{{ blockEnd }}'
-        if '{{ startTab "v2.4"}}' in block:
-            new_block = block.replace('{{ startTab "v2.4"}}', '{{ startTab "v2.5"}}')
+        if f'{{ startTab "{current_version}"}}' in block:
+            new_block = block.replace(f'{{ startTab "{current_version}"}}', f'{{ startTab "{new_version}"}}')
             updated_content += new_block + '{{ blockEnd }}\n'
     updated_content += blocks[-1] 
 
@@ -28,7 +28,7 @@ def save_updated_content(content, filename="updated_markdown.md"):
 
 def main():
     original_content = download_markdown(url)
-    updated_content = update_markdown_content(original_content)
+    updated_content = update_markdown_content(original_content, current_version="v2.6", new_version="v2.7")
     save_updated_content(updated_content)
     print("Updated markdown has been saved.")
 
