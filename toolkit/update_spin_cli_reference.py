@@ -28,7 +28,7 @@ def save_updated_content(content, filename="updated_markdown.md"):
 def main():
     if len(sys.argv) != 3:
         print("Usage: python3 update_spin_cli_reference.py <current_version> <new_version>")
-        print("Usage: python3 update_spin_cli_reference.py v2.6.0 v2.7.0")
+        print("Usage: python3 update_spin_cli_reference.py v2.6 v2.7")
         sys.exit(1)
 
     current_version = sys.argv[1]
