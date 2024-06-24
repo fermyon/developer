@@ -1,6 +1,6 @@
 - [Supporting Documentation](#supporting-documentation)
 - [Prerequisite](#prerequisite)
-    - [Install Dependencies](#install-dependencies)
+  - [Install Dependencies](#install-dependencies)
 - [Write Codeblocks](#write-codeblocks)
   - [Write Codeblocks Usage](#write-codeblocks-usage)
 - [Check CLI Output](#check-cli-output)
