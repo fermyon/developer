@@ -40,10 +40,12 @@ The `update_spin_cli_reference.py` script will fetch the current [Spin CLI Refer
 
 ## Usage
 
-Edit the version numbers in the file i.e. `current_version="v2.6", new_version="v2.7"` and run the script:
+Run the script and pass in the two versions of Spin.
+
+> Note: Only use two number characters `v.x.x` because the code tabs in the markdown file do not use the trailing zero formatting (v.x.x.0):
 
 ```bash
-python3 developer/toolkit/update_spin_cli_reference.py v2.6.0 v2.7.0
+python3 developer/toolkit/update_spin_cli_reference.py v2.6 v2.7
 ```
 
 # Check CLI Output
