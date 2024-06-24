@@ -52,7 +52,7 @@ Fermyon charges the tax mandated by the local taxing authority. Your bill will i
 
 No, at this time Fermyon Cloud only accepts reoccurring payments. If at any point you decide you no longer want to continue with your paid plan, you are eligible to cancel your subscription. 
 
-**What happens if there's an issue with my payment method **during a **recurring** charge?****
+**What happens if there's an issue with my payment method during a recurring charge?**
 
 If the payment method is not updated by the next billing date **_or your account is in arrears_**, you will receive an email from Fermyon informing you that the payment method is invalid and requesting an updated, valid form of payment. If the payment method is not updated by the next billing date, your limits will be reverted to the Starter Plan.
 
