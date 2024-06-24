@@ -19,7 +19,7 @@ Ensure that you have installed Python 3.10 or later on your system. You can chec
 python3 --version
 ```
 
-### Install Dependencies
+## Install Dependencies
 
 Change into an arbitrary working directory so as not to add versioned files to this repository. The files created by this toolkit are auxiliary and are manually inserted into the versioned documentation files. We will use the system's home directory for demonstration purposes (and assume that you have the developer repo cloned into your home directory i.e. `~/developer`):
 
