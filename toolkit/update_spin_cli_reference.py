@@ -14,8 +14,8 @@ def update_markdown_content(content, current_version, new_version):
 
     for block in blocks[:-1]: 
         updated_content += block + '{{ blockEnd }}'
-        if f'{{{{ startTab "{current_version}"}}}}' in block:
-            new_block = block.replace(f'{{{{ startTab "{current_version}"}}}}', f'{{{{ startTab "{new_version}"}}}}')
+        if f'{{ startTab "{current_version}"}}' in block:
+            new_block = block.replace(f'{{ startTab "{current_version}"}}', f'{{ startTab "{new_version}"}}')
             updated_content += new_block + '{{ blockEnd }}\n'
     updated_content += blocks[-1] 
 
