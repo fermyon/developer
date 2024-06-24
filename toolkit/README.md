@@ -42,7 +42,7 @@ The `update_spin_cli_reference.py` script will fetch the current [Spin CLI Refer
 
 Run the script and pass in the two versions of Spin.
 
-> Note: Only use two number characters `v.x.x` because the code tabs in the markdown file do not use the trailing zero formatting (v.x.x.0):
+**Note**: Use two number characters `vX.X` only i.e. `v2.6`:
 
 ```bash
 python3 developer/toolkit/update_spin_cli_reference.py v2.6 v2.7
@@ -54,7 +54,9 @@ The `script_to_check_cli_outputs.sh` script will tell you what the changes are (
 
 ## Usage
 
-Run the script using the `v.X.X.X` format. Please note, the Spin versions you use must exist as a Spin release in the Spin GitHub repo:
+Run the script using the `vX.X.X` format. Please note, the Spin versions you use must exist as a Spin release in the Spin GitHub repo.
+
+**Note**: Use three number characters `vX.X.X` i.e. `v2.6.0`:
 
 ```bash
 # Assuming this repo is cloned to your home directory (as per the first example also)
