@@ -34,7 +34,14 @@ Let's look at each configuration category in-depth below.
 
 [Application Variables](./variables) values may be set at runtime by providers. Currently,
 there are three application variable providers: the [environment-variable provider](#environment-variable-provider), 
-the [Vault provider](#vault-application-variable-provider) and the [Azure Key Vault provider](#azure-key-vault-application-variable-provider). The provider examples below show how to use or configure each 
+the [Vault provider](#vault-application-variable-provider) and the [Azure Key Vault provider](#azure-key-vault-application-variable-provider).
+
+Multiple application variable providers can be configured in Spin. Providers are
+prioritized top-down in the runtime configuration file, with higher-listed providers
+taking precedence. The environment variable provider always has the highest
+priority.
+
+The provider examples below show how to use or configure each 
 provider. For examples on how to access these variables values within your application, see
 [Using Variables from Applications](./variables#using-variables-from-applications).
 
