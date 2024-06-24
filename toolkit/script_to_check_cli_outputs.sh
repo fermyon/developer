@@ -19,6 +19,6 @@ cd $SPIN_LATEST
 curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v $SPIN_LATEST
 python3 check_cli_output.py > $SPIN_LATEST
 cd ../
-diff $SPIN_OLD/$SPIN_OLD $SPIN_LATEST/$SPIN_LATEST
+diff $SPIN_CURRENT/$SPIN_CURRENT $SPIN_LATEST/$SPIN_LATEST
 rm -rf ~/$SPIN_CURRENT
 rm -rf ~/$SPIN_LATEST
