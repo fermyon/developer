@@ -55,6 +55,9 @@ The `script_to_check_cli_outputs.sh` script will tell you what the changes are (
 Run the script using the `v.X.X.X` format. Please note, the Spin versions you use must exist as a Spin release in the Spin GitHub repo:
 
 ```bash
+# Assuming this repo is cloned to your home directory (as per the first example also)
+cd ~
+cd developer/toolkit
 # Make the script executable
 sudo chmod a+x script_to_check_cli_outputs.sh
 # Run the script
