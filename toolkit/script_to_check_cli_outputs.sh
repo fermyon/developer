@@ -6,11 +6,11 @@ if [ $# -ne 2 ]; then
 fi
 SPIN_CURRENT=$1
 SPIN_LATEST=$2
+mkdir ~/$SPIN_CURRENT
+mkdir ~/$SPIN_LATEST
 cp -rp check_cli_output.py ~/$SPIN_CURRENT
 cp -rp check_cli_output.py ~/$SPIN_LATEST
 cd ~
-mkdir $SPIN_CURRENT
-mkdir $SPIN_LATEST
 cd $SPIN_CURRENT
 curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v $SPIN_CURRENT
 python3 check_cli_output.py > $SPIN_CURRENT
@@ -20,3 +20,5 @@ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v $S
 python3 check_cli_output.py > $SPIN_LATEST
 cd ../
 diff $SPIN_OLD/$SPIN_OLD $SPIN_LATEST/$SPIN_LATEST
+rm -rf ~/$SPIN_CURRENT
+rm -rf ~/$SPIN_LATEST
