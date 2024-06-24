@@ -120,7 +120,7 @@ Fermyon will notify you via email when you reach 75%, 90%, and 100% usage for yo
 
 **What happens when I reach my quota limits?**
 
-You'll receive an email from <a href="mailto:support@fermyon.com">support@fermyon.com</a> asking to establish a plan to pull your resources back into the appropriate limits for your existing plan, or alternatively upgrade your plan. In the future, resources will be throttled at 100% utilization of the quota limit for Starter Plan users, and Growth Users will be able to select between coverage of charges or throttling at 100% utilization of quota limits. 
+You'll receive an email from <a href="mailto:support@fermyon.com">support@fermyon.com</a> asking to establish a plan to pull your resources back into the appropriate limits for your existing plan, or alternatively upgrade your plan. In the future, resources will be throttled at 100% utilization of the quota limit for Starter Plan users, and Growth Users will be able to select between overrage charges or throttling at 100% utilization of quota limits. 
 
 **How can I increase my quota limits above the limits set by the Growth Plan?**
 
