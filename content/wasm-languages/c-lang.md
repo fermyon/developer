@@ -77,13 +77,6 @@ At the time of this writing, the latest version is `20.0`:
 ```console
 $ curl -O -sSL https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-20/wasi-sdk-20.0-linux.tar.gz
 $ tar -xzf wasi-sdk-20.0-linux.tar.gz
-$ export WASI_SDK_PATH=$(pwd)/wasi-sdk-20.0
-```
-
-Make sure the system PATH is up to date:
-
-```console
-$ export PATH=$PATH:$WASI_SDK_PATH/bin
 ```
 
 Now we can write a simple C program using WASI. Here is the text ouf `hello.c`:
