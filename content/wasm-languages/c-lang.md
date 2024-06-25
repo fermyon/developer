@@ -72,11 +72,18 @@ Since it supports the WASI specification, C can be used on the Fermyon Platform 
 The first step is to install the WASI SDK. If you use this broadly, it may be a good idea to install it in a common location. For our example, though, we will create a project and install the SDK inside of that project.
 
 You can download the latest version from the [WASI releases page](https://github.com/WebAssembly/wasi-sdk/releases).
-At the time of this writing, the latest version is `14.0`. Here's a command line example for a Mac:
+At the time of this writing, the latest version is `20.0`:
 
 ```console
-$ curl -O -sSL https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-14/wasi-sdk-14.0-macos.tar.gz
-$ tar xf wasi-sdk-14.0-macos.tar.gz
+$ curl -O -sSL https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-20/wasi-sdk-20.0-linux.tar.gz
+$ tar -xzf wasi-sdk-20.0-linux.tar.gz
+$ export WASI_SDK_PATH=$(pwd)/wasi-sdk-20.0
+```
+
+Make sure the system PATH is up to date:
+
+```console
+$ export PATH=$PATH:$WASI_SDK_PATH/bin
 ```
 
 Now we can write a simple C program using WASI. Here is the text ouf `hello.c`:
@@ -94,10 +101,10 @@ int main() {
 To compile this, we will use the `clang` that comes with the WASI SDK.
 
 ```console
-./wasi-sdk-14.0/bin/clang --sysroot wasi-sdk-14.0/share/wasi-sysroot/ hello.c -o hello.wasm
+$ ./wasi-sdk-20.0/bin/clang --sysroot wasi-sdk-20.0/share/wasi-sysroot/ hello.c -o hello.wasm
 ```
 
->> Newer versions of Clang may only need the command `clang --target=wasm32-wasi --sysroot=wasi-sdk-14.0/share/wasi-sysroot/  hello.c -o hello.wasm`
+>> Newer versions of Clang may only need the command `clang --target=wasm32-wasi --sysroot=wasi-sdk-20.0/share/wasi-sysroot/  hello.c -o hello.wasm`
 
 The above should produce a file named `hello.wasm`. We can execute that with Wasmtime:
 
