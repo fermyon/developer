@@ -6,19 +6,24 @@ if [ $# -ne 2 ]; then
 fi
 SPIN_CURRENT=$1
 SPIN_LATEST=$2
-mkdir ~/$SPIN_CURRENT
-mkdir ~/$SPIN_LATEST
-cp -rp check_cli_output.py ~/$SPIN_CURRENT
-cp -rp check_cli_output.py ~/$SPIN_LATEST
-cd ~
-cd $SPIN_CURRENT
+SPIN_CURRENT_TMP=$(mktemp -d /tmp/spin_current_tmp.XXXXXX)
+echo "Temporary directory created at: $SPIN_CURRENT_TMP"
+SPIN_LATEST_TMP=$(mktemp -d /tmp/spin_latest_tmp.XXXXXX)
+echo "Temporary directory created at: $SPIN_LATEST_TMP"
+SPIN_CURRENT_INSTALL_DIR = $SPIN_CURRENT_TMP/$SPIN_CURRENT
+SPIN_LATEST_INSTALL_DIR = $SPIN_LATEST_TMP/$SPIN_LATEST
+mkdir $SPIN_CURRENT_INSTALL_DIR
+mkdir $SPIN_LATEST_INSTALL_DIR
+cp -rp check_cli_output.py $SPIN_CURRENT_INSTALL_DIR
+cp -rp check_cli_output.py $SPIN_LATEST_INSTALL_DIR
+cd $SPIN_CURRENT_INSTALL_DIR
 curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v $SPIN_CURRENT
 python3 check_cli_output.py > $SPIN_CURRENT
-cd ../ 
-cd $SPIN_LATEST
+cd ../../
+cd $SPIN_LATEST_INSTALL_DIR
 curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v $SPIN_LATEST
 python3 check_cli_output.py > $SPIN_LATEST
-cd ../
-diff $SPIN_CURRENT/$SPIN_CURRENT $SPIN_LATEST/$SPIN_LATEST
-rm -rf ~/$SPIN_CURRENT
-rm -rf ~/$SPIN_LATEST
+cd ../../
+diff $SPIN_CURRENT_INSTALL_DIR/$SPIN_CURRENT $SPIN_LATEST_INSTALL_DIR/$SPIN_LATEST
+rm -rf ~/$SPIN_CURRENT_TMP
+rm -rf ~/$SPIN_LATEST_TMP

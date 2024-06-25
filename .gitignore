@@ -12,3 +12,6 @@ static/data.json
 static/hub-index-data.json
 # The build version of spin up hub
 spin-up-hub/dist/
+# The temp dir in the toolkit
+toolkit/tmp/
+!toolkit/
