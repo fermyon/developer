@@ -21,7 +21,7 @@ keywords = "rust, ollama, llm, ai"
 This sample demonstrates how spin can be used to implement the [Ollama api](https://github.com/jmorganca/ollama/blob/main/docs/api.md), which when deployed can be used as any other Ollama instance. LLM orchestration frameworks like LangChain and semantic kernel can use this instance as a Ollama backend.
 
 ## Quick Start
-- [Install spin](https://developer.fermyon.com/spin/v2/install)
+- [Install spin](../../spin/v2/install)
 - login to fermeyon cloud
     ```
     spin login

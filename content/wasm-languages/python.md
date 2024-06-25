@@ -177,10 +177,10 @@ Here are some great resources:
 - A tutorial for building [Python Wasm apps with Spin](https://dev.to/technosophos/building-a-serverless-webassembly-app-with-spin-5dh9)
 - A tutorial doing [AI inferencing with Python and Spin](https://www.wasm.builders/technosophos/serverless-ai-inferencing-with-python-and-wasm-3lkd)
 - The [Spin Python SDK](https://github.com/fermyon/spin-python-sdk)
-- The [Spin Developer Docs](https://developer.fermyon.com/spin) fully document the Python SDKs
-- [Python Wasm examples](https://developer.fermyon.com/hub) at Spin Up Hub
+- The [Spin Developer Docs](../spin) fully document the Python SDKs
+- [Python Wasm examples](../../hub/index) at Spin Up Hub
 - The [Componentize-Py](https://pypi.org/project/componentize-py/) tooling
-- VMware has a [distribution of CPython as Wasm](https://github.com/vmware-labs/webassembly-language-runtimes/tree/main/python) based on official CPython
+- VMware has a [distribution of CPython as Wasm](https://github.com/vmware-labs/webassembly-language-runtimes/tree/main/python) based on the official CPython
 - A detailed document about  [the (once) current state and features of Wasm](https://pythondev.readthedocs.io/wasm.html) in the latest CPython version (Now outdated)
 - Fermyon.com published a slightly more [in-depth Python and Wasm tutorial](https://www.fermyon.com/blog/python-wagi)
 - An in-browser [Python shell in Wasm](https://github.com/ethanhs/python-wasm) (Not the preferred path)

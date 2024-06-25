@@ -18,6 +18,6 @@ keywords = "web app, redis"
 
 ---
 
-This is the default Redis pub-sub trigger template for Go. It installs by default with the [Spin install script](https://developer.fermyon.com/spin/install#installing-spin).
+This is the default Redis pub-sub trigger template for Go. It installs by default with the [Spin install script](../../spin/install#installing-spin).
 
-This guide walks you through how to use it: [Redis Components](https://developer.fermyon.com/spin/go-components#redis-components)
+This guide walks you through how to use it: [Redis Components](../../spin/go-components#redis-components)

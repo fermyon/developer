@@ -9,17 +9,17 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/pricing-and-
 - [Fermyon Cloud Pricing](#fermyon-cloud-pricing)
 - [General Information](#general-information)
   - [Payment](#payment)
+  - [Invoice](#invoice)
   - [Refund](#refund)
   - [Support](#support)
-  - [Quota](#quota) 
+  - [Quota](#quota)
   - [GDPR](#gdpr)
-- [Next Steps](#next-steps)
 
 ## Fermyon Cloud Pricing
 
-Fermyon Cloud offers subscription plans to help you accomplish your workload goals that require an increase of resource usage in Fermyon Cloud. This page covers general information about subscription plans and answers frequently asked questions around [payment](#payment), [refunds](#refund), [support](#support), and [quotas](#quota).
+Fermyon Cloud offers subscription plans to help you accomplish your workload goals that require an increase in resource usage in Fermyon Cloud. This page covers general information about subscription plans and answers frequently asked questions about [payment](#payment), [refunds](#refund), [support](#support), and [quotas](#quota).
 
-As described in detail on the [Fermyon Pricing page](https://www.fermyon.com/pricing), there are 3 different plans we offer to fit your workloads' requirements: Starter, Growth, and Enterprise. 
+As described in detail on the [Fermyon Pricing page](https://www.fermyon.com/pricing), there are 3 different plans we offer to fit your workload requirements: Starter, Growth, and Enterprise. 
 
 The Start Plan offers all of Fermyon Cloud services for you to try out, that you can continually run free of charge, within certain usage limits. If you find that you're hitting the upper limits of the Starter Plan, we recommend upgrading your account to the Growth Plan, where you can enjoy the same services with a higher quota limit. Lastly, if the services offered don't quite meet your needs in the Growth Plan, <a href="mailto:sales@fermyon.com">reach out</a> to the Fermyon team and we'll work to create a customized Enterprise Plan that will best meet your requirements. 
 
@@ -42,7 +42,7 @@ We accept all forms of payment supported by our payment partner Stripe. These in
 * SEPA
 * Apple Pay / Google Pay
 
-For a full list to accepted payment methods see this [Stripe resource](https://stripe.com/payments/features#payment-options).
+For a full list of accepted payment methods see this [Stripe resource](https://stripe.com/payments/features#payment-options).
 
 **Why am I charged tax, and where can I get a receipt of how much tax I am charged?**
 
@@ -52,9 +52,9 @@ Fermyon charges the tax mandated by the local taxing authority. Your bill will i
 
 No, at this time Fermyon Cloud only accepts reoccurring payments. If at any point you decide you no longer want to continue with your paid plan, you are eligible to cancel your subscription. 
 
-**What happens if there's an issue with my payment method during a reoccurring charge?**
+**What happens if there's an issue with my payment method during a recurring charge?**
 
-If payment method is not updated by the next billing date **_or your account is in arrears_**, you will receive an email from Fermyon informing you that the payment method is invalid and requesting an updated, valid form of payment. If the payment method is not updated by the next billing date, your limits will be reverted to the Starter Plan.
+If the payment method is not updated by the next billing date **_or your account is in arrears_**, you will receive an email from Fermyon informing you that the payment method is invalid and requesting an updated, valid form of payment. If the payment method is not updated by the next billing date, your limits will be reverted to the Starter Plan.
 
 **How do I change my credit card used for billing by Fermyon Cloud?**
 
@@ -101,7 +101,7 @@ Please reach out to <a href="mailto:support@fermyon.com">support@fermyon.com</a>
 
 **Does Fermyon Cloud Starter Plan or Growth Plan come with any Service Level Agreements and if so, what are they?**
 
-Fermyon Cloud is an Open Beta service, which currently does not guarentee any Service Level Agreement. 
+Fermyon Cloud is an Open Beta service, which currently does not guarantee any Service Level Agreement. 
 
 **Does my use of Fermyon Cloud place any restrictions on the currently open-source Spin?**
 
@@ -116,11 +116,11 @@ If these do not meet your needs, either email <a href="mailto:sales@fermyon.com"
 
 **How can I tell if I’m approaching my plan’s current quota limits?**
 
-Fermyon will notify you via email when you reach 75%, 90%, and 100% usage for your limits. In the future we will be adding in Fermyon Cloud UI notifications as well and the ability to configure alerts.
+Fermyon will notify you via email when you reach 75%, 90%, and 100% usage for your limits. In the future we will be adding Fermyon Cloud UI notifications as well as the ability to configure alerts.
 
 **What happens when I reach my quota limits?**
 
-You'll receive an email from <a href="mailto:support@fermyon.com">support@fermyon.com</a> asking to establish a plan to pull your resources back into the appropriate limits for your existing plan, or alternatively upgrade your plan. In the future, resources will be thorttled at 100% utilization of quota limit for Starter Plan users, and Growth Users will be able to select between overrage charges or throtting at 100% utilization of quota limits. 
+You'll receive an email from <a href="mailto:support@fermyon.com">support@fermyon.com</a> asking to establish a plan to pull your resources back into the appropriate limits for your existing plan, or alternatively upgrade your plan. In the future, resources will be throttled at 100% utilization of the quota limit for Starter Plan users, and Growth Users will be able to select between overrage charges or throttling at 100% utilization of quota limits. 
 
 **How can I increase my quota limits above the limits set by the Growth Plan?**
 
@@ -128,7 +128,7 @@ Please reach out to <a href="mailto:sales@fermyon.com">our team</a> about our En
 
 **I'm interested in increasing a quota limit on a resource not listed in Fermyon's pricing plan, can you help?**
 
-Fermyon will happily consider the request! Please reach out to <a href="mailto:sales@fermyon.com">our team</a> sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of Fermyon Cloud quota limits [here](https://developer.fermyon.com/cloud/faq#quota-limits).
+Fermyon will happily consider the request! Please reach out to <a href="mailto:sales@fermyon.com">our team</a> sharing the desired resource and quota limit, and we'll work to assist you. You can see a list of Fermyon Cloud quota limits [here](faq#quota-limits).
 
 ### GDPR
 

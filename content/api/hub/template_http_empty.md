@@ -17,6 +17,6 @@ keywords = "web app, http, api, starter"
 
 ---
 
-This template creates an HTTP application with no components. It installs by default with the [Spin install script](https://developer.fermyon.com/spin/install#installing-spin).
+This template creates an HTTP application with no components. It installs by default with the [Spin install script](../../spin/install#installing-spin).
 
-Use this template when you expect to [add](https://developer.fermyon.com/spin/writing-apps#adding-a-new-component-to-an-application) multiple components to an application, to help you establish an even directory structure.
+Use this template when you expect to [add](../../spin/writing-apps#adding-a-new-component-to-an-application) multiple components to an application, to help you establish an even directory structure.

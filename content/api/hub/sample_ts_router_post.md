@@ -18,7 +18,7 @@ keywords = "typescript, javascript, router"
 
 ---
 
-This shows one technique for handling POST data using the `Router` object [built into the JS/TS SDK](https://developer.fermyon.com/spin/v2/javascript-components) for Spin.
+This shows one technique for handling POST data using the `Router` object [built into the JS/TS SDK](../../spin/v2/javascript-components) for Spin.
 
 This example illustrates how to pass the HTTP body from Spin's SDK all the way to your end function without needing to use middleware.
 
