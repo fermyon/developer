@@ -79,7 +79,7 @@ $ curl -O -sSL https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sd
 $ tar -xzf wasi-sdk-20.0-linux.tar.gz
 ```
 
-Now we can write a simple C program using WASI. Here is the text ouf `hello.c`:
+Now we can write a simple C program using WASI. Here is the text our `hello.c`:
 
 ```c
 #include <stdio.h>
