@@ -377,6 +377,8 @@ As well as any headers passed by the client, Spin sets several headers on the re
 | `spin-base-path`             | The application base path | `/shop` |
 | `spin-client-addr`           | The IP address and port of the client | `127.0.0.1:53152` |
 
+> Accessing detailed information about HTTP requests can be particularly useful for identifying and handling specific cases, such as requests for `favicon.ico`. When a user's browser requests your application and automatically sends a subsequent request for `favicon.ico`, it may inadvertently trigger your component to execute twice. Instead of creating a new route in the application manifest to manage this, a more straightforward approach is to handle `favicon.ico` requests uniquely within your application's source code using the `spin-path-info` header name.
+
 ### Inside HTTP Components
 
 For the most part, you'll build HTTP component modules using a language SDK (see the Language Guides section), such as a JavaScript module or a Rust crate.  If you're interested in what happens inside the SDK, or want to implement HTTP components in another language, read on!
