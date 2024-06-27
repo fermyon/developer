@@ -15,6 +15,7 @@
 
 ```bash
 pip3 install openpyxl
+pip3 install requests
 ```
 
 # Migration Scripts
@@ -52,8 +53,8 @@ python3 create_url_vs_markdown_file_vs_toc_label_mapping.py
 ```
 
 Open the mapping_information.xlsx spreadsheet and fill in the:
-- unified_url_path (the new url where the resource will be found online i.e. `/spin/v2/quickstart` vs `/latest/quickstart` etc.)
-- unified_file_path (the new file path where the markdown file will live i.e. `/spin/v2/quickstart` vs `/latest/quickstart` etc.)
+- unified_url_path (the new url where the resource will be found online i.e. `/spin/v2/quickstart` vs `/docs/quickstart` etc.)
+- unified_file_path (the new file path where the markdown file will live i.e. `/spin/v2/quickstart` vs `/docs/quickstart` etc.)
 - unified_toc_label (the label that will appear in the ToC for that given markdown file)
 
 > **Please note** - the new labels have already been decided. See the `sidebar_structure.py` file for label strings to use in the spreadsheet (you are essentially mapping ToC labels to existing markdown files recorded in the spreadsheet). **A label that you add to the spreadsheet's `unified_toc_label` has to exactly match one of the text entries in the `sidebar_structure.py` file. Change one or the other until you have a match to ensure that the generation of the `unified_sidebar.hbs` will succeed.**
@@ -99,7 +100,7 @@ The following script reads the mappings from above and generates a new sidebar `
 python3 create_unified_sidebar.py
 ``` 
 
-> If you are not satisfied with the outcome of this script, just re-run it. It will override the `latest_sidebar.hbs` file automatically.
+> If you are not satisfied with the outcome of this script, just re-run it. It will override the `docs_sidebar.hbs` file automatically.
 
 # Check That All Pages Are Linked to in the Sidebar
 
@@ -115,7 +116,7 @@ The above script will list all pages with either a cross ❌ or a check mark ✔
 
 ```bash
 # Put the freshly generated sidebar file into place
-mv latest_sidebar.hbs ../templates/latest_sidebar.hbs
+mv docs_sidebar.hbs ../templates/docs_sidebar.hbs
 ```
 
 # Testing Changes Locally
