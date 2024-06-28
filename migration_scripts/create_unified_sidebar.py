@@ -88,7 +88,7 @@ handlebars_template = f"""
 """
 
 # Save the Handlebars template to a file
-with open("latest_sidebar.hbs", "w") as file:
+with open("docs_sidebar.hbs", "w") as file:
     file.write(handlebars_template)
 
 print("Combined sidebar Handlebars template generated successfully.")
