@@ -14,3 +14,6 @@ static/hub-index-data.json
 spin-up-hub/dist/
 # The documentation migration backup files
 migration_scripts/content_backup/
+# The python compiled files
+migration_scripts/__pycache__
+migration_scripts/*.py[cod]
