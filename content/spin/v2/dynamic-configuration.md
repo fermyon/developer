@@ -294,6 +294,7 @@ If you need more than one database, you can configure multiple databases, each w
 ```toml
 # This defines a new store named todo
 [sqlite_database.todo]
+type = "spin"
 path = "/planning/todo.db"
 
 # This defines a new store named finance
