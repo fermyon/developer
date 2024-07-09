@@ -21,74 +21,67 @@ def read_excel_to_dict(file_path):
         })
     return data
 
+def generate_handlebars(sidebar, mapping_information):
+    handlebars_content = '<div class="accordion-tabs">\n'
+    counter = 0
+
+    def recurse(items, parent_id=''):
+        nonlocal counter
+        local_handlebars = ''
+        if isinstance(items, list):
+            local_handlebars += f'        <div class="accordion-menu-item">\n'
+            local_handlebars += f'                <input type="checkbox" id="rd{counter}" name="rd">\n'
+            label = items[0] if items else "Unnamed Section"
+            for mapping in mapping_information:
+                original_url_path_from_spreadsheet = "#TODO_URL_MAPPING"
+                unified_url_path_from_spreadsheet = "#TODO_URL_MAPPING"
+                origial_file_path_from_spreadsheet = "#TODO_FILE_MAPPING"
+                unified_file_path_from_spreadsheet = "#TODO_FILE_MAPPING"
+                original_toc_label_from_spreadsheet = "#TODO_LABEL_MAPPING"
+                unified_toc_label_from_spreadsheet = "#TODO_LABEL_MAPPING"
+                print("Comparing: ", mapping["unified_toc_label"])
+                print("With: ", label)
+                if mapping["unified_toc_label"] == label:
+                    print("Match found!")
+                    ##TODOneeds to figure out duplicate labels i.e. Introduction, Quickstart, etc.
+                    original_url_path_from_spreadsheet = mapping["original_url_path"]
+                    unified_url_path_from_spreadsheet = mapping["unified_url_path"]
+                    origial_file_path_from_spreadsheet = mapping["original_file_path"]
+                    unified_file_path_from_spreadsheet = mapping["unified_file_path"]
+                    original_toc_label_from_spreadsheet = mapping["original_toc_label"]
+                    unified_toc_label_from_spreadsheet = mapping["unified_toc_label"]
+            local_handlebars += f'                <label for="rd{counter}" class="accordion-menu-item-label menu-label">\n'
+            local_handlebars += f'                        {label}\n'
+            local_handlebars += f'                </label>\n'
+            local_handlebars += '                <ul class="menu-list accordion-menu-item-content">\n'
+            counter += 1
+            for item in items[1:]:
+                if isinstance(item, list):
+                    local_handlebars += recurse(item)
+                else:
+                    local_handlebars += f'                        <li><a {{#if (active_project request.spin-full-url "{unified_url_path_from_spreadsheet}")}} class="active" {{/if}} href="{{{{site.info.base_url}}}}{unified_url_path_from_spreadsheet}">{unified_toc_label_from_spreadsheet}</a></li>\n'
+            local_handlebars += '                </ul>\n'
+            local_handlebars += '        </div>\n'
+        return local_handlebars
+
+    for main_item in sidebar['toc']:
+        handlebars_content += recurse(main_item)
+
+    handlebars_content += '</div>\n'
+    return handlebars_content
+
+def save_handlebars_file(content, filename='docs_sidebar.hbs'):
+    with open(filename, 'w') as file:
+        file.write(content)
+
 file_path = "mapping_information.xlsx"
 mapping_information = read_excel_to_dict(file_path)
+#print(mapping_information)
 
-# Function to generate Handlebars template using actual elements and attributes from the original templates
-def generate_handlebars_template(structure, indent=0, idx=0):
-    handlebars = ""
-    for key, value in structure.items():
-        current_id = f"rd{idx}"
-        if isinstance(value, dict):
-            handlebars += ' ' * indent + f'<div class="accordion-menu-item">\n'
-            handlebars += ' ' * indent + f'  <input type="checkbox" id="{current_id}" name="rd">\n'
-            handlebars += ' ' * indent + f'  <label for="{current_id}" class="accordion-menu-item-label menu-label">\n'
-            handlebars += ' ' * indent + f'    {key}\n'
-            handlebars += ' ' * indent + f'  </label>\n'
-            handlebars += ' ' * indent + f'  <ul class="menu-list accordion-menu-item-content">\n'
-            handlebars += generate_handlebars_template(value, indent + 4, idx + 1)
-            handlebars += ' ' * indent + f'  </ul>\n'
-            handlebars += ' ' * indent + f'</div>\n'
-        elif isinstance(value, list):
-            if len(value) > 0 and isinstance(value[0], dict):
-                handlebars += ' ' * indent + f'<div class="accordion-menu-item">\n'
-                handlebars += ' ' * indent + f'  <input type="checkbox" id="{current_id}" name="rd">\n'
-                handlebars += ' ' * indent + f'  <label for="{current_id}" class="accordion-menu-item-label menu-label">\n'
-                handlebars += ' ' * indent + f'    {key}\n'
-                handlebars += ' ' * indent + f'  </label>\n'
-                handlebars += ' ' * indent + f'  <ul class="menu-list accordion-menu-item-content">\n'
-                for item in value:
-                    handlebars += generate_handlebars_template(item, indent + 4, idx + 1)
-                handlebars += ' ' * indent + f'  </ul>\n'
-                handlebars += ' ' * indent + f'</div>\n'
-            else:
-                handlebars += ' ' * indent + f'<div class="accordion-menu-item">\n'
-                handlebars += ' ' * indent + f'  <input type="checkbox" id="{current_id}" name="rd">\n'
-                handlebars += ' ' * indent + f'  <label for="{current_id}" class="accordion-menu-item-label menu-label">\n'
-                handlebars += ' ' * indent + f'    {key}\n'
-                handlebars += ' ' * indent + f'  </label>\n'
-                handlebars += ' ' * indent + f'  <ul class="menu-list accordion-menu-item-content">\n'
-                #for item in value:
-                #    link = spin_links.pop(0) if spin_links else "#"
-                #    handlebars += ' ' * (indent + 4) + f'    <li><a href="{link}" class="accordion-link">{item}</a></li>\n'
-                # TODOAdd the actual URL mappings here {URL_MAPPING, FILE_MAPPING, LABEL_MAPPING}
-                # Perhaps pickle the create_url_vs_markdiwn_file_vs_toc_label_mapping.py's output and load it in here for dynamically generating the URL, File and Label mappings
-                # For example, links_data[0]["url_path"] will give the URL mapping for the first link - figure out how to iterate and match up the values for use here
-                handlebars += ' ' * (indent + 4) + f'<li><a {{#if (active_project request.spin-full-url "#TODO_URL_MAPPING" )}} class="active" {{/if}} href="{{site.info.base_url}}#TODO_FILE_MAPPING">#TODO_LABEL_MAPPING</a></li>\n'
-                # Above line is a placeholder for the actual URL, File and Label mappings
-                handlebars += ' ' * indent + f'  </ul>\n'
-                handlebars += ' ' * indent + f'</div>\n'
-        else:
-            handlebars += ' ' * indent + f'<div class="accordion-menu-item">\n'
-            handlebars += ' ' * indent + f'  <input type="checkbox" id="{current_id}" name="rd">\n'
-            handlebars += ' ' * indent + f'  <label for="{current_id}" class="accordion-menu-item-label menu-label">\n'
-            handlebars += ' ' * indent + f'    {key}\n'
-            handlebars += ' ' * indent + f'  </label>\n'
-            handlebars += ' ' * indent + f'  <ul class="menu-list accordion-menu-item-content">\n'
-            handlebars += ' ' * indent + f'  </ul>\n'
-            handlebars += ' ' * indent + f'</div>\n'
-        idx += 1
-    return handlebars
+# Generate Handlebars content from the sidebar structure
+handlebars_output = generate_handlebars(sidebar_structure, mapping_information)
 
-# Generating the combined sidebar Handlebars template
-handlebars_template = f"""
-<div class="accordion-tabs">
-    {generate_handlebars_template(sidebar_structure)}
-</div>
-"""
+# Save the generated Handlebars to a file
+save_handlebars_file(handlebars_output)
 
-# Save the Handlebars template to a file
-with open("docs_sidebar.hbs", "w") as file:
-    file.write(handlebars_template)
-
-print("Combined sidebar Handlebars template generated successfully.")
+print("Handlebars file generated successfully!")
