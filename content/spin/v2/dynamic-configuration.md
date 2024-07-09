@@ -299,6 +299,7 @@ path = "/planning/todo.db"
 
 # This defines a new store named finance
 [sqlite_database.finance]
+type = "spin"
 path = "/super/secret/monies.db"
 ```
 
