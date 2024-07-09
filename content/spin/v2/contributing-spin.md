@@ -21,16 +21,13 @@ typos, adding examples, one-liner code fixes, tests, or complete features.
 <div style="display: block" align="left">
   <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=423679664&limit=30&image_size=auto&color_scheme=dark" width="655" height="auto">
   <img alt="Active Contributors of fermyon/spin - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=423679664&limit=30&image_size=auto&color_scheme=light" width="655" height="auto">
-  </div>
+</div>
 
-<aside><em>Recent contributors to Spin, past 30 days. Widget courtesy of <a href="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors?repo_id=423679664&limit=30">OSSinsight.io</a>.</em>
-</aside>
+>> _Recent contributors to Spin, past 30 days. Widget courtesy of <a href="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors?repo_id=423679664&limit=30">OSSinsight.io</a>._
 
 <strong>Each Monday</strong> at 2:30pm UTC and 9:00pm UTC (alternating), we meet to discuss Spin issues, roadmap, and ideas in our Spin Project Meetings. The Spin Project follows an [open planning process](https://www.fermyon.com/blog/moving-to-a-fully-open-planning-process-for-the-spin-project) - anyone who is interested is welcome to join the discussion. [Subscribe to this Google Calendar](https://calendar.google.com/calendar/u/1?cid=c3Bpbi5tYWludGFpbmVyc0BnbWFpbC5jb20) for meeting dates.
 
-The Spin Project [Meeting Agenda is a public document](https://docs.google.com/document/d/1EG392gb8Eg-1ZEPDy18pgFZvMMrdAEybpCSufFXoe00/edit?usp=sharing). The [document](https://docs.google.com/document/d/1EG392gb8Eg-1ZEPDy18pgFZvMMrdAEybpCSufFXoe00/edit?usp=sharing) contains a rolling agenda with the date and time of each meeting, the Zoom link, and topics of discussion for the day. You will also find the meeting minutes for each meeting and the link to the recording. If you have something you would like to demo or discuss at the project meeting, we encourage you to add it to the agenda.
-
-
+The [Spin Project Meeting Agenda is a public document](https://docs.google.com/document/d/1EG392gb8Eg-1ZEPDy18pgFZvMMrdAEybpCSufFXoe00/edit?usp=sharing). The document contains a rolling agenda with the date and time of each meeting, the Zoom link, and topics of discussion for the day. You will also find the meeting minutes for each meeting and the link to the recording. If you have something you would like to demo or discuss at the project meeting, we encourage you to add it to the agenda.
 
 ## Code of Conduct
 
