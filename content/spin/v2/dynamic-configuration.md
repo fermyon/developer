@@ -286,6 +286,7 @@ The following example `runtime-config.toml` tells Spin to map the `default` data
 
 ```toml
 [sqlite_database.default]
+type = "spin"
 path = "/planning/todo.db"
 ```
 
