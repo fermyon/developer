@@ -8,6 +8,7 @@ tags = ["typescript", "javascript", "ai"]
 author = "technosophos"
 type = "hub_document"
 category = "Sample"
+image = "https://bulma.io/assets/images/placeholders/96x96.png"
 language = "JS/TS"
 created_at = "2023-09-05T00:00:00Z"
 last_updated = "2023-09-05T00:00:00Z"

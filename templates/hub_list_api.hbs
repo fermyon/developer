@@ -14,6 +14,7 @@ read_pages_glob = ["api/hub/*.md"]
 "spinVersion": "{{{this.page.head.extra.spin_version}}}",
 "url": "{{{this.page.head.extra.url}}}",
 {{#if this.page.head.extra.artifact_source}}"artifactSource": "{{{this.page.head.extra.artifact_source}}}",{{/if}}
+"image": "{{this.page.head.extra.image}}",
 {{#with this as data}}"tags": [{{#each this.page.head.tags}} "{{this}}"{{#if @last}}{{else}},{{/if}}
 {{/each}}]{{/with}},
 "path": "{{{this.uri}}}"

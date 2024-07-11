@@ -8,6 +8,7 @@ tags = ["typescript", "http", "kv"]
 author = "macolso"
 type = "hub_document"
 category = "Sample"
+image = "https://bulma.io/assets/images/placeholders/96x96.png"
 language = "JS/TS"
 created_at = "2023-11-03T00:22:56Z"
 last_updated = "2023-11-03T00:22:56Z"

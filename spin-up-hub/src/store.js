@@ -13,6 +13,7 @@ const store = createStore({
         url: "",
         author: "",
         tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: "",
+        image: "",
         artifactSource: ""
       },
       contentTypes: ["Plugin", "Template", "Library", "Sample", "Component", "Pattern", "Architecture"],

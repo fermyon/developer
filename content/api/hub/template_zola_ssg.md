@@ -8,6 +8,7 @@ tags = ["rust", "SSG", "http"]
 author = "karthik2804"
 type = "hub_document"
 category = "Template"
+image = "https://bulma.io/assets/images/placeholders/96x96.png"
 language = "rust"
 created_at = "2023-11-02T00:00:00Z"
 last_updated = "2023-11-02T00:00:00Z"
@@ -16,6 +17,7 @@ summary = "A template to use Zola SSG with Spin"
 url = "https://github.com/karthik2804/spin-zola"
 keywords = "rust, SSG, website, framework"
 artifact_source = "ghcr.io/karthik2804/spin-zola-ssg:v0.1.0"
+
 
 ---
 

@@ -33,9 +33,6 @@ export default {
             <div class="preview-overlay" @click="closeModal"></div>
             <div class="preview-modal content">
                 <header>
-                    <span @click="closeModal" class="icon-back">
-                        <img src="/static/image/icon-back.svg" alt="Back" />
-                    </span>
                     <span @click="closeModal" class="icon-close">
                         <img src="/static/image/icon-close.svg" alt="Close" />
                     </span>
@@ -43,7 +40,12 @@ export default {
                 <div class="content-area columns is-mobile">
                     <div class="main-content column is-two-thirds-tablet is-full-mobile">
                         <div class="main-content-wrap">
-                            <div class="title">{{ modalData.title }}</div>
+                            <div class="header-with-icon">
+                                <span @click="closeModal" class="icon-back">
+                                    <img src="/static/image/icon-back.svg" alt="Back" />
+                                </span>
+                                <div class="title">{{ modalData.title }}</div>
+                            </div>
                             <div class="description" v="">
                                 <div v-if="!modalData.isloaded">loading...</div>
                                 <div v-html="modalData.description"></div>
@@ -57,6 +59,16 @@ export default {
                     </div>
                     <div class="metadata-space column is-one-third-tablet is-full-mobile">
                         <div class="metadata-wrap">
+                            <div class="meta-cta">
+                                <a v-if="modalData.artifactSource" class="is-btn button is-rounded is-primary plausible-event-name=hub-btn-deploy"
+                                    target="_blank"
+                                    href="#">
+                                    Deploy This →
+                                </a>
+                                <a class="is-btn button is-rounded non-primary plausible-event-name=hub-git-btn" target="_blank" :href="modalData.url">
+                                    View on Github
+                                </a>
+                            </div>
                             <div class="meta-info">
                                 <div class="metadata">
                                     <div class="name">Url</div>
@@ -97,16 +109,6 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                            <div class="meta-cta">
-                                <a class="is-btn button is-rounded non-primary plausible-event-name=hub-git-btn" target="_blank" :href="modalData.url">
-                                    View on Github
-                                </a>
-                                <a v-if="modalData.artifactSource" class="is-btn button is-rounded is-primary plausible-event-name=hub-btn-deploy"
-                                    target="_blank"
-                                    :href="`https://cloud.fermyon.com/deploy?artifact=` + modalData.artifactSource + `${this.$store.state.deployUTM}`">
-                                    Deploy to cloud
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,23 +124,20 @@ export default {
     justify-content: center;
     align-items: center;
     position: fixed;
-    height: 100vh;
     top: 0;
     left: 0;
+    height: 100vh; 
+    width: 100vw; 
     z-index: 1001;
-    height: 100%;
-    width: 100%;
     overflow: hidden;
-    box-shadow: 0px 14px 64px 0px rgba(0, 0, 0, 0.33);
+    
 
     .preview-overlay {
         position: absolute;
+        top: 0;
+        left: 0;
         height: 100%;
         width: 100%;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
         backdrop-filter: blur(6px) brightness(25%);
         background: rgba(darken($docsbg1, 3%), 0.70);
     }
@@ -146,20 +145,13 @@ export default {
     $modalMax: 1144px;
 
     .preview-modal.content {
-        z-index: 1002;
-        height: auto;
-        height: 70vh;
-        width: 94vw;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: $modalMax;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(6px) brightness(25%);
         background-color: $docsbg1;
-        border-radius: 0.67rem;
-        display: block;
-        border-radius: 0.67rem;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0px 14px 64px 0px rgba(0, 0, 0, 0.05);
 
         &.content {
             padding: 0 !important;
@@ -186,9 +178,6 @@ export default {
                 align-items: center;
                 justify-content: center;
 
-                &.icon-back {
-                    left: 1.25rem;
-                }
 
                 &.icon-close {
                     right: 1.25rem;
@@ -208,32 +197,51 @@ export default {
 
             .main-content {
                 border-right: 1px solid lighten($lavenderfloral, 15%);
-                height: 100%;
+                flex: 1; 
+                display: flex;
+                flex-direction: column; 
+                overflow-y: hidden; 
 
                 .main-content-wrap {
                     padding-top: 3rem;
-                    max-height: 100%;
-                    overflow-y: scroll;
-                    position: absolute;
-                    top: 3.5rem;
-                    bottom: 0;
-                    width: 66.667%;
+                    padding-left: 10rem;
+                    flex-grow: 1; 
+                    overflow-y: auto; 
+                }
+
+                .header-with-icon {
+                    display: flex;
+                    align-items: center; 
+                    margin-bottom: 1rem; 
                 }
 
                 .title {
                     font-size: 2.25rem;
-                    margin-bottom: 2rem;
-                    padding: 0 2rem;
-                    font-family: $spaceGro;
-                    font-weight: 400;
+                    flex-grow: 1; 
+                    display: flex;
+                    align-items: center;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
 
+                .icon-back {
+                    cursor: pointer;
+                    margin-right: 10px; 
+                    flex-shrink: 0; 
+
+            img {
+                height: 24px; 
+                width: auto;
+            }
+        }
+
                 .description {
+                    font-size: 1.25rem; 
+                    line-height: 2; 
+                    padding: 0 2rem; 
+                    overflow-y: auto; 
                     flex-grow: 1;
-                    padding: 0 2rem 1rem;
-                    overflow-y: auto;
-                    font-size: 1.25rem;
-                    line-height: 2;
 
                     p {
                         font-size: 1.25rem !important;
@@ -251,7 +259,7 @@ export default {
                         font-size: 1.125rem;
                         border-radius: 1rem !important;
                         padding: 0.15rem 1rem;
-                        background-color: darken($docsbg1, 5%);
+                        background-color: #E6D2F1;
                         margin: 0 0.5rem 0.5rem 0;
                         color: $bluecallout;
                         height: auto;
@@ -265,10 +273,11 @@ export default {
 
             .metadata-space {
                 position: relative;
-                height: calc(70vh - 3.5rem);
-                width: 33.333%;
-                display: block;
+                display: flex;
+                flex-direction: column;
                 padding: 0;
+                width: 33.333%;
+                height: calc(100% - 3.5rem);
 
                 .metadata-wrap {
                     height: 100%;
@@ -277,7 +286,7 @@ export default {
                     flex-direction: column;
                     width: 100%;
                     overflow: hidden;
-                    overflow-y: scroll;
+                    overflow-y: hidden;
                     margin-top: 0.75rem;
 
                     .meta-info {
@@ -296,6 +305,7 @@ export default {
                         display: flex;
                         flex-direction: column;
                         margin: 1rem 0;
+                        padding-right: 10rem;
 
                         a {
                             margin: 0rem 0 1rem 0;
