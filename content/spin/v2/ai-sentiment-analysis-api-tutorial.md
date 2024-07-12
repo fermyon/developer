@@ -353,7 +353,9 @@ fn not_found(_: Request, _: Params) -> Result<impl IntoResponse> {
 }
 
 fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<impl IntoResponse> {
-    let request = body_json_to_map(&req)?;
+    let Ok(request) = serde_json::from_slice::<SentimentAnalysisRequest>(req.body()) else {
+        return Ok(Response::new(400, "Bad Request"));
+    };
     // Do some basic cleanup on the input
     let sentence = request.sentence.trim();
     println!("Performing sentiment analysis on: {}", sentence);
@@ -362,10 +364,10 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<impl Into
     let kv = Store::open_default()?;
 
     // If the sentiment of the sentence is already in the KV store, return it
-    if let Ok(sentiment) = kv.get(sentence) {
+    if let Some(sentiment) = kv.get(sentence)? {
         println!("Found sentence in KV store returning cached sentiment.");
         let resp = SentimentAnalysisResponse {
-            sentiment: String::from_utf8(sentiment.unwrap())?,
+            sentiment: String::from_utf8(sentiment)?,
         };
 
         return send_ok_response(200, resp);
@@ -414,12 +416,6 @@ fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<impl Into
 fn send_ok_response(code: u16, resp: SentimentAnalysisResponse) -> Result<Response> {
     let resp_str = serde_json::to_string(&resp)?;
     Ok(Response::new(code, resp_str))
-}
-
-fn body_json_to_map(req: &Request) -> Result<SentimentAnalysisRequest> {
-    let body = String::from_utf8(req.body().as_ref().to_vec())?;
-
-    Ok(SentimentAnalysisRequest { sentence: body })
 }
 
 #[derive(Copy, Clone, Debug)]
