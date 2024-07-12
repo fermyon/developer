@@ -1026,13 +1026,13 @@ OPTIONS:
 
 {{ startTab "v2.5"}}
 
-The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/).
+The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/reference/cli-reference/).
 
 {{ blockEnd }}
 
 {{ startTab "v2.6"}}
 
-The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/).
+The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/reference/cli-reference/).
 
 {{ blockEnd }}
 
@@ -1045,13 +1045,13 @@ The `spin kube` command is implemented by the [`spin-kube` plugin](https://www.s
 
 {{ startTab "v2.5"}}
 
-The `spin kube completion` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/#spin-kube-completion).
+The `spin kube completion` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/reference/cli-reference/#spin-kube-completion).
 
 {{ blockEnd }}
 
 {{ startTab "v2.6"}}
 
-The `spin kube completion` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/#spin-kube-completion).
+The `spin kube completion` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/reference/cli-reference/#spin-kube-completion).
 
 {{ blockEnd }}
 
@@ -1064,13 +1064,13 @@ The `spin kube completion` command is implemented by the [`spin-kube` plugin](ht
 
 {{ startTab "v2.5"}}
 
-The `spin kube scaffold` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/#spin-kube-scaffold).
+The `spin kube scaffold` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/reference/cli-reference/#spin-kube-scaffold).
 
 {{ blockEnd }}
 
 {{ startTab "v2.6"}}
 
-The `spin kube scaffold` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/spin-plugin-kube/reference/#spin-kube-scaffold).
+The `spin kube scaffold` command is implemented by the [`spin-kube` plugin](https://www.spinkube.dev/docs/reference/cli-reference/#spin-kube-scaffold).
 
 {{ blockEnd }}
 
