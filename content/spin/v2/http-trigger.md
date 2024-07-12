@@ -73,6 +73,8 @@ A trailing wildcard uses the syntax `/...` and matches the given route and any r
 
 > In particular, the route `/...` matches all routes.
 
+> Browser clients often `GET /favicon.ico` after a page request. If you use the `/...` route, consider handling this case in your code!
+
 <!-- @nocpy -->
 
 ```toml
