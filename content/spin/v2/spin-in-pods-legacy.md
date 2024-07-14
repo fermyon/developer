@@ -350,7 +350,7 @@ To install this plugin, run:
 spin plugin install -u https://raw.githubusercontent.com/chrismatteson/spin-plugin-k8s/main/k8s.json
 ```
 
-> **Warning: This is legacy content.** For a better experience, please visit [SpinKube](https://spinkube.dev/). In particular, the [SpinKube documentation](https://spinkube.dev/docs/spin-plugin-kube/installation/) that introduces the new `spin kube` command.
+> **Warning: This is legacy content.** For a better experience, please visit [SpinKube](https://spinkube.dev/). In particular, the [SpinKube documentation](https://www.spinkube.dev/docs/install/spin-kube-plugin/) that introduces the new `spin kube` command.
 
 ### Workflow
 
