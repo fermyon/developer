@@ -92,6 +92,7 @@
                 </div>
             </div>
             <div class="overlay"></div>
+            
             {{!-- quicklinks can be added to the topbar here --}}
             <a class="navbar-item plausible-event-name=docs-nav-hub" href="/hub" title="Sample apps, plugins and templates in Spin Up Hub">
                 Spin Up Hub
@@ -144,12 +145,50 @@
                 </svg>
             </a>
 
+            {{#if (eq page.head.template "home")}}
+            <span class="github-button-wrap">
+                <script async defer src="https://buttons.github.io/buttons.js"></script>
+                <a class="github-button"
+                href="https://github.com/fermyon/spin"
+                data-icon="octicon-star"
+                data-size="large"
+                data-show-count="true"
+                data-color-scheme="no-preference: light; light: light; dark: dark;"
+                aria-label="Star fermyon/spin on GitHub">Star</a>
+                <script async defer src="https://buttons.github.io/buttons.js"></script>
+            </span>
+            <a class="navbar-item button is-primary is-rounded is-medium plausible-event-name=cta-spin-quickstart" href="https://developer.fermyon.com/spin/quickstart" target="_blank" aria-label="menuitem">
+              <img src="/static/image/spin-icon.svg" alt=" " />
+              Spin Quickstart
+            </a>
+            {{/if}}
+
+            {{#if (active_project request.spin-full-url "/spin/" )}}
+            <span class="github-button-wrap">
+                <script async defer src="https://buttons.github.io/buttons.js"></script>
+                <a class="github-button"
+                href="https://github.com/fermyon/spin"
+                data-icon="octicon-star"
+                data-size="large"
+                data-show-count="true"
+                data-color-scheme="no-preference: light; light: light; dark: dark;"
+                aria-label="Star fermyon/spin on GitHub">Star</a>
+                <script async defer src="https://buttons.github.io/buttons.js"></script>
+            </span>
+            <a class="navbar-item button is-primary is-rounded is-medium plausible-event-name=cta-spin-quickstart" href="https://developer.fermyon.com/spin/quickstart" target="_blank" aria-label="menuitem">
+              <img src="/static/image/spin-icon.svg" alt=" " />
+              Spin Quickstart
+            </a>
+            {{/if}}
+
+            {{#if (active_project request.spin-path-info "/cloud/" )}}
             <a class="navbar-item button is-outlined is-rounded is-medium cta-login-to-cloud btn-login plausible-event-name=docs-btn-login"
                 href="https://cloud.fermyon.com/login" target="_blank" aria-label="menuitem"
-                title="Login to Fermyon Cloud">Login to Cloud</a>
+                title="Login to Fermyon Cloud">Login</a>
             <a class="navbar-item button is-primary is-rounded is-medium cta-login-to-cloud btn-signup plausible-event-name=docs-btn-signup"
                 href="https://cloud.fermyon.com/?signup" target="_blank" aria-label="menuitem"
-                title="Signup for Fermyon Cloud">Signup for Cloud</a>
+                title="Signup for Fermyon Cloud">Signup <i>Free</i></a>
+            {{/if}}
         </div>
 
         <div id="search-button-container" class="search-button-container plausible-event-name=docs-search-open"></div>

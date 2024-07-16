@@ -27,13 +27,15 @@
 		}
 
 		h1 {
-			font-size: 4rem;
 			padding-bottom: 0;
-			margin-bottom: 2rem;
+			margin-top: 0;
+			margin-bottom: 2.5rem;
 			padding-right: 8vw;
             font-family: $spaceGro;
-			font-weight: 600;
-			color: darken($darkblue, 12.5%);
+			font-size: 3.33rem;
+			font-weight: 500;
+			line-height: 1.33;
+			color: $oxforddark;
 
 			&:after {
 				display: none;
@@ -45,10 +47,11 @@
 		}
 
 		p.lead {
-			font-size: 2rem;
 			color: lighten($darkblue, 2.5%);
-			line-height: 1.4;
-			padding-right: 17.5rem;
+			max-width: 80%;
+			padding-right: 10%;
+			font-size: 1.67rem;
+			line-height: 1.75;
 		}
 
 		section {

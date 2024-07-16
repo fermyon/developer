@@ -155,12 +155,12 @@
 
         a.navbar-item.button {
             margin: 0 0.333vw !important;
-            font-size: 0.8125rem !important;
-            color: $oxforddark;
-            @include button;
-            letter-spacing: 0.2em;
+            font-size: 0.925rem !important;
+            color: $oxforddark !important;
+            letter-spacing: 0.025em;
             padding: 1rem;
-            line-height: 1.5;
+            line-height: 1.25;
+            border-radius: 3rem;
 
             &.is-primary {
                 border: none;
@@ -168,7 +168,6 @@
 
                 &:hover {
                     background-color: $seagreen !important;
-                    color: white !important;
                 }
             }
             &.is-secondary {
@@ -180,6 +179,25 @@
                     color: $oxforddark !important;
                 }
             }
+
+            i {
+                color: $celeste;
+                font-style: normal;
+                margin: 0 -0.225rem 0 1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.125rem;
+                padding: 0.125rem 0.33rem !important;
+                font-size: 0.825rem;
+                background: rgba(0,0,0,0.125);
+                border-radius: 0.5rem;
+            }
+        }
+
+        .github-button-wrap {
+            margin: .5rem 1rem 0 1rem;
+        }
+        .github-button-wrap + a.navbar-item.button {
+            margin-right: -1rem !important;
         }
     }
 
