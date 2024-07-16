@@ -44,5 +44,8 @@
     "build-index": "node md_parser.mjs --dir=./content/ --out=./static/data.json --ignore=./content/api/**/*",
     "check-broken-links": ".build/check-broken-links.sh",
     "build-hub-index": "node hub_index_generator.mjs --dir=./content/api/hub/ --out=./static/hub-index-data.json --ignore=./content/api/hub/get_list.md,"
+  },
+  "dependencies": {
+    "npm": "^10.8.2"
   }
 }
