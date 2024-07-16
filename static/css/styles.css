@@ -1470,6 +1470,11 @@ html.dark-theme body.documentation #topbar.navbar .navbar-menu .button.is-primar
   color: #fff !important;
 }
 
+html.dark-theme body.documentation #topbar.navbar .navbar-menu .button i {
+  color: #c5fff1;
+  background: #21376233;
+}
+
 html.dark-theme body.documentation .menu-wrap {
   background: linear-gradient(47deg, #0e092d24 0%, #7c6db91f 100%);
   border-right: 1px solid #384687;
@@ -1857,13 +1862,15 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .content.content-docs.content-docs-wide h1 {
-  color: #243d66;
-  margin-bottom: 2rem;
+  color: #0e092d;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
   padding-bottom: 0;
   padding-right: 8vw;
   font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 4rem;
-  font-weight: 600;
+  font-size: 3.33rem;
+  font-weight: 500;
+  line-height: 1.33;
 }
 
 .documentation > .developer-home-wrap .content.content-docs.content-docs-wide h1:after {
@@ -1876,9 +1883,10 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 
 .documentation > .developer-home-wrap .content.content-docs.content-docs-wide p.lead {
   color: #375f9e;
-  padding-right: 17.5rem;
-  font-size: 2rem;
-  line-height: 1.4;
+  max-width: 80%;
+  padding-right: 10%;
+  font-size: 1.67rem;
+  line-height: 1.75;
 }
 
 .documentation > .developer-home-wrap .content.content-docs.content-docs-wide section {
@@ -2664,19 +2672,13 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 #topbar.navbar .navbar-menu a.navbar-item.button {
-  color: #0e092d;
-  text-transform: uppercase;
-  letter-spacing: .1125rem;
-  letter-spacing: .2em;
+  letter-spacing: .025em;
+  border-radius: 3rem;
   padding: 1rem;
-  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  transition: all .3s ease-in-out;
+  line-height: 1.25;
   color: #0e092d !important;
   margin: 0 .333vw !important;
-  font-size: .8125rem !important;
+  font-size: .925rem !important;
 }
 
 #topbar.navbar .navbar-menu a.navbar-item.button.is-primary {
@@ -2685,7 +2687,6 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 #topbar.navbar .navbar-menu a.navbar-item.button.is-primary:hover {
-  color: #fff !important;
   background-color: #34e8bd !important;
 }
 
@@ -2697,6 +2698,26 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 #topbar.navbar .navbar-menu a.navbar-item.button.is-secondary:hover {
   color: #0e092d !important;
   background-color: #34e8bd !important;
+}
+
+#topbar.navbar .navbar-menu a.navbar-item.button i {
+  color: #c5fff1;
+  text-transform: uppercase;
+  letter-spacing: .125rem;
+  background: #00000020;
+  border-radius: .5rem;
+  margin: 0 -.225rem 0 1rem;
+  font-size: .825rem;
+  font-style: normal;
+  padding: .125rem .33rem !important;
+}
+
+#topbar.navbar .navbar-menu .github-button-wrap {
+  margin: .5rem 1rem 0;
+}
+
+#topbar.navbar .navbar-menu .github-button-wrap + a.navbar-item.button {
+  margin-right: -1rem !important;
 }
 
 #topbar.navbar .dropdown {
