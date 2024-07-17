@@ -10,6 +10,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/serverless
   - [Configuration](#configuration)
   - [File Structure](#file-structure)
 - [Serverless AI Interface](#serverless-ai-interface)
+- [Troubleshooting](#troubleshooting)
+  - [Error "Local LLM operations are not supported in this version of Spin"](#error-local-llm-operations-are-not-supported-in-this-version-of-spin)
 
 The nature of AI and LLM workloads on already trained models lends itself very naturally to a serverless-style architecture. As a framework for building and deploying serverless applications, Spin provides an interface for you to perform AI inference within Spin applications. 
 
@@ -232,3 +234,18 @@ func init() {
 {{ blockEnd }}
 
 {{ blockEnd }}
+
+## Troubleshooting
+
+### Error "Local LLM operations are not supported in this version of Spin"
+
+If you see "Local LLM operations are not supported in this version of Spin", then your copy of Spin has been built without local LLM support.
+
+> The term "version" in the error message refers to how the software you are using built the Spin runtime, not to the numeric version of the runtime itself.
+
+Most Spin builds support local LLMs as described above. However, the models built into Spin do not build on some combinations of platforms (for example, there are known problems with the aarch64/musl combination). This may cause some environments that embed Spin to disable the local LLM feature altogether. (For examples, some versions of the `containerd-spin-shim` did this.) In such cases, you will see the error above.
+
+In such cases, you can:
+
+* See if there is another Spin build available for your platform. All current builds from the [Spin GitHub repository](https://github.com/fermyon/spin) or [Fermyon Spin installer support](./install.md) support local LLMs.
+* Use the [`cloud-gpu` plugin and runtime config option](./serverless-ai-hello-world.md#building-and-deploying-your-spin-application) to have LLM inferencing serviced in Fermyon Cloud instead of locally.
