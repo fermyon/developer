@@ -233,7 +233,7 @@ html.dark-theme body.hub {
         &:nth-of-type(2) {
           a.card {
             article h3 {
-              color: $oxforddark;
+              color: white;
             }
             .tags span {
               color: lighten($lavenderfloral, 7.5%);
