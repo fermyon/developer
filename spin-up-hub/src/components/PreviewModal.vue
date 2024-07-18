@@ -39,7 +39,6 @@ export default {
     },
     updated() {
         document.querySelectorAll("pre > code").forEach((codeblock) => {
-            console.log(codeblock);
             codeblock.classList.add("hljs");
         });
     }
@@ -281,7 +280,7 @@ export default {
                         font-size: 1.125rem;
                         border-radius: 1rem !important;
                         padding: 0.15rem 1rem;
-                        background-color: #E6D2F1;
+                        background-color: darken($docsbg1, 5%);
                         margin: 0 0.5rem 0.5rem 0;
                         color: $bluecallout;
                         height: auto;
@@ -406,93 +405,70 @@ export default {
     }
 }
 
-@media screen and (min-width:1024px) and (max-width:1220px) {
-    $modalMaxDesktop: 1020px;
-
-    .preview-wrapper {
-
-        .preview-modal.content {
-            max-width: $modalMaxDesktop;
-
-            .content-area {
-                .main-content {
-                    .main-content-wrap {
-                        max-width: $modalMaxDesktop;
-                    }
-                }
-
-                .metadata-space {
-                    .metadata-wrap {
-                        max-width: calc($modalMaxDesktop / 3) !important;
-                        overflow: auto;
-
-                        .meta-info {
-                            overflow: auto;
-                        }
-                    }
-
-                    a.button {
-                        width: calc($modalMaxDesktop / 4) !important;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width:1023px) {
+@media screen and (max-width: 1023px) {
     .content-area {
         flex-direction: column;
         align-items: center;
         overflow-y: auto;
-        min-height: auto !important;
+        min-height: 100vh;
 
         .main-content {
-            width: 90% !important;
-            border-right: none !important;
+            width: 100%;
+            border-right: none;
             order: 2;
-            min-height: auto !important;
-            max-height: none !important;
+            min-height: 80%; 
+            max-height: none;
             display: block;
 
             .description {
                 height: auto;
                 overflow-y: visible;
             }
+
+            .main-content-wrap {
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                padding: 2rem;
+                margin-left: 0; 
+                margin-top: 3.5rem;
+            }
         }
 
         .metadata-space {
-            width: 90% !important;
+            width: 100%;
             order: 1;
             border-bottom: 1px solid $darkspace;
+            height: 100%; 
 
             .metadata-wrap {
-                height: auto !important;
-                flex-direction: column-reverse !important;
+                margin-top: 3rem;
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                overflow: auto;
+                padding: 2rem;
             }
         }
     }
 
     body.hub {
-        // modal on mobile
-        $modalMaxTablet: 620px;
-
         .preview-wrapper {
-
             .preview-modal.content {
                 z-index: 1002;
-                height: 80vh !important;
-                overflow-y: auto !important;
-                width: 96vw !important;
-                max-width: $modalMaxTablet;
-                margin-top: 15rem !important;
-                margin-bottom: 10rem !important;
+                height: 100vh;
+                overflow-y: auto;
+                width: 100%;
+                max-width: none;
+                margin-top: 0;
+                margin-bottom: 0;
 
                 .content-area {
                     flex-direction: column-reverse;
 
                     .main-content {
                         height: auto;
+                        min-height: 80%; 
 
                         .title,
                         .description {
@@ -505,31 +481,39 @@ export default {
                         }
 
                         .main-content-wrap {
-                            width: auto;
-                            max-width: $modalMaxTablet;
-                            max-height: auto;
+                            width: 100%;
+                            height: auto;
+                            max-width: none;
                             overflow-y: visible;
                             position: relative;
                             top: auto;
                             bottom: auto;
+                            padding: 2rem;
+                            margin-left: 0; 
+                            margin-top: 3.5rem;
                         }
                     }
 
                     a.button {
-                        margin: 2rem 0 !important;
-                        width: calc($modalMaxTablet - 4rem) !important;
+                        margin: 2rem 0;
+                        width: 90%;
                     }
 
                     .metadata-space {
-                        height: auto;
+                        height: 100%; 
+                        width: 100%;
                         margin-bottom: 1rem;
 
                         .metadata-wrap {
+                            margin-top: 3rem;
                             position: relative;
                             left: auto;
                             margin-left: 0;
-                            width: auto;
-                            max-width: $modalMaxTablet;
+                            width: 100%;
+                            max-width: none;
+                            height: 100%;
+                            overflow: auto;
+                            padding: 2rem;
 
                             .metadata {
                                 padding-left: 0;
@@ -543,15 +527,15 @@ export default {
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
     body.hub {
-        // modal on mobile
-        $modalMaxMobile: 320px;
-
         .preview-wrapper .preview-modal.content {
-            max-width: $modalMaxMobile;
-            margin-top: 15rem !important;
-            margin-bottom: 12rem !important;
+            max-width: none;
+            width: 100%;
+            height: 100vh;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 0;
 
             .content-area {
                 .title {
@@ -560,16 +544,36 @@ export default {
                 }
 
                 a.button {
-                    margin: 2rem 0 !important;
-                    width: calc($modalMaxMobile - 4rem) !important;
+                    margin: 2rem 0;
+                    width: 90%;
                 }
 
-                .main-content .main-content-wrap {
-                    max-width: $modalMaxMobile;
+                .main-content {
+                    width: 100%;
+                    height: 70%; 
+
+                    .main-content-wrap {
+                        width: 100%;
+                        max-width: none;
+                        height: 100%;
+                        padding: 2rem;
+                        margin-left: 0; 
+                        margin-top: 3.5rem;
+                    }
                 }
 
-                .metadata-space .metadata-wrap {
-                    max-width: $modalMaxMobile;
+                .metadata-space {
+                    height: 100%; 
+                    width: 100%;
+
+                    .metadata-wrap {
+                        margin-top: 3rem;
+                        width: 100%;
+                        height: 100%;
+                        max-width: none;
+                        overflow: auto;
+                        padding: 2rem;
+                    }
                 }
             }
         }

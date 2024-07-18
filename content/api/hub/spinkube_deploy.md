@@ -9,9 +9,9 @@ type = "deployment"
 
 Before You Deploy
 
-You’ll need to configure SpinKube - the open source developer tool
+You’ll need to configure [SpinKube](https://www.spinkube.dev/) - the open source developer tool
 for running Wasm app workloads in Kubernetes, and the necessary
-prerequisites documented here.
+prerequisites documented [here](https://www.spinkube.dev/docs/install/quickstart/).
 
 Deploy
 

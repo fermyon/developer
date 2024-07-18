@@ -79,7 +79,7 @@ export default {
       width: 100%;
       overflow: hidden;
       padding: 0.3rem;
-      border-radius: 1.555rem;
+      border-radius: 1.5rem;
     }
 
     .card-img {

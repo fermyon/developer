@@ -50,9 +50,6 @@ export default {
         <div class="title">Deploy {{ modalData.title }} to Fermyon Cloud</div>
         <div class="content-container">
           <div v-if="!showInfo" class="image-container-with-icon">
-            <span class="icon-back" @click="goBack">
-              <img src="/static/image/icon-back.svg" alt="Back" />
-            </span>
             <div class="image-container">
               <a href="#" target="_blank" @click.prevent="displayAdditionalContent">
                 <img src="https://i.postimg.cc/G3gG4rCZ/to-terminal.png" alt="Image 1" />

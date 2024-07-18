@@ -17,17 +17,16 @@ export default {
     };
   },
   async mounted() {
-        let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/spinkube_deploy")
-        this.deployPreview = unescapeHTML(await res.text())
-        nextTick(() => {
-            document.querySelectorAll("pre > code").forEach((codeblock) => {
-                console.log(codeblock)
-                codeblock.classList.add("hljs")
-            })
-            addCopyButtons()
-            addAnchorLinks()
-        })
-    },
+    let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/spinkube_deploy")
+    this.deployPreview = unescapeHTML(await res.text())
+    nextTick(() => {
+      document.querySelectorAll("pre > code").forEach((codeblock) => {
+        codeblock.classList.add("hljs")
+      })
+      addCopyButtons()
+      addAnchorLinks()
+    })
+  },
   methods: {
     close() {
       this.$emit('close');
@@ -51,15 +50,15 @@ export default {
   },
   computed: {
     modalData() {
-            return this.$store.state.modalData;
-        },
-        verified() {
-            return this.modalData.author == "fermyon";
-        }
+      return this.$store.state.modalData;
+    },
+    verified() {
+      return this.modalData.author == "fermyon";
+    }
   },
 }
-</script>
 
+</script>
 
 <template>
   <div v-if="isOpen && !showCloudModalComponent" class="modal is-active">
@@ -68,7 +67,7 @@ export default {
       <div class="box" :class="{ 'expanded': showInfo }">
         <div class="header">
           <div class="title">Deploy {{ modalData.title }} to: </div>
-          <span @click="closeModal" class="icon-close">
+          <span @click="close" class="icon-close">
             <img src="/static/image/icon-close.svg" alt="Close" />
           </span>
         </div>
@@ -81,8 +80,7 @@ export default {
             <span class="icon-back" @click="goBack">
               <img src="/static/image/icon-back.svg" alt="Back" />
             </span>
-            <section class="type" v-html='this.deployPreview'>
-            </section>
+            <section class="type" v-html='this.deployPreview'></section>
           </div>
         </div>
       </div>
@@ -91,6 +89,7 @@ export default {
   </div>
   <CloudModal v-if="showCloudModalComponent" @close="hideCloudModal" />
 </template>
+
 
 <style lang="scss">
 .modal {

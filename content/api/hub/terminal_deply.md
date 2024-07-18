@@ -9,12 +9,12 @@ type = "deployment"
 
 Before You Deploy
 
-You’ll need to install Spin - our open source developer tool - and have a Fermyon Cloud account (free) to deploy the application to.
+You’ll need to install [Spin](https://developer.fermyon.com/spin/v2/install) - our open source developer tool - and have a Fermyon Cloud account (free) to deploy the application to.
 
 Clone the Repo
 
 ```bash
-git clone https://github.com/karthik2804/spin-zola.git && cd spin-zola
+git clone https://github.com/<username>/<project-name>.git && cd <project-name>
 ```
 
 Deploy
