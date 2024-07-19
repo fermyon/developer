@@ -77,10 +77,12 @@ export default {
             <img src="https://i.postimg.cc/PNnq1LJf/to-cloud.png" alt="Image 2" @click="showCloudModal2" />
           </div>
           <div v-if="showInfo" class="additional-content">
-            <span class="icon-back" @click="goBack">
-              <img src="/static/image/icon-back.svg" alt="Back" />
-            </span>
-            <section class="type" v-html='this.deployPreview'></section>
+            <div class="icon-and-preview">
+              <span class="icon-back" @click="goBack">
+                <img src="/static/image/icon-back.svg" alt="Back" />
+              </span>
+              <section class="type" v-html='this.deployPreview'></section>
+            </div>
           </div>
         </div>
       </div>
@@ -89,7 +91,6 @@ export default {
   </div>
   <CloudModal v-if="showCloudModalComponent" @close="hideCloudModal" />
 </template>
-
 
 <style lang="scss">
 .modal {
@@ -151,7 +152,6 @@ export default {
   margin-top: 150px;
 }
 
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -185,8 +185,13 @@ export default {
   height: 180px;
   border: 1px solid #A87CE6;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
+}
+
+.image-container img:hover {
+  transform: scale(1.05); /* Slightly enlarge the image */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
 }
 
 .additional-content {
@@ -201,8 +206,12 @@ export default {
   line-height: 2;
 }
 
-
 .icon-content-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.icon-and-preview {
   display: flex;
   align-items: flex-start;
 }
@@ -214,27 +223,32 @@ export default {
   cursor: pointer;
 }
 
+.icon-back img {
+  width: 40px;
+  height: 40px;
+}
 
 html.dark-theme {
-        body.hub {
-            .main {
-                .modal {
-                    .box {
-                      background-color: lighten(#202644, 5%);
-                      border-color: #202644 !important;
-                    }
-                    .title {
-                      color: white;
-                    }
-                    .image-container img {
-                        border: 1px solid #fff;
-                        border-color: #202644 !important;
-                    }
-                    .additional-content {
-                        background-color: lighten(#202644, 5%);
-                    }
-                }
-              }
+  body.hub {
+    .main {
+      .modal {
+        .box {
+          background-color: lighten(#202644, 5%);
+          border-color: #202644 !important;
         }
+        .title {
+          color: white;
+        }
+        .image-container img {
+          border: 1px solid #fff;
+          border-color: #202644 !important;
+        }
+        .additional-content {
+          background-color: lighten(#202644, 5%);
+        }
+      }
     }
+  }
+}
 </style>
+

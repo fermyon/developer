@@ -78,8 +78,7 @@ export default {
       flex-shrink: 0;
       width: 100%;
       overflow: hidden;
-      padding: 0.3rem;
-      border-radius: 1.5rem;
+      border-radius: 1rem;
     }
 
     .card-img {
@@ -93,7 +92,7 @@ a.card {
     overflow-y: hidden;
     flex-direction: column;
     background: darken($docsbg1, 2.5%);
-    padding: 0;
+    padding: 0.3rem;
     border-radius: 1.333rem;
     overflow: hidden;
     border: 1px solid darken($lavendermid, 5%);

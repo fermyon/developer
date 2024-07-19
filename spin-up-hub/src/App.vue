@@ -285,7 +285,6 @@ html.dark-theme body.hub {
       }
     }
   }
-
   .dark-theme {
     .content-listing {
 
@@ -306,7 +305,7 @@ html.dark-theme body.hub {
 
             article {
               h3 {
-                color: white;
+                color: $oxforddark;
               }
 
               .summary { 

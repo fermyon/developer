@@ -47,10 +47,18 @@ export default {
     <div class="modal-background" @click="close"></div>
     <div class="modal-content">
       <div class="box">
+        <div class="header">
         <div class="title">Deploy {{ modalData.title }} to Fermyon Cloud</div>
+        <span @click="close" class="icon-close">
+            <img src="/static/image/icon-close.svg" alt="Close" />
+          </span>
+        </div>
         <div class="content-container">
           <div v-if="!showInfo" class="image-container-with-icon">
             <div class="image-container">
+              <span class="icon-back" @click="close">
+                <img src="/static/image/icon-back.svg" alt="Back" />
+              </span>
               <a href="#" target="_blank" @click.prevent="displayAdditionalContent">
                 <img src="https://i.postimg.cc/G3gG4rCZ/to-terminal.png" alt="Image 1" />
               </a>
@@ -60,18 +68,19 @@ export default {
             </div>
           </div>
           <div v-if="showInfo" class="additional-content">
-            <span class="icon-back" @click="goBack">
-              <img src="/static/image/icon-back.svg" alt="Back" />
-            </span>
-            <section class="type" v-html='this.deployPreview'>
-            </section>
+            <div class="icon-and-preview">
+              <span class="icon-back" @click="goBack">
+                <img src="/static/image/icon-back.svg" alt="Back" />
+              </span>
+              <section class="type" v-html='this.deployPreview'></section>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <button class="modal-close is-large" aria-label="close" @click="close"></button>
   </div>
 </template>
+
 
 <style lang="scss" scoped>
 .modal {
@@ -111,8 +120,19 @@ export default {
   z-index: 2003;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.75rem;
+}
+
 .icon-close {
-  right: 1.25rem;
+  cursor: pointer;
+  margin-top: -30px;
 }
 
 .box {
@@ -133,14 +153,6 @@ export default {
   margin-top: 150px;
 }
 
-.title {
-  font-size: 1.75rem;
-}
-
-.icon-close {
-  cursor: pointer;
-  margin-top: -10px;
-}
 
 .content-container {
   height: 100%;
@@ -152,14 +164,17 @@ export default {
   margin-top: -30px;
 }
 
-.icon-back {
-  margin-right: 10px;
-  cursor: pointer;
-  margin-top: -90px;
-  width: 32px; 
-  height: 32px; 
+.icon-and-preview {
+  display: flex;
+  align-items: flex-start;
 }
 
+.icon-back {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px; 
+  cursor: pointer;
+}
 
 
 .image-container {
@@ -179,10 +194,32 @@ export default {
   border-radius: 10px;
 }
 
+.image-container img:hover {
+  transform: scale(1.05); /* Slightly enlarge the image */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
+
 .additional-content {
   height: calc(100% - 2.25rem - 2rem);
   overflow-y: auto;
   margin-top: 20px;
+}
+
+.icon-and-preview {
+  display: flex;
+  align-items: flex-start;
+}
+
+.icon-back {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px; 
+  cursor: pointer;
+}
+
+.icon-back img {
+  width: 40px;
+  height: 40px;
 }
 
 .type {
@@ -192,28 +229,28 @@ export default {
 }
 
 html.dark-theme {
-        body.hub {
-            .main {
-                .modal {
-                    .box {
-                        background-color: lighten(#202644, 5%);
-                        border-color: #202644 !important;
-                        }
-                        .title {
-                            color: white;
-                        }
-                        .image-container img {
-                            border: 1px solid #fff;
-                            border-color: #202644 !important;
-                        }
-                        .additional-content {
-                            background-color: lighten(#202644, 5%);
-                        }
-                    }
-                }
-
-            }   
+  body.hub {
+    .main {
+      .modal {
+        .box {
+          background-color: lighten(#202644, 5%);
+          border-color: #202644 !important;
+        }
+        .title {
+          color: white;
+        }
+        .image-container img {
+          border: 1px solid #fff;
+          border-color: #202644 !important;
+        }
+        .additional-content {
+          background-color: lighten(#202644, 5%);
+        }
+      }
     }
+  }   
+}
+
 </style>
 
 
