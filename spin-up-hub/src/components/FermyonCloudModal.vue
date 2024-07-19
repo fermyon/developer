@@ -1,6 +1,4 @@
 <script>
-import { nextTick } from "vue"
-import { unescapeHTML } from "../store"
 export default {
   data() {
     return {
@@ -8,18 +6,6 @@ export default {
       deployPreview: ""
     };
   },
-  async mounted() {
-        let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/terminal_deply")
-        this.deployPreview = unescapeHTML(await res.text())
-        nextTick(() => {
-            document.querySelectorAll("pre > code").forEach((codeblock) => {
-                console.log(codeblock)
-                codeblock.classList.add("hljs")
-            })
-            addCopyButtons()
-            addAnchorLinks()
-        })
-    },
   methods: {
     close() {
       this.$emit('close');
@@ -48,8 +34,8 @@ export default {
     <div class="modal-content">
       <div class="box">
         <div class="header">
-        <div class="title">Deploy {{ modalData.title }} to Fermyon Cloud</div>
-        <span @click="close" class="icon-close">
+          <div class="title">Deploy {{ modalData.title }} to <br>Fermyon Cloud</div>
+          <span @click="close" class="icon-close">
             <img src="/static/image/icon-close.svg" alt="Close" />
           </span>
         </div>
@@ -72,7 +58,28 @@ export default {
               <span class="icon-back" @click="goBack">
                 <img src="/static/image/icon-back.svg" alt="Back" />
               </span>
-              <section class="type" v-html='this.deployPreview'></section>
+              <div class="container">
+                <div class="container-title">Before You Deploy</div>
+                <div class="container-info">
+                  You’ll need to install <a href="https://developer.fermyon.com/spin/v2/install" target="_blank">Spin</a> - our open source developer tool - and have a
+                  <a href="https://cloud.fermyon.com/login" target="_blank">Fermyon Cloud</a> account (free) to deploy the application to.
+                </div>
+                <div class="section">
+                  <div class="container-sub">1) Clone the Repo</div>
+                  <div class="code-block">
+                    <code>$ {{ modalData.url }}</code>
+                  </div>
+                </div>
+                <div class="container-info">
+                  2) Change your current directory to project directory.
+                </div>
+                <div class="section">
+                  <div class="container-sub">3) Deploy</div>
+                  <div class="code-block">
+                    <code>$ spin cloud deploy</code>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -80,7 +87,6 @@ export default {
     </div>
   </div>
 </template>
-
 
 <style lang="scss" scoped>
 .modal {
@@ -124,6 +130,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .title {
@@ -132,7 +139,9 @@ export default {
 
 .icon-close {
   cursor: pointer;
-  margin-top: -30px;
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
 }
 
 .box {
@@ -152,7 +161,6 @@ export default {
   height: 70vh;
   margin-top: 150px;
 }
-
 
 .content-container {
   height: 100%;
@@ -176,7 +184,6 @@ export default {
   cursor: pointer;
 }
 
-
 .image-container {
   display: flex;
   justify-content: space-between;
@@ -195,8 +202,8 @@ export default {
 }
 
 .image-container img:hover {
-  transform: scale(1.05); /* Slightly enlarge the image */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+  transform: scale(1.05); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
 }
 
 .additional-content {
@@ -222,11 +229,63 @@ export default {
   height: 40px;
 }
 
-.type {
-  font-size: 1.2rem;
-  padding: 10px;
-  line-height: 2;
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    line-height: 1rem;
+ 
 }
+
+.container-title {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.container-info {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.section {
+    margin-top: 0;
+    padding: 0;
+}
+
+.container-sub {
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+.code-block {
+    background-color: #213c67;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+code {
+    background-color: transparent;
+    padding: 0;
+    color: white;
+}
+
 
 html.dark-theme {
   body.hub {
@@ -246,11 +305,30 @@ html.dark-theme {
         .additional-content {
           background-color: lighten(#202644, 5%);
         }
+        .container {
+          background-color: lighten(#202644, 5%);
+
+          .container-title {
+            color: white;
+          }
+          .container-info {
+            color: white;
+          }
+          .container-sub {
+            color: white;
+          }
+          .code-block {
+            background-color: lighten(#202644, 10%);
+          }
+          code {
+            color: white;
+          }
+        }
       }
     }
   }   
 }
-
 </style>
+
 
 

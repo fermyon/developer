@@ -2,6 +2,7 @@
 import CloudModal from './FermyonCloudModal.vue';
 import { nextTick } from "vue"
 import { unescapeHTML } from "../store"
+
 export default {
   props: {
     isOpen: {
@@ -54,11 +55,14 @@ export default {
     },
     verified() {
       return this.modalData.author == "fermyon";
+    },
+    titleText() {
+      return this.showInfo ? `Deploy ${this.modalData.title} to kubernetes:` : `Deploy ${this.modalData.title} to:`;
     }
   },
 }
-
 </script>
+
 
 <template>
   <div v-if="isOpen && !showCloudModalComponent" class="modal is-active">
@@ -66,7 +70,7 @@ export default {
     <div class="modal-content">
       <div class="box" :class="{ 'expanded': showInfo }">
         <div class="header">
-          <div class="title">Deploy {{ modalData.title }} to: </div>
+          <div class="title">{{ titleText }}</div>
           <span @click="close" class="icon-close">
             <img src="/static/image/icon-close.svg" alt="Close" />
           </span>
@@ -102,7 +106,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000; 
+  z-index: 2000;
 }
 
 .modal-background {
@@ -118,8 +122,8 @@ export default {
 .modal-content {
   position: relative;
   z-index: 2002;
-  width: 90vw; 
-  max-width: 700px; 
+  width: 90vw;
+  max-width: 700px;
   border-radius: 20px;
 }
 
@@ -131,28 +135,32 @@ export default {
 }
 
 .icon-close {
-  right: 1.25rem;
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+  cursor: pointer;
 }
 
 .box {
-  width: 100%; 
+  width: 100%;
   overflow: hidden;
   background-color: #FDF8FF;
   border-radius: 20px;
 }
 
 .box:not(.expanded) {
-  height: 45vh; 
+  height: 45vh;
   margin-bottom: 50px;
   margin-top: 35px;
 }
 
 .box.expanded {
-  height: 70vh; 
+  height: 70vh;
   margin-top: 150px;
 }
 
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -160,11 +168,6 @@ export default {
 
 .title {
   font-size: 1.75rem;
-}
-
-.icon-close {
-  cursor: pointer;
-  margin-top: -10px;
 }
 
 .content-container {
@@ -184,18 +187,18 @@ export default {
   cursor: pointer;
   height: 180px;
   border: 1px solid #A87CE6;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .image-container img:hover {
-  transform: scale(1.05); /* Slightly enlarge the image */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .additional-content {
-  height: calc(100% - 2.25rem - 2rem); 
+  height: calc(100% - 2.25rem - 2rem);
   overflow-y: auto;
   margin-top: 20px;
 }
@@ -219,7 +222,7 @@ export default {
 .icon-back {
   display: inline-block;
   margin-right: 10px;
-  margin-top: 10px; 
+  margin-top: 10px;
   cursor: pointer;
 }
 
