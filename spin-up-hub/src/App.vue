@@ -233,7 +233,24 @@ html.dark-theme body.hub {
         &:nth-of-type(2) {
           a.card {
             article h3 {
-              color: white;
+              color: $oxforddark;
+            }
+            .tags span {
+              color: lighten($lavenderfloral, 7.5%);
+            }
+          }
+        }
+      }
+    }
+  }
+  .dark-theme {
+    .content-listing {
+      .columns .column {
+        &:first-of-type,
+        &:nth-of-type(2) {
+          a.card {
+            article h3 {
+              color: white; // Ensure titles are white in dark mode
             }
             .tags span {
               color: lighten($lavenderfloral, 7.5%);
@@ -289,7 +306,7 @@ html.dark-theme body.hub {
 
             article {
               h3 {
-                color: $oxforddark;
+                color: white;
               }
 
               .summary { 
