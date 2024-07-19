@@ -14,7 +14,7 @@ You’ll need to install [Spin](https://developer.fermyon.com/spin/v2/install)�
 Clone the Repo
 
 ```bash
-git clone https://github.com/<username>/<project-name>.git && cd <project-name>
+git clone https://github.com/karthik2804/spin-zola.git && cd spin-zola
 ```
 
 Deploy
