@@ -407,6 +407,7 @@ export default {
 
 @media screen and (max-width: 1023px) {
     .content-area {
+        display: flex;
         flex-direction: column;
         align-items: center;
         overflow-y: auto;
@@ -415,10 +416,10 @@ export default {
         .main-content {
             width: 100%;
             border-right: none;
-            order: 2;
-            min-height: 80%; 
-            max-height: none;
+            order: 1;
+            flex-grow: 1;
             display: block;
+            overflow-y: visible; 
 
             .description {
                 height: auto;
@@ -427,26 +428,28 @@ export default {
 
             .main-content-wrap {
                 width: 100%;
-                height: 100%;
+                height: auto; 
                 max-width: none;
                 padding: 2rem;
-                margin-left: 0; 
+                margin-left: 0;
                 margin-top: 3.5rem;
             }
         }
 
         .metadata-space {
             width: 100%;
-            order: 1;
+            order: 2;
             border-bottom: 1px solid $darkspace;
-            height: 100%; 
+            height: auto; 
+            margin-top: 0; 
+            padding-top: 2rem; 
 
             .metadata-wrap {
                 margin-top: 3rem;
                 width: 100%;
-                height: 100%;
+                height: auto;
                 max-width: none;
-                overflow: auto;
+                overflow: visible;
                 padding: 2rem;
             }
         }
@@ -457,18 +460,20 @@ export default {
             .preview-modal.content {
                 z-index: 1002;
                 height: 100vh;
-                overflow-y: auto;
+                overflow-y: auto; 
                 width: 100%;
                 max-width: none;
                 margin-top: 0;
                 margin-bottom: 0;
 
                 .content-area {
-                    flex-direction: column-reverse;
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
 
                     .main-content {
-                        height: auto;
-                        min-height: 80%; 
+                        flex-grow: 1;
+                        overflow-y: visible; 
 
                         .title,
                         .description {
@@ -484,12 +489,12 @@ export default {
                             width: 100%;
                             height: auto;
                             max-width: none;
-                            overflow-y: visible;
+                            overflow-y: visible; 
                             position: relative;
                             top: auto;
                             bottom: auto;
                             padding: 2rem;
-                            margin-left: 0; 
+                            margin-left: 0;
                             margin-top: 3.5rem;
                         }
                     }
@@ -500,9 +505,10 @@ export default {
                     }
 
                     .metadata-space {
-                        height: 100%; 
                         width: 100%;
                         margin-bottom: 1rem;
+                        margin-top: auto; 
+                        padding-top: 2rem; 
 
                         .metadata-wrap {
                             margin-top: 3rem;
@@ -511,8 +517,8 @@ export default {
                             margin-left: 0;
                             width: 100%;
                             max-width: none;
-                            height: 100%;
-                            overflow: auto;
+                            height: auto;
+                            overflow: visible; 
                             padding: 2rem;
 
                             .metadata {
@@ -536,8 +542,13 @@ export default {
             margin-top: 0;
             margin-bottom: 0;
             padding: 0;
+            overflow-y: auto; 
 
             .content-area {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+
                 .title {
                     font-size: 1.67rem;
                     margin: 0 0 1rem;
@@ -549,29 +560,30 @@ export default {
                 }
 
                 .main-content {
-                    width: 100%;
-                    height: 70%; 
+                    flex-grow: 1;
+                    overflow-y: visible; 
 
                     .main-content-wrap {
                         width: 100%;
                         max-width: none;
-                        height: 100%;
+                        height: auto;
                         padding: 2rem;
-                        margin-left: 0; 
+                        margin-left: 0;
                         margin-top: 3.5rem;
                     }
                 }
 
                 .metadata-space {
-                    height: 100%; 
                     width: 100%;
+                    margin-top: auto; 
+                    padding-top: 2rem; 
 
                     .metadata-wrap {
                         margin-top: 3rem;
                         width: 100%;
-                        height: 100%;
+                        height: auto;
                         max-width: none;
-                        overflow: auto;
+                        overflow: visible; 
                         padding: 2rem;
                     }
                 }
