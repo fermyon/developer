@@ -55,6 +55,7 @@ watch = ["src/**/*.rs", "Cargo.toml"]
 The following fields allow you to use [expressions](./variables.md#adding-variables-to-your-applications) in their values:
 
 * `application.trigger.redis.address`
+* `trigger.redis.address`
 * `trigger.redis.channel`
 * `component.*.allowed_outbound_hosts`
 
@@ -104,7 +105,7 @@ The `application.trigger` should contain only one key, the trigger type whose se
 
 | Name                    | Required?  | Type        | Value    | Example   |
 |-------------------------|------------|-------------|----------|-----------|
-| `address`               | Required   | String      | The address of the Redis instance the components are using the message subscriptions. Use the `redis:` URL scheme. | `"redis://localhost:6379"` |
+| `address`               | Required   | String      | The address of the Redis instance to which the components subscribe for messages, for triggers that do not specify an address themselves. Use the `redis:` URL scheme. | `"redis://localhost:6379"` |
 
 ## The `variables` Table
 
@@ -163,6 +164,7 @@ Each array entry contains a mix of common fields and trigger-specific fields.
 
 | Name                    | Required?  | Type        | Value    | Example   |
 |-------------------------|------------|-------------|----------|-----------|
+| `address`               | Optional   | String      | The address of the Redis instance to which the trigger subscribes. Use the `redis:` URL scheme. If omitted, defaults to `application.trigger.redis.address`. | `"redis://localhost:6379"` |
 | `channel`               | Required   | String      | The Redis channel which this component handles. Messages on this channel will cause the component to execute. | `"purchases"` |
 
 ## The `component` Table
