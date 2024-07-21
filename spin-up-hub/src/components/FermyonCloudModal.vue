@@ -1,4 +1,6 @@
 <script>
+import { nextTick } from "vue"
+import { unescapeHTML } from "../store"
 export default {
   data() {
     return {
@@ -41,10 +43,10 @@ export default {
         </div>
         <div class="content-container">
           <div v-if="!showInfo" class="image-container-with-icon">
-            <div class="image-container">
-              <span class="icon-back" @click="close">
+            <span class="icon-back" @click="close">
                 <img src="/static/image/icon-back.svg" alt="Back" />
               </span>
+            <div class="image-container">
               <a href="#" target="_blank" @click.prevent="displayAdditionalContent">
                 <img src="https://i.postimg.cc/G3gG4rCZ/to-terminal.png" alt="Image 1" />
               </a>
@@ -172,6 +174,10 @@ export default {
   margin-top: -30px;
 }
 
+.image-container-with-icon span {
+  margin-bottom: 6rem;
+}
+
 .icon-and-preview {
   display: flex;
   align-items: flex-start;
@@ -285,6 +291,31 @@ code {
     padding: 0;
     color: white;
 }
+
+@media screen and (max-width: 1220px) {
+  .box:not(.expanded) {
+    height: auto;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .box:not(.expanded) {
+  height: auto;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .box:not(.expanded) {
+  height: auto;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .box:not(.expanded) {
+  height: auto;
+  }
+}
+
 
 
 html.dark-theme {

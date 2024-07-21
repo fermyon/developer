@@ -231,6 +231,25 @@ export default {
   height: 40px;
 }
 
+@media screen and (max-width: 1220px) {
+  .box:not(.expanded) {
+    height: auto;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .box:not(.expanded) {
+  height: auto;
+  }
+}
+
+
+@media screen and (max-width: 1023px) {
+  .box:not(.expanded) {
+  height: auto;
+  }
+}
+
 html.dark-theme {
   body.hub {
     .main {
