@@ -460,7 +460,7 @@ export default {
             .preview-modal.content {
                 z-index: 1002;
                 height: 100vh;
-                overflow-y: auto; 
+                overflow-y: hidden; 
                 width: 100%;
                 max-width: none;
                 margin-top: 0;
@@ -489,7 +489,7 @@ export default {
                             width: 100%;
                             height: auto;
                             max-width: none;
-                            overflow-y: visible; 
+                            overflow-y: hidden; 
                             position: relative;
                             top: auto;
                             bottom: auto;
@@ -542,7 +542,7 @@ export default {
             margin-top: 0;
             margin-bottom: 0;
             padding: 0;
-            overflow-y: auto; 
+            overflow-y: hidden; 
 
             .content-area {
                 display: flex;
