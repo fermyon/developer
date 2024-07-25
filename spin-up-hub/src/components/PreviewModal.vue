@@ -250,6 +250,7 @@ export default {
                     cursor: pointer;
                     margin-right: 10px; 
                     flex-shrink: 0; 
+                    margin-right: 2rem;
 
             img {
                 height: 24px; 
@@ -261,8 +262,10 @@ export default {
                     font-size: 1.25rem; 
                     line-height: 2; 
                     padding: 0 2rem; 
+                    padding-left: 3.5rem;
                     overflow-y: auto; 
                     flex-grow: 1;
+                    
 
                     p {
                         font-size: 1.25rem !important;
@@ -273,6 +276,7 @@ export default {
 
                 .tags {
                     padding: 1.75rem 1.5rem;
+                    padding-left: 3.5rem;
 
                     span {
                         display: inline-block;

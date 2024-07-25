@@ -2,7 +2,7 @@
 export default {
     data() {
         return {
-
+          imageLoaded: false
         }
     },
     methods: {
@@ -27,18 +27,21 @@ export default {
 </script>
 
 <template>
-    <div class="column is-one-third-desktop is-full-mobile is-half-tablet" @click="OpenItem">
-      <a class="card">
-        <div v-if="item.image" class="card-image">
-          <figure class="image">
-            <img
-              :src="item.image"
-              alt="Placeholder-image"
-              class="card-img"
-            />
-          </figure>
-        </div>
-        <div class="card-content">
+  <div class="column is-one-third-desktop is-full-mobile is-half-tablet" @click="OpenItem">
+    <a class="card">
+      <div v-if="item.image" class="card-image">
+        <figure class="image">
+          <div v-show="!imageLoaded" class="skeleton-placeholder"></div>
+          <img 
+            v-show="imageLoaded" 
+            :src="item.image" 
+            alt="Placeholder image" 
+            class="card-img" 
+            @load="imageLoaded = true" 
+          />
+        </figure>
+      </div>
+      <div class="card-content">
         <header>
           <span class="category">
             {{ item.category }}
@@ -50,8 +53,7 @@ export default {
             </svg>
           </span>
           <div>
-            <span v-if="item.artifactSource" style="margin-right: 0.5rem;" class="icon"><img
-                src="/static/image/deploy-to-cloud.svg" alt="GitHub" /></span>
+            <span v-if="item.artifactSource" style="margin-right: 0.5rem;" class="icon"><img src="/static/image/deploy-to-cloud.svg" alt="GitHub" /></span>
             <span class="icon"><img src="/static/image/icon-github.svg" alt="GitHub" /></span>
           </div>
         </header>
@@ -68,24 +70,44 @@ export default {
           </div>
         </article>
       </div>
-      </a>
-    </div>
-  </template>
+    </a>
+  </div>
+</template>
+
 
 <style lang="scss" scoped>
 
 .card-image {
-      flex-shrink: 0;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 1rem;
-    }
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+}
 
-    .card-img {
-      width: 100%;
-      max-height: 150px;
-      object-fit: cover;
-    }
+.skeleton-placeholder {
+  width: 100%;
+  height: 150px; /* Adjust as needed */
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.card-img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  display: block; /* Ensure the image is displayed */
+}
+
 a.card {
     display: flex;
     height: 12rem;
