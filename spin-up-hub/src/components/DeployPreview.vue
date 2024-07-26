@@ -26,12 +26,11 @@ export default {
       this.showInfo = false;
       this.showCloudModalComponent = false;
       this.$emit('close');
-      // Push state without modal open
       window.history.pushState({ modalOpen: false }, "");
     },
     showCloudModal() {
       this.showInfo = true;
-      window.history.pushState({ modalOpen: true, modalType: 'info' }, ""); // Add a history entry with the type of modal
+      window.history.pushState({ modalOpen: true, modalType: 'info' }, ""); 
     },
     goBack() {
       this.showInfo = false; 
@@ -105,7 +104,7 @@ export default {
                 <div class="section">
                   <div class="container-sub">Deploy</div>
                   <div class="code-block">
-                    <code>kubectl apply -f https://raw.githubusercontent.com/&lt;ghorg&gt;/&lt;suh-example-name&gt;/main/config/samples/&lt;example-name&gt;.yaml</code>
+                    <div class="code-snippet">kubectl apply -f https://raw.githubusercontent.com/&lt;ghorg&gt;/&lt;suh-example-name&gt;/main/config/samples/&lt;example-name&gt;.yaml</div>
                   </div>
                 </div>
               </div>  
@@ -279,7 +278,7 @@ a {
     max-width: 100%;
 }
 
-code {
+.code-snippet {
     background-color: transparent;
     padding: 10px;
     color: white;

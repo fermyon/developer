@@ -1,6 +1,4 @@
 <script>
-import { nextTick } from "vue"
-import { unescapeHTML } from "../store"
 export default {
   data() {
     return {
@@ -260,10 +258,6 @@ export default {
 a {
     color: #007bff;
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 .section {
