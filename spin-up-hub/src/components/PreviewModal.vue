@@ -277,6 +277,7 @@ export default {
                 .tags {
                     padding: 1.75rem 1.5rem;
                     padding-left: 3.5rem;
+                    padding-bottom: 5rem;
 
                     span {
                         display: inline-block;
