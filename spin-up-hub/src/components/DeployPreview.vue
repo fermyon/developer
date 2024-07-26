@@ -1,7 +1,5 @@
 <script>
 import CloudModal from './FermyonCloudModal.vue';
-import { nextTick } from "vue"
-import { unescapeHTML } from "../store"
 
 export default {
   props: {
@@ -17,33 +15,46 @@ export default {
       deployPreview: ""
     };
   },
-  async mounted() {
-    let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/spinkube_deploy")
-    this.deployPreview = unescapeHTML(await res.text())
-    nextTick(() => {
-      document.querySelectorAll("pre > code").forEach((codeblock) => {
-        codeblock.classList.add("hljs")
-      })
-      addCopyButtons()
-      addAnchorLinks()
-    })
+  mounted() {
+    window.addEventListener('popstate', this.onPopState);
+  },
+  beforeDestroy() {
+    window.removeEventListener('popstate', this.onPopState);
   },
   methods: {
     close() {
+      this.showInfo = false;
+      this.showCloudModalComponent = false;
       this.$emit('close');
-      this.showInfo = false; 
+      // Push state without modal open
+      window.history.pushState({ modalOpen: false }, "");
     },
     showCloudModal() {
       this.showInfo = true;
+      window.history.pushState({ modalOpen: true, modalType: 'info' }, ""); // Add a history entry with the type of modal
     },
     goBack() {
       this.showInfo = false; 
     },
     showCloudModal2() {
       this.showCloudModalComponent = true;
+      window.history.pushState({ modalOpen: true, modalType: 'cloud' }, "");
     },
     hideCloudModal() {
       this.showCloudModalComponent = false;
+    },
+    onPopState(event) {
+      if (event.state && event.state.modalOpen) {
+        if (event.state.modalType === 'info') {
+          this.showInfo = true;
+          this.showCloudModalComponent = false;
+        } else if (event.state.modalType === 'cloud') {
+          this.showCloudModalComponent = true;
+          this.showInfo = false;
+        }
+      } else {
+        this.close(); // Close the modal if state doesn't indicate it's open
+      }
     }
   },
   components: {
@@ -85,7 +96,19 @@ export default {
               <span class="icon-back" @click="goBack">
                 <img src="/static/image/icon-back.svg" alt="Back" />
               </span>
-              <section class="type" v-html='this.deployPreview'></section>
+              <div class="container-information">
+                <div class="container-title">Before You Deploy</div>
+                <div class="container-info">
+                      You’ll need to configure <a href="https://www.spinkube.dev/" target="_blank">SpinKube</a> - our open source developer tool or running Wasm app workloads in Kubernetes, and the necessary prerequisites documented
+                  <a href="https://www.spinkube.dev/docs/install/quickstart/" target="_blank">here</a>
+                </div>
+                <div class="section">
+                  <div class="container-sub">Deploy</div>
+                  <div class="code-block">
+                    <code>kubectl apply -f https://raw.githubusercontent.com/&lt;ghorg&gt;/&lt;suh-example-name&gt;/main/config/samples/&lt;example-name&gt;.yaml</code>
+                  </div>
+                </div>
+              </div>  
             </div>
           </div>
         </div>
@@ -95,6 +118,7 @@ export default {
   </div>
   <CloudModal v-if="showCloudModalComponent" @close="hideCloudModal" />
 </template>
+
 
 <style lang="scss">
 .modal {
@@ -203,10 +227,64 @@ export default {
   margin-top: 20px;
 }
 
-.type {
-  font-size: 1.2rem;
-  padding: 10px;
-  line-height: 2;
+.container-information {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    padding-left: 0;
+    border-radius: 8px;
+    line-height: 1rem;
+ 
+}
+
+.container-title {
+    color: black;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.container-info {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.section {
+    margin-top: 0;
+    padding: 0;
+}
+
+.container-sub {
+    font-size: 1.4rem;
+    line-height: 2;
+    font-weight: bold;
+}
+
+.code-block {
+    background-color: #19143e;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+code {
+    background-color: transparent;
+    padding: 10px;
+    color: white;
+    white-space: nowrap; /* Prevents line wrapping */
+    display: block;
 }
 
 .icon-content-container {
@@ -222,13 +300,13 @@ export default {
 .icon-back {
   display: inline-block;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 18px;
   cursor: pointer;
 }
 
 .icon-back img {
-  width: 40px;
-  height: 40px;
+  width: 1rem;
+  height: 1rem;
 }
 
 @media screen and (max-width: 1220px) {
@@ -245,6 +323,12 @@ export default {
 
 
 @media screen and (max-width: 1023px) {
+  .box:not(.expanded) {
+  height: auto;
+  }
+}
+
+@media screen and (max-width:768px) {
   .box:not(.expanded) {
   height: auto;
   }
@@ -267,6 +351,25 @@ html.dark-theme {
         }
         .additional-content {
           background-color: lighten(#202644, 5%);
+        }
+        .container-information {
+          background-color: lighten(#202644, 5%);
+
+          .container-title {
+            color: white;
+          }
+          .container-info {
+            color: white;
+          }
+          .container-sub {
+            color: white;
+          }
+          .code-block {
+            background-color: lighten(#19143e, 10%);
+          }
+          code {
+            color: white;
+          }
         }
       }
     }

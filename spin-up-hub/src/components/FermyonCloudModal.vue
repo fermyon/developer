@@ -34,7 +34,7 @@ export default {
   <div class="modal is-active">
     <div class="modal-background" @click="close"></div>
     <div class="modal-content">
-      <div class="box">
+      <div class="box" :class="{ 'expanded': showInfo }">
         <div class="header">
           <div class="title">Deploy {{ modalData.title }} to <br>Fermyon Cloud</div>
           <span @click="close" class="icon-close">
@@ -72,7 +72,7 @@ export default {
                     <code>$ {{ modalData.url }}</code>
                   </div>
                 </div>
-                <div class="container-info">
+                <div class="container-sub">
                   2) Change your current directory to project directory.
                 </div>
                 <div class="section">
@@ -246,7 +246,8 @@ export default {
 
 .container-title {
     color: black;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .container-info {
@@ -271,8 +272,9 @@ a:hover {
 }
 
 .container-sub {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 2;
+    font-weight: bold;
 }
 
 .code-block {
@@ -284,6 +286,7 @@ a:hover {
     align-items: center;
     margin-top: 10px;
     padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 code {
