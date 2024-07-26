@@ -8,6 +8,7 @@ tags = ["serverless_ai", "gpu", "inferencing", "embedding"]
 author = "fermyon"
 type = "hub_document"
 category = "Plugin"
+image = "https://github.com/user-attachments/assets/268336bf-8803-4700-a32b-011c41c658af"
 language = ""
 created_at = "2023-10-20T00:22:56Z"
 last_updated = "2023-10-20T00:22:56Z"

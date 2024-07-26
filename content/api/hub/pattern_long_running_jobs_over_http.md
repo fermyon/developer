@@ -8,6 +8,7 @@ tags = ["patterns", "Rust", "MQTT", "HTTP"]
 author = "Thorsten Hans"
 type = "hub_document"
 category = "Pattern"
+image = "https://github.com/user-attachments/assets/268336bf-8803-4700-a32b-011c41c658af"
 language = "Rust"
 created_at = "2024-04-11T06:55:00Z"
 last_updated = "2024-04-11T06:55:00Z"

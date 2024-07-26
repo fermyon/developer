@@ -108,7 +108,7 @@ html.dark-theme body.hub {
       color: $oxforddark !important;
     }
   }
-
+  
   footer.footer-links .level a {
     color: white;
   }
@@ -161,45 +161,6 @@ html.dark-theme body.hub {
       }
     }
   }
-
-  .dark-theme {
-    .content-listing {
-
-      // fancy cards 
-      .columns > .column {
-        &:first-of-type,
-        &:nth-of-type(2),
-        &:nth-of-type(3) {
-          a.card {
-
-            .category {
-              color: $thistle;
-              background-color: darken($lavenderdark, 33.33%);
-
-              svg {
-                fill: $bluedark;
-              }
-            }
-
-            article {
-              h3 {
-                color: white;
-              }
-
-              .summary { 
-                color: white;
-              }
-              .tags {
-                span {
-                  color: lighten($lavenderfloral, 7.5%);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width:1023px) {
@@ -243,23 +204,6 @@ html.dark-theme body.hub {
       }
     }
   }
-  .dark-theme {
-    .content-listing {
-      .columns .column {
-        &:first-of-type,
-        &:nth-of-type(2) {
-          a.card {
-            article h3 {
-              color: white; // Ensure titles are white in dark mode
-            }
-            .tags span {
-              color: lighten($lavenderfloral, 7.5%);
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width:768px) {
@@ -285,31 +229,22 @@ html.dark-theme body.hub {
       }
     }
   }
-  .dark-theme {
-    .content-listing {
+}
 
-      // fancy cards 
-      .columns > .column {
-        &:first-of-type,
-        &:nth-of-type(2) {
-          a.card {
-
-            .category {
-              background: white;
-              color: $bluedark;
-
-              svg {
-                fill: $bluedark;
+html.dark-theme {
+  body.hub {
+    .main {
+      .content-listing {
+        .columns .column {
+          &:first-of-type,
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+            a.card {
+              article h3 {
+                color: white;
               }
-            }
-
-            article {
-              h3 {
-                color: $oxforddark;
-              }
-
-              .summary { 
-                color: $bluecallout;
+              .tags span {
+                color: lighten($lavenderfloral, 7.5%);
               }
             }
           }

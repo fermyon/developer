@@ -8,6 +8,7 @@ tags = ["rust", "html", "web"]
 author = "fermyon"
 type = "hub_document"
 category = "Sample"
+image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "Rust"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"

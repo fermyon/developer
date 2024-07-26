@@ -8,6 +8,7 @@ tags = ["javascript", "11ty", "Fermyon Cloud",]
 author = "VamshiReddy02"
 type = "hub_document"
 category = "Sample"
+image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "JS/TS"
 created_at = "2023-12-19T04:30:32.000Z"
 last_updated = "2023-12-19T04:30:32.000Z"

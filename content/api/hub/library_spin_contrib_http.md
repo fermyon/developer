@@ -8,6 +8,7 @@ tags = ["http", "rust"]
 author = "Thorsten Hans"
 type = "hub_document"
 category = "Library"
+image = "https://github.com/user-attachments/assets/268336bf-8803-4700-a32b-011c41c658af"
 language = "Rust"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"

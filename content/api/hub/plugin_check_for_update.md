@@ -8,6 +8,7 @@ tags = ["cli", "tooling"]
 author = "ThorstenHans"
 type = "hub_document"
 category = "Plugin"
+image = "https://github.com/user-attachments/assets/268336bf-8803-4700-a32b-011c41c658af"
 language = "Rust"
 created_at = "2023-08-23T15:20:00Z"
 last_updated = "2023-08-23T15:20:00Z"

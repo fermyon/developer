@@ -8,6 +8,7 @@ tags = ["sdk", "javascript"]
 author = "fermyon"
 type = "hub_document"
 category = "Plugin"
+image = "https://github.com/user-attachments/assets/268336bf-8803-4700-a32b-011c41c658af"
 language = "JS/TS"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"

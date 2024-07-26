@@ -8,6 +8,7 @@ tags = ["javascript", "Nuxt", "Vue"]
 author = "VamshiReddy02"
 type = "hub_document"
 category = "Template"
+image = "https://github.com/user-attachments/assets/b4b2647f-06f3-4447-b666-95230402865a"
 language = "JS/TS"
 created_at = "2024-01-01T00:22:56Z"
 last_updated = "2024-01-01T00:22:56Z"

@@ -8,6 +8,7 @@ tags = ["openai", "chatgpt", "typescript"]
 author = "teknicus"
 type = "hub_document"
 category = "Sample"
+image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "JS/TS"
 created_at = "2023-07-24T02:00:00Z"
 last_updated = "2023-07-24T02:00:00Z"
