@@ -17,12 +17,12 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/javascript
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in MySQL and PostgreSQL Relational Databases](#storing-data-in-mysql-and-postgresql-relational-databases)
 - [AI Inferencing From JS/TS Components](#ai-inferencing-from-jsts-components)
-- [`Node.js` Compatibility](#nodejs-compatibility)
+- [Node.js Compatibility](#nodejs-compatibility)
 - [Using External NPM Libraries](#using-external-npm-libraries)
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
 - [Caveats](#caveats)
 
-With JavaScript being a very popular language, Spin provides an SDK to support building components. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. The SDK is based on [ComponentizeJS](https://github.com/bytecodealliance/ComponentizeJS).
+With JavaScript being a very popular language, Spin provides an SDK to support building components. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. The SDK is based on [`ComponentizeJS`](https://github.com/bytecodealliance/ComponentizeJS).
 
 > This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the JavaScript templates and creating JavaScript and TypeScript applications.
 
@@ -87,7 +87,9 @@ hello-world/
 └── webpack.config.js
 ```
 
-The source for the component is present in `src/index.ts`. [Webpack](https://webpack.js.org) is used to bundle the component into a single `.js` file which will then be compiled to a `.wasm` module using the `j2w` node executable provided by the `@fermyon/spin-sdk` which is a wrapper around `ComponentizeJS`. The `knitwit.json` is the configuration file used by [knitwit](https://github.com/fermyon/knitwit) to manage the WebAssembly dependencies of each package.
+The source for the component is present in `src/index.ts`. [Webpack](https://webpack.js.org) is used to bundle the component into a single `.js` file which will then be compiled to a `.wasm` module.
+
+{{ details "Going from JavaScript to Wasm" "The JS source is compiled to a `wasm` module using the `j2w` node executable provided by the `@fermyon/spin-sdk` which is a wrapper around `ComponentizeJS`. The `knitwit.json` is the configuration file used by [knitwit](https://github.com/fermyon/knitwit) to manage the WebAssembly dependencies of each package."}}
 
 ## Building and Running the Template
 
@@ -326,9 +328,9 @@ For more information about using relational databases from TypeScript/JavaScript
 
 For more information about using Serverless AI from JS/TS, see the [Serverless AI](serverless-ai-api-guide) API guide.
 
-## `Node.js` Compatibility
+## Node.js Compatibility
 
-The SDK does not support the full specification of `Node.js`. A limited set of APIs can be polyfilled using the [`@fermyon/wasi-ext`](https://github.com/fermyon/js-wasi-ext) library which provided a webpack plugin. It can be used by installing the  library first using:
+The SDK does not support the full specification of `Node.js`. A limited set of APIs can be polyfilled using the [`@fermyon/wasi-ext`](https://github.com/fermyon/js-wasi-ext) library which provides a webpack plugin. It can be used by installing the  library first using:
 
 <!-- @selectiveCpy -->
 

@@ -66,10 +66,10 @@ command = "cargo build --target wasm32-wasi --release"
 
 {{ startTab "TypeScript" }}
 
-For JavaScript and TypeScript applications, you must have `node.js`.
+For JavaScript and TypeScript applications, you must have [Node.js](https://nodejs.org).
 
 
-It's normally convenient to put the detailed build instructions in `package.json`, The build script calls out to [`webpack`](https://webpack.js.org/) and `j2w` which is a script provided by the `@fermyon/spin-sdk` package that utilizes [`ComponentizeJS`](https://github.com/bytecodealliance/ComponentizeJS). The build script looks like:
+It's normally convenient to put the detailed build instructions in `package.json`. The build script calls out to [`webpack`](https://webpack.js.org/) and `j2w` which is a script provided by the `@fermyon/spin-sdk` package that utilizes [`ComponentizeJS`](https://github.com/bytecodealliance/ComponentizeJS). The build script looks like:
 
 <!-- @nocpy -->
 
