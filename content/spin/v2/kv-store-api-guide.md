@@ -102,14 +102,14 @@ export async function handler(req: Request, res: ResponseBuilder) {
 **General Notes**
 - The SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
-[`get` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#get)
+[`get` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#get)
 - The result is of the type `ArrayBuffer | null`
 - If the key does not exist, `get` returns `null`
 
-[`set` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#set)
+[`set` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#set)
 - The value argument is of the type `Uint8Array | string | object`.
 
-[`setJson`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#setJson) and [`getJson` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#getJson)
+[`setJson`](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#setJson) and [`getJson` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#getJson)
 - Applications can store JavaScript objects using `setJson`; these are serialized within the store as JSON. These serialized objects can be retrieved and deserialized using `getJson`. If you call `getJson` on a key that doesn't exist then it returns an empty object.
 
 {{ blockEnd }}

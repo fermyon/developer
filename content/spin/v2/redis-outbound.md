@@ -91,7 +91,7 @@ You can find a complete Rust code example for using outbound Redis from an HTTP 
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-Redis functions are available on [the `Redis` module](https://fermyon.github.io/spin-js-sdk/variables/Redis.html). The function names match the operations above. For example:
+Redis functions are available on [the `Redis` module](https://fermyon.github.io/spin-js-sdk/modules/Redis.html). The function names match the operations above. For example:
 
 ```javascript
 import { Redis } from "@fermyon/spin-sdk"
