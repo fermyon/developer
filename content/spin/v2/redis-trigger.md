@@ -7,7 +7,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/redis-trig
 
 ---
 - [Specifying a Redis Trigger](#specifying-a-redis-trigger)
-- [Redis Trigger Application Settings](#redis-trigger-application-settings)
+  - [Setting a Default Server](#setting-a-default-server)
+- [Redis Trigger Authentication](#redis-trigger-authentication)
 - [Redis Components](#redis-components)
   - [The Message Handler](#the-message-handler)
 - [Inside Redis Components](#inside-redis-components)
@@ -18,12 +19,15 @@ The Redis trigger in Spin subscribes to messages from a given Redis instance, an
 
 > This page deals with the Redis trigger for subscribing to pub-sub messages. For information about reading and writing the Redis key-value store, or for publishing messages, see the Language Guides.
 
+> The Redis trigger is not yet available in Fermyon Cloud.
+
 ## Specifying a Redis Trigger
 
 A Redis trigger maps a Redis channel to a component. For example:
 
 ```toml
 [[trigger.redis]]
+address = "redis://notifications.example.com:6379" # the Redis instance that the trigger subscribes to (optional - see below)
 channel = "messages"          # the channel that the trigger subscribes to
 component = "my-application"  # the name of the component to handle this route
 ```
@@ -32,11 +36,11 @@ Such a trigger says that Redis messages on the specified _channel_ should be han
 
 > Spin subscribes only to the channels that are mapped to components. Other channels are ignored. If multiple components subscribe to the same channel, a message on that channel will activate all of the components.
 
-You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `channel` field. However, this feature is not yet available on Fermyon Cloud.
+You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `address` and `channel` fields.
 
-## Redis Trigger Application Settings
+### Setting a Default Server
 
-Applications containing Redis triggers must specify the address of the Redis server to subscribe to. This is done via the `[application.trigger.redis]` section of manifest:
+In many applications, all components listen to the same Redis server (on different channels, of course). For this case, it is more convenient to specify the server at the application level instead of on each component. This is done via the `[application.trigger.redis]` section of manifest:
 
 ```toml
 [application.trigger.redis]
@@ -45,13 +49,17 @@ address = "redis://notifications.example.com:6379"
 
 > If you create an application from a Redis template, the trigger will be already set up for you.
 
+You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `address` field.
+
+## Redis Trigger Authentication
+
 By default, Spin does not authenticate to Redis. You can work around this by providing a password in the `redis://` URL.  For example: `address = "redis://:p4ssw0rd@localhost:6379"`
 
 > Do not use passwords in code committed to version control systems.
 
 > We plan to offer secrets-based authentication in future versions of Spin.
 
-You can use [application variables](./variables.md#adding-variables-to-your-applications) in the `address` field. This can be particularly useful for credentials, allowing you to pass credentials in via [variables providers](./dynamic-configuration.md#application-variables-runtime-configuration) rather than including them in `spin.toml`. However, this feature is not yet available on Fermyon Cloud.
+As mentioned above, you can use [application variables](./variables.md#adding-variables-to-your-applications) in Redis `address` fields. This can be particularly useful for credentials, allowing you to pass credentials in via [variables providers](./dynamic-configuration.md#application-variables-runtime-configuration) rather than including them in `spin.toml`.
 
 ## Redis Components
 
