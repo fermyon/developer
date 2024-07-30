@@ -76,7 +76,7 @@ $ spin new -t http-rust spin-key-value
 ```bash
 $ spin new -t http-ts spin-key-value
 
-# Reference: https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/spin_kv
+# Reference: https://github.com/fermyon/spin-js-sdk/tree/feat/sdk-v2/examples/spin-host-apis/spin-kv
 ```
 
 {{ blockEnd }}
@@ -233,52 +233,49 @@ fn handle_request(req: Request) -> anyhow::Result<impl IntoResponse> {
 {{ startTab "TypeScript"}}
 
 ```typescript
-import { HandleRequest, HttpRequest, HttpResponse, Kv } from "@fermyon/spin-sdk"
+import { ResponseBuilder } from "@fermyon/spin-sdk";
 
 const encoder = new TextEncoder()
 const decoder = new TextDecoder()
 
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+export async function handler(req: Request, res: ResponseBuilder) {
 
   let store = Kv.openDefault()
   let status = 200
   let body
 
-  switch (request.method) {
+  switch (req.method) {
     case "POST":
-      store.set(request.uri, request.body || (new Uint8Array()).buffer)
-      console.log(`Storing value in the KV store with ${request.uri} as the key`);
+      store.set(req.uri, await req.text() || (new Uint8Array()).buffer)
+      console.log(`Storing value in the KV store with ${req.uri} as the key`);
       break;
     case "GET":
       let val
       try {
-        val = store.get(request.uri)
+        val = store.get(req.uri)
         body = decoder.decode(val)
-      	console.log(`Found value for the key ${request.uri}`);
+      	console.log(`Found value for the key ${req.uri}`);
       } catch (error) {
-      	console.log(`Key ${request.uri} not found`);
+      	console.log(`Key ${req.uri} not found`);
         status = 404
       }
       break;
     case "DELETE":
-      store.delete(request.uri)
-      console.log(`Deleted Key ${request.uri}`);
+      store.delete(req.uri)
+      console.log(`Deleted Key ${req.uri}`);
       break;
     case "HEAD":
-      if (!store.exists(request.uri)) {
-        console.log(`Key ${request.uri} not found`);
+      if (!store.exists(req.uri)) {
+        console.log(`Key ${req.uri} not found`);
         status = 404
       } else {
-      console.log(`Found Key ${request.uri}`);
+      console.log(`Found Key ${req.uri}`);
       }
       break;
     default:
   }
-
-  return {
-    status: status,
-    body: body
-  }
+  res.status(status)
+  res.send(body)
 }
 ```
 

@@ -112,22 +112,20 @@ The `infer_with_options` examples, operation:
 
 {{ startTab "Typescript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Llm.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Llm.html)
 
-To use Serverless AI functions, [the `Llm` module](https://fermyon.github.io/spin-js-sdk/variables/Llm.html) from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example: 
+To use Serverless AI functions, [the `Llm` module](https://fermyon.github.io/spin-js-sdk/modules/Llm.html) from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example: 
 
 ```javascript
-import { EmbeddingModels, HandleRequest, HttpRequest, HttpResponse, InferencingModels, Llm} from "@fermyon/spin-sdk"
+import { ResponseBuilder, Llm} from "@fermyon/spin-sdk"
 
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-    let embeddings = Llm.generateEmbeddings(EmbeddingModels.AllMiniLmL6V2, ["someString"])
+export async function handler(req: Request, res: ResponseBuilder) {
+    let embeddings = Llm.generateEmbeddings(Llm.EmbeddingModels.AllMiniLmL6V2, ["someString"])
     console.log(embeddings.embeddings)
-    let result = Llm.infer(InferencingModels.Llama2Chat, prompt)
-    return {
-        status: 200,
-        headers: {"content-type":"text/plain"},
-        body: result.text
-    }
+    let result = Llm.infer(Llm.InferencingModels.Llama2Chat, prompt)
+
+    res.set({"content-type":"text/plain"})
+    res.send(result.text)
 }
 ```
 
@@ -136,15 +134,15 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 `infer` operation:
 
 - It takes in the following arguments - model name, prompt and a optional third parameter for inferencing options. 
-- The model name is a string. There are enums for the inbuilt models (llama2-chat and codellama) in [`InferencingModels`](https://fermyon.github.io/spin-js-sdk/enums/InferencingModels.html).
-- The optional third parameter which is an [InferencingOptions](https://fermyon.github.io/spin-js-sdk/interfaces/InferencingOptions.html) interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.  
-- The return value is an [`InferenceResult`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.InferenceResult.html).
+- The model name is a string. There are enums for the inbuilt models (llama2-chat and codellama) in [`InferencingModels`](https://fermyon.github.io/spin-js-sdk/enums/Llm.InferencingModels.html).
+- The optional third parameter which is an [InferencingOptions](https://fermyon.github.io/spin-js-sdk/interfaces/Llm.InferencingOptions.html) interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.  
+- The return value is an [`InferenceResult`](https://fermyon.github.io/spin-js-sdk/interfaces/Llm.EmbeddingResult.html).
 
 `generateEmbeddings` operation:
 
 - It takes two arguments - model name and list of strings to generate the embeddings for. 
-- The model name is a string. There are enums for the inbuilt models (AllMiniLmL6V2) in [`EmbeddingModels`](https://fermyon.github.io/spin-js-sdk/enums/EmbeddingModels.html).
-- The return value is an [`EmbeddingResult`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.EmbeddingResult.html)
+- The model name is a string. There are enums for the inbuilt models (AllMiniLmL6V2) in [`EmbeddingModels`](https://fermyon.github.io/spin-js-sdk/enums/Llm.EmbeddingModels.html).
+- The return value is an [`EmbeddingResult`](https://fermyon.github.io/spin-js-sdk/interfaces/Llm.EmbeddingResult.html)
 
 {{ blockEnd }}
 

@@ -267,31 +267,14 @@ For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://doc
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-In JavaScript or TypeScript, the handler is identified by name.  It must be called `handleRequest`.  The way you declare it is slightly different between the two languages.
+In TypeScript, the user must a define a function named `handler` which the SDK attaches to the [`fetch` event listener](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent).
 
-In **JavaScript**, `handleRequest` is declared as `export async function`.  It takes a JavaScript [object representing the request](https://fermyon.github.io/spin-js-sdk/interfaces/HttpRequest.html), and returns a [response object](https://fermyon.github.io/spin-js-sdk/interfaces/HttpResponse.html).  The fields of these objects are exactly the same as in TypeScript:
+```ts
+import { ResponseBuilder } from "@fermyon/spin-sdk";
 
-```javascript
-export async function handleRequest(request) {
-    return {
-        status: 200,
-        headers: { "content-type": "text/plain" },
-        body: "Hello from JS-SDK"
-    }
-}
-```
-
-In **TypeScript**, `handleRequest` is declared as an `export const` of the [`HandleRequest` function type](https://fermyon.github.io/spin-js-sdk/types/HandleRequest.html) - that is, a function literal rather than a function declaration.  It takes a [`HttpRequest` object](https://fermyon.github.io/spin-js-sdk/interfaces/HttpRequest.html), and returns a [`HttpResponse` object](https://fermyon.github.io/spin-js-sdk/interfaces/HttpResponse.html), both defined in the `@fermyon/spin-sdk` package:
-
-```javascript
-import { HandleRequest, HttpRequest, HttpResponse} from "@fermyon/spin-sdk"
-
-export const handleRequest: HandleRequest = async function(request: HttpRequest): Promise<HttpResponse> {
-    return {
-      status: 200,
-        headers: { "content-type": "text/plain" },
-      body: "Hello from TS-SDK"
-    }
+export async function handler(req: Request, res: ResponseBuilder) {
+    console.log(req);
+    res.send("hello universe");
 }
 ```
 

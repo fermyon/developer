@@ -57,7 +57,24 @@ You can find a complete Rust code example for using outbound MQTT from an HTTP c
 
 {{ startTab "TypeScript"}}
 
-MQTT is not available in the current version of the JavaScript/TypeScript SDK.
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Mqtt.html)
+
+To access an MQTT server, use the `Mqtt.open` function.
+
+```ts
+let connection = Mqtt.open(address, username, password, keepAliveSecs);
+```
+
+You can then call the `publish` method on the connection to send MQTT messages:
+
+```ts
+let catPicture = new Uint8Array(await req.arraybuffer());
+connection.publish("pets", catPicture, QoS::AtleastOnce);
+```
+
+For full details of the MQTT API, see the [Spin SDK reference documentation](https://fermyon.github.io/spin-js-sdk/modules/Mqtt.html)
+
+You can find a complete Rust code example for using outbound MQTT from an HTTP component in the [Spin Rust SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mqtt).
 
 {{ blockEnd }}
 

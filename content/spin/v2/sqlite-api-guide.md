@@ -120,24 +120,24 @@ struct ToDo {
 
 {{ startTab "Typescript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Sqlite.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Sqlite.html)
 
-To use SQLite functions, use [the `Sqlite.open` or `Sqlite.openDefault` function](https://fermyon.github.io/spin-js-sdk/variables/Sqlite.html) to obtain [a `SqliteStore` object](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.SqliteStore.html). `SqliteStore` provides the `execute` method as described above. For example:
+To use SQLite functions, use [the `Sqlite.open` or `Sqlite.openDefault` function](https://fermyon.github.io/spin-js-sdk/modules/Sqlite.html) to obtain [a `SqliteConnection` object](https://fermyon.github.io/spin-js-sdk/interfaces/Sqlite.SqliteConnection.html). `SqliteConnection` provides the `execute` method as described above. For example:
 
 ```javascript
-import {Sqlite} from "@fermyon/spin-sdk"
+import { ResponseBuilder, Sqlite } from "@fermyon/spin-sdk";
 
-const conn = Sqlite.openDefault();
-const result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1]);
-const json = JSON.stringify(result.rows);
+export async function handler(req: Request, res: ResponseBuilder) {
+    let conn = Sqlite.openDefault();
+    let result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1]);
+
+    res.send(JSON.stringify(result));
+}
 ```
 
 **General Notes**
-* The `spinSdk` object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the `@fermyon/spin-sdk` package.
-* Parameters are JavaScript values (numbers, strings, byte arrays, or nulls). Spin infers the underlying SQL type.
-* The `execute` function returns an object with `rows` and `columns` properties. `columns` is an array of strings representing column names. `rows` is an array of rows, each of which is an array of JavaScript values (as above) in the same order as `columns`.
-* The `SqliteStore` object doesn't surface the `close` function.
-* If a Spin SDK function fails, it throws an [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error).
+* The `execute` function returns an object with `rows` and `columns` properties. `columns` is an array of strings representing column names. `rows` is an array of rows, each of which is an object containing Javascript Values keyed using the column names.
+* The `SqliteConnection` object doesn't surface the `close` function.
 
 {{ blockEnd }}
 
