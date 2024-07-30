@@ -72,8 +72,7 @@ For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK refe
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-//TODO: Add example and point at it
-The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin_mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin_postgres) available.
+The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-postgres) available.
 
 ```ts
 import { ResponseBuilder, Mysql } from '@fermyon/spin-sdk';

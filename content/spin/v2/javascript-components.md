@@ -382,4 +382,4 @@ These are some of the suggested libraries that have been tested and confirmed to
 ## Caveats
 
 - All `spin-sdk` related functions and methods (like `Variables`, `Redis`, `Mysql`, `Pg`, `Kv` and `Sqlite`) can be called only inside the `handler` function. This includes `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
-- No operation that involve handling private keys are suported. 
+- No crypto operation that involve handling private keys are supported. 
