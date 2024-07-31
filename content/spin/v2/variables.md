@@ -11,7 +11,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/variables.
 
 Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
 
-These variables are defined in a Spin application manifest (in the `[variables]` section), and their values can be set or overridden at runtime by an [application variables provider](./dynamic-configuration.md#application-variables-runtime-configuration). When running Spin locally, the variables provider can be [Hashicorp Vault](./dynamic-configuration.md#vault-application-variable-provider) for secrets, or host environment variables.
+These variables are defined in a Spin application manifest (in the `[variables]` section), and their values can be set or overridden at runtime by an [application variables provider](./dynamic-configuration.md#application-variables-runtime-configuration). When running Spin locally, the variables provider can be [Hashicorp Vault](./dynamic-configuration.md#vault-application-variable-provider) for secrets, [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault), or host environment variables.
 
 For information about configuring application variables providers, refer to the [dynamic configuration documentation](./dynamic-configuration.md#application-variables-runtime-configuration).
 
@@ -19,7 +19,11 @@ For information about configuring application variables providers, refer to the 
 
 Variables are added to an application under the top-level `[variables]` section of an application manifest (`spin.toml`). Each entry must either have a default value or be marked as `required = true`. “Required” entries must be [provided](./dynamic-configuration#application-variables-runtime-configuration) with a value.
 
-For example, say an application needs to access a bearer token for an outbound API call. A `[variables]` section could be added to an application's manifest with one entry for a variable named `token`. Since there is no reasonable default value for a secret, the variable is set as required with `required = true`. On the other hand, say the the API endpoint is known but should be configurable for A/B testing, another v`api_uri` variable could be added with a default that can be overridden. This scenario could be configured in the application manifest as follows:
+For example, consider an application which makes an outbound API call using a bearer token. To configure this using variables, you would:
+* Add a `[variables]` section to the application manifest
+* Add a `token` entry for the bearer token.  Since there is no reasonable default value for this secret, set the variable as required with `required = true`.
+* Add an `api_uri` variable.  The URL _is_ known, but is useful to override, for example for A/B testing. So you can give this variable a default value with `default = "http://my-api.com"`.
+The resulting application manifest looks like this:
 
 <!-- @nocpy -->
 
@@ -40,7 +44,9 @@ api_uri = "\{{ api_uri }}"
 api_version = "v1"
 ```
 
-Variables can also be surfaced to other sections of the application manifest that benefit from dynamic configuration. For example, the `allowed_outbound_hosts` can be dynamically configured using variables as follows:
+When a component variable references an application variable, its value will dynamically update as the application variable changes. For example, if the `api_token` variable is provided using the [Spin Vault provider](./dynamic-configuration.md#vault-application-variable-provider), it can be updated by changing the value in HashiCorp Vault. The next time the component gets the value of `token`, the latest value of `api_token` will be returned by the provider. See the [next section](#using-variables-from-applications) to learn how to use Spin's configuration SDKs to get configuration variables within applications.
+
+Variables can also be used in other sections of the application manifest that benefit from dynamic configuration. In these cases, the variables are substituted at application load time rather than dynamically updated while the application is running. For example, the `allowed_outbound_hosts` can be dynamically configured using variables as follows:
 
 <!-- @nocpy -->
 
@@ -49,9 +55,8 @@ Variables can also be surfaced to other sections of the application manifest tha
 allowed_outbound_hosts = [ "\{{ api_uri }}" ]
 ```
 
-When a component variable references an application variable, its value will dynamically update as the application variable changes. For example, if the `api_token` variable is provided using the [Spin Vault provider](./dynamic-configuration.md#vault-application-variable-provider), it can be updated by changing the value in HashiCorp Vault. The next time the component gets the value of `token`, the latest value of `api_token` will be returned by the provider. See the [next section](#using-variables-from-applications) to learn how to use Spin's configuration SDKs to get configuration variables within applications.
 
-An application manifest with a `api_token` variable and a component that uses it would look similar to the following:
+All in all, an application manifest with `api_token` and `api_uri` variables and a component that uses them would look similar to the following:
 
 <!-- @nocpy -->
 
@@ -244,7 +249,7 @@ To build and run the application, we issue the following commands:
 $ spin build
 # Run the application, setting the values of the API token and URI via the environment variable provider
 # using the `SPIN_VARIABLE` prefix (upper case is necessary as shown here)
-$ SPIN_VARIABLE_API_TOKEN="your-token-here" SPIN_VARIABLE_API_URI="http://my-best-api.com spin up
+$ SPIN_VARIABLE_API_TOKEN="your-token-here" SPIN_VARIABLE_API_URI="http://my-best-api.com" spin up
 ```
 
 Assuming you have configured you application to use an API, to test the application, simply query
