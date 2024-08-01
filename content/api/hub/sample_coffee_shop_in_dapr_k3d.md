@@ -1,4 +1,4 @@
-title = "Polyglot Coffee Shop - WebAssembly (Spin), Docker container, Dapr, and Kubernetes (k3d) better together"
+title = "Polyglot Coffee Shop - WebAssembly (Spin)"
 template = "render_hub_content_body"
 date = "2023-09-14T00:00:00Z"
 content-type = "text/html"
@@ -8,6 +8,7 @@ tags = ["rust", "http", "csharp", "dapr", "k3d"]
 author = "thangchung"
 type = "hub_document"
 category = "Sample"
+image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "Rust"
 created_at = "2023-09-14T00:00:00Z"
 last_updated = "2023-09-14T00:00:00Z"

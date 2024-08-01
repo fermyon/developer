@@ -8,6 +8,7 @@ tags = ["typescript", "http", "kv"]
 author = "macolso"
 type = "hub_document"
 category = "Sample"
+image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "JS/TS"
 created_at = "2023-11-03T00:22:56Z"
 last_updated = "2023-11-03T00:22:56Z"

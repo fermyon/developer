@@ -8,6 +8,7 @@ tags = ["db", "NoOpsDB", "sqlite", "observability"]
 author = "karthik2804"
 type = "hub_document"
 category = "Template"
+image = "https://github.com/user-attachments/assets/b4b2647f-06f3-4447-b666-95230402865a"
 language = "Go"
 created_at = "2023-10-22T00:22:56Z"
 last_updated = "2023-10-22T00:22:56Z"

@@ -8,6 +8,7 @@ tags = ["typescript", "javascript", "http"]
 author = "VanVuongNgo"
 type = "hub_document"
 category = "Template"
+image = "https://github.com/user-attachments/assets/b4b2647f-06f3-4447-b666-95230402865a"
 language = "JS/TS"
 created_at = "2023-09-08T00:00:00Z"
 last_updated = "2023-12-06T00:00:00Z"
