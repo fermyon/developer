@@ -267,7 +267,9 @@ For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://doc
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-In TypeScript, the user must a define a function named `handler` which the SDK attaches to the [`fetch` event listener](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent).
+The user must a define a function named `handler` which the SDK attaches to the [`FetchEvent` listener](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent). Note that the incoming HTTP event is translated to a `FetchEvent`.
+
+The handler function takes in two arguments a [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) and a [ResponseBuilder](https://fermyon.github.io/spin-js-sdk/classes/ResponseBuilder.html)
 
 ```ts
 import { ResponseBuilder } from "@fermyon/spin-sdk";

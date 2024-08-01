@@ -136,7 +136,7 @@ export async function handler(req: Request, res: ResponseBuilder) {
 ```
 
 **General Notes**
-* The `execute` function returns an object with `rows` and `columns` properties. `columns` is an array of strings representing column names. `rows` is an array of rows, each of which is an object containing Javascript Values keyed using the column names.
+* The `execute` function returns an object with `rows` and `columns` properties. `columns` is an array of strings representing column names. `rows` is an array of rows, each of which is an object containing Javascript values keyed using the column names.
 * The `SqliteConnection` object doesn't surface the `close` function.
 
 {{ blockEnd }}

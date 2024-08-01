@@ -76,7 +76,7 @@ $ spin new -t http-rust spin-key-value
 ```bash
 $ spin new -t http-ts spin-key-value
 
-# Reference: https://github.com/fermyon/spin-js-sdk/tree/feat/sdk-v2/examples/spin-host-apis/spin-kv
+# Reference: https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-kv
 ```
 
 {{ blockEnd }}
@@ -233,7 +233,7 @@ fn handle_request(req: Request) -> anyhow::Result<impl IntoResponse> {
 {{ startTab "TypeScript"}}
 
 ```typescript
-import { ResponseBuilder } from "@fermyon/spin-sdk";
+import { ResponseBuilder, Kv } from "@fermyon/spin-sdk";
 
 const encoder = new TextEncoder()
 const decoder = new TextDecoder()
@@ -269,7 +269,7 @@ export async function handler(req: Request, res: ResponseBuilder) {
         console.log(`Key ${req.uri} not found`);
         status = 404
       } else {
-      console.log(`Found Key ${req.uri}`);
+        console.log(`Found Key ${req.uri}`);
       }
       break;
     default:

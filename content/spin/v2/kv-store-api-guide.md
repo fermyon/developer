@@ -85,10 +85,10 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-With Typescript, the key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://fermyon.github.io/spin-js-sdk/modules/Kv.html) which returns a [handle to the store](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html). For example:
+The key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://fermyon.github.io/spin-js-sdk/modules/Kv.html) which returns a [handle to the store](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html). For example:
 
 ```ts
-import { ResponseBuilder } from "@fermyon/spin-sdk";
+import { ResponseBuilder , Kv} from "@fermyon/spin-sdk";
 
 export async function handler(req: Request, res: ResponseBuilder) {
     let store = Kv.openDefault()
@@ -103,7 +103,7 @@ export async function handler(req: Request, res: ResponseBuilder) {
 - The SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
 [`get` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#get)
-- The result is of the type `ArrayBuffer | null`
+- The result is of the type `Uint8Array | null`
 - If the key does not exist, `get` returns `null`
 
 [`set` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#set)
