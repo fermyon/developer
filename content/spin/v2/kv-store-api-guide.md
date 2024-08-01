@@ -85,38 +85,32 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-With Typescript, the key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://fermyon.github.io/spin-js-sdk/variables/Kv.html) which returns a [handle to the store](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html). For example:
+The key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://fermyon.github.io/spin-js-sdk/modules/Kv.html) which returns a [handle to the store](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html). For example:
 
-```javascript
-import { HandleRequest, HttpRequest, HttpResponse, Kv } from "@fermyon/spin-sdk"
+```ts
+import { ResponseBuilder , Kv} from "@fermyon/spin-sdk";
 
-const encoder = new TextEncoder()
-
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+export async function handler(req: Request, res: ResponseBuilder) {
     let store = Kv.openDefault()
     store.set("mykey", "myvalue")
-    return {
-            status: 200,
-            headers: {"content-type":"text/plain"},
-            body: store.get("mykey") ?? encoder.encode("Key not found")
-    }
+    res.status(200)
+    res.set({"content-type":"text/plain"})
+    res.send(store.get("mykey") ?? "Key not found")
 }
-
 ```
 
 **General Notes**
-- The spinSdk object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the @fermyon/spin-sdk package. For example: 
-- The JavaScript SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
+- The SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
-[`get` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#get)
-- The result is of the type `ArrayBuffer | null`
+[`get` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#get)
+- The result is of the type `Uint8Array | null`
 - If the key does not exist, `get` returns `null`
 
-[`set` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#set)
-- The value argument is of the type `ArrayBuffer | string`.
+[`set` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#set)
+- The value argument is of the type `Uint8Array | string | object`.
 
-[`setJson`](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#setJson) and [`getJson` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/_internal_.KvStore.html#getJson)
-- JavaScript and TypeScript applications can store JavaScript objects using `setJson`; these are serialized within the store as JSON. These serialized objects can be retrieved and deserialized using `getJson`. If you call `getJson` on a key that doesn't exist then an error is thrown (note that this is different behavior from `get`).
+[`setJson`](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#setJson) and [`getJson` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#getJson)
+- Applications can store JavaScript objects using `setJson`; these are serialized within the store as JSON. These serialized objects can be retrieved and deserialized using `getJson`. If you call `getJson` on a key that doesn't exist then it returns an empty object.
 
 {{ blockEnd }}
 

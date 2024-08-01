@@ -72,12 +72,10 @@ For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK refe
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_pg) available.
+The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-postgres) available.
 
 ```ts
-import { HandleRequest, HttpRequest, HttpResponse, Mysql } from "@fermyon/spin-sdk"
-
-const encoder = new TextEncoder()
+import { ResponseBuilder, Mysql } from '@fermyon/spin-sdk';
 
 // Connects as the root user without a password 
 const DB_URL = "mysql://root:@127.0.0.1/spin_dev"
@@ -90,22 +88,14 @@ const DB_URL = "mysql://root:@127.0.0.1/spin_dev"
  insert into test values (4,4);
 */
 
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-
-    Mysql.execute(DB_URL, "delete from test where id=?", [4])
-    Mysql.execute(DB_URL, "insert into test values (4,5)", [])
-    let test = Mysql.query(DB_URL, "select * from test", [])
-
-    console.log(test.columns)
-    test.rows.map (k => {
-        console.log(k)
-    })
-
-    return {
-        status: 200,
-        headers: {"foo": "bar"},
-        body: encoder.encode("Hello from JS-SDK").buffer
-    }
+export async function handler(_req: Request, res: ResponseBuilder) {
+  let conn = Mysql.open(DB_URL);
+  conn.execute('delete from test where id=?', [4]);
+  conn.execute('insert into test values (4,5)', []);
+  let ret = conn.query('select * from test', []);
+  // return a object that looks like 
+  // { "columns": [{name: "id", dataType: "int32"}], "rows": [{ "id": 4, "val": 5 }] }
+  res.send(JSON.stringify(ret, null, 2));
 }
 ```
 

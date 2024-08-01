@@ -92,7 +92,7 @@ const value = Redis.get(address, key);
 
 * The arguments and results can be either numbers or buffers. (In TypeScript they are union types, e.g. `BigInt | ArrayBuffer`.)
 
-You can find a complete TypeScript example for using outbound Redis from an HTTP component in the [JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_redis). Please also see this, related, [outbound Redis (using TypeScript) section](./javascript-components#storing-data-in-redis-from-jsts-components).
+You can find a complete TypeScript example for using outbound Redis from an HTTP component in the [JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/sdk-v1/examples/typescript/outbound_redis). Please also see this, related, [outbound Redis (using TypeScript) section](./javascript-components#storing-data-in-redis-from-jsts-components).
 
 {{ blockEnd }}
 

@@ -117,29 +117,22 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/variables/Config.html)
-
-> Note that the name is `Config` rather than `Variables`.
+> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Variables.html)
 
 ```ts
-import { HandleRequest, HttpRequest, HttpResponse, Config } from "@fermyon/spin-sdk"
+import { ResponseBuilder, Variables } from "@fermyon/spin-sdk";
 
-const decoder = new TextDecoder("utf-8")
-
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-  const expected = decoder.decode(request.body)
-  let password = Config.get("password")
+export async function handler(req: Request, res: ResponseBuilder) {
+  const expected = await req.text()
+  let password = Variables.get("password")
   let access = "denied"
   if (expected === password) {
       access = "accepted"
   }
   let responseJson = `{\"authentication\": \"${access}\"}`;
 
-  return {
-    status: 200,
-    headers: { "Content-Type": "application/json" },
-    body: responseJson
-  }
+  res.set({ "Content-Type": "application/json" })
+  res.send(responseJson)
 }
 ```
 

@@ -9,7 +9,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/javascript
 - [Installing Templates](#installing-templates)
 - [Structure of a JS/TS Component](#structure-of-a-jsts-component)
 - [Building and Running the Template](#building-and-running-the-template)
-  - [A Quick Note About the NPM Script and Windows](#a-quick-note-about-the-npm-script-and-windows)
 - [HTTP Components](#http-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
@@ -18,13 +17,14 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/javascript
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in MySQL and PostgreSQL Relational Databases](#storing-data-in-mysql-and-postgresql-relational-databases)
 - [AI Inferencing From JS/TS Components](#ai-inferencing-from-jsts-components)
+- [Node.js Compatibility](#nodejs-compatibility)
 - [Using External NPM Libraries](#using-external-npm-libraries)
   - [Suggested Libraries for Common Tasks](#suggested-libraries-for-common-tasks)
 - [Caveats](#caveats)
 
-With JavaScript being a very popular language, Spin provides support for building components with it using the experimental SDK. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. 
+With JavaScript being a very popular language, Spin provides an SDK to support building components. The development of the JavaScript SDK is continually being worked on to improve user experience and add features. The SDK is based on [`ComponentizeJS`](https://github.com/bytecodealliance/ComponentizeJS).
 
-> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the JavaScript templates, installing required tools, and creating JavaScript and TypeScript applications.
+> This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the JavaScript templates and creating JavaScript and TypeScript applications.
 
 > This guide assumes you are familiar with the JavaScript programming language,
 > but if you are just getting started, be sure to check [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide).
@@ -32,15 +32,6 @@ With JavaScript being a very popular language, Spin provides support for buildin
 > All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples).
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
-
-In order to compile JavaScript programs to Spin components, you also need to install a Spin plugin `js2wasm` using the following command:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin plugin update
-$ spin plugin install js2wasm
-```
 
 ## Installing Templates
 
@@ -86,16 +77,19 @@ This creates a directory of the following structure:
 
 ```text
 hello-world/
+├── knitwit.json
 ├── package.json
-├── README.md
 ├── spin.toml
 ├── src
-│   └── index.ts
+│   ├── index.ts
+│   └── spin.ts
 ├── tsconfig.json
 └── webpack.config.js
 ```
 
-The source for the component is present in `src/index.ts`. [Webpack](https://webpack.js.org) is used to bundle the component into a single `.js` file which will then be compiled to a `.wasm` module using the `js2wasm` plugin.
+The source for the component is present in `src/index.ts`. [Webpack](https://webpack.js.org) is used to bundle the component into a single `.js` file which will then be compiled to a `.wasm` module.
+
+{{ details "Going from JavaScript to Wasm" "The JS source is compiled to a `wasm` module using the `j2w` node executable provided by the `@fermyon/spin-sdk` which is a wrapper around `ComponentizeJS`. The `knitwit.json` is the configuration file used by [knitwit](https://github.com/fermyon/knitwit) to manage the WebAssembly dependencies of each package."}}
 
 ## Building and Running the Template
 
@@ -117,53 +111,15 @@ $ spin build
 $ spin up
 ```
 
-`spin build` will execute the command in the `command` key under the `[component.<component-name>.build]` section from `spin.toml` for each component in your application. In this case an `npx` command will be run.
-
----
-
-### A Quick Note About the NPM Script and Windows
-
-Please note that using pre-built NPM scripts can have different effects on different Operating Systems (OSs). Let's take a look at the `build` script in the `package.json` file as an example:
+`spin build` will execute the command in the `command` key under the `[component.<component-name>.build]` section from `spin.toml` for each component in your application. In this case an `npm` script will be run. The command in the `package.json` will looks something like:
 
 <!-- @nocpy -->
 
-```bash
+```json
 "scripts": {
-    "build": "npx webpack --mode=production && mkdir -p target && spin js2wasm -o target/spin-http-js.wasm dist/spin.js",
+    "build": "npx webpack --mode=production && npx mkdirp target && npx j2w -i dist.js -d combined-wit -n combined -o target/hello-world.wasm",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
-```
-
-The `build` script will work on Linux and macOS. However, on Windows it will create both a `-p` directory and a `target` directory.
-
-On Linux/Unix systems, the `-p` option in the `mkdir` command is designed to prevent an error from occurring in the event that the `target` directory already exists. However, on Windows systems, npm (by default) uses cmd.exe which does not recognize the `-p` option, regarding its `mkdir` command.
-
-If you run the script on Windows (more than once) the following error will be encountered:
-
-<!-- @nocpy -->
-
-```bash
-A subdirectory or file -p already exists
-A Subdirectory or file target already exists
-```
-
-If any errors, as described above, occur please consider one of the two following options:
-
-a) Configure your instance of `npm` to use bash (by using the `script-shell` configuration setting): 
-
-<!-- @selectiveCpy -->
-
-```bash
-$ npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
-```
-
-b) Run the separate parts of the `build` manually, to suite your needs (OS syntax requirements):
-
-<!-- @selectiveCpy -->
-
-```bash
-$ npx webpack --mode=production
-$ spin js2wasm -o target/spin-http-js.wasm dist/spin.js
 ```
 
 ---
@@ -179,26 +135,23 @@ for writing Spin components with the Spin JS/TS SDK.
 > details about building HTTP applications.
 
 Building a Spin HTTP component using the JS/TS SDK means writing a single function
-that takes an HTTP request as a parameter, and returns an HTTP response — below
-is a complete implementation for such a component in TypeScript:
+that takes an HTTP request and a Response Builder which can be used to return an HTTP response as a parameter.
+
+Below is a complete implementation for such a component in TypeScript:
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+import { ResponseBuilder } from "@fermyon/spin-sdk";
 
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-    return {
-        status: 200,
-        headers: {"content-type": "text/plain"},
-        body: "Hello from TS-SDK"
-    }
+export async function handler(req: Request, res: ResponseBuilder) {
+    console.log(req);
+    res.send("hello universe");
 }
 ```
 
 The important things to note in the implementation above:
 
-- the `handleRequest` function is the entry point for the Spin component.
-- the component returns `Promise<HttpResponse>`.
-
+- The `handler` function is the entry point for the Spin component.
+- The execution of the function terminates once `res.send` or `res.end` is called. 
 
 ## Sending Outbound HTTP Requests
 
@@ -206,24 +159,21 @@ If allowed, Spin components can send outbound HTTP requests.
 Let's see an example of a component that makes a request to [an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json)
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+import { ResponseBuilder } from "@fermyon/spin-sdk";
 
 interface AnimalFact {
    timestamp: number;
    fact: string;
 }
 
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
+export async function handler(req: Request, res: ResponseBuilder) {
     const animalFactResponse = await fetch("https://random-data-api.fermyon.app/animals/json")
     const animalFact = await animalFactResponse.json() as AnimalFact
 
     const body = `Here's an animal fact: ${animalFact.fact}\n`
 
-    return {
-        status: 200,
-        headers: {"content-type": "text/plain"},
-        body: body
-    }
+    res.set({"content-type": "text/plain"})
+    res.send(body)
 }
 ```
 
@@ -288,38 +238,37 @@ proxies or URL shorteners.
 ## Storing Data in Redis From JS/TS Components
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [spin-js-sdk repository on GitHub](https://github.com/fermyon/spin-js-sdk/blob/main/examples/typescript/outbound_redis/src/index.ts).
+> in the [spin-js-sdk repository on GitHub](https://github.com/fermyon/spin-js-sdk/blob/main/examples/spin-host-apis/spin-redis).
 
 Using the Spin's JS SDK, you can use the Redis key/value store and to publish messages to Redis channels.
 
 Let's see how we can use the JS/TS SDK to connect to Redis:
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse, Redis } from "@fermyon/spin-sdk"
+import { ResponseBuilder, Redis } from '@fermyon/spin-sdk';
 
-const decoder = new TextDecoder()
-const encoder = new TextEncoder()
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
+const redisAddress = 'redis://localhost:6379/';
 
-const redisAddress = "redis://localhost:6379/"
+export async function handler(_req: Request, res: ResponseBuilder) {
+  try {
+    let db = Redis.open(redisAddress);
+    db.set('test', encoder.encode('Hello world'));
+    let val = db.get('test');
 
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-
-    Redis.incr(redisAddress, "test")
-    Redis.incr(redisAddress, "test")
-
-    console.log(decoder.decode(new Uint8Array(Redis.get(redisAddress, "test"))))
-
-    Redis.set(redisAddress, "test-set", encoder.encode("This is a test").buffer)
-
-    console.log(decoder.decode(new Uint8Array(Redis.get(redisAddress, "test-set"))))
-
-    Redis.publish(redisAddress, "test", encoder.encode("This is a test").buffer)
-
-    return {
-        status: 200,
-        headers: { "content-type": "text/plain" },
-        body: "Your data is stored!"
+    if (!val) {
+      res.status(404);
+      res.send();
+      return;
     }
+    // publish to a channel names "message"
+    db.publish("message", val)
+    res.send(val);
+  } catch (e: any) {
+    res.status(500);
+    res.send(`Error: ${JSON.stringify(e.payload)}`);
+  }
 }
 ```
 
@@ -338,34 +287,28 @@ allowed_outbound_hosts = ["redis://localhost:6379"]
 
 ## Routing in a Component
 
-The JavaScript/TypeScript SDK provides a router that makes it easier to handle routing within a component. The router is based on [`itty-router`](https://www.npmjs.com/package/itty-router). An additional function `handleRequest` has been implemented in the router to allow passing in the Spin HTTP request directly. For a more complete documentation on the route, checkout the documentation at [itty-router](https://github.com/kwhitley/itty-router). An example usage of the router is given below:
+The JavaScript/TypeScript SDK provides a router that makes it easier to handle routing within a component. The router is based on [`itty-router`](https://www.npmjs.com/package/itty-router). An additional function `handleRequest` has been implemented in the router to allow passing in the Spin HTTP request directly. An example usage of the router is given below:
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse, Router} from "@fermyon/spin-sdk"
+import { ResponseBuilder, Router } from '@fermyon/spin-sdk';
 
-let router = Router()
+let router = Router();
 
-function handleDefaultRoute() {
-  return {
-    status: 200,
-    headers: { "content-type": "text/plain" },
-    body: "Hello from Default Route"
-  }
+router.get("/", (_, req, res) => { handleDefaultRoute(req, res) })
+router.get("/home/:id", (metadata, req, res) => { handleHomeRoute(req, res, metadata.params.id) })
+
+async function handleDefaultRoute(_req: Request, res: ResponseBuilder) {
+  res.set({ "content-type": "text/plain" });
+  res.send("Hello from default route");
 }
 
-function handleHomeRoute(id: string) {
-  return {
-    status: 200,
-    headers: { "content-type": "text/plain" },
-    body: "Hello from Home Route with id:" + id
-  }
+async function handleHomeRoute(_req: Request, res: ResponseBuilder, id: string) {
+  res.set({ "content-type": "text/plain" });
+  res.send(`Hello from home route with id: ${id}`);
 }
 
-router.get("/", handleDefaultRoute)
-router.get("/home/:id", ({params}) => handleHomeRoute(params.id))
-
-export const handleRequest: HandleRequest = async function(request: HttpRequest): Promise<HttpResponse> {
-    return await router.handleRequest(request)
+export async function handler(req: Request, res: ResponseBuilder) {
+  await router.handleRequest(req, res);
 }
 ```
 
@@ -385,11 +328,44 @@ For more information about using relational databases from TypeScript/JavaScript
 
 For more information about using Serverless AI from JS/TS, see the [Serverless AI](serverless-ai-api-guide) API guide.
 
+## Node.js Compatibility
+
+The SDK does not support the full specification of `Node.js`. A limited set of APIs can be polyfilled using the [`@fermyon/wasi-ext`](https://github.com/fermyon/js-wasi-ext) library which provides a webpack plugin. It can be used by installing the  library first using:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ npm install @fermyon/wasi-ext
+```
+
+Once installed, the plugin provided by it can be added to the webpack config: 
+
+```js
+const WasiExtPlugin = require("wasi-ext/plugin")
+
+module.exports = {
+    ...
+    plugins: [
+        new WasiExtPlugin()
+    ],
+    ...
+};
+```
+
+This library only currently supports the following polyfills:
+
+- `Node.js` buffers
+- `process` - certain methods are no-ops and few throw exceptions. For detailed list refer to the [upstream library](https://github.com/defunctzombie/node-process/blob/master/browser.js). **Note:** `process.env` is populated only inside the handler and returns an empty object outside the handler.
+- `fs` - only implements `readFileSync` and `readdirSync`.
+- `os` - Implements only `EOL` and `arch`.
+
+
 ## Using External NPM Libraries
 
 > Not all the NPM packages are guaranteed to work with the SDK as it is not fully compatible with the browser or `Node.js`. It implements only a subset of the API.
 
 Some NPM packages can be installed and used in the component. If a popular library does not work, please open an issue/feature request in the [spin-js-sdk repository](https://github.com/fermyon/spin-js-sdk/issues).
+
 
 ### Suggested Libraries for Common Tasks
 
@@ -405,6 +381,5 @@ These are some of the suggested libraries that have been tested and confirmed to
 
 ## Caveats
 
-- All `spin-sdk` related functions and methods (like `Config`, `Redis`, `Mysql`, `Pg`, `Kv` and `Sqlite`) can be called only inside the `handleRequest` function. This includes the usage of `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
-- Only a subset of the browser and `Node.js` APIs are implemented.
-- The support for Crypto  module is limited. The methods currently supported are `crypto.getRandomValues`, `crypto.subtle.digest`, `crypto.createHash` and `crypto.createHmac`
+- All `spin-sdk` related functions and methods (like `Variables`, `Redis`, `Mysql`, `Pg`, `Kv` and `Sqlite`) can be called only inside the `handler` function. This includes `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
+- No crypto operation that involve handling private keys are supported. 

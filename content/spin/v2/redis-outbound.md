@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/redis-outb
 ---
 - [Using Redis From Applications](#using-redis-from-applications)
 - [Granting Network Permissions to Components](#granting-network-permissions-to-components)
+  - [Configuration-Based Permissions](#configuration-based-permissions)
 
 Spin provides an interface for you to read and write the Redis key/value store, and to publish Redis pub-sub messages.
 
@@ -90,27 +91,25 @@ You can find a complete Rust code example for using outbound Redis from an HTTP 
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-Redis functions are available on [the `Redis` object](https://fermyon.github.io/spin-js-sdk/variables/Redis.html). The function names match the operations above, but you must pass the Redis instance address to _each_ operation as its first parameter. For example:
+Redis functions are available on [the `Redis` module](https://fermyon.github.io/spin-js-sdk/modules/Redis.html). The function names match the operations above. For example:
 
 ```javascript
-import {Redis} from "@fermyon/spin-sdk"
+import { Redis } from "@fermyon/spin-sdk"
 
-const value = Redis.get(address, key);
+let db = Redis.open("redis://localhost:6379")
+let value = db.get(key);
 ```
 
 **General Notes**
-
-* The `spinSdk` object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the `@fermyon/spin-sdk` package.
-* Address and key parameters are strings.
-* Bytes parameters and return values are buffers (TypeScript `ArrayBuffer`).
+* Key parameters are strings.
+* Bytes parameters and return values are buffers (TypeScript `Uint8Array`).
 * Lists are passed and returned as arrays.
-* If a Spin SDK function fails, it throws an [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error).
 
 **`execute` Operation**
 
-* The arguments and results can be either numbers or buffers. (In TypeScript they are union types, e.g. `BigInt | ArrayBuffer`.)
+* The arguments and results can be either numbers or buffers. (In TypeScript they are union types, e.g. `BigInt | Uint8Array`.)
 
-You can find a complete TypeScript example for using outbound Redis from an HTTP component in the [JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples/typescript/outbound_redis). Please also see this, related, [outbound Redis (using TypeScript) section](./javascript-components#storing-data-in-redis-from-jsts-components).
+You can find a complete TypeScript example for using outbound Redis from an HTTP component in the [JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-redis). Please also see this, related, [outbound Redis (using TypeScript) section](./javascript-components#storing-data-in-redis-from-jsts-components).
 
 {{ blockEnd }}
 
