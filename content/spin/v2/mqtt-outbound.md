@@ -69,7 +69,7 @@ You can then call the `publish` method on the connection to send MQTT messages:
 
 ```ts
 let catPicture = new Uint8Array(await req.arraybuffer());
-connection.publish("pets", catPicture, QoS::AtleastOnce);
+connection.publish("pets", catPicture, QoS.AtleastOnce);
 ```
 
 For full details of the MQTT API, see the [Spin SDK reference documentation](https://fermyon.github.io/spin-js-sdk/modules/Mqtt.html)
