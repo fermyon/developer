@@ -300,9 +300,6 @@ OPTIONS:
     -a, --accept-defaults              An optional argument that allows to skip prompts for the
                                        manifest file by accepting the defaults if available on the
                                        template
-        --allow-overwrite              If the output directory already contains files, generate the
-                                       new files into it without confirming, overwriting any
-                                       existing files with the same names
     -f, --file <APP_MANIFEST_FILE>     Path to spin.toml
     -h, --help                         Print help information
         --init                         Create the new application or component in the current
@@ -1514,9 +1511,6 @@ OPTIONS:
     -a, --accept-defaults              An optional argument that allows to skip prompts for the
                                        manifest file by accepting the defaults if available on the
                                        template
-        --allow-overwrite              If the output directory already contains files, generate the
-                                       new files into it without confirming, overwriting any
-                                       existing files with the same names
     -h, --help                         Print help information
         --init                         Create the new application or component in the current
                                        directory
@@ -2187,12 +2181,11 @@ USAGE:
     spin plugins list [OPTIONS]
 
 OPTIONS:
-        --all                List all versions of plugins. This is the default behaviour
         --filter <FILTER>    Filter the list to plugins containing this string
     -h, --help               Print help information
         --installed          List only installed plugins
-        --summary            List latest and installed versions of plugins
 ```
+
 {{ blockEnd }}
 
 
@@ -4798,6 +4791,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
+**Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin test
@@ -4829,6 +4823,8 @@ Options:
 
 {{ blockEnd }}
 
+**Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
+
 {{ startTab "v2.6"}}
 
 <!-- @selectiveCpy -->
@@ -4853,6 +4849,8 @@ Options:
 ```
 
 {{ blockEnd }}
+
+**Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
 
 {{ startTab "v2.7"}}
 
