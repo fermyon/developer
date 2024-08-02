@@ -19,29 +19,44 @@ For information about configuring application variables providers, refer to the 
 
 Variables are added to an application under the top-level `[variables]` section of an application manifest (`spin.toml`). Each entry must either have a default value or be marked as `required = true`. “Required” entries must be [provided](./dynamic-configuration#application-variables-runtime-configuration) with a value.
 
-For example, say an application needs to access a secret. A `[variables]` section could be added to an application's manifest with one entry for a variable named `secret`. Since there is no reasonable default value for a secret, the variable is set as required with `required = true`:
+For example, consider an application which makes an outbound API call using a bearer token. To configure this using variables, you would:
+* Add a `[variables]` section to the application manifest
+* Add a `token` entry for the bearer token.  Since there is no reasonable default value for this secret, set the variable as required with `required = true`.
+* Add an `api_uri` variable.  The URL _is_ known, but is useful to override, for example for A/B testing. So you can give this variable a default value with `default = "http://my-api.com"`.
+The resulting application manifest looks like this:
 
 <!-- @nocpy -->
 
 ```toml
-# Add this above the [component.<id>] section
 [variables]
-secret = { required = true }
+api_token = { required = true }
+api_uri = { default = "http://my-api.com" }
 ```
 
-Variables are surfaced to a specific component by adding a `[component.(name).variables]` section to the component and referencing them within it. The `[component.(name).variables]` section contains a mapping of component variables and values. Entries can be static (like `api_host` below) or reference an updatable application variable (like `password` below) using [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use variables in their configuration section will get access to them. This enables only exposing variables (such as secrets) to the desired components of an application.
+Variables are surfaced to a specific component by adding a `[component.(name).variables]` section to the component and referencing them within it. The `[component.(name).variables]` section contains a mapping of component variables and values. Entries can be static (like `api_version` below) or reference an updatable application variable (like `token` below) using [mustache](https://mustache.github.io/)-inspired string templates. Only components that explicitly use variables in their configuration section will get access to them. This enables only exposing variables (such as secrets) to the desired components of an application.
 
 <!-- @nocpy -->
 
 ```toml
-[component.cart.variables]
-password = "\{{ secret }}"
-api_host = "https://my-api.com"
+[component.(name).variables]
+token = "\{{ api_token }}"
+api_uri = "\{{ api_uri }}"
+api_version = "v1"
 ```
 
-When a component variable references an application variable, its value will dynamically update as the application variable changes. For example, if the `secret` variable is provided using the [Spin Vault provider](./dynamic-configuration.md#vault-application-variable-provider), it can be updated by changing the value in HashiCorp Vault. The next time the component gets the value of `password`, the latest value of `secret` will be returned by the provider. See the [next section](#using-variables-from-applications) to learn how to use Spin's configuration SDKs to get configuration variables within applications.
+When a component variable references an application variable, its value will dynamically update as the application variable changes. For example, if the `api_token` variable is provided using the [Spin Vault provider](./dynamic-configuration.md#vault-application-variable-provider), it can be updated by changing the value in HashiCorp Vault. The next time the component gets the value of `token`, the latest value of `api_token` will be returned by the provider. See the [next section](#using-variables-from-applications) to learn how to use Spin's configuration SDKs to get configuration variables within applications.
 
-An application manifest with a `secret` variable and a component that uses it would look similar to the following:
+Variables can also be used in other sections of the application manifest that benefit from dynamic configuration. In these cases, the variables are substituted at application load time rather than dynamically updated while the application is running. For example, the `allowed_outbound_hosts` can be dynamically configured using variables as follows:
+
+<!-- @nocpy -->
+
+```toml
+[component.(name)]
+allowed_outbound_hosts = [ "\{{ api_uri }}" ]
+```
+
+
+All in all, an application manifest with `api_token` and `api_uri` variables and a component that uses them would look similar to the following:
 
 <!-- @nocpy -->
 
@@ -49,22 +64,24 @@ An application manifest with a `secret` variable and a component that uses it wo
 spin_manifest_version = 2
 
 [application]
-name = "password-checker"
+name = "api-consumer"
 version = "0.1.0"
-description = "A Spin app with a dynamically updatable secret"
+description = "A Spin app that makes API requests"
 
 [variables]
-secret = { required = true }
+api_token = { required = true }
+api_uri = { default = "http://my-api.com" }
 
 [[trigger.http]]
 route = "/..."
-component = "password-checker"
+component = "api-consumer"
 
-[component.password-checker]
+[component.api-consumer]
 source = "app.wasm"
-[component.password-checker.variables]
-password = "\{{ secret }}"
-api_host = "https://my-api.com"
+[component.api-consumer.variables]
+token = "\{{ api_token }}"
+api_uri = "\{{ api_uri }}
+api_version = "v1"
 ```
 
 ## Using Variables From Applications
@@ -75,7 +92,7 @@ The Spin SDK surfaces the Spin configuration interface to your language. The [in
 |------------|--------------------|---------------------|----------|
 | `get`      | Variable name      | Variable value      | Gets the value of the variable from the configured provider |
 
-To illustrate the variables API, each of the following examples receives a password via the HTTP request body, compares it to the value stored in the application variable, and returns a JSON response indicating whether the submitted password matched or not. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications). 
+To illustrate the variables API, each of the following examples makes a request to some API with a bearer token. The API URI, version, and token are all passed as application variables. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications). 
 
 The exact details of calling the config SDK from a Spin application depends on the language:
 
@@ -88,27 +105,26 @@ The exact details of calling the config SDK from a Spin application depends on t
 The interface is available in the `spin_sdk::variables` module and is named `get`.
 
 ```rust
-use anyhow::Result;
 use spin_sdk::{
-    http::{IntoResponse, Request, Response},
-    http_component,
-    variables,
+    http::{IntoResponse, Method, Request, Response},
+    http_component, variables,
 };
 
 #[http_component]
-fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
-    let password = std::str::from_utf8(req.body().as_ref()).unwrap();
-    let expected = variables::get("password").expect("could not get variable");
-    let response = if expected == password {
-        "accepted"
-    } else {
-        "denied"
-    };
-    let response_json = format!("\{{\"authentication\": \"{}\"}}", response);
+async fn handle_api_call_with_token(_req: Request) -> anyhow::Result<impl IntoResponse> {
+    let token = variables::get("token")?;
+    let api_uri = variables::get("api_uri")?;
+    let version = variables::get("version")?;
+    let versioned_api_uri = format!("{}/{}", api_uri, version);
+    let request = Request::builder()
+        .method(Method::Get)
+        .uri(versioned_api_uri)
+        .header("Authorization", format!("Bearer {}", token))
+        .build();
+    let response: Response = spin_sdk::http::send(request).await?;
+    // Do something with the response ...
     Ok(Response::builder()
         .status(200)
-        .header("content-type", "application/json")
-        .body(response_json)
         .build())
 }
 ```
@@ -123,16 +139,21 @@ fn handle_spin_example(req: Request) -> Result<impl IntoResponse> {
 import { ResponseBuilder, Variables } from "@fermyon/spin-sdk";
 
 export async function handler(req: Request, res: ResponseBuilder) {
-  const expected = await req.text()
-  let password = Variables.get("password")
-  let access = "denied"
-  if (expected === password) {
-      access = "accepted"
-  }
-  let responseJson = `{\"authentication\": \"${access}\"}`;
-
-  res.set({ "Content-Type": "application/json" })
-  res.send(responseJson)
+  let token = Variables.get("token")
+  let apiUri = Variables.get("api_uri")
+  let version = Variables.get("version")
+  let versionedAPIUri = `${apiUri}/${version}`
+  let response = await fetch(
+    versionedAPIUri,
+    {
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    }
+  );
+  // Do something with the response ...
+  res.set({ "Content-Type": "text/plain" })
+  res.send("Used an API")
 }
 ```
 
@@ -142,22 +163,28 @@ export async function handler(req: Request, res: ResponseBuilder) {
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/variables.html)
 
-The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.get).
+The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.html#spin_sdk.variables.get).
 
 ```py
-from spin_http import Response
-from spin_config import config_get
+from spin_sdk.http import IncomingHandler, Request, Response, send
+from spin_sdk import variables
 
-def handle_request(request):
-    password = request.body.decode("utf-8")
-    expected = config_get("password")
-    access = "denied"
-    if expected == password:
-        access = "accepted"
-    response = f'\{{"authentication": "{access}"}}'
-    return Response(200,
-                    {"content-type": "application/json"},
-                    bytes(response, "utf-8"))
+class IncomingHandler(IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        token = variables.get("token")
+        api_uri = variables.get("api_uri")
+        version = variables.get("version")
+        versioned_api_uri = f"{api_uri}/{version}"
+        headers = {
+            "Authorization": f"Bearer {token}"
+        }
+        response = send(Request("GET", versioned_api_uri, headers, None))
+        # Do something with the response ...
+        return Response(
+            200,
+            {"content-type": "text/plain"},
+            bytes("Used an API", "utf-8")
+        )
 ```
 
 {{ blockEnd }}
@@ -170,31 +197,43 @@ The function is available in the `github.com/fermyon/spin/sdk/go/v2/variables` p
 
 ```go
 import (
+	"bytes"
 	"fmt"
-	"io"
 	"net/http"
 
-	"github.com/fermyon/spin/sdk/go/v2/variables"
 	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+	"github.com/fermyon/spin/sdk/go/v2/variables"
 )
 
-spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
-    access := "denied"
-    password, err := io.ReadAll(r.Body)
-    if err == nil {
-        expected, err := variables.Get("password")
-        if err != nil {
-            http.Error(w, err.Error(), http.StatusInternalServerError)
-            return
-        }
-        if expected == string(password) {
-            access = "accepted"
-        }
-    }
-    response := fmt.Sprintf("{\"authentication\": \"%s\"}", access)
-    w.Header().Set("Content-Type", "application/json")
-    fmt.Fprintln(w, response)
-})
+func init() {
+	spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
+		token, err := variables.Get("token")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		apiUri, err := variables.Get("api_uri")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		version, err := variables.Get("version")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		versionedApiUri := fmt.Sprintf("%s/%s", apiUri, version)
+
+		request, err := http.NewRequest("GET", versionedApiUri, bytes.NewBuffer([]byte("")))
+		request.Header.Add("Authorization", "Bearer "+token)
+		response, err := spinhttp.Send(request)
+		// Do something with the response ...
+		w.Header().Set("Content-Type", "text/plain")
+		fmt.Fprintln(w, "Used an API")
+	})
+}
+
+func main() {}
 ```
 
 {{ blockEnd }}
@@ -208,22 +247,22 @@ To build and run the application, we issue the following commands:
 ```bash
 # Build the application
 $ spin build
-# Export the value of the secret, using the `SPIN_VARIABLE` prefix (upper case is necessary as shown here)
-$ export SPIN_VARIABLE_SECRET="your-password-here"
-# Run the application
-$ spin up
+# Run the application, setting the values of the API token and URI via the environment variable provider
+# using the `SPIN_VARIABLE` prefix (upper case is necessary as shown here)
+$ SPIN_VARIABLE_API_TOKEN="your-token-here" SPIN_VARIABLE_API_URI="http://my-best-api.com" spin up
 ```
 
-To test the application, we use pass in the password in the body of the request:
+Assuming you have configured you application to use an API, to test the application, simply query
+the app endpoint:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -i localhost:3000 -d "your-password-here"  
+$ curl -i localhost:3000
 HTTP/1.1 200 OK
-content-type: application/json
-content-length: 30
-date: Tue, 07 May 2024 02:33:10 GMT
+content-type: text/plain
+content-length: 11
+date: Wed, 31 Jul 2024 22:03:35 GMT
 
-{"authentication": "accepted"}
+Used an API
 ```
