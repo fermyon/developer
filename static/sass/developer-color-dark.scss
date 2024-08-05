@@ -97,6 +97,11 @@ html.dark-theme {
                             color: white !important;
                         }
                     }
+
+                    i {
+                        color: $celeste;
+                        background: rgba($darkspace, 0.2);
+                    }
                 }
             }
         }
