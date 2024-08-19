@@ -219,7 +219,7 @@ allowed_outbound_hosts = ["http://authz.spin.internal", "https://reporting.spin.
 To allow local chaining to _any_ component in your application, use a subdomain wildcard:
 
 ```toml
-allowed_outbound_hosts = ["*://*.spin.internal"]
+allowed_outbound_hosts = ["http://*.spin.internal"]
 ```
 
 > Local service chaining is not currently supported on Fermyon Cloud.
