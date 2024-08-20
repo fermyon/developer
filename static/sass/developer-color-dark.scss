@@ -564,4 +564,39 @@ html.dark-theme {
             color: $oxforddark;
         }
     }
+
+    #topbar.navbar > .navbar-menu {
+        .github-button-wrap {
+            margin: .5rem 1rem 0 1rem;
+            border: 10px solid red;
+
+            a.btn {
+                color: #c9d1d9 !important;
+                background-color: #1a1e23 !important;
+                border-color: #30363d !important;
+                background-image: -moz-linear-gradient(top, #21262d, #1a1e23 90%) !important;
+                background-image: linear-gradient(180deg, #21262d, #1a1e23 90%) !important;
+            }
+            
+            @media (prefers-color-scheme: light) {
+                a.btn {
+                    color: #c9d1d9 !important;
+                    background-color: #1a1e23 !important;
+                    border-color: #30363d !important;
+                    background-image: -moz-linear-gradient(top, #21262d, #1a1e23 90%) !important;
+                    background-image: linear-gradient(180deg, #21262d, #1a1e23 90%) !important;
+                }
+            }
+    
+            @media (prefers-color-scheme: dark) {
+                a.btn {
+                    color: #c9d1d9 !important;
+                    background-color: #1a1e23 !important;
+                    border-color: #30363d !important;
+                    background-image: -moz-linear-gradient(top, #21262d, #1a1e23 90%) !important;
+                    background-image: linear-gradient(180deg, #21262d, #1a1e23 90%) !important;
+                }
+            }
+        }
+    }
 }

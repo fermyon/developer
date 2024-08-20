@@ -195,6 +195,22 @@
 
         .github-button-wrap {
             margin: .5rem 1rem 0 1rem;
+            border: 10px solid yellow;
+
+            // .btn {
+            //     @media (prefers-color-scheme: light) {
+            //         color: #24292f !important;
+            //         background-color: #ebf0f4;
+            //         border-color: #d0d7de;
+            //         background-image: linear-gradient(180deg, #f6f8fa, #ebf0f4 90%);
+            //     }
+            //     @media (prefers-color-scheme: dark) {
+            //         color: #24292f;
+            //         background-color: #ebf0f4;
+            //         border-color: #d0d7de;
+            //         background-image: linear-gradient(180deg, #f6f8fa, #ebf0f4 90%);
+            //     }
+            // }
         }
         .github-button-wrap + a.navbar-item.button {
             margin-right: -1rem !important;

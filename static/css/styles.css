@@ -1834,6 +1834,36 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   color: #0e092d;
 }
 
+html.dark-theme #topbar.navbar > .navbar-menu .github-button-wrap {
+  border: 10px solid red;
+  margin: .5rem 1rem 0;
+}
+
+html.dark-theme #topbar.navbar > .navbar-menu .github-button-wrap a.btn {
+  color: #c9d1d9 !important;
+  background-color: #1a1e23 !important;
+  background-image: linear-gradient(#21262d, #1a1e23 90%) !important;
+  border-color: #30363d !important;
+}
+
+@media (prefers-color-scheme: light) {
+  html.dark-theme #topbar.navbar > .navbar-menu .github-button-wrap a.btn {
+    color: #c9d1d9 !important;
+    background-color: #1a1e23 !important;
+    background-image: linear-gradient(#21262d, #1a1e23 90%) !important;
+    border-color: #30363d !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html.dark-theme #topbar.navbar > .navbar-menu .github-button-wrap a.btn {
+    color: #c9d1d9 !important;
+    background-color: #1a1e23 !important;
+    background-image: linear-gradient(#21262d, #1a1e23 90%) !important;
+    border-color: #30363d !important;
+  }
+}
+
 .documentation > .developer-home-wrap {
   padding-bottom: 5rem;
 }
@@ -2713,6 +2743,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 #topbar.navbar .navbar-menu .github-button-wrap {
+  border: 10px solid #ff0;
   margin: .5rem 1rem 0;
 }
 
