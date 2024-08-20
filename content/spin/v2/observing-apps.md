@@ -23,7 +23,23 @@ Spin handles application logs by default, storing output and error messages from
 
 Spin now has support for the [OpenTelemetry (OTel)](https://opentelemetry.io/) observability standard. You can learn more about observability [here](https://opentelemetry.io/docs/concepts/observability-primer/). When configured, Spin will emit telemetry about your Spin App in the form of OTel [signals](https://opentelemetry.io/docs/concepts/signals/): traces, metrics, and logs.
 
-### Running An Observability Stack
+## Using the OTel Plugin
+
+We have a plugin that makes it easy to use OpenTelemetry with Spin. If you would like to examine the source code, you can visit the [GitHub repository](https://github.com/fermyon/otel-plugin). Otherwise, follow these instructions:
+
+- To install the plugin, run the commands below:
+
+  ```sh
+  spin plugins update
+  spin plugins install otel
+  ```
+- To see the available commands, you can run `spin otel --help`
+
+## Configuring your own observability stack
+
+Follow this portion of the guide if you want to use Spin and OTel, but want to have more control than what the OTel plugin offers.
+
+### Configure the Docker compose stack
 
 In order to view the telemetry data you need to run an OTel compliant [collector](https://opentelemetry.io/docs/collector/) and the proper backends for each signal type. If you have Docker on your system you can easily start all the observability tools you need with the following commands:
 
