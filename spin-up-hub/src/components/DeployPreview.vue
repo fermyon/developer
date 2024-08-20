@@ -80,9 +80,12 @@ export default {
     <div class="modal-content">
       <div class="box" :class="{ 'expanded': showInfo }">
         <div class="header">
+          <span class="logo">
+            <img src="/static/image/wasm.png" alt="Logo" />
+          </span>
           <div class="title">{{ titleText }}</div>
           <span @click="close" class="icon-close">
-            <img src="/static/image/icon-close.svg" alt="Close" />
+              <img src="/static/image/icon-close.svg" alt="Close" />
           </span>
         </div>
         <div class="content-container">
@@ -168,12 +171,14 @@ export default {
 
 .icon-close {
   position: absolute;
-  top: 0.1rem;
-  right: 0.1rem;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
+  z-index: 2003;
 }
 
 .box {
+  position: relative;
   width: 100%;
   overflow: hidden;
   background-color: #FDF8FF;
@@ -192,15 +197,27 @@ export default {
 }
 
 .header {
-  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: center; 
+  justify-content: flex-start;
+}
+
+.logo {
+  margin-left: -15px; 
+  margin-right: 5px; 
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
 }
 
 .title {
-  font-size: 1.75rem;
+  flex-grow: 1; 
+  font-size: 1.5rem;
+  margin-top: 0.6rem;;
 }
+
 
 .content-container {
   height: 100%;
@@ -232,7 +249,6 @@ export default {
 .additional-content {
   height: calc(100% - 2.25rem - 2rem);
   overflow-y: auto;
-  margin-top: 20px;
 }
 
 .container-information {
@@ -291,7 +307,7 @@ a {
     background-color: transparent;
     padding: 10px;
     color: white;
-    white-space: nowrap; /* Prevents line wrapping */
+    white-space: nowrap; 
     display: block;
 }
 
@@ -320,7 +336,7 @@ a {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  padding: 10px 0; /* Similar padding to maintain consistency */
+  padding: 10px 0; 
 }
 
 .resources-title {
@@ -332,17 +348,17 @@ a {
 }
 
 .resource-card {
-  flex: 0 0 48%; /* Ensure cards are side by side */
+  flex: 0 0 48%; 
   padding: 15px;
-  border: 1px solid #A87CE6; /* Matching border color */
+  border: 1px solid #A87CE6; 
   border-radius: 10px;
-  background-color: #FDF8FF; /* Matching background color */
+  background-color: #FDF8FF; 
   text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Consistent box-shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
   transition: transform 0.3s, box-shadow 0.3s;
-  font-size: 1rem; /* Matching font size */
-  line-height: 1.5; /* Matching line height */
-  margin-top: 0; /* Removed margin-top to align side by side */
+  font-size: 1rem; 
+  line-height: 1.5; 
+  margin-top: 0; 
   margin-bottom: 20px;
 }
 
@@ -352,13 +368,13 @@ a {
 }
 
 .resource-card a {
-  color: #007bff; /* Matching link color */
+  color: #007bff; 
   font-weight: bold;
   text-decoration: none;
 }
 
 .resources-container .resource-card + .resource-card {
-  margin-left: 10px; /* Spacing between the side-by-side cards */
+  margin-left: 10px; 
 }
 @media screen and (max-width: 1220px) {
   .box:not(.expanded) {
@@ -431,7 +447,7 @@ html.dark-theme {
             color: #007bff;
           }
           a:hover {
-            color: white; /* Link turns white on hover in dark mode */
+            color: white; 
           }
         }
       }

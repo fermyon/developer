@@ -34,6 +34,9 @@ export default {
     <div class="modal-content">
       <div class="box" :class="{ 'expanded': showInfo }">
         <div class="header">
+          <span class="logo">
+              <img src="/static/image/wasm.png" alt="Logo" />
+          </span>
           <div class="title">Deploy {{ modalData.title }} to <br>Fermyon Cloud</div>
           <span @click="close" class="icon-close">
             <img src="/static/image/icon-close.svg" alt="Close" />
@@ -132,23 +135,36 @@ export default {
 
 .header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
+  align-items: center; 
+  justify-content: flex-start;
+}
+
+.logo {
+  margin-left: -15px; 
+  margin-right: 5px; 
+}
+
+.logo img {
+  width: 50px; 
+  height: 50px;
 }
 
 .title {
-  font-size: 1.75rem;
+  flex-grow: 1; 
+  font-size: 1.5rem;
+  margin-top: 0.6rem;;
 }
 
 .icon-close {
   cursor: pointer;
   position: absolute;
-  top: 0.1rem;
-  right: 0.1rem;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2003;
 }
 
 .box {
+  position: relative;
   width: 100%;
   overflow: hidden;
   background-color: #FDF8FF;
@@ -217,7 +233,6 @@ export default {
 .additional-content {
   height: calc(100% - 2.25rem - 2rem);
   overflow-y: auto;
-  margin-top: 20px;
 }
 
 .icon-and-preview {
