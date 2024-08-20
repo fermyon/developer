@@ -66,12 +66,12 @@ $ sudo mv spin /usr/local/bin/
 
 > If you have already installed Spin by building from source, and then install it via the installer, we recommend you remove the older source install by running `cargo uninstall spin-cli`  Otherwise the Cargo path may take precedence over the "install from binary" path, and commands may get the "wrong" version of Spin. Use `spin --version` to confirm the version on the PATH is the one you intend, or `which spin` to confirm the path it is found on.
 
-To install a specific version, you can pass arguments to the install script this way:
+To install a specific version (`v1.2.3` is just an example), you can pass arguments to the install script this way:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v1.5.0
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v1.2.3
 ```
 
 To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
@@ -130,12 +130,12 @@ $ sudo mv spin /usr/local/bin/
 
 > If you have already installed Spin by building from source, and then install it via the installer, we recommend you remove the older source install by running `cargo uninstall spin-cli`  Otherwise the Cargo path may take precedence over the "install from binary" path, and commands may get the "wrong" version of Spin. Use `spin --version` to confirm the version on the PATH is the one you intend, or `which spin` to confirm the path it is found on.
 
-To install a specific version, you can pass arguments to the install script this way:
+To install a specific version (`v1.2.3` is just an example), you can pass arguments to the install script this way:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v1.5.0
+$ curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash -s -- -v v1.2.3
 ```
 
 To install the canary version of spin, you should pass the argument `-v canary`. The canary version is always the latest commit to the main branch of Spin:
@@ -207,13 +207,17 @@ This does not install any Spin templates or plugins. For a starter list, see the
 
 ## Using Cargo to Install Spin
 
-If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installation.html), you can clone the repo and install it to your path:
+If you have [`cargo`](https://doc.rust-lang.org/cargo/getting-started/installation.html), you can clone the repo and install it to your path.
+
+> Note: The `main` branch may have unstable or breaking changes. It is advised to check out the latest Spin release tag, which can be found by navigating to https://github.com/fermyon/spin/releases/latest.
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ git clone https://github.com/fermyon/spin -b v2.0.0
+$ git clone https://github.com/fermyon/spin
 $ cd spin
+$ # Check out the latest tagged release
+$ # git checkout <latest release>
 $ rustup target add wasm32-wasi
 $ rustup target add wasm32-unknown-unknown
 $ cargo install --locked --path .
