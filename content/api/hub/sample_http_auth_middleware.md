@@ -8,7 +8,6 @@ tags = ["rust", "authentication", "http"]
 author = "fermyon"
 type = "hub_document"
 category = "Component"
-image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "Rust"
 created_at = "2023-11-03T00:00:00Z"
 last_updated = "2023-11-07T00:00:00Z"

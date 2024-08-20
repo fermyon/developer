@@ -8,7 +8,6 @@ tags = ["python", "templating"]
 author = "fermyon"
 type = "hub_document"
 category = "Sample"
-image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "Python"
 created_at = "2023-12-08T00:00:00Z"
 last_updated = "2023-12-08T00:00:00Z"

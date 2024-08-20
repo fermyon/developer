@@ -8,7 +8,6 @@ tags = ["http", "go", "architecture"]
 author = "Thorsten Hans"
 type = "hub_document"
 category = "Architecture"
-image = "https://i.postimg.cc/zGkKh32m/Screenshot-2024-07-09-at-1-49-50-PM.png"
 language = "Go"
 created_at = "2024-04-03T13:50:00Z"
 last_updated = "2024-04-03T13:50:00Z"

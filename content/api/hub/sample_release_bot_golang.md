@@ -8,7 +8,6 @@ tags = ["go", "github", "actions"]
 author = "rajatjindal"
 type = "hub_document"
 category = "Sample"
-image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "Go"
 created_at = "2024-01-15T00:22:56Z"
 last_updated = "2024-01-15T00:22:56Z"

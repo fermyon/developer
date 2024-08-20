@@ -8,7 +8,6 @@ tags = ["javascript", "docusaurus", "react",]
 author = "VamshiReddy02"
 type = "hub_document"
 category = "Template"
-image = "https://github.com/user-attachments/assets/b4b2647f-06f3-4447-b666-95230402865a"
 language = "JS/TS"
 created_at = "2023-12-14T04:30:32.000Z"
 last_updated = "2023-12-14T04:30:32.000Z"

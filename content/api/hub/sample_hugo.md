@@ -8,7 +8,6 @@ tags = ["Hugo", "spin-fileserver", "SSG", "Fermyon Cloud"]
 author = "ThorstenHans"
 type = "hub_document"
 category = "Examples"
-image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "Rust"
 created_at = "2023-08-31T10:52:54Z"
 last_updated = "2023-08-31T00:52:54Z"

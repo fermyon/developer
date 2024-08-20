@@ -16,6 +16,7 @@ spin_version = ">v1.0"
 summary =  "A checklist app that persists data in a Spin Key Value store"
 artifact_source = "ghcr.io/macolso/spin-checklist:v0.0.1"
 url = "https://github.com/macolso/spin-checklist"
+repo_name = "spin-checklist"
 
 ---
 

@@ -65,20 +65,24 @@ export default {
                   <a href="https://cloud.fermyon.com/login" target="_blank">Fermyon Cloud</a> account (free) to deploy the application to.
                 </div>
                 <div class="section">
-                  <div class="container-sub">1) Clone the Repo</div>
+                  <div class="container-sub">Clone the Repo</div>
                   <div class="code-block">
-                    <code>$ {{ modalData.url }}</code>
+                    <div class="code-snippet">$ git clone {{ modalData.url }}</div>
                   </div>
-                </div>
-                <div class="container-sub">
-                  2) Change your current directory to project directory.
                 </div>
                 <div class="section">
-                  <div class="container-sub">3) Deploy</div>
+                  <div class="container-sub">Change directory</div>
                   <div class="code-block">
-                    <code>$ spin cloud deploy</code>
+                    <div class="code-snippet">$ cd {{ modalData.repo_name }}</div>
                   </div>
                 </div>
+                <div class="section">
+                  <div class="container-sub">Deploy</div>
+                  <div class="code-block">
+                    <div class="code-snippet">$ spin cloud deploy</div>
+                  </div>
+                </div>
+                <div class="container-info">Visit <a href="https://cloud.fermyon.com">your Cloud dashboard</a> to view and manage your deployment of {{ modalData.title }}</div>
               </div>
             </div>
           </div>
@@ -244,12 +248,12 @@ export default {
 
 .container-title {
     color: black;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
 .container-info {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -263,16 +267,17 @@ a {
 .section {
     margin-top: 0;
     padding: 0;
+    margin-bottom: 1.5rem;
 }
 
 .container-sub {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 2;
     font-weight: bold;
 }
 
 .code-block {
-    background-color: #213c67;
+    background-color: #19143e;
     border-radius: 4px;
     padding: 10px;
     display: flex;
@@ -280,13 +285,16 @@ a {
     align-items: center;
     margin-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 10px;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
-code {
+.code-snippet {
     background-color: transparent;
-    padding: 0;
+    padding: 10px;
     color: white;
+    white-space: nowrap; /* Prevents line wrapping */
+    display: block;
 }
 
 @media screen and (max-width: 1220px) {
@@ -312,8 +320,6 @@ code {
   height: auto;
   }
 }
-
-
 
 html.dark-theme {
   body.hub {
@@ -346,10 +352,7 @@ html.dark-theme {
             color: white;
           }
           .code-block {
-            background-color: lighten(#202644, 10%);
-          }
-          code {
-            color: white;
+            background-color: lighten(#19143e, 10%);
           }
         }
       }

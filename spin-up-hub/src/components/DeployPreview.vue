@@ -98,8 +98,8 @@ export default {
               <div class="container-information">
                 <div class="container-title">Before You Deploy</div>
                 <div class="container-info">
-                      You’ll need to configure <a href="https://www.spinkube.dev/" target="_blank">SpinKube</a> - our open source developer tool or running Wasm app workloads in Kubernetes, and the necessary prerequisites documented
-                  <a href="https://www.spinkube.dev/docs/install/quickstart/" target="_blank">here</a>
+                  <p>You’ll need to configure <a href="https://www.spinkube.dev/" target="_blank">SpinKube</a> - our open-source developer tool for running Wasm app workloads in Kubernetes, and the necessary prerequisites documented
+                  <a href="https://www.spinkube.dev/docs/install/quickstart/" target="_blank">here</a></p> 
                 </div>
                 <div class="section">
                   <div class="container-sub">Deploy</div>
@@ -107,6 +107,15 @@ export default {
                     <div class="code-snippet">kubectl apply -f https://raw.githubusercontent.com/&lt;ghorg&gt;/&lt;suh-example-name&gt;/main/config/samples/&lt;example-name&gt;.yaml</div>
                   </div>
                 </div>
+                <div class="resources-title">Further Resources</div>
+                 <div class="resources-container">
+                    <div class="resource-card">
+                      <a href="https://www.spinkube.dev/" target="_blank">SpinKube.dev</a> is a cloud-native community project that provides a self-service way to bring Wasm workloads to your Kubernetes.
+                    </div>
+                    <div class="resource-card">
+                      <a href="https://fermyon.com/" target="_blank">Fermyon Platform for Kubernetes</a> is an easy-to-use platform for teams, extending SpinKube with features & performance benefits.
+                    </div>
+                  </div>
               </div>  
             </div>
           </div>
@@ -238,12 +247,12 @@ export default {
 
 .container-title {
     color: black;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
 .container-info {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -260,7 +269,7 @@ a {
 }
 
 .container-sub {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 2;
     font-weight: bold;
 }
@@ -307,7 +316,50 @@ a {
   width: 1rem;
   height: 1rem;
 }
+.resources-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px 0; /* Similar padding to maintain consistency */
+}
 
+.resources-title {
+    font-size: 1.2rem;
+    line-height: 2;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: -1rem;
+}
+
+.resource-card {
+  flex: 0 0 48%; /* Ensure cards are side by side */
+  padding: 15px;
+  border: 1px solid #A87CE6; /* Matching border color */
+  border-radius: 10px;
+  background-color: #FDF8FF; /* Matching background color */
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Consistent box-shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-size: 1rem; /* Matching font size */
+  line-height: 1.5; /* Matching line height */
+  margin-top: 0; /* Removed margin-top to align side by side */
+  margin-bottom: 20px;
+}
+
+.resource-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.resource-card a {
+  color: #007bff; /* Matching link color */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.resources-container .resource-card + .resource-card {
+  margin-left: 10px; /* Spacing between the side-by-side cards */
+}
 @media screen and (max-width: 1220px) {
   .box:not(.expanded) {
     height: auto;
@@ -363,11 +415,23 @@ html.dark-theme {
           .container-sub {
             color: white;
           }
+          .resources-title {
+            color: white;
+          }
           .code-block {
             background-color: lighten(#19143e, 10%);
           }
-          code {
+          .resource-card {
+            background-color: lighten(#0e092d, 5%);
+            border-color: #202644 !important;
             color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+          }
+          a {
+            color: #007bff;
+          }
+          a:hover {
+            color: white; /* Link turns white on hover in dark mode */
           }
         }
       }

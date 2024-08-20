@@ -201,6 +201,13 @@ html.dark-theme body.hub {
             }
           }
         }
+        &:nth-of-type(3) {
+          a.card {
+            .card-image {
+              display: none;  // Hide the image only
+            }
+          }
+        }
       }
     }
   }

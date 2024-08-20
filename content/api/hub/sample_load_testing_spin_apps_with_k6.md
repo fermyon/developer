@@ -8,7 +8,6 @@ tags = ["Rust", "Load-Testing"]
 author = "ThorstenHans"
 type = "hub_document"
 category = "Sample"
-image = "https://i.postimg.cc/m2k79bfh/Screenshot-2024-07-09-at-1-45-47-PM.png"
 language = "Rust"
 created_at = "2024-04-03T13:50:00Z"
 last_updated = "2024-04-03T13:50:00Z"

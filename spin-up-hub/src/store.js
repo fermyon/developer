@@ -11,6 +11,7 @@ const store = createStore({
         title: "",
         description: '',
         url: "",
+        repo_name: "",
         author: "",
         tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: "",
         image: "",

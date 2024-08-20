@@ -110,8 +110,7 @@ export default {
 
 a.card {
     display: flex;
-    height: 26rem;
-    max-height: 24rem;
+    height: 12rem;
     overflow-y: hidden;
     flex-direction: column;
     background: darken($docsbg1, 2.5%);
@@ -132,7 +131,7 @@ a.card {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-height: 1rem;
+        max-height: 2rem;
         transition: all 0.5s ease-in-out 0.15s;
 
         .category {
@@ -161,6 +160,7 @@ a.card {
                 opacity: 0.8;
             }
         }
+
 
         .icon {
             width: 20px;
@@ -194,13 +194,12 @@ a.card {
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             max-height: 4.5em;
-            margin-bottom: 1rem;
         }
     }
 
     .summary {
         font-size: 0.9rem;
-        max-height: 5rem;
+        max-height: 0;
         overflow: hidden;
         opacity: 0;
         font-weight: 400;
@@ -216,7 +215,6 @@ a.card {
         left: 1.25rem;
         right: 1.25rem;
         overflow: hidden;
-        margin-top: 1rem;
 
         span {
             padding: 0.2rem;

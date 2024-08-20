@@ -8,7 +8,6 @@ tags = ["http", "rust", "patterns"]
 author = "Thorsten Hans"
 type = "hub_document"
 category = "Pattern"
-image = "https://github.com/user-attachments/assets/12de40b7-c77c-4af6-a38d-db4eb1f345c8"
 language = "Rust"
 created_at = "2024-04-03T13:50:00Z"
 last_updated = "2024-04-03T13:50:00Z"
