@@ -82,7 +82,10 @@ export default {
                                     target="_blank"
                                     href="#"
                                     @click.prevent="openDeployModal">
-                                    Deploy This →
+                                    <span class="button-content">
+                                        <img src="/static/image/wasm.png" alt="Logo" class="logo-img" />
+                                        <span class="deploy-text">Deploy This →</span>
+                                    </span>
                                 </a>
                                 <a class="is-btn button is-rounded non-primary plausible-event-name=hub-git-btn" target="_blank" :href="modalData.url">
                                     View on Github
@@ -342,6 +345,9 @@ export default {
                                 width: auto !important;
                                 margin: 1rem 2rem 1rem !important;
                                 border-radius: 2rem;
+                                height: 3rem !important; 
+                                text-align: center;
+                                justify-content: center;
 
                                 &.non-primary {
                                     background-color: transparent;
@@ -349,10 +355,39 @@ export default {
                                 }
                             }
                         }
+
                     }
                 }
+                .meta-cta .button.is-primary .button-content {
+                    display: flex;
+                    align-items: center;
+                    transform: translateY(-6px); 
+                }
 
+                .meta-cta .logo-img {
+                    height: 45px; 
+                    width: auto;
+                    margin-right: 0.5rem; 
+                }
 
+                .meta-cta .deploy-text {
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+
+                .meta-cta .button.non-primary {
+                    height: 3rem; 
+                    line-height: 3rem; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center; 
+                    text-align: center;
+                    width: 100%;
+                    padding: 0 1rem; 
+                    background-color: transparent;
+                    border: 1px solid $seagreen;
+                    border-radius: 2rem;
+                }
 
                 .metadata {
                     padding: 0.425rem 2rem 0.425rem 2rem;
