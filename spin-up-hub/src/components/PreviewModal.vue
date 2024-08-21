@@ -342,10 +342,10 @@ export default {
                             border-radius: 0.67rem;
 
                             &.button {
-                                width: auto !important;
+                                width: 250px !important;
                                 margin: 1rem 2rem 1rem !important;
                                 border-radius: 2rem;
-                                height: 3rem !important; 
+                                height: 3.3rem !important; 
                                 text-align: center;
                                 justify-content: center;
 
@@ -362,17 +362,20 @@ export default {
                     display: flex;
                     align-items: center;
                     transform: translateY(-6px); 
+                    justify-content: flex-start;
                 }
 
                 .meta-cta .logo-img {
-                    height: 45px; 
+                    height: 50px; 
                     width: auto;
                     margin-right: 0.5rem; 
+                    margin-left: -20px;
                 }
 
                 .meta-cta .deploy-text {
                     font-size: 1rem;
                     font-weight: bold;
+                    margin-left: 5px;
                 }
 
                 .meta-cta .button.non-primary {
