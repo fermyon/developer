@@ -14,7 +14,7 @@ last_updated = "2024-08-16T00:22:56Z"
 spin_version = ">=v2.5.0"
 summary =  "A plugin that makes it easy to use OTel with Spin"
 url = "https://github.com/fermyon/otel-plugin"
-keywords = ["traces", "metrics", "logs", "logging", "telemetry", "open telemetry", "opentelemetry"]
+keywords = "traces,metrics,logs,logging,telemetry,open telemetry,opentelemetry"
 
 ---
 
