@@ -62,7 +62,7 @@ export default {
                                 <span @click="closeModal" class="icon-back">
                                     <img src="/static/image/icon-back.svg" alt="Back" />
                                 </span>
-                                <div class="title">{{ modalData.title }}</div>
+                                <div class="preview-title">{{ modalData.title }}</div>
                             </div>
                             <div class="description" v="">
                                 <div v-if="!modalData.isloaded">loading...</div>
@@ -239,7 +239,7 @@ export default {
                     margin-bottom: 1rem; 
                 }
 
-                .title {
+                .preview-title {
                     font-size: 2.25rem;
                     flex-grow: 1; 
                     display: flex;
@@ -515,7 +515,7 @@ export default {
                         flex-grow: 1;
                         overflow-y: visible; 
 
-                        .title,
+                        .preview-title,
                         .description {
                             padding-right: 0;
                             padding-left: 0;
@@ -589,7 +589,7 @@ export default {
                 flex-direction: column;
                 flex-grow: 1;
 
-                .title {
+                .preview-title {
                     font-size: 1.67rem;
                     margin: 0 0 1rem;
                 }
@@ -650,7 +650,7 @@ html.dark-theme {
                     .main-content {
                         border-right: 1px solid $bluecallout;
 
-                        .title {
+                        .preview-title {
                             color: white;
                         }
 

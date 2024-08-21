@@ -59,7 +59,7 @@ export default {
           <div v-if="showInfo" class="additional-content">
             <div class="icon-and-preview">
               <span class="icon-back" @click="goBack">
-                <img src="/static/image/icon-back.svg" alt="Back" />
+                <img src="/static/image/icon-back-copy.svg" alt="Back" />
               </span>
               <div class="container">
                 <div class="container-title">Before You Deploy</div>
@@ -134,25 +134,29 @@ export default {
 }
 
 .header {
+  position: relative;
   display: flex;
   align-items: center; 
   justify-content: flex-start;
+  margin-left: 1rem;
 }
 
 .logo {
-  margin-left: -15px; 
-  margin-right: 5px; 
+  position: absolute;
+  top: -0.3rem;
+  left: -1rem;
 }
 
 .logo img {
-  width: 50px; 
+  width: 50px;
   height: 50px;
 }
 
 .title {
   flex-grow: 1; 
-  font-size: 1.5rem;
-  margin-top: 0.6rem;;
+  font-size: 1.6rem;
+  margin-top: 0.6rem;
+  margin-left: 40px;
 }
 
 .icon-close {
@@ -196,18 +200,6 @@ export default {
   margin-bottom: 6rem;
 }
 
-.icon-and-preview {
-  display: flex;
-  align-items: flex-start;
-}
-
-.icon-back {
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 10px; 
-  cursor: pointer;
-}
-
 .image-container {
   display: flex;
   justify-content: space-between;
@@ -242,7 +234,7 @@ export default {
 
 .icon-back {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 15px;
   margin-top: 10px; 
   cursor: pointer;
 }
@@ -256,9 +248,9 @@ export default {
     max-width: 600px;
     margin: auto;
     padding: 20px;
+    padding-left: 0;
     border-radius: 8px;
     line-height: 1rem;
- 
 }
 
 .container-title {
@@ -277,6 +269,10 @@ export default {
 a {
     color: #007bff;
     text-decoration: none;
+}
+
+a:hover {
+    color: black; 
 }
 
 .section {
@@ -368,6 +364,12 @@ html.dark-theme {
           }
           .code-block {
             background-color: lighten(#19143e, 10%);
+          }
+          a {
+            color: #007bff;
+          }
+          a:hover {
+            color: white; 
           }
         }
       }

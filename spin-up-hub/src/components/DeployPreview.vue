@@ -67,7 +67,9 @@ export default {
       return this.modalData.author == "fermyon";
     },
     titleText() {
-      return this.showInfo ? `Deploy ${this.modalData.title} to kubernetes:` : `Deploy ${this.modalData.title} to:`;
+    return this.showInfo 
+      ? `Deploy ${this.modalData.title} to Kubernetes:` 
+      : `Deploy ${this.modalData.title} to:`;
     }
   },
 }
@@ -197,14 +199,17 @@ export default {
 }
 
 .header {
+  position: relative;
   display: flex;
   align-items: center; 
   justify-content: flex-start;
+  margin-left: 1rem;
 }
 
 .logo {
-  margin-left: -15px; 
-  margin-right: 5px; 
+  position: absolute;
+  top: -0.3rem;
+  left: -1rem;
 }
 
 .logo img {
@@ -214,13 +219,15 @@ export default {
 
 .title {
   flex-grow: 1; 
-  font-size: 1.5rem;
-  margin-top: 0.6rem;;
+  font-size: 1.6rem;
+  margin-top: 0.6rem;
+  margin-left: 40px;
 }
 
 
 .content-container {
   height: 100%;
+  margin-left: 1.2rem;
 }
 
 .image-container {
@@ -258,7 +265,6 @@ export default {
     padding-left: 0;
     border-radius: 8px;
     line-height: 1rem;
- 
 }
 
 .container-title {
@@ -323,14 +329,14 @@ a {
 
 .icon-back {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: 18px;
   cursor: pointer;
 }
 
 .icon-back img {
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .resources-container {
   display: flex;
