@@ -49,10 +49,10 @@ export default {
               </span>
             <div class="image-container">
               <a href="#" target="_blank" @click.prevent="displayAdditionalContent">
-                <img src="https://i.postimg.cc/G3gG4rCZ/to-terminal.png" alt="Image 1" />
+                <img src="/static/image/to-terminal.png" alt="Image 1" />
               </a>
               <a v-if="modalData.artifactSource" :href="`https://cloud.fermyon.com/deploy?artifact=` + modalData.artifactSource + `${this.$store.state.deployUTM}`">
-                <img src="https://i.postimg.cc/prjjNh6z/to-ui.png" alt="Image 2" />
+                <img src="/static/image/to-ui.png" alt="Image 2" />
               </a>
             </div>
           </div>

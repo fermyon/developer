@@ -92,8 +92,8 @@ export default {
         </div>
         <div class="content-container">
           <div v-if="!showInfo" class="image-container">
-            <img src="https://i.postimg.cc/j2FHT4Mg/to-kubernetes.png" alt="Image 1" @click="showCloudModal" />
-            <img src="https://i.postimg.cc/PNnq1LJf/to-cloud.png" alt="Image 2" @click="showCloudModal2" />
+            <img src="/static/image/to-kubernetes.png" alt="Image 1" @click="showCloudModal" />
+            <img src="/static/image/to-cloud.png" alt="Image 2" @click="showCloudModal2" />
           </div>
           <div v-if="showInfo" class="additional-content">
             <div class="icon-and-preview">
