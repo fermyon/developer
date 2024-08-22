@@ -82,7 +82,7 @@ export default {
     <div class="modal-content">
       <div class="box" :class="{ 'expanded': showInfo }">
         <div class="header">
-          <span class="logo">
+          <span class="wasm-logo">
             <img src="/static/image/wasm.png" alt="Logo" />
           </span>
           <div class="title">{{ titleText }}</div>
@@ -109,7 +109,7 @@ export default {
                 <div class="section">
                   <div class="container-sub">Deploy</div>
                   <div class="code-block">
-                    <div class="code-snippet">kubectl apply -f https://raw.githubusercontent.com/&lt;ghorg&gt;/&lt;suh-example-name&gt;/main/config/samples/&lt;example-name&gt;.yaml</div>
+                    <div class="code-snippet">kubectl apply -f {{ modalData.yaml }}</div>
                   </div>
                 </div>
                 <div class="resources-title">Further Resources</div>
@@ -206,13 +206,13 @@ export default {
   margin-left: 1rem;
 }
 
-.logo {
+.wasm-logo {
   position: absolute;
-  top: -0.3rem;
+  top: -0.1rem;
   left: -1rem;
 }
 
-.logo img {
+.wasm-logo img {
   width: 50px;
   height: 50px;
 }

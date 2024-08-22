@@ -34,7 +34,7 @@ export default {
     <div class="modal-content">
       <div class="box" :class="{ 'expanded': showInfo }">
         <div class="header">
-          <span class="logo">
+          <span class="wasm-logo">
               <img src="/static/image/wasm.png" alt="Logo" />
           </span>
           <div class="title">Deploy {{ modalData.title }} to <br>Fermyon Cloud</div>
@@ -141,13 +141,13 @@ export default {
   margin-left: 1rem;
 }
 
-.logo {
+.wasm-logo {
   position: absolute;
-  top: -0.3rem;
+  top: -0.1rem;
   left: -1rem;
 }
 
-.logo img {
+.wasm-logo img {
   width: 50px;
   height: 50px;
 }

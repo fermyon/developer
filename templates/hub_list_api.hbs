@@ -13,9 +13,10 @@ read_pages_glob = ["api/hub/*.md"]
 "lastUpdated": "{{this.page.head.extra.last_updated}}",
 "spinVersion": "{{{this.page.head.extra.spin_version}}}",
 "url": "{{{this.page.head.extra.url}}}",
-"repo_name": "{{this.page.head.extra.repo_name}}",
+{{#if this.page.head.extra.artifact_source}}"repo_name": "{{this.page.head.extra.repo_name}}",{{/if}}
 {{#if this.page.head.extra.artifact_source}}"artifactSource": "{{{this.page.head.extra.artifact_source}}}",{{/if}}
-"image": "{{this.page.head.extra.image}}",
+{{#if this.page.head.extra.image}}"image": "{{this.page.head.extra.image}}",{{/if}}
+{{#if this.page.head.extra.yaml}}"yaml": "{{this.page.head.extra.yaml}}",{{/if}}
 {{#with this as data}}"tags": [{{#each this.page.head.tags}} "{{this}}"{{#if @last}}{{else}},{{/if}}
 {{/each}}]{{/with}},
 "path": "{{{this.uri}}}"

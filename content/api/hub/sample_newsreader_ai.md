@@ -16,6 +16,7 @@ spin_version = ">v1.5"
 summary =  "Read an RSS feed and have AI summarize it for you"
 url = "https://github.com/fermyon/ai-examples/tree/main/newsfeeder-ts"
 repo_name = "newsfeeder-ts"
+yaml = "https://github.com/VamshiReddy02/spinkube/releases/download/newsfeeder/newsfeeder.yaml"
 artifact_source = "ghcr.io/fermyon/newsfeeder-ts:v0.0.1"
 keywords = "typescript, javascript, ai"
 

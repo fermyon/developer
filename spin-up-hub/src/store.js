@@ -15,7 +15,8 @@ const store = createStore({
         author: "",
         tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: "",
         image: "",
-        artifactSource: ""
+        artifactSource: "",
+        yaml: "",
       },
       contentTypes: ["Plugin", "Template", "Library", "Sample", "Component", "Pattern", "Architecture"],
       languages: ["Rust", "JS/TS", "Go", "Python", "Polyglot"],

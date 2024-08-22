@@ -363,6 +363,11 @@ export default {
                     align-items: center;
                     transform: translateY(-6px); 
                     justify-content: flex-start;
+
+                    &:hover .deploy-text {
+                        color: white;
+                    }
+
                 }
 
                 .meta-cta .logo-img {
