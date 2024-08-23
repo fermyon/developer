@@ -951,5 +951,5 @@ We want to get feedback on the Serverless AI API. We are curious about what mode
 ## Next Steps
 
 - Try the numerous Serverless AI examples in our GitHub repository called [ai-examples](https://github.com/fermyon/ai-examples).
-- [Contribute](/hub/contributing) your Serverless AI app to our [Spin Up Hub](/hub).
+- [Contribute](/hub/contributing) your Serverless AI app to our [Spin Hub](/hub).
 - Ask questions and share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).

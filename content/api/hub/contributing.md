@@ -1,4 +1,4 @@
-title = "Contributing to Spin Up Hub"
+title = "Contributing to the Spin Hub"
 template = "render_hub_content_body"
 date = "2023-07-20T12:00:00Z"
 enable_shortcodes = true
@@ -22,7 +22,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/api/hub/contributi
   - [Push Changes](#push-changes)
   - [Create a Pull Request](#create-a-pull-request)
 
-We are delighted that you are interested in making Spin Up Hub better! Thank you! This
+We are delighted that you are interested in making Spin Hub better! Thank you! This
 document will guide you through making your first contribution to the project.
 
 First, any contribution and interaction on any Fermyon project MUST follow our
@@ -134,7 +134,7 @@ Will be shown in the modal. |
 
 ### Valid Content Types
 
-The following is a list of the types of content that a user can submit to the Spin Up Hub.
+The following is a list of the types of content that a user can submit to the Spin Hub.
 
 - **Examples**
     - Spin Application examples
@@ -199,7 +199,7 @@ Type the following commit command to ensure that you sign off (--signoff), sign 
 <!-- @nocpy -->
 
 ```bash
-$ git commit -S --signoff -m "Updating Spin Up Hub"
+$ git commit -S --signoff -m "Updating Spin Hub"
 ```
 
 > Note: the `--signoff` option will only add a Signed-off-by trailer by the committer at the end of the commit log message. In addition to this, it is recommended that you use the `-S` option which will GPG-sign your commits. For more information about using GPG in GitHub see [this GitHub documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).

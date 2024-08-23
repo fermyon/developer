@@ -9,7 +9,7 @@ export default {
     },
     async mounted() {
         let res = await fetch(import.meta.env.VITE_API_HOST + "/api/hub/contributing")
-        this.contributionGuide = "<h1>Spin Up Hub Contribution Guide</h1>" + unescapeHTML(await res.text())
+        this.contributionGuide = "<h1>Spin Hub Contribution Guide</h1>" + unescapeHTML(await res.text())
         nextTick(() => {
             document.querySelectorAll("pre > code").forEach((codeblock) => {
                 console.log(codeblock)
