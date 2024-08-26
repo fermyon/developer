@@ -18,7 +18,7 @@ url = "https://github.com/karthik2804/spin-zola"
 repo_name = "spin-zola"
 keywords = "rust, SSG, website, framework"
 artifact_source = "ghcr.io/karthik2804/spin-zola-ssg:v0.1.0"
-yaml = "https://github.com/VamshiReddy02/spinkube/releases/download/zola/zola-ssg.yaml"
+yaml = "https://raw.githubusercontent.com/karthik2804/spin-zola/main/zola-ssg.yaml"
 
 
 ---
