@@ -8,16 +8,12 @@ tags = ["typescript", "javascript", "ai"]
 author = "technosophos"
 type = "hub_document"
 category = "Sample"
-image = "https://github.com/user-attachments/assets/86c9853c-14f4-481d-9a8a-29abed0d76d3"
 language = "JS/TS"
 created_at = "2023-09-05T00:00:00Z"
 last_updated = "2023-09-05T00:00:00Z"
 spin_version = ">v1.5"
 summary =  "Read an RSS feed and have AI summarize it for you"
 url = "https://github.com/fermyon/ai-examples/tree/main/newsfeeder-ts"
-repo_name = "newsfeeder-ts"
-yaml = "https://raw.githubusercontent.com/fermyon/ai-examples/main/newsfeeder-ts/newsfeeder.yaml"
-artifact_source = "ghcr.io/fermyon/newsfeeder-ts:v0.0.1"
 keywords = "typescript, javascript, ai"
 
 ---
