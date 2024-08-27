@@ -68,21 +68,9 @@ export default {
                   <a href="https://cloud.fermyon.com/login" target="_blank">Fermyon Cloud</a> account (free) to deploy the application to.
                 </div>
                 <div class="section">
-                  <div class="container-sub">Clone the Repo</div>
+                  <div class="container-sub">Deploy from terminal</div>
                   <div class="code-block">
-                    <div class="code-snippet">$ git clone {{ modalData.url }}</div>
-                  </div>
-                </div>
-                <div class="section">
-                  <div class="container-sub">Change directory</div>
-                  <div class="code-block">
-                    <div class="code-snippet">$ cd {{ modalData.repo_name }}</div>
-                  </div>
-                </div>
-                <div class="section">
-                  <div class="container-sub">Deploy</div>
-                  <div class="code-block">
-                    <div class="code-snippet">$ spin cloud deploy</div>
+                    <div class="code-snippet">$ spin cloud deploy -f {{ modalData.artifactSource }}</div>
                   </div>
                 </div>
                 <div class="container-info">Visit <a href="https://cloud.fermyon.com">your Cloud dashboard</a> to view and manage your deployment of {{ modalData.title }}</div>
