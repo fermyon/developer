@@ -108,7 +108,7 @@ html.dark-theme body.hub {
       color: $oxforddark !important;
     }
   }
-
+  
   footer.footer-links .level a {
     color: white;
   }
@@ -120,63 +120,42 @@ html.dark-theme body.hub {
     // fancy cards 
     .columns > .column {
       &:first-of-type a.card {
-          background: url(../static/image/gradient-blue-green.jpg) no-repeat -8rem -1rem !important;
           background-size: 33rem !important;
+          height: 24rem;
+          max-height: 22rem;
       }
 
       &:nth-of-type(2) a.card {
-          background: url(../static/image/gradient-pink-purple.jpg)  no-repeat -10rem -1rem !important;
           background-size: 33rem !important;
+          height: 24rem;
+          max-height: 22rem;
       }
 
       &:nth-of-type(3) a.card {
-          background: url(../static/image/gradient-pink-blue.jpg)  no-repeat -8rem -1rem !important;
           background-size: 33rem !important;
+          height: 24rem;
+          max-height: 22rem;
       }
 
       &:first-of-type,
       &:nth-of-type(2),
       &:nth-of-type(3) {
         a.card {
+          header {
+            max-height: 1rem;
+          }
+          .summary {
+            max-height: 5rem;
+          }
           article h3 {
             color: $oxforddark;
+            margin-bottom: 1rem;
+          }
+          .tags {
+            margin-top: 1rem;
           }
           .tags span {
             color: darken($lavenderdark, 33%);
-          }
-        }
-      }
-    }
-  }
-
-  .dark-theme {
-    .content-listing {
-
-      // fancy cards 
-      .columns > .column {
-        &:first-of-type,
-        &:nth-of-type(2),
-        &:nth-of-type(3) {
-          a.card {
-
-            .category {
-              background: white;
-              color: $bluedark;
-
-              svg {
-                fill: $bluedark;
-              }
-            }
-
-            article {
-              h3 {
-                color: $oxforddark;
-              }
-
-              .summary { 
-                color: $bluecallout;
-              }
-            }
           }
         }
       }
@@ -201,12 +180,14 @@ html.dark-theme body.hub {
     .content-listing {
       .columns .column {
         &:first-of-type a.card {
-          background: url(../static/image/gradient-blue-green.jpg) no-repeat -8rem -1rem !important;
           background-size: 40rem !important;
+          height: 24rem;
+          max-height: 22rem;
         }
         &:nth-of-type(2) a.card {
-          background: url(../static/image/gradient-pink-purple.jpg)  no-repeat -10rem -1rem !important;
           background-size: 40rem !important;
+          height: 24rem;
+          max-height: 22rem;
         }
 
         &:first-of-type,
@@ -216,7 +197,14 @@ html.dark-theme body.hub {
               color: $oxforddark;
             }
             .tags span {
-              color: darken($lavenderdark, 33%);
+              color: lighten($lavenderfloral, 7.5%);
+            }
+          }
+        }
+        &:nth-of-type(3) {
+          a.card {
+            .card-image {
+              display: none;  // Hide the image only
             }
           }
         }
@@ -236,42 +224,34 @@ html.dark-theme body.hub {
     .content-listing {
       .columns {
         .column:first-of-type > a.card {
-          background: url(../static/image/gradient-blue-green.jpg) no-repeat -8rem -1rem !important;
           background-size: 60rem !important;
+          height: 24rem;
+          max-height: 22rem;
         }
         .column:nth-of-type(2) > a.card {
-          background: url(../static/image/gradient-pink-purple.jpg)  no-repeat -10rem -1rem !important;
           background-size: 60rem !important;
+          height: 24rem;
+          max-height: 22rem;
         }
       }
     }
   }
+}
 
-  .dark-theme {
-    .content-listing {
-
-      // fancy cards 
-      .columns > .column {
-        &:first-of-type,
-        &:nth-of-type(2) {
-          a.card {
-
-            .category {
-              background: white;
-              color: $bluedark;
-
-              svg {
-                fill: $bluedark;
+html.dark-theme {
+  body.hub {
+    .main {
+      .content-listing {
+        .columns .column {
+          &:first-of-type,
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+            a.card {
+              article h3 {
+                color: white;
               }
-            }
-
-            article {
-              h3 {
-                color: $oxforddark;
-              }
-
-              .summary { 
-                color: $bluecallout;
+              .tags span {
+                color: lighten($lavenderfloral, 7.5%);
               }
             }
           }
@@ -280,4 +260,4 @@ html.dark-theme body.hub {
     }
   }
 }
-</style>
+</style>  

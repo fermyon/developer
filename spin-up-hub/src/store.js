@@ -11,9 +11,12 @@ const store = createStore({
         title: "",
         description: '',
         url: "",
+        repo_name: "",
         author: "",
         tags: [], language: "", createdAt: "", lastUpdated: "", spinVersion: "",
-        artifactSource: ""
+        image: "",
+        artifactSource: "",
+        yaml: "",
       },
       contentTypes: ["Plugin", "Template", "Library", "Sample", "Component", "Pattern", "Architecture"],
       languages: ["Rust", "JS/TS", "Go", "Python", "Polyglot"],

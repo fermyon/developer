@@ -1,4 +1,4 @@
-title = "Polyglot Coffee Shop - WebAssembly (Spin), Docker container, Dapr, and Kubernetes (k3d) better together"
+title = "Polyglot Coffee Shop - WebAssembly (Spin)"
 template = "render_hub_content_body"
 date = "2023-09-14T00:00:00Z"
 content-type = "text/html"

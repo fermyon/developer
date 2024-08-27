@@ -1,30 +1,48 @@
 <script>
+import DeployModal from './DeployPreview.vue';
+
+
 export default {
+    components: {
+        DeployModal,
+    },
     data() {
         return {
-
+            isDeployModalOpen: false, 
         }
     },
     methods: {
-        closeModal() { this.$store.commit("closePreview") }
+        closeModal() {
+            this.$store.commit("closePreview");
+        },
+        openDeployModal() {
+            this.isDeployModalOpen = true;
+        },
+        closeDeployModal() {
+            this.isDeployModalOpen = false;
+        },
+        showSecondModal() {
+            this.isDeployModalOpen = false;
+        },
+
     },
     computed: {
-        isModalOpen() { return this.$store.state.isModalOpen },
+        isModalOpen() {
+            return this.$store.state.isModalOpen;
+        },
         modalData() {
-            return this.$store.state.modalData
+            return this.$store.state.modalData;
         },
         verified() {
-            return this.modalData.author == "fermyon"
+            return this.modalData.author == "fermyon";
         }
     },
     updated() {
         document.querySelectorAll("pre > code").forEach((codeblock) => {
-            console.log(codeblock)
-            codeblock.classList.add("hljs")
-        })
+            codeblock.classList.add("hljs");
+        });
     }
 }
-
 </script>
 
 <template>
@@ -33,9 +51,6 @@ export default {
             <div class="preview-overlay" @click="closeModal"></div>
             <div class="preview-modal content">
                 <header>
-                    <span @click="closeModal" class="icon-back">
-                        <img src="/static/image/icon-back.svg" alt="Back" />
-                    </span>
                     <span @click="closeModal" class="icon-close">
                         <img src="/static/image/icon-close.svg" alt="Close" />
                     </span>
@@ -43,7 +58,12 @@ export default {
                 <div class="content-area columns is-mobile">
                     <div class="main-content column is-two-thirds-tablet is-full-mobile">
                         <div class="main-content-wrap">
-                            <div class="title">{{ modalData.title }}</div>
+                            <div class="header-with-icon">
+                                <span @click="closeModal" class="icon-back">
+                                    <img src="/static/image/icon-back.svg" alt="Back" />
+                                </span>
+                                <div class="preview-title">{{ modalData.title }}</div>
+                            </div>
                             <div class="description" v="">
                                 <div v-if="!modalData.isloaded">loading...</div>
                                 <div v-html="modalData.description"></div>
@@ -57,6 +77,20 @@ export default {
                     </div>
                     <div class="metadata-space column is-one-third-tablet is-full-mobile">
                         <div class="metadata-wrap">
+                            <div class="meta-cta">
+                                <a v-if="modalData.artifactSource" class="is-btn button is-rounded is-primary plausible-event-name=hub-btn-deploy"
+                                    target="_blank"
+                                    href="#"
+                                    @click.prevent="openDeployModal">
+                                    <span class="button-content">
+                                        <img src="/static/image/wasm.png" alt="Logo" class="logo-img" />
+                                        <span class="deploy-text">Deploy This →</span>
+                                    </span>
+                                </a>
+                                <a class="is-btn button is-rounded non-primary plausible-event-name=hub-git-btn" target="_blank" :href="modalData.url">
+                                    View on Github
+                                </a>
+                            </div>
                             <div class="meta-info">
                                 <div class="metadata">
                                     <div class="name">Url</div>
@@ -97,22 +131,14 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                            <div class="meta-cta">
-                                <a class="is-btn button is-rounded non-primary plausible-event-name=hub-git-btn" target="_blank" :href="modalData.url">
-                                    View on Github
-                                </a>
-                                <a v-if="modalData.artifactSource" class="is-btn button is-rounded is-primary plausible-event-name=hub-btn-deploy"
-                                    target="_blank"
-                                    :href="`https://cloud.fermyon.com/deploy?artifact=` + modalData.artifactSource + `${this.$store.state.deployUTM}`">
-                                    Deploy to cloud
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <!-- New Modal Component -->
+        <DeployModal :isOpen="isDeployModalOpen" @close="closeDeployModal" @show-second-modal="showSecondModal" />
     </div>
 </template>
 
@@ -122,23 +148,20 @@ export default {
     justify-content: center;
     align-items: center;
     position: fixed;
-    height: 100vh;
     top: 0;
     left: 0;
+    height: 100vh; 
+    width: 100vw; 
     z-index: 1001;
-    height: 100%;
-    width: 100%;
     overflow: hidden;
-    box-shadow: 0px 14px 64px 0px rgba(0, 0, 0, 0.33);
+    
 
     .preview-overlay {
         position: absolute;
+        top: 0;
+        left: 0;
         height: 100%;
         width: 100%;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
         backdrop-filter: blur(6px) brightness(25%);
         background: rgba(darken($docsbg1, 3%), 0.70);
     }
@@ -146,20 +169,13 @@ export default {
     $modalMax: 1144px;
 
     .preview-modal.content {
-        z-index: 1002;
-        height: auto;
-        height: 70vh;
-        width: 94vw;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: $modalMax;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(6px) brightness(25%);
         background-color: $docsbg1;
-        border-radius: 0.67rem;
-        display: block;
-        border-radius: 0.67rem;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0px 14px 64px 0px rgba(0, 0, 0, 0.05);
 
         &.content {
             padding: 0 !important;
@@ -186,9 +202,6 @@ export default {
                 align-items: center;
                 justify-content: center;
 
-                &.icon-back {
-                    left: 1.25rem;
-                }
 
                 &.icon-close {
                     right: 1.25rem;
@@ -208,32 +221,54 @@ export default {
 
             .main-content {
                 border-right: 1px solid lighten($lavenderfloral, 15%);
-                height: 100%;
+                flex: 1; 
+                display: flex;
+                flex-direction: column; 
+                overflow-y: hidden; 
 
                 .main-content-wrap {
                     padding-top: 3rem;
-                    max-height: 100%;
-                    overflow-y: scroll;
-                    position: absolute;
-                    top: 3.5rem;
-                    bottom: 0;
-                    width: 66.667%;
+                    padding-left: 10rem;
+                    flex-grow: 1; 
+                    overflow-y: auto; 
                 }
 
-                .title {
-                    font-size: 2.25rem;
-                    margin-bottom: 2rem;
-                    padding: 0 2rem;
-                    font-family: $spaceGro;
-                    font-weight: 400;
+                .header-with-icon {
+                    display: flex;
+                    align-items: center; 
+                    margin-bottom: 1rem; 
                 }
+
+                .preview-title {
+                    font-size: 2.25rem;
+                    flex-grow: 1; 
+                    display: flex;
+                    align-items: center;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .icon-back {
+                    cursor: pointer;
+                    margin-right: 10px; 
+                    flex-shrink: 0; 
+                    margin-right: 2rem;
+
+            img {
+                height: 24px; 
+                width: auto;
+            }
+        }
 
                 .description {
+                    font-size: 1.25rem; 
+                    line-height: 2; 
+                    padding: 0 2rem; 
+                    padding-left: 3.5rem;
+                    overflow-y: auto; 
                     flex-grow: 1;
-                    padding: 0 2rem 1rem;
-                    overflow-y: auto;
-                    font-size: 1.25rem;
-                    line-height: 2;
+                    
 
                     p {
                         font-size: 1.25rem !important;
@@ -244,6 +279,8 @@ export default {
 
                 .tags {
                     padding: 1.75rem 1.5rem;
+                    padding-left: 3.5rem;
+                    padding-bottom: 5rem;
 
                     span {
                         display: inline-block;
@@ -265,10 +302,11 @@ export default {
 
             .metadata-space {
                 position: relative;
-                height: calc(70vh - 3.5rem);
-                width: 33.333%;
-                display: block;
+                display: flex;
+                flex-direction: column;
                 padding: 0;
+                width: 33.333%;
+                height: calc(100% - 3.5rem);
 
                 .metadata-wrap {
                     height: 100%;
@@ -277,7 +315,7 @@ export default {
                     flex-direction: column;
                     width: 100%;
                     overflow: hidden;
-                    overflow-y: scroll;
+                    overflow-y: hidden;
                     margin-top: 0.75rem;
 
                     .meta-info {
@@ -296,6 +334,7 @@ export default {
                         display: flex;
                         flex-direction: column;
                         margin: 1rem 0;
+                        padding-right: 10rem;
 
                         a {
                             margin: 0rem 0 1rem 0;
@@ -303,9 +342,12 @@ export default {
                             border-radius: 0.67rem;
 
                             &.button {
-                                width: auto !important;
+                                width: 250px !important;
                                 margin: 1rem 2rem 1rem !important;
                                 border-radius: 2rem;
+                                height: 3.3rem !important; 
+                                text-align: center;
+                                justify-content: center;
 
                                 &.non-primary {
                                     background-color: transparent;
@@ -313,10 +355,47 @@ export default {
                                 }
                             }
                         }
+
                     }
                 }
+                .meta-cta .button.is-primary .button-content {
+                    display: flex;
+                    align-items: center;
+                    transform: translateY(-6px); 
+                    justify-content: flex-start;
 
+                    &:hover .deploy-text {
+                        color: white;
+                    }
 
+                }
+
+                .meta-cta .logo-img {
+                    height: 50px; 
+                    width: auto;
+                    margin-right: 0.5rem; 
+                    margin-left: -20px;
+                }
+
+                .meta-cta .deploy-text {
+                    font-size: 1rem;
+                    font-weight: bold;
+                    margin-left: 5px;
+                }
+
+                .meta-cta .button.non-primary {
+                    height: 3rem; 
+                    line-height: 3rem; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center; 
+                    text-align: center;
+                    width: 100%;
+                    padding: 0 1rem; 
+                    background-color: transparent;
+                    border: 1px solid $seagreen;
+                    border-radius: 2rem;
+                }
 
                 .metadata {
                     padding: 0.425rem 2rem 0.425rem 2rem;
@@ -374,95 +453,77 @@ export default {
     }
 }
 
-@media screen and (min-width:1024px) and (max-width:1220px) {
-    $modalMaxDesktop: 1020px;
-
-    .preview-wrapper {
-
-        .preview-modal.content {
-            max-width: $modalMaxDesktop;
-
-            .content-area {
-                .main-content {
-                    .main-content-wrap {
-                        max-width: $modalMaxDesktop;
-                    }
-                }
-
-                .metadata-space {
-                    .metadata-wrap {
-                        max-width: calc($modalMaxDesktop / 3) !important;
-                        overflow: auto;
-
-                        .meta-info {
-                            overflow: auto;
-                        }
-                    }
-
-                    a.button {
-                        width: calc($modalMaxDesktop / 4) !important;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width:1023px) {
+@media screen and (max-width: 1023px) {
     .content-area {
+        display: flex;
         flex-direction: column;
         align-items: center;
         overflow-y: auto;
-        min-height: auto !important;
+        min-height: 100vh;
 
         .main-content {
-            width: 90% !important;
-            border-right: none !important;
-            order: 2;
-            min-height: auto !important;
-            max-height: none !important;
+            width: 100%;
+            border-right: none;
+            order: 1;
+            flex-grow: 1;
             display: block;
+            overflow-y: visible; 
 
             .description {
                 height: auto;
                 overflow-y: visible;
             }
+
+            .main-content-wrap {
+                width: 100%;
+                height: auto; 
+                max-width: none;
+                padding: 2rem;
+                margin-left: 0;
+                margin-top: 3.5rem;
+            }
         }
 
         .metadata-space {
-            width: 90% !important;
-            order: 1;
+            width: 100%;
+            order: 2;
             border-bottom: 1px solid $darkspace;
+            height: auto; 
+            margin-top: 0; 
+            padding-top: 2rem; 
 
             .metadata-wrap {
-                height: auto !important;
-                flex-direction: column-reverse !important;
+                margin-top: 3rem;
+                width: 100%;
+                height: auto;
+                max-width: none;
+                overflow: visible;
+                padding: 2rem;
             }
         }
     }
 
     body.hub {
-        // modal on mobile
-        $modalMaxTablet: 620px;
-
         .preview-wrapper {
-
             .preview-modal.content {
                 z-index: 1002;
-                height: 80vh !important;
-                overflow-y: auto !important;
-                width: 96vw !important;
-                max-width: $modalMaxTablet;
-                margin-top: 15rem !important;
-                margin-bottom: 10rem !important;
+                height: 100vh;
+                overflow-y: hidden; 
+                width: 100%;
+                max-width: none;
+                margin-top: 0;
+                margin-bottom: 0;
 
                 .content-area {
-                    flex-direction: column-reverse;
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
 
                     .main-content {
-                        height: auto;
+                        flex-grow: 1;
+                        overflow-y: visible; 
 
-                        .title,
+                        .preview-title,
                         .description {
                             padding-right: 0;
                             padding-left: 0;
@@ -473,31 +534,40 @@ export default {
                         }
 
                         .main-content-wrap {
-                            width: auto;
-                            max-width: $modalMaxTablet;
-                            max-height: auto;
-                            overflow-y: visible;
+                            width: 100%;
+                            height: auto;
+                            max-width: none;
+                            overflow-y: hidden; 
                             position: relative;
                             top: auto;
                             bottom: auto;
+                            padding: 2rem;
+                            margin-left: 0;
+                            margin-top: 3.5rem;
                         }
                     }
 
                     a.button {
-                        margin: 2rem 0 !important;
-                        width: calc($modalMaxTablet - 4rem) !important;
+                        margin: 2rem 0;
+                        width: 90%;
                     }
 
                     .metadata-space {
-                        height: auto;
+                        width: 100%;
                         margin-bottom: 1rem;
+                        margin-top: auto; 
+                        padding-top: 2rem; 
 
                         .metadata-wrap {
+                            margin-top: 3rem;
                             position: relative;
                             left: auto;
                             margin-left: 0;
-                            width: auto;
-                            max-width: $modalMaxTablet;
+                            width: 100%;
+                            max-width: none;
+                            height: auto;
+                            overflow: visible; 
+                            padding: 2rem;
 
                             .metadata {
                                 padding-left: 0;
@@ -511,33 +581,59 @@ export default {
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
     body.hub {
-        // modal on mobile
-        $modalMaxMobile: 320px;
-
         .preview-wrapper .preview-modal.content {
-            max-width: $modalMaxMobile;
-            margin-top: 15rem !important;
-            margin-bottom: 12rem !important;
+            max-width: none;
+            width: 100%;
+            height: 100vh;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 0;
+            overflow-y: hidden; 
 
             .content-area {
-                .title {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+
+                .preview-title {
                     font-size: 1.67rem;
                     margin: 0 0 1rem;
                 }
 
                 a.button {
-                    margin: 2rem 0 !important;
-                    width: calc($modalMaxMobile - 4rem) !important;
+                    margin: 2rem 0;
+                    width: 90%;
                 }
 
-                .main-content .main-content-wrap {
-                    max-width: $modalMaxMobile;
+                .main-content {
+                    flex-grow: 1;
+                    overflow-y: visible; 
+
+                    .main-content-wrap {
+                        width: 100%;
+                        max-width: none;
+                        height: auto;
+                        padding: 2rem;
+                        margin-left: 0;
+                        margin-top: 3.5rem;
+                    }
                 }
 
-                .metadata-space .metadata-wrap {
-                    max-width: $modalMaxMobile;
+                .metadata-space {
+                    width: 100%;
+                    margin-top: auto; 
+                    padding-top: 2rem; 
+
+                    .metadata-wrap {
+                        margin-top: 3rem;
+                        width: 100%;
+                        height: auto;
+                        max-width: none;
+                        overflow: visible; 
+                        padding: 2rem;
+                    }
                 }
             }
         }
@@ -562,7 +658,7 @@ html.dark-theme {
                     .main-content {
                         border-right: 1px solid $bluecallout;
 
-                        .title {
+                        .preview-title {
                             color: white;
                         }
 
