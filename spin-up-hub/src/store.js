@@ -39,7 +39,7 @@ const store = createStore({
         state.modalData.description = ""
         state.modalData.isloaded = false
         document.body.classList.add("modal-open")
-        document.title = `Spin Up Hub | ${state.modalData.title} `
+        document.title = `Spin Hub | ${state.modalData.title} `
       }
     },
     openPreview(state, payload) {
@@ -53,7 +53,7 @@ const store = createStore({
       if (shouldUpdateHistory) {
         router.push("/hub")
       }
-      document.title = "Spin Up Hub"
+      document.title = "Spin Hub"
     },
     updateModalDescription(state, payload) {
       state.modalData.description = payload.description
