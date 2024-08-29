@@ -14,6 +14,8 @@ last_updated = "2024-01-01T00:22:56Z"
 spin_version = ">v1.3"
 summary =  "A template to use NuxtJS with Spin"
 url = "https://github.com/VamshiReddy02/spin-nuxt"
+template_id = "Nuxt"
+repo_url = "https://github.com/VamshiReddy02/spin-nuxt"
 keywords = "vue, nuxt, js, javascript"
 
 ---

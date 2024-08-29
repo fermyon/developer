@@ -14,6 +14,8 @@ last_updated = "2023-05-18T00:22:56Z"
 spin_version = ">=v1.0"
 summary =  "A Spin component for exploring the contents of key/value stores."
 url = "https://github.com/fermyon/spin-kv-explorer"
+template_id = "kv-explorer"
+repo_url = "https://github.com/fermyon/spin-kv-explorer"
 keywords = "key-value, kv, explorer"
 
 ---

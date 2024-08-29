@@ -14,6 +14,8 @@ last_updated = "2023-10-22T00:22:56Z"
 spin_version = ">=v1.4"
 summary =  "A Spin component for exploring the contents  and running a shell for SQLite stores."
 url = "https://github.com/karthik2804/spin-sqlite-web-cli"
+template_id = ""
+repo_url = ""
 keywords = "sqlite, explorer"
 
 ---
