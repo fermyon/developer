@@ -14,6 +14,8 @@ last_updated = "2023-12-14T04:30:32.000Z"
 spin_version = ">v1.3"
 summary =  "A template to use docusaurus with Spin"
 url = "https://github.com/VamshiReddy02/spin-docusaurus"
+template_id = "Docusaurus"
+repo_url = "https://github.com/VamshiReddy02/spin-docusaurus"
 keywords = "react, docusaurus, javascript, typescript"
 
 ---

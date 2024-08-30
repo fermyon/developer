@@ -14,6 +14,8 @@ last_updated = "2023-12-06T00:00:00Z"
 spin_version = ">v1.4"
 summary = "A template to use Qwik with Spin"
 url = "https://github.com/vanvuongngo/qwik-wasm"
+template_id = "qwik-frontend"
+repo_url = "https://github.com/vanvuongngo/qwik-wasm"
 keywords = "qwik, html, js, javascript, typescript"
 
 ---

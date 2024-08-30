@@ -14,6 +14,8 @@ last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v0.2"
 summary =  "A template to create a Go pub-sub handler in Rust"
 url = "https://github.com/fermyon/spin/tree/main/templates/redis-go"
+template_id = "redis-go"
+repo_url = "https://github.com/fermyon/spin"
 keywords = "web app, redis"
 
 ---
