@@ -106,6 +106,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'http://localhost:16686/'                                                                                                                                                     \
     --exclude 'http://localhost:5050/explore'                                                                                                                                               \
     --exclude 'http://localhost:5050/explore'                                                                                                                                               \
+    --exclude ' https://stackshare.io/stackups/powershell-vs-webassembly'                                                                                                                   \
     --exclude 'https://support.google.com/webmasters/answer/9008080?hl=en' | tee "${report}" || blc_error=true
 
 cat "${report}" | grep "├─BROKEN─" > broken_links || true
