@@ -45,7 +45,7 @@ To use Grain, you will need to [install the Grain toolkit](https://grain-lang.or
 
 Start with a `hello.gr` file:
 
-```grain
+```
 print("content-type: text/plain\n")
 print("\n)
 print("Hello, World!")
