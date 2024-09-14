@@ -1,4 +1,4 @@
-date = "2024-02-18T01:01:01Z"
+date = "2024-09-14T01:01:01Z"
 title = "WebAssembly Language Support Matrix"
 description = "Tracking the programming languages that compile to WebAssembly (Wasm). This page stays up to date with information about which languages can compile to Wasm, and what their language characteristics are."
 template = "page"
@@ -39,7 +39,7 @@ Some languages, like CSS, PowerShell, and "Shell", don't really have a meaningfu
 | [Kotlin (JVM)][Kotlin]    | ✅    | ✅      | ✅   | ⏳       |
 | [Kotlin (Wasm)][Kotlin]   | ⏳    | ✅      | ✅   | ❌       |
 | [Rust][Rust]              | ✅    | ✅      | ✅   | ✅       |
-| [Dart][Dart]              | ❌    | ⏳      | ❌   | ❌       |
+| [Dart][Dart]              | ✅    | ✅      | ⏳   | ❌       |
 
 * _Core_ means there is an implementation of WebAssembly 1.0
 * _Browser_ means there is at least one browser implementation
