@@ -12,16 +12,16 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/deploying-
 
 ## Deploying Microservices & Web Apps
 
-[Fermyon](https://www.fermyon.dev/) is the frictionless WebAssembly platform for deploying
+[Fermyon](https://github.com/fermyon/installer) is the frictionless WebAssembly platform for deploying
 microservices and web apps. With Fermyon, you can deploy your spin applications onto a server in
 moments.
 
 ## Running on Your Workstation
 
 For instructions guiding you through running the Fermyon platform on your development workstation,
-follow [this guide](https://www.fermyon.dev/quickstart-local).
+follow [this guide](https://github.com/fermyon/installer/tree/main/local/README.md).
 
 ## Running on AWS
 
 For instructions guiding you through running the Fermyon platform on AWS, follow
-[this guide](https://www.fermyon.dev/quickstart-aws).
+[this guide](https://github.com/fermyon/installer/tree/main/aws/README.md).
