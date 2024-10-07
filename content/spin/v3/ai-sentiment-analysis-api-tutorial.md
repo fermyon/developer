@@ -1011,7 +1011,7 @@ spin_manifest_version = 2
 name = "sentiment-analysis-rust"
 version = "0.1.0"
 authors = ["Your Name <your-name@example.com>"]
-description = "Descr"
+description = "A sentiment analysis API that demonstrates using LLM inferencing and KV stores together"
 
 [[trigger.http]]
 route = "/api/..."

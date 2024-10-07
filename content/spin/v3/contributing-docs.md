@@ -102,7 +102,7 @@ keywords = "contribute contributing"
 ---
 ```
 
-> Note: the `body_source = "/spin/contributing-docs"` part of the frontmatter does not need to include the `.md` file extention (as is also the case when hyperlinking via markdown anywhere in a developer documentation file's body).
+> Note: the `body_source = "/spin/contributing-docs"` part of the frontmatter does not need to include the `.md` file extension (as is also the case when hyperlinking via markdown anywhere in a developer documentation file's body).
 
 ## Technical Documentation Procedure (Video)
 
