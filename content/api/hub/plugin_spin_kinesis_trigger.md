@@ -33,7 +33,7 @@ spin plugins install --url https://github.com/ogghead/spin-trigger-kinesis/relea
 You can install the template using the following command:
 
 ```sh
-spin templates install --git https://github.com/ogghead/spin-trigger-kinesis
+spin templates install --update --git https://github.com/ogghead/spin-trigger-kinesis
 ```
 
 Once the template is installed, you can create a new application using:
