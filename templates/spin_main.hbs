@@ -16,7 +16,6 @@
                     <option value="/spin/v1/index" {{#if (active_project request.spin-full-url "/spin/v1/" )}} selected
                         {{/if}}>Spin v1.x</option>
                 </select>
-                {{! TODO: How to do an if-elseif-else }}
                 {{#if (active_project request.spin-full-url "/spin/v3/" )}}
                 {{> spin_sidebar_v3 }}
                 {{else}}
