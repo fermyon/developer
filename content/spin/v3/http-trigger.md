@@ -8,7 +8,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/http-trigg
 ---
 - [Specifying an HTTP Trigger](#specifying-an-http-trigger)
 - [HTTP Trigger Routes](#http-trigger-routes)
-  - [Routing with an Application `base`](#routing-with-an-application-base)
   - [Resolving Overlapping Routes](#resolving-overlapping-routes)
   - [Private Endpoints](#private-endpoints)
   - [Health Check Route](#health-check-route)
@@ -44,6 +43,8 @@ component = "my-application"  # the name of the component to handle this route
 ```
 
 Such a trigger says that HTTP requests matching the specified _route_ should be handled by the specified _component_. The `component` field works the same way across all triggers - see [Triggers](triggers) for the details.
+
+> Earlier versions of Spin supported an application-wide base path; this is removed in Spin 3.
 
 ## HTTP Trigger Routes
 
@@ -84,22 +85,6 @@ A trailing wildcard uses the syntax `/...` and matches the given route and any r
 route = "/users/..."
 component = "user-manager"
 ```
-
-### Routing with an Application `base`
-
-You can set a base path for the entire application using the optional `[application.trigger.http]` section:
-
-```toml
-[application.trigger.http]
-base = "/shop"
-```
-
-If the application `base` is omitted, or is `"/"`, then all trigger routes are matched exactly as given.
-
-If `base` contains a non-root path, this is prefixed to all trigger routes,
-exact or wildcard.
-
-For example, suppose the application `base` path is `base = "/shop"`.  Then a trigger with `route = "/cart"` will be executed for requests to `/shop/cart`.  Similarly, a trigger with `route = "/users/..."` will be executed for requests to `/shop/users`, `/shop/users/1`, `/shop/users/1/edit` and so on.
 
 ### Resolving Overlapping Routes
 
@@ -349,19 +334,17 @@ As well as any headers passed by the client, Spin sets several headers on the re
 
 > In the following table, the examples suppose that:
 > * Spin is listening on `example.com:8080`
-> * The application `base` is `/shop`
 > * The trigger `route` is `/users/:userid/cart/...`
-> * The request is to `https://example.com:8080/shop/users/1/cart/items/3/edit?theme=pink`
+> * The request is to `https://example.com:8080/users/1/cart/items/3/edit?theme=pink`
 
 | Header Name                  | Value                | Example |
 |------------------------------|----------------------|---------|
-| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/shop/users/1/cart/items/3/edit?theme=pink` |
-| `spin-path-info`             | The request path relative to the component route (including any base) | `/items/3` |
+| `spin-full-url`              | The full URL of the request. This includes full host and scheme information. | `https://example.com:8080/users/1/cart/items/3/edit?theme=pink` |
+| `spin-path-info`             | The request path relative to the component route | `/items/3/edit` |
 | `spin-path-match-n`          | Where `n` is the pattern for our single-segment wildcard value (e.g. `spin-path-match-userid` will access the value in the URL that represents `:userid`)  | `1` |
-| `spin-matched-route`         | The part of the trigger route that was matched by the route (including the base and wildcard indicator if present) | `/shop/users/:userid/cart/...` |
-| `spin-raw-component-route`   | The component route pattern matched, as written in the component manifest (that is, _excluding_ the base, but including the wildcard indicator if present) | `/users/:userid/cart/...` |
+| `spin-matched-route`         | The part of the trigger route that was matched by the route (including the wildcard indicator if present) | `/users/:userid/cart/...` |
+| `spin-raw-component-route`   | The component route pattern matched, including the wildcard indicator if present | `/users/:userid/cart/...` |
 | `spin-component-route`       | The component route pattern matched, _excluding_ any wildcard indicator | `/users/:userid/cart` |
-| `spin-base-path`             | The application base path | `/shop` |
 | `spin-client-addr`           | The IP address and port of the client | `127.0.0.1:53152` |
 
 ### Inside HTTP Components
@@ -483,18 +466,16 @@ Array.forEach(print, Process.argv());
 Wagi passes request metadata to the program through well-known environment variables. The key path-related request variables are:
 
 - `X_FULL_URL` - the full URL of the request —
-  `http://localhost:3000/test/hello/abc/def?foo=bar`
-- `PATH_INFO` - the path info, relative to both the base application path _and_
-  component route — in our example, where the base path is `/test`, and the
+  `http://localhost:3000/hello/abc/def?foo=bar`
+- `PATH_INFO` - the path info, relative to the
+  component route — in our example, where the the
   component route is `/hello`, this is `/abc/def`.
-- `X_MATCHED_ROUTE` - the base path and route pattern matched (including the
-  wildcard pattern, if applicable; this updates the header set in Wagi to
-  include the base path) — in our case `"/test/hello/..."`.
+- `X_MATCHED_ROUTE` - the route pattern matched (including the
+  wildcard pattern, if applicable) — in our case `"/hello/..."`.
 - `X_RAW_COMPONENT_ROUTE` - the route pattern matched (including the wildcard
   pattern, if applicable) — in our case `/hello/...`.
 - `X_COMPONENT_ROUTE` - the route path matched (stripped of the wildcard
   pattern) — in our case `/hello`
-- `X_BASE_PATH` - the application base path — in our case `/test`.
 
 For details, and for a full list of all Wagi environment variables, see
 [the Wagi documentation](https://github.com/deislabs/wagi/blob/main/docs/environment_variables.md).
