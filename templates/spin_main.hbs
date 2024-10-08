@@ -10,7 +10,9 @@
                 {{! This adds the version selector - uncomment after v2 launch }}
                 <select class="version-dropdown"
                     onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                    <option value="/spin/v2/index">Spin v2.x</option>
+                    <option value="/spin/v3/index">Spin v3.x</option>
+                    <option value="/spin/v2/index" {{#if (active_project request.spin-full-url "/spin/v2/" )}} selected
+                        {{/if}}>Spin v2.x</option>
                     <option value="/spin/v1/index" {{#if (active_project request.spin-full-url "/spin/v1/" )}} selected
                         {{/if}}>Spin v1.x</option>
                 </select>

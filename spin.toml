@@ -339,7 +339,7 @@ environment = { DESTINATION = "/wasm-languages/webassembly-language-support" }
 # Component to give us clean versioned URLs for spin from the root
 [component.spin-version-proxy]
 source = "modules/spin-redirecter.wasm"
-variables = { latest_spin_version = "v2" }
+variables = { latest_spin_version = "v3" }
 files = ["spin-redirect.json"]
 exclude_files = ["**/node_modules"]
 allowed_outbound_hosts = ["http://self"]
