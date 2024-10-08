@@ -598,7 +598,6 @@ Pick a template to start your application with:
   http-rust (HTTP request handler using Rust)
 Enter a name for your new application: hello_go
 Description: My first Go Spin application
-HTTP base: /
 HTTP path: /...
 ```
 

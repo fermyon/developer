@@ -120,7 +120,7 @@ add a few items to your metadata.
 |-----------------|-----------------|
 | `snippets`      | A subtable with an entry named `component`, whose value is the name of the file containing the component manifest template. (Don't include the `snippets` directory prefix - Spin knows to look in the `snippets` directory.) |
 | `skip_files`    | Optional array of content files that should _not_ be copied when running in "add component" mode. For example, if your template contains a `spin.toml` file, you should use this setting to exclude that, because you want to add a new entry to the existing file, not overwrite it. |
-| `skip_parameters` | Optional array of parameters that Spin should _not_ prompt for when running in "add component" mode. For example, the HTTP templates don't prompt for the base path, because that's defined at the application level, not set on an individual component. |
+| `skip_parameters` | Optional array of parameters that Spin should _not_ prompt for when running in "add component" mode. |
 
 Here is an example `add_component` table from a HTTP template:
 
@@ -129,7 +129,7 @@ Here is an example `add_component` table from a HTTP template:
 ```toml
 [add_component]
 skip_files = ["spin.toml"]
-skip_parameters = ["http-base"]
+skip_parameters = ["shared-prefix"]
 [add_component.snippets]
 component = "component.txt"
 ```
