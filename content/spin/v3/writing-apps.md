@@ -22,6 +22,14 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/writing-ap
   - [Using Public Components](#using-public-components)
   - [Customizing the Executor](#customizing-the-executor)
   - [Setting the Redis Channel to Monitor](#setting-the-redis-channel-to-monitor)
+- [Using Component Dependencies](#using-component-dependencies)
+  - [Declaring Component Dependencies](#declaring-component-dependencies)
+  - [Specifying Dependencies](#specifying-dependencies)
+    - [Dependencies from a Registry](#dependencies-from-a-registry)
+    - [Dependencies from a Local Component](#dependencies-from-a-local-component)
+    - [Dependencies from a URL](#dependencies-from-a-url)
+  - [Mapping All Imports from a Package](#mapping-all-imports-from-a-package)
+  - [Dependency Permissions](#dependency-permissions)
 - [Next Steps](#next-steps)
 
 A Spin application consists of a set of WebAssembly (Wasm) _components_, and a _manifest_ that lists those components with some data about when and how to run them.  This page describes how to write components, manifests, and hence applications.
@@ -424,6 +432,94 @@ component = "echo-message"
 [component.echo-message]
 source = "spinredis.wasm"
 ```
+
+## Using Component Dependencies
+
+Few of us write applications without relying on libraries. Traditionally, those libraries have had to come from the language ecosystem - e.g. `npm` for JavaScript, `pip` for Python, etc. - and you can still work this way in Spin. However, the WebAssembly Component Model means that you can also depend on other WebAssembly components. The process of combining your application component with the Wasm components it depends on is called _composition_, and Spin supports this natively.
+
+> Spin's composition is limited to "plug" style scenarios where each of your component's imports is satisfied independently, and where the dependency component does not need to be further composed with any other components. The analogy is plugging each of your imports into a socket provided by a dependency. If you need to construct a more complex composition, you must use a dedicated tool such as [`wac`](https://github.com/bytecodealliance/wac) as part of your build. See the [Component Model book](https://component-model.bytecodealliance.org/creating-and-consuming/composing.html) for details and examples.
+
+To use composition through Spin, your component must import a [WIT (Wasm Interface Type) interface](https://component-model.bytecodealliance.org/design/wit.html), and the dependency must export the same WIT interface. The details of working with WIT interfaces is language-specific, and is beyond the scope of the Spin documentation. You can learn more from the [language guides in the Component Model book](https://component-model.bytecodealliance.org/language-support.html). This section focuses on describing the dependency composition support in Spin.
+
+### Declaring Component Dependencies
+
+To declare a component dependency, create a `[component.(name).dependencies]` table in your Spin manifest, and list all the WIT interfaces you import (other than the ones that Spin itself satisfies), together with the packages that you would like to use to satisfy those imports.
+
+For example, suppose your component imports a WIT interface named `security:http/malice` for detecting malicious HTTP requests. This interface might be defined by a vendor or standards body, and might have multiple implementations. Suppose Bargain Security, Inc. provides an HTTP inspection package which includes an implementation of this interface, and that they publish this in the `registry.example.com` registry as `bargains:inspection@2.0.0`. You can then set up your dependency as follows:
+
+```toml
+[component.my-app.dependencies]
+"security:http/malice" = { package = "bargains:inspection", version = "2.0.0", registry = "packages.example.com" }
+```
+
+During loading, Spin will download the package from the registry, locate its `security:http/malice` export, and wire up your imports to that export so that when your component calls a function in the WIT interface, that call is dispatched to the Bargain Security package.
+
+> Your Wasm component depends _only_ on the WIT interface. If, inexplicably, you become dissatisfied with Bargain Security, Inc., then you can switch to a different vendor by changing the package reference in the dependency mapping (and, of course, re-testing with the new implementation).
+
+### Specifying Dependencies
+
+Spin supports three sources for dependencies.
+
+#### Dependencies from a Registry
+
+To use a dependency from a registry, specify the following fields:
+
+| Field      | Required?   | Description                                                                                  | Example |
+|------------|-------------|----------------------------------------------------------------------------------------------|---------|
+| `version`  | Required    | A [semantic versioning constraint](https://semver.org/) for the package version to use.      | `">= 1.1.0"` |
+| `package`  | Optional    | The name of the package to use. If omitted, this defaults to the package name of the imported interface. | `"bargains:inspection"` |
+| `registry` | Optional    | The registry that hosts the package. If omitted, this defaults to your system default registry. | `"registry.example.com"` |
+| `export`   | Optional    | The name of the export in the package. If omitted, this defaults to the name of the import.  | `"more-secure:checking-it-out/web"` |
+
+If you don't need any of the optional fields, you can provide the version constraint as a plain string instead of writing out the table:
+
+```toml
+# Use the `security:http` package in the default registry
+"security:http/malice" = "2.0.0"
+```
+
+#### Dependencies from a Local Component
+
+To use a dependency from a component on your file system, specify the following fields:
+
+| Field      | Required?   | Description                                                                                  | Example |
+|------------|-------------|----------------------------------------------------------------------------------------------|---------|
+| `path`     | Required    | The path to the Wasm file containing the component.                                          | `"../validation/request-checker.wasm"` |
+| `export`   | Optional    | The name of the export in the package. If omitted, this defaults to the name of the import.  | `"more-secure:checking-it-out/web"` |
+
+#### Dependencies from a URL
+
+To use a dependency from an HTTP URL, such as a GitHub release, specify the following fields:
+
+| Field      | Required?   | Description                                                                                  | Example |
+|------------|-------------|----------------------------------------------------------------------------------------------|---------|
+| `url`      | Required    | The URL of the Wasm file containing the component.                                           | `"https://example.com/downloads/request-checker.wasm"` |
+| `digest`   | Required    | The SHA256 digest of the Wasm file. This is required for integrity checking.                 | `"sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375"` |
+| `export`   | Optional    | The name of the export in the package. If omitted, this defaults to the name of the import.  | `"more-secure:checking-it-out/web"` |
+
+### Mapping All Imports from a Package
+
+If you are importing several interfaces from the same WIT package, and want them all satisfied by the same Wasm package, you can omit the interface from the dependency name. For example, suppose you import the `malice`, `tomfoolery`, and `shenanigans` WIT interfaces from the `security:http` package, and that your Bargain Security package exports all three of them.  You can write:
+
+```toml
+[component.my-app.dependencies]
+"security:http" = { package = "bargains:inspection", version = "2.0.0", registry = "packages.example.com" }
+```
+
+and Spin will map all of your `security:http` imports to the matching exports from the package.
+
+### Dependency Permissions
+
+By default, dependencies do not have access to Spin resources that require permission to be given in the manifest - network hosts, key-value stores, SQLite databases, variables, etc.
+
+If you depend on a component which requires such access, and you trust all the components that you depend on, you can grant them access to the same resources that the 'main' component has by setting the `dependencies_inherit_configuration` flag on the main component:
+
+```toml
+[component.my-app]
+dependencies_inherit_configuration = true
+```
+
+> Spin does not currently support inheritance on a component-by-component basis. If the flag is set, _all_ the dependencies will act with the permissions of the main component.
 
 ## Next Steps
 
