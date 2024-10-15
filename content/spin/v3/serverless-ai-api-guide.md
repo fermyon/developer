@@ -32,19 +32,19 @@ ai_models = ["codellama-instruct"]
 // -- snip --
 ```
 
-> Spin supports "llama2-chat" and "codellama-instruct" for inferencing and "all-minilm-l6-v2" for generating embeddings.
+> Spin supports the models of the Llama architecture for inferencing and "all-minilm-l6-v2" for generating embeddings.
 
 ### File Structure
 
-By default, the Spin framework will expect any already trained model files (which are configured as per the previous section) to be downloaded by the user and made available inside a `.spin/ai-models/` file path of a given application. For example:
+By default, the Spin framework will expect any already trained model files (which are configured as per the previous section) to be downloaded by the user and made available inside a `.spin/ai-models/` file path of a given application. The files for each of the models need to be placed under a folder named after the architecture of the model (i.e) for `llama2-chat`, the folder needs to be named `llama`. For example:
 
 ```bash
-code-generator-rs/.spin/ai-models/llama/codellama-instruct
+code-generator-rs/.spin/ai-models/llama/codellama-instruct/{safetensors | config.json | tokenizer.json}
 ```
 
 See the [serverless AI Tutorial](./ai-sentiment-analysis-api-tutorial) documentation for more concrete examples of implementing the Fermyon Serverless AI API, in your favorite language.
 
-> Embeddings models are slightly more complicated; it is expected that both a `tokenizer.json` and a `model.safetensors` are located in the directory named after the model. For example, for the `foo-bar-baz` model, Spin will look in the `.spin/ai-models/foo-bar-baz` directory for `tokenizer.json` and a `model.safetensors`.
+> For embeddings models, it is expected that both a `tokenizer.json` and a `model.safetensors` are located in the directory named after the model. For example, for the `foo-bar-baz` model, Spin will look in the `.spin/ai-models/foo-bar-baz` directory for `tokenizer.json` and a `model.safetensors`.
 
 ## Serverless AI Interface
 
@@ -56,7 +56,7 @@ The set of operations is common across all supporting language SDKs:
 |:-----|:----------------|:-------|:----------------|
 | `infer`  | model`string`<br /> prompt`string`| `string`  | The `infer` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `llama2-chat`, `codellama-instruct`, or other; passed in as a `string`).<br /> <br />The second parameter is a prompt; passed in as a `string`.<br />|
 | `infer_with_options`  | model`string`<br /> prompt`string`<br /> params`list` | `string`  | The `infer_with_options` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `llama2-chat`, `codellama-instruct`, or other; passed in as a `string`).<br /><br /> The second parameter is a prompt; passed in as a `string`.<br /><br /> The third parameter is a mix of float and unsigned integers relating to inferencing parameters in this order: <br /><br />- `max-tokens` (unsigned 32 integer) Note: the backing implementation may return less tokens. <br /> Default is 100<br /><br /> - `repeat-penalty` (float 32) The amount the model should avoid repeating tokens. <br /> Default is 1.1<br /><br /> - `repeat-penalty-last-n-token-count` (unsigned 32 integer) The number of tokens the model should apply the repeat penalty to. <br /> Default is 64<br /><br /> - `temperature` (float 32) The randomness with which the next token is selected. <br /> Default is 0.8<br /><br /> - `top-k` (unsigned 32 integer) The number of possible next tokens the model will choose from. <br /> Default is 40<br /><br /> - `top-p` (float 32) The probability total of next tokens the model will choose from. <br /> Default is 0.9<br /><br /> The result from `infer_with_options` is a `string` |
-| `generate-embeddings`  | model`string`<br /> prompt`list<string>`| `string`  | The `generate-embeddings` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `all-minilm-l6-v2`, passed in as a `string`).<br /> <br />The second parameter is a prompt; passed in as a `list` of `string`s.<br /><br /> The result from `generate-embeddings` is a two-dimension array containing float32 type values only |
+| `generate-embeddings`  | model`string`<br /> prompt`list<string>`| `string`  | The `generate-embeddings` is performed on a specific model.<br /> <br />The name of the model is the first parameter provided (i.e. `all-minilm-l6-v2`, passed in as a `string`).<br /> <br />The second parameter is a prompt; passed in as a `list` of `string`s.<br /><br /> The result from `generate-embeddings` is a two-dimension array containing float32 type values only |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 The exact detail of calling these operations from your application depends on your language:
 
