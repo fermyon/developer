@@ -44,7 +44,7 @@ In this tutorial we will:
 
 ### Spin 
 
-You will need to [install the latest version of Spin](install#installing-spin). Serverless AI is supported on Spin versions 1.5 and above. This tutorial requires Spin 3.0 or greater. 
+You will need to [install the latest version of Spin](install#installing-spin). This tutorial requires Spin 3.0 or greater. 
 
 If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
 
@@ -182,7 +182,7 @@ Next, we need to create the appropriate folder structure from within the applica
 
 > Ensure you have read the Meta [Licenses](#licenses) section before continuing to use Llama models.
 
-Download the model using the link above and place it in the following structure below.
+Download the the `*.safetensors`, `config.json` and `tokenizer.json` from [huggingface](https://huggingface.co/meta-llama/Llama-2-7b-hf) and place it in the following structure below. The `.spin` directory needs to be placed in the root of the Spin project.
 
 <!-- @nocpy -->
 
@@ -192,16 +192,16 @@ tree .spin
 └── ai-models
     └── llama
         └── llama2-chat
-            └── <safetensors files>
-            └── <config.json>
-            └── <tokenizor.json>
+            └── <*.safetensors files>
+            └── config.json
+            └── tokenizor.json
 ```
 
 **codellama-instruct example download**
 
 > Ensure you have read the Meta [Licenses](#licenses) section before continuing to use Llama models.
 
-Download the model using the link above and place it in the following structure below.
+Download the `*.safetensors`, `config.json` and `tokenizer.json` from [huggingface](https://huggingface.co/meta-llama/CodeLlama-7b-hf/tree/main) and place it in the following structure below.
 
 <!-- @nocpy -->
 
@@ -211,6 +211,9 @@ tree .spin
 └── ai-models
     └── llama
         └── codellama-instruct
+            └── <*.safetensors files>
+            └── config.json
+            └── tokenizor.json
 ```
 
 **all-minilm-l6-v2 example download**
