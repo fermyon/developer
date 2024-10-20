@@ -453,7 +453,7 @@ Installed 1 template(s)
 +---------------------------------------------+
 ```
 
-**Please note:** For more information about managing `spin templates`, see the [templates section](./cli-reference#templates) in the Spin Command Line Interface (CLI) documentation.
+**Please note:** For more information about managing Spin templates, see the [templates guide](./managing-templates).
 
 This command created a directory with the necessary files needed to build and run a Python Spin application.  Change to that directory, and look at the files.  It contains a minimal Python application:
 

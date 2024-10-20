@@ -509,7 +509,7 @@ The `spin up` command's `--tls-cert` and `--tls-key` trigger options provide a w
 
 The `--tls-cert` option specifies the path to the TLS certificate to use for HTTPS, if this is not set, normal HTTP will be used. The certificate should be in PEM format. 
 
-The `--tls-key` option specifies the path to the private key to use for HTTPS, if this is not set, normal HTTP will be used. The key should be in PKCS#8 format. For more information, please see the [Spin CLI Reference](./cli-reference#trigger-options).
+The `--tls-key` option specifies the path to the private key to use for HTTPS, if this is not set, normal HTTP will be used. The key should be in PKCS#8 format.
 
 ### Environment Variables
 

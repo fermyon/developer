@@ -86,7 +86,7 @@ api_version = "v1"
 
 ## Using Variables From Applications
 
-The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit/variables.wit) consists of one operation:
+The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit/deps/spin@2.0.0/variables.wit) consists of one operation:
 
 | Operation  | Parameters         | Returns             | Behavior |
 |------------|--------------------|---------------------|----------|

@@ -126,7 +126,7 @@ To update your local cache of the catalogue, run `spin plugins update`.
 
 To upgrade a plugin to the latest version, first run `spin plugins update` (to refresh the catalogue), then `spin plugins upgrade`. 
 
-The `spin plugins upgrade` command has the same options as the `spin plugins install` command (according to whether the plugin comes from the catalogue, a URL, or a file). For more information, see the plugins section of the [Spin CLI Reference documentation](cli-reference#spin-plugins). 
+The `spin plugins upgrade` command has the same options as the `spin plugins install` command (according to whether the plugin comes from the catalogue, a URL, or a file). For more information, see the command help by running `spin plugins upgrade --help`.
 
 > The `upgrade` command uses your local cache of the catalogue. This might not include recently added plugins or versions. So always remember to run `spin plugins update` to refresh your local cache of the catalogue before performing the `spin plugins upgrade` command.
 
