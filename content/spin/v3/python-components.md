@@ -83,7 +83,7 @@ Installed 1 template(s)
 +---------------------------------------------+
 ```
 
-**Please note:** For more information about managing `spin templates`, see the [templates section](./cli-reference#templates) in the Spin Command Line Interface (CLI) documentation.
+**Please note:** For more information about managing Spin templates, see the [templates guide](./managing-templates).
 
 ## Creating a New Python Component
 

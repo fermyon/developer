@@ -54,7 +54,7 @@ How-to guides are oriented towards showing a user how to solve a problem, which 
 
 ### 3. Reference
 
-Reference resources are merely a dry description; describing the feature in its simplest form. A great example of a reference resource is the [Spin CLI Reference page](./cli-reference). You will notice that the CLI Reference page simply lists all of the commands and available options.
+Reference resources are merely a dry description; describing the feature in its simplest form. An example of a reference resource is the [Spin application manifest reference](./manifest-reference). You will notice that the Manifest Reference page simply lists all of the manifest entries and available options.
 
 ### 4. Explanation
 
