@@ -13,7 +13,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/ai-sentime
 - [Serverless AI Inferencing With Spin Applications](#serverless-ai-inferencing-with-spin-applications)
   - [Creating a New Spin Application](#creating-a-new-spin-application)
   - [Supported AI Models](#supported-ai-models)
-  - [Model Optimization](#model-optimization)
   - [Application Structure](#application-structure)
   - [Application Configuration](#application-configuration)
   - [Source Code](#source-code)
@@ -45,7 +44,7 @@ In this tutorial we will:
 
 ### Spin 
 
-You will need to [install the latest version of Spin](install#installing-spin). Serverless AI is supported on Spin versions 1.5 and above. 
+You will need to [install the latest version of Spin](install#installing-spin). This tutorial requires Spin 3.0 or greater. 
 
 If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
 
@@ -173,10 +172,6 @@ Fermyon's Spin and Serverless AI currently support:
 - Meta's open source Large Language Models (LLMs) [Llama](https://ai.meta.com/llama/), specifically the `llama2-chat` and `codellama-instruct` models (see Meta [Licenses](#licenses) section above).
 - SentenceTransformers' [embeddings](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) models, specifically the `all-minilm-l6-v2` model.
 
-### Model Optimization
-
-The models need to be in a particular format for Spin to be able to use them (quantized, which is a form of optimization). The official download links for the models (in non-quantized format) are listed in the previous section. However, for your convenience, the code examples below fetch models which are already in the special quantized format.
-
 ### Application Structure
 
 Next, we need to create the appropriate folder structure from within the application directory (alongside our `spin.toml` file). The code below demonstrates the variations in folder structure depending on which model is being used. Once the folder structure is in place, we then fetch the pre-trained AI model for our application:
@@ -187,15 +182,7 @@ Next, we need to create the appropriate folder structure from within the applica
 
 > Ensure you have read the Meta [Licenses](#licenses) section before continuing to use Llama models.
 
-<!-- @selectiveCpy -->
-
-```bash
-# llama2-chat
-$ mkdir -p .spin/ai-models/llama
-$ cd .spin/ai-models/llama
-$ wget https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/a17885f653039bd07ed0f8ff4ecc373abf5425fd/llama-2-13b-chat.ggmlv3.q3_K_L.bin
-$ mv llama-2-13b-chat.ggmlv3.q3_K_L.bin llama2-chat
-```
+Download the the `*.safetensors`, `config.json` and `tokenizer.json` from [huggingface](https://huggingface.co/meta-llama/Llama-2-7b-hf) and place it in the following structure below. The `.spin` directory needs to be placed in the root of the Spin project.
 
 <!-- @nocpy -->
 
@@ -205,21 +192,16 @@ tree .spin
 └── ai-models
     └── llama
         └── llama2-chat
+            └── <*.safetensors files>
+            └── config.json
+            └── tokenizor.json
 ```
 
 **codellama-instruct example download**
 
 > Ensure you have read the Meta [Licenses](#licenses) section before continuing to use Llama models.
 
-<!-- @selectiveCpy -->
-
-```bash
-# codellama-instruct
-$ mkdir -p .spin/ai-models/llama
-$ cd .spin/ai-models/llama
-$ wget https://huggingface.co/TheBloke/CodeLlama-13B-Instruct-GGML/resolve/b3dc9d8df8b4143ee18407169f09bc12c0ae09ef/codellama-13b-instruct.ggmlv3.Q3_K_L.bin
-$ mv codellama-13b-instruct.ggmlv3.Q3_K_L.bin codellama-instruct
-```
+Download the `*.safetensors`, `config.json` and `tokenizer.json` from [huggingface](https://huggingface.co/meta-llama/CodeLlama-7b-hf/tree/main) and place it in the following structure below.
 
 <!-- @nocpy -->
 
@@ -229,6 +211,9 @@ tree .spin
 └── ai-models
     └── llama
         └── codellama-instruct
+            └── <*.safetensors files>
+            └── config.json
+            └── tokenizor.json
 ```
 
 **all-minilm-l6-v2 example download**
