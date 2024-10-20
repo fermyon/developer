@@ -287,6 +287,16 @@
                                         Spin</a></li>
                 </ul>
         </div>
+        <div class="accordion-menu-item">
+                <input type="checkbox" id="rd11" name="rd">
+                <label for="rd11" class="accordion-menu-item-label menu-label">
+                        FAQ
+                </label>
+                <ul class="menu-list accordion-menu-item-content">
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v3/faq" )}} class="active" {{/if}}
+                                        href="{{site.info.base_url}}/spin/v3/faq">FAQ</a></li>
+                </ul>
+        </div>
 </div>
 
 <div class="button-wrap">
