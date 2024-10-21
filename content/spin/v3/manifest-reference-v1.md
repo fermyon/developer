@@ -34,7 +34,7 @@ The manifest is a TOML file, and follows standard TOML syntax.  See the [TOML do
 | `version`               | Required   | String      | The version of the application. The must be a string of the form `major.minor.patch`, where each element is a number. | `"1.0.5"` |
 | `description`           | Optional   | String      | A human-readable description of the application. | `"The best app for all your world-greeting needs"` |
 | `authors`               | Optional   | Array of strings | The authors of the applications. If present, this must ba an array, even if it has only one entry. | `["Jane Q Hacker (<dev@example.com>)"]` |
-| `trigger`               | Required   | Table       | The trigger for the application - that is, the kind of event that the application responds to. The table must contain the `type` field, and may contain others depending on the value of `type`. See [The `trigger` Table](#the-trigger-table) for details. | `{ type = "http", base = "/" }` |
+| `trigger`               | Required   | Table       | The trigger for the application - that is, the kind of event that the application responds to. The table must contain the `type` field, and may contain others depending on the value of `type`. See [The `trigger` Table](#the-trigger-table) for details. | `{ type = "http" }` |
 | `variables`             | Optional   | Table       | Dynamic configuration variables which the user can set when they run the application. See [The `variables` Table](#the-variables-table) below. | `[variables]`<br />`message = { default = "hello" }` |
 | `component`             | Required   | Table array | A manifest must contain at least one `component` table. `component` is always an array, even if there is only one component, so always use double square brackets.  See [The `component` Tables](#the-component-tables) below. | `[[component]]`<br />`id = "hello"` |
 
@@ -45,7 +45,7 @@ The `trigger` table specifies the events that the application responds to.  The 
 > Because the `trigger` table usually contains only a few simple fields, you will usually see it written inline using brace notation, rather than written out using square-brackets table syntax.  For example:
 >
 > ```toml
-> trigger = { type = "http", base = "/" }
+> trigger = { type = "http" }
 > ```
 
 ### The `trigger` Table for HTTP Applications
@@ -53,7 +53,6 @@ The `trigger` table specifies the events that the application responds to.  The 
 | Name                    | Required?  | Type        | Value    | Example   |
 |-------------------------|------------|-------------|----------|-----------|
 | `type`                  | Required   | String      | Always `"http"` for HTTP applications. | `"http"` |
-| `base`                  | Required   | String      | The base path of the application. All component routes are relative to this. It allows multiple applications to be mounted under the same host. | `"/"` |
 
 ### The `trigger` Table for Redis Applications
 
