@@ -101,9 +101,7 @@ Another trigger type is `redis`, which is triggered by Redis pub-sub messages. F
 
 Multiple triggers may refer to the same component. For example, you could have another trigger on `/dober-dan` which also invokes the `greeter` component.
 
-Some triggers have additional application-level configuration options.  For example, the HTTP trigger allows you to provide a `base` field, which tells Spin the "root" route to which all component routes are relative.  See the [HTTP trigger](http-trigger) and [Redis trigger](redis-trigger) documentation for more details.
-
-> If you're familiar with Spin 1.x, note that triggers are now distinct entries in the manifest, and _refer_ to components, instead of being specified _inside_ components.
+Some triggers have additional application-level configuration options.  For example, the Redis trigger allows you to provide an `address` field, which tells Spin the default server for components that do not specify servers.  See the [Redis trigger](redis-trigger) documentation for more details.
 
 ### The Component Name
 

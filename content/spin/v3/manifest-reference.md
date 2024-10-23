@@ -10,7 +10,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/manifest-r
 - [Manifest Fields](#manifest-fields)
 - [The `application` Table](#the-application-table)
 - [The `application.trigger` Table](#the-applicationtrigger-table)
-  - [The `application.trigger.http` Table](#the-applicationtriggerhttp-table)
   - [The `application.trigger.redis` Table](#the-applicationtriggerredis-table)
 - [The `variables` Table](#the-variables-table)
 - [The `trigger` Table](#the-trigger-table)
@@ -85,21 +84,13 @@ The only variables permitted in manifest expressions are application variables.
 | `version`               | Optional   | String      | The version of the application. The must be a string of the form `major.minor.patch`, where each element is a number. | `"1.0.5"` |
 | `description`           | Optional   | String      | A human-readable description of the application. | `"The best app for all your world-greeting needs"` |
 | `authors`               | Optional   | Array of strings | The authors of the applications. If present, this must ba an array, even if it has only one entry. | `["Jane Q Hacker (<dev@example.com>)"]` |
-| `trigger`               | Optional   | Table       | Application-global trigger settings. See [The `application.trigger` Table](#the-applicationtrigger-table) below. | `[application.trigger.http]`<br />`base = "/"` |
+| `trigger`               | Optional   | Table       | Application-global trigger settings. See [The `application.trigger` Table](#the-applicationtrigger-table) below. | `[application.trigger.redis]`<br />`address = "redis.example.com"` |
 
 ## The `application.trigger` Table
 
-The `application.trigger` should contain only one key, the trigger type whose settings you want to override. This is usually written inline as part of the TOML table header, e.g. `[application.trigger.http]`.
+The `application.trigger` should contain only one key, the trigger type whose settings you want to override. This is usually written inline as part of the TOML table header, e.g. `[application.trigger.redis]`.
 
 > In many cases, your trigger will have no settings, or the default ones will suffice. In this case, you can omit the `application.trigger` table.
-
-> If you're familiar with manifest version 1, note that this is now optional. The trigger type to which the application responds is determined by the top-level `trigger` mappings; you only need to provide an `application.trigger` if you want to override the default global settings for the trigger type.
-
-### The `application.trigger.http` Table
-
-| Name                    | Required?  | Type        | Value    | Example   |
-|-------------------------|------------|-------------|----------|-----------|
-| `base`                  | Optional   | String      | The base path of the application. All component routes are relative to this. It allows multiple applications to be mounted under the same host. | `"/"` |
 
 ### The `application.trigger.redis` Table
 
