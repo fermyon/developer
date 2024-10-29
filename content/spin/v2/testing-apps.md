@@ -210,7 +210,7 @@ Then we edit the `my-app` application's manifest (the `spin.toml` file) by addin
 [component.my-component.tool.spin-test]
 source = "tests/target/wasm32-wasi/release/tests.wasm"
 build = "cargo component build --release"
-dir = "tests"
+workdir = "tests"
 ```
 
 ## Updating the App to Pass the Tests
