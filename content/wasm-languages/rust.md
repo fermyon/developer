@@ -63,18 +63,13 @@ When writing Spin applications in Rust, use `cargo init --lib` or `cargo new --l
 Here is an example `lib.rs` that uses Spin's native executor:
 
 ```rust
-use anyhow::Result;
-use spin_sdk::{
-    http::{Request, Response},
-    http_component,
-};
+use spin_sdk::http::{IntoResponse, Request, Response};
+use spin_sdk::http_component;
 
 /// A simple Spin HTTP component.
 #[http_component]
-fn hello_world(_req: Request) -> Result<Response> {
-    Ok(http::Response::builder()
-        .status(200)
-        .body(Some("Writing a very simple Spin component in Rust".into()))?)
+fn hello_world(_req: Request) -> anyhow::Result<impl IntoResponse> {
+    Ok(Response::new(200, "Writing a very simple Spin component in Rust"))
 }
 ```
 
@@ -92,14 +87,8 @@ crate-type = [ "cdylib" ]
 [dependencies]
 # Useful crate to handle errors.
 anyhow = "1"
-# Crate to simplify working with bytes.
-bytes = "1"
-# General-purpose crate with common HTTP types.
-http = "0.2"
 # The Spin SDK.
-spin-sdk = { git = "https://github.com/fermyon/spin" }
-# Crate that generates Rust Wasm bindings from a WebAssembly interface.
-wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", rev = "2f46ce4cc072107153da0cefe15bdc69aa5b84d0" }
+spin-sdk = "3.0.1"
 ```
 
 To build a Spin app in rust, use `cargo build`:
@@ -113,21 +102,26 @@ $ cargo build --target wasm32-wasi --release
 The resulting binary can be run in Spin with a `spin.toml` that looks something like this:
 
 ```toml
-spin_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
-description = "Hello world app."
-name = "spin-hello"
-trigger = { type = "http", base = "/" }
-version = "1.0.0"
+spin_manifest_version = 2
 
-[[component]]
-id = "hello"
-source = "target/wasm32-wasi/release/hello.wasm"
-[component.trigger]
+[application]
+name = "spin-hello"
+version = "1.0.0"
+description = "Hello world app."
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+
+[[trigger.http]]
+id = "trigger-hello"
+component = "hello"
 route = "/"
+
+[component.hello]
+source = "target/wasm32-wasi/release/hello.wasm"
+[component.hello.build]
+command = "cargo build --target wasm32-wasi --release"
 ```
 
-Note that we do _not_ add an `executor` line at the bottom of this file as we do in many other examples.
+> Note: we've set the `hello` component's build command to be the `cargo build` invocation above, so that `spin build` will run it from now on.
 
 From there, running the app is as easy as `spin up`!
 
@@ -139,12 +133,12 @@ It is also possible to write a Wagi application in Rust and run it in Spin or Wa
 
 Here are some great resources:
 
-- The official [documentation for Spin](https://spin.fermyon.dev/rust-components/) has many examples, including creating Redis listeners.
+- The official [documentation for Spin](https://developer.fermyon.com/spin/rust-components/) has many examples, including creating Redis listeners.
 - Rust has a [dedicated mini-site covering WebAssembly](https://www.rust-lang.org/what/wasm)
 - The Rust Linz group did a [presentation on Rust and Wagi](https://www.youtube.com/watch?v=9NDwHBjLlhQ) and posted a GitHub [repo full of Wagi examples](https://github.com/rstropek/rust-samples)
 - [Wasmtime](https://wasmtime.dev/) is the reference implementation of Wasm32-WASI.
 - [egui](https://www.egui.rs/) provides a GUI toolkit that can be compiled into Wasm and run in the browser
 - DeisLabs has some [Rust Wagi examples](https://github.com/deislabs/wagi-examples)
+- There are several rich examples in the [Spin Rust SDK repo](https://github.com/fermyon/spin-rust-sdk/tree/stable/examples) as well as the [Spin Up Hub](https://developer.fermyon.com/hub)
 - The [Bartholomew CMS](https://github.com/fermyon/bartholomew) is written in Rust and runs in Spin or Wagi
 - The [spin-fileserver](https://github.com/fermyon/spin-fileserver) is a simple Rust Spin-native app
-- There are several rich examples in the [Spin Kitchen Sink repo](https://github.com/fermyon/spin-kitchensink)
