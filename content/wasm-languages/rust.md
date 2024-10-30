@@ -56,11 +56,9 @@ Things we're not big fans of:
 
 >> All of our examples follow [a documented pattern using common tools](/wasm-languages/about-examples).
 
-Rust can use Spin's native executor as well as Spin's Wagi executor. We strongly recommend the native one, as it has more features.
-
 When writing Spin applications in Rust, use `cargo init --lib` or `cargo new --lib`. Spin loads the `wasm` files as libraries, not as executables with a `main` function.
 
-Here is an example `lib.rs` that uses Spin's native executor:
+Here is an example `lib.rs`:
 
 ```rust
 use spin_sdk::http::{IntoResponse, Request, Response};
@@ -125,10 +123,6 @@ command = "cargo build --target wasm32-wasi --release"
 
 From there, running the app is as easy as `spin up`!
 
-### Writing Wagi-Based Rust Apps
-
-It is also possible to write a Wagi application in Rust and run it in Spin or Wagi. Examples of this exist [in the Wagi examples repository](https://github.com/deislabs/wagi-examples).
-
 ## Learn More
 
 Here are some great resources:
@@ -138,7 +132,6 @@ Here are some great resources:
 - The Rust Linz group did a [presentation on Rust and Wagi](https://www.youtube.com/watch?v=9NDwHBjLlhQ) and posted a GitHub [repo full of Wagi examples](https://github.com/rstropek/rust-samples)
 - [Wasmtime](https://wasmtime.dev/) is the reference implementation of Wasm32-WASI.
 - [egui](https://www.egui.rs/) provides a GUI toolkit that can be compiled into Wasm and run in the browser
-- DeisLabs has some [Rust Wagi examples](https://github.com/deislabs/wagi-examples)
 - There are several rich examples in the [Spin Rust SDK repo](https://github.com/fermyon/spin-rust-sdk/tree/stable/examples) as well as the [Spin Up Hub](https://developer.fermyon.com/hub)
-- The [Bartholomew CMS](https://github.com/fermyon/bartholomew) is written in Rust and runs in Spin or Wagi
+- The [Bartholomew CMS](https://github.com/fermyon/bartholomew) is written in Rust and runs in Spin
 - The [spin-fileserver](https://github.com/fermyon/spin-fileserver) is a simple Rust Spin-native app
