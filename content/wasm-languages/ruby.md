@@ -79,7 +79,7 @@ $ cd hello-ruby
 ```
 
 Now fetch a copy of the Ruby source from the [official releases](https://github.com/ruby/ruby.wasm/releases).
-For this example, we are downloading the `ruby-head-wasm32-unknown-wasi-full.tar.gz` version, 
+For this example, we are downloading the `ruby-head-wasm32-unknown-wasip1-full.tar.gz` version,
 but one of the smaller versions works just as well.
 
 Now create a local `lib` dir where we will put our own source.
@@ -96,7 +96,7 @@ At this point, our directory should look like this:
 $ tree -L 2 -a -d
 .
 ├── .gem
-├── head-wasm32-unknown-wasi-full
+├── ruby-head-wasm32-unknown-wasip1-full
 │   ├── usr
 │   └── var
 └── lib
@@ -122,25 +122,25 @@ Hello, World
 Ruby is a scripting language, which means it will need to load a number of scripts (ours plus all of the built-in libraries) off of its filesystem. The `spin.toml` file for Ruby is more complex than most:
 
 ```toml
-spin_version = "1"
+spin_manifest_version = 2
+
+[application]
 name = "example-ruby-app"
 version = "0.1.0"
-trigger = { type = "http", base = "/" }
 
-[[component]]
+[[trigger.http]]
+component = "ruby"
+route = "/"
+executor = { type = "wagi", argv = "${SCRIPT_NAME} -v /lib/hello.rb ${SCRIPT_NAME} ${ARGS}" }
+
+[component.ruby]
+source = "ruby-head-wasm32-unknown-wasip1-full/usr/local/bin/ruby"
+environment = { HOME = "/", GEM_HOME = "/.gem" }
 files = [
   { source = "lib", destination = "/lib" },
   { source = ".gem", destination = "/.gem" },
-  { source = "head-wasm32-unknown-wasi-full/usr", destination = "/usr" },
+  { source = "ruby-head-wasm32-unknown-wasip1-full/usr", destination = "/usr" },
 ]
-id = "ruby"
-source = "head-wasm32-unknown-wasi-full/usr/local/bin/ruby"
-[component.trigger]
-executor = { type = "wagi", argv = "${SCRIPT_NAME} -v /lib/hello.rb ${SCRIPT_NAME} ${ARGS}" }
-route = "/"
-[component.environment]
-HOME = "/"
-GEM_HOME = "/.gem"
 ```
 
 Note that we need to mount several sets of files: `lib`, `.gem`, and `usr`. This exposes all of Ruby's supporting files.
@@ -155,12 +155,16 @@ Next, running `spin up` will start the server.
 
 ```console
 $ spin up
+Logging component stdio to ".spin/logs/"
 Preparing Wasm modules is taking a few seconds...
 
-Serving HTTP on address http://127.0.0.1:3000
+
+Serving http://127.0.0.1:3000
+Available Routes:
+  ruby: http://127.0.0.1:3000
 ```
 
-Note that the first line occurs because when Spin starts up, it does take Ruby a few moments to load all of its supporting files.
+Note that the second line occurs because when Spin starts up, it does take Ruby a few moments to load all of its supporting files.
 _Using one of the [smaller instances](https://github.com/ruby/ruby.wasm/releases) will improve startup time
 and overall performance._
 
