@@ -14,6 +14,10 @@ But it is no longer just for iOS apps.
 Thanks to a recent community-led project, it is possible to [compile Swift into WebAssembly](https://swiftwasm.org/)
 destined either for the browser or for a WASI environment.
 
+## Compatibility
+
+The latest [5.10 version of the SwiftWasm tools](https://book.swiftwasm.org/getting-started/setup.html#installation---latest-release-swiftwasm-510) uses an older version of wasi-libc that is not supported by Spin 3+. Therefore, Spin 2.x is necessary for running example Swift apps at this time. Assuming Swift 6.0 ships with an updated wasi-libc version, compatibility with Spin 3+ should then be possible.
+
 ## Available Implementations
 
 The [SwiftWasm](https://swiftwasm.org/) project compiles Swift to WebAssembly. While this is a community-led project, the [stated goal](https://book.swiftwasm.org/index.html) of the project is:
@@ -32,8 +36,8 @@ Once that is done, the `swift` tool should report SwiftWasm support:
 
 ```
 $ swift --version
-SwiftWasm Swift version 5.5 (swiftlang-5.5.0)
-Target: arm64-apple-darwin21.1.0
+SwiftWasm Swift version 5.10-dev (LLVM e98989b1092ff3a, Swift 23e8e340a7a32a7)
+Target: arm64-apple-darwin24.0.0
 ```
 
 From there, the `swift` tool works as usual.
@@ -69,8 +73,8 @@ Once you have installed SwiftWasm, it is easy to build applications for the Ferm
 The simplest Swift program for Spin (or Wagi) looks like this:
 
 ```swift
-print("content-type: text/plain\n\n")
-print("Hello, World!\n")
+print("content-type: text/plain\n")
+print("Hello, World!")
 ```
 
 To compile, set the target to `wasm32-unknown-wasi` (which ensures that WASI support is enabled):
@@ -91,19 +95,22 @@ Hello, World!
 To run it as a Spin web application, we can add a `spin.toml` that looks like this:
 
 ```toml
-spin_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
-description = "Hello world app."
-name = "spin-hello"
-trigger = { type = "http", base = "/" }
-version = "1.0.0"
+spin_manifest_version = 2
 
-[[component]]
-id = "hello"
-source = "hello.wasm"
-[component.trigger]
+[application]
+name = "spin-hello"
+version = "1.0.0"
+description = "Hello world app."
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+
+[[trigger.http]]
+id = "trigger-hello"
+component = "hello"
 route = "/"
 executor = { type = "wagi" }
+
+[component.hello]
+source = "hello.wasm"
 ```
 
 Note that we use the `wagi` executor.
