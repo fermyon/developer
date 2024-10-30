@@ -53,13 +53,13 @@ As with any Go project, the first step is to create a `go.mod` file:
 ```
 module github.com/fermyon/example-go
 
-go 1.17
+go 1.23
 ```
 
-Since Spin has a Go SDK which is nice and easy to use, we'll fetch that and use it:
+Since Spin has a [Go SDK](https://github.com/fermyon/spin-go-sdk) which is nice and easy to use, we'll fetch that and use it:
 
 ```console
-$ go mod download github.com/fermyon/spin/sdk/go
+$ go get github.com/fermyon/spin-go-sdk
 ```
 
 Next, create a simple Go program named `main.go`:
@@ -71,11 +71,11 @@ import (
 	"fmt"
 	"net/http"
 
-	spin "github.com/fermyon/spin/sdk/go/http"
+	spinhttp "github.com/fermyon/spin-go-sdk/http"
 )
 
 func main() {
-	spin.HandleRequest(func(w http.ResponseWriter, r *http.Request) {
+	spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "Hello, World!")
 	})
 }
@@ -84,27 +84,31 @@ func main() {
 When it comes to compiling, though, we will need to use TinyGo instead of Go. This particular set of flags has produced the best results for us:
 
 ```
-tinygo build -wasm-abi=generic -target=wasi -gc=leaking -o main.wasm main.go
+tinygo build -target=wasi -gc=leaking -o main.wasm main.go
 ```
 
 The above will output a `main.wasm` file. A simple `spin.toml` for running the above in Spin looks like this:
 
 ```toml
-spin_version = "1"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
-description = "Hello world app."
-name = "spin-go-hello"
-trigger = { type = "http", base = "/" }
-version = "1.0.0"
+spin_manifest_version = 2
 
-[[component]]
-id = "hello"
-source = "main.wasm"
-[component.trigger]
+[application]
+name = "spin-go-hello"
+version = "1.0.0"
+description = "Hello world app."
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+
+[[trigger.http]]
+component = "hello"
 route = "/"
-# Spin components written in Go use the Wagi HTTP executor
-executor = { type = "wagi" }
+
+[component.hello]
+source = "main.wasm"
+[component.hello.build]
+command = "tinygo build -target=wasi -gc=leaking -o main.wasm main.go"
 ```
+
+> Note: we've set the `hello` component's build command to be the tinygo invocation above, so that `spin build` will run it from now on
 
 From there, it's just a matter of using `spin up` to start the server. As usual, we can test using a web browser or Curl:
 
@@ -118,6 +122,6 @@ Hello, World!
 Here are some great resources:
 
 - TinyGo has [a step-by-step walkthrough](https://tinygo.org/docs/guides/webassembly/) for building and running Go WebAssembly modules
-- There are [instructions](https://spin.fermyon.dev/go-components/) and [examples](https://github.com/fermyon/spin-kitchensink)
-- Get started quickly with [Yo-Wasm](https://github.com/deislabs/yo-wasm), which has support for Go as well as several other languages.
+- There are [instructions](https://developer.fermyon.com/spin/go-components/) and [examples](https://github.com/fermyon/spin-go-sdk/tree/main/examples)
+- Get started quickly with Spin templates for Go: e.g. `spin templates list --tag go` and `spin new -t http-go`
 - A [short article](https://golangbot.com/webassembly-using-go/) on compiling to Go's "JS/Wasm" target
