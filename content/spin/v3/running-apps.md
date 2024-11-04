@@ -13,6 +13,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/running-ap
 - [Persistent Logs](#persistent-logs)
 - [Trigger-Specific Options](#trigger-specific-options)
 - [Monitoring Applications for Changes](#monitoring-applications-for-changes)
+- [Splitting an Application Across Environments](#splitting-an-application-across-environments)
 - [The Always Build Option](#the-always-build-option)
 - [Next Steps](#next-steps)
 
@@ -154,6 +155,40 @@ Passing the `--clear` flag clears the screen anytime a rebuild or rerun occurs. 
 For additional information about Spin's `watch` feature, please see the [Spin watch - live reload for Wasm app development](https://www.fermyon.com/blog/spin-watch-live-reloading) blog article.
 
 > The application manifests shown in the blog post are the version 1 manifest, but the content applies equally to the version 2 format. 
+
+## Splitting an Application Across Environments
+
+You can run a subset of the components in an application by using the `--component-id` (`-c`) flag. Set the flag multiple times to select multiple components.
+
+> This is an experimental feature. Unlike stable features, it may change even between minor versions.
+
+This supports _selective deployment_ - that is, splitting an application across environments while still distributing it as a single unit. For example, suppose your application contains the following layers:
+
+* A front end which handles browser and API requests, which you want to run in edge data centres close to users
+* A database backend which must be run in a single central location
+* An AI service which requires an LLM model to be loaded onto the hardware
+
+You could deploy the application across the environments by using `--component-id`. For example:
+
+<!-- @nocpy -->
+
+```console
+# on the US data centre edge nodes
+$ spin up -f registry.example.com/app:1.1.0 -c ui -c api -c assets
+
+# on the European data centre edge nodes
+$ spin up -f registry.example.com/app:1.1.0 -c ui -c api -c assets 
+
+# on the European data centre core nodes
+$ spin up -f registry.example.com/app:1.1.0 -c database
+
+# in the LLM environment
+$ spin up -f registry.example.com/app:1.1.0 -c chat-engine -c sentiment-analyzer
+```
+
+> In practice you'd set these commands up in a scheduler or orchestrator rather than typing them interactively - or, more likely, use a selection-aware scheduler such as [SpinKube](https://www.spinkube.dev/) rather than running `spin up` directly.
+
+If you run a subset which includes a component that uses [local service chaining](./http-outbound#local-service-chaining), then you must also include all chaining targets in the subset - Spin checks this at load time.  [Self-requests](./http-outbound#making-http-requests-within-an-application) will work only if the target route maps to a component in the subset, but this is not checked at load time - instead, self-requests to unselected components will fail at request time with 404 Not Found.
 
 ## The Always Build Option
 
