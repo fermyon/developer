@@ -156,7 +156,7 @@ route = "/spin/v2/..."
 
 [[trigger.http]]
 id = "trigger-bartholomew-spin-v3"
-component = "bartholomew-spin-v2"
+component = "bartholomew-spin-v3"
 route = "/spin/v3/..."
 
 [[trigger.http]]
@@ -367,3 +367,9 @@ files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 [component.bartholomew-spin-v2.build]
 command = "npm run build-index && npm run build-hub-index"
 watch = ["content/**/*", "templates/*"]
+
+[component.bartholomew-spin-v3]
+# Using build from bartholomew main
+source = "modules/bartholomew.wasm"
+environment = { PREVIEW_MODE = "0" }
+files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
