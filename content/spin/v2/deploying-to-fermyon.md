@@ -18,7 +18,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/deploying-
 
 [Fermyon Platform](https://www.fermyon.dev/) is a self-host platform for Spin applications. With Fermyon, you can deploy your spin applications onto a server in moments.
 
-> Fermyon Platform does not currently support Spin 2.
+> Fermyon Platform does not currently support Spin 2 or above.
 
 ### Running on Your Workstation
 
