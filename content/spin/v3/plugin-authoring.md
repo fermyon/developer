@@ -18,8 +18,8 @@ Spin plugins add new functionality or subcommands to Spin without modifying the
 Spin codebase. They make Spin easily extensible while keeping it lightweight.
 Spin plugins can add new triggers to Spin (such as the [example timer
 trigger](https://github.com/fermyon/spin/blob/main/examples/spin-timer/trigger-timer.json)),
-enable new language SDKs (such as
-[`js2wasm`](https://github.com/fermyon/spin-plugins/blob/main/manifests/js2wasm/js2wasm.json)),
+add deployment integrations (such as
+[`kube`](https://github.com/fermyon/spin-plugins/blob/main/manifests/kube/kube.json)),
 and more.
 
 This document will cover what Spin plugins are, how to use a plugin, and how to
@@ -46,19 +46,16 @@ and creates a local snapshot. To ensure that the local snapshot is up to date,
 it is best to run `spin plugins update` before installing any plugins. 
 
 To list available plugins, run `spin plugins search`. Now, decide which plugin to
-install. For example, the `js2wasm` plugin, which is needed in order to build
-JavaScript Spin applications, can be installed by running:
+install. For example, the `kube` plugin, which is needed in order to deploy
+applications to [SpinKube](https://www.spinkube.dev/), can be installed by running:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin plugins install js2wasm
+$ spin plugins install kube
 ```
 
-With the plugin installed, you can now call `spin js2wasm` to run it. In this
-case, for example, you might call it from your JavaScript application's npm
-build script. Learn more about building Spin components in JavaScript
-[here](./javascript-components.md).
+With the plugin installed, you can now call `spin kube` to run it.
 
 To upgrade installed plugins to newer versions, run `spin plugin update` to
 fetch the latest plugins to the local catalogue and `spin plugin upgrade` to perform the

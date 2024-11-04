@@ -20,7 +20,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/managing-p
 - [Downgrading Plugins](#downgrading-plugins)
 - [Next Steps](#next-steps)
 
-Plugins are a way to extend the functionality of Spin. Spin provides commands for installing and removing them, so you don't need to use separate installation tools. When you have installed a plugin into Spin, you can call it as if it were a Spin subcommand. For example, the JavaScript SDK uses a tool called `js2wasm` to package JavaScript code into a Wasm module, and JavaScript applications run it via the `spin js2wasm` command.
+Plugins are a way to extend the functionality of Spin. Spin provides commands for installing and removing them, so you don't need to use separate installation tools. When you have installed a plugin into Spin, you can call it as if it were a Spin subcommand. For example, Fermyon Cloud can be accessed with a plugin called `cloud`, and you run it via the `spin cloud` command.
 
 ## Installing Plugins
 
@@ -33,7 +33,7 @@ The Spin maintainers curate a catalogue of "known" plugins. You can install plug
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin plugins install js2wasm
+$ spin plugins install cloud
 ```
 
 Spin checks that the plugin is available for your version of Spin and your operating system, and prompts you to confirm the installation. To skip the prompt, pass the `--yes` flag.
@@ -47,7 +47,7 @@ To install a specific version of a plugin, pass the `--version` flag:
 <!-- @nocpy -->
 
 ```bash
-$ spin plugins install js2wasm --version 0.4.0
+$ spin plugins install cloud --version 0.9.1
 ```
 
 ### Installing a Plugin From a URL
@@ -77,7 +77,7 @@ You run plugins in the same way as built-in Spin subcommands. For example:
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin js2wasm --help
+$ spin cloud --help
 ```
 
 ## Viewing Available Plugins
@@ -89,8 +89,8 @@ To see what plugins are available in the catalogue, run `spin plugins search`:
 ```bash
 $ spin plugins search
 befunge2wasm 1.4.0 [incompatible]
-js2wasm 0.3.0 [installed]
-js2wasm 0.4.0
+cloud 0.8.0 [installed]
+cloud 0.9.0
 trigger-sqs 0.1.0
 ```
 
@@ -130,13 +130,13 @@ The `spin plugins upgrade` command has the same options as the `spin plugins ins
 
 > The `upgrade` command uses your local cache of the catalogue. This might not include recently added plugins or versions. So always remember to run `spin plugins update` to refresh your local cache of the catalogue before performing the `spin plugins upgrade` command.
 
-The following example shows how to upgrade one plugin at a time (i.e. the `js2wasm` plugin):
+The following example shows how to upgrade one plugin at a time (i.e. the `cloud` plugin):
 
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin plugins update
-$ spin plugins upgrade js2wasm
+$ spin plugins upgrade cloud
 ```
 
 The following example shows how to upgrade all installed plugins at once:
@@ -161,7 +161,7 @@ $ spin plugins upgrade --file ~/dev/spin-befunge-sdk/befunge2wasm.json
 
 ## Downgrading Plugins
 
-By default, Spin will only _upgrade_ plugins. Pass the `--downgrade` flag and specify the `--version` if you want Spin to roll back to an earlier version. The following abridged example (which doesn't list the full console output for simplicity) lists the versions of plugins, downgrades the `js2wasm` to an older version (`0.6.0`) and then lists the versions again to show the results:
+By default, Spin will only _upgrade_ plugins. Pass the `--downgrade` flag and specify the `--version` if you want Spin to roll back to an earlier version. The following abridged example (which doesn't list the full console output for simplicity) lists the versions of plugins, downgrades the `cloud` to an older version (`0.9.0`) and then lists the versions again to show the results:
 
 <!-- @nocpy -->
 
@@ -169,19 +169,17 @@ By default, Spin will only _upgrade_ plugins. Pass the `--downgrade` flag and sp
 $ spin plugins update
 $ spin plugins list
 // --snip--
-js2wasm 0.6.0
-js2wasm 0.6.1 [installed]
-$ spin plugins upgrade js2wasm --downgrade --version 0.6.0
+cloud 0.9.0
+cloud 0.9.1 [installed]
+$ spin plugins upgrade cloud --downgrade --version 0.9.0
 $ spin plugins list
 // --snip--
-js2wasm 0.6.0 [installed]
-js2wasm 0.6.1
+cloud 0.9.0 [installed]
+cloud 0.9.1
 ```
 
-After downgrading, the `[installed]` indicator is aligned with the `0.6.0` version of `js2wasm`, as intended in the example.
+After downgrading, the `[installed]` indicator is aligned with the `0.9.0` version of `cloud`, as intended in the example.
 
 ## Next Steps
 
-- [Install the JavaScript or Python plugins](quickstart)
-- [Use the JavaScript or Python plugins to build a Wasm module](build)
-- [Checkout the spin cloud plugin](https://github.com/fermyon/cloud-plugin)
+- [Check out the spin cloud plugin](https://github.com/fermyon/cloud-plugin)
