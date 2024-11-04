@@ -194,16 +194,7 @@ $ rustup target add wasm32-wasi
 
 {{ startTab "TypeScript" }}
 
-> If you used the installer script above, the `js2wasm` plugin is already installed, and you can skip this section!
-
-You'll need the Spin `js2wasm` plugin:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ spin plugins update
-$ spin plugins install js2wasm --yes
-```
+You will need `npm` installed and on the path.  `npm` will install any additional build tools as part of building the application.
 
 [Learn more in the language guide.](javascript-components)
 
@@ -410,18 +401,15 @@ Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in TypeScript — a regular function named `handleRequest` that
 takes an HTTP request as a parameter and returns an HTTP response.  (The
 JavaScript version looks slightly different, but is still a function with
-the same signature.)  The Spin `js2wasm` plugin looks for the `handleRequest` function
+the same signature.)  The Spin integration looks for the `handler` function
 by name when building your application into a Wasm module:
 
 ```javascript
-import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
+import { ResponseBuilder } from "@fermyon/spin-sdk";
 
-export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
-  return {
-    status: 200,
-    headers: { "content-type": "text/plain" },
-    body: "Hello from TS-SDK"
-  }
+export async function handler(req: Request, res: ResponseBuilder) {
+    console.log(req);
+    res.send("hello universe");
 }
 ```
 
@@ -743,7 +731,7 @@ $ spin build
 Executing the build command for component hello-typescript: npm run build
 
 > hello-typescript@1.0.0 build
-> npx webpack --mode=production && mkdir -p target && spin js2wasm -o target/spin-http-js.wasm dist/spin.js
+> npx webpack --mode=production && npx mkdirp target && npx j2w -i dist.js -d combined-wit -n combined -o target/hello-typescript.wasm
 
 asset spin.js 4.57 KiB [emitted] (name: main)
 runtime modules 670 bytes 3 modules
@@ -761,7 +749,6 @@ If the build fails, check:
 
 * Are you in the `hello_typescript` directory?
 * Did you run `npm install` before building`?
-* Did you install the `js2wasm` plugin?
 
 If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
