@@ -439,6 +439,8 @@ Few of us write applications without relying on libraries. Traditionally, those 
 
 To use composition through Spin, your component must import a [WIT (Wasm Interface Type) interface](https://component-model.bytecodealliance.org/design/wit.html), and the dependency must export the same WIT interface. The details of working with WIT interfaces is language-specific, and is beyond the scope of the Spin documentation. You can learn more from the [language guides in the Component Model book](https://component-model.bytecodealliance.org/language-support.html). This section focuses on describing the dependency composition support in Spin.
 
+> Component dependencies are not currently supported on Fermyon Cloud.
+
 ### Declaring Component Dependencies
 
 To declare a component dependency, create a `[component.(name).dependencies]` table in your Spin manifest, and list all the WIT interfaces you import (other than the ones that Spin itself satisfies), together with the packages that you would like to use to satisfy those imports.
@@ -510,14 +512,16 @@ and Spin will map all of your `security:http` imports to the matching exports fr
 
 By default, dependencies do not have access to Spin resources that require permission to be given in the manifest - network hosts, key-value stores, SQLite databases, variables, etc.
 
-If you depend on a component which requires such access, and you trust all the components that you depend on, you can grant them access to the same resources that the 'main' component has by setting the `dependencies_inherit_configuration` flag on the main component:
+If a component has a dependency which requires resource access, you can grant it by setting the `dependencies_inherit_configuration` flag in the Spin component manifest:
 
 ```toml
 [component.my-app]
 dependencies_inherit_configuration = true
 ```
 
-> Spin does not currently support inheritance on a component-by-component basis. If the flag is set, _all_ the dependencies will act with the permissions of the main component.
+This grants _all_ dependencies access to _all_ resources listed in the Spin component manifest. You should therefore set this only if you trust _all_ dependencies.
+
+> Spin does not currently support inheritance on a dependency-by-dependency or feature-by-feature basis.
 
 ## Next Steps
 

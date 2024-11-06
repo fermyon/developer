@@ -5,6 +5,8 @@ date = "2023-11-04T00:00:01Z"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/contributing-spin.md"
 
 ---
+- [Developer Community Calls](#developer-community-calls)
+- [Code of Conduct](#code-of-conduct)
 - [Making Code Contributions to Spin](#making-code-contributions-to-spin)
 - [Before You Commit](#before-you-commit)
 - [Committing and Pushing Your Changes](#committing-and-pushing-your-changes)
@@ -31,8 +33,8 @@ The [Spin Project Meeting Agenda is a public document](https://docs.google.com/d
 
 ## Code of Conduct
 
-First, any contribution and interaction on any Fermyon project MUST follow our
-[code of conduct](https://www.fermyon.com/code-of-conduct). Thank you for being
+First, any contribution and interaction on the Spin project MUST follow our
+[code of conduct](https://github.com/fermyon/spin/blob/main/CODE_OF_CONDUCT.md). Thank you for being
 part of an inclusive and open community!
 
 If you plan on contributing anything complex, please go through the issue and PR

@@ -34,3 +34,5 @@ The following change will not affect most application authors, but may affect yo
 * If an outbound HTTP request is denied, the `HTTP-request-denied` error previously occurred immediately on the
   initial `wasi:http/outgoing-handler#handle` call. It now occurs when calling `get` on the `future-incoming-response`
   returned from the `handle` call.
+
+If you're affected by these or other changes and you're looking for help, please reach out on the [Fermyon Discord](https://discord.gg/AAFNfS7NGf) for support.

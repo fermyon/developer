@@ -84,8 +84,11 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | [Serverless AI](/spin/serverless-ai-api-guide) | Supported |
 | [Service Chaining](/spin/http-outbound#local-service-chaining) | Not supported |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
-| [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Spin 2 interface is supported; Spin 3 interface is not |
 | [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
+| [`wasi-cloud-core`](https://github.com/WebAssembly/wasi-cloud-core) | Not supported |
+| **Features** |
+| [Component dependencies](/spin/v3/writing-apps.md#using-component-dependencies) | Not supported |
 | **Extensibility** |
 | [Custom Triggers](/spin/extending-and-embedding) | Not supported |
 
