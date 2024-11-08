@@ -2,7 +2,7 @@ title = "Deploying Spin Applications to Fermyon"
 template = "spin_main"
 date = "2023-11-04T00:00:01Z"
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/deploying-to-fermyon.md"
+url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/deploying-to-fermyon.md"
 
 ---
 - [Fermyon Cloud](#fermyon-cloud)
@@ -16,16 +16,16 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/deploying-
 
 ## Fermyon Platform
 
-[Fermyon Platform](https://github.com/fermyon/installer) is a self-hosted platform for Spin applications. With Fermyon, you can deploy your spin applications onto a server in moments.
+[Fermyon Platform](https://www.fermyon.dev/) is a self-host platform for Spin applications. With Fermyon, you can deploy your spin applications onto a server in moments.
 
 > Fermyon Platform does not currently support Spin 2 or above.
 
 ### Running on Your Workstation
 
 For instructions guiding you through running the Fermyon platform on your development workstation,
-follow [this guide](https://github.com/fermyon/installer/tree/main/local/README.md).
+follow [this guide](https://www.fermyon.dev/quickstart-local).
 
 ### Running on AWS
 
 For instructions guiding you through running the Fermyon platform on AWS, follow
-[this guide](https://github.com/fermyon/installer/tree/main/aws/README.md).
+[this guide](https://www.fermyon.dev/quickstart-aws).

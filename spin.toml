@@ -155,6 +155,11 @@ component = "bartholomew-spin-v2"
 route = "/spin/v2/..."
 
 [[trigger.http]]
+id = "trigger-bartholomew-spin-v3"
+component = "bartholomew-spin-v3"
+route = "/spin/v3/..."
+
+[[trigger.http]]
 id = "trigger-redirect-wasm-langs-root"
 component = "redirect-wasm-langs-root"
 route = "/wasm-languages/"
@@ -334,7 +339,7 @@ environment = { DESTINATION = "/wasm-languages/webassembly-language-support" }
 # Component to give us clean versioned URLs for spin from the root
 [component.spin-version-proxy]
 source = "modules/spin-redirecter.wasm"
-variables = { latest_spin_version = "v2" }
+variables = { latest_spin_version = "v3" }
 files = ["spin-redirect.json"]
 exclude_files = ["**/node_modules"]
 allowed_outbound_hosts = ["http://self"]
@@ -362,3 +367,9 @@ files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 [component.bartholomew-spin-v2.build]
 command = "npm run build-index && npm run build-hub-index"
 watch = ["content/**/*", "templates/*"]
+
+[component.bartholomew-spin-v3]
+# Using build from bartholomew main
+source = "modules/bartholomew.wasm"
+environment = { PREVIEW_MODE = "0" }
+files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
