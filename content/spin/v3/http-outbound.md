@@ -218,11 +218,13 @@ You must still grant permission by including the relevant `spin.internal` hosts 
 allowed_outbound_hosts = ["http://authz.spin.internal", "https://reporting.spin.internal"]
 ```
 
-To allow local chaining to _any_ component in your application, use a subdomain wildcard:
+To allow local chaining to _any_ component in your application, you can use a subdomain wildcard:
 
 ```toml
 allowed_outbound_hosts = ["http://*.spin.internal"]
 ```
+
+However, the wildcard implies that the component requires _all other_ components to be local to it. You will therefore not be able to use [selective deployment](./running-apps#splitting-an-application-across-environments) for an application that uses wildcard service chaining.
 
 > Local service chaining is not currently supported on Fermyon Cloud.
 
