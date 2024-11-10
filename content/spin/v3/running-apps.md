@@ -188,7 +188,7 @@ $ spin up -f registry.example.com/app:1.1.0 -c chat-engine -c sentiment-analyzer
 
 > In practice you'd set these commands up in a scheduler or orchestrator rather than typing them interactively - or, more likely, use a selection-aware scheduler such as [SpinKube](https://www.spinkube.dev/) rather than running `spin up` directly.
 
-If you run a subset which includes a component that uses [local service chaining](./http-outbound#local-service-chaining), then you must also include all chaining targets in the subset - Spin checks this at load time.  [Self-requests](./http-outbound#making-http-requests-within-an-application) will work only if the target route maps to a component in the subset, but this is not checked at load time - instead, self-requests to unselected components will fail at request time with 404 Not Found.
+If you run a subset which includes a component that uses [local service chaining](./http-outbound#local-service-chaining), then you must also include all chaining targets in the subset - Spin checks this at load time. (Wildcard service chaining - the `*.spin.internal` host - means that _all_ components are potential chaining targets, so you will not be able to use selective deployment if any component uses wildcard service chaining.) [Self-requests](./http-outbound#making-http-requests-within-an-application) will work only if the target route maps to a component in the subset, but this is not checked at load time - instead, self-requests to unselected components will fail at request time with 404 Not Found.
 
 ## The Always Build Option
 
