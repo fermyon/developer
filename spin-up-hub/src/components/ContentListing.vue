@@ -5,22 +5,22 @@ export default {
         return {
             noResultsMessage: '',
             isSearching: false,
- }
- },
+        }
+    },
     components: { Card },
     computed: {
         filteredContentTypes() {
             return this.$store.state.contentFilters
- },
+        },
         filteredLanguages() {
             return this.$store.state.languageFilters
- },
+        },
         searchIndex() {
             return this.$store.state.searchIndex
- },
+        },
         searchTerm() {
             return this.$store.state.searchTerm
- },
+        },
         contentItems() {
             let data = this.$store.state.contentItems || []
             this.noResultsMessage = ''
@@ -37,16 +37,16 @@ export default {
                 result.map(k => {
                     if (k.score < 5) {
                         return
- }
+                    }
                     matches.push(data.find(docs => k.ref == docs.id))
- })
+                })
                 data = matches
- } else {
+            } else {
                 this.isSearching = false;
                 if (data.length === 0) {
                     this.noResultsMessage = "No items available."
- }
- }
+                }
+            }
 
             let contentFilterLength = this.filteredContentTypes.length
             let languageFilterLength = this.filteredLanguages.length
@@ -54,28 +54,28 @@ export default {
             if (contentFilterLength + languageFilterLength === 0) {
                 if (data.length === 0 && this.isSearching) {
                     this.noResultsMessage = "No items matched your search."
- }
+                }
                 return data;
- }
+            }
 
             if (contentFilterLength === 0) {
                 return data.filter(k => { return this.filteredLanguages.includes(k.language) })
- }
+            }
             if (langaugeFilterLength === 0) {
                 return data.filter(k => { return this.filteredContentTypes.includes(k.category) })
- } else {
+            } else {
                 data = data.filter(k =>
                     this.filteredContentTypes.includes(k.category) &&
                     this.filteredLanguages.includes(k.language)
- )
- }
+                )
+            }
 
             if (data.length === 0 && this.isSearching) {
                 this.noResultsMessage = "No items matched your search 👀"
- }
+            }
 
             return data
- }
+        }
     }
 }
 </script>
@@ -104,7 +104,7 @@ export default {
 }
 
 .no-results-message {
-    color: #e7d3f2;
+    color: #3f4f99;
     font-size: 1.5em; 
     text-align: center;
     width: 100%;
@@ -132,5 +132,11 @@ export default {
 
 .card-list-move {
     transition: transform 0.5s;
+}
+
+.dark-theme {
+    .no-results-message {
+        color: #e7d3f2;
+    }
 }
 </style>
