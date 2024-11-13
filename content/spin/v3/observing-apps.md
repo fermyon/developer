@@ -9,7 +9,11 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/observing-
 
 - [Application Logs](#application-logs)
 - [OpenTelemetry (OTel)](#opentelemetry-otel)
-  - [Running An Observability Stack](#running-an-observability-stack)
+- [The `otel` Plugin for Spin](#the-otel-plugin-for-spin)
+  - [Supported Observability Stacks](#supported-observability-stacks)
+  - [Using the `otel` Plugin for Spin](#using-the-otel-plugin-for-spin)
+- [Configuring your own observability stack](#configuring-your-own-observability-stack)
+  - [Configure the Docker compose stack](#configure-the-docker-compose-stack)
   - [Configuring Spin](#configuring-spin)
   - [Traces](#traces)
   - [Metrics](#metrics)
@@ -23,7 +27,7 @@ Spin handles application logs by default, storing output and error messages from
 
 Spin now has support for the [OpenTelemetry (OTel)](https://opentelemetry.io/) observability standard. You can learn more about observability [here](https://opentelemetry.io/docs/concepts/observability-primer/). When configured, Spin will emit telemetry about your Spin App in the form of OTel [signals](https://opentelemetry.io/docs/concepts/signals/): traces, metrics, and logs.
 
-## Using the OTel Plugin
+## The `otel` Plugin for Spin
 
 We have a plugin that makes it easy to use OpenTelemetry with Spin. If you would like to examine the source code, you can visit the [GitHub repository](https://github.com/fermyon/otel-plugin). Otherwise, follow these instructions:
 
@@ -33,7 +37,23 @@ We have a plugin that makes it easy to use OpenTelemetry with Spin. If you would
   spin plugins update
   spin plugins install otel
   ```
-- To see the available commands, you can run `spin otel --help`
+
+### Supported Observability Stacks
+
+The `otel` plugin for Spin currently supports the following observability stacks:
+
+- **Default**: A multi-container observability stack based on Prometheus, Loki, Grafana and Jaeger
+- **Aspire**: A single-container observability stack using .NET Aspire Standalone Dashboard
+
+### Using the `otel` Plugin for Spin
+
+Setting up an observability stack is as easy as executing either `spin otel setup` or `spin otel setup --aspire` in the folder where your Spin app remains. 
+
+The `otel` plugin comes with a handy `spin otel up` command, which you can use to start a Spin app and instruct it to emit telemetry data to your observability stack of choice.
+
+As your observability stack of choice is executed using traditional containers, you may want to stop them once you don't need them anymore. To do so, run `spin otel cleanup`.
+
+To see all available commands of the `otel` plugin, you can run `spin otel --help`.
 
 ## Configuring your own observability stack
 
