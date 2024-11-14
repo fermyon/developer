@@ -266,3 +266,17 @@ date: Wed, 31 Jul 2024 22:03:35 GMT
 
 Used an API
 ```
+
+## Troubleshooting
+
+If you run into the following error, you've most likely not set the variable either through the environment variable provider using the SPIN_VARIABLE_ prefix or through another provider.
+
+```console
+Handler returned an error: Error::Provider("no provider resolved required variable \"YOUR_VARIABLE\"")
+```
+
+If you run into the following error, you've most likely not configured the component section in the Spin.toml to have access to the variable specified.
+
+```console
+Handler returned an error: Error::Undefined("no variable for \"<component-id>\".\"YOUR_VARIABLE\"")
+```
