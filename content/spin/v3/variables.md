@@ -278,5 +278,5 @@ See [Dynamic Application Configuration](./dynamic-configuration#application-vari
 If you run into the following error, you've most likely not configured the component section in the `spin.toml` to have access to the variable specified.
 
 ```console
-Handler returned an error: Error::Undefined("no variable for \"<component-id>\".\"YOUR_VARIABLE\"")
+Handler returned an error: Error::Undefined("no variable for \"<component-id>\".\"your-variable\"")
 ```
