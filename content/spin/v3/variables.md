@@ -269,14 +269,22 @@ Used an API
 
 ## Troubleshooting
 
+### Ensure Variables Are Set
+
 If you run into the following error, you've most likely not set the variable, either through the environment variable provider using the `SPIN_VARIABLE_` prefix or through another provider.
 
 ```console
 Handler returned an error: Error::Provider("no provider resolved required variable \"YOUR_VARIABLE\"")
 ```
+
 See [Dynamic Application Configuration](./dynamic-configuration#application-variables-runtime-configuration) for information on setting variable values via environment variables, or configuring secure variable providers.
+
+### Ensure Component Can Access Necessary Variables
+
 If you run into the following error, you've most likely not configured the component section in the `spin.toml` to have access to the variable specified.
 
 ```console
 Handler returned an error: Error::Undefined("no variable for \"<component-id>\".\"your-variable\"")
 ```
+
+To fix this, edit the `spin.toml` and add to the `[component.<component-id>.variables]` table a line such as `<your-variable> = "{{ app-variable }}".` See [above](https://developer.fermyon.com/spin/v3/variables#adding-variables-to-your-applications) for more information.
