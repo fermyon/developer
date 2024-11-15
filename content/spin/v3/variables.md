@@ -269,7 +269,7 @@ Used an API
 
 ## Troubleshooting
 
-If you run into the following error, you've most likely not set the variable either through the environment variable provider using the SPIN_VARIABLE_ prefix or through another provider.
+If you run into the following error, you've most likely not set the variable, either through the environment variable provider using the `SPIN_VARIABLE_` prefix or through another provider.
 
 ```console
 Handler returned an error: Error::Provider("no provider resolved required variable \"YOUR_VARIABLE\"")
