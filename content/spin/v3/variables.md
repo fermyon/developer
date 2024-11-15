@@ -274,7 +274,7 @@ If you run into the following error, you've most likely not set the variable, ei
 ```console
 Handler returned an error: Error::Provider("no provider resolved required variable \"YOUR_VARIABLE\"")
 ```
-
+See [Dynamic Application Configuration](./dynamic-configuration#application-variables-runtime-configuration) for information on setting variable values via environment variables, or configuring secure variable providers.
 If you run into the following error, you've most likely not configured the component section in the Spin.toml to have access to the variable specified.
 
 ```console
