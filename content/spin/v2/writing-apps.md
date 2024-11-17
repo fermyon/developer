@@ -74,7 +74,7 @@ You can look up the various fields in the [Manifest Reference](manifest-referenc
 
 An application contains one or more _triggers_.  Each trigger specifies a type, an event of that type that the application responds to, and a component to handle that event.
 
-> In current versions of Spin, all triggers in the application must be of the same type. You can't listen for Redis messages and HTTP requests in the same application.
+> In Spin 2.2 and below, all triggers in the application must be of the same type. You can't listen for Redis messages and HTTP requests in the same application. This restriction was removed in Spin 2.3.
 
 The description above might sound a bit abstract. Let's clarify it with a concrete example. The most common trigger type is `http`, for which events are distinguished by the route. So an HTTP trigger might look like this:
 
