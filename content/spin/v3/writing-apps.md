@@ -70,10 +70,10 @@ component = "hello"
 [component.hello]
 description = "A simple component that returns hello world."
 # The Wasm module to run for the component
-source = "target/wasm32-wasi/release/helloworld.wasm"
+source = "target/wasm32-wasip1/release/helloworld.wasm"
 # How to build the Wasm module from source
 [component.hello.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 ```
 
 You can look up the various fields in the [Manifest Reference](manifest-reference), but let's look at the key fields in more detail.

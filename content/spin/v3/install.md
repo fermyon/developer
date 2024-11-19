@@ -218,7 +218,7 @@ $ git clone https://github.com/fermyon/spin
 $ cd spin
 $ # Check out the latest tagged release
 $ # git checkout <latest release>
-$ rustup target add wasm32-wasi
+$ rustup target add wasm32-wasip1
 $ rustup target add wasm32-unknown-unknown
 $ cargo install --locked --path .
 $ spin --help

@@ -39,11 +39,11 @@ An application manifest can define _named_ components in the `component` section
 
 ```toml
 [component.checkout]  # The component's name is "checkout"
-source = "target/wasm32-wasi/release/checkout.wasm"
+source = "target/wasm32-wasip1/release/checkout.wasm"
 allowed_outbound_hosts = ["https://payment-processing.example.com"]
 key_value_stores = ["default"]
 [component.checkout.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 ```
 
 To map a trigger to a named component, specify its name in the trigger's `component` field:
@@ -68,7 +68,7 @@ component = { source = "dist/cart.wasm" }
 [[trigger.http]]
 route = "/cart/..."
 [trigger.http.component]
-source = "target/wasm32-wasi/release/checkout.wasm"
+source = "target/wasm32-wasip1/release/checkout.wasm"
 allowed_outbound_hosts = ["payment-processing.example.com"]
 ```
 
@@ -133,10 +133,10 @@ route = "/..."
 component = "rust-http-trigger-example"
 
 [component.rust-http-trigger-example]
-source = "rust-http-trigger-example/target/wasm32-wasi/release/rust_http_trigger_example.wasm"
+source = "rust-http-trigger-example/target/wasm32-wasip1/release/rust_http_trigger_example.wasm"
 allowed_outbound_hosts = []
 [component.rust-http-trigger-example.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 workdir = "rust-http-trigger-example"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
@@ -148,10 +148,10 @@ channel = "one"
 component = "rust-redis-trigger-example"
 
 [component.rust-redis-trigger-example]
-source = "rust-redis-trigger-example/target/wasm32-wasi/release/rust_redis_trigger_example.wasm"
+source = "rust-redis-trigger-example/target/wasm32-wasip1/release/rust_redis_trigger_example.wasm"
 allowed_outbound_hosts = []
 [component.rust-redis-trigger-example.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 workdir = "rust-redis-trigger-example"
 watch = ["src/**/*.rs", "Cargo.toml"]                             
 ```
@@ -246,7 +246,7 @@ We can immediately run this pre-written (template) application and observe the t
 cd hello_cron
 spin build --up
 
-Building component hello-cron with `cargo build --target wasm32-wasi --release`
+Building component hello-cron with `cargo build --target wasm32-wasip1 --release`
 
 ...
 

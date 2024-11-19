@@ -45,22 +45,24 @@ If you generated the component from a Fermyon-supplied template, the `build` sec
 
 {{ startTab "Rust"}}
 
-For Rust applications, you must have the `wasm32-wasi` target installed:
+For Rust applications, you must have the `wasm32-wasip1` target installed:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ rustup target add wasm32-wasi
+$ rustup target add wasm32-wasip1
 ```
 
-The build command typically runs `cargo build` with the `wasm32-wasi` target and the `--release` option:
+The build command typically runs `cargo build` with the `wasm32-wasip1` target and the `--release` option:
 
 <!-- @nocpy -->
 
 ```toml
 [component.hello.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 ```
+
+> If you are on Rust 1.77 or earlier, use `wasm32-wasi` (without the `p1`). We recommend upgrading to Rust 1.78 or above. Future versions of Rust will not support `wasm32-wasi` (without the `p1`).
 
 {{ blockEnd }}
 
@@ -151,7 +153,7 @@ Once the build commands are set up, running `spin build` will execute, sequentia
 
 ```bash
 $ spin build
-Building component hello with `cargo build --target wasm32-wasi --release`
+Building component hello with `cargo build --target wasm32-wasip1 --release`
     Updating crates.io index
     Updating git repository `https://github.com/fermyon/spin`
 
@@ -194,7 +196,7 @@ To have the Rust build `command` run in directory `deep`, we can set the compone
 ```toml
 [component.deep.build]
 # `command` is the normal build command for this language
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 # This tells Spin to run it in the directory of the build file (in this case Cargo.toml)
 workdir = "deep"
 ```

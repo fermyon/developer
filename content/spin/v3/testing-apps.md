@@ -208,7 +208,7 @@ Then we edit the `my-app` application's manifest (the `spin.toml` file) by addin
 
 ```toml
 [component.my-component.tool.spin-test]
-source = "tests/target/wasm32-wasi/release/tests.wasm"
+source = "tests/target/wasm32-wasip1/release/tests.wasm"
 build = "cargo component build --release"
 dir = "tests"
 ```
@@ -248,16 +248,16 @@ route = "/..."
 component = "my-component"
 
 [component.my-component]
-source = "my-component/target/wasm32-wasi/release/my_component.wasm"
+source = "my-component/target/wasm32-wasip1/release/my_component.wasm"
 allowed_outbound_hosts = []
 key_value_stores = ["default"]
 [component.my-component.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 workdir = "my-component"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
 [component.my-component.tool.spin-test]
-source = "tests/target/wasm32-wasi/release/tests.wasm"
+source = "tests/target/wasm32-wasip1/release/tests.wasm"
 build = "cargo component build --release"
 dir = "tests"
 ```
