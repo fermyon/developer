@@ -65,15 +65,30 @@ Note: The Rust templates are in a repo that contains several other languages; th
 
 ### Install the Tools
 
-To build Spin components, you'll need the `wasm32-wasi` target for Rust.
+To build Spin components, you'll need the `wasm32-wasip1` target for Rust.
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ rustup target add wasm32-wasi
+$ rustup target add wasm32-wasip1
 ```
 
-> If you get a lot of strange errors when you try to build your first Rust component, check that you have this target installed by running `rustup target list --installed`. This is the most common source of problems when starting out with Rust in Spin!
+> If you originally installed your Wasm target in an older version of Rust, it may be called `wasm32-wasi` (without the `p1`). This target is being withdrawn. Upgrade to Rust 1.78 or above, and install the `wasm32-wasip1` target.
+
+If you don't have the target installed, then when you try to build a Spin component, you'll see an error similar to this:
+
+```
+error[E0463]: can't find crate for `core`
+  |
+  = note: the `wasm32-wasip1` target may not be installed
+  = help: consider downloading the target with `rustup target add wasm32-wasip1`
+
+For more information about this error, try `rustc --explain E0463`.
+```
+
+Check that you have the WASI target installed by running `rustup target list --installed`, or follow the instructions in the message and run `rustup target add wasm32-wasip1`. This is the most common source of problems when starting out with Rust in Spin!
+
+> If you have an existing project with the `wasm32-wasi` target and migrate it to `wasm32-wasip1`, be sure to update each component path (`source`) at the same time as you change the build command. If you're rebuilding but your changes aren't showing up at runtime, check your `source` isn't pointing to the old path!
 
 ## HTTP Components
 
@@ -148,7 +163,7 @@ The component can be built with Cargo by executing:
 <!-- @selectiveCpy -->
 
 ```bash
-$ cargo build --target wasm32-wasi --release
+$ cargo build --target wasm32-wasip1 --release
 ```
 
 The manifest for a Redis application must contain the address of the Redis
@@ -166,7 +181,7 @@ address = "redis://localhost:6379"
 
 [[trigger.redis]]
 channel = "messages"
-component = { source = "target/wasm32-wasi/release/spinredis.wasm" }
+component = { source = "target/wasm32-wasip1/release/spinredis.wasm" }
 ```
 
 This application will connect to `redis://localhost:6379`, and for every new
@@ -254,7 +269,7 @@ route = "/..."
 component = "get-animal-fact"
 
 [component.get-animal-fact]
-source = "get-animal-fact/target/wasm32-wasi/release/get_animal_fact.wasm"
+source = "get-animal-fact/target/wasm32-wasip1/release/get_animal_fact.wasm"
 allowed_outbound_hosts = ["https://random-data-api.fermyon.app"]
 ```
 
@@ -504,8 +519,8 @@ Spin provides clients for MySQL and PostgreSQL. For information about using them
 ## Using External Crates in Rust Components
 
 In Rust, Spin components are regular libraries that contain a function
-annotated using the `http_component` macro, compiled to the `wasm32-wasi` target.
-This means that any [crate](https://crates.io) that compiles to `wasm32-wasi` can
+annotated using the `http_component` macro, compiled to the `wasm32-wasip1` target.
+This means that any [crate](https://crates.io) that compiles to `wasm32-wasip1` can
 be used when implementing the component.
 
 ### Using the `http` crate
@@ -551,13 +566,14 @@ If you bump into issues building and running your Rust component, here are some 
 
   - To check: run  `cargo --version`.  
   - To update: run `rustup update`.
-- Make sure the `wasm32-wasi` compiler target is installed.
-  - To check: run `rustup target list --installed` and check that `wasm32-wasi` is on the list.
-  - To install: run `rustup target add wasm32-wasi`.
+- Make sure the `wasm32-wasip1` compiler target is installed.
+  - To check: run `rustup target list --installed` and check that `wasm32-wasip1` is on the list.
+  - To install: run `rustup target add wasm32-wasip1`.
 - Make sure you are building in `release` mode.  Spin manifests refer to your Wasm file by a path, and the default path corresponds to `release` builds.
-  - To build manually: run `cargo build --release --target wasm32-wasi`.
+  - To build manually: run `cargo build --release --target wasm32-wasip1`.
   - If you're using `spin build` and the templates, this should be set up correctly for you.
-- Make sure that the `source` field in the component manifest match the path and name of the Wasm file in `target/wasm32-wasi/release`. These could get out of sync if you renamed the Rust package in its `Cargo.toml`.
+- Make sure that the `source` field in the component manifest match the path and name of the Wasm file in `target/wasm32-wasip1/release`. These could get out of sync if you renamed the Rust package in its `Cargo.toml`.
+  - They can also get out of sync if you switched an existing project from the old `wasm32-wasi` target to the new `wasm32-wasip1` target.
 
 ## Manually Creating New Projects With Cargo
 

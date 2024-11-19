@@ -419,7 +419,7 @@ Wagi supports non-default entry points, and allows you to pass an arguments stri
 ### Request Handling in Wagi
 
 Building a Wagi component in a particular programming language that can compile
-to `wasm32-wasi` does not require any special libraries — instead,
+to `wasm32-wasip1` does not require any special libraries — instead,
 [building Wagi components](https://github.com/deislabs/wagi/tree/main/docs) can
 be done by reading the HTTP request from the standard input and environment
 variables, and sending the HTTP response to the module's standard output.

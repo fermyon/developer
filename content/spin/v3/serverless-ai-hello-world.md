@@ -213,11 +213,11 @@ route = "/..."
 component = "hello-world"
 
 [component.hello-world]
-source = "target/wasm32-wasi/release/hello_world.wasm"
+source = "target/wasm32-wasip1/release/hello_world.wasm"
 allowed_outbound_hosts = []
 ai_models = ["llama2-chat"]
 [component.hello-world.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
  

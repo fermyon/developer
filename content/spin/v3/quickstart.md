@@ -180,12 +180,12 @@ Some languages require additional tool support for Wasm:
 
 {{ startTab "Rust"}}
 
-You'll need the `wasm32-wasi` target for Rust:
+You'll need the `wasm32-wasip1` target for Rust:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ rustup target add wasm32-wasi
+$ rustup target add wasm32-wasip1
 ```
 
 [Learn more in the language guide.](rust-components)
@@ -295,10 +295,10 @@ route = "/..."
 component = "hello-rust"
 
 [component.hello-rust]
-source = "target/wasm32-wasi/release/hello_rust.wasm"
+source = "target/wasm32-wasip1/release/hello_rust.wasm"
 allowed_outbound_hosts = []
 [component.hello-rust.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
@@ -675,7 +675,7 @@ The Spin template creates starter source code.  Now you need to turn that into a
 
 ```bash
 $ spin build
-Executing the build command for component hello-rust: cargo build --target wasm32-wasi --release
+Executing the build command for component hello-rust: cargo build --target wasm32-wasip1 --release
     Updating crates.io index
     Updating git repository `https://github.com/fermyon/spin`
     Updating git repository `https://github.com/bytecodealliance/wit-bindgen`
@@ -691,14 +691,16 @@ Finished building all Spin components
 If the build fails, check:
 
 * Are you in the `hello_rust` directory?
-* Did you successfully [install the `wasm32-wasi` target](#install-the-tools)?
-* Is your version of Rust up to date (`cargo --version`)?  The Spin SDK needs Rust 1.64 or above.
+* Did you successfully [install the `wasm32-wasip1` target](#install-the-tools)?
+* Is your version of Rust up to date (`cargo --version`)?  The Spin SDK needs Rust 1.78 or above.
+
+> The Rust target used to be called `wasm32-wasi` (without the `p1`). Even if you already installed the old target, you'll need to install the new one!
 
 If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
 ```toml
 [component.hello-rust.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 ```
 
 You can always run this command manually; `spin build` is a shortcut to save you having to remember it.
