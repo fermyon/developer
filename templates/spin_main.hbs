@@ -31,10 +31,10 @@
         <article class="column content content-docs content-docs-wide">
             <section id="type">
                 {{! This adds an archival notice - needs to styled }}
-                {{#if (active_project request.spin-full-url "/spin/v1" )}}
+                {{#unless (active_project request.spin-full-url "/spin/v3" )}}
                 <div class="archived-notice"> This page refers to an older version of Spin. <a href="/spin">Go to the
                         latest version.</a></div>
-                {{/if}}
+                {{/unless}}
                 <h1 class="blog-post-title border-bottom">{{page.head.title}}</h1>
 
                 {{{page.body}}}
