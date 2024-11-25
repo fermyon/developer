@@ -106,7 +106,6 @@ The Wasm binary can be found at `target/javascript-example.wasm`.
 Here are some great resources:
 
 - Shopify has created an easy-to-use builder that uses QuickJS. It is called [Javy](https://github.com/Shopify/javy)
-- A short article on Wasm.Builders covers [JavaScript, MessagePack, and Javy](https://www.wasm.builders/deepanshu1484/javascript-and-wasi-24k8)
 - Bytecode Alliance's [builder for Spidermonkey](https://github.com/bytecodealliance/spidermonkey-wasm-build) provides binary releases
 - [QuickJS](https://bellard.org/quickjs/) is a tiny JavaScript runtime that can be compiled to Wasm.
 - [Making JavaScript Run Fast on WebAssembly](https://bytecodealliance.org/articles/making-javascript-run-fast-on-webassembly) from Bytecode Alliance explains how SpiderMonkey and Wasm work together.

@@ -175,7 +175,6 @@ Joel's video on Spin, Python, and Components (Recorded at WasmCon on Sep 12, 202
 
 Here are some great resources:
 - A tutorial for building [Python Wasm apps with Spin](https://dev.to/technosophos/building-a-serverless-webassembly-app-with-spin-5dh9)
-- A tutorial doing [AI inferencing with Python and Spin](https://www.wasm.builders/technosophos/serverless-ai-inferencing-with-python-and-wasm-3lkd)
 - The [Spin Python SDK](https://github.com/fermyon/spin-python-sdk)
 - The [Spin Developer Docs](../spin) fully document the Python SDKs
 - [Python Wasm examples](../../hub/index) at Spin Hub
