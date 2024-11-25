@@ -99,7 +99,7 @@ export async function handler(_req: Request, res: ResponseBuilder) {
     res.send(JSON.stringify(ret, null, 2));
   } catch (error) {
     console.log(error.payload);
-	res.send({});
+	res.send('{}');
   }
 }
 ```
