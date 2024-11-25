@@ -91,7 +91,7 @@ const DB_URL = "mysql://root:@127.0.0.1/spin_dev"
 export async function handler(_req: Request, res: ResponseBuilder) {
   try {
     let conn = Mysql.open(DB_URL);
-    conn.execute('delete from test where id=$1', [4]);
+    conn.execute('delete from test where id=?', [4]);
     conn.execute('insert into test values (4,5)', []);
     let ret = conn.query('select * from test', []);
     // return a object that looks like 
