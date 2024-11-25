@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/rdbms-stor
 ---
 - [Using MySQL and PostgreSQL From Applications](#using-mysql-and-postgresql-from-applications)
 - [Granting Network Permissions to Components](#granting-network-permissions-to-components)
+	- [Configuration-Based Permissions](#configuration-based-permissions)
 
 Spin provides two interfaces for relational (SQL) databases:
 
@@ -39,11 +40,13 @@ The exact detail of calling these operations from your application depends on yo
 MySQL functions are available in the `spin_sdk::mysql` module, and PostgreSQL functions in the `spin_sdk::pg` module. The function names match the operations above. This example shows MySQL:
 
 ```rust
+// For PostgreSQL, use `spin_sdk::pg` or `spin_sdk::pg3`
 use spin_sdk::mysql::{self, Connection, Decode, ParameterValue};
 
 let connection = Connection::open(&address)?;
 
 let params = vec![ParameterValue::Int32(id)];
+// For PostgreSQL, use `$1` placeholder syntax
 let rowset = connection.query("SELECT id, name FROM pets WHERE id = ?", &params)?;
 
 match rowset.rows.first() {
@@ -89,7 +92,9 @@ const DB_URL = "mysql://root:@127.0.0.1/spin_dev"
 */
 
 export async function handler(_req: Request, res: ResponseBuilder) {
+  // For PostgreSQL, use `Postgres.open`
   let conn = Mysql.open(DB_URL);
+  // For PostgreSQL, use `$1` placeholder syntax
   conn.execute('delete from test where id=?', [4]);
   conn.execute('insert into test values (4,5)', []);
   let ret = conn.query('select * from test', []);
@@ -161,9 +166,11 @@ func init() {
 		// address of the Mysql server.
 		addr := os.Getenv("DB_URL")
 
+		// For MySQL, use `mysql.Open`
 		db := pg.Open(addr)
 		defer db.Close()
 
+		// For MySQL, use `?` placeholder syntax
 		_, err := db.Query("INSERT INTO pets VALUES ($1, 'Maya', $2, $3);", int32(4), "bananas", true)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
