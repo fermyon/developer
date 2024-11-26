@@ -84,7 +84,7 @@ Creating content is made easy with the Bartholomew Command Line Interface (CLI) 
 
 For the `bart` CLI, there are two options:
 - download the latest `bart` binary [release](https://github.com/fermyon/bartholomew/releases/) and add it to your system path, or
-- clone and build `bart` from source (requires Rust), using the following commands:
+- clone and build `bart` from source (requires [Rust](https://www.rust-lang.org/tools/install)), using the following commands:
 
 <!-- @selectiveCpy -->
 
@@ -98,6 +98,8 @@ $ cd bartholomew
 # Build the Bartholomew CLI
 $ make bart
 ```
+
+> If `make bart` fails with `make: cargo: No such file or directory`, you need to [install Rust from this link](https://www.rust-lang.org/tools/install).
 
 > NOTE: The procedure in the example code block above will create the `bart` executable binary file inside the `~/bartholomew/target/release/` directory. Please ensure that this new binary executable is added to your system path.
 
