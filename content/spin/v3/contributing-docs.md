@@ -512,7 +512,9 @@ $ git add
 
 ### 9. Commit Changes
 
-Before committing, please ensure that your GitHub installation is configured sufficiently so that you can `--signoff` as part of the `git commit` command. For example, please ensure that the `user.name` and `user.email` are configured in your terminal. You can check if these are set by typing `git config --list`.
+All commits must be signed off *and* GPG-signed with a GitHub verification key. The rest of this section is primarily for contributors not familiar with signing, and describes how to configure signing, and how to sign commits.
+
+First, ensure that your Git installation is configured sufficiently so that you can `--signoff` as part of the `git commit` command. Typically, you need the `user.name` and `user.email` to be configured in your Git session. You can check if these are set by typing `git config --list`.
 
 If you need to set these values please use the following commands:
 
@@ -527,9 +529,9 @@ $ git config user.name "yourusername"
 $ git config user.email "youremail@somemail.com"
 ```
 
-More information can be found at this GitHub documentation page called [signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
+You must also set up a GPG verification key on your GitHub account, and add this to your Git settings.  For more information about setting up a GPG verification key, see GitHub's documentation about [adding a GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account) and [telling your Git client about your GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
 
-Type the following commit command to ensure that you sign off (--signoff), sign the data (-S) - recommended, and also leave a short message (-m):
+With all this set up, type the following commit command, which both _signs off_ (--signoff) and _cryptographically signs_ the data (-S), and leaves a short commit message (-m):
 
 <!-- @selectiveCpy -->
 
@@ -537,7 +539,7 @@ Type the following commit command to ensure that you sign off (--signoff), sign 
 $ git commit -S --signoff -m "Updating documentation"
 ```
 
-> Note: the `--signoff` option will only add a Signed-off-by trailer by the committer at the end of the commit log message. In addition to this, it is recommended that you use the `-S` option which will GPG-sign your commits. For more information about using GPG in GitHub see [this GitHub documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
+> Note: the `--signoff` option only adds a Signed-off-by trailer by the committer at the end of the commit log message. You must also use the `-S` option which will GPG-sign your commits. For more information about GPG-signing commits see [the GitHub documentation page for signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 
 ### 10. Push Changes
 
