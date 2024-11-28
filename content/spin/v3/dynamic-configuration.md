@@ -15,6 +15,8 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/dynamic-co
 - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
   - [Redis Key Value Store Provider](#redis-key-value-store-provider)
   - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
+  - [AWS DynamoDB Key Value Store Provider](#aws-dynamodb-key-value-store-provider)
+  - [Multiple and Non-Default Key-Value Stores](#multiple-and-non-default-key-value-stores)
 - [SQLite Storage Runtime Configuration](#sqlite-storage-runtime-configuration)
   - [LibSQL Storage Provider](#libsql-storage-provider)
 - [LLM Runtime Configuration](#llm-runtime-configuration)
@@ -247,7 +249,7 @@ url = "redis://localhost"
 
 ### Azure CosmosDB Key Value Store Provider
 
-Similarly, to implement Azure CosmosDB as a backend for Spin's key/value store, change the type to `azure_cosmos` and specify your database account details:
+To use an Azure CosmosDB database as a backend for Spin's key/value store, change the type to `azure_cosmos` and specify your database account details:
 
 ```toml
 [key_value_store.default]
@@ -260,9 +262,27 @@ container = "<cosmos-container>"
 
 > Note: The CosmosDB container must be created with the default partition key, `/id`.
 
-Whilst a single default store may be sufficient for certain application use cases, each Spin application can be configured to support multiple stores of any `type`, as shown in the `runtime-config.toml` file below:
+### AWS DynamoDB Key Value Store Provider
 
-> **Note:** At present, when deploying an application to Fermyon Cloud only the single "default" key-value store is supported. To see more about Spin support on Fermyon Cloud, visit the [limitations documentation](/cloud/faq#spin-limitations):
+To use an Amazon Web Services DynamoDB database as a backend for Spin's key/value store, change the type to `aws_dynamo` and specify your database account details:
+
+```toml
+[key_value_store.default]
+type = "aws_dynamo"
+region = "<aws-region>"   # e.g. "us-east-1"
+table = "<dynamo-table>"  # e.g. "spin-key-values"
+consistent_read = true    # optional, to use strongly consistent reads
+```
+
+You may optionally provide `access_key` and `secret_key` credentials; otherwise, Spin picks these up from your [AWS environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html). For short-lived credentials, you can additionally provide `token` (from the [Get Session Token API](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html) or [`aws sts get-session-token` CLI command](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-session-token.html)).
+
+By default, the DynamoDB backend uses eventually consistent reads. The `consistent_read` option turns on [strongly consistent reads](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html). This ensures reads are up-to-date with writes, at an increased cost. See the [DynamoDB documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html) for more information.
+
+> Note: The DynamoDB table must be created with the partition key `PK`. It must have no sort key (so that the partition key is the primary key).
+
+### Multiple and Non-Default Key-Value Stores
+
+Whilst a single default store may be sufficient for certain application use cases, each Spin application can be configured to support multiple stores of any `type`, as shown in the `runtime-config.toml` file below:
 
 ```toml
 # This defines a new store named user_data
