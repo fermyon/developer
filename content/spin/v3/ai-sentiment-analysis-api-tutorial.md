@@ -42,6 +42,8 @@ In this tutorial we will:
 
 ## Tutorial Prerequisites
 
+> Please note that the code sample in this article is not using the latest version of the Spin SDK, but works with the latest version of Spin (3.0.0). Please refer to the code in this [GitHub repository for the working samples and corresponding SDK version](https://github.com/fermyon/ai-examples/tree/main).
+
 ### Spin 
 
 You will need to [install the latest version of Spin](install#installing-spin). This tutorial requires Spin 3.0 or greater. 
