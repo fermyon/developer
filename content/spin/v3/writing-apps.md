@@ -437,8 +437,6 @@ Few of us write applications without relying on libraries. Traditionally, those 
 
 To use composition through Spin, your component must import a [WIT (Wasm Interface Type) interface](https://component-model.bytecodealliance.org/design/wit.html), and the dependency must export the same WIT interface. The details of working with WIT interfaces is language-specific, and is beyond the scope of the Spin documentation. You can learn more from the [language guides in the Component Model book](https://component-model.bytecodealliance.org/language-support.html). This section focuses on describing the dependency composition support in Spin.
 
-> Component dependencies are not currently supported on Fermyon Cloud.
-
 ### Declaring Component Dependencies
 
 To declare a component dependency, create a `[component.(name).dependencies]` table in your Spin manifest, and list all the WIT interfaces you import (other than the ones that Spin itself satisfies), together with the packages that you would like to use to satisfy those imports.

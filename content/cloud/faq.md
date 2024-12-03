@@ -79,16 +79,20 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | **APIs** |
 | [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
 | [Configuration Variables](/spin/variables) | Supported |
-| [Key Value Storage](/spin/kv-store-api-guide) | Supported (only default store) |
+| [Key Value Storage](/spin/kv-store-api-guide) | Supported |
 | [SQLite Storage](/spin/sqlite-api-guide) | Supported |
 | [Serverless AI](/spin/serverless-ai-api-guide) | Supported |
 | [Service Chaining](/spin/http-outbound#local-service-chaining) | Not supported |
 | [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
-| [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Spin 2 interface is supported; Spin 3 interface is not |
+| [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
 | [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
-| [`wasi-cloud-core`](https://github.com/WebAssembly/wasi-cloud-core) | Not supported |
+| **[wasi-cloud-core](https://github.com/WebAssembly/wasi-cloud-core) Drafts** |
+| [wasi-blobstore](https://github.com/WebAssembly/wasi-blobstore) | Not supported in Spin |
+| [wasi-config](https://github.com/WebAssembly/wasi-config) | Supported (2024-09-27 snapshot) |
+| [wasi-keyvalue](https://github.com/WebAssembly/wasi-keyvalue) | `store` interface supported (2024-10-17 snapshot); `atomics` and `batch` not supported |
+| [wasi-messaging](https://github.com/WebAssembly/wasi-messaging) | Not supported in Spin |
 | **Features** |
-| [Component dependencies](/spin/v3/writing-apps.md#using-component-dependencies) | Not supported |
+| [Component dependencies](/spin/v3/writing-apps.md#using-component-dependencies) | Supported |
 | **Extensibility** |
 | [Custom Triggers](/spin/extending-and-embedding) | Not supported |
 
