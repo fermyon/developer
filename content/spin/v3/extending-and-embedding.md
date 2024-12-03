@@ -7,7 +7,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/extending-
 ---
 - [Extending Spin with a Custom Trigger](#extending-spin-with-a-custom-trigger)
   - [Implement the Trigger World](#implement-the-trigger-world)
-  - [The Trigger Implements the `TriggerExecutor` Trait](#the-trigger-implements-the-triggerexecutor-trait)
+  - [The Trigger Implements the `Trigger` Trait](#the-trigger-implements-the-trigger-trait)
   - [The Trigger is an Executable](#the-trigger-is-an-executable)
   - [The Trigger Detects Events...](#the-trigger-detects-events)
   - [...and Invokes the Guest](#and-invokes-the-guest)
@@ -80,7 +80,7 @@ You can see the full timer trigger code at the link above but here are some key 
 
 ### Implement the Trigger World
 
-The timer trigger implements the WIT world described in `spin-timer.wit`. To do that, it uses the [Bytecode Alliance `wit-bindgen` project](https://github.com/bytecodealliance/wit-bindgen) — this generates code that allows the trigger to invoke the guest's entry point, and allows the guest to invoke the Spin APIs available in the world.
+The timer trigger implements the WIT world described in `spin-timer.wit`. To do that, it uses the `wasmtime` binding generator — this generates code that allows the trigger to invoke the guest's entry point, and allows the guest to invoke the Spin APIs available in the world.
 
 <!-- @nocpy -->
 
@@ -93,29 +93,33 @@ wasmtime::component::bindgen!({
 });
 ```
 
-### The Trigger Implements the `TriggerExecutor` Trait
+### The Trigger Implements the `Trigger` Trait
 
-Using `TriggerExecutor` allows the trigger to offload a great deal of boilerplate loader work to `spin_trigger::TriggerExecutorCommand`.
+Using `Trigger` allows the trigger to offload a great deal of boilerplate loader work to the `spin_trigger` crate and the `FactorsTriggerCommand` CLI helper.
 
 ```rust
 struct TimerTrigger {
-    engine: TriggerAppEngine<Self>,
     speedup: u64,
     component_timings: HashMap<String, u64>,
 }
 
 #[async_trait]
-impl TriggerExecutor for TimerTrigger {
+impl<F: RuntimeFactors> Trigger<F> for TimerTrigger {
     // ...
 }
 ```
+
+The `Trigger` trait is generic in the set of _factors_ supported by the trigger - this is roughly the set of APIs available to guest code. In most circumstances, your implementation should also be generic, as shown, because your trigger is only concerned with detecting events, and can do that regardless of what APIs are available to the guests that handle those events.
 
 ### The Trigger is an Executable
 
 A trigger is a separate program, so that it can be installed as a plugin. So it is a Rust `bin` project and has a `main` function. It can be useful to also provide a library crate, so that projects that embed Spin can load it in process if desired, but the timer sample doesn't currently show that.
 
 ```rust
-type Command = TriggerExecutorCommand<TimerTrigger>;
+type Command = FactorsTriggerCommand<TimerTrigger, FactorsBuilder>;
+//                                         |              |
+//           the trigger type you created above           |
+//                      the factors (APIs) available to guests
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -124,17 +128,23 @@ async fn main() -> Result<(), Error> {
 }
 ```
 
+`FactorsTriggerCommand` allows you to configure the set of factors. `spin_runtime_factors::FactorsBuilder` will give you a set that matches the Spin CLI, which is almost always the right choice for a trigger plugin. If other hosts link your trigger, they will initialize it with the factors they support instead. (This is why it's desirable for your `Trigger` implementation to be as generic as possible!)
+
 ### The Trigger Detects Events...
 
 In this case the trigger "detects" events by running a timer. In most cases, the trigger detects events by listening on a socket, completion port, or other mechanism, or by polling a resource such as a directory or an HTTP endpoint.
 
 ```rust
-for (c, d) in &self.component_timings {
+for (component_id, interval_secs) in &self.component_timings {
     scope.spawn(async {
-        let duration = tokio::time::Duration::from_millis(*d * 1000 / speedup);
+        let duration =
+            tokio::time::Duration::from_millis(*interval_secs * 1000 / speedup);
         loop {
             tokio::time::sleep(duration).await;
-            self.handle_timer_event(c).await.unwrap();
+
+            self.handle_timer_event(&trigger_app, component_id)
+                .await
+                .unwrap();
         }
     });
 }
@@ -142,18 +152,21 @@ for (c, d) in &self.component_timings {
 
 ### ...and Invokes the Guest
 
-The `TriggerExecutorCommand` infrastructure equips the trigger object with a `TriggerAppEngine` specialized to the entry point described in the WIT, and already initialized with the guest Wasm. When an event occurs, the trigger invokes the guest via this engine.
+The `Trigger` and `FactorsTriggerCommand` infrastructure provides the trigger with a `TriggerApp` representing the configured WebAssembly environment, already initialized with the guest Wasm for each component. When an event occurs, the trigger creates a component _instance_ from the `TriggerApp` and invokes it via the WIT interfaces.
 
 ```rust
-async fn handle_timer_event(&self, component_id: &str) -> anyhow::Result<()> {
-    // Load the guest...
-    let (instance, mut store) = self.engine.prepare_instance(component_id).await?;
-    let EitherInstance::Component(instance) = instance else {
-        unreachable!()
-    };
-    let instance = SpinTimer::new(&mut store, &instance)?;
-    // ...and call the entry point
-    instance.call_handle_timer_request(&mut store).await
+async fn handle_timer_event<F: RuntimeFactors>(
+    &self,
+    trigger_app: &TriggerApp<Self, F>,
+    component_id: &str,
+) -> anyhow::Result<()> {
+    // Obtain a component instance from the app
+    let instance_builder = trigger_app.prepare(component_id)?;
+    let (instance, mut store) = instance_builder.instantiate(()).await?;
+    // Wrap the instance in the generated WIT bindings
+    let timer = SpinTimer::new(&mut store, &instance)?;
+    // Invoke the guest entry point via the bindings
+    timer.call_handle_timer_request(&mut store).await
 }
 ```
 
@@ -162,4 +175,5 @@ async fn handle_timer_event(&self, component_id: &str) -> anyhow::Result<()> {
 Besides building custom triggers, the internals of Spin could also be used independently:
 
 - The Spin execution context can be used entirely without a `spin.toml` application manifest — for embedding scenarios, the configuration for the
-execution can be constructed without a `spin.toml`, for example by running applications only from a registry.  See [Building a Host for the Spin Runtime](https://www.fermyon.com/blog/building-host-for-spin-runtime) for a simple example.
+execution can be constructed without a `spin.toml`, for example by running applications only from a registry.
+- You can create a custom Spin runtime with a different set of factors to target specific scenarios.
