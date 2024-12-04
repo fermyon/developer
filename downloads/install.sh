@@ -150,6 +150,8 @@ fancy_print 0 "Step 5: Installing default plugins"
 if [[ $VERSION = "canary" ]]; then
     ./spin plugins install -u https://github.com/fermyon/cloud-plugin/releases/download/canary/cloud.json --yes
 else
+    # Work around a bug where cloud plugin 0.10 registers as a downgrade from 0.9. Remove this after Spin 3.1
+    ./spin plugins uninstall cloud
     ./spin plugins install cloud --yes
 fi
 
