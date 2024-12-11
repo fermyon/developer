@@ -118,32 +118,32 @@ The following is the content which is required in the `src/lib.rs` file. Feel fr
 <!-- @nocpy -->
 
 ```rust
-use anyhow::{anyhow};
-use spin_sdk::http::{IntoResponse, Request};
+use anyhow::anyhow;
+use spin_sdk::http::{IntoResponse, Request, ResponseBuilder};
 use spin_sdk::http_component;
 use spin_sdk::redis;
 
 const REDIS_ADDRESS_ENV: &str = "REDIS_ADDRESS";
 
 #[http_component]
-fn publish(_req: Request) -> anyhow::Result<impl IntoResponse> {
-
+fn handle_data_on_redis(_req: Request) -> anyhow::Result<impl IntoResponse> {
     let address = std::env::var(REDIS_ADDRESS_ENV)?;
     let conn = redis::Connection::open(&address)?;
+    let key = "spin-example";
 
-    // Set the Redis key "spin-example" to value "Eureka Cloud!"
-    conn.set("spin-example", &b"Eureka Cloud!"[..].to_vec())
+    // Set the Redis key "spin-example" to value "Eureka Fermyon Cloud!"
+    conn.set(key, &b"Eureka Fermyon Cloud!"[..].to_vec())
         .map_err(|_| anyhow!("Error executing Redis set command"))?;
 
     // Get the value from the Redis key "spin-example"
-    let payload =
-        conn.get("spin-example").map_err(|_| anyhow!("Error querying Redis"))?;
+    let payload = conn.get(key).map_err(|_| anyhow!("Error querying Redis"))?;
 
     // Return the permanently stored value to the user's browser body
-    Ok(http::Response::builder()
-        .status(200)
-        .header("foo", "bar")
-        .body(payload)?)
+    Ok(ResponseBuilder::new(200)
+        .header("Content-Type", "text/plain")
+        .header("x-key", key)
+        .body(payload)
+        .build())
 }
 ```
 
