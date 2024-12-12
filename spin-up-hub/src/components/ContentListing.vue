@@ -61,7 +61,7 @@ export default {
             if (contentFilterLength === 0) {
                 return data.filter(k => { return this.filteredLanguages.includes(k.language) })
             }
-            if (langaugeFilterLength === 0) {
+            if (languageFilterLength === 0) {
                 return data.filter(k => { return this.filteredContentTypes.includes(k.category) })
             } else {
                 data = data.filter(k =>
