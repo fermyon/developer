@@ -6,6 +6,7 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/ai-sentiment-analysis-api-tutorial.md"
 
 ---
+
 - [Tutorial Prerequisites](#tutorial-prerequisites)
   - [Spin](#spin)
   - [Dependencies](#dependencies)
@@ -36,15 +37,15 @@ Artificial Intelligence (AI) Inferencing performs well on GPUs. However, GPU inf
 
 In this tutorial we will:
 
-* Update Spin (and dependencies) on your local machine
-* Create a Serverless AI application
-* Learn about the Serverless AI SDK
+- Update Spin (and dependencies) on your local machine
+- Create a Serverless AI application
+- Learn about the Serverless AI SDK
 
 ## Tutorial Prerequisites
 
-### Spin 
+### Spin
 
-You will need to [install the latest version of Spin](install#installing-spin). This tutorial requires Spin 3.0 or greater. 
+You will need to [install the latest version of Spin](install#installing-spin). This tutorial requires Spin 3.0 or greater.
 
 If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
 
@@ -92,7 +93,7 @@ $ spin templates install --git https://github.com/fermyon/spin --upgrade
 
 > This tutorial uses [Meta AI](https://ai.meta.com/)'s Llama 2, Llama Chat and Code Llama models you will need to visit [Meta's Llama webpage](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and agree to Meta's License, Acceptable Use Policy, and to Meta’s privacy policy before fetching and using Llama models.
 
-## Serverless AI Inferencing With Spin Applications 
+## Serverless AI Inferencing With Spin Applications
 
 Now, let's dive deep into a comprehensive tutorial and unlock your potential to use Fermyon Serverless AI.
 **Note:** The full source code with other examples can be found in our [Github repo](https://github.com/fermyon/ai-examples/tree/main)
@@ -125,6 +126,7 @@ The TypeScript code snippets below are taken from the [Fermyon Serverless AI Exa
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
 
 <!-- @selectiveCpy -->
+
 ```bash
 $ spin new -t http-ts
 Enter a name for your new application: sentiment-analysis
@@ -139,6 +141,7 @@ HTTP path: /api/...
 The Python code snippets below are taken from the [Fermyon Serverless AI Examples](https://github.com/fermyon/ai-examples/tree/main/sentiment-analysis-py)
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
+
 <!-- @selectiveCpy -->
 
 ```bash
@@ -153,6 +156,7 @@ HTTP path: /api/...
 {{ startTab "TinyGo" }}
 
 > Note: please add `/api/...` when prompted for the path; this provides us with an API endpoint to query the sentiment analysis component.
+
 <!-- @selectiveCpy -->
 
 ```bash
@@ -169,6 +173,7 @@ HTTP path: /api/...
 ### Supported AI Models
 
 Fermyon's Spin and Serverless AI currently support:
+
 - Meta's open source Large Language Models (LLMs) [Llama](https://ai.meta.com/llama/), specifically the `llama2-chat` and `codellama-instruct` models (see Meta [Licenses](#licenses) section above).
 - SentenceTransformers' [embeddings](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) models, specifically the `all-minilm-l6-v2` model.
 
@@ -271,6 +276,7 @@ Now let's use the Spin SDK to access the model from our app:
 {{ startTab "Rust"}}
 
 The Rust source code for this sentiment analysis example uses serde. There are a couple of ways to add the required serde dependencies:
+
 - Run `cargo add serde -F derive` and `cargo add serde_json` from your Rust application's home directory (which will automatically update your application's `Cargo.toml` file), or
 - Manually, edit your Rust application's `Cargo.toml` file by adding the following lines beneath the `Cargo.toml` file's `[dependencies]` section:
 
@@ -570,11 +576,9 @@ export const handleRequest: HandleRequest = async function (
 {{ startTab "Python"}}
 
 ```python
-from spin_http import Response
-from spin_llm import llm_infer
-from spin_key_value import kv_open_default
+from spin_sdk import http, llm, key_value
+from spin_sdk.http import Request, Response
 import json
-import re
 
 PROMPT="""<<SYS>>
 You are a bot that generates sentiment analysis responses. Respond with a single positive, negative, or neutral.
@@ -594,31 +598,32 @@ Bot: negative
 [/INST]
 User: """
 
-def handle_request(request):
-    # Extracting the sentence from the request
-    request_body=json.loads(request.body)
-    sentence=request_body["sentence"].strip()
-    print("Performing sentiment analysis on: " + sentence)
+class IncomingHandler(http.IncomingHandler):
+    def handle_request(self, request: Request) -> Response:
+        # Extracting the sentence from the request_body
+        request_body=json.loads(request.body)
+        sentence=request_body["sentence"].strip()
+        print("Performing sentiment analysis on: " + sentence)
 
-    # Open the default KV store
-    store = kv_open_default()
+        # Open the default KV store
+        store = key_value.open_default()
 
-    # Check if the sentence is already in the KV store
-    if store.exists(sentence) is False:
-        result=llm_infer("llama2-chat", PROMPT+sentence).text
-        print("Raw result: " + result)
-        sentiment = get_sentiment_from_sentence(result)
-        print("Storing result in the KV store")
-        store.set(sentence, str.encode(sentiment))
-    else:
-        sentiment = store.get(sentence).decode()
-        print("Found a cached result")
+        # Check if the sentence is already in the KV store
+        if store.exists(sentence) is False:
+            result=llm.infer("llama2-chat", PROMPT+sentence).text
+            print("Raw result: " + result)
+            sentiment = get_sentiment_from_sentence(result)
+            print("Storing result in the KV store")
+            store.set(sentence, str.encode(sentiment))
+        else:
+            sentiment = store.get(sentence).decode()
+            print("Found a cached result")
 
-    response_body=json.dumps({"sentence": sentiment})
+        response_body=json.dumps({"sentiment": sentiment})
 
-    return Response(200,
-                    {"content-type": "application/json"},
-                    bytes(response_body, "utf-8"))
+        return Response(200,
+                        {"content-type": "application/json"},
+                        bytes(response_body, "utf-8"))
 
 def get_sentiment_from_sentence(sentence) -> str:
     words = sentence.lower().split()
@@ -779,17 +784,9 @@ Directory containing the files to serve [assets]: assets
 
 ```
 
-We create an `assets` directory where we can store files to serve statically (see the `spin.toml` file for more configuration information):
+### Add the Front-End
 
-<!-- @selectiveCpy -->
-
-```bash
-$ mkdir assets
-```
-
-### Add the Front-End 
-
-We can add a webpage that asks the user for some text and does the sentiment analysis on it. In your assets folder, create two files `dynamic.js` and `index.html`. 
+We can add a webpage that asks the user for some text and does the sentiment analysis on it. In your assets folder, create two files `dynamic.js` and `index.html`.
 
 Here's the code snippet for `index.html`
 
@@ -863,7 +860,7 @@ Here's the code snippet for `index.html`
 </html>
 ```
 
-Here's the code snippet for `dynamic.js` 
+Here's the code snippet for `dynamic.js`
 
 ```javascript
 // Listen for the Enter key being pressed
@@ -975,7 +972,7 @@ For this, we install use a pre-made template by pointing to the templates GitHub
 $ spin templates install --git https://github.com/fermyon/spin-kv-explorer
 ```
 
-Then, we again use `spin add` to add the new component. We will name the component  `kv-explorer`):
+Then, we again use `spin add` to add the new component. We will name the component `kv-explorer`):
 
 <!-- @selectiveCpy -->
 
@@ -987,27 +984,31 @@ $ spin add kv-explorer -t kv-explorer
 
 As shown below, the Spin framework has done all of the scaffolding for us:
 
+{{ tabs "sdk-type" }}
+
+{{ startTab "Rust"}}
+
 <!-- @nocpy -->
 
 ```toml
 spin_manifest_version = 2
 
 [application]
-name = "sentiment-analysis-rust"
+name = "sentiment-analysis"
 version = "0.1.0"
 authors = ["Your Name <your-name@example.com>"]
 description = "A sentiment analysis API that demonstrates using LLM inferencing and KV stores together"
 
 [[trigger.http]]
 route = "/api/..."
-component = "sentiment-analysis-rust"
+component = "sentiment-analysis"
 
-[component.sentiment-analysis-rust]
-source = "target/wasm32-wasip1/release/sentiment_analysis_rust.wasm"
+[component.sentiment-analysis]
+source = "target/wasm32-wasip1/release/sentiment_analysis.wasm"
 allow_outbound_hosts = []
 ai_models = ["llama2-chat"]
 key_value_stores = ["default"]
-[component.sentiment-analysis-rust.build]
+[component.sentiment-analysis.build]
 command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
@@ -1016,7 +1017,7 @@ route = "/..."
 component = "ui"
 
 [component.ui]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.1.0/spin_static_fs.wasm", digest = "sha256:96c76d9af86420b39eb6cd7be5550e3cb5d4cc4de572ce0fd1f6a29471536cb4" }
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.3.0/spin_static_fs.wasm", digest = "sha256:ef88708817e107bf49985c7cefe4dd1f199bf26f6727819183d5c996baa3d148" }
 files = [{ source = "assets", destination = "/" }]
 
 [[trigger.http]]
@@ -1024,10 +1025,68 @@ route = "/internal/kv-explorer/..."
 component = "kvv2"
 
 [component.kv-explorer]
-source = { url = "https://github.com/fermyon/spin-kv-explorer/releases/download/v0.6.0/spin-kv-explorer.wasm", digest = "sha256:38110bc277a393cdfb1a885a0fd56923d47314b2086399d1e3bbcb6daa1f04ad" }
+source = { url = "https://github.com/fermyon/spin-kv-explorer/releases/download/v0.10.0/spin-kv-explorer.wasm", digest = "sha256:65bc286f8315746d1beecd2430e178f539fa487ebf6520099daae09a35dbce1d" }
+allowed_outbound_hosts = ["redis://*:*", "mysql://*:*", "postgres://*:*"]
 # add or remove stores you want to explore here
 key_value_stores = ["default"]
 ```
+
+{{ blockEnd }}
+
+{{ startTab "Python" }}
+
+<!-- @nocpy -->
+
+```toml
+spin_manifest_version = 2
+
+[application]
+authors = ["Your Name <your-name@example.com>"]
+description = "A sentiment analysis API that demonstrates using LLM inferencing and KV stores together"
+name = "sentiment-analysis"
+version = "0.1.0"
+
+[[trigger.http]]
+route = "/api/..."
+component = "sentiment-analysis"
+
+[component.sentiment-analysis]
+source = "app.wasm"
+ai_models = ["llama2-chat"]
+key_value_stores = ["default"]
+[component.sentiment-analysis.build]
+command = "componentize-py -w spin-http componentize app -o app.wasm"
+watch = ["*.py", "requirements.txt"]
+
+[[trigger.http]]
+component = "kv-explorer"
+route = "/internal/kv-explorer/..."
+
+[component.kv-explorer]
+source = { url = "https://github.com/fermyon/spin-kv-explorer/releases/download/v0.10.0/spin-kv-explorer.wasm", digest = "sha256:65bc286f8315746d1beecd2430e178f539fa487ebf6520099daae09a35dbce1d" }
+allowed_outbound_hosts = ["redis://*:*", "mysql://*:*", "postgres://*:*"]
+# add or remove stores you want to explore here
+key_value_stores = ["default"]
+
+[component.kv-explorer.variables]
+kv_credentials = "{{ kv_explorer_user }}:{{ kv_explorer_password }}"
+
+[variables]
+kv_explorer_user = { required = true }
+kv_explorer_password = { required = true }
+
+[[trigger.http]]
+route = "/..."
+component = "ui"
+
+[component.ui]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.3.0/spin_static_fs.wasm", digest = "sha256:ef88708817e107bf49985c7cefe4dd1f199bf26f6727819183d5c996baa3d148" }
+files = [{ source = "assets", destination = "/" }]
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 ### Building and Deploying Your Spin Application
 
@@ -1038,11 +1097,32 @@ key_value_stores = ["default"]
 
 Now, let's build and run our Spin Application locally. (**Note:** If you are following along with the TypeScript/JavaScript example, you will first need to run `npm install`. Otherwise, please continue to the following `spin` command.)
 
+{{ tabs "sdk-type" }}
+
+{{ startTab "Rust" }}
+
 <!-- @selectiveCpy -->
 
 ```bash
 $ spin build --up
 ```
+
+{{ blockEnd }}
+
+{{ startTab "Python" }}
+
+<!-- @selectiveCpy -->
+
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip3 install -r requirements.txt
+$ spin build --up
+```
+
+{{ blockEnd }}
+
+{{ blockEnd }}
 
 ### Test Locally
 
@@ -1057,7 +1137,7 @@ $ curl -vXPOST 'localhost:3000/api/sentiment-analysis' -H'Content-Type: applicat
 
 ### Deploy to Fermyon Cloud
 
-Deploying to the Fermyon Cloud is one simple command. If you have not logged into your Fermyon Cloud account already, the CLI will prompt you to login. Follow the instructions to complete the authorization process.  
+Deploying to the Fermyon Cloud is one simple command. If you have not logged into your Fermyon Cloud account already, the CLI will prompt you to login. Follow the instructions to complete the authorization process.
 
 <!-- @selectiveCpy -->
 
