@@ -10,6 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/managing-t
   - [Installing From the Spin Git Repository](#installing-from-the-spin-git-repository)
   - [Installing From a Specific Branch](#installing-from-a-specific-branch)
   - [Installing From a Local Directory](#installing-from-a-local-directory)
+  - [Installing From a Remote Tarball](#installing-from-a-remote-tarball)
 - [Viewing Your Installed Templates](#viewing-your-installed-templates)
 - [Uninstalling Templates](#uninstalling-templates)
 - [Upgrading Templates](#upgrading-templates)
@@ -70,6 +71,18 @@ $ spin templates install --dir ~/dev/spin-befunge-sdk
 ```
 
 See [Template Authoring](template-authoring) for more details on this layout.
+
+### Installing From a Remote Tarball
+
+To install templates from a remote tarball, run `spin templates install --tar`.
+
+> The tarball must have a `/templates` directory at its root, _or_ have a single root directory and have a `templates` directory within that. This slightly complicated rule is so that it works correctly with a GitHub release tarball, which always has a root directory named after the release.
+
+<!-- @selectiveCpy -->
+
+```bash
+$ spin templates install --tar https://github.com/fermyon/spin/archive/refs/tags/v9.8.7.tar.gz
+```
 
 ## Viewing Your Installed Templates
 
