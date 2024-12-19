@@ -35,14 +35,7 @@ The Spin SDK makes it very easy to build Javascript/TypeScript Wasm applications
 
 ### Prerequisites
 
-If you have not done so already, please [install Spin](/spin/v2/install). Having Spin installed will allow us to easily use js2wasm and Spin application templates.
-
-### Js2Wasm 
-
-```console
-$ spin plugin update
-$ spin plugin install js2wasm
-```
+If you have not done so already, please [install Spin](/spin/v3/install). Having Spin installed will allow us to easily use Spin application templates.
 
 ### The Spin JS/TS SDK Template
 
@@ -69,13 +62,11 @@ $ spin new -t http-js javascript-example --accept-defaults
 Take a look at the scaffolded program in `javascript-example/src/index.js`:
 
 ```javascript
-export async function handleRequest(request) {
+import { ResponseBuilder } from "@fermyon/spin-sdk";
 
-    return {
-        status: 200,
-        headers: { "content-type": "text/plain" },
-        body: "Hello from JS-SDK"
-    }
+export async function handler(req, res) {
+    console.log(req);
+    res.send("hello universe");
 }
 ```
 
@@ -96,7 +87,7 @@ Test it with `curl`:
 
 ```console
 $ curl localhost:3000/
-Hello from JS-SDK
+hello universe
 ```
 
 The Wasm binary can be found at `target/javascript-example.wasm`.
