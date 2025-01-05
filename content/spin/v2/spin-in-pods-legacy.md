@@ -6,6 +6,7 @@ enable_shortcodes = true
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/spin-in-pods-legacy.md"
 
 ---
+
 - [Spin In Pods (Legacy)](#spin-in-pods-legacy)
 - [Next Steps](#next-steps)
 - [Setup Azure AKS for Spin](#setup-azure-aks-for-spin)
@@ -299,13 +300,13 @@ We provide the [spin-containerd-shim-installer](https://github.com/fermyon/spin-
 The version of the container image and Helm chart directly correlates to the version of the containerd shim. We recommend selecting the shim version that correlates the version of Spin that you use for your application(s). For simplicity, here is a table depicting the version matrix between Spin and the containerd shim.
 
 | [Spin](https://github.com/fermyon/spin/releases)              | [containerd-shim-spin](https://github.com/deislabs/containerd-wasm-shims/releases) |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| [v2.0.1](https://github.com/fermyon/spin/releases/tag/v2.0.1) | [v0.10.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.10.0)       |
-| [v1.4.1](https://github.com/fermyon/spin/releases/tag/v1.4.1) | [v0.9.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.9.0)       |
-| [v1.4.0](https://github.com/fermyon/spin/releases/tag/v1.4.0) | [v0.8.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.8.0)       |
-| [v1.3.0](https://github.com/fermyon/spin/releases/tag/v1.3.0) | [v0.7.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.7.0)       |
-| [v1.1.0](https://github.com/fermyon/spin/releases/tag/v1.1.0) | [v0.6.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.6.0)       |
-| [v1.0.0](https://github.com/fermyon/spin/releases/tag/v1.0.0) | [v0.5.1](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.5.1)       |
+| ------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| [v2.0.1](https://github.com/fermyon/spin/releases/tag/v2.0.1) | [v0.10.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.10.0)  |
+| [v1.4.1](https://github.com/fermyon/spin/releases/tag/v1.4.1) | [v0.9.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.9.0)    |
+| [v1.4.0](https://github.com/fermyon/spin/releases/tag/v1.4.0) | [v0.8.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.8.0)    |
+| [v1.3.0](https://github.com/fermyon/spin/releases/tag/v1.3.0) | [v0.7.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.7.0)    |
+| [v1.1.0](https://github.com/fermyon/spin/releases/tag/v1.1.0) | [v0.6.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.6.0)    |
+| [v1.0.0](https://github.com/fermyon/spin/releases/tag/v1.0.0) | [v0.5.1](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.5.1)    |
 
 There are several values you may need to configure based on your Kubernetes environment. The installer needs to add a binary to the node's PATH and edit containerd's config.toml. The defaults we set are the same defaults for containerd and should work for most Kubernetes environments but you may need to adjust them if your distribution uses non-default paths.
 
@@ -500,3 +501,52 @@ The following command retrieves information about the service that gets deployed
 ```console
 $ spin k8s getsvc
 ```
+
+<script>
+// Function to hide content and add notice
+function addNoticeAndHideContent() {
+    let section = document.querySelector('#type')
+    section.style.minHeight = "100vh"
+    const heading = document.querySelector('.blog-post-title');
+
+    if (!heading) {
+        console.error('No element with the class "heading" found.');
+        return;
+    }
+
+    let sibling = heading.nextElementSibling;
+    while (sibling) {
+        sibling.style.display = 'none';
+        sibling = sibling.nextElementSibling;
+    }
+
+    const notice = document.createElement('blockquote');
+    notice.innerHTML = `
+        <p>
+            For the best user experience deploying Spin applications to Kubernetes, we recommend using 
+            <a href="/k8s" target="_blank">SpinKube and Fermyon Platform for Kubernetes</a>.
+            If you are using the legacy experience and would like assistance in migrating, please reach out on 
+            <a href="https://discord.gg/fermyon" target="_blank">Discord</a>. To proceed to the unsupported "Spin in pods" solution, 
+            <a href="#" id="unhide-link">click here</a>.
+        </p>
+    `;
+
+    heading.insertAdjacentElement('afterend', notice);
+
+    const unhideLink = document.getElementById('unhide-link');
+    unhideLink.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        section.style.minHeight = "auto"
+        let sibling = heading.nextElementSibling;
+        while (sibling) {
+            sibling.style.display = '';
+            sibling = sibling.nextElementSibling;
+        }
+
+        notice.remove();
+    });
+}
+
+addNoticeAndHideContent();
+</script>
