@@ -12,6 +12,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/redis-trig
 - [Redis Components](#redis-components)
   - [The Message Handler](#the-message-handler)
 - [Inside Redis Components](#inside-redis-components)
+- [Additional Spin Triggers](#additional-spin-triggers)
+  - [Common Triggers](#common-triggers)
+  - [Community Triggers](#community-triggers)
 
 Pub-sub (publish-subscribe) messaging is a popular architecture for asynchronous message processing. Spin has built-in support to creating and running applications in response to messages on [pub-sub Redis channels](https://redis.io/topics/pubsub).
 
@@ -167,3 +170,22 @@ interface inbound-redis {
 This is the interface that all Redis components must implement, and
 which is used by Spin when instantiating and invoking the component.
 However, it is implemented internally by the Spin SDK - you don't need to implement it directly.
+
+## Additional Spin Triggers
+
+You can leverage different triggers as part of your Spin apps to address common requirements and build real-world, distributed applications with Spin.
+
+### Common Triggers
+
+- [HTTP Trigger](./http-trigger.md)
+- [Redis Trigger](./redis-trigger.md)
+- [Command Trigger](./command-trigger.md)
+- [Cron Trigger](./cron-trigger.md)
+- [SQS Trigger](./sqs-trigger.md)
+
+### Community Triggers
+
+The incredible Spin and [SpinKube](https://spinkube.dev) community, also provides the following, additional Spin triggers:
+
+- [Kinesis Trigger](./community-kinesis-trigger.md)
+- [MQTT Trigger](./community-mqtt-trigger.md)

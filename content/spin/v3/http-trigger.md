@@ -23,6 +23,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/http-trigg
 - [Exposing HTTP Triggers Using HTTPS](#exposing-http-triggers-using-https)
   - [Trigger Options](#trigger-options)
   - [Environment Variables](#environment-variables)
+- [Additional Spin Triggers](#additional-spin-triggers)
+  - [Common Triggers](#common-triggers)
+  - [Community Triggers](#community-triggers)
 
 HTTP applications are an important workload in event-driven environments,
 and Spin has built-in support for creating and running HTTP
@@ -511,3 +514,22 @@ Once set, `spin up` will automatically use these explicitly set environment vari
 export SPIN_TLS_CERT=<path/to/cert>
 export SPIN_TLS_KEY=<path/to/key>
 ```
+
+## Additional Spin Triggers
+
+You can leverage different triggers as part of your Spin apps to address common requirements and build real-world, distributed applications with Spin.
+
+### Common Triggers
+
+- [HTTP Trigger](./http-trigger.md)
+- [Redis Trigger](./redis-trigger.md)
+- [Command Trigger](./command-trigger.md)
+- [Cron Trigger](./cron-trigger.md)
+- [SQS Trigger](./sqs-trigger.md)
+
+### Community Triggers
+
+The incredible Spin and [SpinKube](https://spinkube.dev) community, also provides the following, additional Spin triggers:
+
+- [Kinesis Trigger](./community-kinesis-trigger.md)
+- [MQTT Trigger](./community-mqtt-trigger.md)
