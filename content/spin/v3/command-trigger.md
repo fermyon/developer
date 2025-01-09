@@ -19,7 +19,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/command-tr
   - [Community Triggers](#community-triggers)
 
 
-Spin has experimental support for creating and running components once. Please note that there are only working Command Trigger app samples written in [Rust](https://github.com/fermyon/spin-trigger-command/tree/main/examples) at present.
+Spin has experimental support for creating and running components once. Please note that there are only working Command trigger app samples written in [Rust](https://github.com/fermyon/spin-trigger-command/tree/main/examples) at present.
 
 > Please note: You can not `spin deploy` an application to Fermyon Cloud if it uses `command` because non-HTTP triggers are not supported in Fermyon Cloud.
 
