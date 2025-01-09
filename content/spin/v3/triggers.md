@@ -169,7 +169,7 @@ You can leverage different triggers as part of your Spin apps to address common 
 
 ### Community Triggers
 
-The incredible Spin and [SpinKube](https://spinkube.dev) community, also provides the following, additional Spin triggers:
+The incredible Spin and [SpinKube](https://spinkube.dev) community, also provides the following additional Spin triggers:
 
 - [Kinesis Trigger](./community-kinesis-trigger.md)
 - [MQTT Trigger](./community-mqtt-trigger.md)
