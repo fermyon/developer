@@ -109,7 +109,7 @@ I GOT A RECORD!  ID: 102
 
 As we can see from the above output, our application is now running and executing the function for each data record sent through your individual AWS Kinesis instance.
 
-If you would like to learn more about using the Spin Kinesis Trigger, please check out the ["How I wrote A Kinesis Trigger PLugin For Spin"](https://www.fermyon.com/blog/how-i-wrote-a-kinesis-trigger-plugin-for-spin) blog post and consult the [Spin Kinesis Trigger GitHub repository](https://github.com/ogghead/spin-trigger-kinesis/).
+If you would like to learn more about using the Spin Kinesis trigger, please check out the ["How I wrote A Kinesis Trigger Plugin For Spin"](https://www.fermyon.com/blog/how-i-wrote-a-kinesis-trigger-plugin-for-spin) blog post and consult the [Kinesis trigger GitHub repository](https://github.com/ogghead/spin-trigger-kinesis/).
 
 ## Additional Spin Triggers
 
