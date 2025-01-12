@@ -30,7 +30,7 @@ Using TinyGo to compile components for Spin is currently required, as the
 
 ## Versions
 
-TinyGo `0.30.0` is recommended, which requires Go `v1.19+`.
+TinyGo `0.35.0` is recommended, which requires Go `v1.22+`.  Older versions of TinyGo may not support the command-line flags used when building Spin applications.
 
 ## HTTP Components
 
@@ -70,7 +70,7 @@ The Spin HTTP component (written in Go) can be built using the `tingygo` toolcha
 <!-- @selectiveCpy -->
 
 ```bash
-$ tinygo build -o main.wasm -target=wasi main.go
+$ tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm .
 ```
 
 Once built, we can run our Spin HTTP component using the Spin up command:
@@ -150,7 +150,7 @@ The Outbound HTTP Request example above can be built using the `tingygo` toolcha
 <!-- @selectiveCpy -->
 
 ```bash
-$ tinygo build -o main.wasm -target=wasi main.go
+$ tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm .
 ```
 
 Before we can execute this component, we need to add the
@@ -255,7 +255,7 @@ component = "echo-message"
 [component.echo-message]
 source = "main.wasm"
 [component.echo-message.build]
-command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+command = "tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm ."
 ```
 
 The application will connect to `redis://localhost:6379`, and for every new message
