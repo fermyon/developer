@@ -624,7 +624,7 @@ component = "hello-go"
 source = "main.wasm"
 allowed_outbound_hosts = []
 [component.hello-go.build]
-command = "tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm ."
+command = "tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm ."
 ```
 
 This represents a simple Spin HTTP application (triggered by an HTTP request).  It has:
@@ -635,8 +635,8 @@ This represents a simple Spin HTTP application (triggered by an HTTP request).  
 [Learn more about the manifest here.](./writing-apps)
 
 Now let's have a look at the code. Below is the complete source
-code for a Spin HTTP component written in Go. Notice where the work is done.  The
-`main` function is empty (and Spin never calls it).  Instead, the `init` function
+code for a Spin HTTP component written in Go. Notice where the work is done.  Because this is a component
+rather than an application, there is no `main` function.  Instead, the `init` function
 sets up a callback, and passes that callback to `spinhttp.Handle` to register it as
 the handler for HTTP requests.  You can learn more about this structure
 in the [Go language guide](go-components).
@@ -657,8 +657,6 @@ func init() {
                 fmt.Fprintln(w, "Hello Fermyon!")
         })
 }
-
-func main() {}
 ```
 
 {{ blockEnd }}
@@ -822,7 +820,7 @@ You can always run this command manually; `spin build` is a shortcut.
 
 ```bash
 $ spin build
-Executing the build command for component hello-go: tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm .
+Executing the build command for component hello-go: tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm .
 go: downloading github.com/fermyon/spin/sdk/go v0.10.0
 Finished building all Spin components
 ```
@@ -838,7 +836,7 @@ If you would like to know what build command Spin runs for a component, you can 
 
 ```toml
 [component.hello-go.build]
-command = "tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm ."
+command = "tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm ."
 ```
 
 You can always run this command manually; `spin build` is a shortcut to save you having to remember it.

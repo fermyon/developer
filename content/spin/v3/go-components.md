@@ -61,8 +61,6 @@ func init() {
   fmt.Fprintln(w, "Hello Fermyon!")
  })
 }
-
-func main() {}
 ```
 
 The Spin HTTP component (written in Go) can be built using the `tingygo` toolchain:
@@ -70,7 +68,7 @@ The Spin HTTP component (written in Go) can be built using the `tingygo` toolcha
 <!-- @selectiveCpy -->
 
 ```bash
-$ tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm .
+$ tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm .
 ```
 
 Once built, we can run our Spin HTTP component using the Spin up command:
@@ -141,8 +139,6 @@ func init() {
   }
  })
 }
-
-func main() {}
 ```
 
 The Outbound HTTP Request example above can be built using the `tingygo` toolchain:
@@ -150,7 +146,7 @@ The Outbound HTTP Request example above can be built using the `tingygo` toolcha
 <!-- @selectiveCpy -->
 
 ```bash
-$ tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm .
+$ tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm .
 ```
 
 Before we can execute this component, we need to add the
@@ -228,9 +224,6 @@ func init() {
   return nil
  })
 }
-
-// main function must be included for the compiler but is not executed.
-func main() {}
 ```
 
 The manifest for a Redis application must contain the address of the Redis instance. This is set at the application level:
@@ -255,7 +248,7 @@ component = "echo-message"
 [component.echo-message]
 source = "main.wasm"
 [component.echo-message.build]
-command = "tinygo build -target=wasip1 -gc=leaking -scheduler=none -buildmode=c-shared -no-debug -o main.wasm ."
+command = "tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm ."
 ```
 
 The application will connect to `redis://localhost:6379`, and for every new message
@@ -351,8 +344,6 @@ func init() {
   }
  })
 }
-
-func main() {}
 ```
 
 As with all networking APIs, you must grant access to Redis hosts via the `allowed_outbound_hosts` field in the application manifest:
