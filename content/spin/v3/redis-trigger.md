@@ -137,8 +137,6 @@ func init() {
 		return nil
 	})
 }
-
-func main() {}
 ```
 
 {{ blockEnd }}
