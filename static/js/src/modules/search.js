@@ -14,11 +14,16 @@ async function getSearchIndex() {
   }
 }
 
+//
+// This function filters and builds the search index, based on which project is selected (Spin v1, V2, V3, Cloud, Etc.),
+//
 async function setupSearch() {
   documents = await getSearchIndex();
   let currentPath = window.location.pathname;
   let splitPath = currentPath.split("/");
   let version = splitPath[2];
+  // Adds spin/v1, spin/v2 or spin/v3 based on current path.
+  // If not on a spin project (e.g., cloud), add spin/v3 (latest)
   if (version == "v1") {
     documents = documents.filter((k) => {
       if (k.project != "spin") {
@@ -42,12 +47,7 @@ async function setupSearch() {
     });
   } else {
     documents = documents.filter((k) => {
-      return (
-        k.project != "spin" ||
-        !k.url.includes("spin/v1/") ||
-        !k.url.includes("spin/v2/") ||
-        !k.url.includes("spin/v3/")
-      );
+      return k.project != "spin" || k.url.includes("spin/v3/");
     });
   }
 
