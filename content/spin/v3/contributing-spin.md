@@ -17,6 +17,9 @@ This document will guide you through making your first contribution to the proje
 We welcome and appreciate contributions of all types — opening issues, fixing
 typos, adding examples, one-liner code fixes, tests, or complete features.
 
+## Spin Slack Channel
+
+Join us in the [Spin Channel](https://cloud-native.slack.com/archives/C089NJ9G1V0) on the CNCF Slack! This is a great place to ask questions, meet people in the community, and share what you are working on.
 
 ## Developer Community Calls
 
