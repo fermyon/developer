@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/http-trigg
 - [HTTP Trigger Routes](#http-trigger-routes)
   - [Resolving Overlapping Routes](#resolving-overlapping-routes)
   - [Private Endpoints](#private-endpoints)
-  - [Health Check Route](#health-check-route)
+  - [Reserved Routes](#reserved-routes)
 - [Authoring HTTP Components](#authoring-http-components)
   - [The Request Handler](#the-request-handler)
   - [Getting Request and Response Information](#getting-request-and-response-information)
@@ -128,10 +128,16 @@ component = "internal"
 
 To access a private endpoint, use [local service chaining](./http-outbound#local-service-chaining) (where the request is passed in memory without ever leaving the Spin host process). Such calls still require the internal endpoint to be included in `allowed_outbound_hosts`.
 
-### Health Check Route
+### Reserved Routes
 
-Every HTTP application automatically has a special route always configured at `/.well-known/spin/health`, which
-returns `OK 200` when the Spin instance is healthy.
+Every HTTP application automatically has a special route always configured at `/.well-known/spin/...`.  This route takes priority over any routes in the application: that is, the Spin runtime handles requests to this route, and the application never sees such requests.
+
+You can use paths within this route for health and status checking. The following are currently defined:
+
+* `/.well-known/spin/health`: returns 200 OK if Spin is healthy and accepting requests
+* `/.well-known/spin/info`: returns information about the application and deployment
+
+Other paths within the reserved space currently return 404 Not Found.
 
 ## Authoring HTTP Components
 
