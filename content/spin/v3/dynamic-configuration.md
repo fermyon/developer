@@ -13,6 +13,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/dynamic-co
   - [Azure Key Vault Application Variable Provider](#azure-key-vault-application-variable-provider)
     - [Azure Key Vault Application Variable Provider Example](#azure-key-vault-application-variable-provider-example)
 - [Key Value Store Runtime Configuration](#key-value-store-runtime-configuration)
+  - [File Key Value Store Provider](#file-key-value-store-provider)
   - [Redis Key Value Store Provider](#redis-key-value-store-provider)
   - [Azure CosmosDB Key Value Store Provider](#azure-cosmosdb-key-value-store-provider)
   - [AWS DynamoDB Key Value Store Provider](#aws-dynamodb-key-value-store-provider)
@@ -106,7 +107,7 @@ $ vault kv get secret/secret
 
 ```bash
 $ spin build
-$ spin up --runtime-config-file runtime_config.toml
+$ spin up --runtime-config-file runtime-config.toml
 ```
 
 6. Test the app:
@@ -211,9 +212,9 @@ $ az role assignment create --assignee $CLIENT_ID \
 ```
 
 4. Go to the [Azure Key Vault variable provider example](https://github.com/fermyon/enterprise-architectures-and-patterns/tree/main/application-variable-providers/azure-key-vault-provider) application.
-5. Replace Tokens in `runtime_config.toml`.
+5. Replace Tokens in `runtime-config.toml`.
 
-The `azure-key-vault-provider` application contains a `runtime_config.toml` file. Replace all tokens (e.g. `$KV_NAME$`) with the corresponding shell variables you created in the previous steps.   
+The `azure-key-vault-provider` application contains a `runtime-config.toml` file. Replace all tokens (e.g. `$KV_NAME$`) with the corresponding shell variables you created in the previous steps.   
 
 6. Build and run the `azure-key-vault-provider` app:
 
@@ -221,7 +222,7 @@ The `azure-key-vault-provider` application contains a `runtime_config.toml` file
 
 ```bash
 $ spin build
-$ spin up --runtime-config-file runtime_config.toml
+$ spin up --runtime-config-file runtime-config.toml
 ```
 
 7. Test the app:
@@ -235,11 +236,25 @@ Loaded Secret from Azure Key Vault: secret_value
 
 ## Key Value Store Runtime Configuration
 
-Spin provides built-in key-value storage. This storage is backed by an SQLite database embedded in Spin by default. However, the Spin runtime configuration file (`runtime-config.toml`) can be updated to not only modify the SQLite configuration but also choose to use a different backing store. The available store options are the embedded SQLite database, an external Redis database or Azure CosmosDB.
+Spin provides built-in key-value storage. By default, this storage is backed by a file in the application `.spin` directory. However, the Spin runtime configuration file (`runtime-config.toml`) can be updated to not only modify the file configuration but also choose to use a different backing store. The available store options are the file provider, an external Redis database, Azure CosmosDB or AWS DynamoDB.
+
+### File Key Value Store Provider
+
+To use a file as a backend for Spin's key-value store, set the type to `spin`, and provide a file path:
+
+```toml
+[key_value_store.default]
+type = "spin"
+path = ".spin/precious-data.db"
+```
+
+Spin creates the path and file if they don't already exist.
+
+> If, during development, you need to examine keys and values, you can open the file using `sqlite3` or another SQLite tools. However, the file format is subject to change, and you should not rely on it.
 
 ### Redis Key Value Store Provider
 
-The following is an example of how an application's `runtime-config.toml` file can be configured to use Redis instead. Note the `type` and `url` values, which are set to `redis` and the URL of the Redis host, respectively:
+To use a Redis store as a backend for Spin's key-value store, set the type to `redis` and provide the URL of the Redis host:
 
 ```toml
 [key_value_store.default]
@@ -249,7 +264,7 @@ url = "redis://localhost"
 
 ### Azure CosmosDB Key Value Store Provider
 
-To use an Azure CosmosDB database as a backend for Spin's key/value store, change the type to `azure_cosmos` and specify your database account details:
+To use an Azure CosmosDB database as a backend for Spin's key-value store, set the type to `azure_cosmos` and specify your database account details:
 
 ```toml
 [key_value_store.default]
@@ -264,7 +279,7 @@ container = "<cosmos-container>"
 
 ### AWS DynamoDB Key Value Store Provider
 
-To use an Amazon Web Services DynamoDB database as a backend for Spin's key/value store, change the type to `aws_dynamo` and specify your database account details:
+To use an Amazon Web Services DynamoDB database as a backend for Spin's key-value store, set the type to `aws_dynamo` and specify your database account details:
 
 ```toml
 [key_value_store.default]
