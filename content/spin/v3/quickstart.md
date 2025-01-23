@@ -867,16 +867,6 @@ Available Routes:
   hello-typescript: http://127.0.0.1:3000 (wildcard)
 ```
 
-If you would like to see what Spin is doing under the hood, set the RUST_LOG environment variable for detailed logs, before running `spin up`:
-
-<!-- @selectiveCpy -->
-
-```bash
-$ export RUST_LOG=spin=trace
-```
-
-> The variable is `RUST_LOG` no matter what language your application is written in, because this is setting the log level for Spin itself.
-
 Spin instantiates all components from the application manifest, and
 creates the router configuration for the HTTP trigger according to the routes in the manifest. The
 component can now be invoked by making requests to `http://localhost:3000/`
@@ -895,6 +885,8 @@ Hello, Fermyon
 ```
 
 > The `curl` output may vary based on which language SDK you use. 
+
+You'll also see any logging (stdout/stderr) from the generated code printed to the console where Spin is running. For more details, see the [page about running Spin applications](./running-apps.md).
 
 Congratulations! You just created, built and ran your first Spin application!
 
