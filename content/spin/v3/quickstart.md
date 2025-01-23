@@ -867,6 +867,8 @@ Available Routes:
   hello-typescript: http://127.0.0.1:3000 (wildcard)
 ```
 
+> You can also run a Spin application using `spin watch`. This automatically rebuilds code and reloads content whenever they change. [Learn more.](./running-apps.md#monitoring-applications-for-changes)
+
 Spin instantiates all components from the application manifest, and
 creates the router configuration for the HTTP trigger according to the routes in the manifest. The
 component can now be invoked by making requests to `http://localhost:3000/`
