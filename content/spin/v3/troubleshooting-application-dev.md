@@ -44,3 +44,15 @@ If `spin doctor` detects a problem it can fix, you can choose to accept the fix,
 ## Spin Test
 
 The [spin test plugin](https://github.com/fermyon/spin-test) allows you to write test scenarios for your application's business logic. For more information, see [testing applications](./testing-apps.md).
+
+## Viewing Spin Debug Logs
+
+If you need to follow what Spin is doing internally, set the RUST_LOG environment variable for detailed logs, before running `spin up`:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ export RUST_LOG=spin=trace
+```
+
+> The variable is `RUST_LOG` no matter what language your application is written in, because this is setting the log level for Spin itself.
