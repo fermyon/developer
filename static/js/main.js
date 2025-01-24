@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"40yvg":[function(require,module,exports) {
+})({"bZYIQ":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 52109;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "42036d7a98ade5a7";
 module.bundle.HMR_BUNDLE_ID = "2a29ff2311f401cb";
@@ -663,8 +663,16 @@ async function setupSearch() {
         if (k.project != "spin") return true;
         return k.url.includes("spin/v1/");
     });
+    else if (version == "v2") documents = documents.filter((k)=>{
+        if (k.project != "spin") return true;
+        return k.url.includes("spin/v2/");
+    });
+    else if (version == "v3") documents = documents.filter((k)=>{
+        if (k.project != "spin") return true;
+        return k.url.includes("spin/v3/");
+    });
     else documents = documents.filter((k)=>{
-        return k.project != "spin" || !k.url.includes("spin/v1/");
+        return k.project != "spin" || k.url.includes("spin/v3/");
     });
     idx = lunr(function() {
         this.field("title");
@@ -932,7 +940,7 @@ class SearchModal {
             display: "block"
         });
         setStyle(document.body, {
-            "overflow": "hidden",
+            overflow: "hidden",
             height: "100%"
         });
         this.modalSearchBar.value = "";
@@ -1489,5 +1497,5 @@ function createFeedbackElement(handle) {
     mount(handle, feedback);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["40yvg","e9rxa"], "e9rxa", "parcelRequire252c")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}]},["bZYIQ","e9rxa"], "e9rxa", "parcelRequire252c")
 
