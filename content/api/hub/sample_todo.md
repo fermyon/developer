@@ -2,7 +2,7 @@ title = "To Do Sample App"
 template = "render_hub_content_body"
 date = "2023-07-24T00:22:56Z"
 content-type = "text/html"
-tags = ["rust", "http", "SQLite"]
+tags = ["rust", "http", "sqlite"]
 
 [extra]
 author = "rylev"

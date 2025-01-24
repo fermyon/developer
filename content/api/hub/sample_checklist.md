@@ -2,7 +2,7 @@ title = "Checklist Sample App"
 template = "render_hub_content_body"
 date = "2023-11-03T00:22:56Z"
 content-type = "text/html"
-tags = ["typescript", "http", "kv"]
+tags = ["typescript", "http", "key-value"]
 
 [extra]
 author = "macolso"

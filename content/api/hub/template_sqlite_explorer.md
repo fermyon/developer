@@ -2,7 +2,7 @@ title = "SQLite explorer template"
 template = "render_hub_content_body"
 date = "2023-10-22T00:22:56Z"
 content-type = "text/html"
-tags = ["db", "NoOpsDB", "sqlite", "observability"]
+tags = ["db", "sqlite", "observability"]
 
 [extra]
 author = "karthik2804"

@@ -2,7 +2,7 @@ title = "Spin 11ty"
 template = "render_hub_content_body"
 date = "2023-12-19T04:30:32.000Z"
 content-type = "text/html"
-tags = ["javascript", "11ty", "Fermyon Cloud",]
+tags = ["javascript", "11ty", "fermyon cloud",]
 
 [extra]
 author = "VamshiReddy02"

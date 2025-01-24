@@ -2,7 +2,7 @@ title = "Zola SSG Template"
 template = "render_hub_content_body"
 date = "2023-09-08T00:00:00Z"
 content-type = "text/html"
-tags = ["rust", "SSG", "http"]
+tags = ["rust", "ssg", "http"]
 
 [extra]
 author = "karthik2804"

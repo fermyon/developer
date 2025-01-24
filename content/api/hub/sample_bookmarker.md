@@ -2,7 +2,7 @@ title = "AI Bookmarker: Smart Bookmarking Web App"
 template = "render_hub_content_body"
 date = "2023-12-08T00:22:56Z"
 content-type = "text/html"
-tags = ["python", "serverless-ai", "key-value"]
+tags = ["python", "ai", "key-value"]
 
 [extra]
 author = "technosophos"

@@ -2,7 +2,7 @@ title = "Spin Jekyll"
 template = "render_hub_content_body"
 date = "2024-06-14T04:30:32.000Z"
 content-type = "text/html"
-tags = ["ruby", "Jekyll", "Fermyon Cloud",]
+tags = ["ruby", "jekyll", "fermyon cloud",]
 
 [extra]
 author = "VamshiReddy02"
