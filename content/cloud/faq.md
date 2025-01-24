@@ -28,6 +28,7 @@ The following are the quota for users based, stratified by the three [Subscripti
 | Spin application package size (MB)* | 100 | 100 | Contact us
 | Spin application deployments per minute* | 10 | 10 | Contact us
 | Request handler duration (seconds)* | 30  | 30  | Contact us
+| HTTP body size limit (MB)* | 10 | 10 | Contact us
 | **Rate Limiting Quota** |
 | Request execution count | 100,000  | 1,000,000  | Contact us
 | Request executions per second* | 1,000 | 1,000 | Contact us 
