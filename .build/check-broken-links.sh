@@ -84,6 +84,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://linux.die.net/man/1/which'                                                                                                                                           \
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
+    --exclude 'https://www.gnu.org/software/coreutils/'                                                                                                                                     \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
     --exclude 'https://dotnet.microsoft.com/en-us/download/dotnet/8.0'                                                                                                                      \
     --exclude 'https://www.developerweek.com/'                                                                                                                                              \
