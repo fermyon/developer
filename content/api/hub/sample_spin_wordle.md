@@ -2,7 +2,7 @@ title = "Wordle by Spin"
 template = "render_hub_content_body"
 date = "2024-08-26T04:30:32.000Z"
 content-type = "text/html"
-tags = ["javascript", "typescript", "sdk",]
+tags = ["javascript", "typescript"]
 
 [extra]
 author = "VamshiReddy02"

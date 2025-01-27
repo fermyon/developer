@@ -2,7 +2,7 @@ title = "Jinja2 Template Engine and Spin"
 template = "render_hub_content_body"
 date = "2023-12-08T00:00:00Z"
 content-type = "text/html"
-tags = ["python"]
+tags = ["python", "templating"]
 
 [extra]
 author = "fermyon"
