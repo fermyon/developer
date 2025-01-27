@@ -867,6 +867,8 @@ Available Routes:
   hello-typescript: http://127.0.0.1:3000 (wildcard)
 ```
 
+> If another program is using port 3000, add the `--listen` flag. E.g. `spin up --listen 127.0.0.1:12345`.
+
 > You can also run a Spin application using `spin watch`. This automatically rebuilds code and reloads content whenever they change. [Learn more.](./running-apps.md#monitoring-applications-for-changes)
 
 Spin instantiates all components from the application manifest, and
