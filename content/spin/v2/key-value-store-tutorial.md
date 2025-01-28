@@ -76,7 +76,7 @@ $ spin new -t http-rust spin-key-value
 ```bash
 $ spin new -t http-ts spin-key-value
 
-# Reference: https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-kv
+# Reference: https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/examples/spin-host-apis/spin-kv
 ```
 
 {{ blockEnd }}

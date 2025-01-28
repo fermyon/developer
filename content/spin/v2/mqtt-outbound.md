@@ -74,7 +74,7 @@ connection.publish("pets", catPicture, QoS.AtleastOnce);
 
 For full details of the MQTT API, see the [Spin SDK reference documentation](https://fermyon.github.io/spin-js-sdk/modules/Mqtt.html)
 
-You can find a complete Rust code example for using outbound MQTT from an HTTP component in the [Spin Rust SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mqtt).
+You can find a complete Rust code example for using outbound MQTT from an HTTP component in the [Spin Rust SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/examples/spin-host-apis/spin-mqtt).
 
 {{ blockEnd }}
 

@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/rdbms-stor
 ---
 - [Using MySQL and PostgreSQL From Applications](#using-mysql-and-postgresql-from-applications)
 - [Granting Network Permissions to Components](#granting-network-permissions-to-components)
+	- [Configuration-Based Permissions](#configuration-based-permissions)
 
 Spin provides two interfaces for relational (SQL) databases:
 
@@ -72,7 +73,7 @@ For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK refe
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
-The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-postgres) available.
+The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/examples/spin-host-apis/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/examples/spin-host-apis/spin-postgres) available.
 
 ```ts
 import { ResponseBuilder, Mysql } from '@fermyon/spin-sdk';
