@@ -116,7 +116,7 @@ Note: The Rust templates are in a repo that contains several other languages; th
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update --branch sdk-v2
 Copying remote template source
 Installing template http-js...
 Installing template http-ts...

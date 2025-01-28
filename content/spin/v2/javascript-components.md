@@ -29,18 +29,18 @@ With JavaScript being a very popular language, Spin provides an SDK to support b
 > This guide assumes you are familiar with the JavaScript programming language,
 > but if you are just getting started, be sure to check [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide).
 
-> All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples).
+> All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/examples).
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
 
 ## Installing Templates
 
-The JavaScript/TypeScript templates can be installed from [spin-js-sdk repository](https://github.com/fermyon/spin-js-sdk/tree/main/) using the following command:
+The JavaScript/TypeScript templates can be installed from [spin-js-sdk repository](https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/) using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
+$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update --branch sdk-v2
 ```
 
 which will install the `http-js` and `http-ts` templates:
@@ -238,7 +238,7 @@ proxies or URL shorteners.
 ## Storing Data in Redis From JS/TS Components
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [spin-js-sdk repository on GitHub](https://github.com/fermyon/spin-js-sdk/blob/main/examples/spin-host-apis/spin-redis).
+> in the [spin-js-sdk repository on GitHub](https://github.com/fermyon/spin-js-sdk/blob/sdk-v2/examples/spin-host-apis/spin-redis).
 
 Using the Spin's JS SDK, you can use the Redis key/value store and to publish messages to Redis channels.
 
