@@ -486,7 +486,7 @@ negative
 
 async function performSentimentAnalysis(request: Request) {
   // Parse sentence out of request
-  let data = request.json() as SentimentAnalysisRequest;
+  let data = await request.json() as SentimentAnalysisRequest;
   let sentence = data.sentence;
   console.log("Performing sentiment analysis on: " + sentence);
 
@@ -533,7 +533,7 @@ async function performSentimentAnalysis(request: Request) {
 
   return new Response(JSON.stringify({
       sentiment,
-    } as SentimentAnalysisResponse));
+    } as SentimentAnalysisResponse),  { headers: { "Content-Type": "application/json" }});
 }
 
 let router = AutoRouter();

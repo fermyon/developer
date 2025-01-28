@@ -248,7 +248,7 @@ router
 
         switch (req.method) {
             case 'POST':
-                store.set(req.url, (await req.text()) || new Uint8Array().buffer);
+                store.set(req.url, (await req.bytes()) || new Uint8Array().buffer);
                 break;
             case 'GET':
                 let val;

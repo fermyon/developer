@@ -316,7 +316,7 @@ let router = AutoRouter();
 
 router
     .get("/", () => {
-        const  out = Llm.infer(model, prompt)
+        const out = Llm.infer(model, prompt)
 
         return new Response(out.text);
     })
