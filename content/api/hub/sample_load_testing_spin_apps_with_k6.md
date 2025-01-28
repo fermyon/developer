@@ -2,7 +2,7 @@ title = "Load-Testing Spin Apps with Grafana k6"
 template = "render_hub_content_body"
 date = "2024-04-03T13:50:00Z"
 content-type = "text/html"
-tags = ["Rust", "Load-Testing"]
+tags = ["rust", "load testing"]
 
 [extra]
 author = "ThorstenHans"

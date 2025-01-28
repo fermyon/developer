@@ -2,7 +2,7 @@ title = "NuxtJS SSG Template"
 template = "render_hub_content_body"
 date = "2023-12-31T00:22:56Z"
 content-type = "text/html"
-tags = ["javascript", "Nuxt", "Vue"]
+tags = ["javascript", "nuxt", "vue"]
 
 [extra]
 author = "VamshiReddy02"

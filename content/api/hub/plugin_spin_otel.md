@@ -2,7 +2,7 @@ title = "Spin OTel"
 template = "render_hub_content_body"
 date = "2024-08-16T00:22:56Z"
 content-type = "text/plain"
-tags = ["otel", "observability"]
+tags = ["open telemetry", "observability"]
 
 [extra]
 author = "fermyon"

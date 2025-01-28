@@ -2,7 +2,7 @@ title = "Store JSON Objects with Key Value Store and Spin With Python"
 template = "render_hub_content_body"
 date = "2023-12-08T00:00:00Z"
 content-type = "text/html"
-tags = ["python", "key-value", "JSON"]
+tags = ["python", "key-value", "json"]
 
 [extra]
 author = "technosophos"

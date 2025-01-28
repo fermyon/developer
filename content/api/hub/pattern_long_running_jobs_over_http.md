@@ -2,7 +2,7 @@ title = "Long-Running Jobs over HTTP"
 template = "render_hub_content_body"
 date = "2024-04-11T06:55:00Z"
 content-type = "text/plain"
-tags = ["patterns", "Rust", "MQTT", "HTTP"]
+tags = ["patterns", "rust", "mqtt", "http"]
 
 [extra]
 author = "Thorsten Hans"
