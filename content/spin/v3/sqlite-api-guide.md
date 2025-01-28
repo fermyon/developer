@@ -125,14 +125,23 @@ struct ToDo {
 To use SQLite functions, use [the `Sqlite.open` or `Sqlite.openDefault` function](https://fermyon.github.io/spin-js-sdk/modules/Sqlite.html) to obtain [a `SqliteConnection` object](https://fermyon.github.io/spin-js-sdk/interfaces/Sqlite.SqliteConnection.html). `SqliteConnection` provides the `execute` method as described above. For example:
 
 ```javascript
-import { ResponseBuilder, Sqlite } from "@fermyon/spin-sdk";
+import { AutoRouter } from 'itty-router';
+import { Sqlite } from '@fermyon/spin-sdk';
 
-export async function handler(req: Request, res: ResponseBuilder) {
-    let conn = Sqlite.openDefault();
-    let result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1]);
+let router = AutoRouter();
+router
+    .get("/", () => {
+        let conn = Sqlite.openDefault();
+        let result = conn.execute("SELECT * FROM todos WHERE id > (?);", [1]);
 
-    res.send(JSON.stringify(result));
-}
+        return new Response(JSON.stringify(result, null, 2));
+    })
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
+
 ```
 
 **General Notes**

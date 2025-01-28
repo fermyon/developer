@@ -357,11 +357,12 @@ This command created a directory with the necessary files needed to build and ru
 $ cd hello_typescript
 $ tree
 .
+├── config
+│   └── knitwit.json
 ├── package.json
-├── README.md
 ├── spin.toml
 ├── src
-│   └── index.ts
+│   └── index.ts
 ├── tsconfig.json
 └── webpack.config.js
 ```
@@ -384,7 +385,7 @@ route = "/..."
 component = "hello-typescript"
 
 [component.hello-typescript]
-source = "target/hello-typescript.wasm"
+source = "dist/hello-typescript.wasm"
 exclude_files = ["**/node_modules"]
 [component.hello-typescript.build]
 command = "npm run build"
@@ -398,19 +399,22 @@ This represents a simple Spin HTTP application (triggered by an HTTP request).  
 [Learn more about the manifest here.](./writing-apps)
 
 Now let's have a look at the code. Below is the complete source
-code for a Spin HTTP component written in TypeScript — a regular function named `handleRequest` that
-takes an HTTP request as a parameter and returns an HTTP response.  (The
-JavaScript version looks slightly different, but is still a function with
-the same signature.)  The Spin integration looks for the `handler` function
-by name when building your application into a Wasm module:
+code for a Spin HTTP component written in TypeScript — A function is attached to the fetch event listener which receives and responds to the HTTP request.
 
 ```javascript
-import { ResponseBuilder } from "@fermyon/spin-sdk";
+❯ cat hello-world/src/index.ts 
+import { AutoRouter } from 'itty-router';
 
-export async function handler(req: Request, res: ResponseBuilder) {
-    console.log(req);
-    res.send("hello universe");
-}
+let router = AutoRouter();
+
+router
+    .get("/", () => new Response("hello universe"))
+    .get('/hello/:name', ({ name }) => `Hello, ${name}!`)
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
 ```
 
 {{ blockEnd }}
@@ -733,30 +737,21 @@ $ spin build
 Executing the build command for component hello-typescript: npm run build
 
 > hello-typescript@1.0.0 build
-> npx webpack --mode=production && npx mkdirp target && npx j2w -i dist.js -d combined-wit -n combined -o target/hello-typescript.wasm
+> knitwit --out-dir build/wit/knitwit --out-world combined && npx webpack --mode=production && npx mkdirp target && npx j2w -i dist.js -d combined-wit -n combined -o target/hello-typescript.wasm
 
 asset spin.js 4.57 KiB [emitted] (name: main)
 runtime modules 670 bytes 3 modules
 ./src/index.ts 2.85 KiB [built] [code generated]
 webpack 5.75.0 compiled successfully in 1026 ms
 
-Starting to build Spin compatible module
-Preinitiating using Wizer
-Optimizing wasm binary using wasm-opt
-Spin compatible module built successfully
 Finished building all Spin components
 ```
-
-If the build fails, check:
-
-* Are you in the `hello_typescript` directory?
-* Did you run `npm install` before building`?
 
 If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
 ```toml
 [component.hello-typescript.build]
-command = "npm run build"
+command = ["npm install", "npm run build"]
 ```
 
 You can always run this command manually; `spin build` is a shortcut.

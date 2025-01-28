@@ -12,7 +12,6 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/javascript
 - [HTTP Components](#http-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
 - [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
-- [Routing in a Component](#routing-in-a-component)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
 - [Storing Data in SQLite](#storing-data-in-sqlite)
 - [Storing Data in MySQL and PostgreSQL Relational Databases](#storing-data-in-mysql-and-postgresql-relational-databases)
@@ -76,13 +75,13 @@ This creates a directory of the following structure:
 <!-- @nocpy -->
 
 ```text
-hello-world/
-├── knitwit.json
+hello-world
+├── config
+│   └── knitwit.json
 ├── package.json
 ├── spin.toml
 ├── src
-│   ├── index.ts
-│   └── spin.ts
+│   └── index.ts
 ├── tsconfig.json
 └── webpack.config.js
 ```
@@ -134,24 +133,25 @@ for writing Spin components with the Spin JS/TS SDK.
 > Make sure to read [the page describing the HTTP trigger](./http-trigger.md) for more
 > details about building HTTP applications.
 
-Building a Spin HTTP component using the JS/TS SDK means writing a single function
-that takes an HTTP request and a Response Builder which can be used to return an HTTP response as a parameter.
+Building a Spin HTTP component with the JavaScript/TypeScript SDK now involves adding an event listener for the `fetch` event. This event listener handles incoming HTTP requests and allows you to construct and return HTTP responses.
 
 Below is a complete implementation for such a component in TypeScript:
 
 ```javascript
-import { ResponseBuilder } from "@fermyon/spin-sdk";
+import { AutoRouter } from 'itty-router';
 
-export async function handler(req: Request, res: ResponseBuilder) {
-    console.log(req);
-    res.send("hello universe");
-}
+let router = AutoRouter();
+
+router
+    .get("/", () => new Response("hello universe"))
+    .get('/hello/:name', ({ name }) => `Hello, ${name}!`)
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
+
 ```
-
-The important things to note in the implementation above:
-
-- The `handler` function is the entry point for the Spin component.
-- The execution of the function terminates once `res.send` or `res.end` is called. 
 
 ## Sending Outbound HTTP Requests
 
@@ -159,22 +159,27 @@ If allowed, Spin components can send outbound HTTP requests.
 Let's see an example of a component that makes a request to [an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json)
 
 ```javascript
-import { ResponseBuilder } from "@fermyon/spin-sdk";
+import { AutoRouter } from 'itty-router';
 
-interface AnimalFact {
-   timestamp: number;
-   fact: string;
+let router = AutoRouter();
+
+router
+    .get("*", getDataFromAPI)
+
+async function getDataFromAPI(_request: Request) {
+    let response = await fetch(
+        'https://random-data-api.fermyon.app/physics/json',
+    );
+    let data = await response.json();
+    let fact = `Here is a fact: ${data.fact}`;
+    return new Response(fact);
 }
 
-export async function handler(req: Request, res: ResponseBuilder) {
-    const animalFactResponse = await fetch("https://random-data-api.fermyon.app/animals/json")
-    const animalFact = await animalFactResponse.json() as AnimalFact
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
 
-    const body = `Here's an animal fact: ${animalFact.fact}\n`
-
-    res.set({"content-type": "text/plain"})
-    res.send(body)
-}
 ```
 
 Before we can execute this component, we need to add the `random-data-api.fermyon.app`
@@ -216,7 +221,7 @@ content-type: application/json; charset=utf-8
 content-length: 185
 server: spin/0.1.0
 
-Here's an animal fact: Reindeer grow new antlers every year
+Here is a fact: Reindeer grow new antlers every year
 ```
 
 > Without the `allowed_outbound_hosts` field populated properly in `spin.toml`,
@@ -245,31 +250,35 @@ Using the Spin's JS SDK, you can use the Redis key/value store and to publish me
 Let's see how we can use the JS/TS SDK to connect to Redis:
 
 ```javascript
-import { ResponseBuilder, Redis } from '@fermyon/spin-sdk';
+import { AutoRouter } from 'itty-router';
+import { Redis } from '@fermyon/spin-sdk';
 
 const encoder = new TextEncoder();
-const decoder = new TextDecoder();
 const redisAddress = 'redis://localhost:6379/';
 
-export async function handler(_req: Request, res: ResponseBuilder) {
-  try {
-    let db = Redis.open(redisAddress);
-    db.set('test', encoder.encode('Hello world'));
-    let val = db.get('test');
+let router = AutoRouter();
 
-    if (!val) {
-      res.status(404);
-      res.send();
-      return;
-    }
-    // publish to a channel names "message"
-    db.publish("message", val)
-    res.send(val);
-  } catch (e: any) {
-    res.status(500);
-    res.send(`Error: ${JSON.stringify(e.payload)}`);
-  }
-}
+router
+    .get("/", () => {
+        try {
+            let db = Redis.open(redisAddress);
+            db.set('test', encoder.encode('Hello world'));
+            let val = db.get('test');
+
+            if (!val) {
+                return new Response(null, { status: 404 });
+            }
+            return new Response(val);
+        } catch (e: any) {
+            return new Response(`Error: ${JSON.stringify(e.payload)}`, { status: 500 });
+        }
+    })
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
+
 ```
 
 This HTTP component demonstrates fetching a value from Redis by key, setting a key with a value, and publishing a message to a Redis channel.
@@ -283,33 +292,6 @@ As with all networking APIs, you must grant access to Redis hosts via the `allow
 ```toml
 [component.storage-demo]
 allowed_outbound_hosts = ["redis://localhost:6379"]
-```
-
-## Routing in a Component
-
-The JavaScript/TypeScript SDK provides a router that makes it easier to handle routing within a component. The router is based on [`itty-router`](https://www.npmjs.com/package/itty-router). An additional function `handleRequest` has been implemented in the router to allow passing in the Spin HTTP request directly. An example usage of the router is given below:
-
-```javascript
-import { ResponseBuilder, Router } from '@fermyon/spin-sdk';
-
-let router = Router();
-
-router.get("/", (_, req, res) => { handleDefaultRoute(req, res) })
-router.get("/home/:id", (metadata, req, res) => { handleHomeRoute(req, res, metadata.params.id) })
-
-async function handleDefaultRoute(_req: Request, res: ResponseBuilder) {
-  res.set({ "content-type": "text/plain" });
-  res.send("Hello from default route");
-}
-
-async function handleHomeRoute(_req: Request, res: ResponseBuilder, id: string) {
-  res.set({ "content-type": "text/plain" });
-  res.send(`Hello from home route with id: ${id}`);
-}
-
-export async function handler(req: Request, res: ResponseBuilder) {
-  await router.handleRequest(req, res);
-}
 ```
 
 ## Storing Data in the Spin Key-Value Store
@@ -381,5 +363,5 @@ These are some of the suggested libraries that have been tested and confirmed to
 
 ## Caveats
 
-- All `spin-sdk` related functions and methods (like `Variables`, `Redis`, `Mysql`, `Pg`, `Kv` and `Sqlite`) can be called only inside the `handler` function. This includes `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
+- All `spin-sdk` related functions and methods (like `Variables`, `Redis`, `Mysql`, `Pg`, `Kv` and `Sqlite`) can be called only inside the fetch event handler. This includes `fetch`. Any attempts to use it outside the function will lead to an error. This is due to Wizer using only Wasmtime to execute the script at build time, which does not include any Spin SDK support.
 - No crypto operation that involve handling private keys are supported. 

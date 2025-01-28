@@ -88,15 +88,22 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
 The key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://fermyon.github.io/spin-js-sdk/modules/Kv.html) which returns a [handle to the store](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html). For example:
 
 ```ts
-import { ResponseBuilder , Kv} from "@fermyon/spin-sdk";
+import { AutoRouter } from 'itty-router';
+import { Kv } from '@fermyon/spin-sdk';
 
-export async function handler(req: Request, res: ResponseBuilder) {
-    let store = Kv.openDefault()
-    store.set("mykey", "myvalue")
-    res.status(200)
-    res.set({"content-type":"text/plain"})
-    res.send(store.get("mykey") ?? "Key not found")
-}
+let router = AutoRouter();
+
+router
+    .get("/", () => {
+        let store = Kv.openDefault()
+        store.set("mykey", "myvalue") 
+        return new Response(store.get("mykey") ?? "Key not found");
+    })
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
 ```
 
 **General Notes**

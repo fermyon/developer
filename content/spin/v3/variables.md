@@ -137,25 +137,34 @@ async fn handle_api_call_with_token(_req: Request) -> anyhow::Result<impl IntoRe
 > [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Variables.html)
 
 ```ts
-import { ResponseBuilder, Variables } from "@fermyon/spin-sdk";
+import { AutoRouter } from 'itty-router';
+import { Variables } from '@fermyon/spin-sdk';
 
-export async function handler(req: Request, res: ResponseBuilder) {
-  let token = Variables.get("token")
-  let apiUri = Variables.get("api_uri")
-  let version = Variables.get("version")
-  let versionedAPIUri = `${apiUri}/${version}`
-  let response = await fetch(
-    versionedAPIUri,
-    {
-      headers: {
-        'Authorization': 'Bearer ' + token
-      }
-    }
-  );
-  // Do something with the response ...
-  res.set({ "Content-Type": "text/plain" })
-  res.send("Used an API")
-}
+let router = AutoRouter();
+
+router
+    .get("/", () => {
+        let token = Variables.get("token")
+        let apiUri = Variables.get("api_uri")
+        let version = Variables.get("version")
+        let versionedAPIUri = `${apiUri}/${version}`
+        let response = await fetch(
+          versionedAPIUri,
+          {
+            headers: {
+              'Authorization': 'Bearer ' + token
+            }
+          }
+        );
+
+        return new Response("Used an API");
+    })
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
+
 ```
 
 {{ blockEnd }}
