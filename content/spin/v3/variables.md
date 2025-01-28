@@ -8,6 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/variables.
 ---
 - [Adding Variables to Your Applications](#adding-variables-to-your-applications)
 - [Using Variables From Applications](#using-variables-from-applications)
+- [Troubleshooting](#troubleshooting)
 
 Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
 
@@ -266,3 +267,25 @@ date: Wed, 31 Jul 2024 22:03:35 GMT
 
 Used an API
 ```
+
+## Troubleshooting
+
+**"No provider resolved" error**
+
+If you run into the following error, you've most likely not set the variable, either through the environment variable provider using the `SPIN_VARIABLE_` prefix or through another provider.
+
+```console
+Handler returned an error: Error::Provider("no provider resolved required variable \"YOUR_VARIABLE\"")
+```
+
+See [Dynamic Application Configuration](./dynamic-configuration#application-variables-runtime-configuration) for information on setting variable values via environment variables, or configuring secure variable providers.
+
+**"No variable" error**
+
+If you run into the following error, you've most likely not configured the component section in the `spin.toml` to have access to the variable specified.
+
+```console
+Handler returned an error: Error::Undefined("no variable for \"<component-id>\".\"your-variable\"")
+```
+
+To fix this, edit the `spin.toml` and add to the `[component.<component-id>.variables]` table a line such as `<your-variable> = "{{ app-variable }}".` See [above](https://developer.fermyon.com/spin/v3/variables#adding-variables-to-your-applications) for more information.
