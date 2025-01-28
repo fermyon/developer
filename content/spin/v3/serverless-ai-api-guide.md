@@ -121,16 +121,24 @@ The `infer_with_options` examples, operation:
 To use Serverless AI functions, [the `Llm` module](https://fermyon.github.io/spin-js-sdk/modules/Llm.html) from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example: 
 
 ```javascript
-import { ResponseBuilder, Llm} from "@fermyon/spin-sdk"
+import { AutoRouter } from 'itty-router';
+import { Llm } from '@fermyon/spin-sdk';
 
-export async function handler(req: Request, res: ResponseBuilder) {
-    let embeddings = Llm.generateEmbeddings(Llm.EmbeddingModels.AllMiniLmL6V2, ["someString"])
-    console.log(embeddings.embeddings)
-    let result = Llm.infer(Llm.InferencingModels.Llama2Chat, prompt)
+let router = AutoRouter();
 
-    res.set({"content-type":"text/plain"})
-    res.send(result.text)
-}
+router
+    .get("/", () => {
+       let embeddings = Llm.generateEmbeddings(Llm.EmbeddingModels.AllMiniLmL6V2, ["someString"])
+        console.log(embeddings.embeddings)
+        let result = Llm.infer(Llm.InferencingModels.Llama2Chat, prompt)
+
+        return new Response(result.text);
+    })
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
 ```
 
 **General Notes**

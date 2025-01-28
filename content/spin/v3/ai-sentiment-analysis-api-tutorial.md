@@ -451,16 +451,8 @@ impl FromStr for Sentiment {
 {{ startTab "TypeScript"}}
 
 ```typescript
-import {
-  HandleRequest,
-  HttpRequest,
-  HttpResponse,
-  Llm,
-  InferencingModels,
-  InferencingOptions,
-  Router,
-  Kv,
-} from "@fermyon/spin-sdk";
+import { Llm, Kv } from "@fermyon/spin-sdk";
+import { AutoRouter } from 'itty-router';
 
 interface SentimentAnalysisRequest {
   sentence: string;
@@ -492,7 +484,7 @@ negative
 <SENTENCE>
 `;
 
-async function performSentimentAnalysis(request: HttpRequest) {
+async function performSentimentAnalysis(request: Request) {
   // Parse sentence out of request
   let data = request.json() as SentimentAnalysisRequest;
   let sentence = data.sentence;
@@ -515,9 +507,9 @@ async function performSentimentAnalysis(request: HttpRequest) {
 
   // Otherwise, perform sentiment analysis
   console.log("Running inference");
-  let options: InferencingOptions = { maxTokens: 6 };
+  let options: Llm.InferencingOptions = { maxTokens: 6 };
   let inferenceResult = Llm.infer(
-    InferencingModels.Llama2Chat,
+    Llm.InferencingModels.Llama2Chat,
     PROMPT.replace("<SENTENCE>", sentence),
     options
   );
@@ -539,36 +531,23 @@ async function performSentimentAnalysis(request: HttpRequest) {
   console.log("Caching sentiment in KV store");
   kv.set(sentence, sentiment);
 
-  return {
-    status: 200,
-    body: JSON.stringify({
+  return new Response(JSON.stringify({
       sentiment,
-    } as SentimentAnalysisResponse),
-  };
+    } as SentimentAnalysisResponse));
 }
 
-let router = Router();
+let router = AutoRouter();
 
 // Map the route to the handler
-router.post("/api/sentiment-analysis", async (_, req) => {
+router.post("/api/sentiment-analysis", async (req) => {
   console.log(`${new Date().toISOString()} POST /sentiment-analysis`);
   return await performSentimentAnalysis(req);
 });
 
-// Catch all 404 handler
-router.all("/api/*", async (_, req) => {
-  return {
-    status: 404,
-    body: "Not found",
-  };
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
 });
-
-// Entry point to the Spin handler
-export const handleRequest: HandleRequest = async function (
-  request: HttpRequest
-): Promise<HttpResponse> {
-  return await router.handleRequest(request, request);
-};
 ```
 
 {{ blockEnd }}

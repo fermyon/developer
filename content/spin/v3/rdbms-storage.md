@@ -78,7 +78,9 @@ For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK refe
 The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-postgres) available.
 
 ```ts
-import { ResponseBuilder, Mysql } from '@fermyon/spin-sdk';
+// https://itty.dev/itty-router/routers/autorouter
+import { AutoRouter } from 'itty-router';
+import { Mysql } from '@fermyon/spin-sdk';
 
 // Connects as the root user without a password 
 const DB_URL = "mysql://root:@127.0.0.1/spin_dev"
@@ -91,17 +93,22 @@ const DB_URL = "mysql://root:@127.0.0.1/spin_dev"
  insert into test values (4,4);
 */
 
-export async function handler(_req: Request, res: ResponseBuilder) {
-  // For PostgreSQL, use `Postgres.open`
-  let conn = Mysql.open(DB_URL);
-  // For PostgreSQL, use `$1` placeholder syntax
-  conn.execute('delete from test where id=?', [4]);
-  conn.execute('insert into test values (4,5)', []);
-  let ret = conn.query('select * from test', []);
-  // return a object that looks like 
-  // { "columns": [{name: "id", dataType: "int32"}], "rows": [{ "id": 4, "val": 5 }] }
-  res.send(JSON.stringify(ret, null, 2));
-}
+let router = AutoRouter();
+
+router
+    .get("/", () => {
+        let conn = Mysql.open(DB_URL);
+        conn.execute('delete from test where id=?', [4]);
+        conn.execute('insert into test values (4,5)', []);
+        let ret = conn.query('select * from test', []);
+
+        return new Response(JSON.stringify(ret, null, 2));
+    })
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
 ```
 
 {{ blockEnd }}

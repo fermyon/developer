@@ -233,50 +233,51 @@ fn handle_request(req: Request) -> anyhow::Result<impl IntoResponse> {
 {{ startTab "TypeScript"}}
 
 ```typescript
-import { ResponseBuilder, Kv } from "@fermyon/spin-sdk";
+import { AutoRouter } from 'itty-router';
+import { Kv } from '@fermyon/spin-sdk';
 
-const encoder = new TextEncoder()
-const decoder = new TextDecoder()
+const decoder = new TextDecoder();
 
-export async function handler(req: Request, res: ResponseBuilder) {
+let router = AutoRouter();
 
-  let store = Kv.openDefault()
-  let status = 200
-  let body
+router
+    .all("*", async (req: Request) => {
+        let store = Kv.openDefault();
+        let status = 200;
+        let body;
 
-  switch (req.method) {
-    case "POST":
-      store.set(req.uri, await req.text() || (new Uint8Array()).buffer)
-      console.log(`Storing value in the KV store with ${req.uri} as the key`);
-      break;
-    case "GET":
-      let val
-      try {
-        val = store.get(req.uri)
-        body = decoder.decode(val)
-      	console.log(`Found value for the key ${req.uri}`);
-      } catch (error) {
-      	console.log(`Key ${req.uri} not found`);
-        status = 404
-      }
-      break;
-    case "DELETE":
-      store.delete(req.uri)
-      console.log(`Deleted Key ${req.uri}`);
-      break;
-    case "HEAD":
-      if (!store.exists(req.uri)) {
-        console.log(`Key ${req.uri} not found`);
-        status = 404
-      } else {
-        console.log(`Found Key ${req.uri}`);
-      }
-      break;
-    default:
-  }
-  res.status(status)
-  res.send(body)
-}
+        switch (req.method) {
+            case 'POST':
+                store.set(req.url, (await req.text()) || new Uint8Array().buffer);
+                break;
+            case 'GET':
+                let val;
+                val = store.get(req.url);
+                if (!val) {
+                    status = 404;
+                } else {
+                    body = decoder.decode(val);
+                }
+                break;
+            case 'DELETE':
+                store.delete(req.url);
+                break;
+            case 'HEAD':
+                if (!store.exists(req.url)) {
+                    status = 404;
+                }
+                break;
+            default:
+        }
+
+        return new Response(body, { status });
+    })
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
+
 ```
 
 {{ blockEnd }}

@@ -305,17 +305,27 @@ fn hello_world(_req: Request) -> anyhow::Result<impl IntoResponse> {
  
 {{ startTab "TypeScript"}}
  
-```tsx
-import { Llm, InferencingModels, HandleRequest, HttpRequest, HttpResponse } from  "@fermyon/spin-sdk"
+```typescript
+
+import { AutoRouter } from 'itty-router';
+import { Llm } from '@fermyon/spin-sdk';
+
 const  model = InferencingModels.Llama2Chat
-export  const  handleRequest: HandleRequest = async  function (request: HttpRequest): Promise<HttpResponse> {
-const  prompt = "Can you tell me a joke about cats"
-const  out = Llm.infer(model, prompt)
-return {
-	status:  200,
-	body:  out.text
-	}
-}
+
+let router = AutoRouter();
+
+router
+    .get("/", () => {
+        const  out = Llm.infer(model, prompt)
+
+        return new Response(out.text);
+    })
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
+
 ```
  
 {{ blockEnd }}
