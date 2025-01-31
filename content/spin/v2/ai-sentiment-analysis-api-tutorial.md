@@ -303,7 +303,7 @@ use std::str::FromStr;
 
 use anyhow::Result;
 use spin_sdk::{
-    http::{IntoResponse, Json, Params, Request, Response, Router},
+    http::{IntoResponse, Params, Request, Response, Router},
     http_component,
     key_value::Store,
     llm::{infer_with_options, InferencingModel::Llama2Chat},
@@ -354,32 +354,30 @@ fn not_found(_: Request, _: Params) -> Result<impl IntoResponse> {
     Ok(Response::new(404, "Not found"))
 }
 
-fn perform_sentiment_analysis(
-    req: http::Request<Json<SentimentAnalysisRequest>>,
-    _params: Params,
-) -> Result<impl IntoResponse> {
-    // Do some basic clean up on the input
-    let sentence = req.body().sentence.trim();
+fn perform_sentiment_analysis(req: Request, _params: Params) -> Result<impl IntoResponse> {
+    let Ok(request) = serde_json::from_slice::<SentimentAnalysisRequest>(req.body()) else {
+        return Ok(Response::new(400, "Bad Request"));
+    };
+    // Do some basic cleanup on the input
+    let sentence = request.sentence.trim();
     println!("Performing sentiment analysis on: {}", sentence);
 
     // Prepare the KV store
     let kv = Store::open_default()?;
 
     // If the sentiment of the sentence is already in the KV store, return it
-    if kv.exists(sentence).unwrap_or(false) {
-        println!("Found sentence in KV store returning cached sentiment");
-        let sentiment = kv.get(sentence)?;
+    if let Some(sentiment) = kv.get(sentence)? {
+        println!("Found sentence in KV store returning cached sentiment.");
         let resp = SentimentAnalysisResponse {
-            sentiment: String::from_utf8(sentiment.unwrap())?,
+            sentiment: String::from_utf8(sentiment)?,
         };
-        let resp_str = serde_json::to_string(&resp)?;
 
-        return Ok(Response::new(200, resp_str));
+        return send_ok_response(200, resp);
     }
-    println!("Sentence not found in KV store");
+    println!("Sentence not found in KV store.");
 
-    // Otherwise, perform sentiment analysis
-    println!("Running inference");
+    // Perform sentiment analysis
+    println!("Running inference...");
     let inferencing_result = infer_with_options(
         Llama2Chat,
         &PROMPT.replace("{SENTENCE}", sentence),
@@ -389,7 +387,7 @@ fn perform_sentiment_analysis(
         },
     )?;
 
-    println!("Inference result {:?}", inferencing_result);
+    println!("Inference result: {:?}", inferencing_result);
 
     let sentiment = inferencing_result
         .text
@@ -402,11 +400,11 @@ fn perform_sentiment_analysis(
     println!("Got sentiment: {sentiment:?}");
 
     if let Ok(sentiment) = sentiment {
-        println!("Caching sentiment in KV store");
+        println!("Caching sentiment in KV store.");
         let _ = kv.set(sentence, sentiment.as_str().as_bytes());
     }
 
-    // Cache the result in the KV store
+    // Cache result in KV store
     let resp = SentimentAnalysisResponse {
         sentiment: sentiment
             .as_ref()
@@ -414,9 +412,12 @@ fn perform_sentiment_analysis(
             .unwrap_or_default(),
     };
 
-    let resp_str = serde_json::to_string(&resp)?;
+    send_ok_response(200, resp)
+}
 
-    Ok(Response::new(200, resp_str))
+fn send_ok_response(code: u16, resp: SentimentAnalysisResponse) -> Result<Response> {
+    let resp_str = serde_json::to_string(&resp)?;
+    Ok(Response::new(code, resp_str))
 }
 
 #[derive(Copy, Clone, Debug)]
@@ -442,6 +443,12 @@ impl std::fmt::Display for Sentiment {
     }
 }
 
+impl AsRef<[u8]> for Sentiment {
+    fn as_ref(&self) -> &[u8] {
+        self.as_str().as_bytes()
+    }
+}
+
 impl FromStr for Sentiment {
     type Err = String;
 
@@ -450,11 +457,33 @@ impl FromStr for Sentiment {
             "positive" => Self::Positive,
             "negative" => Self::Negative,
             "neutral" => Self::Neutral,
-            _ => return Err(s.into()),
+            _ => return Err(format!("Invalid sentiment: {}", s)),
         };
         Ok(sentiment)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn deserialize_sentiment_analysis_request() {
+        let json = r#"{"sentence":"I am so happy today"}"#;
+        let request: SentimentAnalysisRequest = serde_json::from_str(json).unwrap();
+        assert_eq!(request.sentence, "I am so happy today");
+    }
+
+    #[test]
+    fn serialize_sentiment_analysis_response() {
+        let response = SentimentAnalysisResponse {
+            sentiment: "positive".to_string(),
+        };
+        let json = serde_json::to_string(&response).unwrap();
+        assert_eq!(json, r#"{"sentiment":"positive"}"#);
+    }
+}
+
 ```
 
 {{ blockEnd }}
