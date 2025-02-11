@@ -111,6 +111,26 @@
                                         {{/if}} href="{{site.info.base_url}}/spin/v3/redis-trigger">The Redis
                                         Trigger</a>
                         </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v3/command-trigger" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v3/command-trigger">The Command
+                                        Trigger</a>
+                        </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v3/cron-trigger" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v3/cron-trigger">The Cron
+                                        Trigger</a>
+                        </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v3/sqs-trigger" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v3/sqs-trigger">The SQS
+                                        Trigger</a>
+                        </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v3/community-mqtt-trigger" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v3/community-mqtt-trigger">The MQTT
+                                        Trigger</a>
+                        </li>
+                        <li><a {{#if (active_project request.spin-full-url "/spin/v3/community-kinesis-trigger" )}} class="active"
+                                        {{/if}} href="{{site.info.base_url}}/spin/v3/community-kinesis-trigger">The Kinesis
+                                        Trigger</a>
+                        </li>
                 </ul>
         </div>
         <div class="accordion-menu-item">
