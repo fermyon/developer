@@ -25,7 +25,7 @@ A template consists of two directories, `content` and `metadata`.
   should be the _template manifest_.
 
 For examples of the directory contents, see the `templates` directory in the
-[Spin GitHub repository](https://github.com/fermyon/spin).
+[Spin GitHub repository](https://github.com/spinframework/spin).
 
 Templates must always be shared in a `templates` directory.  This allows the
 installer to locate them in repos that contain other content.

@@ -25,7 +25,7 @@ Join us in the [Spin CNCF Slack Channel](https://cloud-native.slack.com/archives
 
 <div style="display: block" align="left">
   <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=423679664&limit=30&image_size=auto&color_scheme=dark" width="655" height="auto">
-  <img alt="Active Contributors of fermyon/spin - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=423679664&limit=30&image_size=auto&color_scheme=light" width="655" height="auto">
+  <img alt="Active Contributors of spinframework/spin - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=423679664&limit=30&image_size=auto&color_scheme=light" width="655" height="auto">
 </div>
 
 >> _Recent contributors to Spin, past 30 days. Widget courtesy of <a href="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors?repo_id=423679664&limit=30">OSSinsight.io</a>._
@@ -37,7 +37,7 @@ The [Spin Project Meeting Agenda is a public document](https://docs.google.com/d
 ## Code of Conduct
 
 First, any contribution and interaction on the Spin project MUST follow our
-[code of conduct](https://github.com/fermyon/spin/blob/main/CODE_OF_CONDUCT.md). Thank you for being
+[code of conduct](https://github.com/spinframework/spin/blob/main/CODE_OF_CONDUCT.md). Thank you for being
 part of an inclusive and open community!
 
 If you plan on contributing anything complex, please go through the issue and PR
@@ -73,7 +73,7 @@ Once you have set up the prerequisites and identified the contribution you want 
 
 ```bash
 # clone the repository
-$ git clone https://github.com/fermyon/spin && cd spin
+$ git clone https://github.com/spinframework/spin && cd spin
 # add a new remote pointing to your fork of the project
 $ git remote add fork https://github.com/<your-username>/spin
 # create a new branch for your work

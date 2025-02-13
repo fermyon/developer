@@ -43,4 +43,4 @@ If `spin doctor` detects a problem it can fix, you can choose to accept the fix,
 
 ## Spin Test
 
-The [spin test plugin](https://github.com/fermyon/spin-test) allows you to write test scenarios for your application's business logic. For more information, see [testing applications](./testing-apps.md).
+The [spin test plugin](https://github.com/spinframework/spin-test) allows you to write test scenarios for your application's business logic. For more information, see [testing applications](./testing-apps.md).

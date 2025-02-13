@@ -32,7 +32,7 @@ writing such components should be familiar for Rust developers.
 > but if you are just getting started, be sure to check [the
 official resources for learning Rust](https://www.rust-lang.org/learn).
 
-> All examples from this page can be found in [the Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples).
+> All examples from this page can be found in [the Spin repository on GitHub](https://github.com/spinframework/spin/tree/main/examples).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ You don't need the Spin Rust templates to work on Rust components, but they spee
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin --update
 Copying remote template source
 Installing template redis-rust...
 Installing template http-rust...
@@ -203,7 +203,7 @@ Hello, there!
 ```
 
 > You can find a complete example for a Redis triggered component in the
-> [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/redis).
+> [Spin repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/redis).
 
 ## Sending Outbound HTTP Requests
 
@@ -362,7 +362,7 @@ This HTTP component can be paired with a Redis component, triggered on new
 messages on the `messages` Redis channel.
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/redis-outbound).
+> in the [Spin repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/redis-outbound).
 
 ## Storing Data in the Spin Key-Value Store
 
@@ -378,7 +378,7 @@ To use the `get_json` and `set_json` helpers, you must enable the Spin SDK's opt
 [dependencies]
 // --snip --
 serde = {version = "1.0.163", features = ["derive"]}
-spin-sdk = {git = "https://github.com/fermyon/spin", version = "1.2.0", features = ["json"]}
+spin-sdk = {git = "https://github.com/spinframework/spin", version = "1.2.0", features = ["json"]}
 // --snip --
 ```
 
@@ -502,7 +502,7 @@ bytes = "1"
 # General-purpose crate with common HTTP types.
 http = "0.2"
 # The Spin SDK.
-spin-sdk = { git = "https://github.com/fermyon/spin" }
+spin-sdk = { git = "https://github.com/spinframework/spin" }
 # Crate that generates Rust Wasm bindings from a WebAssembly interface.
 wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", rev = "cb871cfa1ee460b51eb1d144b175b9aab9c50aba" }
 ```

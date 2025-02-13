@@ -30,7 +30,7 @@ With JavaScript being a very popular language, Spin provides support for buildin
 > This guide assumes you are familiar with the JavaScript programming language,
 > but if you are just getting started, be sure to check [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide).
 
-> All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/sdk-v1/examples).
+> All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/spinframework/spin-js-sdk/tree/sdk-v1/examples).
 
 In order to compile JavaScript programs to Spin components, you also need to install a Spin plugin `js2wasm` using the following command:
 
@@ -43,12 +43,12 @@ $ spin plugin install js2wasm
 
 ## Installing Templates
 
-The JavaScript/TypeScript templates can be installed from [spin-js-sdk repository](https://github.com/fermyon/spin-js-sdk/tree/main/) using the following command:
+The JavaScript/TypeScript templates can be installed from [spin-js-sdk repository](https://github.com/spinframework/spin-js-sdk/tree/main/) using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-js-sdk --update
 ```
 
 which will install the `http-js` and `http-ts` templates:
@@ -121,7 +121,7 @@ $ spin up
 
 ## A Quick Note About NPM Scripts
 
-Please note that using pre-built NPM scripts can have different effects on different Operating Systems (OSs). Let's take the `npm run build` command (like [the one in the spin-js-sdk](https://github.com/fermyon/spin-js-sdk/blob/sdk-v1/examples/javascript/hello_world/package.json)) as an example:
+Please note that using pre-built NPM scripts can have different effects on different Operating Systems (OSs). Let's take the `npm run build` command (like [the one in the spin-js-sdk](https://github.com/spinframework/spin-js-sdk/blob/sdk-v1/examples/javascript/hello_world/package.json)) as an example:
 
 <!-- @nocpy -->
 
@@ -305,7 +305,7 @@ proxies or URL shorteners.
 ## Storing Data in Redis From JS/TS Components
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [spin-js-sdk repository on GitHub](https://github.com/fermyon/spin-js-sdk/blob/sdk-v1/examples/typescript/outbound_redis/src/index.ts).
+> in the [spin-js-sdk repository on GitHub](https://github.com/spinframework/spin-js-sdk/blob/sdk-v1/examples/typescript/outbound_redis/src/index.ts).
 
 Using the Spin's JS SDK, you can use the Redis key/value store and to publish messages to Redis channels.
 
@@ -397,7 +397,7 @@ For more information about using Serverless AI from JS/TS, see the [Serverless A
 
 > Not all the NPM packages are guaranteed to work with the SDK as it is not fully compatible with the browser or `Node.js`. It implements only a subset of the API.
 
-Some NPM packages can be installed and used in the component. If a popular library does not work, please open an issue/feature request in the [spin-js-sdk repository](https://github.com/fermyon/spin-js-sdk/issues).
+Some NPM packages can be installed and used in the component. If a popular library does not work, please open an issue/feature request in the [spin-js-sdk repository](https://github.com/spinframework/spin-js-sdk/issues).
 
 ### Suggested Libraries for Common Tasks
 

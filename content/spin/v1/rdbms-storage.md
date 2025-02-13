@@ -57,13 +57,13 @@ match rowset.rows.first() {
 * Modified row counts are returned as `u64`. (MySQL `execute` does not return the modified row count.)
 * All functions wrap the return in `anyhow::Result`.
 
-You can find complete examples for using relational databases in the Spin repository on GitHub ([MySQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/mysql), [PostgreSQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/postgres)).
+You can find complete examples for using relational databases in the Spin repository on GitHub ([MySQL](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/mysql), [PostgreSQL](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/postgres)).
 
 {{ blockEnd }}
 
 {{ startTab "TypeScript"}}
 
-The JavaScript/TypeScript SDK doesn't surface the MySQL or PostgreSQL APIs. However, you can use hosted relational database services that are accessible over HTTP. For an example, see the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/sdk-v1/examples/typescript/planetscale), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/sdk-v1/examples/javascript/planetscale)).
+The JavaScript/TypeScript SDK doesn't surface the MySQL or PostgreSQL APIs. However, you can use hosted relational database services that are accessible over HTTP. For an example, see the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/spinframework/spin-js-sdk/tree/sdk-v1/examples/typescript/planetscale), [JavaScript](https://github.com/spinframework/spin-js-sdk/tree/sdk-v1/examples/javascript/planetscale)).
 
 {{ blockEnd }}
 

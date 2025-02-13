@@ -37,7 +37,7 @@ This page contains information about language support for Spin features:
 
 {{ startTab "TypeScript"}}
 
-**[📄 Visit the JS/TS Spin SDK reference documentation](https://fermyon.github.io/spin-js-sdk/) to see specific modules, functions, variables and syntax relating to the following TS/JS features.**
+**[📄 Visit the JS/TS Spin SDK reference documentation](https://spinframework.github.io/spin-js-sdk/) to see specific modules, functions, variables and syntax relating to the following TS/JS features.**
 
 | Feature | SDK Supported? |
 |-----|-----|
@@ -61,7 +61,7 @@ This page contains information about language support for Spin features:
 
 {{ startTab "Python"}}
 
-**[📄 Visit the Python Spin SDK reference documentation](https://fermyon.github.io/spin-python-sdk/v1) to see specific modules, functions, variables and syntax relating to the following Python SDK.**
+**[📄 Visit the Python Spin SDK reference documentation](https://spinframework.github.io/spin-python-sdk/v1) to see specific modules, functions, variables and syntax relating to the following Python SDK.**
 
 | Feature | SDK Supported? |
 |-----|-----|

@@ -20,7 +20,7 @@ The roadmap to full Wasm and Component Model support in dotnet is tracked in thi
 
 The .NET ecosystem has long had support for browser-side WebAssembly via the [Blazor toolkit](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor).
 
-An experiment for WASI support in dotnet [.NET WASI SDK](https://github.com/SteveSandersonMS/dotnet-wasi-sdk) exists, on top of which Fermyon created an [Spin SDK for dotnet](https://github.com/fermyon/spin-dotnet-sdk). These can be used to try out Spin and C# using dotnet 8.
+An experiment for WASI support in dotnet [.NET WASI SDK](https://github.com/SteveSandersonMS/dotnet-wasi-sdk) exists, on top of which Fermyon created an [Spin SDK for dotnet](https://github.com/spinframework/spin-dotnet-sdk). These can be used to try out Spin and C# using dotnet 8.
 
 ## Pros and Cons
 
@@ -40,16 +40,16 @@ There are two examples we want to show for dotnet:
 
 ### Spin Dotnet Application
 
-Our first example uses the [Spin SDK for dotnet](https://github.com/fermyon/spin-dotnet-sdk). This is an experimental preview and requires the [prerequisites](https://github.com/fermyon/spin-dotnet-sdk#prerequisites) described in the repo.
+Our first example uses the [Spin SDK for dotnet](https://github.com/spinframework/spin-dotnet-sdk). This is an experimental preview and requires the [prerequisites](https://github.com/spinframework/spin-dotnet-sdk#prerequisites) described in the repo.
 
 >> All of our examples follow [a documented pattern using common tools](/wasm-languages/about-examples).
 
-After having install the [required tooling](https://github.com/fermyon/spin-dotnet-sdk#prerequisites), install the templates for a Spin HTTP component using C#:
+After having install the [required tooling](https://github.com/spinframework/spin-dotnet-sdk#prerequisites), install the templates for a Spin HTTP component using C#:
 
 <!-- @selectiveCpy -->
 
 ```shell
-$ spin templates install --git https://github.com/fermyon/spin-dotnet-sdk
+$ spin templates install --git https://github.com/spinframework/spin-dotnet-sdk
 Copying remote template source
 Installing template http-csharp...
 Installed 1 template(s)

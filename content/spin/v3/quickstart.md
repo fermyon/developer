@@ -68,7 +68,7 @@ $ sudo mv ./spin /usr/local/bin/spin
 
 {{ startTab "Windows"}}
 
-Download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
+Download <a href="https://github.com/spinframework/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
 
 Unzip the binary release and place the `spin.exe` in your system path.
 
@@ -92,7 +92,7 @@ The quickest and most convenient way to start a new application is to install an
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin--update
 Copying remote template source
 Installing template redis-rust...
 Installing template http-rust...
@@ -116,7 +116,7 @@ Note: The Rust templates are in a repo that contains several other languages; th
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-js-sdk --update
 Copying remote template source
 Installing template http-js...
 Installing template http-ts...
@@ -135,7 +135,7 @@ Installing template http-ts...
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --update
 Copying remote template source
 Installing template http-py...
 +---------------------------------------------+
@@ -152,7 +152,7 @@ Installing template http-py...
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin--update
 Copying remote template source
 Installing template redis-go...
 Installing template http-go...
@@ -421,12 +421,12 @@ addEventListener('fetch', async (event: FetchEvent) => {
 
 {{ startTab "Python"}}
 
-You can install the Spin template for Python HTTP handlers from the [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk) using the following command:
+You can install the Spin template for Python HTTP handlers from the [spin-python-sdk repository](https://github.com/spinframework/spin-python-sdk) using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --update
 ```
 
 The above command will install the `http-py` template and produce an output similar to the following:
@@ -681,7 +681,7 @@ The Spin template creates starter source code.  Now you need to turn that into a
 $ spin build
 Executing the build command for component hello-rust: cargo build --target wasm32-wasip1 --release
     Updating crates.io index
-    Updating git repository `https://github.com/fermyon/spin`
+    Updating git repository `https://github.com/spinframework/spin`
     Updating git repository `https://github.com/bytecodealliance/wit-bindgen`
    Compiling anyhow v1.0.69
    Compiling version_check v0.9.4

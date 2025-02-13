@@ -83,9 +83,9 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
 
 {{ startTab "Typescript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/)
 
-The key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://fermyon.github.io/spin-js-sdk/modules/Kv.html) which returns a [handle to the store](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html). For example:
+The key value functions can be accessed after opening a store using either [the `Kv.open` or the `Kv.openDefault` methods](https://spinframework.github.io/spin-js-sdk/modules/Kv.html) which returns a [handle to the store](https://spinframework.github.io/spin-js-sdk/interfaces/Kv.Store.html). For example:
 
 ```ts
 import { ResponseBuilder , Kv} from "@fermyon/spin-sdk";
@@ -102,21 +102,21 @@ export async function handler(req: Request, res: ResponseBuilder) {
 **General Notes**
 - The SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
-[`get` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#get)
+[`get` **Operation**](https://spinframework.github.io/spin-js-sdk/interfaces/Kv.Store.html#get)
 - The result is of the type `Uint8Array | null`
 - If the key does not exist, `get` returns `null`
 
-[`set` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#set)
+[`set` **Operation**](https://spinframework.github.io/spin-js-sdk/interfaces/Kv.Store.html#set)
 - The value argument is of the type `Uint8Array | string | object`.
 
-[`setJson`](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#setJson) and [`getJson` **Operation**](https://fermyon.github.io/spin-js-sdk/interfaces/Kv.Store.html#getJson)
+[`setJson`](https://spinframework.github.io/spin-js-sdk/interfaces/Kv.Store.html#setJson) and [`getJson` **Operation**](https://spinframework.github.io/spin-js-sdk/interfaces/Kv.Store.html#getJson)
 - Applications can store JavaScript objects using `setJson`; these are serialized within the store as JSON. These serialized objects can be retrieved and deserialized using `getJson`. If you call `getJson` on a key that doesn't exist then it returns an empty object.
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?** Find it here.](https://fermyon.github.io/spin-python-sdk/key_value.html)
+> [**Want to go straight to the reference documentation?** Find it here.](https://spinframework.github.io/spin-python-sdk/key_value.html)
 
 The key value functions are provided through the `spin_key_value` module in the Python SDK. For example:
 
@@ -141,7 +141,7 @@ class IncomingHandler(http.IncomingHandler):
 **General Notes**
 - The Python SDK doesn't surface the `close` operation. It automatically closes all stores at the end of the request; there's no way to close them early.
 
-[`get` **Operation**](https://fermyon.github.io/spin-python-sdk/wit/imports/key_value.html#spin_sdk.wit.imports.key_value.Store.get)
+[`get` **Operation**](https://spinframework.github.io/spin-python-sdk/wit/imports/key_value.html#spin_sdk.wit.imports.key_value.Store.get)
 - If a key does not exist, it returns `None`
 
 {{ blockEnd }}

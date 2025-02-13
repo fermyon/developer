@@ -50,7 +50,7 @@ To enable Serverless AI functionality via TypeScript/Javascript, please ensure y
 <!-- @selectiveCpy -->
  
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade --branch sdk-v2
+$ spin templates install --git https://github.com/spinframework/spin-js-sdk --upgrade --branch sdk-v2
 ```
  
 **Python**
@@ -69,7 +69,7 @@ To enable Serverless AI functionality via Python, please ensure you have the lat
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --update
 ```
  
 As a standard practice for Python, create and activate a virtual env:

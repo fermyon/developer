@@ -32,7 +32,7 @@ the `destination` URL:
 ```toml
 [[route]]
 source = "/spin"
-destination = "https://github.com/fermyon/spin"
+destination = "https://github.com/spinframework/spin"
 
 [[route]]
 source = "/hype"
@@ -40,7 +40,7 @@ destination = "https://www.fermyon.com/blog/how-to-think-about-wasm"
 ```
 
 Whenever a request for `https://<domain>/spin` is sent, our component will
-redirect to `https://github.com/fermyon/spin`. Now that we have a basic
+redirect to `https://github.com/spinframework/spin`. Now that we have a basic
 understanding of how the component should behave, let's see how to implement it
 using Spin.
 
@@ -119,7 +119,7 @@ And the component can now handle incoming requests:
 # to /spin should be redirected
 $ curl -i localhost:3000/spin
 HTTP/1.1 308 Permanent Redirect
-location: https://github.com/fermyon/spin
+location: https://github.com/spinframework/spin
 content-length: 0
 # based on the configuration file, a request
 # to /hype should be redirected

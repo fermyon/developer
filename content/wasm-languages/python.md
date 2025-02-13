@@ -15,7 +15,7 @@ Python is one of the most popular programming languages in the world, and its We
 
 WebAssembly support is officially available in CPython 3.11 and after. The [GitHub CPython repo](https://github.com/python/cpython) has all of the code.
 
-There is also a [Spin SDK for Python](https://github.com/fermyon/spin-python-sdk) that uses CPython, but reduces startup time by preloading and initializing the scripts. There's a [detailed blog post about Python on Fermyon.com](https://www.fermyon.com/blog/spin-python-sdk) that explains this.
+There is also a [Spin SDK for Python](https://github.com/spinframework/spin-python-sdk) that uses CPython, but reduces startup time by preloading and initializing the scripts. There's a [detailed blog post about Python on Fermyon.com](https://www.fermyon.com/blog/spin-python-sdk) that explains this.
 
 ## Prerequisite
 
@@ -33,12 +33,12 @@ The Spin SDK makes it very easy to build Python-based Wasm applications simply b
 
 ## Spin's Python HTTP Request Handler Template
 
-Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk/tree/main/) using the following command:
+Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/spinframework/spin-python-sdk/tree/main/) using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --update
 ```
 
 The above command will install the `http-py` template and produce an output similar to the following:
@@ -175,7 +175,7 @@ Joel's video on Spin, Python, and Components (Recorded at WasmCon on Sep 12, 202
 
 Here are some great resources:
 - A tutorial for building [Python Wasm apps with Spin](https://dev.to/technosophos/building-a-serverless-webassembly-app-with-spin-5dh9)
-- The [Spin Python SDK](https://github.com/fermyon/spin-python-sdk)
+- The [Spin Python SDK](https://github.com/spinframework/spin-python-sdk)
 - The [Spin Developer Docs](../spin) fully document the Python SDKs
 - [Python Wasm examples](../../hub/index) at Spin Hub
 - The [Componentize-Py](https://pypi.org/project/componentize-py/) tooling

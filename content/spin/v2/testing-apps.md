@@ -6,11 +6,11 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/testing-ap
 
 ---
 
-The [spin test plugin](https://github.com/fermyon/spin-test) allows you to run tests, written in WebAssembly, against a Spin application (where all Spin and WASI APIs are configurable mocks).
+The [spin test plugin](https://github.com/spinframework/spin-test) allows you to run tests, written in WebAssembly, against a Spin application (where all Spin and WASI APIs are configurable mocks).
 
 To use `spin test` you write test scenarios for your app in any language with WebAssembly component support, and mock out all interactions your app has with the outside world without requiring any code changes to the app itself. That means the code you test in development is the same code that runs in production.
 
-> Note: `spin test` is still under active development and so the details here may have changed since this post was first published. Check [the spin-test repo](https://github.com/fermyon/spin-test) for the latest information on installation and usage.
+> Note: `spin test` is still under active development and so the details here may have changed since this post was first published. Check [the spin-test repo](https://github.com/spinframework/spin-test) for the latest information on installation and usage.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ The example below uses the [Rust programming language](https://www.rust-lang.org
 To run `spin test` , you’ll first need to install the canary release of the plugin. As `spin test` matures, we’ll be making stable releases:
 
 ```bash
-spin plugin install -u https://github.com/fermyon/spin-test/releases/download/canary/spin-test.json
+spin plugin install -u https://github.com/spinframework/spin-test/releases/download/canary/spin-test.json
 ```
 
 This will install the plugin which can be invoked with `spin test`.
@@ -53,7 +53,7 @@ my-app/
 
 ## Creating a Test Suite
 
-There is currently first-class support for writing tests in Rust, but any language with support for writing WebAssembly components can be used as long as the `fermyon:spin-test/test` world is targeted. You can find the definition of this world [here](https://github.com/fermyon/spin-test/blob/4dcaf79c10fc29a8da2750bdaa383b5869db1715/host-wit/world.wit#L13-L16). For this example, we'll use Rust.
+There is currently first-class support for writing tests in Rust, but any language with support for writing WebAssembly components can be used as long as the `fermyon:spin-test/test` world is targeted. You can find the definition of this world [here](https://github.com/spinframework/spin-test/blob/4dcaf79c10fc29a8da2750bdaa383b5869db1715/host-wit/world.wit#L13-L16). For this example, we'll use Rust.
 
 We use `cargo` to create a test suite, and then change into our newly created `tests` directory:
 
@@ -86,7 +86,7 @@ From within that test suite (from inside the `tests` directory), we then add the
 <!-- @selectiveCpy -->
 
 ```bash
-$ cargo add spin-test-sdk --git https://github.com/fermyon/spin-test
+$ cargo add spin-test-sdk --git https://github.com/spinframework/spin-test
 ```
 
 Then, we open the `Cargo.toml` file from within in the `tests` directory and edit to add the `crate-type` of `cdylib`:
@@ -105,7 +105,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-spin-test-sdk = { git = "https://github.com/fermyon/spin-test", version = "0.1.0" }
+spin-test-sdk = { git = "https://github.com/spinframework/spin-test", version = "0.1.0" }
 
 [lib]
 crate-type = ["cdylib"]
@@ -115,7 +115,7 @@ crate-type = ["cdylib"]
 
 Next, create a test that `spin test` can run as a compiled WebAssembly component.
 
-In this example, we will write some tests appropriate to a JSON API service for information about service users. Here are two such tests written in Rust using the [Spin Test Rust SDK](https://github.com/fermyon/spin-test/tree/main/crates/spin-test-sdk). The first test ensures that the Spin app responds properly to an HTTP request. The second test ensures that the Spin app responds properly when the user data is present in the key-value store - for testing purposes, simulated by inserting it into a "virtual" store.
+In this example, we will write some tests appropriate to a JSON API service for information about service users. Here are two such tests written in Rust using the [Spin Test Rust SDK](https://github.com/spinframework/spin-test/tree/main/crates/spin-test-sdk). The first test ensures that the Spin app responds properly to an HTTP request. The second test ensures that the Spin app responds properly when the user data is present in the key-value store - for testing purposes, simulated by inserting it into a "virtual" store.
 
 Open the `my-app/tests/src/lib.rs` file and fill it with the following content:
 

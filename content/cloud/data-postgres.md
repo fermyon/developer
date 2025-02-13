@@ -29,7 +29,7 @@ The Spin CLI facilitates the creation of new Spin applications through the use o
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-dotnet-sdk --branch main --update
+$ spin templates install --git https://github.com/spinframework/spin-dotnet-sdk --branch main --update
 ```
 
 The output from the command above will be similar to the following:

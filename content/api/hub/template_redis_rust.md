@@ -13,9 +13,9 @@ created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v0.2"
 summary =  "A template to create a Redis pub-sub handler in Rust"
-url = "https://github.com/fermyon/spin/tree/main/templates/redis-rust"
+url = "https://github.com/spinframework/spin/tree/main/templates/redis-rust"
 template_id = "redis-rust"
-repo_url = "https://github.com/fermyon/spin"
+repo_url = "https://github.com/spinframework/spin"
 keywords = "web app, redis"
 
 ---

@@ -116,9 +116,9 @@ The `infer_with_options` examples, operation:
 
 {{ startTab "Typescript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Llm.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/modules/Llm.html)
 
-To use Serverless AI functions, [the `Llm` module](https://fermyon.github.io/spin-js-sdk/modules/Llm.html) from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example: 
+To use Serverless AI functions, [the `Llm` module](https://spinframework.github.io/spin-js-sdk/modules/Llm.html) from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example: 
 
 ```javascript
 import { AutoRouter } from 'itty-router';
@@ -146,21 +146,21 @@ addEventListener('fetch', async (event: FetchEvent) => {
 `infer` operation:
 
 - It takes in the following arguments - model name, prompt and a optional third parameter for inferencing options. 
-- The model name is a string. There are enums for the inbuilt models (llama2-chat and codellama) in [`InferencingModels`](https://fermyon.github.io/spin-js-sdk/enums/Llm.InferencingModels.html).
-- The optional third parameter which is an [InferencingOptions](https://fermyon.github.io/spin-js-sdk/interfaces/Llm.InferencingOptions.html) interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.  
-- The return value is an [`InferenceResult`](https://fermyon.github.io/spin-js-sdk/interfaces/Llm.EmbeddingResult.html).
+- The model name is a string. There are enums for the inbuilt models (llama2-chat and codellama) in [`InferencingModels`](https://spinframework.github.io/spin-js-sdk/enums/Llm.InferencingModels.html).
+- The optional third parameter which is an [InferencingOptions](https://spinframework.github.io/spin-js-sdk/interfaces/Llm.InferencingOptions.html) interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.  
+- The return value is an [`InferenceResult`](https://spinframework.github.io/spin-js-sdk/interfaces/Llm.EmbeddingResult.html).
 
 `generateEmbeddings` operation:
 
 - It takes two arguments - model name and list of strings to generate the embeddings for. 
-- The model name is a string. There are enums for the inbuilt models (AllMiniLmL6V2) in [`EmbeddingModels`](https://fermyon.github.io/spin-js-sdk/enums/Llm.EmbeddingModels.html).
-- The return value is an [`EmbeddingResult`](https://fermyon.github.io/spin-js-sdk/interfaces/Llm.EmbeddingResult.html)
+- The model name is a string. There are enums for the inbuilt models (AllMiniLmL6V2) in [`EmbeddingModels`](https://spinframework.github.io/spin-js-sdk/enums/Llm.EmbeddingModels.html).
+- The return value is an [`EmbeddingResult`](https://spinframework.github.io/spin-js-sdk/interfaces/Llm.EmbeddingResult.html)
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/llm.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-python-sdk/llm.html)
 
 ```python
 from spin_sdk import http
@@ -178,12 +178,12 @@ class IncomingHandler(http.IncomingHandler):
 
 **General Notes**
 
-[`infer` operation](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer):
+[`infer` operation](https://spinframework.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer):
 
 - The model name is passed in as a string (as shown above; `"llama2-chat"`).
-[`infer_with_options` operation](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer_with_options):
+[`infer_with_options` operation](https://spinframework.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer_with_options):
 
-- It takes in a model name, prompt text, and optionally a [parameter object](https://fermyon.github.io/spin-python-sdk/llm.html#spin_sdk.llm.InferencingParams) to control the inferencing. 
+- It takes in a model name, prompt text, and optionally a [parameter object](https://spinframework.github.io/spin-python-sdk/llm.html#spin_sdk.llm.InferencingParams) to control the inferencing. 
 
 {{ blockEnd }}
 
@@ -257,5 +257,5 @@ Most Spin builds support local LLMs as described above. However, the models buil
 
 In such cases, you can:
 
-* See if there is another Spin build available for your platform. All current builds from the [Spin GitHub repository](https://github.com/fermyon/spin) or [Fermyon Spin installer support](./install.md) support local LLMs.
+* See if there is another Spin build available for your platform. All current builds from the [Spin GitHub repository](https://github.com/spinframework/spin) or [Fermyon Spin installer support](./install.md) support local LLMs.
 * Use the [`cloud-gpu` plugin and runtime config option](./serverless-ai-hello-world.md#building-and-deploying-your-spin-application) to have LLM inferencing serviced in Fermyon Cloud instead of locally.

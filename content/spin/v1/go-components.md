@@ -24,7 +24,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/go-compone
 Using TinyGo to compile components for Spin is currently required, as the
 [Go compiler doesn't currently have support for compiling to WASI](https://github.com/golang/go/issues/31105).
 
-> All examples from this page can be found in [the Spin repository on GitHub](https://github.com/fermyon/spin/tree/main/examples).
+> All examples from this page can be found in [the Spin repository on GitHub](https://github.com/spinframework/spin/tree/main/examples).
 
 ## Versions
 
@@ -336,7 +336,7 @@ This HTTP component can be paired with a Redis component, triggered on new
 messages on the `messages` Redis channel.
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [Spin repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples/redis-outbound).
+> in the [Spin repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples/redis-outbound).
 
 ## Using Go Packages in Spin Components
 

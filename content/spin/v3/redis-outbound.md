@@ -83,15 +83,15 @@ For full details of the Redis API, see the [Spin SDK reference documentation](ht
 
 * The arguments and results are enums, representing integers, binary payloads, and (for results) status and nil values.
 
-You can find a complete Rust code example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using Rust) section](./rust-components#storing-data-in-redis-from-rust-components). 
+You can find a complete Rust code example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using Rust) section](./rust-components#storing-data-in-redis-from-rust-components). 
 
 {{ blockEnd }}
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/)
 
-Redis functions are available on [the `Redis` module](https://fermyon.github.io/spin-js-sdk/modules/Redis.html). The function names match the operations above. For example:
+Redis functions are available on [the `Redis` module](https://spinframework.github.io/spin-js-sdk/modules/Redis.html). The function names match the operations above. For example:
 
 ```javascript
 import { Redis } from "@fermyon/spin-sdk"
@@ -109,15 +109,15 @@ let value = db.get(key);
 
 * The arguments and results can be either numbers or buffers. (In TypeScript they are union types, e.g. `BigInt | Uint8Array`.)
 
-You can find a complete TypeScript example for using outbound Redis from an HTTP component in the [JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-redis). Please also see this, related, [outbound Redis (using TypeScript) section](./javascript-components#storing-data-in-redis-from-jsts-components).
+You can find a complete TypeScript example for using outbound Redis from an HTTP component in the [JavaScript SDK repository on GitHub](https://github.com/spinframework/spin-js-sdk/tree/main/examples/spin-host-apis/spin-redis). Please also see this, related, [outbound Redis (using TypeScript) section](./javascript-components#storing-data-in-redis-from-jsts-components).
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/redis.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-python-sdk/redis.html)
 
-Redis functions are available in [the `redis` module](https://fermyon.github.io/spin-python-sdk/redis.html). The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
+Redis functions are available in [the `redis` module](https://spinframework.github.io/spin-python-sdk/redis.html). The function names are prefixed `redis_`. You must pass the Redis instance address to _each_ operation as its first parameter. For example:
 
 ```python
 from spin_sdk import redis
@@ -133,7 +133,7 @@ with redis.open("redis://localhost:6379") as db:
 * Lists are passed and returned as Python lists.
 * Errors are signalled through exceptions.
 
-You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-redis). Please also see this, related, [outbound Redis (using Python) section](./python-components#an-outbound-redis-example).
+You can find a complete Python code example for using outbound Redis from an HTTP component in the [Python SDK repository on GitHub](https://github.com/spinframework/spin-python-sdk/tree/main/examples/spin-redis). Please also see this, related, [outbound Redis (using Python) section](./python-components#an-outbound-redis-example).
 
 {{ blockEnd }}
 
@@ -164,7 +164,7 @@ payload, err := rdb.Get(key)
 * The arguments are passed as `[]redis.RedisParameter`. You can construct `RedisParameter` instances around an `interface{}` but must provide a `Kind`. For example, `hello := redis.RedisParameter{Kind: redis.RedisParameterKindBinary, Val: []byte("hello")}`.
 * The results are returned as `[]redis.Result`. You can use the `Kind` member of `redis.Result` to interpret the `Val`.
 
-You can find a complete TinyGo example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using TinyGo) section](./go-components#storing-data-in-redis-from-go-components). 
+You can find a complete TinyGo example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using TinyGo) section](./go-components#storing-data-in-redis-from-go-components). 
 
 {{ blockEnd }}
 

@@ -63,7 +63,7 @@ match rowset.rows.first() {
 * Modified row counts are returned as `u64`. (MySQL `execute` does not return the modified row count.)
 * All functions wrap the return in `anyhow::Result`.
 
-You can find complete examples for using relational databases in the Spin repository on GitHub ([MySQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/mysql), [PostgreSQL](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/postgres)).
+You can find complete examples for using relational databases in the Spin repository on GitHub ([MySQL](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/mysql), [PostgreSQL](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/postgres)).
 
 For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK reference documentation](https://docs.rs/spin-sdk/latest/spin_sdk/index.html).
 
@@ -71,9 +71,9 @@ For full information about the MySQL and PostgreSQL APIs, see [the Spin SDK refe
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/)
 
-The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/examples/spin-host-apis/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/examples/spin-host-apis/spin-postgres) available.
+The code below is an [Outbound MySQL example](https://github.com/spinframework/spin-js-sdk/tree/sdk-v2/examples/spin-host-apis/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/spinframework/spin-js-sdk/tree/sdk-v2/examples/spin-host-apis/spin-postgres) available.
 
 ```ts
 import { ResponseBuilder, Mysql } from '@fermyon/spin-sdk';
@@ -104,9 +104,9 @@ export async function handler(_req: Request, res: ResponseBuilder) {
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-python-sdk/)
 
-The code below is an [Outbound MySQL example](https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/fermyon/spin-python-sdk/tree/main/examples/spin-postgres) available.
+The code below is an [Outbound MySQL example](https://github.com/spinframework/spin-python-sdk/tree/main/examples/spin-mysql). There is also an outbound [PostgreSQL example](https://github.com/spinframework/spin-python-sdk/tree/main/examples/spin-postgres) available.
 
 ```python
 from spin_sdk import http

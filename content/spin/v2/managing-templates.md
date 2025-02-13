@@ -31,7 +31,7 @@ To install templates from the Spin Git repository, run `spin templates install -
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin
+$ spin templates install --git https://github.com/spinframework/spin
 ```
 
 If you prefer a shorter command, you can just pass the repository id instead of the full URL:
@@ -39,7 +39,7 @@ If you prefer a shorter command, you can just pass the repository id instead of 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git fermyon/spin
+$ spin templates install --git spinframework/spin
 ```
 
 The above command installs _all_ templates in the repository.
@@ -53,7 +53,7 @@ By default, if you install templates from a Git repository, Spin tries to find a
 <!-- @nocpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --branch spin/templates/v0.8
+$ spin templates install --git https://github.com/spinframework/spin --branch spin/templates/v0.8
 ```
 
 ### Installing From a Local Directory
@@ -98,9 +98,9 @@ When you upgrade Spin, you will typically want to upgrade your templates to matc
 ```bash
 $ spin templates upgrade
 Select repos to upgrade. Use Space to select/deselect and Enter to confirm selection.
-  [x] https://github.com/fermyon/spin-python-sdk
-  [ ] https://github.com/fermyon/spin (at spin/templates/v1.0)
-> [x] https://github.com/fermyon/spin-js-sdk
+  [x] https://github.com/spinframework/spin-python-sdk
+  [ ] https://github.com/spinframework/spin (at spin/templates/v1.0)
+> [x] https://github.com/spinframework/spin-js-sdk
 ```
 
 Use the cursor keys and the space bar to select the repositories you want to upgrade, then hit Enter to upgrade the selected repositories.

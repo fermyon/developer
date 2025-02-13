@@ -47,7 +47,7 @@ To enable Serverless AI functionality via TypeScript/Javascript, please ensure y
 <!-- @selectiveCpy -->
  
 ```bash
-$ spin templates install --git <https://github.com/fermyon/spin-js-sdk> --upgrade
+$ spin templates install --git <https://github.com/spinframework/spin-js-sdk> --upgrade
 ```
  
 **Python**
@@ -57,7 +57,7 @@ To enable Serverless AI functionality via Python, please ensure you have the lat
 ```bash
 $ spin plugins update
 $ spin plugins install py2wasm
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --upgrade
 ```
  
 ## Licenses

@@ -50,4 +50,4 @@ DeisLabs (at Microsoft) proposed Wagi based on the CGI 1.1 specification.
 
 ## Spin Improvement Proposals (SIPs)
 
-- The [source repository](https://github.com/fermyon/spin/tree/main/docs/content/sips)
+- The [source repository](https://github.com/spinframework/spin/tree/main/docs/content/sips)

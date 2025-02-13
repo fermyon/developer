@@ -25,7 +25,7 @@ There are three popular ways of building JavaScript into WebAssembly.
 
 Recently, Suborbital has introduced a version of [Javy](https://github.com/suborbital/javy) that supports some of their extensions.
 
-You can compile JavaScript and TypeScript to Wasm for the Spin runtime using [the Spin JavaScript SDK](https://github.com/fermyon/spin-js-sdk). The Spin SDK borrows heavily from Javy, using the same approach of providing a CLI utility to convert a JS file into a Wasm file.
+You can compile JavaScript and TypeScript to Wasm for the Spin runtime using [the Spin JavaScript SDK](https://github.com/spinframework/spin-js-sdk). The Spin SDK borrows heavily from Javy, using the same approach of providing a CLI utility to convert a JS file into a Wasm file.
 
 [JCO](https://bytecodealliance.github.io/jco/) is a fully native tool for working with WebAssembly Components in JavaScript.
 
@@ -42,7 +42,7 @@ If you have not done so already, please [install Spin](/spin/v3/install). Having
 The Spin JS/TS SDK provides a couple of Spin templates for quickly starting a new JS or TS application. These templates can be installed using the following command:
 
 ```console
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk
+$ spin templates install --git https://github.com/spinframework/spin-js-sdk
 ```
 
 You will now see `http-ts` and `http-js` available when listing installed templates:
