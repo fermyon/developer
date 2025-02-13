@@ -61,7 +61,7 @@ The above installation script automatically installs the latest SDKs for Rust (w
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --upgrade
+$ spin templates install --git https://github.com/spinframework/spin-js-sdk --upgrade
 ```
 
 **Python**
@@ -71,7 +71,7 @@ Some of the Serverless AI examples are written using Python. To enable Serverles
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --upgrade
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --upgrade
 ```
 
 ## Licenses

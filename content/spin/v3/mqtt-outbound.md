@@ -51,13 +51,13 @@ connection.publish("pets", &cat_picture, spin_sdk::mqtt::Qos::AtLeastOnce)?;
 
 For full details of the MQTT API, see the [Spin SDK reference documentation](https://docs.rs/spin-sdk/latest/spin_sdk/mqtt/index.html);
 
-You can find a complete Rust code example for using outbound MQTT from an HTTP component in the [Spin Rust SDK repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/mqtt-outbound).
+You can find a complete Rust code example for using outbound MQTT from an HTTP component in the [Spin Rust SDK repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/mqtt-outbound).
 
 {{ blockEnd }}
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Mqtt.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/modules/Mqtt.html)
 
 To access an MQTT server, use the `Mqtt.open` function.
 
@@ -72,9 +72,9 @@ let catPicture = new Uint8Array(await req.arraybuffer());
 connection.publish("pets", catPicture, QoS.AtleastOnce);
 ```
 
-For full details of the MQTT API, see the [Spin SDK reference documentation](https://fermyon.github.io/spin-js-sdk/modules/Mqtt.html)
+For full details of the MQTT API, see the [Spin SDK reference documentation](https://spinframework.github.io/spin-js-sdk/modules/Mqtt.html)
 
-You can find a complete Rust code example for using outbound MQTT from an HTTP component in the [Spin Rust SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mqtt).
+You can find a complete Rust code example for using outbound MQTT from an HTTP component in the [Spin Rust SDK repository on GitHub](https://github.com/spinframework/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mqtt).
 
 {{ blockEnd }}
 

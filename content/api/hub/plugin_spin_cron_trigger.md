@@ -13,7 +13,7 @@ created_at = "2023-12-05T00:22:56Z"
 last_updated = "2023-12-05T00:22:56Z"
 spin_version = ">=v2.0.1"
 summary = "An experimental cron trigger for Spin apps"
-url = "https://github.com/fermyon/spin-trigger-cron"
+url = "https://github.com/spinframework/spin-trigger-cron"
 keywords = "trigger, cron"
 
 ---
@@ -25,7 +25,7 @@ An experimental plugin that enables cron trigger for Spin applications.
 You can install the plugin using the following command:
 
 ```bash
-spin plugins install --url https://github.com/fermyon/spin-trigger-cron/releases/download/canary/trigger-cron.json
+spin plugins install --url https://github.com/spinframework/spin-trigger-cron/releases/download/canary/trigger-cron.json
 ```
 
 ## Installing Template
@@ -33,7 +33,7 @@ spin plugins install --url https://github.com/fermyon/spin-trigger-cron/releases
 You can install the template using the following command:
 
 ```bash
-spin templates install --git https://github.com/fermyon/spin-trigger-cron
+spin templates install --git https://github.com/spinframework/spin-trigger-cron
 ```
 
 Once the template is installed, you can create a new application using:

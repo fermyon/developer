@@ -120,9 +120,9 @@ struct ToDo {
 
 {{ startTab "Typescript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Sqlite.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/modules/Sqlite.html)
 
-To use SQLite functions, use [the `Sqlite.open` or `Sqlite.openDefault` function](https://fermyon.github.io/spin-js-sdk/modules/Sqlite.html) to obtain [a `SqliteConnection` object](https://fermyon.github.io/spin-js-sdk/interfaces/Sqlite.SqliteConnection.html). `SqliteConnection` provides the `execute` method as described above. For example:
+To use SQLite functions, use [the `Sqlite.open` or `Sqlite.openDefault` function](https://spinframework.github.io/spin-js-sdk/modules/Sqlite.html) to obtain [a `SqliteConnection` object](https://spinframework.github.io/spin-js-sdk/interfaces/Sqlite.SqliteConnection.html). `SqliteConnection` provides the `execute` method as described above. For example:
 
 ```javascript
 import { AutoRouter } from 'itty-router';
@@ -152,9 +152,9 @@ addEventListener('fetch', async (event: FetchEvent) => {
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/sqlite.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-python-sdk/sqlite.html)
 
-To use SQLite functions, use the `sqlite` module in the Python SDK. The [`sqlite_open`](https://fermyon.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open) and [`sqlite_open_default`](https://fermyon.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open_default) functions return a [connection object](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection). The connection object provides the [`execute` method](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection.execute) as described above. For example:
+To use SQLite functions, use the `sqlite` module in the Python SDK. The [`sqlite_open`](https://spinframework.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open) and [`sqlite_open_default`](https://spinframework.github.io/spin-python-sdk/sqlite.html#spin_sdk.sqlite.open_default) functions return a [connection object](https://spinframework.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection). The connection object provides the [`execute` method](https://spinframework.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.Connection.execute) as described above. For example:
 
 ```python
 from spin_sdk import http, sqlite
@@ -175,7 +175,7 @@ class IncomingHandler(http.IncomingHandler):
 ```
 
 **General Notes**
-* The `execute` method returns [a `QueryResult` object](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.QueryResult) with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of [`RowResult`](https://fermyon.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.RowResult) in the same order as `columns`.
+* The `execute` method returns [a `QueryResult` object](https://spinframework.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.QueryResult) with `rows` and `columns` methods. `columns` returns a list of strings representing column names. `rows` is an array of rows, each of which is an array of [`RowResult`](https://spinframework.github.io/spin-python-sdk/wit/imports/sqlite.html#spin_sdk.wit.imports.sqlite.RowResult) in the same order as `columns`.
 * The connection object doesn't surface the `close` function.
 * Errors are surfaced as exceptions.
 

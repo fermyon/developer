@@ -88,7 +88,7 @@ async fn handle_request(_req: Request) -> anyhow::Result<impl IntoResponse> {
 }
 ```
 
-For an example of receiving the response in a streaming style, [see this example in the Spin repository](https://github.com/fermyon/spin-rust-sdk/blob/main/examples/wasi-http-streaming-outgoing-body/src/lib.rs).
+For an example of receiving the response in a streaming style, [see this example in the Spin repository](https://github.com/spinframework/spin-rust-sdk/blob/main/examples/wasi-http-streaming-outgoing-body/src/lib.rs).
 
 {{ blockEnd }}
 
@@ -102,7 +102,7 @@ const response = await fetch("https://example.com/users");
 
 **Notes**
 
-You can find a complete example of using outbound HTTP in the JavaScript SDK repository on [GitHub](https://github.com/fermyon/spin-js-sdk/tree/sdk-v2/examples/common-patterns/outbound-http)
+You can find a complete example of using outbound HTTP in the JavaScript SDK repository on [GitHub](https://github.com/spinframework/spin-js-sdk/tree/sdk-v2/examples/common-patterns/outbound-http)
 
 **Note**: `fetch` currently only works when building for the HTTP trigger.  
 
@@ -110,9 +110,9 @@ You can find a complete example of using outbound HTTP in the JavaScript SDK rep
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/http/index.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-python-sdk/http/index.html)
 
-HTTP functions and classes are available in the `http` module. The function name is [`send`](https://fermyon.github.io/spin-python-sdk/http/index.html#spin_sdk.http.send). The [request type](https://fermyon.github.io/spin-python-sdk/http/index.html#spin_sdk.http.Request) is `Request`, and the [response type](https://fermyon.github.io/spin-python-sdk/http/index.html#spin_sdk.http.Response) is `Response`. For example:
+HTTP functions and classes are available in the `http` module. The function name is [`send`](https://spinframework.github.io/spin-python-sdk/http/index.html#spin_sdk.http.send). The [request type](https://spinframework.github.io/spin-python-sdk/http/index.html#spin_sdk.http.Request) is `Request`, and the [response type](https://spinframework.github.io/spin-python-sdk/http/index.html#spin_sdk.http.Response) is `Response`. For example:
 
 ```python
 from spin_sdk.http import Request, Response, send
@@ -126,7 +126,7 @@ response = send(Request("GET", "https://random-data-api.fermyon.app/animals/json
 * Request and response headers are dictionaries.
 * Errors are signalled through exceptions.
 
-You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples/outgoing-request).
+You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/spinframework/spin-python-sdk/tree/main/examples/outgoing-request).
 
 {{ blockEnd }}
 
@@ -156,7 +156,7 @@ res3, err3 := spinhttp.Send(req)
 * The `NewRequest` function is part of the standard library. The `Send` method adapts the standard request type to the underlying Wasm interface.
 * Errors are returned through the usual Go multiple return values mechanism.
 
-You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples/http-outbound).
+You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples/http-outbound).
 
 {{ blockEnd }}
 

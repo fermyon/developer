@@ -111,7 +111,7 @@ You can deploy a Spin app from any registry such as GHCR or DockerHub using the 
 
 ## Conclusion
 
-Congratulations on completing this tutorial! You have now successfully built, pushed, pulled, and run a Spin app using GHCR. Behind the scenes, Spin uses [OCI artifacts](https://github.com/opencontainers/artifacts) project to distribute Spin apps across container registries. To learn more about how this feature works, take a look at [our proposal](https://github.com/fermyon/spin/blob/main/docs/content/sips/008-using-oci-registries.md) and [the implementation](https://github.com/fermyon/spin/pull/1014). 
+Congratulations on completing this tutorial! You have now successfully built, pushed, pulled, and run a Spin app using GHCR. Behind the scenes, Spin uses [OCI artifacts](https://github.com/opencontainers/artifacts) project to distribute Spin apps across container registries. To learn more about how this feature works, take a look at [our proposal](https://github.com/spinframework/spin/blob/main/docs/content/sips/008-using-oci-registries.md) and [the implementation](https://github.com/spinframework/spin/pull/1014). 
 
 ## Next Steps
 

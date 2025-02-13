@@ -68,7 +68,7 @@ $ sudo mv ./spin /usr/local/bin/spin
 
 {{ startTab "Windows"}}
 
-Download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
+Download <a href="https://github.com/spinframework/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
 
 Unzip the binary release and place the `spin.exe` in your system path.
 
@@ -90,7 +90,7 @@ The quickest and most convenient way to start a new application is to install an
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin --update
 Copying remote template source
 Installing template redis-rust...
 Installing template http-rust...
@@ -114,7 +114,7 @@ Note: The Rust templates are in a repo that contains several other languages; th
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-js-sdk --update
 Copying remote template source
 Installing template http-js...
 Installing template http-ts...
@@ -133,7 +133,7 @@ Installing template http-ts...
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --update
 Copying remote template source
 Installing template http-py...
 +---------------------------------------------+
@@ -150,7 +150,7 @@ Installing template http-py...
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin --update
 Copying remote template source
 Installing template redis-go...
 Installing template http-go...
@@ -608,7 +608,7 @@ The Spin template creates starter source code.  Now you need to turn that into a
 $ spin build
 Executing the build command for component hello-rust: cargo build --target wasm32-wasi --release
     Updating crates.io index
-    Updating git repository `https://github.com/fermyon/spin`
+    Updating git repository `https://github.com/spinframework/spin`
     Updating git repository `https://github.com/bytecodealliance/wit-bindgen`
    Compiling anyhow v1.0.69
    Compiling version_check v0.9.4
@@ -727,7 +727,7 @@ You can always run this command manually; `spin build` is a shortcut.
 ```bash
 $ spin build
 Executing the build command for component hello-go: tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go
-go: downloading github.com/fermyon/spin/sdk/go v0.10.0
+go: downloading github.com/spinframework/spin/sdk/go v0.10.0
 Successfully ran the build command for the Spin components.
 ```
 

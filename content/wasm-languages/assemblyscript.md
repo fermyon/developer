@@ -242,7 +242,7 @@ The module emits `content-type` information and an empty line, so it can be exec
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ### Running using `spin up`
 
-Here's an example with [Spin](https://github.com/fermyon/spin).
+Here's an example with [Spin](https://github.com/spinframework/spin).
 
 Create a simple `spin.toml` and edit it as follows::
 

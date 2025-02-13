@@ -299,14 +299,14 @@ We provide the [spin-containerd-shim-installer](https://github.com/fermyon/spin-
 
 The version of the container image and Helm chart directly correlates to the version of the containerd shim. We recommend selecting the shim version that correlates the version of Spin that you use for your application(s). For simplicity, here is a table depicting the version matrix between Spin and the containerd shim.
 
-| [Spin](https://github.com/fermyon/spin/releases)              | [containerd-shim-spin](https://github.com/deislabs/containerd-wasm-shims/releases) |
+| [Spin](https://github.com/spinframework/spin/releases)              | [containerd-shim-spin](https://github.com/deislabs/containerd-wasm-shims/releases) |
 | ------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [v2.0.1](https://github.com/fermyon/spin/releases/tag/v2.0.1) | [v0.10.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.10.0)  |
-| [v1.4.1](https://github.com/fermyon/spin/releases/tag/v1.4.1) | [v0.9.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.9.0)    |
-| [v1.4.0](https://github.com/fermyon/spin/releases/tag/v1.4.0) | [v0.8.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.8.0)    |
-| [v1.3.0](https://github.com/fermyon/spin/releases/tag/v1.3.0) | [v0.7.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.7.0)    |
-| [v1.1.0](https://github.com/fermyon/spin/releases/tag/v1.1.0) | [v0.6.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.6.0)    |
-| [v1.0.0](https://github.com/fermyon/spin/releases/tag/v1.0.0) | [v0.5.1](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.5.1)    |
+| [v2.0.1](https://github.com/spinframework/spin/releases/tag/v2.0.1) | [v0.10.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.10.0)  |
+| [v1.4.1](https://github.com/spinframework/spin/releases/tag/v1.4.1) | [v0.9.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.9.0)    |
+| [v1.4.0](https://github.com/spinframework/spin/releases/tag/v1.4.0) | [v0.8.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.8.0)    |
+| [v1.3.0](https://github.com/spinframework/spin/releases/tag/v1.3.0) | [v0.7.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.7.0)    |
+| [v1.1.0](https://github.com/spinframework/spin/releases/tag/v1.1.0) | [v0.6.0](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.6.0)    |
+| [v1.0.0](https://github.com/spinframework/spin/releases/tag/v1.0.0) | [v0.5.1](https://github.com/deislabs/containerd-wasm-shims/releases/tag/v0.5.1)    |
 
 There are several values you may need to configure based on your Kubernetes environment. The installer needs to add a binary to the node's PATH and edit containerd's config.toml. The defaults we set are the same defaults for containerd and should work for most Kubernetes environments but you may need to adjust them if your distribution uses non-default paths.
 

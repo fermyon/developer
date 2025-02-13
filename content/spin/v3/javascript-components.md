@@ -28,18 +28,18 @@ With JavaScript being a very popular language, Spin provides an SDK to support b
 > This guide assumes you are familiar with the JavaScript programming language,
 > but if you are just getting started, be sure to check [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide).
 
-> All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/fermyon/spin-js-sdk/tree/main/examples).
+> All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/spinframework/spin-js-sdk/tree/main/examples).
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/)
 
 ## Installing Templates
 
-The JavaScript/TypeScript templates can be installed from [spin-js-sdk repository](https://github.com/fermyon/spin-js-sdk/tree/main/) using the following command:
+The JavaScript/TypeScript templates can be installed from [spin-js-sdk repository](https://github.com/spinframework/spin-js-sdk/tree/main/) using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-js-sdk --update
 ```
 
 which will install the `http-js` and `http-ts` templates:
@@ -243,7 +243,7 @@ proxies or URL shorteners.
 ## Storing Data in Redis From JS/TS Components
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [spin-js-sdk repository on GitHub](https://github.com/fermyon/spin-js-sdk/blob/main/examples/spin-host-apis/spin-redis).
+> in the [spin-js-sdk repository on GitHub](https://github.com/spinframework/spin-js-sdk/blob/main/examples/spin-host-apis/spin-redis).
 
 Using the Spin's JS SDK, you can use the Redis key/value store and to publish messages to Redis channels.
 
@@ -346,7 +346,7 @@ This library only currently supports the following polyfills:
 
 > Not all the NPM packages are guaranteed to work with the SDK as it is not fully compatible with the browser or `Node.js`. It implements only a subset of the API.
 
-Some NPM packages can be installed and used in the component. If a popular library does not work, please open an issue/feature request in the [spin-js-sdk repository](https://github.com/fermyon/spin-js-sdk/issues).
+Some NPM packages can be installed and used in the component. If a popular library does not work, please open an issue/feature request in the [spin-js-sdk repository](https://github.com/spinframework/spin-js-sdk/issues).
 
 
 ### Suggested Libraries for Common Tasks

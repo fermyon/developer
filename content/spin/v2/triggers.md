@@ -158,11 +158,11 @@ watch = ["src/**/*.rs", "Cargo.toml"]
 
 ## Cron Trigger
 
-Spin has experimental support for creating and running components on a schedule. Please note that there are only working Cron Trigger app samples written in [Rust](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-rust) and [Python](https://github.com/fermyon/spin-trigger-cron/tree/main/guest-python) at present.
+Spin has experimental support for creating and running components on a schedule. Please note that there are only working Cron Trigger app samples written in [Rust](https://github.com/spinframework/spin-trigger-cron/tree/main/guest-rust) and [Python](https://github.com/spinframework/spin-trigger-cron/tree/main/guest-python) at present.
 
 > Please note: You can not `spin deploy` an application to Fermyon Cloud if it uses `cron` because non-HTTP triggers are not supported in Fermyon Cloud.
 
-Let's look at how the [experimental Cron trigger for Spin](https://github.com/fermyon/spin-trigger-cron) allows you to deploy an application that runs on a schedule. A Cron trigger maps a cron expression (a schedule) to a specific component. For example:
+Let's look at how the [experimental Cron trigger for Spin](https://github.com/spinframework/spin-trigger-cron) allows you to deploy an application that runs on a schedule. A Cron trigger maps a cron expression (a schedule) to a specific component. For example:
 
 <!-- @nocpy -->
 
@@ -191,7 +191,7 @@ The expression is based on the crontab (cron table) syntax whereby each line is 
   1/30  *  *  *  *  *  * 
 ```
 
-> For more information about setting the schedule, please see the [Spin Cron Trigger repository](https://github.com/fermyon/spin-trigger-cron?tab=readme-ov-file#trigger-configuration). 
+> For more information about setting the schedule, please see the [Spin Cron Trigger repository](https://github.com/spinframework/spin-trigger-cron?tab=readme-ov-file#trigger-configuration). 
 
 Let's look at a time-based workload inside a Rust application.
 
@@ -200,7 +200,7 @@ Let's look at a time-based workload inside a Rust application.
 First, we install the plugin:
 
 ```bash
-spin plugins install --url https://github.com/fermyon/spin-trigger-cron/releases/download/canary/trigger-cron.json
+spin plugins install --url https://github.com/spinframework/spin-trigger-cron/releases/download/canary/trigger-cron.json
 ```
 
 ### Installing the Cron Trigger Template
@@ -208,7 +208,7 @@ spin plugins install --url https://github.com/fermyon/spin-trigger-cron/releases
 Then, we install the template:
 
 ```bash
-spin templates install --git https://github.com/fermyon/spin-trigger-cron
+spin templates install --git https://github.com/spinframework/spin-trigger-cron
 ```
 
 ### Creating the Application
@@ -261,4 +261,4 @@ Finished building all Spin components
 
 As we can see from the above output, our application is now running and executing the function every two seconds without the need for any incoming requests or any intervention from users or other machines.
 
-If you would like to learn more about using the Spin Cron Trigger, please check out [the Spin Cron Trigger blog post](https://www.fermyon.com/blog/spin-cron-trigger) and the [Spin Cron Trigger GitHub repository](https://github.com/fermyon/spin-trigger-cron).
+If you would like to learn more about using the Spin Cron Trigger, please check out [the Spin Cron Trigger blog post](https://www.fermyon.com/blog/spin-cron-trigger) and the [Spin Cron Trigger GitHub repository](https://github.com/spinframework/spin-trigger-cron).

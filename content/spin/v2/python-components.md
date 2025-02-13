@@ -27,13 +27,13 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/python-com
 - [AI Inferencing From Python Components](#ai-inferencing-from-python-components)
 - [Troubleshooting](#troubleshooting)
 
-With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/fermyon/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
+With <a href="https://www.python.org/" target="_blank">Python</a> being a very popular language, Spin provides support for building components with Python; [using an experimental SDK](https://github.com/spinframework/spin-python-sdk). The development of the Python SDK is continually being worked on to improve user experience and also add new features. 
 
 > This guide assumes you have Spin installed. If this is your first encounter with Spin, please see the [Quick Start](quickstart), which includes information about installing Spin with the Python templates, installing required tools, and creating Python applications.
 
 > This guide assumes you are familiar with the Python programming language, but if you are just getting started, be sure to check out <a href="https://docs.python.org/3/" target="_blank">the official Python documentation</a> and comprehensive <a href="https://docs.python.org/3/reference/" target="_blank">language reference</a>.
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk)
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://spinframework.github.io/spin-python-sdk)
 
 ## Prerequisite
 
@@ -59,12 +59,12 @@ $ pip3 install componentize-py==0.13.3
 
 ## Spin's Python HTTP Request Handler Template
 
-Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/fermyon/spin-python-sdk/tree/main/) using the following command:
+Spin's Python HTTP Request Handler Template can be installed from [spin-python-sdk repository](https://github.com/spinframework/spin-python-sdk/tree/main/) using the following command:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --update
 ```
 
 The above command will install the `http-py` template and produce an output similar to the following:
@@ -195,7 +195,7 @@ command = "componentize-py -w spin-http componentize app -o app.wasm"
 
 In Spin, HTTP components are triggered by the occurrence of an HTTP request and must return an HTTP response at the end of their execution. Components can be built in any language that compiles to WASI. If you would like additional information about building HTTP applications you may find [the HTTP trigger page](./http-trigger.md) useful.
 
-Building a Spin HTTP component using the Python SDK means defining a top-level class named IncomingHandler which inherits from [`IncomingHandler`](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.IncomingHandler), overriding the `handle_request` method. Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
+Building a Spin HTTP component using the Python SDK means defining a top-level class named IncomingHandler which inherits from [`IncomingHandler`](https://spinframework.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.IncomingHandler), overriding the `handle_request` method. Here is an example of the default Python code which the previous `spin new` created for us; a simple example of a request/response:
 
 <!-- @nocpy -->
 
@@ -336,7 +336,7 @@ The methods available to that type:
 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 ```
 
-> **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/main/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
+> **Please note:** All examples from this documentation page can be found in [the Python SDK repository on GitHub](https://github.com/spinframework/spin-python-sdk/tree/main/examples). If you are following along with these examples and don't get the desired result perhaps compare your own code with our previously built examples (mentioned above). Also please feel free to reach out on [Discord](https://discord.gg/AAFNfS7NGf) if you have any questions or need any additional support. 
 
 ## An Outbound HTTP Example
 

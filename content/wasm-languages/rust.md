@@ -132,6 +132,6 @@ Here are some great resources:
 - The Rust Linz group did a [presentation on Rust and Wagi](https://www.youtube.com/watch?v=9NDwHBjLlhQ) and posted a GitHub [repo full of Wagi examples](https://github.com/rstropek/rust-samples)
 - [Wasmtime](https://wasmtime.dev/) is the reference implementation of Wasm32-WASI.
 - [egui](https://www.egui.rs/) provides a GUI toolkit that can be compiled into Wasm and run in the browser
-- There are several rich examples in the [Spin Rust SDK repo](https://github.com/fermyon/spin-rust-sdk/tree/stable/examples) as well as the [Spin Up Hub](https://developer.fermyon.com/hub)
+- There are several rich examples in the [Spin Rust SDK repo](https://github.com/spinframework/spin-rust-sdk/tree/stable/examples) as well as the [Spin Up Hub](https://developer.fermyon.com/hub)
 - The [Bartholomew CMS](https://github.com/fermyon/bartholomew) is written in Rust and runs in Spin
 - The [spin-fileserver](https://github.com/fermyon/spin-fileserver) is a simple Rust Spin-native app

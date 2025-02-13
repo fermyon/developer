@@ -55,7 +55,7 @@ Let's create a Spin application that will send and retreive data from a key valu
 ```bash
 $ spin new http-rust spin-key-value
 
-# Reference: https://github.com/fermyon/spin-rust-sdk/tree/stable/examples/rust-key-value
+# Reference: https://github.com/spinframework/spin-rust-sdk/tree/stable/examples/rust-key-value
 ```
 
 {{ blockEnd }}
@@ -67,7 +67,7 @@ $ spin new http-rust spin-key-value
 ```bash
 $ spin new http-ts spin-key-value
 
-# Reference: https://github.com/fermyon/spin-js-sdk/tree/stable/examples/typescript/spin_kv
+# Reference: https://github.com/spinframework/spin-js-sdk/tree/stable/examples/typescript/spin_kv
 ```
 
 {{ blockEnd }}
@@ -79,7 +79,7 @@ $ spin new http-ts spin-key-value
 ```bash
 $ spin new http-go spin-key-value
 
-# Reference: https://github.com/fermyon/spin-go-sdk/tree/stable/examples/key-value
+# Reference: https://github.com/spinframework/spin-go-sdk/tree/stable/examples/key-value
 ```
 
 {{ blockEnd }}
@@ -187,7 +187,7 @@ If you have an existing application and would like to try out the key/value feat
 
 ```toml
 # The Spin SDK.
-spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v0.10.0" }
+spin-sdk = { git = "https://github.com/spinframework/spin", tag = "v0.10.0" }
 ```
 
 Similarly an application created using the `http-go` template might need the reference to the Spin SDK in its `go.mod` file updated to look like the following:
@@ -199,7 +199,7 @@ module github.com/http_go
 
 go 1.17
 
-require github.com/fermyon/spin/sdk/go v0.10.0
+require github.com/spinframework/spin/sdk/go v0.10.0
 ```
 
 The same applies to other programming languages and their respective configuration. This information is provided to prevent you from experiencing an error such as the following:
@@ -518,7 +518,7 @@ We want to get feedback on the ergonomics of the key value API. We are curious a
 
 ## Next Steps
 
-You can read the [improvement proposal for key/value support](https://github.com/fermyon/spin/blob/main/docs/content/sips/010-key-value.md) as well as the implementation for the [current feature](https://github.com/fermyon/spin/pull/1035). Please feel free to ask questions and also share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
+You can read the [improvement proposal for key/value support](https://github.com/spinframework/spin/blob/main/docs/content/sips/010-key-value.md) as well as the implementation for the [current feature](https://github.com/spinframework/spin/pull/1035). Please feel free to ask questions and also share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).
 
 <script type="application/ld+json">
 {

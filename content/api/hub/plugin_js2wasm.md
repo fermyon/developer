@@ -13,7 +13,7 @@ created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v1.0"
 summary = "A plugin to help build JavaScript/TypeScript based Spin apps."
-url = "https://github.com/fermyon/spin-js-sdk"
+url = "https://github.com/spinframework/spin-js-sdk"
 keywords = "plugins, packaging plugins, javascript, typescript"
 
 ---

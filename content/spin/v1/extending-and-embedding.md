@@ -8,7 +8,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/extending-
 ---
 - [Other Ways to Extend and Use Spin](#other-ways-to-extend-and-use-spin)
 
-> The complete example for extending and embedding Spin [can be found on GitHub](https://github.com/fermyon/spin/tree/main/examples/spin-timer).
+> The complete example for extending and embedding Spin [can be found on GitHub](https://github.com/spinframework/spin/tree/main/examples/spin-timer).
 
 Spin currently implements triggers and application models for:
 
@@ -137,7 +137,7 @@ own trigger and application model.
 
 Writing components for the new trigger can be done by using the
 [`wit-bindgen` tooling](https://github.com/bytecodealliance/wit-bindgen) from
-Rust and other supported languages (see [the example in Rust](https://github.com/fermyon/spin/tree/main/examples/spin-timer/app-example)):
+Rust and other supported languages (see [the example in Rust](https://github.com/spinframework/spin/tree/main/examples/spin-timer/app-example)):
 
 <!-- @nocpy -->
 
@@ -166,7 +166,7 @@ let trigger = TimerTrigger::new(Duration::from_secs(1), app()).await?;
 trigger.run().await
 ```
 
-> We are exploring [APIs for embedding Spin from other programming languages](https://github.com/fermyon/spin/issues/197)
+> We are exploring [APIs for embedding Spin from other programming languages](https://github.com/spinframework/spin/issues/197)
 > such as Go or C#.
 
 In this example, we built a simple timer trigger — building more complex triggers
@@ -181,5 +181,5 @@ independent time interval for scheduling the execution).
 Besides building custom triggers, the internals of Spin could also be used independently:
 
 - the Spin execution context can be used entirely without a `spin.toml` application manifest — for embedding scenarios, the configuration for the
-execution can be constructed without a `spin.toml` (see [issue #229](https://github.com/fermyon/spin/issues/229) for context)
-- the standard way of distributing a Spin application can be changed by re-implementing the [`loader`](https://github.com/fermyon/spin/tree/main/crates/loader) crate — all is required is that loading the application returns a valid `Application` that the Spin execution context can use to instantiate and execute components.
+execution can be constructed without a `spin.toml` (see [issue #229](https://github.com/spinframework/spin/issues/229) for context)
+- the standard way of distributing a Spin application can be changed by re-implementing the [`loader`](https://github.com/spinframework/spin/tree/main/crates/loader) crate — all is required is that loading the application returns a valid `Application` that the Spin execution context can use to instantiate and execute components.

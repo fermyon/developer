@@ -67,7 +67,7 @@ println!("Status: {}", response.status().as_str());
 * The Rust SDK surfaces the idiomatic `http` types rather than the raw Wasm interface types. For example, the `method` in Rust is a string, not an enum.
 * Request and response bodies are of type `Option<bytes::Bytes>`.
 
-You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/http-outbound).
+You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/http-outbound).
 
 {{ blockEnd }}
 
@@ -83,7 +83,7 @@ const response = await fetch("https://example.com/users");
 
 * Although the underlying Spin interface is blocking, the `fetch` function is defined by JavaScript as async. You must await the response, but the request will always block, and the promise will resolve as soon as the request is returned.
 
-You can find a complete example of using outbound HTTP in the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/fermyon/spin-js-sdk/tree/sdk-v1/examples/typescript/outbound_http), [JavaScript](https://github.com/fermyon/spin-js-sdk/tree/sdk-v1/examples/javascript/outbound-http)).
+You can find a complete example of using outbound HTTP in the JavaScript SDK repository on GitHub ([TypeScript](https://github.com/spinframework/spin-js-sdk/tree/sdk-v1/examples/typescript/outbound_http), [JavaScript](https://github.com/spinframework/spin-js-sdk/tree/sdk-v1/examples/javascript/outbound-http)).
 
 {{ blockEnd }}
 
@@ -105,7 +105,7 @@ response = http_send(
 * Request and response headers are dictionaries.
 * Errors are signalled through exceptions.
 
-You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/fermyon/spin-python-sdk/tree/old-sdk/examples/outbound_http).
+You can find a complete example for using outbound HTTP in the [Python SDK repository on GitHub](https://github.com/spinframework/spin-python-sdk/tree/old-sdk/examples/outbound_http).
 
 {{ blockEnd }}
 
@@ -133,7 +133,7 @@ res3, err3 := spinhttp.Send(req)
 * The `NewRequest` function is part of the standard library. The `Send` method adapts the standard request type to the underlying Wasm interface.
 * Errors are returned through the usual Go multiple return values mechanism.
 
-You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples/http-outbound).
+You can find a complete example for using outbound HTTP in the [Spin repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples/http-outbound).
 
 {{ blockEnd }}
 

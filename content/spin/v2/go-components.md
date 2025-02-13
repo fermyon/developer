@@ -24,7 +24,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/go-compone
 Using TinyGo to compile components for Spin is currently required, as the
 [Go compiler doesn't currently have support for compiling to WASI](https://github.com/golang/go/issues/31105).
 
-> All examples from this page can be found in [the Spin Go SDK repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples).
+> All examples from this page can be found in [the Spin Go SDK repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples).
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
 
@@ -368,7 +368,7 @@ allowed_outbound_hosts = ["redis://127.0.0.1:6379"]
 This HTTP component can be paired with a Redis component, triggered on new messages on the `messages` Redis channel, to build an asynchronous messaging application, where the HTTP front-end queues work for a Redis-triggered back-end to execute as capacity is available.
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [Spin repository on GitHub](https://github.com/fermyon/spin-go-sdk/tree/main/examples/redis-outbound).
+> in the [Spin repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples/redis-outbound).
 
 ## Using Go Packages in Spin Components
 

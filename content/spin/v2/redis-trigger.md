@@ -95,13 +95,13 @@ fn on_message(message: Bytes) -> Result<()> {
 
 {{ startTab "TypeScript"}}
 
-The JavaScript/TypeScript SDK doesn't currently support Redis components.  Please [let us know](https://github.com/fermyon/spin-js-sdk/issues) if this is important to you.
+The JavaScript/TypeScript SDK doesn't currently support Redis components.  Please [let us know](https://github.com/spinframework/spin-js-sdk/issues) if this is important to you.
 
 {{ blockEnd }}
 
 {{ startTab "Python"}}
 
-In Python, the handler needs to implement the [`InboundRedis`](https://fermyon.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.InboundRedis) class, and override the `handle_message` method:
+In Python, the handler needs to implement the [`InboundRedis`](https://spinframework.github.io/spin-python-sdk/wit/exports/index.html#spin_sdk.wit.exports.InboundRedis) class, and override the `handle_message` method:
 
 ```python
 from spin_sdk.wit import exports
@@ -149,9 +149,9 @@ func main() {}
 
 For the most part, you'll build Redis component modules using a language SDK (see the Language Guides section), such as a Rust crate or Go package.  If you're interested in what happens inside the SDK, or want to implement Redis components in another language, read on!
 
-The Redis component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin Redis components at [https://github.com/fermyon/spin/tree/main/wit](https://github.com/fermyon/spin/tree/main/wit).
+The Redis component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin Redis components at [https://github.com/spinframework/spin/tree/main/wit](https://github.com/spinframework/spin/tree/main/wit).
 
-In particular, the entry point for Spin Redis components is defined in [the `inbound-redis` interface](https://github.com/fermyon/spin/blob/main/wit/deps/spin%40unversioned/inbound-redis.wit):
+In particular, the entry point for Spin Redis components is defined in [the `inbound-redis` interface](https://github.com/spinframework/spin/blob/main/wit/deps/spin%40unversioned/inbound-redis.wit):
 
 <!-- @nocpy -->
 

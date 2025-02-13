@@ -23,7 +23,7 @@ This Spin plugin determines if the local installation of `spin` CLI is up-to-dat
 ## Installation
 
 ```bash
-spin plugins install --url https://raw.githubusercontent.com/fermyon/spin-plugins/main/manifests/check-for-update/check-for-update.json
+spin plugins install --url https://raw.githubusercontent.com/spinframework/spin-plugins/main/manifests/check-for-update/check-for-update.json
 ```
 
 ## Usage

@@ -56,10 +56,10 @@ module github.com/fermyon/example-go
 go 1.23
 ```
 
-Since Spin has a [Go SDK](https://github.com/fermyon/spin-go-sdk) which is nice and easy to use, we'll fetch that and use it:
+Since Spin has a [Go SDK](https://github.com/spinframework/spin-go-sdk) which is nice and easy to use, we'll fetch that and use it:
 
 ```console
-$ go get github.com/fermyon/spin-go-sdk
+$ go get github.com/spinframework/spin-go-sdk
 ```
 
 Next, create a simple Go program named `main.go`:
@@ -122,6 +122,6 @@ Hello, World!
 Here are some great resources:
 
 - TinyGo has [a step-by-step walkthrough](https://tinygo.org/docs/guides/webassembly/) for building and running Go WebAssembly modules
-- There are [instructions](https://developer.fermyon.com/spin/go-components/) and [examples](https://github.com/fermyon/spin-go-sdk/tree/main/examples)
+- There are [instructions](https://developer.fermyon.com/spin/go-components/) and [examples](https://github.com/spinframework/spin-go-sdk/tree/main/examples)
 - Get started quickly with Spin templates for Go: e.g. `spin templates list --tag go` and `spin new -t http-go`
 - A [short article](https://golangbot.com/webassembly-using-go/) on compiling to Go's "JS/Wasm" target

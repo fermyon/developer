@@ -33,7 +33,7 @@ writing such components should be familiar for Rust developers.
 > but if you are just getting started, be sure to check [the
 official resources for learning Rust](https://www.rust-lang.org/learn).
 
-> All examples from this page can be found in [the Spin Rust SDK repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples).
+> All examples from this page can be found in [the Spin Rust SDK repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples).
 
 [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://docs.rs/spin-sdk/latest/spin_sdk/index.html)
 
@@ -46,7 +46,7 @@ You don't need the Spin Rust templates to work on Rust components, but they spee
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin --update
 Copying remote template source
 Installing template redis-rust...
 Installing template http-rust...
@@ -201,7 +201,7 @@ Hello, there!
 ```
 
 > You can find a complete example for a Redis triggered component in the
-> [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/redis).
+> [Spin repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/redis).
 
 ## Sending Outbound HTTP Requests
 
@@ -295,7 +295,7 @@ proxies or URL shorteners.
 
 <!-- @searchTerm "async" -->
 
-The Rust SDK [provides a router](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/http-router) that makes it easier to handle routing within a component:
+The Rust SDK [provides a router](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/http-router) that makes it easier to handle routing within a component:
 
 ```rust
 use anyhow::Result;
@@ -412,7 +412,7 @@ This HTTP component can be paired with a Redis component, triggered on new
 messages on the `messages` Redis channel.
 
 > You can find a complete example for using outbound Redis from an HTTP component
-> in the [Spin repository on GitHub](https://github.com/fermyon/spin-rust-sdk/tree/main/examples/redis-outbound).
+> in the [Spin repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/redis-outbound).
 
 ## Storing Data in the Spin Key-Value Store
 
@@ -590,7 +590,7 @@ crate-type = [ "cdylib" ]
 # Useful crate to handle errors.
 anyhow = "1"
 # The Spin SDK.
-spin-sdk = { git = "https://github.com/fermyon/spin" }
+spin-sdk = { git = "https://github.com/spinframework/spin" }
 ```
 
 ## Read the Rust Spin SDK Documentation

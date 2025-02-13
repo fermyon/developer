@@ -87,7 +87,7 @@ api_version = "v1"
 
 ## Using Variables From Applications
 
-The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/fermyon/spin/blob/main/wit/deps/spin@2.0.0/variables.wit) consists of one operation:
+The Spin SDK surfaces the Spin configuration interface to your language. The [interface](https://github.com/spinframework/spin/blob/main/wit/deps/spin@2.0.0/variables.wit) consists of one operation:
 
 | Operation  | Parameters         | Returns             | Behavior |
 |------------|--------------------|---------------------|----------|
@@ -134,7 +134,7 @@ async fn handle_api_call_with_token(_req: Request) -> anyhow::Result<impl IntoRe
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/modules/Variables.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/modules/Variables.html)
 
 ```ts
 import { AutoRouter } from 'itty-router';
@@ -171,9 +171,9 @@ addEventListener('fetch', async (event: FetchEvent) => {
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/variables.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-python-sdk/variables.html)
 
-The `variables` module has a function called `get`(https://fermyon.github.io/spin-python-sdk/variables.html#spin_sdk.variables.get).
+The `variables` module has a function called `get`(https://spinframework.github.io/spin-python-sdk/variables.html#spin_sdk.variables.get).
 
 ```py
 from spin_sdk.http import IncomingHandler, Request, Response, send
@@ -203,7 +203,7 @@ class IncomingHandler(IncomingHandler):
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/variables)
 
-The function is available in the `github.com/fermyon/spin/sdk/go/v2/variables` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/variables) for reference documentation.
+The function is available in the `github.com/spinframework/spin/sdk/go/v2/variables` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/variables) for reference documentation.
 
 ```go
 import (

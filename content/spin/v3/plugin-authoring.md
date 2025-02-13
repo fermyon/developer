@@ -17,9 +17,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/plugin-aut
 Spin plugins add new functionality or subcommands to Spin without modifying the
 Spin codebase. They make Spin easily extensible while keeping it lightweight.
 Spin plugins can add new triggers to Spin (such as the [example timer
-trigger](https://github.com/fermyon/spin/blob/main/examples/spin-timer/trigger-timer.json)),
+trigger](https://github.com/spinframework/spin/blob/main/examples/spin-timer/trigger-timer.json)),
 add deployment integrations (such as
-[`kube`](https://github.com/fermyon/spin-plugins/blob/main/manifests/kube/kube.json)),
+[`kube`](https://github.com/spinframework/spin-plugins/blob/main/manifests/kube/kube.json)),
 and more.
 
 This document will cover what Spin plugins are, how to use a plugin, and how to
@@ -40,7 +40,7 @@ plugging in WebAssembly modules may be desirable.
 ## How to Find and Use a Spin Plugin
 
 Spin maintains a centralized catalogue of available Spin plugins in the [Spin
-plugins repository](https://github.com/fermyon/spin-plugins). During plugin
+plugins repository](https://github.com/spinframework/spin-plugins). During plugin
 installation, if it does not already exist, Spin fetches the remote catalogue
 and creates a local snapshot. To ensure that the local snapshot is up to date,
 it is best to run `spin plugins update` before installing any plugins. 
@@ -98,17 +98,17 @@ After creating your plugin executable, package it along with its license as a
 `tar.gz` archive. Note that the `name` field in the plugin manifest must match
 both the binary and license name. See the [`spin-plugins`
 repository
-README](https://github.com/fermyon/spin-plugins#spin-plugin-naming-conventions)
+README](https://github.com/spinframework/spin-plugins#spin-plugin-naming-conventions)
 for more details on naming conventions.
 
 Refer to the aptly named [`example`
-plugin](https://github.com/fermyon/spin-plugins/tree/main/example) for an
+plugin](https://github.com/spinframework/spin-plugins/tree/main/example) for an
 example of how to build a plugin.
 
 ### Creating a Spin Plugin Manifest
 
 A Spin plugin manifest is a JSON file that conforms to the [a specific JSON
-schema](https://github.com/fermyon/spin-plugins/blob/main/json-schema/spin-plugin-manifest-schema-0.1.json).
+schema](https://github.com/spinframework/spin-plugins/blob/main/json-schema/spin-plugin-manifest-schema-0.1.json).
 A manifest defines a plugin’s name, version, license, homepage (i.e. GitHub
 repo), compatible Spin version, and gives a short description of the plugin. It
 also lists the URLs of the tar archives of the plugin for various operating
@@ -117,7 +117,7 @@ the file scheme `file://`, for example, `file:///tmp/my-plugin.tar.gz`.
 
 To ensure your plugin manifest is valid, follow the steps in the [`spin-plugins`
 repository
-README](https://github.com/fermyon/spin-plugins#validating-plugin-schemas).
+README](https://github.com/spinframework/spin-plugins#validating-plugin-schemas).
 
 ### Installing a Local Plugin
 
@@ -140,4 +140,4 @@ $ spin practice
 
 If you think the community would benefit from your newly created plugin, create
 a PR to add it to the [Spin plugins
-catalogue](https://github.com/fermyon/spin-plugins/tree/main/manifests)!
+catalogue](https://github.com/spinframework/spin-plugins/tree/main/manifests)!

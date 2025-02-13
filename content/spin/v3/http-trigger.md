@@ -256,11 +256,11 @@ For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://doc
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/)
 
 The user must a define a function named `handler` which the SDK attaches to the [`FetchEvent` listener](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent). Note that the incoming HTTP event is translated to a `FetchEvent`.
 
-The handler function takes in two arguments a [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) and a [ResponseBuilder](https://fermyon.github.io/spin-js-sdk/classes/ResponseBuilder.html)
+The handler function takes in two arguments a [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) and a [ResponseBuilder](https://spinframework.github.io/spin-js-sdk/classes/ResponseBuilder.html)
 
 ```ts
 import { ResponseBuilder } from "@fermyon/spin-sdk";
@@ -275,9 +275,9 @@ export async function handler(req: Request, res: ResponseBuilder) {
 
 {{ startTab "Python"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://fermyon.github.io/spin-python-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-python-sdk/)
 
-In Python, the application must define a top-level class named IncomingHandler which inherits from [IncomingHandler](https://fermyon.github.io/spin-python-sdk/http/index.html#spin_sdk.http.IncomingHandler), overriding the `handle_request` method.
+In Python, the application must define a top-level class named IncomingHandler which inherits from [IncomingHandler](https://spinframework.github.io/spin-python-sdk/http/index.html#spin_sdk.http.IncomingHandler), overriding the `handle_request` method.
 
 ```python
 from spin_sdk import http
@@ -357,11 +357,11 @@ As well as any headers passed by the client, Spin sets several headers on the re
 
 For the most part, you'll build HTTP component modules using a language SDK (see the Language Guides section), such as a JavaScript module or a Rust crate.  If you're interested in what happens inside the SDK, or want to implement HTTP components in another language, read on!
 
-The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin HTTP components at [https://github.com/fermyon/spin/tree/main/wit](https://github.com/fermyon/spin/tree/main/wit).
+The HTTP component interface is defined using a WebAssembly Interface (WIT) file.  ([Learn more about the WIT language here.](https://component-model.bytecodealliance.org/design/wit.html)).  You can find the latest WITs for Spin HTTP components at [https://github.com/spinframework/spin/tree/main/wit](https://github.com/spinframework/spin/tree/main/wit).
 
-The HTTP types and interfaces are defined in [https://github.com/fermyon/spin/tree/main/wit/deps/http](https://github.com/fermyon/spin/tree/main/wit/deps/http), which tracks [the `wasi-http` specification](https://github.com/WebAssembly/wasi-http).
+The HTTP types and interfaces are defined in [https://github.com/spinframework/spin/tree/main/wit/deps/http](https://github.com/spinframework/spin/tree/main/wit/deps/http), which tracks [the `wasi-http` specification](https://github.com/WebAssembly/wasi-http).
 
-In particular, the entry point for Spin HTTP components is defined in [the `incoming-handler` interface](https://github.com/fermyon/spin/blob/main/wit/deps/http/handler.wit):
+In particular, the entry point for Spin HTTP components is defined in [the `incoming-handler` interface](https://github.com/spinframework/spin/blob/main/wit/deps/http/handler.wit):
 
 <!-- @nocpy -->
 

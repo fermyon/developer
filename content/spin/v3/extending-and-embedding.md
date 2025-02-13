@@ -15,7 +15,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/extending-
 
 ## Extending Spin with a Custom Trigger
 
-> The complete example for a custom trigger [can be found on GitHub](https://github.com/fermyon/spin/tree/main/examples/spin-timer).
+> The complete example for a custom trigger [can be found on GitHub](https://github.com/spinframework/spin/tree/main/examples/spin-timer).
 
 Spin currently implements triggers and application models for:
 

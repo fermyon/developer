@@ -13,7 +13,7 @@ created_at = "2023-12-08T00:00:00Z"
 last_updated = "2023-12-08T00:00:00Z"
 spin_version = ">v2.0"
 summary =  "A sample that shows how to do internal HTTP routing in a Spin Python application"
-url = "https://github.com/fermyon/spin-python-sdk/tree/main/examples/external-lib-example"
+url = "https://github.com/spinframework/spin-python-sdk/tree/main/examples/external-lib-example"
 keywords = "router, python"
 
 ---
@@ -25,4 +25,4 @@ If you are interested in external routing (where the routing table is declared i
 This uses the absolutely fantastic [http_router](https://pypi.org/project/http-router/) project. You will likely want to reference the API docs:
 * https://github.com/klen/http-router. 
 
-Visit the [GitHub repository](https://github.com/fermyon/spin-python-sdk/tree/main/examples/external-lib-example) for instructions on how to get started
+Visit the [GitHub repository](https://github.com/spinframework/spin-python-sdk/tree/main/examples/external-lib-example) for instructions on how to get started

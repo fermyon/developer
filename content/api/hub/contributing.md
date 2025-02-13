@@ -99,7 +99,7 @@ created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v0.2"
 summary =  "A template to create an HTTP handler in Rust"
-url = "https://github.com/fermyon/spin/tree/main/templates/http-rust"
+url = "https://github.com/spinframework/spin/tree/main/templates/http-rust"
 
 ---
 
@@ -145,7 +145,7 @@ The following is a list of the types of content that a user can submit to the Sp
     - Triggers and tools
     - See Lee-Orr’s Message trigger: [https://github.com/lee-orr/spin-message-trigger](https://github.com/lee-orr/spin-message-trigger)
 - **Libraries**
-    - Spin SDKs i.e. [https://github.com/fermyon/spin-python-sdk](https://github.com/fermyon/spin-python-sdk)
+    - Spin SDKs i.e. [https://github.com/spinframework/spin-python-sdk](https://github.com/spinframework/spin-python-sdk)
     - See the following example of a library by Thorsten Hans: [https://github.com/ThorstenHans/spin-contrib-http](https://github.com/ThorstenHans/spin-contrib-http)
 
 ### Testing Locally
