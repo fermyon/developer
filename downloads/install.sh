@@ -105,12 +105,12 @@ esac
 
 # Check desired version. Default to latest if no desired version was requested
 if [[ $VERSION = "" ]]; then
-    VERSION=$(curl -so- https://github.com/fermyon/spin/releases | grep 'href="/fermyon/spin/releases/tag/v[0-9]*.[0-9]*.[0-9]*\"' | sed -E 's/.*\/fermyon\/spin\/releases\/tag\/(v[0-9\.]+)".*/\1/g' | head -1)
+    VERSION=$(curl -so- https://github.com/spinframework/spin/releases | grep 'href="/spinframework/spin/releases/tag/v[0-9]*.[0-9]*.[0-9]*\"' | sed -E 's/.*\/spinframework\/spin\/releases\/tag\/(v[0-9\.]+)".*/\1/g' | head -1)
 fi
 
 # Constructing download FILE and URL
 FILE="spin-${VERSION}-${OS}-${ARC}.tar.gz"
-URL="https://github.com/fermyon/spin/releases/download/${VERSION}/${FILE}"
+URL="https://github.com/spinframework/spin/releases/download/${VERSION}/${FILE}"
 
 # Establish the location of current working environment
 current_dir=$(pwd)
@@ -141,9 +141,9 @@ fancy_print 0 "Done...\n"
 
 # Install default templates
 fancy_print 0 "Step 4: Installing default templates"
-./spin templates install --git "https://github.com/fermyon/spin" --upgrade
-./spin templates install --git "https://github.com/fermyon/spin-python-sdk" --upgrade
-./spin templates install --git "https://github.com/fermyon/spin-js-sdk" --upgrade
+./spin templates install --git "https://github.com/spinframework/spin" --upgrade
+./spin templates install --git "https://github.com/spinframework/spin-python-sdk" --upgrade
+./spin templates install --git "https://github.com/spinframework/spin-js-sdk" --upgrade
 
 fancy_print 0 "Step 5: Installing default plugins"
 ./spin plugins update
