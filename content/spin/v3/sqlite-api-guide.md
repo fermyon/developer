@@ -233,8 +233,6 @@ func init() {
 		json.NewEncoder(w).Encode(todos)
 	})
 }
-
-func main() {}
 ```
 
 **General Notes**

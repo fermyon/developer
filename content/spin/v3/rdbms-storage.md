@@ -201,8 +201,6 @@ func init() {
 		json.NewEncoder(w).Encode(pets)
 	})
 }
-
-func main() {}
 ```
 
 {{ blockEnd }}

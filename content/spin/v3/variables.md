@@ -242,8 +242,6 @@ func init() {
 		fmt.Fprintln(w, "Used an API")
 	})
 }
-
-func main() {}
 ```
 
 {{ blockEnd }}

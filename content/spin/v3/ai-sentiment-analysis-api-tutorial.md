@@ -736,9 +736,6 @@ func performSentimentAnalysis(w http.ResponseWriter, r *http.Request, ps spinhtt
 		return
 	}
 }
-
-func main() {}
-
 ```
 
 {{ blockEnd }}
