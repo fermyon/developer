@@ -133,7 +133,7 @@ async fn handle_api_call_with_token(_req: Request) -> anyhow::Result<impl IntoRe
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/modules/Variables.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/v2.3/modules/Variables.html)
 
 ```ts
 import { ResponseBuilder, Variables } from "@fermyon/spin-sdk";

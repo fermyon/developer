@@ -256,19 +256,25 @@ For a full Rust SDK reference, see the [Rust Spin SDK documentation](https://doc
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/stable/)
 
-The user must a define a function named `handler` which the SDK attaches to the [`FetchEvent` listener](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent). Note that the incoming HTTP event is translated to a `FetchEvent`.
+Building a Spin HTTP component with the JavaScript/TypeScript SDK now involves adding an event listener for the `fetch` event. This event listener handles incoming HTTP requests and allows you to construct and return HTTP responses.
 
-The handler function takes in two arguments a [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) and a [ResponseBuilder](https://spinframework.github.io/spin-js-sdk/classes/ResponseBuilder.html)
+Below is a complete implementation for such a component in TypeScript:
 
 ```ts
-import { ResponseBuilder } from "@fermyon/spin-sdk";
+import { AutoRouter } from 'itty-router';
 
-export async function handler(req: Request, res: ResponseBuilder) {
-    console.log(req);
-    res.send("hello universe");
-}
+let router = AutoRouter();
+
+router
+    .get("/", () => new Response("hello universe"))
+    .get('/hello/:name', ({ name }) => `Hello, ${name}!`)
+
+//@ts-ignore
+addEventListener('fetch', async (event: FetchEvent) => {
+    event.respondWith(router.fetch(event.request));
+});
 ```
 
 {{ blockEnd }}

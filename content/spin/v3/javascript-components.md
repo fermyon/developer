@@ -30,7 +30,7 @@ With JavaScript being a very popular language, Spin provides an SDK to support b
 
 > All examples from this page can be found in [the JavaScript SDK repository on GitHub](https://github.com/spinframework/spin-js-sdk/tree/main/examples).
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/)
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/stable/)
 
 ## Installing Templates
 

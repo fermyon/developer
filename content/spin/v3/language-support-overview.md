@@ -37,7 +37,7 @@ This page contains information about language support for Spin features:
 
 {{ startTab "TypeScript"}}
 
-**[📄 Visit the JS/TS Spin SDK reference documentation](https://spinframework.github.io/spin-js-sdk/) to see specific modules, functions, variables and syntax relating to the following TS/JS features.**
+**[📄 Visit the JS/TS Spin SDK reference documentation](https://spinframework.github.io/spin-js-sdk/stable/) to see specific modules, functions, variables and syntax relating to the following TS/JS features.**
 
 | Feature | SDK Supported? |
 |-----|-----|
