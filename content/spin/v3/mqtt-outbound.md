@@ -57,7 +57,7 @@ You can find a complete Rust code example for using outbound MQTT from an HTTP c
 
 {{ startTab "TypeScript"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/modules/Mqtt.html)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/stable/modules/Mqtt.html)
 
 To access an MQTT server, use the `Mqtt.open` function.
 
@@ -72,7 +72,7 @@ let catPicture = new Uint8Array(await req.arraybuffer());
 connection.publish("pets", catPicture, QoS.AtleastOnce);
 ```
 
-For full details of the MQTT API, see the [Spin SDK reference documentation](https://spinframework.github.io/spin-js-sdk/modules/Mqtt.html)
+For full details of the MQTT API, see the [Spin SDK reference documentation](https://spinframework.github.io/spin-js-sdk/stable/modules/Mqtt.html)
 
 You can find a complete Rust code example for using outbound MQTT from an HTTP component in the [Spin Rust SDK repository on GitHub](https://github.com/spinframework/spin-js-sdk/tree/main/examples/spin-host-apis/spin-mqtt).
 
