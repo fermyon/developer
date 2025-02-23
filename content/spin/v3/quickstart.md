@@ -628,7 +628,7 @@ component = "hello-go"
 source = "main.wasm"
 allowed_outbound_hosts = []
 [component.hello-go.build]
-command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+command = "tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm ."
 ```
 
 This represents a simple Spin HTTP application (triggered by an HTTP request).  It has:
@@ -639,8 +639,8 @@ This represents a simple Spin HTTP application (triggered by an HTTP request).  
 [Learn more about the manifest here.](./writing-apps)
 
 Now let's have a look at the code. Below is the complete source
-code for a Spin HTTP component written in Go. Notice where the work is done.  The
-`main` function is empty (and Spin never calls it).  Instead, the `init` function
+code for a Spin HTTP component written in Go. Notice where the work is done.  Because this is a component
+rather than an application, there is no `main` function.  Instead, the `init` function
 sets up a callback, and passes that callback to `spinhttp.Handle` to register it as
 the handler for HTTP requests.  You can learn more about this structure
 in the [Go language guide](go-components).
@@ -661,8 +661,6 @@ func init() {
                 fmt.Fprintln(w, "Hello Fermyon!")
         })
 }
-
-func main() {}
 ```
 
 {{ blockEnd }}
@@ -817,7 +815,7 @@ You can always run this command manually; `spin build` is a shortcut.
 
 ```bash
 $ spin build
-Executing the build command for component hello-go: tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go
+Executing the build command for component hello-go: tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm .
 go: downloading github.com/fermyon/spin/sdk/go v0.10.0
 Finished building all Spin components
 ```
@@ -826,14 +824,14 @@ If the build fails, check:
 
 * Are you in the `hello_go` directory?
 * Did you successfully [install TinyGo](#install-the-tools)?
-* Are your versions of Go and TinyGo up to date?  The Spin SDK needs TinyGo 0.27 or above.
+* Are your versions of Go and TinyGo up to date?  The Spin SDK needs TinyGo 0.35 or above and Go 1.22 or above.
 * Set Environment Variable `CGO_ENABLED=1`. (Since the Go SDK is built using CGO, it requires the CGO_ENABLED=1 environment variable to be set.)
 
 If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
 ```toml
 [component.hello-go.build]
-command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+command = "tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm ."
 ```
 
 You can always run this command manually; `spin build` is a shortcut to save you having to remember it.
