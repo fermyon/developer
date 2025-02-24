@@ -498,11 +498,11 @@ When exposing HTTP triggers using HTTPS you must provide `spin up` with a TLS ce
 
 ### Trigger Options
 
-The `spin up` command's `--tls-cert` and `--tls-key` trigger options provide a way for you to specify both a TLS certificate and a private key (whilst running the `spin up` command).
+The `spin up` command accepts some HTTP-trigger-specific options:
 
-The `--tls-cert` option specifies the path to the TLS certificate to use for HTTPS, if this is not set, normal HTTP will be used. The certificate should be in PEM format. 
+The `--listen` option sets the local IP and port that `spin up` should listen to for requests. By default, it listens to `localhost:3000`.
 
-The `--tls-key` option specifies the path to the private key to use for HTTPS, if this is not set, normal HTTP will be used. The key should be in PKCS#8 format.
+The `--tls-cert` and `--tls-key` options provide a way for you to configure a TLS certificate. If they are not set, plaintext HTTP will be used. The `--tls-cert` option specifies the path to the TLS certificate to use for HTTPS. The certificate should be in PEM format. The `--tls-key` option specifies the path to the private key to use for HTTPS. The key should be in PKCS#8 format.
 
 ### Environment Variables
 
