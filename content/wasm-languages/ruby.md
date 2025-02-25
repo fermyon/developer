@@ -194,5 +194,5 @@ Here are some great resources:
 - [Artichoke](https://www.artichokeruby.org/) is a Rust implementation of Ruby that can compile to WebAssembly (`wasm32-unknown`)
 - The [mruby](https://github.com/mruby/mruby) runtime has been compiled to WebAssembly, which means you can interpret a Ruby script inside of a Wasm module
 - [Prism](https://github.com/prism-rb/prism) uses `mruby` to run Ruby inside of WebAssembly
-- While it doesn't seem to be active anymore, [run.rb](https://runrb.io/) is a project for running Ruby in the browser as Wasm.
+- While it doesn't seem to be active anymore, [run.rb](https://github.com/jasoncharnes/run.rb) is a project for running Ruby in the browser as Wasm.
 - [wruby](https://github.com/pannous/wruby) also no longer looks active, but it was an `mruby`-based in-browser Ruby interpreter.
