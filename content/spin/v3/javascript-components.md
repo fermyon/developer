@@ -11,6 +11,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/javascript
 - [Building and Running the Template](#building-and-running-the-template)
 - [HTTP Components](#http-components)
 - [Sending Outbound HTTP Requests](#sending-outbound-http-requests)
+  - [Intra-Application Requests in JavaScript](#intra-application-requests-in-javascript)
 - [Storing Data in Redis From JS/TS Components](#storing-data-in-redis-from-jsts-components)
 - [Routing in a Component](#routing-in-a-component)
 - [Storing Data in the Spin Key-Value Store](#storing-data-in-the-spin-key-value-store)
@@ -155,7 +156,7 @@ The important things to note in the implementation above:
 
 ## Sending Outbound HTTP Requests
 
-If allowed, Spin components can send outbound HTTP requests.
+If allowed, Spin components can send outbound HTTP requests using the `fetch` function.
 Let's see an example of a component that makes a request to [an API that returns random animal facts](https://random-data-api.fermyon.app/animals/json)
 
 ```javascript
@@ -232,6 +233,19 @@ service, manipulates that result, then responds to the original request.
 This can be the basis for building components that communicate with external
 databases or storage accounts, or even more specialized components like HTTP
 proxies or URL shorteners.
+
+### Intra-Application Requests in JavaScript
+
+JavaScript's `fetch` function handles relative URLs in a way that doesn't work well with Spin's fine-grained outbound HTTP permissions.
+Therefore, when [making a request to another route within the same application](./http-outbound#intra-application-http-requests-by-route),
+you must use the special pseudo-host `self.alt` rather than a relative route.  For example:
+
+```javascript
+await fetch('/api');  // Avoid!
+await fetch('http://self.alt/api');  // Prefer!
+```
+
+You must [add `http://self` or `http://self.alt` to the component's `allowed_outbound_hosts`](./http-outbound#intra-application-http-requests-by-route).
 
 ---
 
