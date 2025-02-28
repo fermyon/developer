@@ -118,7 +118,7 @@ Note that we use the `wagi` executor.
 And then, in the same directory, run `spin up`. Once the server is running, you can use either `curl` or a web browser to test it.
 
 ```console
-$ curl localhost:3000                                       
+$ curl localhost:3000
 
 Hello, World!
 ```
@@ -129,7 +129,6 @@ Hello, World!
 
 Here are some great resources:
 
-- It is possible to use the [Swift Package Manager with Wasm](https://book.swiftwasm.org/getting-started/swift-package.html)
 - There is a [Swift Spin SDK](https://github.com/endocrimes/swiftwasm-test) in development.
 - The [SwiftWasm Book](https://book.swiftwasm.org/) has examples and info about compiling to Wasm32+WASI
 - [yo-wasm](https://github.com/deislabs/yo-wasm) supports Swift
