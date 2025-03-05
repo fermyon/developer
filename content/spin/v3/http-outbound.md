@@ -235,10 +235,14 @@ However, the wildcard implies that the component requires _all other_ components
 
 To make an HTTP request to another route with your application, you can pass just the route as the URL. For example, if you make an outbound HTTP request to `/api/customers/`, Spin prepends the route with whatever host the application is running on. It also replaces the URL scheme (`http` or `https`) with the scheme of the current HTTP request. For example, if the application is running in the cloud, Spin changes `/api` to `https://.../api`.
 
+> You can also use the special host `self.alt` to perform self-requests by route. This is important for the JavaScript `fetch` wrapper, which handles relative requests in a way that doesn't work with `allowed_outbound_hosts`. For example, you would write `fetch('http://self.alt/api')`.
+
 In this way of doing self-requests, the request undergoes normal HTTP processing once Spin has prepended the host. For example, in a cloud deployment, the request passes through the network, and potentially back in through a load balancer or other gateway. The benefit of this is that it allows load to be distributed across the environment, but it may count against your use of bandwidth.
 
-You must still grant permission by including `self` in `allowed_outbound_hosts`:
+You must still grant permission by including `self` or `self.alt` in `allowed_outbound_hosts`:
 
 ```toml
-allowed_outbound_hosts = ["http://self", "https://self"]
+allowed_outbound_hosts = ["http://self", "https://self.alt"]
 ```
+
+> It doesn't matter which you use - either 'allow' form enables both relative and `self.alt` URLs.
