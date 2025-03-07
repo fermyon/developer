@@ -109,7 +109,7 @@ If you installed Spin using [Homebrew](https://brew.sh/) please use the followin
 
 ```bash
 $ brew update
-$ brew upgrade fermyon/tap/spin
+$ brew upgrade spinframework/tap/spin
 ```
 
 ## Troubleshooting
