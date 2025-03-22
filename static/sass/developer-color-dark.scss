@@ -116,6 +116,10 @@ html.dark-theme {
             a {
                 color: $lightlavender;
 
+                code {
+                    color: $thistle;
+                }
+
                 &.active {
                     color: $seagreen;
                     background-color: $darkspace;
