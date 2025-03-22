@@ -166,6 +166,12 @@ $sidebarWidth: 17.5vw;
         padding: 0.6rem 1vw;
         font-weight: normal;
 
+        code {
+            color: darken($vistablue, 10%);
+            border-radius: 0.5rem;
+            background-color: rgba(white, 0.125);
+        }
+
         &.button {
             padding: 0 1.333vw;
         }

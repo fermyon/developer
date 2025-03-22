@@ -5,230 +5,185 @@ read_pages_glob = ["events/*.md"]
 {{> content_top }}
 
 <main class="container page-wrap developer-home-wrap">
-    <div class="columns">
 
-        {{! This adds the sidebar }}
-        <div class="menu-wrap is-narrow is-hidden-desktop" id="docsMenu">
-            <aside class="menu">
-
-                <div id="search-button-container" class="search-button-container plausible-event-name=docs-search-open"></div>
-
-                <p class="menu-label">
-                    Projects
-                </p>
-                <ul class="menu-list">
-                    <li><a href="/spin/index" {{#if (active_project request.spin-path-info "/spin/" )}}
-                            class="is-active" {{/if}}>Spin</a></li>
-                    <li><a href="/cloud/index" {{#if (active_project request.spin-path-info "/cloud/" )}}
-                            class="is-active" {{/if}}>Fermyon Cloud</a></li>
-                    <li><a href="/bartholomew/index" {{#if (active_project request.spin-path-info "/cloud/" )}}
-                            class="is-active" {{/if}}>Bartholomew</a></li>
-                    <li><a href="/hub" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active"
-                            {{/if}}>Spin Hub</a></li>
-                </ul>
-
-                <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/"
-                    target="_blank">Login to Cloud</a>
-            </aside>
+    <!-- Header Section -->
+    <div class="columns is-vcentered mt-5">
+      <div class="column">
+        <h1 class="hero-title">Run powerful, high performance WebAssembly compute workloads.</h1>
+        <p class="subtitle is-6 has-text-grey">Documentation & Tutorials by Project:</p>
+      </div>
+      {{!-- <div class="column">
+        <div class="dev-tips has-text-right">
+          <p class="has-text-grey mb-2"><i class="fas fa-lightbulb"></i> DEV TIPS</p>
+          <div class="mb-2">
+            <span class="keyboard-shortcut">⌘</span>
+            <span class="keyboard-shortcut">K</span>
+            <span class="has-text-grey">to search</span>
+          </div>
+          <div>
+            <span class="keyboard-shortcut"><i class="fas fa-code"></i> VS Code</span>
+            <span class="has-text-grey">extension</span>
+          </div>
         </div>
-
-        <article class="column content content-docs content-docs-wide">
-            <section id="intro">
-                <h1>Welcome to the<br>Fermyon Developer Home</h1>
-                <p class="lead">The simple, open source way to build and run apps powered by WebAssembly - the next wave of cloud compute.</p>
-            </section>
-
-            <section id="projects">
-                <div class="columns is-multiline">
-
-                    <!-- projects here -->
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <a class="card-link" href="/spin/quickstart" target="_self">
-                            <div class="card card-two project">
-                                <div class="card-image dark">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-spin-dark.png"
-                                            alt="Spin" />
-                                    </figure>
-                                </div>
-                                <div class="card-image light">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-spin-light.png"
-                                            alt="Spin" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>The open source developer tool for WebAssembly apps</span></h3>
-                                    <p>Spin's intuitive CLI and extensive features helps you get started with building, running and deploying Wasm applications.</p>
-                                    <span class="button is-rounded is-primary">Start Building</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <a class="card-link" href="/cloud/quickstart" target="_self">
-                            <div class="card card-one project">
-                                <div class="card-image dark">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-cloud-dark.png"
-                                            alt="Fermyon Cloud" />
-                                    </figure>
-                                </div>
-                                <div class="card-image light">
-                                    <figure class="image"><img
-                                            src="{{site.info.base_url}}/static/image/project-left-cloud-light.png"
-                                            alt="Fermyon Cloud" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>The quickest way to deploy and manage WebAssembly apps</span>
-                                    </h3>
-                                    <p>Go from blinking cursor to deployed app in less than two minutes. Fermyon Cloud has free and paid usage tiers.</p>
-
-                                    <span class="button is-rounded is-primary" href="/cloud/quickstart">Deploy Apps</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <a class="card-link" href="https://www.spinkube.dev" target="_self">
-                            <div class="card card-three project">
-
-                                <span class="tag is-external">spinkube.dev&nbsp;<svg class="external-icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.33333 1.86667H3.77333C2.80267 1.86667 2.31733 1.86667 1.9464 2.0556C1.62023 2.22173 1.35506 2.4869 1.18893 2.81307C1 3.184 1 3.66933 1 4.64V11.2267C1 12.1973 1 12.6827 1.18893 13.0536C1.35511 13.3797 1.62027 13.6449 1.9464 13.8111C2.31647 14 2.8018 14 3.77073 14H10.3626C11.3315 14 11.816 14 12.1861 13.8111C12.5128 13.6447 12.778 13.3795 12.9444 13.0536C13.1333 12.6827 13.1333 12.1982 13.1333 11.2293V9.66667M14 5.33333V1M14 1H9.66667M14 1L7.93333 7.06667" stroke="#E7D3F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-
-                                <div class="card-image dark">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-spinkube-dark.png"
-                                            alt="SpinKube" />
-                                    </figure>
-                                </div>
-                                <div class="card-image light">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-spinkube-light.png"
-                                            alt="SpinKube" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>Run WebAssembly apps on your Kubernetes</span></h3>
-                                    <p>Fermyon contributes to the SpinKube community project in conjunction with Microsoft, Liquid Reply, SUSE and others.</p>
-
-                                    <span class="button is-rounded is-primary">Learn More</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="column is-full">
-                        <a class="card-link" href="/wasm-languages/webassembly-language-support" target="_self">
-                            <div class="card card-one wasm-lang">
-                                <div class="card-image light">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-wasm-light.png"
-                                            alt="Wasm Language Guide" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>WebAssembly Language Support Matrix</span></h3>
-                                    <p>This guide tracks language support for compiling your code to WebAssembly.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </section>
-
-            <section id=" community">
-                <div class="columns is-multiline">
-                    <div class="column is-two-thirds-desktop is-full-touch is-">
-                        <h2>Where to find us next</h2>
-                        <div class="community-highlight main-carousel">
-                            {{#with (events site.pages)}}
-                            {{#each this }}
-                            <article class="community-highlight carousel-cell"
-                                data-expirydate="{{this.page.head.extra.eventexpires}}">
-                                <a href="{{this.page.head.extra.url}}" target="_blank">
-                                    <event>
-                                        <date>
-                                            {{this.page.head.extra.eventdates}}
-                                        </date>
-                                        <eventtitle>
-                                            {{this.page.head.title}}
-                                        </eventtitle>
-                                        <p>{{this.page.head.description}}</p>
-                                        <img src="{{this.page.head.extra.image}}" alt="{{this.page.head.title}}"
-                                            class="event-logo" />
-                                    </event>
-                                </a>
-                            </article>
-                            {{/each}}
-                            {{/with}}
-                            {{#unless (events site.pages)}}
-                            <article class="community-highlight carousel-cell">
-                                <a href="#">
-                                    <event>
-                                        <date>
-                                        </date>
-                                        <eventtitle>No upcoming Events
-                                        </eventtitle>
-                                        <p></p>
-                                        <img class="event-logo" />
-                                    </event>
-                                </a>
-                            </article>
-                            {{/unless}}
-                        </div>
-                    </div>
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <h2>Connect</h2>
-
-                        <ul class="connect-links">
-                            <li class="is-hidden-mobile">
-                                <a href="{{site.info.base_url}}/cloud/changelog">Changelog <span
-                                        class="external"></span></a>
-                            </li>
-                            <li>
-                                <a href="https://dev.to/fermyon" target="_blank">Dev.to <span
-                                        class="external"></span></a>
-                            </li>
-                            <li class="is-hidden-mobile">
-                                <a href="https://discord.gg/AAFNfS7NGf" target="_blank">Discord
-                                    <span class="external"></span></a>
-                            </li>
-                            <li class="is-hidden-mobile">
-                                <a href="https://github.com/fermyon" target="_blank">GitHub
-                                    <span class="external"></span></a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/company/fermyon/" target="_blank">LinkedIn <span
-                                        class="external"></span></a>
-                            </li>
-                            <li class="is-hidden-mobile">
-                                <a href="https://twitter.com/fermyontech" target="_blank">Twitter <span
-                                        class="external"></span></a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/channel/UCGgsMYwLxmIgv1lXaActZqw"
-                                    target="_blank">YouTube <span class="external"></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </section>
-
-            {{> content_footer }}
-        </article>
-
-        <script src="./static/js/flickity.min.js"></script>
+      </div> --}}
     </div>
-</main>
 
-{{! This closes the body. See content_bottom.hbs. }}
+    <!-- Main Content Area -->
+    <div class="main-content projects-wrapper-parent">
+      <!-- Start with Spin Section -->
+      <div class="mb-6">
+        <div class="columns projects-wrapper">
+          <div class="column project-category is-one-quarter">
+            <aside>
+                <p class="section-number">01</p>
+                <h2 class="title is-4">Start with Spin</h2>
+                <p class="mb-4">Open source developer tools for building WebAssembly apps. Spin and SpinKube are CNCF sandbox projects, built on community standards.</p>
+            </aside>
+          </div>
+          <div class="column projects-column">
+            <div class="columns is-6">
+              <!-- Spin Card -->
+              <div class="column is-one-third">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-header-title">
+                      <div class="card-icon">
+                        <i class="fas fa-circle-notch has-text-link"></i>
+                      </div>
+                      <span>Spin</span>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <p class="has-text-grey">The easiest way to start building and running Wasm apps. Spin has a full-featured CLI, plugin system, and supports many languages.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="card-footer-item has-text-link">
+                      spinframework.com <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- SpinKube Card -->
+              <div class="column is-one-third">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-header-title">
+                      <div class="card-icon purple">
+                        <i class="fas fa-cube has-text-purple"></i>
+                      </div>
+                      <span>SpinKube</span>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <p class="has-text-grey">Streamlines the process of developing, deploying and operating Spin Wasm app workloads on Kubernetes.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="card-footer-item has-text-link">
+                      spinkube.dev <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deploy Wasm Compute Section -->
+      <div class="projects-wrapper">
+        <div class="columns">
+          <div class="column is-one-quarter">
+            <aside>
+                <p class="section-number">02</p>
+                <h2 class="title is-4">Deploy Wasm Compute</h2>
+                <p>Ship and manage serverless webassembly workloads with Fermyon's products.</p>
+
+                <ul class="mb-4">
+                    <li><i class="fas fa-check has-text-success mr-2"></i> powered by Spin</li>
+                    <li><i class="fas fa-check has-text-success mr-2"></i> enterprise-ready</li>
+                    <li><i class="fas fa-check has-text-success mr-2"></i> secure and scalable</li>
+                </ul>
+                <a href="#" class="button is-small is-full is-outlined is-link">
+                More projects on GitHub <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </aside>
+          </div>
+          <div class="column projects-column">
+            <div class="columns">
+              <!-- Cloud Card -->
+              <div class="column is-one-third">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-header-title">
+                      <div class="card-icon blue">
+                        <i class="fas fa-cloud has-text-info"></i>
+                      </div>
+                      <span>Cloud</span>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <p class="has-text-grey">The easiest way to start building and running Wasm apps. Spin has a full-featured CLI, plugin system, and supports many languages.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="card-footer-item has-text-link">
+                      Cloud Docs <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- Wasm Functions Card -->
+              <div class="column is-one-third">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-header-title">
+                      <span>Wasm Functions</span>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <p class="has-text-grey">Open source developer tool for composing serverless applications.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Platform for Kubernetes Card -->
+              <div class="column is-one-third">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-header-title">
+                      <span>Platform for Kubernetes</span>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <p class="has-text-grey">Open source developer tool for composing serverless applications.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- this section is generated from the root content/index.md --> 
+    <div>
+    {{{page.body}}}
+    </div>
+
+    <!-- Connect Section -->
+    <div class="mb-6">
+      <h2 class="title is-3">Connect</h2>
+      <p class="subtitle is-6 mb-5">Where you can follow us as for exciting news and features.</p>
+      
+      <div class="mt-4">
+        <a href="#" class="social-link">Changelog <i class="fas fa-arrow-right"></i></a>
+        <a href="#" class="social-link">GitHub <i class="fas fa-arrow-right"></i></a>
+        <a href="#" class="social-link">LinkedIn <i class="fas fa-arrow-right"></i></a>
+        <a href="#" class="social-link">YouTube <i class="fas fa-arrow-right"></i></a>
+      </div>
+  </div>
+
+
+</main>
 {{> content_bottom }}
 
 </body>
-
 </html>

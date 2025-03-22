@@ -1512,6 +1512,10 @@ html.dark-theme body.documentation aside.menu a {
   color: #ece5ee;
 }
 
+html.dark-theme body.documentation aside.menu a code {
+  color: #e7d3f2;
+}
+
 html.dark-theme body.documentation aside.menu a.active {
   color: #34e8bd;
   background-color: #213762;
@@ -1867,311 +1871,177 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   color: #0e092d;
 }
 
-.documentation > .developer-home-wrap {
-  padding-bottom: 5rem;
+.documentation > .developer-home-wrap body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
 }
 
-.documentation > .developer-home-wrap a.anchor-link {
-  display: none !important;
-}
-
-.documentation > .developer-home-wrap .menu-wrap + article.content {
-  padding-top: 4.5vw;
-  max-width: 100vw !important;
-}
-
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide {
-  padding-left: 0 !important;
-}
-
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide section {
-  max-width: 90vw !important;
-  margin-left: 5vw !important;
-  margin-right: 5vw !important;
-}
-
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide h1, .documentation > .developer-home-wrap .content.content-docs.content-docs-wide h2, .documentation > .developer-home-wrap .content.content-docs.content-docs-wide h3 {
-  color: #0d203f;
-}
-
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide h1 {
-  color: #0e092d;
-  margin-top: 0;
-  margin-bottom: 2.5rem;
-  padding-bottom: 0;
-  padding-right: 8vw;
+.documentation > .developer-home-wrap .hero-title {
+  letter-spacing: .0325rem;
+  background: linear-gradient(90deg, #374e9e .06%, #5736db 103.75%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 60rem;
+  margin: 2rem auto 5rem;
   font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 3.33rem;
-  font-weight: 500;
-  line-height: 1.33;
+  font-size: 3.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide h1:after {
-  display: none;
+.documentation > .developer-home-wrap .dev-tips {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
 }
 
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide h2 {
-  margin-bottom: 1.67rem;
+.documentation > .developer-home-wrap .keyboard-shortcut {
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  margin-right: .5rem;
+  padding: .3rem .6rem;
+  font-size: .9rem;
 }
 
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide p.lead {
-  color: #375f9e;
-  max-width: 80%;
-  padding-right: 10%;
-  font-size: 1.67rem;
-  line-height: 1.75;
+.documentation > .developer-home-wrap .section-number {
+  color: #a0a0a0;
+  margin-bottom: .5rem;
+  font-size: .9rem;
 }
 
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide section {
-  overflow: visible !important;
-}
-
-.documentation > .developer-home-wrap .content.content-docs.content-docs-wide.content-docs-wide > section {
-  left: auto;
-  max-width: 90vw !important;
-  margin-left: 5vw !important;
-  margin-right: 5vw !important;
-}
-
-.documentation > .developer-home-wrap #projects {
-  padding-top: 4.25rem;
-}
-
-.documentation > .developer-home-wrap .card-link:after {
-  display: none;
-}
-
-.documentation > .developer-home-wrap .card.project {
-  min-height: 484px;
-  background: #fbf0ff;
-  border: 1px solid #a87ce6;
-  border-radius: 1rem;
-  margin-bottom: 3.333rem;
-  padding-bottom: 5rem;
-  transition: all .3s ease-in-out;
-  overflow: hidden;
-  box-shadow: 1px 3px 5px #0000000a;
-}
-
-.documentation > .developer-home-wrap .card.project:hover {
-  margin-top: -3px;
-  box-shadow: 1px 2px 4px #525776;
-}
-
-.documentation > .developer-home-wrap .card.project:hover .card-image {
-  background-color: #fff5;
-}
-
-.documentation > .developer-home-wrap .card.project span.tag {
-  color: #697fee;
-  z-index: 750;
-  background-color: #fdf8ff80;
-  border-radius: 1rem;
-  font-weight: 400;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-.documentation > .developer-home-wrap .card.project .card-content {
-  padding: .5rem 2.6rem;
-}
-
-.documentation > .developer-home-wrap .card.project h3 {
-  margin: .67rem 0 1.5rem;
-  padding-right: 5%;
-  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 1.333rem;
-  font-weight: 400;
-  line-height: 1.425;
-  color: #0e092d !important;
-}
-
-.documentation > .developer-home-wrap .card.project h3 a {
-  color: #345995 !important;
-}
-
-.documentation > .developer-home-wrap .card.project p {
-  font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: .875rem;
-  font-weight: normal;
-  line-height: 1.5;
-  color: #27426f !important;
-}
-
-.documentation > .developer-home-wrap .card.project span {
-  color: #0e092d !important;
-}
-
-.documentation > .developer-home-wrap .card.project span:after {
-  display: none !important;
-}
-
-.documentation > .developer-home-wrap .card.project span:hover {
-  background: none !important;
-}
-
-.documentation > .developer-home-wrap .card.project .card-image {
-  background-color: #0000;
-  transition: background-color .6s ease-in-out;
+.documentation > .developer-home-wrap .projects-wrapper-parent {
   position: relative;
 }
 
-.documentation > .developer-home-wrap .card.project .card-image figure {
-  margin: 0;
-}
-
-.documentation > .developer-home-wrap .card.project .card-image.dark {
-  display: none;
-}
-
-.documentation > .developer-home-wrap .card.project .button {
-  text-transform: uppercase;
-  letter-spacing: .1125rem;
-  text-transform: uppercase;
-  letter-spacing: .1125rem;
-  letter-spacing: .2em;
-  padding: 1rem 1.5rem;
-  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: all .3s ease-in-out;
+.documentation > .developer-home-wrap .projects-wrapper-parent:after {
+  z-index: -10;
+  content: " ";
+  background: url("grid.74907336.png") 0 0 / 4rem;
+  border-radius: 1.5rem;
+  display: block;
   position: absolute;
-  bottom: 2.333rem;
-  color: #0e092d !important;
-  font-weight: normal !important;
+  inset: 0 -3% 0 22%;
 }
 
-.documentation > .developer-home-wrap .card.project .button:hover {
-  border-color: #39e9be;
-  box-shadow: 0 .2rem .5rem #00000030;
-  background-color: #34e8bd !important;
+.documentation > .developer-home-wrap .projects-wrapper, .documentation > .developer-home-wrap .projects-wrapper .project-category {
+  min-height: 840px;
+  position: relative;
 }
 
-.documentation > .developer-home-wrap .wasm-lang {
-  min-height: 140px;
-  background: #fbf0ff url("arrow-right.b9889f0e.png") 95% no-repeat;
-  border: 1px solid #a87ce6;
+.documentation > .developer-home-wrap .projects-wrapper .project-category aside {
+  position: sticky;
+  top: 2rem;
+}
+
+.documentation > .developer-home-wrap .projects-wrapper .project-column {
+  padding-top: 2rem;
+}
+
+.documentation > .developer-home-wrap .card {
+  height: 100%;
   border-radius: 1rem;
-  margin-bottom: 6.25em;
-  transition: all .3s ease-in-out;
+  transition: transform .2s;
+}
+
+.documentation > .developer-home-wrap .card:hover {
+  transform: translateY(-5px);
+}
+
+.documentation > .developer-home-wrap .card-header {
+  border-bottom: none;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.documentation > .developer-home-wrap .card-content {
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.documentation > .developer-home-wrap .card-footer {
+  border-top: none;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.documentation > .developer-home-wrap .card-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #f5f5ff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  display: flex;
+}
+
+.documentation > .developer-home-wrap .card-icon.purple {
+  background-color: #f0e6ff;
+}
+
+.documentation > .developer-home-wrap .card-icon.blue {
+  background-color: #e6f0ff;
+}
+
+.documentation > .developer-home-wrap .template-card {
+  height: 100%;
+  background-color: #faf5ff;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.documentation > .developer-home-wrap .template-icon {
+  color: #96c;
+  margin-right: .5rem;
+}
+
+.documentation > .developer-home-wrap .template-tag {
+  color: #63c;
+  background-color: #f0e6ff;
+  border-radius: 4px;
+  margin-right: .5rem;
+  padding: .2rem .5rem;
+  font-size: .8rem;
+}
+
+.documentation > .developer-home-wrap .discord-section {
+  color: #fff;
+  background-color: #2a2a4a;
+  background-image: linear-gradient(45deg, #2a2a4a, #3a3a6a);
+  border-radius: 16px;
+  padding: 2rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 1px 3px 5px #0000000a;
 }
 
-.documentation > .developer-home-wrap .wasm-lang figure.image {
-  margin: 0;
-}
-
-.documentation > .developer-home-wrap .wasm-lang .card-image {
+.documentation > .developer-home-wrap .discord-section:after {
+  content: "";
+  width: 40%;
+  opacity: .2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Cpath d='M10,10 L90,10 L90,90 L10,90 Z' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 30px 30px;
   position: absolute;
-  top: .5rem;
-  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }
 
-.documentation > .developer-home-wrap .wasm-lang .card-content {
-  padding-left: 12rem;
+.documentation > .developer-home-wrap .join-button {
+  color: #fff;
+  background-color: #00d1b2;
+  border: none;
+  border-radius: 20px;
+  padding: .5rem 1.5rem;
 }
 
-.documentation > .developer-home-wrap .wasm-lang .card-content h3 {
-  margin: .67rem 0;
-  padding-right: 5%;
-  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 1.67rem;
-  font-weight: 400;
-  line-height: 1.425;
-  color: #0e092d !important;
+.documentation > .developer-home-wrap .social-link {
+  color: #4a4ad4;
+  align-items: center;
+  margin-right: 1.5rem;
+  display: inline-flex;
 }
 
-.documentation > .developer-home-wrap .wasm-lang .card-content h3 a {
-  color: #345995 !important;
-}
-
-.documentation > .developer-home-wrap .wasm-lang .card-content p {
-  font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: .875rem;
-  font-weight: normal;
-  line-height: 1.5;
-  color: #27426f !important;
-}
-
-.documentation > .developer-home-wrap .community-highlight {
-  min-height: 280px;
-  background-color: #464e83;
-  border-radius: .5rem;
-  margin: 0 5vw 0 0;
-  padding: 0;
-  position: relative;
-}
-
-.documentation > .developer-home-wrap .community-highlight .carousel-cell {
-  min-height: 250px;
-  width: 100%;
-  padding: 2.5rem 2.5rem 1.67rem 3rem;
-}
-
-.documentation > .developer-home-wrap .community-highlight event {
-  padding-right: 38%;
-  display: block;
-  position: relative;
-}
-
-.documentation > .developer-home-wrap .community-highlight a {
-  color: #fff !important;
-}
-
-.documentation > .developer-home-wrap .community-highlight date, .documentation > .developer-home-wrap .community-highlight eventtitle p {
-  display: block;
-}
-
-.documentation > .developer-home-wrap .community-highlight date {
-  color: #34e8bd;
-  text-transform: uppercase;
-  letter-spacing: .125rem;
-  font-size: .925rem;
-  font-weight: bold;
-  line-height: 1.5;
-}
-
-.documentation > .developer-home-wrap .community-highlight eventtitle {
-  letter-spacing: .025rem;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.documentation > .developer-home-wrap .community-highlight p {
-  margin: 1.5rem 0 1rem;
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-.documentation > .developer-home-wrap .community-highlight img {
-  max-width: 140px;
-  position: absolute;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%);
-}
-
-.documentation > .developer-home-wrap .community-highlight.community-highlight-short {
-  min-height: auto;
-  background-color: #535d9b;
-  margin-top: -1rem;
-  margin-bottom: 0;
-  padding-right: 0;
-}
-
-.documentation > .developer-home-wrap .community-highlight.community-highlight-short .event .date {
-  width: 33%;
-  float: left;
-  display: inline-block;
-}
-
-.documentation > .developer-home-wrap .community-highlight.community-highlight-short .event .eventtitle {
-  width: 57%;
-  float: left;
-  display: inline-block;
+.documentation > .developer-home-wrap .social-link i {
+  margin-left: .3rem;
 }
 
 .documentation > .developer-home-wrap .flickity-enabled {
@@ -2480,6 +2350,12 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   font-weight: normal;
 }
 
+.documentation aside.menu a code {
+  color: #526cec;
+  background-color: #ffffff20;
+  border-radius: .5rem;
+}
+
 .documentation aside.menu a.button {
   padding: 0 1.333vw;
 }
@@ -2655,25 +2531,30 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 #topbar.navbar .navbar-menu a.navbar-link {
   letter-spacing: .0125rem;
   color: #384687;
+  height: 5rem;
   border-radius: .725rem;
   margin-left: 1vw;
   margin-right: .67vw;
-  padding: .3rem 1.125rem;
   font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 1rem;
-  line-height: 1.5;
   font-weight: 500 !important;
 }
 
-#topbar.navbar .navbar-menu a.navbar-link.is-active {
+#topbar.navbar .navbar-menu a.navbar-link span {
+  padding: .3rem 1.125rem;
+  line-height: 1.5;
+  display: block;
+}
+
+#topbar.navbar .navbar-menu a.navbar-link.is-active span {
   background: #e6d2f140 !important;
 }
 
-#topbar.navbar .navbar-menu a.navbar-link .is-arrowless:after {
+#topbar.navbar .navbar-menu a.navbar-link .is-arrowless > span:after {
   display: none;
 }
 
-#topbar.navbar .navbar-menu a.navbar-link:hover {
+#topbar.navbar .navbar-menu a.navbar-link:hover span {
   background: #e6d2f16c !important;
 }
 
@@ -2687,11 +2568,11 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   right: auto;
 }
 
-#topbar.navbar .navbar-menu a.navbar-link.dark-mode:hover {
+#topbar.navbar .navbar-menu a.navbar-link.dark-mode:hover span {
   background: none !important;
 }
 
-#topbar.navbar .navbar-menu a.navbar-link.dark-mode:after {
+#topbar.navbar .navbar-menu a.navbar-link.dark-mode > span:after {
   display: none !important;
 }
 
@@ -2849,91 +2730,75 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   font-weight: 700;
 }
 
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown {
-  width: 380px;
-  margin-left: -1.75vw;
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu {
+  min-width: 940px;
+  border: none;
+  margin-left: 1.5rem;
+  padding: .333rem;
+  left: 0;
+  right: 0;
+  box-shadow: 0 .5rem 2rem #0a0a0a1a;
 }
 
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item {
-  width: 92%;
-  margin-left: 0;
-  padding: 0;
-  border-radius: .75rem !important;
-}
-
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item img {
-  max-width: 2rem;
-  margin: 0 .5rem 0 0;
-}
-
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content {
-  width: 90%;
-  padding: 1rem 1rem 1rem 1.5rem;
-}
-
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content .title {
-  color: #0e092d;
-  margin: 0 1rem .75rem .25rem;
-  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-weight: 500;
-  display: flex;
-  font-size: 1.125rem !important;
-}
-
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content .title .is-blue {
-  color: #3b58e9;
-}
-
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content .title .tag {
-  color: #8967c2;
-  text-transform: none;
-  letter-spacing: .075rem;
-  height: 1.25rem;
-  background-color: #fdf8ff33;
-  margin: .15rem 0 0 1.5rem;
-  padding: .2rem .5rem;
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu .mega-menu-title {
+  color: #074971;
+  letter-spacing: .03438rem;
+  margin: .5rem 1rem 1rem;
   font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 11px;
+  font-size: .825rem;
   font-style: normal;
-  line-height: 1.25;
+  font-weight: 400;
+  line-height: 1.21538rem;
+}
+
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu .mega-menu-title span {
+  color: #e6d2f1;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  font-weight: 400;
+  display: block;
+}
+
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu .menu-item {
+  border-radius: .67rem;
+  align-items: flex-start;
+  margin: 0 0 2rem;
+  padding: .75rem 1rem;
+  display: flex;
+}
+
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu .menu-item:hover {
+  background-color: #fdf8ff80;
+  transition: all .3s ease-in-out;
+}
+
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu .menu-item .menu-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu .menu-item .menu-content a {
   display: inline-block;
 }
 
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content .title .external-icon {
-  max-width: 9px;
-  max-height: 9px;
-  margin-left: .5rem;
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu .menu-item .menu-content h3 {
+  color: #0e092d;
+  margin: 0 0 .25rem;
+  font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
+  line-height: 1.2;
 }
 
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content:hover .title:before {
-  background-color: #34e8bd;
-}
-
-.navbar-menu .navbar-start .is-hoverable .navbar-dropdown .navbar-item .project-content .description {
-  letter-spacing: 0;
-  white-space: normal;
-  margin-left: .25rem;
+.navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu .menu-item .menu-content p {
+  color: #0b70ad;
   font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: .75rem;
-  max-width: 19rem !important;
-  display: inline-block !important;
-}
-
-.navbar-menu .navbar-start .is-hoverable + .overlay {
-  z-index: 9998;
-  width: 100vw;
-  height: 100vw;
-  opacity: 0;
-  position: fixed;
-  top: 0%;
-  left: 500%;
-}
-
-.navbar-menu .navbar-start .is-hoverable:hover + .overlay {
-  opacity: 1;
-  background-color: #ffffff4d;
-  transition: background-color .75s ease-in-out .1s;
-  left: 0%;
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1.0875rem;
 }
 
 .navbar-menu .navbar-end {
@@ -4301,7 +4166,15 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
   margin-top: 1.333em;
   margin-bottom: 1.333em;
   padding: .3rem;
-  box-shadow: 0 0 67px #19191980;
+  box-shadow: 0 0 67px #7d7d7d40;
+}
+
+.documentation article.content-docs section#type img.no-border {
+  margin: auto;
+  box-shadow: none !important;
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
 }
 
 .documentation .content {

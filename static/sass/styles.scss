@@ -61,7 +61,15 @@ Importing color and theme updates for the brand 1.5 refresh
 				background: linear-gradient(50deg, rgba(168, 124, 230, 1) 0%, rgba(230, 210, 241, 1) 100%);
 				padding: 0.3rem;
 				border-radius: 0.75rem;
-				box-shadow: 0 0 67px rgba(25, 25, 25, 0.5);
+				box-shadow: 0 0 67px rgba(125, 125, 125, 0.25);
+
+				&.no-border {
+					margin: auto;
+					background: transparent !important;
+					padding: 0 !important;
+					border-radius: 0 !important;
+					box-shadow: none !important;
+				}
 			}
 		}
 	}
