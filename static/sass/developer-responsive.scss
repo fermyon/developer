@@ -228,6 +228,20 @@
             h2#connect {
                 margin-top: 3rem;
             }
+
+            .projects-wrapper {
+                .projects-category {
+                    aside {
+                        h2, p {
+                            max-width: 100% !important;
+                        }
+                        
+                        ul, li {
+                            display: none;
+                        }
+                    }
+                }
+            }
         }
 
 		.content {

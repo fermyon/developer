@@ -62,7 +62,7 @@
 			right: -3%;
 			top: 0;
 			bottom: 0;
-			left: 22%;
+			left: 30.333%;
 			border-radius: 1.5rem;
 			z-index: -10;
 			display: block;
@@ -93,9 +93,7 @@
 			padding-top: 0;
 
 			aside {
-				position: sticky;
-				top: -0.1rem;
-				padding-top: 7.25rem;
+				padding-top: 9.333rem;
 				padding-right: 3.5rem;
 
 				&:before {
@@ -111,10 +109,14 @@
 				
 				h2 {
 					font-family: $spaceGro;
-					font-size: 1.333rem;
+					font-size: 1.5rem;
 					font-style: normal;
 					font-weight: 500;
 					line-height: normal;
+					color: $oxfordblue;
+					font-weight: 400;
+					opacity: 0.925;
+					max-width: 15rem;
 				}
 
 				p.mono {
@@ -128,6 +130,7 @@
 					font-weight: 400;
 					line-height: 1.5rem;
 					color: $oxforddark;
+					max-width: 18rem;
 				}
 
 				ul {
@@ -151,7 +154,7 @@
 	.project-gh-button.button {
 		position: absolute;
 		bottom: 2rem;
-		left: calc(25% + 0.25rem);
+		left: calc(33.3% + 0.25rem);
 		right: 0.25rem;
 		border: 1px solid darken($lavenderfloral, 12.5%);
 		border-radius: 0.33rem;
@@ -182,8 +185,8 @@
 			border-radius: 0.4375rem;
 			border: 1px solid #D3A8EA;
 			background: #F0EBF6;
-			width: 3rem;
-			height: 3.21125rem;
+			width: 4rem;
+			height: 4.21125rem;
 			padding: 0.333rem 0.425rem;
 			flex-direction: column;
 			justify-content: center;
@@ -195,7 +198,7 @@
 			position: absolute;
 			right: 0.75rem;
 			top: -0.333rem;
-			font-size: 0.75rem;
+			font-size: 0.825rem;
 			line-height: 1;
 			color: $oxforddark;
 			border-radius: 2rem;
@@ -232,7 +235,7 @@
 		
 		h2 {
 			font-family: $spaceGro;
-			font-size: 1.33rem;
+			font-size: 1.5rem;
 			font-style: normal;
 			font-weight: 500 !important;
 			line-height: 1.5rem;
@@ -248,10 +251,10 @@
 		p {
 			color: #374E9E;
 			font-family: $work;
-			font-size: 0.875rem;
+			font-size: 1.125rem;
 			font-style: normal;
 			font-weight: 400;
-			line-height: 1.35rem;
+			line-height: 1.725rem;
 		}
 		
 		&:before, &:after {
@@ -291,20 +294,23 @@
 	.card-header, .card-content, .card-footer {
 		border: none;
 		box-shadow: none;
-		padding: 1rem;
+		padding: 1.5rem;
 	}
 
 	.card-header-title, .card-footer-item {
 		padding: 0;
+	}
+	.card-content {
+		padding: 2.25rem 1.5rem;
 	}
 	.card-footer {
 		align-items:  !important;
 	}
 	.card-footer-item {
 		position: absolute;
-		bottom: 1rem;
-		left: 1rem;
-		right: 1rem;
+		bottom: 1.75rem;
+		left: 1.5rem;
+		right: 1.5rem;
 		margin: 0;
 		text-align: left;
 		font-size: 1rem;

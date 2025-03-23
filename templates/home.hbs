@@ -9,7 +9,7 @@ read_pages_glob = ["events/*.md"]
     <!-- Header Section -->
     <div class="columns is-vcentered mt-5">
         <div class="column">
-            <h1 class="hero-title">Run powerful, high performance WebAssembly compute workloads.</h1>
+            <h1 class="hero-title is-size-5-touch">Run powerful, high performance WebAssembly compute workloads.</h1>
             <p class="subtitle">Docs by Project:</p>
         </div>
     </div>
@@ -19,14 +19,13 @@ read_pages_glob = ["events/*.md"]
         <!-- Start with Spin Section -->
         <div class="mb-6">
             <div class="columns projects-wrapper">
-                <div class="column project-category is-one-quarter">
+                <div class="column project-category is-one-third-desktop is-full-touch">
                     <aside>
                         <p class="section-number mono">01</p>
                         <h2 class="title is-4">Build Your Apps</h2>
-                        <p class="mb-4">Start developing and operating WebAssembly apps. Spin and SpinKube are:</p>
                         <ul class="list">
-                            <li class="list-item">Open Source</li>
-                            <li class="list-item">CNCF sandbox projects</li>
+                            <li class="list-item">Open Source dev framework</li>
+                            <li class="list-item">A CNCF sandbox project</li>
                             <li class="list-item">Built on community standards</li>
                         </ul>
                     </aside>
@@ -34,7 +33,7 @@ read_pages_glob = ["events/*.md"]
                 <div class="column projects-column">
                     <div class="columns is-4">
                         <!-- Spin Card -->
-                        <div class="column is-one-third">
+                        <div class="column is-half">
                             <div class="card card-project card-spin">
                                 <div class="card-header">
                                     <div class="card-icon">
@@ -57,8 +56,91 @@ read_pages_glob = ["events/*.md"]
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deploy to a managed service section -->
+        <div class="projects-wrapper">
+            <div class="columns">
+                <div class="column project-category is-one-third-desktop is-full-touch">
+                    <aside>
+                        <p class="section-number mono">02</p>
+                        <h2 class="title is-4">Deploy to a Fermyon Managed Service</h2>
+
+                        <ul class="mb-4">
+                            <li class="list-item">Powered by <a href="https://spinframework.dev"
+                                    target="_blank">Spin</a></li>
+                            <li class="list-item">Serverless - infra included</li>
+                            <li class="list-item">Secure and scalable</li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="column projects-column">
+                    <div class="columns">
+                        <!-- Wasm Functions Card -->
+                        <div class="column is-half">
+                            <div class="card card-project card-functions">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <img src="/static/image/icon-functions.png" alt="Wasm Functions" />
+                                    </div>
+                                    <span class="tag tag-new">NEW</span>
+                                </div>
+                                <div class="card-content">
+                                    <h2>Wasm Functions</h2>
+                                    <p>Fast and powerful engine for hosting serverless functions, running on Akamai Cloud, the distributed cloud platform.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="/wasm-functions/index" class="card-footer-item has-text-link">
+                                        Wasm Functions Docs <img src="/static/image/arrow-right.png" alt="arrow" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cloud Card -->
+                        <div class="column is-half">
+                            <div class="card card-project card-cloud">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <img src="/static/image/icon-cloud.png" alt="Fermyon Cloud" />
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h2>Cloud</h2>
+                                    <p>The simple way to deploy and run Spin apps on Fermyon’s hosted service. Offers free and paid levels, depending on request volume.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="/cloud/index" class="card-footer-item has-text-link">
+                                        Cloud Docs <img src="/static/image/arrow-right.png" alt="arrow" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deploy to Kubernetes Compute Section -->
+            <div class="columns">
+                <div class="column project-category is-one-third-desktop is-full-touch">
+                    <aside>
+                        <p class="section-number mono">03</p>
+                        <h2 class="title is-4">Deploy to your Kubernetes cluster</h2>
+
+                        <ul class="mb-4">
+                            <li class="list-item">Powered by <a href="https://spinkube.dev"
+                                    target="_blank">SpinKube</a></li>
+                            <li class="list-item">Runs in your cloud or on-prem</li>
+                            <li class="list-item">Highly dense, resource-friendly compute</li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="column projects-column">
+                    <div class="columns">
                         <!-- SpinKube Card -->
-                        <div class="column is-one-third">
+                        <div class="column is-half">
                             <div class="card card-project card-spinkube">
                                 <div class="card-header">
                                     <div class="card-icon">
@@ -79,71 +161,8 @@ read_pages_glob = ["events/*.md"]
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deploy Wasm Compute Section -->
-        <div class="projects-wrapper">
-            <div class="columns">
-                <div class="column project-category is-one-quarter is-one-quarter">
-                    <aside>
-                        <p class="section-number mono">02</p>
-                        <h2 class="title is-4">Deploy to a Fermyon Managed Service</h2>
-                        <p>Deploy and run your Wasm apps on Fermyon's serverless cloud products.</p>
-
-                        <ul class="mb-4">
-                            <li class="list-item">Powered by <a href="https://spinframework.dev"
-                                    target="_blank">Spin</a></li>
-                            <li class="list-item">Enterprise-ready</li>
-                            <li class="list-item">Secure and scalable</li>
-                        </ul>
-                    </aside>
-                </div>
-                <div class="column projects-column">
-                    <div class="columns">
-                        <!-- Cloud Card -->
-                        <div class="column is-one-third">
-                            <div class="card card-project card-cloud">
-                                <div class="card-header">
-                                    <div class="card-icon">
-                                        <img src="/static/image/icon-cloud.png" alt="Fermyon Cloud" />
-                                    </div>
-                                </div>
-                                <div class="card-content">
-                                    <h2>Cloud</h2>
-                                    <p>The simple way to deploy and run Spin apps on Fermyon’s hosted service. Offers free and paid levels, depending on request volume.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="/cloud/index" class="card-footer-item has-text-link">
-                                        Cloud Docs <img src="/static/image/arrow-right.png" alt="arrow" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Wasm Functions Card -->
-                        <div class="column is-one-third">
-                            <div class="card card-project card-functions">
-                                <div class="card-header">
-                                    <div class="card-icon">
-                                        <img src="/static/image/icon-functions.png" alt="Wasm Functions" />
-                                    </div>
-                                    <span class="tag tag-new">NEW</span>
-                                </div>
-                                <div class="card-content">
-                                    <h2>Wasm Functions</h2>
-                                    <p>Fast and powerful engine for hosting serverless functions, running on Akamai Cloud, the distributed cloud platform.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="/wasm-functions/index" class="card-footer-item has-text-link">
-                                        Wasm Functions Docs <img src="/static/image/arrow-right.png" alt="arrow" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Platform for Kubernetes Card -->
-                        <div class="column is-one-third">
+                        <div class="column is-half">
                             <div class="card card-project card-platform">
                                 <div class="card-header">
                                     <div class="card-icon">
