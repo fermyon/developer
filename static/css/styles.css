@@ -1981,7 +1981,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   border-radius: 1.5rem;
   display: block;
   position: absolute;
-  inset: 0 -3% 0 22%;
+  inset: 0 -3% 0 30.333%;
 }
 
 @keyframes borderRipple {
@@ -2011,10 +2011,8 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .projects-wrapper .project-category aside {
-  padding-top: 7.25rem;
+  padding-top: 9.333rem;
   padding-right: 3.5rem;
-  position: sticky;
-  top: -.1rem;
 }
 
 .documentation > .developer-home-wrap .projects-wrapper .project-category aside:before {
@@ -2029,10 +2027,13 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .projects-wrapper .project-category aside h2 {
+  color: #0d203f;
+  opacity: .925;
+  max-width: 15rem;
   font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 1.333rem;
+  font-size: 1.5rem;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
 }
 
@@ -2042,6 +2043,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 
 .documentation > .developer-home-wrap .projects-wrapper .project-category aside p, .documentation > .developer-home-wrap .projects-wrapper .project-category aside li {
   color: #0e092d;
+  max-width: 18rem;
   font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 1rem;
   font-style: normal;
@@ -2069,7 +2071,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   font-weight: 400;
   position: absolute;
   bottom: 2rem;
-  left: calc(25% + .25rem);
+  left: calc(33.3% + .25rem);
   right: .25rem;
   box-shadow: 0 2px .5rem #2a2a4a1a;
   color: #0e092d !important;
@@ -2084,8 +2086,8 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .card-project .card-icon {
-  width: 3rem;
-  height: 3.21125rem;
+  width: 4rem;
+  height: 4.21125rem;
   background: #f0ebf6;
   border: 1px solid #d3a8ea;
   border-radius: .4375rem;
@@ -2103,7 +2105,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   letter-spacing: .015rem;
   border-radius: 2rem;
   padding: .25rem .5rem;
-  font-size: .75rem;
+  font-size: .825rem;
   line-height: 1;
   transition: all .3s ease-in-out;
   position: absolute;
@@ -2142,7 +2144,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   min-height: 2.5rem;
   margin: .5rem 0;
   font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 1.33rem;
+  font-size: 1.5rem;
   font-style: normal;
   line-height: 1.5rem;
   font-weight: 500 !important;
@@ -2155,10 +2157,10 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 .documentation > .developer-home-wrap .card-project p {
   color: #374e9e;
   font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: .875rem;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.35rem;
+  line-height: 1.725rem;
 }
 
 .documentation > .developer-home-wrap .card-project:before, .documentation > .developer-home-wrap .card-project:after {
@@ -2194,11 +2196,15 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 .documentation > .developer-home-wrap .card-header, .documentation > .developer-home-wrap .card-content, .documentation > .developer-home-wrap .card-footer {
   box-shadow: none;
   border: none;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .documentation > .developer-home-wrap .card-header-title, .documentation > .developer-home-wrap .card-footer-item {
   padding: 0;
+}
+
+.documentation > .developer-home-wrap .card-content {
+  padding: 2.25rem 1.5rem;
 }
 
 .documentation > .developer-home-wrap .card-footer {
@@ -2210,9 +2216,9 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   margin: 0;
   font-size: 1rem;
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
+  bottom: 1.75rem;
+  left: 1.5rem;
+  right: 1.5rem;
   align-items: left !important;
   justify-content: left !important;
 }
@@ -4223,6 +4229,14 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 
   .documentation > .developer-home-wrap h2#connect {
     margin-top: 3rem;
+  }
+
+  .documentation > .developer-home-wrap .projects-wrapper .projects-category aside h2, .documentation > .developer-home-wrap .projects-wrapper .projects-category aside p {
+    max-width: 100% !important;
+  }
+
+  .documentation > .developer-home-wrap .projects-wrapper .projects-category aside ul, .documentation > .developer-home-wrap .projects-wrapper .projects-category aside li {
+    display: none;
   }
 
   .documentation .content {
