@@ -387,25 +387,60 @@ html.dark-theme {
 	#topbar.navbar {
 
 		.is-hoverable {
-			.navbar-dropdown {
-                background: #3D3368 !important;
+			// .navbar-dropdown {
+            //     background: #3D3368 !important;
 
-				.navbar-item {
-					.project-content {
-						.title {
-							color: white;
-						}
+			// 	.navbar-item {
+			// 		.project-content {
+			// 			.title {
+			// 				color: white;
+			// 			}
 
-						.description {
-							color: $lightplum !important;
-						}
-					}
-				}
-
-			}
-
-
+			// 			.description {
+			// 				color: $lightplum !important;
+			// 			}
+			// 		}
+			// 	}
+			// }
 		}
+
+        .navbar-dropdown {
+            &.mega-menu {
+                border: 1px solid rgba($lavenderfloral, 0.5);
+                background: $oxforddark !important;
+
+                .menu-item {
+                    a {
+            
+                    }
+
+                    &:hover {
+                        background-color: rgba($bluedark, 0.25);
+
+                        .menu-content h3 {
+                            color: $celeste;
+                        }
+                        .tag.tag-cncf {
+                            color: $vistablue;
+                        }
+                    }
+
+                    .menu-content {
+                        h3 {
+                            color: white;
+                        }
+                        p {
+                            color: $thistle;
+                        }
+                    }
+                    
+                    .menu-icon {
+                        background: url(/static/image/grid-dark.png) repeat 0 0;
+                        border: 1px solid rgba($colablue, 0.25);
+                    }
+                }
+            }
+        }
 
 		.logo-wrap {
 			.logo-project a {
@@ -436,98 +471,135 @@ html.dark-theme {
 
 	.developer-home-wrap {
 
-		#intro {
-			h1 {
-				color: white;
-			}
+		.hero-title {
+            background: linear-gradient(90deg, $lavenderfloral 0.06%, $thistle 103.75%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-			p.lead {
-				color: $thistle;
-			}
-		}
+        .subtitle {
+            color: $lavenderfloral;
+        }
 
 		h2,
 		h3 {
 			color: white !important;
 		}
 
-		.card.project {
-			background: linear-gradient(47deg, rgba(124, 109, 185, 0.12)  0%, rgba(124, 109, 185, 0.17) 100%);
-			outline: none;
+        .projects-wrapper-parent:after {
+            background: url(/static/image/grid-dark.png) repeat 0 0;
+            border: 1px solid rgba($colablue, 0.25);
+            opacity: 0.5;
+        }
 
-            span.tag {
-                background-color: rgba($oxforddark, 0.5);
-                color: white !important;
+        .projects-wrapper {
+            .project-category {
+                aside {
+                    &:before {
+                        background: linear-gradient(90deg, darken($seagreen, 20%) 0%, rgba($celeste, 0.5) 100%);
+                    }
+
+                    p, li {
+                        color: white;
+                        a {
+                            color: $thistle;
+                        }
+                    }
+                    p.mono {
+                        color: $lavenderdark;
+                        opacity: 1;
+                    }
+                }
             }
 
-			&:hover .card-image.dark {
-				background: rgba(124, 109, 185, 0.07);
-			}
-
-			.card-image.dark {
-				display: block;
-			}
-
-			.card-image.light {
-				display: none;
-			}
-
-			figure.image {
-				border-bottom: none;
-			}
-
-			h3 span {
-				color: white !important;
-			}
-
-			p {
-				color: $lightplum !important;                
-			}
-
-			.button,
-			.button strong {
-				color: $oxfordblue !important;
-			}
-		}
-        .wasm-lang {
-            border: 1px solid $lavenderfloral;
-            background: lighten($oxforddark, 2%) url(/static/image/arrow-right.png) no-repeat 95% center;
-
-            .card-content {
-                h3 {
-                    color: white !important;
+            .card-project {
+                border: 1px solid rgba($lavenderfloral, 0.25) !important;
+                background: darken($oxforddark, 2.25%) !important;
+                outline: 1px solid $oxforddark !important;
+        
+                .card-icon {
+                    background: url(/static/image/grid-dark.png) repeat 0 0;
+                    border: 1px solid rgba($colablue, 0.25);
                 }
+
+                h2 {
+                    .is-blue {
+                        color: lighten($vistablue, 12.5%);
+                    }
+                }
+
                 p {
-                    color: $lightplum !important;
+                    color: $thistle;
+                }
+
+                a.card-footer-item {
+                    color: lighten($vistablue, 5%) !important;
+                }
+
+                &:hover {
+                    a.card-footer-item {
+                        color: $seagreen !important;
+                    }
                 }
             }
         }
-
-		.flickity-button {
-			background: $darkplum;
-
-			&:hover {
-				background: $darkspace;
-			}
-		}
-
-		ul.connect-links li a {
-			color: $seagreen;
-		}
-
-		.external {
-			background: url('../image/arrowexternal-dark.svg') no-repeat 0 0;
-		}
-
-        .community-highlight {
-            background-color: rgba(124, 109, 185, 0.2);
+        
+        .project-gh-button.button {
+            background: lighten($oxforddark, 3.5%) !important;
+            border: 1px solid rgba($lavenderdark, 0.25) !important;
+            color: white !important;
         }
-	}
+    }
+    
+    .developer-home-narrow {
+        p.subtitle {
+            color: $thistle;
+        }
+        
+        .discord-card {
+            border: 1px solid rgba($lavenderdark, 0.5);
+        }
 
+        .wasm-lang-card {
+            background: $docsbg1 url(/static/image/wasm-lang-card-dark.png) no-repeat right 0;
+            background-size: auto 120%;
+
+            .cta-title {
+                color: $thistle;
+                font-weight: 600;
+                text-shadow: 0 1px 0.35rem rgba(0,0,0,0.5);
+            }
+
+            .cta-description {
+                color: white;
+
+                font-size: 0.925rem;
+            }
+
+            &:before {
+                background: rgb(111,196,190);
+                background: linear-gradient(10deg, rgba($oxforddark, 0.95) 0%, rgba($oxfordblue, 0) 100%);
+            }
+            border: 1px solid rgba($lavenderdark, 0.825);
+        }
+        
+        .social-link {
+            color: white;
+            background: rgba($lavenderdark, 0.2);
+
+            i.external {
+                background: url('../image/arrowexternal-dark.svg') no-repeat 0 0;
+                background-size: contain;
+                opacity: 0.67;
+            }
+		}
+	}
+    
     .klaro {
         .cookie-notice:not(.cookie-modal-notice) {
             background-color: white !important;
-
+            
             .cn-body {
                 p {
                     color: $oxforddark;

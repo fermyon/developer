@@ -291,41 +291,42 @@
 .navbar-menu {
     position: relative;
     z-index: 1020;
-
+    
     .navbar-start {
         z-index: 1023;
         align-items: center;
-
+        
         .is-hoverable {
             z-index: 9999;
-
+            
             .navbar-link {
                 margin-left: 0;
                 font-size: 1.125rem;
                 font-weight: 700;
                 padding: 0 3.33rem 0 .75rem;
             }
-
+            
             .navbar-dropdown {
                 &.mega-menu {
-                    min-width: 940px;
-                    margin-left: 1.5rem;
+                    min-width: 1020px;
                     left: 0;
                     right: 0;
-                    padding: 0.333rem;
-                    border: none;
+                    position: fixed;
+                    margin-top: -2px;
+                    padding: 0.333rem 0.67rem 0.333rem 0.333rem;
+                    border: 1px solid #e1d2f6;
                     box-shadow: 0 0.5rem 2rem rgba(10, 10, 10, 0.1);
-                
-                    .mega-menu-title {
-                        color: darken($colablue, 22.5%);
-                        font-family: $work;
-                        font-size: 0.825rem;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 1.21538rem;
-                        letter-spacing: 0.03438rem;
-                        margin: 0.5rem 1rem 1rem;
                     
+                    .mega-menu-title {
+                        color: $lavenderdark;
+                        font-family: $work;
+                        font-size: 0.925rem;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 1.25rem;
+                        letter-spacing: 0.0125rem;
+                        margin: 0.5rem 1rem 1rem;
+                        
                         span {
                             display: block;
                             font-family: $mono;
@@ -337,35 +338,66 @@
                     .menu-item {
                         display: flex;
                         align-items: flex-start;
-                        margin: 0 0 2rem;
+                        margin: 0 0 1rem;
                         padding: 0.75rem 1rem 0.75rem;
                         border-radius: 0.67rem;
                     
                         &:hover {
-                            background-color: rgba($docsbg1, 0.5);
+                            background-color: rgba($docsbg1, 1);
                             @include transition;
+
+                            .tag.tag-cncf {
+                                opacity: 1;
+                            }
                         }
-                    
+                        
                         .menu-icon {
                             width: 48px;
                             height: 48px;
-                            background-color: #f5f5f5;
                             border-radius: 8px;
                             display: flex;
                             align-items: center;
                             justify-content: center;
                             flex-shrink: 0;
+                            border: 1px solid #D3A8EA;
+                            background: #F0EBF6;
+                        }
+
+                        .tag {
+                            display: inline-block;
+                            @include upperCase;
+                            padding: 0.3rem 0.425rem 0.15rem 1.825rem;
+                            margin: -0.333rem 0 0 0.75rem;
+                            border-radius: 1rem;
+                            vertical-align: middle;
+                            letter-spacing: 0.025rem;
+                            line-height: 1;
+                            height: auto;
+                            
+                            &.tag-cncf {
+                                content: "CNCF";
+                                font-family: $mono;
+                                font-size: 0.825rem;
+                                background: rgba($thistle, 0.12) url(/static/image/cncf.svg) no-repeat 0.5rem 50%;
+                                background-size: 0.825rem auto;
+                                color: $lavenderdark;
+                                opacity: 0.67;
+                            }
                         }
                         
                         .menu-content {
                             a {
                                 display: inline-block;
+                                margin-left: 1.125rem !important;
+                                min-height: 3rem;
                             }
                             h3 {
                                 line-height: 1.2;
                                 font-family: $spaceGro;
                                 color: $oxforddark;
                                 margin: 0 0 0.25rem;
+                                font-size: 1.2rem;
+                                font-weight: 500;
                             }
                             
                             p {
@@ -407,5 +439,15 @@
                 background-color: lighten($lightplum, 7.5%);
             }
         }
+    }
+}
+
+@media screen and (min-width: 1140px) {
+    .navbar-dropdown.mega-menu {
+        max-width: 1080px;
+        position: fixed;
+        margin-top: 0 !important;
+        left: 50% !important;
+        margin-left: -540px;
     }
 }

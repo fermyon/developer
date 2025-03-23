@@ -72,17 +72,19 @@
                     <div class="columns">
                         <!-- OSS Column -->
                         <div class="column">
-                            <p class="mega-menu-title"><span>01//</span>Build Your Apps:</p>
+                            <p class="mega-menu-title"><span class="mono">01</span>Build Your Apps:</p>
                             
                             <div class="menu-item">
                                 <div class="menu-icon">
-                                    <i class="fas fa-columns"></i>
+                                    <img src="/static/image/icon-spin.png" alt="Spin" />
                                 </div>
                                 <div class="menu-content">
-                                    <a href="/spin/index" class="{{#if (active_project request.spin-full-url "/spin/" )}}
-                        is-active {{/if}}">
-                                        <h3>Spin</h3>
-                                        <p>Developer framework to build and run Wasm apps - with CLI, plugins and support for many languages.</p>
+                                    <a href="https://spinframework.dev" target="_blank">
+                                        <h3>
+                                            Spin
+                                            <span class="tag tag-cncf">CNCF</span>
+                                        </h3>
+                                        <p>Developer framework and CLI for building fast Wasm apps.</p>
                                     </a>
                                 </div>
                             </div>
@@ -90,30 +92,30 @@
                         
                         <!-- Managed Infrastructure Column -->
                         <div class="column">
-                            <p class="mega-menu-title"><span>02//</span>Deploy to a Managed Service:</p>
+                            <p class="mega-menu-title"><span class="mono">02</span>Deploy to a Fermyon Service:</p>
                             
                             <div class="menu-item">
                                 <div class="menu-icon">
-                                    <i class="fas fa-globe"></i>
+                                    <img src="/static/image/icon-functions.png" alt="Fermyon Wasm Functions" />
                                 </div>
                                 <div class="menu-content">
                                     <a href="/wasm-functions/index" class="{{#if (active_project request.spin-full-url "/wasm-functions/" )}}
                         is-active {{/if}}">
                                         <h3>Wasm Functions</h3>
-                                        <p>Engine for hosting serverless functions on Akamai Cloud.</p>
+                                        <p>Powerful engine for edge apps and functions on Akamai Cloud.</p>
                                     </a>
                                 </div>
                             </div>
                             
                             <div class="menu-item">
                                 <div class="menu-icon">
-                                    <i class="fas fa-globe"></i>
+                                    <img src="/static/image/icon-cloud.png" alt="Fermyon Cloud" />
                                 </div>
                                 <div class="menu-content">
                                     <a href="/cloud/index" class="{{#if (active_project request.spin-full-url "/cloud/" )}}
                         is-active {{/if}}">
                                         <h3>Cloud</h3>
-                                        <p>Fermyon's hosted service for running Spin apps - free or paid plans.</p>
+                                        <p>Deploy your Spin apps to Fermyon's serverless cloud.</p>
                                     </a>
                                 </div>
                             </div>
@@ -121,28 +123,31 @@
                         
                         <!-- Open Source Column -->
                         <div class="column">
-                            <p class="mega-menu-title"><span>03//</span> Deploy to Kubernetes:</p>
+                            <p class="mega-menu-title"><span class="mono">03</span> Deploy to Your Kubernetes:</p>
                             
                             <div class="menu-item">
                                 <div class="menu-icon">
-                                    <i class="fas fa-rocket"></i>
+                                    <img src="/static/image/icon-spinkube.png" alt="SpinKube" />
                                 </div>
                                 <div class="menu-content">
                                     <a class="" href="https://www.spinkube.dev/docs/overview/" target="_blank">
-                                        <h3>SpinKube</h3>
-                                        <p>Streamlines developing and operating Spin apps in Kubernetes.</p>
+                                        <h3>
+                                            SpinKube
+                                            <span class="tag tag-cncf">CNCF</span>
+                                        </h3>
+                                        <p>Develop and operate Spin apps in your Kubernetes cliuster.</p>
                                     </a>
                                 </div>
                             </div>
                             
                             <div class="menu-item">
                                 <div class="menu-icon">
-                                    <i class="fas fa-rocket"></i>
+                                    <img src="/static/image/icon-fp4k.png" alt="Fermyon Platform for Kubernetes" />
                                 </div>
                                 <div class="menu-content">
                                     <a href="https://www.fermyon.com/platform" target="_blank" class="external">
                                         <h3>Platform for Kubernetes</h3>
-                                        <p>Enterprise solution - in your cloud or on-prem.</p>
+                                        <p>Solution for large-scale, high performance enterprise clusters.</p>
                                     </a>
                                 </div>
                             </div>
@@ -164,7 +169,7 @@
 
         <div class="navbar-end">
 
-            <a class="dark-mode navbar-link plausible-event-name=docs-toggle-light">
+            <a class="dark-mode navbar-link is-arrowless plausible-event-name=docs-toggle-light">
                 <svg width="1.67rem" height="1.67rem" viewBox="0 0 502 502" version="1.1"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>Toggle light/dark mode</title>
