@@ -2064,6 +2064,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 .documentation > .developer-home-wrap .project-gh-button.button {
   border: 1px solid #a87ce626;
   border-radius: .33rem;
+  margin-top: 1.825rem;
   margin-bottom: .575rem;
   padding: 1rem 2rem;
   font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
