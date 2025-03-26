@@ -16,7 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-functions/faq
 
 ## Quota Limits
 
-> > Limits are subject to change as part of private preview. If you're interested in higher limits, please reach out to us [on Webex](https://wasm-functions.fermyon.app/join/webex) for assistance.
+> > Limits are subject to change as part of public preview. If you're interested in higher limits, please [contact us](https://www.fermyon.com/contact) for assistance.
 
 | All limits can be increased on request | Default Limit |
 | -------------------------------------- | ------------- |
@@ -64,10 +64,14 @@ To learn more about what feature support looks like for various programming lang
 ## Technical Frequently Asked Questions
 
 - **Q: Which regions is Fermyon Wasm Functions available in today?**
-  - In private preview, Fermyon Wasm Functions is available in US East, US West, and EU West.
+  - In public preview, Fermyon Wasm Functions is available in US East, US West, EU Central, and EU West.
+- **Q: How is user data structured in Fermyon Wasm Functions?**
+  - Each user has an associated account (created implicitly with `spin aka login`), which serves as the primary entity for managing their resources. An account is linked to zero or more Spin applications, allowing flexibility in how users develop and deploy their workloads.
+- **Q: How are Spin applications managed within a Fermyon Wasm Functions account?**
+  - Each Spin application belongs to a specific account and operates independently, ensuring modularity and security. Applications include metadata, dependencies, and deployment configurations, allowing for scalable and efficient management. If you have additional questions or need further clarification, please reach out to [support](./support.md).
 - **Q: How long does a login session last with Fermyon Wasm Functions? Will my Spin applications persist after I’ve been logged out?**
-  - Your login session (started by `spin aka login` is persisted until 30 days without activity. To learn more about the `spin aka` plugin, please visit the [developer documentation](/wasm-functions/aka-command-reference).
-- **Q: How do I get help during private preview?**
+  - Your login session (started by `spin aka login` is persisted until 30 days without activity. To learn more about the `spin aka` plugin, please visit the [reference documentation](/wasm-functions/aka-command-reference).
+- **Q: How do I get help with Fermyon Wasm Functions?**
   - We’re here to help! Checkout the [“How Do I get Help” page](/wasm-functions/support) in the developer documentation for next steps.
 
 ## Next Steps
