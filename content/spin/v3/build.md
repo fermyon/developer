@@ -135,7 +135,7 @@ The build command calls TinyGo with the WASI backend and appropriate options:
 
 ```toml
 [component.hello.build]
-command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+command = "tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm ."
 ```
 
 {{ blockEnd }}

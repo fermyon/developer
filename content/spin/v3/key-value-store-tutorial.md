@@ -399,9 +399,6 @@ func init() {
 		}
 	})
 }
-
-func main() {}
-
 ```
 
 {{ blockEnd }}
