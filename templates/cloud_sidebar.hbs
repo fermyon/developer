@@ -54,9 +54,6 @@
                     Tutorials
                 </label>
                 <ul class="menu-list accordion-menu-item-content">
-                    <li><a {{#if (active_content request.spin-path-info "/cloud/spin-vs-code-extension" )}}
-                            class="active" {{/if}} href="{{site.info.base_url}}/cloud/spin-vs-code-extension">Using VS
-                            Code Extension</a></li>
                     {{#if (timed_publish "2024-01-31T12:00:00Z" env.PREVIEW_MODE)}}
                     <li><a {{#if (active_content request.spin-path-info "/cloud/kv-cloud-tutorial" )}} class="active"
                             {{/if}} href="{{site.info.base_url}}/cloud/kv-cloud-tutorial">Cloud Key-Value Store</a></li>
