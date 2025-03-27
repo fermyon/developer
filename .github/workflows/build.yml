@@ -40,6 +40,14 @@ jobs:
         run: |
           spin build
 
+      # TODO: re-enable after figuring out how to confgure the current linting tool; or choose another.
+      # By default, the current tool appears very aggressive, presenting errors for eg
+      # multiple consecutive new-lines, non-conforming title capitalization, etc
+      #
+      # - name: Lint markdown
+      #   run: |
+      #     npm run lint-markdown
+
       - name: Run npm tests
         run: |
           npm test
