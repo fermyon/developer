@@ -12,7 +12,7 @@ language = "Python"
 created_at = "2023-12-08T00:22:56Z"
 last_updated = "2023-12-08T00:22:56Z"
 spin_version = ">v2.0"
-summary =  "This app uses Fermyon Spin's Python SDK to create and store bookmarks. It uses an LLM to generate a summary of the page."
+summary =  "This app uses Spin's Python SDK to create and store bookmarks. It uses an LLM to generate a summary of the page."
 url = "https://github.com/technosophos/bookmarker"
 
 ---

@@ -293,7 +293,7 @@ These instructions are provided for a self-managed or other Kubernetes service t
 
 ### Setup
 
-We provide the [spin-containerd-shim-installer](https://github.com/fermyon/spin-containerd-shim-installer) Helm chart that provides an automated method to install and configure the containerd shim for Fermyon Spin in Kubernetes. Please see the [README](https://github.com/fermyon/spin-containerd-shim-installer/blob/main/README.md) in the installer repository for more information.
+We provide the [spin-containerd-shim-installer](https://github.com/fermyon/spin-containerd-shim-installer) Helm chart that provides an automated method to install and configure the containerd shim for Spin in Kubernetes. Please see the [README](https://github.com/fermyon/spin-containerd-shim-installer/blob/main/README.md) in the installer repository for more information.
 
 The version of the container image and Helm chart directly correlates to the version of the containerd shim. We recommend selecting the shim version that correlates the version of Spin that you use for your application(s). For simplicity, here is a table depicting the version matrix between Spin and the containerd shim.
 

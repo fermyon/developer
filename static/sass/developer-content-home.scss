@@ -83,18 +83,19 @@
 	}
 	
 	.projects-wrapper {
-		min-height: 540px;
+		min-height: 392px;
 		position: relative;
 		padding-bottom: 1rem;
 		
 		.project-category {
-			min-height: 540px;
+			min-height: 392px;
 			position: relative;
 			padding-top: 0;
 
 			aside {
-				padding-top: 9.333rem;
+				padding-top: 7.75rem;
 				padding-right: 3.5rem;
+				font-size: 1.25rem;
 
 				&:before {
 					content: " ";
@@ -189,10 +190,12 @@
 			width: 4rem;
 			height: 4.21125rem;
 			padding: 0.333rem 0.425rem;
+			margin-top: 1rem;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			flex-shrink: 0;
+			float: left;
 		}
 		
 		.tag {
@@ -252,10 +255,10 @@
 		p {
 			color: #374E9E;
 			font-family: $work;
-			font-size: 1.125rem;
+			font-size: 1rem;
 			font-style: normal;
 			font-weight: 400;
-			line-height: 1.725rem;
+			line-height: 1.35rem;
 		}
 		
 		&:before, &:after {
@@ -295,17 +298,18 @@
 	.card-header, .card-content, .card-footer {
 		border: none;
 		box-shadow: none;
-		padding: 1.5rem;
+		padding: 0.25rem 1.5rem;
 	}
 
 	.card-header-title, .card-footer-item {
 		padding: 0;
 	}
 	.card-content {
-		padding: 2.25rem 1.5rem;
+		padding: 1rem 1.5rem 1.67rem;
 	}
 	.card-footer {
 		align-items:  !important;
+		min-height: 2rem;
 	}
 	.card-footer-item {
 		position: absolute;

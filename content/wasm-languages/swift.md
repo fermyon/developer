@@ -123,7 +123,7 @@ $ curl localhost:3000
 Hello, World!
 ```
 
->> When the Swift Spin SDK is generally available, it will be possible to use many Fermyon Spin services like Key Value Store, SQLite Database, and Serverless AI.
+>> When the Swift Spin SDK is generally available, it will be possible to use many Spin services like Key Value Store, SQLite Database, and Serverless AI.
 
 ## Learn More
 

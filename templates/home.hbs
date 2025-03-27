@@ -17,43 +17,41 @@ read_pages_glob = ["events/*.md"]
     <!-- Main Content Area -->
     <div class="main-content projects-wrapper-parent">
         <!-- Start with Spin Section -->
-        <div class="mb-6">
-            <div class="columns projects-wrapper">
-                <div class="column project-category is-one-third-desktop is-full-touch">
-                    <aside>
-                        <p class="section-number mono">01</p>
-                        <h2 class="title is-4">Build Your Apps</h2>
-                        <ul class="list">
-                            <li class="list-item">Open Source dev framework</li>
-                            <li class="list-item">A CNCF sandbox project</li>
-                            <li class="list-item">Built on community standards</li>
-                        </ul>
-                    </aside>
-                </div>
-                <div class="column projects-column">
-                    <div class="columns is-4">
-                        <!-- Spin Card -->
-                        <div class="column is-half">
-                            <div class="card card-project card-spin">
-                                <div class="card-header">
-                                    <div class="card-icon">
-                                        <img src="/static/image/icon-spin.png" alt="Spin" />
-                                    </div>
+        <div class="columns is-multiline projects-wrapper">
+            <div class="column project-category is-one-third-desktop is-full-touch">
+                <aside>
+                    <p class="section-number mono">01</p>
+                    <h2 class="title is-4">Build Your Apps</h2>
+                    <ul class="list">
+                        <li class="list-item">Open Source dev framework</li>
+                        <li class="list-item">A CNCF sandbox project</li>
+                        <li class="list-item">Built on community standards</li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="column projects-column">
+                <div class="columns is-4">
+                    <!-- Spin Card -->
+                    <div class="column is-half">
+                        <div class="card card-project card-spin">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <img src="/static/image/icon-spin.png" alt="Spin" />
                                 </div>
-                                <div class="card-content">
-                                    <h2>
-                                        Spin
-                                        <span class="tag tag-cncf">A CNCF sandbox project.</span>
-                                    </h2>
-                                    <p>The easiest way to start building and running Wasm apps.
-                                        Spin has a
-                                        full-featured CLI, plugin system, and supports many languages.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="https://spinframework.dev/" class="card-footer-item has-text-link">
-                                        spinframework.dev <img src="/static/image/arrowexternal.svg" alt="external link" class="external" />
-                                    </a>
-                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2>
+                                    Spin
+                                    <span class="tag tag-cncf">A CNCF sandbox project.</span>
+                                </h2>
+                                <p>The easiest way to start building and running Wasm apps.
+                                    Spin has a
+                                    full-featured CLI, plugin system, and supports many languages.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="https://spinframework.dev/" class="card-footer-item has-text-link">
+                                    spinframework.dev <img src="/static/image/arrowexternal.svg" alt="external link" class="external" />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -63,10 +61,10 @@ read_pages_glob = ["events/*.md"]
 
         <!-- Deploy to a managed service section -->
         <div class="projects-wrapper">
-            <div class="columns">
+            <div class="columns is-multiline">
                 <div class="column project-category is-one-third-desktop is-full-touch">
                     <aside>
-                        <p class="section-number mono">02</p>
+                        <p class="section-number mono">02A</p>
                         <h2 class="title is-4">Deploy to a Fermyon Managed Service</h2>
 
                         <ul class="mb-4">
@@ -126,7 +124,7 @@ read_pages_glob = ["events/*.md"]
             <div class="columns">
                 <div class="column project-category is-one-third-desktop is-full-touch">
                     <aside>
-                        <p class="section-number mono">03</p>
+                        <p class="section-number mono">02B</p>
                         <h2 class="title is-4">Deploy to your Kubernetes cluster</h2>
 
                         <ul class="mb-4">
@@ -184,15 +182,20 @@ read_pages_glob = ["events/*.md"]
                 </div>
             </div>
 
-            <a href="https://github.com/fermyon" class="button project-gh-button is-small is-full is-outlined is-link">
-                More projects on GitHub <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <div class="columns mt-6">
+                <div class="column">
+                    <a href="https://github.com/fermyon" class="button project-gh-button is-small is-full is-outlined is-link">
+                        More projects on GitHub <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
         </div>
     </div>
 </main>
 
 <div class="container is-max-desktop developer-home-narrow">
-    <div class="columns">
+    <div class="columns is-multiline">
         <div class="column">
 
             <!-- this section is generated from the root content/index.md -->
