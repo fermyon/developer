@@ -165,6 +165,11 @@ component = "redirect-wasm-langs-root"
 route = "/wasm-languages/"
 
 [[trigger.http]]
+id = "trigger-redirect-wasm-functions-root"
+component = "redirect-wasm-functions-root"
+route = "/wasm-functions/"
+
+[[trigger.http]]
 id = "trigger-spin-kubernetes-dynamic-configuration"
 component = "redirect-spin-kubernetes-dynamic-configuration"
 route = "/spin/v2/kubernetes-dynamic-configuration"
@@ -285,17 +290,17 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/cli-reference"
 # Redirect /spin/kubernetes-dynamic-configuration to /spin/kubernetes
 [component.redirect-spin-kubernetes-dynamic-configuration]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" } 
+environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" }
 
 # Redirect /spin/kubernetes-sidecars  to /spin/kubernetes
 [component.redirect-spin-kubernetes-sidecars]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" } 
+environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" }
 
 # Redirect /spin/kubernetes-known-issues  to /spin/kubernetes
 [component.redirect-spin-kubernetes-known-issues]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" }  
+environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" }
 
 [component.hub-fileserver-static]
 source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
@@ -334,7 +339,12 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/serverless-ai-
 # Redirect /wasm-languages to /wasm-languages/webassembly-language-support
 [component.redirect-wasm-langs-root]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "/wasm-languages/webassembly-language-support" }  
+environment = { DESTINATION = "/wasm-languages/webassembly-language-support" }
+
+# Redirect /wasm-functions to /wasm-functions/index
+[component.redirect-wasm-functions-root]
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "/wasm-functions/index" }
 
 # Component to give us clean versioned URLs for spin from the root
 [component.spin-version-proxy]
