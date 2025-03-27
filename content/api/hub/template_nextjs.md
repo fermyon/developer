@@ -20,6 +20,6 @@ keywords = "react, next.js, js, javascript, typescript"
 
 ---
 
-This is a template for building and statically exporting your Next.js 13 application and running it on Fermyon Spin.
+This is a template for building and statically exporting your Next.js 13 application and running it on Spin.
 
 This guide walks you through how to use it: [HTTP Components](../../spin/javascript-components#http-components)

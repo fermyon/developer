@@ -12,7 +12,7 @@ language = "Rust"
 created_at = "2023-08-31T10:52:54Z"
 last_updated = "2023-08-31T00:52:54Z"
 spin_version = ">v1.3"
-summary = "A template for deploying your Hugo site using Fermyon Spin and Cloud."
+summary = "A template for deploying your Hugo site using Spin and Cloud."
 url = "https://github.com/ThorstenHans/hugo-spin"
 keywords = "Hugo, spin-fileserver, SSG, template, Fermyon Cloud"
 

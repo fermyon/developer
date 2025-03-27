@@ -21,7 +21,7 @@ keywords = "html, Angular, typescript"
 
 # A Simple Static Fileserver Template for Spin Framework with Angular
 
-This is a template for building and statically exporting your Angular application and running it on Fermyon Spin.
+This is a template for building and statically exporting your Angular application and running it on Spin.
 
 ## Using the Template
 

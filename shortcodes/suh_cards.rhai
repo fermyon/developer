@@ -1,1 +1,1 @@
-return `<div class="columns card-example-list">`;
+return `<div class="columns is-multiline card-example-list">`;

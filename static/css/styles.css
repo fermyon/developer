@@ -1999,20 +1999,21 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .projects-wrapper {
-  min-height: 540px;
+  min-height: 392px;
   padding-bottom: 1rem;
   position: relative;
 }
 
 .documentation > .developer-home-wrap .projects-wrapper .project-category {
-  min-height: 540px;
+  min-height: 392px;
   padding-top: 0;
   position: relative;
 }
 
 .documentation > .developer-home-wrap .projects-wrapper .project-category aside {
-  padding-top: 9.333rem;
+  padding-top: 7.75rem;
   padding-right: 3.5rem;
+  font-size: 1.25rem;
 }
 
 .documentation > .developer-home-wrap .projects-wrapper .project-category aside:before {
@@ -2089,6 +2090,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 .documentation > .developer-home-wrap .card-project .card-icon {
   width: 4rem;
   height: 4.21125rem;
+  float: left;
   background: #f0ebf6;
   border: 1px solid #d3a8ea;
   border-radius: .4375rem;
@@ -2096,6 +2098,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
   margin-right: 1rem;
   padding: .333rem .425rem;
   display: flex;
@@ -2158,10 +2161,10 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 .documentation > .developer-home-wrap .card-project p {
   color: #374e9e;
   font-family: Work Sans, Europa, Avenir, system, -apple-system, \.SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.725rem;
+  line-height: 1.35rem;
 }
 
 .documentation > .developer-home-wrap .card-project:before, .documentation > .developer-home-wrap .card-project:after {
@@ -2197,7 +2200,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 .documentation > .developer-home-wrap .card-header, .documentation > .developer-home-wrap .card-content, .documentation > .developer-home-wrap .card-footer {
   box-shadow: none;
   border: none;
-  padding: 1.5rem;
+  padding: .25rem 1.5rem;
 }
 
 .documentation > .developer-home-wrap .card-header-title, .documentation > .developer-home-wrap .card-footer-item {
@@ -2205,10 +2208,11 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .card-content {
-  padding: 2.25rem 1.5rem;
+  padding: 1rem 1.5rem 1.67rem;
 }
 
 .documentation > .developer-home-wrap .card-footer {
+  min-height: 2rem;
   align-items:  !important;
 }
 
@@ -4132,6 +4136,10 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
     padding: 5.5rem 0 0 !important;
   }
 
+  .documentation > .developer-home-wrap .projects-wrapper-parent:after {
+    inset: .333rem -1.5rem 0;
+  }
+
   .documentation > .developer-home-wrap .content.content-docs.content-docs-wide.content-docs-wide {
     max-width: 100%;
     padding-left: .75rem !important;
@@ -4148,6 +4156,25 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
     background-color: #34e8bd;
     padding: 0;
     color: #0d203f !important;
+  }
+
+  .documentation > .developer-home-wrap .projects-wrapper .project-category {
+    min-height: auto;
+  }
+
+  .documentation > .developer-home-wrap .projects-wrapper .project-category aside {
+    padding-top: 1.25rem;
+    padding-right: 0;
+  }
+
+  .documentation > .developer-home-wrap .projects-wrapper .project-category aside:before {
+    height: 1px;
+    left: .75rem;
+    right: .75rem;
+  }
+
+  .documentation > .developer-home-wrap .projects-wrapper .card-project {
+    margin-top: 0;
   }
 
   .documentation > .developer-home-wrap .menu-wrap + article.content section {
@@ -4238,6 +4265,14 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 
   .documentation > .developer-home-wrap .projects-wrapper .projects-category aside ul, .documentation > .developer-home-wrap .projects-wrapper .projects-category aside li {
     display: none;
+  }
+
+  .documentation .developer-home-narrow {
+    width: 92vw;
+  }
+
+  .documentation .developer-home-narrow .wasm-lang-card {
+    margin-top: 0;
   }
 
   .documentation .content {

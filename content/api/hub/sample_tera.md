@@ -18,7 +18,7 @@ keywords = "rust, tera, cookies"
 
 ---
 
-This is an example of using the [Tera template engine](https://keats.github.io/tera/) inside of a Fermyon Spin app. You will learn how to load templates off of the filesystem and then render them.
+This is an example of using the [Tera template engine](https://keats.github.io/tera/) inside of a Spin app. You will learn how to load templates off of the filesystem and then render them.
 
 Also, you will learn how to use session cookies to have protected route and how to use `form-post` to submit data to spin route.
 
