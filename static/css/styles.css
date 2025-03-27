@@ -4177,6 +4177,14 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
     margin-top: 0;
   }
 
+  .documentation > .developer-home-wrap .projects-wrapper .project-gh-button {
+    width: 100%;
+    margin: 1rem auto -.5rem;
+    position: relative;
+    left: auto;
+    right: auto;
+  }
+
   .documentation > .developer-home-wrap .menu-wrap + article.content section {
     margin: 0;
   }
