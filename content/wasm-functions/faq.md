@@ -21,6 +21,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-functions/faq
 | All limits can be increased on request | Default Limit |
 | -------------------------------------- | ------------- |
 | Memory (MiB)                           | 128           |
+| App Size (MiB)                         | 50            |
 | Request handler duration (seconds)     | 30            |
 | Request/response size (MiB)            | 10            |
 
