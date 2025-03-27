@@ -33,7 +33,7 @@ Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
 <!-- @selectiveCpy -->
 
 ```bash
-$ brew tap fermyon/tap
+$ brew tap spinframework/tap
 ```
 
 Install Spin:
@@ -41,7 +41,7 @@ Install Spin:
 <!-- @selectiveCpy -->
 
 ```bash
-$ brew install fermyon/tap/spin
+$ brew install spinframework/tap/spin
 ```
 
 > Note: `brew install spin` will **not** install Fermyon's Spin framework. Spin is accessed from the `fermyon` tap, as shown above.
@@ -95,7 +95,7 @@ Install the Fermyon tap, which Homebrew tracks, updates, and installs Spin from:
 <!-- @selectiveCpy -->
 
 ```bash
-$ brew tap fermyon/tap
+$ brew tap spinframework/tap
 ```
 
 Install Spin:
@@ -103,7 +103,7 @@ Install Spin:
 <!-- @selectiveCpy -->
 
 ```bash
-$ brew install fermyon/tap/spin
+$ brew install spinframework/tap/spin
 ```
 
 > Note: `brew install spin` will **not** install the Spin framework. Spin is accessed from the `fermyon` tap, as shown above.
