@@ -257,5 +257,5 @@ Most Spin builds support local LLMs as described above. However, the models buil
 
 In such cases, you can:
 
-* See if there is another Spin build available for your platform. All current builds from the [Spin GitHub repository](https://github.com/spinframework/spin) or [Fermyon Spin installer support](./install.md) support local LLMs.
+* See if there is another Spin build available for your platform. All current builds from the [Spin GitHub repository](https://github.com/spinframework/spin) or [Spin installer support](./install.md) support local LLMs.
 * Use the [`cloud-gpu` plugin and runtime config option](./serverless-ai-hello-world.md#building-and-deploying-your-spin-application) to have LLM inferencing serviced in Fermyon Cloud instead of locally.

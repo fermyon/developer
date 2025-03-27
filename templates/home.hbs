@@ -5,230 +5,304 @@ read_pages_glob = ["events/*.md"]
 {{> content_top }}
 
 <main class="container page-wrap developer-home-wrap">
-    <div class="columns">
 
-        {{! This adds the sidebar }}
-        <div class="menu-wrap is-narrow is-hidden-desktop" id="docsMenu">
-            <aside class="menu">
+    {{! This adds the sidebar }}
+    <div class="menu-wrap is-narrow is-hidden-desktop" id="docsMenu">
+        <aside class="menu">
 
-                <div id="search-button-container" class="search-button-container plausible-event-name=docs-search-open"></div>
+            <div id="search-button-container" class="search-button-container plausible-event-name=docs-search-open"></div>
 
-                <p class="menu-label">
-                    Projects
-                </p>
-                <ul class="menu-list">
-                    <li><a href="/spin/index" {{#if (active_project request.spin-path-info "/spin/" )}}
-                            class="is-active" {{/if}}>Spin</a></li>
-                    <li><a href="/cloud/index" {{#if (active_project request.spin-path-info "/cloud/" )}}
-                            class="is-active" {{/if}}>Fermyon Cloud</a></li>
-                    <li><a href="/bartholomew/index" {{#if (active_project request.spin-path-info "/cloud/" )}}
-                            class="is-active" {{/if}}>Bartholomew</a></li>
-                    <li><a href="/hub" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active"
-                            {{/if}}>Spin Hub</a></li>
-                </ul>
+            <p class="menu-label">
+                Projects
+            </p>
+            <ul class="menu-list">
+                <li><a href="/spin/index" {{#if (active_project request.spin-path-info "/spin/" )}}
+                        class="is-active" {{/if}}>Spin</a></li>
+                <li><a href="/cloud/index" {{#if (active_project request.spin-path-info "/cloud/" )}}
+                        class="is-active" {{/if}}>Cloud</a></li>
+                <li><a href="/wasm-functions/index" {{#if (active_project request.spin-path-info "/wasm-functions/" )}}
+                        class="is-active" {{/if}}>Wasm Functions</a></li>
+                <li><a href="/hub" {{#if (active_project request.spin-path-info "/cloud/" )}} class="is-active"
+                        {{/if}}>Spin Hub</a></li>
+            </ul>
 
-                <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/"
-                    target="_blank">Login to Cloud</a>
-            </aside>
+            <a class="navbar-item button is-primary is-rounded is-small" href="https://cloud.fermyon.com/"
+                target="_blank">Login to Cloud</a>
+        </aside>
+    </div>
+
+    <!-- Header Section -->
+    <div class="columns is-vcentered mt-5">
+        <div class="column">
+            <h1 class="hero-title is-size-5-touch">Run powerful, high performance WebAssembly compute workloads.</h1>
+            <p class="subtitle">Docs by Project:</p>
         </div>
+    </div>
 
-        <article class="column content content-docs content-docs-wide">
-            <section id="intro">
-                <h1>Welcome to the<br>Fermyon Developer Home</h1>
-                <p class="lead">The simple, open source way to build and run apps powered by WebAssembly - the next wave of cloud compute.</p>
-            </section>
-
-            <section id="projects">
-                <div class="columns is-multiline">
-
-                    <!-- projects here -->
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <a class="card-link" href="/spin/quickstart" target="_self">
-                            <div class="card card-two project">
-                                <div class="card-image dark">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-spin-dark.png"
-                                            alt="Spin" />
-                                    </figure>
-                                </div>
-                                <div class="card-image light">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-spin-light.png"
-                                            alt="Spin" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>The open source developer tool for WebAssembly apps</span></h3>
-                                    <p>Spin's intuitive CLI and extensive features helps you get started with building, running and deploying Wasm applications.</p>
-                                    <span class="button is-rounded is-primary">Start Building</span>
+    <!-- Main Content Area -->
+    <div class="main-content projects-wrapper-parent">
+        <!-- Start with Spin Section -->
+        <div class="columns is-multiline projects-wrapper">
+            <div class="column project-category is-one-third-desktop is-full-touch">
+                <aside>
+                    <p class="section-number mono">01</p>
+                    <h2 class="title is-4">Build Your Apps</h2>
+                    <ul class="list">
+                        <li class="list-item">Open Source dev framework</li>
+                        <li class="list-item">A CNCF sandbox project</li>
+                        <li class="list-item">Built on community standards</li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="column projects-column">
+                <div class="columns is-4">
+                    <!-- Spin Card -->
+                    <div class="column is-half">
+                        <div class="card card-project card-spin">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <img src="/static/image/icon-spin.png" alt="Spin" />
                                 </div>
                             </div>
-                        </a>
-                    </div>
-
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <a class="card-link" href="/cloud/quickstart" target="_self">
-                            <div class="card card-one project">
-                                <div class="card-image dark">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-cloud-dark.png"
-                                            alt="Fermyon Cloud" />
-                                    </figure>
-                                </div>
-                                <div class="card-image light">
-                                    <figure class="image"><img
-                                            src="{{site.info.base_url}}/static/image/project-left-cloud-light.png"
-                                            alt="Fermyon Cloud" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>The quickest way to deploy and manage WebAssembly apps</span>
-                                    </h3>
-                                    <p>Go from blinking cursor to deployed app in less than two minutes. Fermyon Cloud has free and paid usage tiers.</p>
-
-                                    <span class="button is-rounded is-primary" href="/cloud/quickstart">Deploy Apps</span>
-                                </div>
+                            <div class="card-content">
+                                <h2>
+                                    Spin
+                                    <span class="tag tag-cncf">A CNCF sandbox project.</span>
+                                </h2>
+                                <p>The easiest way to start building and running Wasm apps.
+                                    Spin has a
+                                    full-featured CLI, plugin system, and supports many languages.</p>
                             </div>
-                        </a>
-                    </div>
-
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <a class="card-link" href="https://www.spinkube.dev" target="_self">
-                            <div class="card card-three project">
-
-                                <span class="tag is-external">spinkube.dev&nbsp;<svg class="external-icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.33333 1.86667H3.77333C2.80267 1.86667 2.31733 1.86667 1.9464 2.0556C1.62023 2.22173 1.35506 2.4869 1.18893 2.81307C1 3.184 1 3.66933 1 4.64V11.2267C1 12.1973 1 12.6827 1.18893 13.0536C1.35511 13.3797 1.62027 13.6449 1.9464 13.8111C2.31647 14 2.8018 14 3.77073 14H10.3626C11.3315 14 11.816 14 12.1861 13.8111C12.5128 13.6447 12.778 13.3795 12.9444 13.0536C13.1333 12.6827 13.1333 12.1982 13.1333 11.2293V9.66667M14 5.33333V1M14 1H9.66667M14 1L7.93333 7.06667" stroke="#E7D3F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-
-                                <div class="card-image dark">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-spinkube-dark.png"
-                                            alt="SpinKube" />
-                                    </figure>
-                                </div>
-                                <div class="card-image light">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-spinkube-light.png"
-                                            alt="SpinKube" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>Run WebAssembly apps on your Kubernetes</span></h3>
-                                    <p>Fermyon contributes to the SpinKube community project in conjunction with Microsoft, Liquid Reply, SUSE and others.</p>
-
-                                    <span class="button is-rounded is-primary">Learn More</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="column is-full">
-                        <a class="card-link" href="/wasm-languages/webassembly-language-support" target="_self">
-                            <div class="card card-one wasm-lang">
-                                <div class="card-image light">
-                                    <figure class="image">
-                                        <img src="{{site.info.base_url}}/static/image/project-left-wasm-light.png"
-                                            alt="Wasm Language Guide" />
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h3><span>WebAssembly Language Support Matrix</span></h3>
-                                    <p>This guide tracks language support for compiling your code to WebAssembly.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </section>
-
-            <section id=" community">
-                <div class="columns is-multiline">
-                    <div class="column is-two-thirds-desktop is-full-touch is-">
-                        <h2>Where to find us next</h2>
-                        <div class="community-highlight main-carousel">
-                            {{#with (events site.pages)}}
-                            {{#each this }}
-                            <article class="community-highlight carousel-cell"
-                                data-expirydate="{{this.page.head.extra.eventexpires}}">
-                                <a href="{{this.page.head.extra.url}}" target="_blank">
-                                    <event>
-                                        <date>
-                                            {{this.page.head.extra.eventdates}}
-                                        </date>
-                                        <eventtitle>
-                                            {{this.page.head.title}}
-                                        </eventtitle>
-                                        <p>{{this.page.head.description}}</p>
-                                        <img src="{{this.page.head.extra.image}}" alt="{{this.page.head.title}}"
-                                            class="event-logo" />
-                                    </event>
+                            <div class="card-footer">
+                                <a href="https://spinframework.dev/" class="card-footer-item has-text-link">
+                                    spinframework.dev <img src="/static/image/arrowexternal.svg" alt="external link" class="external" />
                                 </a>
-                            </article>
-                            {{/each}}
-                            {{/with}}
-                            {{#unless (events site.pages)}}
-                            <article class="community-highlight carousel-cell">
-                                <a href="#">
-                                    <event>
-                                        <date>
-                                        </date>
-                                        <eventtitle>No upcoming Events
-                                        </eventtitle>
-                                        <p></p>
-                                        <img class="event-logo" />
-                                    </event>
-                                </a>
-                            </article>
-                            {{/unless}}
+                            </div>
                         </div>
                     </div>
-                    <div class="column is-one-third-desktop is-full-touch">
-                        <h2>Connect</h2>
+                </div>
+            </div>
+        </div>
 
-                        <ul class="connect-links">
-                            <li class="is-hidden-mobile">
-                                <a href="{{site.info.base_url}}/cloud/changelog">Changelog <span
-                                        class="external"></span></a>
-                            </li>
-                            <li>
-                                <a href="https://dev.to/fermyon" target="_blank">Dev.to <span
-                                        class="external"></span></a>
-                            </li>
-                            <li class="is-hidden-mobile">
-                                <a href="https://discord.gg/AAFNfS7NGf" target="_blank">Discord
-                                    <span class="external"></span></a>
-                            </li>
-                            <li class="is-hidden-mobile">
-                                <a href="https://github.com/fermyon" target="_blank">GitHub
-                                    <span class="external"></span></a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/company/fermyon/" target="_blank">LinkedIn <span
-                                        class="external"></span></a>
-                            </li>
-                            <li class="is-hidden-mobile">
-                                <a href="https://twitter.com/fermyontech" target="_blank">Twitter <span
-                                        class="external"></span></a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/channel/UCGgsMYwLxmIgv1lXaActZqw"
-                                    target="_blank">YouTube <span class="external"></span></a>
-                            </li>
+        <!-- Deploy to a managed service section -->
+        <div class="projects-wrapper">
+            <div class="columns is-multiline">
+                <div class="column project-category is-one-third-desktop is-full-touch">
+                    <aside>
+                        <p class="section-number mono">02A</p>
+                        <h2 class="title is-4">Deploy to a Fermyon Managed Service</h2>
+
+                        <ul class="mb-4">
+                            <li class="list-item">Powered by <a href="https://spinframework.dev"
+                                    target="_blank">Spin</a></li>
+                            <li class="list-item">Serverless - infra included</li>
+                            <li class="list-item">Secure and scalable</li>
                         </ul>
+                    </aside>
+                </div>
+                <div class="column projects-column">
+                    <div class="columns">
+                        <!-- Wasm Functions Card -->
+                        <div class="column is-half">
+                            <div class="card card-project card-functions">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <img src="/static/image/icon-functions.png" alt="Wasm Functions" />
+                                    </div>
+                                    <span class="tag tag-new">NEW</span>
+                                </div>
+                                <div class="card-content">
+                                    <h2>Wasm Functions</h2>
+                                    <p>Fast and powerful engine for hosting serverless functions, running on Akamai Cloud, the distributed cloud platform.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="/wasm-functions/index" class="card-footer-item has-text-link">
+                                        Wasm Functions Docs <img src="/static/image/arrow-right.png" alt="arrow" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cloud Card -->
+                        <div class="column is-half">
+                            <div class="card card-project card-cloud">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <img src="/static/image/icon-cloud.png" alt="Fermyon Cloud" />
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h2>Cloud</h2>
+                                    <p>The simple way to deploy and run Spin apps on Fermyon’s hosted service. Offers free and paid levels, depending on request volume.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="/cloud/index" class="card-footer-item has-text-link">
+                                        Cloud Docs <img src="/static/image/arrow-right.png" alt="arrow" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-            </section>
+            <!-- Deploy to Kubernetes Compute Section -->
+            <div class="columns is-multiline">
+                <div class="column project-category is-one-third-desktop is-full-touch">
+                    <aside>
+                        <p class="section-number mono">02B</p>
+                        <h2 class="title is-4">Deploy to your Kubernetes cluster</h2>
 
-            {{> content_footer }}
-        </article>
+                        <ul class="mb-4">
+                            <li class="list-item">Powered by <a href="https://spinkube.dev"
+                                    target="_blank">SpinKube</a></li>
+                            <li class="list-item">Runs in your cloud or on-prem</li>
+                            <li class="list-item">Highly dense, resource-friendly compute</li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="column projects-column">
+                    <div class="columns">
+                        <!-- SpinKube Card -->
+                        <div class="column is-half">
+                            <div class="card card-project card-spinkube">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <img src="/static/image/icon-spinkube.png" alt="SpinKube" />
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h2>
+                                        SpinKube
+                                        <span class="tag tag-cncf">A CNCF sandbox project.</span>
+                                    </h2>
+                                    <p>Streamlines the process of developing, deploying and operating Spin Wasm app workloads on Kubernetes.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="https://www.spinkube.dev/docs/" class="card-footer-item has-text-link">
+                                        spinkube.dev <img src="/static/image/arrowexternal.svg" alt="external link" class="external" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Platform for Kubernetes Card -->
+                        <div class="column is-half">
+                            <div class="card card-project card-platform">
+                                <div class="card-header">
+                                    <div class="card-icon">
+                                        <img src="/static/image/icon-fp4k.png" alt="Platform for Kubernetes" />
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h2>Platform <span class="is-blue">for Kubernetes</span></h2>
+                                    <p>Enterprise solution for Wasm workloads in Kubernetes - in your cloud or on-prem. High density, efficient compute.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="https://www.fermyon.com/platform" class="card-footer-item has-text-link">
+                                        Get a Demo <img src="/static/image/arrowexternal.svg" alt="external link" class="external" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <script src="./static/js/flickity.min.js"></script>
+            <div class="columns mt-6">
+                <div class="column">
+                    <a href="https://github.com/fermyon" class="button project-gh-button is-small is-full is-outlined is-link">
+                        More projects on GitHub <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
     </div>
 </main>
 
-{{! This closes the body. See content_bottom.hbs. }}
+<div class="container is-max-desktop developer-home-narrow">
+    <div class="columns is-multiline">
+        <div class="column">
+
+            <!-- this section is generated from the root content/index.md -->
+            <div>
+                {{{page.body}}}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="columns is-8 is-multiline is-mobile">
+        <div class="column is-two-thirds-desktop is-full-mobile">
+            <div class="discord-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Community Discord Server</h2>
+                    <p class="cta-description">Reach out to our team, discuss our projects and learn about building and shipping Wasm apps.</p>
+                    <a href="https://discord.gg/AAFNfS7NGf" class="join-button">
+                        Join Server
+                        <span class="icon"><img src="/static/image/arrow-right.png" alt="arrow" /></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-one-third-desktop is-full-mobile">
+            
+            <!-- Social Links -->
+            <div class="wasm-lang-card">
+                <div class="cta-content">
+                    <a>
+                        <h2 class="cta-title">WebAssembly Language Support</h2>
+                        <p class="cta-description">A guide tracking support for compiling languages to Wasm.</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Social Links -->
+            <div class="pl-1 pr-1 pb-6">
+                <h3 class="mt-4">Connect</h3>
+                <p class="subtitle mb-5">Where you can follow us for product news, streams and events.</p>
+            
+                <div class="mt-4">
+                    <a href="https://bsky.app/profile/fermyon.com" class="social-link">
+                        Bluesky
+                        <i class="external"></i>
+                    </a>
+                    <a href="https://app.daily.dev/sources/fermyon" class="social-link">
+                        Daily.dev
+                        <i class="external"></i>
+                    </a>
+                    <a href="https://dev.to/fermyon" class="social-link">
+                        Dev.to    
+                        <i class="external"></i>
+                    </a>
+                    <a href="https://discord.gg/AAFNfS7NGf" class="social-link">
+                        Discord
+                        <i class="external"></i>
+                    </a>
+                    <a href="https://github.com/fermyon" class="social-link">
+                        GitHub
+                        <i class="external"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/fermyon/" class="social-link">
+                        LinkedIn    
+                        <i class="external"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@fermyontech" class="social-link">
+                        YouTube
+                        <i class="external"></i>
+                    </a>
+                    <a href="https://twitter.com/@fermyontech" class="social-link">
+                        X
+                        <i class="external"></i>
+                    </a>
+                </div>
+            </div>
+    </div>
+</div>
+
 {{> content_bottom }}
 
 </body>
-
 </html>

@@ -18,4 +18,4 @@ keywords = "slack, go, nuxt.js, webhook"
 
 ---
 
-A fun social photo app built using Fermyon Spin, Golang, Key-Value Store, and Nuxt.js. 
+A fun social photo app built using Spin, Golang, Key-Value Store, and Nuxt.js. 

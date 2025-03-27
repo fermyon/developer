@@ -20,7 +20,7 @@ keywords = "qwik, html, js, javascript, typescript"
 
 ---
 
-This is a template for building and statically exporting your Qwik Frontend application and running it on Fermyon Spin.
+This is a template for building and statically exporting your Qwik Frontend application and running it on Spin.
 
 Demo: [https://qwik.fermyon.app/](https://qwik.fermyon.app/)
 

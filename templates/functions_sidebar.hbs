@@ -1,0 +1,58 @@
+<div class="menu-wrap is-narrow is-fixed-desktop sidebar" id="docsMenu">
+    <aside class="menu">
+        <h4 for="rd0" class="menu-label">
+            Getting Started
+        </h4>
+        
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/index" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/index">Overview</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/quickstart" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/quickstart">Quickstart</a>
+
+        <h4 for="rd0" class="menu-label">
+            How to:
+        </h4>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/deploy" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/deploy">Deploy Applications</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/upgrade" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/upgrade">Upgrade Applications</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/list-and-inspect" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/list-and-inspect">List and Inspect Applications</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/get-logs" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/get-logs">Get Application Logs</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/delete" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/delete">Delete Applications</a>
+
+        <h4 for="rd0" class="menu-label">
+            Tutorials:
+        </h4>
+        
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/property-manager-integration" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/property-manager-integration">Integrating with Property Manager</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/using-key-value-store" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/using-key-value-store">Using the Key Value Store</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/using-a-cron-trigger" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/using-cron-trigger">Using a Cron Trigger</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/querying-postgresql" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/querying-postgresql">Querying PostgreSQL</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/querying-linode-mysql" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/querying-linode-mysql">Querying MySQL (Linode)</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/supabase-cache-proxy" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/supabase-cache-proxy">Building a Supabase Cache Proxy</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/stream-data-from-linode-object-store" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/stream-data-from-linode-object-store">Stream Data from Linode Object Store</a>
+        <h4 for="rd0" class="menu-label">
+            Reference:
+        </h4>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/aka-command-reference" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/aka-command-reference">The <code>aka</code> Command Reference</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/changelog" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/changelog">Changelog</a>
+        <a {{#if (active_project request.spin-full-url "/wasm-languages/webassembly-language-support" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-languages/webassembly-language-support">WebAssembly Language Support Matrix</a>
+
+        <h4 for="rd0" class="menu-label">
+            Support:
+        </h4>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/faq" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/faq">Technical FAQ</a>
+        <a {{#if (active_content request.spin-path-info "/wasm-functions/support" )}} class="active" {{/if}} href="{{site.info.base_url}}/wasm-functions/support">How to Get Help?</a>
+
+        <div class="button-wrap">
+            <a class="button is-round is-outlined is-secondary is-size-6 is-medium"
+                href="https://fibsu0jcu2g.typeform.com/to/G2u4tPcP" target="_blank" style="margin-top: 5rem;">
+                <svg width="1rem" height="1rem" viewBox="0 0 17 17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>We need your input!</title>
+                    <path
+                        d="M14.7335 0.333008H0.333496V16.333H1.9335V1.93301H14.7335V11.533H3.5335V13.133H1.9335V14.733H3.5335V13.133H16.3335V0.333008H14.7335Z"
+                        fill="#8093F1" />
+                </svg>
+                Product feedback
+            </a>
+
+        </div>
+    </aside>
+</div>

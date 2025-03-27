@@ -20,7 +20,7 @@
 
             svg {
                 height: 30% !important;
-                min-height: auto !important ;
+                min-height: auto !important;
                 max-height: auto !important;
                 max-width: auto !important;
                 margin-left: 1.2vw;
@@ -104,23 +104,28 @@
             font-family: $spaceGro;
             font-size: 1rem;
             letter-spacing: 0.0125rem;
-            padding: 0.3rem 1.125rem;
             margin-left: 1vw;
             margin-right: 0.67vw;
             color: $bluedark;
-            border-radius: 0.725rem;
-            line-height: 1.5;
+            height: 5rem;
             font-weight: 500 !important;
+            border-radius: 0.725rem;
 
-            &.is-active {
+            span {
+                padding: 0.3rem 1.125rem;
+                line-height: 1.5;
+                display: block;
+            }
+
+            &.is-active span {
                 background: rgba($lavendermid, 0.25) !important;
             }
 
-            .is-arrowless:after {
+            .is-arrowless > span:after {
                 display: none;
             }
 
-            &:hover {
+            &:hover span {
                 background: rgba($lavendermid, 0.425) !important;
             }
 
@@ -133,11 +138,11 @@
                 padding: 0;
                 margin-right: 1.425rem;
 
-                &:hover {
+                &:hover span {
                     background: transparent !important;
                 }
 
-                &:after {
+                & > span:after {
                     display: none !important;
                 }
 
@@ -170,6 +175,7 @@
                     background-color: $seagreen !important;
                 }
             }
+
             &.is-secondary {
                 border: 2px solid $seagreen;
                 background: transparent !important;
@@ -188,7 +194,7 @@
                 letter-spacing: 0.125rem;
                 padding: 0.125rem 0.33rem !important;
                 font-size: 0.825rem;
-                background: rgba(0,0,0,0.125);
+                background: rgba(0, 0, 0, 0.125);
                 border-radius: 0.5rem;
             }
         }
@@ -203,7 +209,8 @@
                 position: relative;
             }
         }
-        .github-button-wrap + a.navbar-item.button {
+
+        .github-button-wrap+a.navbar-item.button {
             margin-right: -1rem !important;
         }
     }
@@ -274,177 +281,173 @@
     .dropdown:hover .dropdown-content {
         display: block;
     }
-    .logo-wrap
-		.logo-project {
-			margin: 1.875rem 1.125rem 0 0.125rem;
-			display: inline-block;
-		}
-	}
 
-	.navbar-menu {
-		position: relative;
-		z-index: 1020;
+    .logo-wrap .logo-project {
+        margin: 1.875rem 1.125rem 0 0.125rem;
+        display: inline-block;
+    }
+}
 
-		.navbar-start {
-			z-index: 1023;
-            align-items: center;
+.navbar-menu {
+    position: relative;
+    z-index: 1020;
+    
+    .navbar-start {
+        z-index: 1023;
+        align-items: center;
+        
+        .is-hoverable {
+            z-index: 9999;
+            
+            .navbar-link {
+                margin-left: 0;
+                font-size: 1.125rem;
+                font-weight: 700;
+                padding: 0 3.33rem 0 .75rem;
+            }
+            
+            .navbar-dropdown {
+                &.mega-menu {
+                    min-width: 1020px;
+                    left: 0;
+                    right: 0;
+                    position: fixed;
+                    margin-top: -2px;
+                    padding: 0.333rem 0.67rem 0.333rem 0.333rem;
+                    border: 1px solid #e1d2f6;
+                    box-shadow: 0 0.5rem 2rem rgba(10, 10, 10, 0.1);
+                    
+                    .mega-menu-title {
+                        color: $lavenderdark;
+                        font-family: $work;
+                        font-size: 0.925rem;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 1.25rem;
+                        letter-spacing: 0.0125rem;
+                        margin: 0.5rem 1rem 1rem;
+                        
+                        span {
+                            display: block;
+                            font-family: $mono;
+                            font-weight: 400;
+                            color: rgba($lavendermid, 1);
+                        }
+                    }
+                    
+                    .menu-item {
+                        display: flex;
+                        align-items: flex-start;
+                        margin: 0 0 1rem;
+                        padding: 0.75rem 1rem 0.75rem;
+                        border-radius: 0.67rem;
+                    
+                        &:hover {
+                            background-color: rgba($docsbg1, 1);
+                            @include transition;
 
-			.is-hoverable {
-				z-index: 9999;
-
-				.navbar-link {
-					margin-left: 0;
-					font-size: 1.125rem;
-					font-weight: 700;
-					padding: 0 3.33rem 0 .75rem;
-				}
-
-				.navbar-dropdown {
-					width: 380px;
-                    margin-left: -1.75vw;
-
-					.navbar-item {
-						width: 92%;
-						margin-left: 0;
-						padding: 0;
-                        border-radius: 0.75rem !important;
-
-                        img {
-                            margin: 0 0.5rem 0 0;
-                            max-width: 2rem;
+                            .tag.tag-cncf {
+                                opacity: 1;
+                            }
+                        }
+                        
+                        .menu-icon {
+                            width: 48px;
+                            height: 48px;
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                            border: 1px solid #D3A8EA;
+                            background: #F0EBF6;
                         }
 
-						.project-content {
-							width: 90%;
-							padding: 1rem 1rem 1rem 1.5rem;
-
-							.title {
-                                font-size: 1.125rem !important;
-                                font-weight: 500;
+                        .tag {
+                            display: inline-block;
+                            @include upperCase;
+                            padding: 0.3rem 0.425rem 0.15rem 1.825rem;
+                            margin: -0.333rem 0 0 0.75rem;
+                            border-radius: 1rem;
+                            vertical-align: middle;
+                            letter-spacing: 0.025rem;
+                            line-height: 1;
+                            height: auto;
+                            
+                            &.tag-cncf {
+                                content: "CNCF";
+                                font-family: $mono;
+                                font-size: 0.825rem;
+                                background: rgba($thistle, 0.12) url(/static/image/cncf.svg) no-repeat 0.5rem 50%;
+                                background-size: 0.825rem auto;
+                                color: $lavenderdark;
+                                opacity: 0.67;
+                            }
+                        }
+                        
+                        .menu-content {
+                            a {
+                                display: inline-block;
+                                margin-left: 1.125rem !important;
+                                min-height: 3rem;
+                            }
+                            h3 {
+                                line-height: 1.2;
                                 font-family: $spaceGro;
                                 color: $oxforddark;
-                                display: flex;
-                                margin: 0 1rem 0.75rem 0.25rem;
-    
-                                .is-blue {
-                                    color: darken($vistablue, 15%);
-                                }
-        
-                                .tag {
-                                    color: $lavenderdark;
-                                    font-style: normal;
-                                    text-transform: none;
-                                    letter-spacing: 0.075rem;
-                                    font-size: 0.75rem;
-                                    padding: 0.2rem 0.5rem;
-                                    margin: 0.15rem 0 0 1.5rem;
-                                    line-height: 1.25;
-                                    font-size: 11px;
-                                    height: 1.25rem;
-                                    display: inline-block;
-                                    font-family: $work;
-                                    background-color: rgba($docsbg1, 0.2);
-                                }
-                                .external-icon {
-                                    margin-left: 0.5rem;
-                                    max-width: 9px;
-                                    max-height: 9px;
-                                }
+                                margin: 0 0 0.25rem;
+                                font-size: 1.2rem;
+                                font-weight: 500;
                             }
-
-							&:hover {
-								.title {
-									&::before {
-										background-color: $seagreen;
-									}
-								}
-							}
-
-							.description {
-                                display: inline-block !important;
+                            
+                            p {
+                                color: darken($colablue, 10%);
                                 font-family: $work;
-                                font-size: 0.75rem;
-                                max-width: 19rem !important;
-                                letter-spacing: 0;
-                                margin-left: 0.25rem;
-                                white-space: normal;
+                                font-size: 0.8125rem;
+                                line-height: 1.0875rem;
+                                font-weight: 400;
                             }
-						}
-					}
-				}
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-				+.overlay {
-					z-index: 9998;
-					// display: none;
-					position: fixed;
-					left: 500%;
-					top: 0%;
-					width: 100vw;
-					height: 100vw;
-					opacity: 0;
-				}
+    .navbar-end {
+        z-index: 1022;
+        margin-right: 1.5vw;
+        align-items: center;
+    }
 
-				&:hover {
-					+.overlay {
-						opacity: 1;
-                        left: 0%;
-                        background-color: rgba($color: #ffffff, $alpha: 0.3);
-						transition: background-color ease-in-out 0.75s 0.1s;
-					}
-				}
-			}
-		}
+    a {
+        margin-left: 1.75rem;
+    }
 
-		.navbar-end {
-			z-index: 1022;
-            margin-right: 1.5vw;
-            align-items: center;
-		}
+    a.navbar-item {
+        font-size: 1.125rem;
+        margin-left: 0.67rem;
+        position: relative;
 
-		a {
-			margin-left: 1.75rem;
-		}
+        span {
+            @include transition;
+            padding: 0.25rem 1rem;
+            border-radius: 1.75rem;
+            line-height: 1.5;
 
-		a.navbar-item {
-			font-size: 1.125rem;
-			margin-left: 0.67rem;
-			position: relative;
+            &:hover {
+                background-color: lighten($lightplum, 7.5%);
+            }
+        }
+    }
+}
 
-			span {
-				@include transition;
-				padding: 0.25rem 1rem;
-				border-radius: 1.75rem;
-				line-height: 1.5;
-
-				&:hover {
-					background-color: lighten($lightplum, 7.5%);
-				}
-			}
-
-		// 	&.button {
-		// 		background: $seagreen;
-		// 		color: $oxfordblue;
-		// 		font-size: 1rem;
-		// 		font-weight: normal;
-		// 		height: 2.75rem;
-		// 		font-weight: bold;
-
-		// 		&.is-secondary {
-		// 			background-color: transparent;
-		// 			color: $oxfordblue !important;
-		// 		}
-
-		// 		&:hover {
-		// 			opacity: 0.85;
-		// 			background-color: $seagreen !important;
-		// 			border-color: lighten($seagreen, 10%);
-		// 			box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.187);
-		// 		}
-
-		// 		&:active {
-		// 			box-shadow: 0 -0.1rem 0.1rem 0 rgba(0, 0, 0, 0.25);
-		// 			margin-top: 1.4rem;
-		// 		}
-		// 	}
+@media screen and (min-width: 1140px) {
+    .navbar-dropdown.mega-menu {
+        max-width: 1080px;
+        position: fixed;
+        margin-top: 0 !important;
+        left: 50% !important;
+        margin-left: -540px;
     }
 }

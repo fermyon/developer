@@ -44,51 +44,115 @@
     <div class="navbar-menu">
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
+                <!-- show the active project name -->
                 {{#if (active_project request.spin-full-url "/spin/" )}}
-                    <a class="navbar-link is-active">
-                        Spin
+                    <a class="navbar-link is-active is-hoverable">
+                        <span>Spin</span>
                     </a>
                 {{else}}
                     {{#if (active_project request.spin-full-url "/cloud/" )}}
-                        <a class="navbar-link is-active">
-                            Cloud
+                        <a class="navbar-link is-active is-hoverable">
+                            <span>Cloud</span>
                         </a>
                     {{else}}
-                        <a class="navbar-link">
-                            Docs
-                        </a>
+                        {{#if (active_project request.spin-full-url "/wasm-functions/" )}}
+                            <a class="navbar-link is-active is-hoverable">
+                                <span>Wasm Functions</span>
+                            </a>
+                        {{else}}
+                            <a class="navbar-link is-hoverable">
+                                <span>Docs</span>
+                            </a>
+                        {{/if}}
                     {{/if}}
                 {{/if}}
-
-                <div class="navbar-dropdown is-boxed">
-                    <a href="/spin/index" class="navbar-item{{#if (active_project request.spin-full-url "/spin/" )}}
-                        is-active {{/if}}">
-                        <i><img src="/static/image/product-spin.png" alt="Spin" style="margin-top: 0.825rem !important;" /></i>
-                        <div class="project-content">
-                            <div class="title">Spin</div>
-                            <div class="description">Open source developer tool for composing serverless WebAssembly apps.</div>
-                        </div>
-                    </a>
-
-                    <a href="/cloud/index" class="navbar-item{{#if (active_project request.spin-full-url "/cloud/" )}}
-                        is-active {{/if}}">
-                        <i><img src="/static/image/product-cloud.png" alt="Cloud" /></i>
-                        <div class="project-content">
-                            <div class="title">Cloud</div>
-                            <div class="description">Fermyon's hosted cloud is the quickest and easiest way to run and manage WebAssembly apps.</div>
-                        </div>
-                    </a>
-
-                    <a href="http://www.spinkube.dev" class="navbar-item">
-                        <i><img src="/static/image/product-spinkube.png" alt="SpinKube" /></i>
-                        <div class="project-content">
-                            <div class="title">
-                                SpinKube&nbsp;
-                                <span class="tag">spinkube.dev&nbsp;<svg class="external-icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.33333 1.86667H3.77333C2.80267 1.86667 2.31733 1.86667 1.9464 2.0556C1.62023 2.22173 1.35506 2.4869 1.18893 2.81307C1 3.184 1 3.66933 1 4.64V11.2267C1 12.1973 1 12.6827 1.18893 13.0536C1.35511 13.3797 1.62027 13.6449 1.9464 13.8111C2.31647 14 2.8018 14 3.77073 14H10.3626C11.3315 14 11.816 14 12.1861 13.8111C12.5128 13.6447 12.778 13.3795 12.9444 13.0536C13.1333 12.6827 13.1333 12.1982 13.1333 11.2293V9.66667M14 5.33333V1M14 1H9.66667M14 1L7.93333 7.06667" stroke="#E7D3F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                
+                <!-- project dropdown menu -->
+                <div class="navbar-dropdown mega-menu">
+                    <div class="columns">
+                        <!-- OSS Column -->
+                        <div class="column">
+                            <p class="mega-menu-title"><span class="mono">01</span>Build Your Apps:</p>
+                            
+                            <div class="menu-item">
+                                <div class="menu-icon">
+                                    <img src="/static/image/icon-spin.png" alt="Spin" />
+                                </div>
+                                <div class="menu-content">
+                                    <a href="https://spinframework.dev" target="_blank">
+                                        <h3>
+                                            Spin
+                                            <span class="tag tag-cncf">CNCF</span>
+                                        </h3>
+                                        <p>Developer framework and CLI for building fast Wasm apps.</p>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="description">Run WebAssembly workloads on Kubernetes. An open source community project.</div>
                         </div>
-                    </a>
+                        
+                        <!-- Managed Infrastructure Column -->
+                        <div class="column">
+                            <p class="mega-menu-title"><span class="mono">02</span>Deploy to a Fermyon Service:</p>
+                            
+                            <div class="menu-item">
+                                <div class="menu-icon">
+                                    <img src="/static/image/icon-functions.png" alt="Fermyon Wasm Functions" />
+                                </div>
+                                <div class="menu-content">
+                                    <a href="/wasm-functions/index" class="{{#if (active_project request.spin-full-url "/wasm-functions/" )}}
+                        is-active {{/if}}">
+                                        <h3>Wasm Functions</h3>
+                                        <p>Powerful engine for edge apps and functions on Akamai Cloud.</p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="menu-icon">
+                                    <img src="/static/image/icon-cloud.png" alt="Fermyon Cloud" />
+                                </div>
+                                <div class="menu-content">
+                                    <a href="/cloud/index" class="{{#if (active_project request.spin-full-url "/cloud/" )}}
+                        is-active {{/if}}">
+                                        <h3>Cloud</h3>
+                                        <p>Deploy your Spin apps to Fermyon's serverless cloud.</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Open Source Column -->
+                        <div class="column">
+                            <p class="mega-menu-title"><span class="mono">03</span> Deploy to Your Kubernetes:</p>
+                            
+                            <div class="menu-item">
+                                <div class="menu-icon">
+                                    <img src="/static/image/icon-spinkube.png" alt="SpinKube" />
+                                </div>
+                                <div class="menu-content">
+                                    <a class="" href="https://www.spinkube.dev/docs/overview/" target="_blank">
+                                        <h3>
+                                            SpinKube
+                                            <span class="tag tag-cncf">CNCF</span>
+                                        </h3>
+                                        <p>Develop and operate Spin apps in your Kubernetes cliuster.</p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="menu-icon">
+                                    <img src="/static/image/icon-fp4k.png" alt="Fermyon Platform for Kubernetes" />
+                                </div>
+                                <div class="menu-content">
+                                    <a href="https://www.fermyon.com/platform" target="_blank" class="external">
+                                        <h3>Platform for Kubernetes</h3>
+                                        <p>Solution for large-scale, high performance enterprise clusters.</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="overlay"></div>
@@ -105,7 +169,7 @@
 
         <div class="navbar-end">
 
-            <a class="dark-mode navbar-link plausible-event-name=docs-toggle-light">
+            <a class="dark-mode navbar-link is-arrowless plausible-event-name=docs-toggle-light">
                 <svg width="1.67rem" height="1.67rem" viewBox="0 0 502 502" version="1.1"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>Toggle light/dark mode</title>
@@ -163,7 +227,17 @@
             </span>
             <script async defer src="https://buttons.github.io/buttons.js"></script>
             <a class="navbar-item button is-primary is-rounded is-medium plausible-event-name=cta-spin-quickstart" href="https://developer.fermyon.com/spin/quickstart" target="_blank" aria-label="menuitem">
-              Spin Quickstart
+                Spin Quickstart
+            </a>
+            {{/if}}
+
+            {{#if (active_project request.spin-full-url "/wasm-functions/" )}}
+            <a class="navbar-item button is-secondary is-outline is-rounded is-medium plausible-event-name=cta-fwf-docs-quickstart" href="/wasm-functions/quickstart" aria-label="menuitem">
+                Functions Quickstart
+            </a>
+            
+            <a class="navbar-item button is-primary is-rounded is-medium plausible-event-name=cta-fwf-docs-access" href="https://fibsu0jcu2g.typeform.com/fwf-preview" target="_blank" aria-label="menuitem">
+                Request Access
             </a>
             {{/if}}
 

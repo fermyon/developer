@@ -12,14 +12,14 @@ language = "Rust"
 created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v1.4"
-summary = "A generic messaging trigger for Fermyon Spin"
+summary = "A generic messaging trigger for Spin"
 url = "https://github.com/lee-orr/spin-message-trigger"
 keywrods = "trigger, message, NATS"
 
 ---
 
 
-A generiuc messaging trigger for [Fermyon Spin](https://github.com/spinframework/spin). Note this is an experimental/work-in-progress repo, and is not production ready at this point. Also - if you have suggestions for improvements, feel free to make them in the Issues tab.
+A generiuc messaging trigger for [Spin](https://github.com/spinframework/spin). Note this is an experimental/work-in-progress repo, and is not production ready at this point. Also - if you have suggestions for improvements, feel free to make them in the Issues tab.
 
 ## Features
 

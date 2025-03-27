@@ -18,7 +18,7 @@ keywords = "python, jinja2"
 
 ---
 
-This is an example of using the [Jinja2 template engine](https://jinja.palletsprojects.com/en/3.1.x/) inside of a Fermyon Spin app. You will learn how to load templates off of the filesystem and then render them and serve them back to the client.
+This is an example of using the [Jinja2 template engine](https://jinja.palletsprojects.com/en/3.1.x/) inside of a Spin app. You will learn how to load templates off of the filesystem and then render them and serve them back to the client.
 
 Jinja docs:
 * Python docs: https://jinja.palletsprojects.com/en/3.1.x/
