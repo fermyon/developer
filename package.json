@@ -40,7 +40,8 @@
     "spin": "nodemon --watch content --watch static --watch templates --watch spin-up-hub --ext html,md,rhai,hbs,css,js --verbose --legacy-watch --signal SIGINT --exec 'npm run build-index && npm run build-hub-index && spin up --file spin.toml --quiet --env PREVIEW_MODE=$PREVIEW_MODE'",
     "bundle-scripts": "parcel watch static/js/src/main.js --dist-dir static/js --no-source-maps",
     "styles": "parcel watch static/sass/styles.scss --dist-dir static/css",
-    "test": "npx markdownlint-cli2 content/**/*.md \"#node_modules\" && npm run check-broken-links",
+    "lint-markdown": "npx markdownlint-cli2 content/**/*.md \"#node_modules\"",
+    "test": "npm run check-broken-links",
     "build-index": "node md_parser.mjs --dir=./content/ --out=./static/data.json --ignore=./content/api/**/*",
     "check-broken-links": ".build/check-broken-links.sh",
     "build-hub-index": "node hub_index_generator.mjs --dir=./content/api/hub/ --out=./static/hub-index-data.json --ignore=./content/api/hub/get_list.md,"
