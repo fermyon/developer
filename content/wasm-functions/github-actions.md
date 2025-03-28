@@ -161,7 +161,7 @@ Add any custom tooling you need to compile your project prior to calling `spin b
 
 ## Specifying Variables
 
-Spin supports [application variables](/spin/variables). Instead of being static, their values can be
+Spin supports [application variables](https://spinframework.dev/variables). Instead of being static, their values can be
 updated without modifying the application, creating a simpler experience for rotating secrets,
 updating API endpoints, and more.
 

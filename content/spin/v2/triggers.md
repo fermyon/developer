@@ -27,7 +27,7 @@ In Spin 2.2 and earlier, all triggers must be of the same type.  For example, an
 
 In Spin 2.3 and later, an application can contain triggers of different types.  For example, a single application can serve HTTP on one or more routes, and at the same time subscribe to one or more Redis pub-sub channels. 
 
-> If you're familiar with [Spin 1.x](/spin/manifest-reference-v1#the-trigger-table), note that [Spin 2 uses the term "trigger"](/spin/manifest-reference#the-trigger-table) to refer to each individual route or channel, rather than the trigger type. It's closer to the `[component.trigger]` usage than to the application trigger.
+> If you're familiar with [Spin 1.x](https://spinframework.dev/manifest-reference-v1#the-trigger-table), note that [Spin 2 uses the term "trigger"](https://spinframework.dev/manifest-reference#the-trigger-table) to refer to each individual route or channel, rather than the trigger type. It's closer to the `[component.trigger]` usage than to the application trigger.
 
 ## Triggers and Components
 

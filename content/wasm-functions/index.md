@@ -7,13 +7,13 @@ url = "https://github.com/fermyon/a3000-docs/blob/main/content/wasm-functions/in
 
 ---
 
-Fermyon Wasm Functions is a globally distributed PaaS (Platform-as-a-Service) running edge native applications with [Spin](/spin) on top of Akamai's Connected Cloud. It offers fast and resilient hosting for Spin applications. This means that Fermyon Wasm Functions is tailored towards hosting applications, which need fast execution, and availability in multiple regions across the World.
+Fermyon Wasm Functions is a globally distributed PaaS (Platform-as-a-Service) running edge native applications with [Spin](https://spinframework.dev) on top of Akamai's Connected Cloud. It offers fast and resilient hosting for Spin applications. This means that Fermyon Wasm Functions is tailored towards hosting applications, which need fast execution, and availability in multiple regions across the World.
 
 Fermyon Wasm Functions does not require any operational effort on infrastructure from you as a user of the platform. Upon deploying a Spin application to the platform, the application is automatically distributed and made available in multiple regions within the service. A URL is provided for the application, which will persist across deployments.
 
 ![Architecture](/static/image/fwf-marketechture-sm.png)
 
-In this documentation you can find resources that will help you [get started](./quickstart), showcase different types of applications and features you can take advantage of, explain core concepts, and provide help. If you are looking for information about building your first Spin application, start with the [Spin documentation](/spin).
+In this documentation you can find resources that will help you [get started](./quickstart), showcase different types of applications and features you can take advantage of, explain core concepts, and provide help. If you are looking for information about building your first Spin application, start with the [Spin documentation](https://spinframework.dev).
 
 - [Application Deployment](#application-deployment)
 - [Traffic Routing](#traffic-routing)

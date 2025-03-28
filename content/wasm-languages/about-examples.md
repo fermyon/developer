@@ -84,7 +84,7 @@ command = "cargo build --target wasm32-wasi --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 ```
 
-The format and fields are defined in the [official Spin configuration docs](../spin/v2/manifest-reference).
+The format and fields are defined in the [official Spin configuration docs](https://spinframework.dev/v2/manifest-reference).
 
 The command to build and start a Spin application is `spin build --up`. This will typically start a server on `http://localhost:3000` unless you specify otherwise.
 

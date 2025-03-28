@@ -16,7 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/fermyon-clou
 
 ## The Fermyon Cloud Explained
 
-[The Fermyon Cloud](https://cloud.fermyon.com) is a cloud application platform for WebAssembly microservices. It enables you to run [Spin applications](/spin), at scale, in the cloud, without any infrastructure setup.
+[The Fermyon Cloud](https://cloud.fermyon.com) is a cloud application platform for WebAssembly microservices. It enables you to run [Spin applications](https://spinframework.dev), at scale, in the cloud, without any infrastructure setup.
 
 In this article we describe the core technologies and concepts which are part of the Fermyon Cloud.
 

@@ -271,14 +271,14 @@ The output from the above command will be similar to the following (depending on
 
 To run Bartholomew, you will need a Spin-capable runtime. 
 
-For Spin, follow [the Spin quickstart guide](/spin/quickstart) which details how to either:
+For Spin, follow [the Spin quickstart guide](https://spinframework.dev/quickstart) which details how to either:
 - download the latest Spin binary release,
 - clone and install Spin using cargo, or
 - clone and build Spin from source.
 
 ## The Relationship Between Bartholomew and the Spin Fileserver
 
-Bartholomew uses an external file server called [Spin-Fileserver](https://github.com/fermyon/spin-fileserver). This file server facilitates the presentation of files to the end users. For example, whilst the web page contents (HTML) are generated dynamically upon request, image elements in that HTML page source can point to images that are stored on the host server. The Spin file server ensures that these static images are correctly served to the client's web browser (as per the HTML's requirements.)
+Bartholomew uses an external file server called [Spin-Fileserver](https://github.com/spinframework/spin-fileserver). This file server facilitates the presentation of files to the end users. For example, whilst the web page contents (HTML) are generated dynamically upon request, image elements in that HTML page source can point to images that are stored on the host server. The Spin file server ensures that these static images are correctly served to the client's web browser (as per the HTML's requirements.)
 
 Please build the spin-fileserver and then copy the resulting `spin_static_fs.wasm` file into Bartholomew's `modules/` directory. This will ensure that you are running the latest release of the spin-fileserver.
 

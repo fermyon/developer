@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/bartholomew/index.
 - [Taking Bartholomew for a Spin](#taking-bartholomew-for-a-spin)
 
 Bartholomew is a simple CMS-like (Content Management System) tool for managing a
-website. It is compiled to WebAssembly, and can run in any [Spin](/spin)
+website. It is compiled to WebAssembly, and can run in any [Spin](https://spinframework.dev)
 environment.
 
 At a glance, with Bartholomew you can:
@@ -20,7 +20,7 @@ simple [TOML](https://toml.io/en/) header.
 - Create custom page templates using the popular [Handlebars](https://handlebarsjs.com/)
 templates.
 - Build custom functions using [the Rhai scripting language](https://rhai.rs/).
-- Serve files using [the Spin static file server](https://github.com/fermyon/spin-fileserver).
+- Serve files using [the Spin static file server](https://github.com/spinframework/spin-fileserver).
 
 ## Overview
 
@@ -29,7 +29,7 @@ one you might find in AWS Lambda or Azure Functions. The CMS is only running whe
 it needs to handle incoming requests, reducing the load on the servers
 running it.
 
-Bartholomew is a [Spin](/spin) component, and
+Bartholomew is a [Spin](https://spinframework.dev) component, and
 websites built with Bartholomew are Spin applications that can run in any
 environment that is capable of running Spin. At Fermyon, we run all of our
 websites using Bartholomew and Spin, on our [Fermyon Platform, running on Nomad](https://www.fermyon.com/blog/spin-nomad).

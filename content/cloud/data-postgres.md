@@ -24,7 +24,7 @@ First, you need to have Spin installed on your computer. Please use the official
 
 ## Using Spin Application Templates
 
-The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](/cloud/cli-reference#templates). The template we are interested in, for this tutorial, is the experimental `http-csharp` template. We can go ahead and install it using the following command:
+The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](https://spinframework.dev/managing-templates). The template we are interested in, for this tutorial, is the experimental `http-csharp` template. We can go ahead and install it using the following command:
 
 <!-- @selectiveCpy -->
 
@@ -50,7 +50,7 @@ Installed 1 template(s)
 
 ## Creating Our New Spin Application
 
-The official Spin CLI documentation also has instructions on how to [create a new Spin application](/cloud/cli-reference#new), from an existing template. Using the docs as a reference, we can perform the following:
+The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://spinframework.dev/quickstart), from an existing template. Using the docs as a reference, we can perform the following:
 
 <!-- @selectiveCpy -->
 
