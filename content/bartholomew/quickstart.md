@@ -23,14 +23,14 @@ This is a quickstart example of using Spin to deploy a Bartholomew CMS instance,
 
 ## Getting the `spin` Binary
 
-For Spin, follow [the Spin quickstart guide](/spin/quickstart) which details how to either:
+For Spin, follow [the Spin quickstart guide](https://spinframework.dev/quickstart) which details how to either:
 - download the latest Spin binary release,
 - clone and build Spin using cargo, or
 - clone and build Spin from source.
 
 ## Templates
 
-This quickstart method uses a Bartholomew site template. So while we do require `spin` (as per the details above) everything else we need (to launch our Bartholomew CMS website) is packaged up in the Bartholomew site template. Including the `bartholomew.wasm` and the `spin_static_fs.wasm` files which take care of Bartholomew's business logic and [Spin's file server](https://github.com/fermyon/spin-fileserver) needs, respectively. We will start working with the template in the next section.
+This quickstart method uses a Bartholomew site template. So while we do require `spin` (as per the details above) everything else we need (to launch our Bartholomew CMS website) is packaged up in the Bartholomew site template. Including the `bartholomew.wasm` and the `spin_static_fs.wasm` files which take care of Bartholomew's business logic and [Spin's file server](https://github.com/spinframework/spin-fileserver) needs, respectively. We will start working with the template in the next section.
 
 ## Use the Bartholomew Site Template
 

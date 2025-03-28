@@ -20,6 +20,6 @@ keywords = "web app, redis"
 
 ---
 
-This is the default Redis pub-sub trigger template for Rust. It installs by default with the [Spin install script](../../spin/install#installing-spin).
+This is the default Redis pub-sub trigger template for Rust. It installs by default with the [Spin install script](https://spinframework.dev/install#installing-spin).
 
-This guide walks you through how to use it: [Redis Components](../../spin/rust-components#redis-components)
+This guide walks you through how to use it: [Redis Components](https://spinframework.dev/rust-components#redis-components)

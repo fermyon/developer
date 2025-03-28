@@ -108,9 +108,9 @@ url = "https://github.com/spinframework/spin/tree/main/templates/http-rust"
 Be sure to make a description of the hub item in the body (below the **`---`** line). The content that you write below the **`---`** line will be the content shown when the card is expanded in a modal view. For example:
 
 ```md
-This is the default HTTP trigger template for Rust. It installs by default with the [Spin install script](../../spin/install#installing-spin).
+This is the default HTTP trigger template for Rust. It installs by default with the [Spin install script](https://spinframework.dev/install#installing-spin).
 
-This guide walks you through how to use it: [HTTP Components](../../spin/rust-components#http-components)
+This guide walks you through how to use it: [HTTP Components](https://spinframework.dev/rust-components#http-components)
 ```
 
 ### Valid Metadata

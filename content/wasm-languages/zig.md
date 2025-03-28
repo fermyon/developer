@@ -35,9 +35,9 @@ Things we're not big fans of:
 
 # Examples
 
->> All of our examples follow [a documented pattern using common tools](/wasm-languages/about-examples). In these examples, we initially run our applications using the [wasmtime](https://github.com/bytecodealliance/wasmtime) runtime and then progress and demonstrate how to run Zig applications using the [Spin framework](../spin/v2/index).
+>> All of our examples follow [a documented pattern using common tools](/wasm-languages/about-examples). In these examples, we initially run our applications using the [wasmtime](https://github.com/bytecodealliance/wasmtime) runtime and then progress and demonstrate how to run Zig applications using the [Spin framework](https://spinframework.dev/v2/index).
 
-You must have [Zig](https://ziglang.org/learn/) installed. If you haven't already done so, please also go ahead and [install Spin](../spin/v2/install).
+You must have [Zig](https://ziglang.org/learn/) installed. If you haven't already done so, please also go ahead and [install Spin](https://spinframework.dev/v2/install).
 
 ## Example 1
 
@@ -88,7 +88,7 @@ $ wasmtime src/main.wasm 123 hello
 
 ## Example 2
 
-In this example we are going to build a "hello world" WAGI application using Zig. We will then run the Wasm binary with wasmtime to view the output in the console, and then run it again as a [Spin](../spin/v2/index) application served over HTTP.
+In this example we are going to build a "hello world" WAGI application using Zig. We will then run the Wasm binary with wasmtime to view the output in the console, and then run it again as a [Spin](https://spinframework.dev/v2/index) application served over HTTP.
 
 Create a new Zig program:
 

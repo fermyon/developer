@@ -1,7 +1,7 @@
 import requests
 import sys  # Import sys to access command line arguments
 
-url = "https://raw.githubusercontent.com/fermyon/developer/main/content/spin/v2/cli-reference.md"
+url = "https://raw.githubusercontent.com/spinframework/spin-docs/main/content/v2/cli-reference.md"
 
 def download_markdown(url):
     response = requests.get(url)

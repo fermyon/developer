@@ -75,34 +75,34 @@ Fermyon Cloud supports Spin CLI v0.6.0 or newer. That being said, there are cert
 | Feature | SDK Supported? |
 |-----|-----|
 | **Triggers** |
-| [HTTP](/spin/http-trigger) | Supported |
-| [Redis](/spin/redis-trigger) | Not supported |
+| [HTTP](https://spinframework.dev/http-trigger) | Supported |
+| [Redis](https://spinframework.dev/redis-trigger) | Not supported |
 | **APIs** |
-| [Outbound HTTP](/spin/rust-components.md#sending-outbound-http-requests) | Supported |
-| [Configuration Variables](/spin/variables) | Supported |
-| [Key Value Storage](/spin/kv-store-api-guide) | Supported |
-| [SQLite Storage](/spin/sqlite-api-guide) | Supported |
-| [Serverless AI](/spin/serverless-ai-api-guide) | Supported |
-| [Service Chaining](/spin/http-outbound#local-service-chaining) | Not supported |
-| [MySQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
-| [PostgreSQL](/spin/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
-| [Outbound Redis](/spin/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
+| [Outbound HTTP](https://spinframework.dev/rust-components.md#sending-outbound-http-requests) | Supported |
+| [Configuration Variables](https://spinframework.dev/variables) | Supported |
+| [Key Value Storage](https://spinframework.dev/kv-store-api-guide) | Supported |
+| [SQLite Storage](https://spinframework.dev/sqlite-api-guide) | Supported |
+| [Serverless AI](https://spinframework.dev/serverless-ai-api-guide) | Supported |
+| [Service Chaining](https://spinframework.dev/http-outbound#local-service-chaining) | Not supported |
+| [MySQL](https://spinframework.dev/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [PostgreSQL](https://spinframework.dev/rdbms-storage#using-mysql-and-postgresql-from-applications) | Supported |
+| [Outbound Redis](https://spinframework.dev/rust-components.md#storing-data-in-redis-from-rust-components) | Supported |
 | **[wasi-cloud-core](https://github.com/WebAssembly/wasi-cloud-core) Drafts** |
 | [wasi-blobstore](https://github.com/WebAssembly/wasi-blobstore) | Not supported in Spin |
 | [wasi-config](https://github.com/WebAssembly/wasi-config) | Supported (2024-09-27 snapshot) |
 | [wasi-keyvalue](https://github.com/WebAssembly/wasi-keyvalue) | `store` interface supported (2024-10-17 snapshot); `atomics` and `batch` not supported |
 | [wasi-messaging](https://github.com/WebAssembly/wasi-messaging) | Not supported in Spin |
 | **Features** |
-| [Component dependencies](/spin/v3/writing-apps.md#using-component-dependencies) | Supported |
+| [Component dependencies](https://spinframework.dev/v3/writing-apps.md#using-component-dependencies) | Supported |
 | **Extensibility** |
-| [Custom Triggers](/spin/extending-and-embedding) | Not supported |
+| [Custom Triggers](https://spinframework.dev/extending-and-embedding) | Not supported |
 
-To learn more about what feature support looks like for various programming languages, visit the [Spin Language Support Guide](/spin/language-support-overview.md).
+To learn more about what feature support looks like for various programming languages, visit the [Spin Language Support Guide](https://spinframework.dev/language-support-overview.md).
 
 ### Other Limitations
 
 - You cannot communicate between Spin applications using local name resolution
-- [Runtime configuration and secrets](/spin/dynamic-configuration#runtime-configuration) are not supported at this time
+- [Runtime configuration and secrets](https://spinframework.dev/dynamic-configuration#runtime-configuration) are not supported at this time
 
 ## Technical Frequently Asked Questions
 

@@ -23,6 +23,6 @@ Checkout the [app here](https://code-pls.fermyon.app/)
 
 Get started with `spin build`, `spin up` and `spin deploy`.
 
-[See the AI capabilities using Fermyon serverless AI!](https://developer.fermyon.com/spin/v2/serverless-ai-hello-world.md)
+[See the AI capabilities using Fermyon serverless AI!](https://spinframework.dev/v2/serverless-ai-hello-world.md)
 
 

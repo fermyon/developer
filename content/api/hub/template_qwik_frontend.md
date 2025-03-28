@@ -24,4 +24,4 @@ This is a template for building and statically exporting your Qwik Frontend appl
 
 Demo: [https://qwik.fermyon.app/](https://qwik.fermyon.app/)
 
-This guide walks you through how to use it: [HTTP Components](../../spin/javascript-components#http-components)
+This guide walks you through how to use it: [HTTP Components](https://spinframework.dev/javascript-components#http-components)

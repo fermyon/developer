@@ -19,11 +19,11 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-functions/qui
 
 > This quickstart requires access to the public preview of Fermyon Wasm Functions. If you haven’t already requested access, please do so first by completing [this short form](https://fibsu0jcu2g.typeform.com/fwf-preview). The Fermyon team will review your request and follow up shortly.
 
-Fermyon Wasm Functions is the platform for running [Spin](/spin) applications inside of the Akamai Connected Cloud. For more details on limitations and support policy, check out the [FAQ](faq.md).
+Fermyon Wasm Functions is the platform for running [Spin](https://spinframework.dev) applications inside of the Akamai Connected Cloud. For more details on limitations and support policy, check out the [FAQ](faq.md).
 
 ![Developer Workflow](/static/image/devx-workflow-fermyon-on-akamai.png)
 
-This guide will get you up and running with Fermyon Wasm Functions in less than two minutes. To do so, we've already made a [Spin](/spin) application ready for you to deploy to Fermyon Wasm Functions.
+This guide will get you up and running with Fermyon Wasm Functions in less than two minutes. To do so, we've already made a [Spin](https://spinframework.dev) application ready for you to deploy to Fermyon Wasm Functions.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Xo-UPq_dT5s?si=TbZDNMcAGWkL0E3P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -79,7 +79,7 @@ Unzip the binary release and place the `spin.exe` in your system path.
 
 {{ blockEnd }}
 
-{{ details "Learn more" "[Spin](https://github.com/fermyon/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). \n\n The [Spin](/spin) documentation is a good starting place to learn more about using the framework to develop applications."}}
+{{ details "Learn more" "[Spin](https://github.com/fermyon/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). \n\n The [Spin](https://spinframework.dev) documentation is a good starting place to learn more about using the framework to develop applications."}}
 
 ## Install the `aka` Plugin for Spin
 
@@ -151,7 +151,7 @@ You'll need the TinyGo compiler, as the standard Go compiler does not yet suppor
 
 ## Create a New Spin Application
 
-Next we'll prepare an application with Spin. You can [write an app from scratch](../spin/v3/writing-apps) or use an <a href="https://developer.fermyon.com/hub" class="external">existing template</a>. The <a href="https://developer.fermyon.com/hub" class="external">Spin Hub <svg class=""  style="width: 0.75rem; height: 0.75rem;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />  <line x1="10" y1="14" x2="20" y2="4" />  <polyline points="15 4 20 4 20 9" /></svg></a> has many reference examples and templates:
+Next we'll prepare an application with Spin. You can [write an app from scratch](https://spinframework.dev/v3/writing-apps) or use an <a href="https://developer.fermyon.com/hub" class="external">existing template</a>. The <a href="https://developer.fermyon.com/hub" class="external">Spin Hub <svg class=""  style="width: 0.75rem; height: 0.75rem;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />  <line x1="10" y1="14" x2="20" y2="4" />  <polyline points="15 4 20 4 20 9" /></svg></a> has many reference examples and templates:
 
 <div style="margin: 3rem auto;">
 {{suh_cards}}

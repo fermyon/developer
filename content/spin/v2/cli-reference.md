@@ -2972,7 +2972,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-**Note:** For additional information, please see the [Managing Plugins](/spin/managing-plugins) and/or [Creating Plugins](/spin/plugin-authoring) sections of the documentation.
+**Note:** For additional information, please see the [Managing Plugins](https://spinframework.dev/managing-plugins) and/or [Creating Plugins](https://spinframework.dev/plugin-authoring) sections of the documentation.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin registry
@@ -4798,7 +4798,7 @@ OPTIONS:
 
 {{ blockEnd }}
 
-**Note:** For additional information, please see the [Managing Templates](/spin/managing-templates) and/or [Creating Templates](/spin/template-authoring) sections of the documentation.
+**Note:** For additional information, please see the [Managing Templates](https://spinframework.dev/managing-templates) and/or [Creating Templates](https://spinframework.dev/template-authoring) sections of the documentation.
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin test
