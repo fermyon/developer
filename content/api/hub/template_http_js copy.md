@@ -13,9 +13,9 @@ created_at = "2022-10-15T00:22:56Z"
 last_updated = "2022-10-15T00:22:56Z"
 spin_version = ">v0.8"
 summary =  "A template to create an HTTP handler in JavaScript"
-url = "https://github.com/spinframework/spin-js-sdk/tree/main/templates/http-js"
+url = "https://github.com/fermyon/spin-js-sdk/tree/main/templates/http-js"
 template_id = "http-js"
-repo_url = "https://github.com/spinframework/spin-js-sdk"
+repo_url = "https://github.com/fermyon/spin-js-sdk"
 keywords = "web app, http, api"
 
 ---
