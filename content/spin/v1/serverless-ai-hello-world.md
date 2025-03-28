@@ -5,7 +5,7 @@ template = "spin_main"
 tags = ["ai", "serverless", "getting started"]
 enable_shortcodes = true
 [extra]
-canonical_url = "https://developer.fermyon.com/spin/v2/serverless-ai-hello-world"
+canonical_url = "https://spinframework.dev/v2/serverless-ai-hello-world"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/serverless-ai-hello-world.md"
 
 ---
@@ -316,7 +316,7 @@ $ spin build
 
 {{ blockEnd }}
  
-Now that your app is built, there are three ways to test your Serverless AI app. One way to test the app is to run inferencing locally. This means running a LLM on your CPU. This is not as optimal compared to deploying to Fermyon’s Serverless AI, which uses high-powered GPUs in the cloud. To know more about this method, including downloading LLMs to your local machine, check out [the in-depth tutorial](../../spin/ai-sentiment-analysis-api-tutorial) on Building a Sentiment Analysis API using Serverless AI.
+Now that your app is built, there are three ways to test your Serverless AI app. One way to test the app is to run inferencing locally. This means running a LLM on your CPU. This is not as optimal compared to deploying to Fermyon’s Serverless AI, which uses high-powered GPUs in the cloud. To know more about this method, including downloading LLMs to your local machine, check out [the in-depth tutorial](https://spinframework.dev/ai-sentiment-analysis-api-tutorial) on Building a Sentiment Analysis API using Serverless AI.
  
 Here are the two other methods for testing your app:
  
@@ -378,8 +378,8 @@ hello-world: http://127.0.0.1:3000 (wildcard)
  
 This was just a small example of what Serverless AI Inferencing can do. To check out more detailed code samples:
  
-- Read [our in-depth tutorial](../../spin/ai-sentiment-analysis-api-tutorial) on building a Sentiment Analysis API with Serverless AI
-- Look at the [Serverless AI API Guide](../../spin/serverless-ai-api-guide)
+- Read [our in-depth tutorial](https://spinframework.dev/ai-sentiment-analysis-api-tutorial) on building a Sentiment Analysis API with Serverless AI
+- Look at the [Serverless AI API Guide](https://spinframework.dev/serverless-ai-api-guide)
 - Try the numerous Serverless AI examples in our GitHub repository called [ai-examples](https://github.com/fermyon/ai-examples).
 - [Contribute](../../hub/contributing) your Serverless AI app to our [Spin Hub](../../hub/index).
 - Ask questions and share your thoughts in [our Discord community](https://discord.gg/AAFNfS7NGf).

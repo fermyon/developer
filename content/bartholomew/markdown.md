@@ -76,7 +76,7 @@ key = "your custom name value pairs go hear, but values MUST be strings"
 ### Markdown Body
 
 Markdown support includes all the usual stuff plus fenced codeblocks. Image links are
-supported, but you need to use the external [fileserver](https://github.com/fermyon/spin-fileserver)
+supported, but you need to use the external [fileserver](https://github.com/spinframework/spin-fileserver)
 library to display the images. If you are using your deployment of Spin and Bartholomew, you can [read more about how to install the fileserver](/bartholomew/contributing-bartholomew) from source.
 
 The last line of the example above is very important. The `---` tells Bartholomew that the head is done, and the body is coming up.

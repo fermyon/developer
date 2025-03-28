@@ -21,6 +21,6 @@ If you encounter any issues or have questions during the upgrade process, please
 **References**
 
 - [Spin 2.0 blog post](https://www.fermyon.com/blog/index)
-- [Spin 2.0 quickstart guide](../../spin/v2/quickstart)
+- [Spin 2.0 quickstart guide](https://spinframework.dev/v2/quickstart)
 - [Spin Cloud Plugin Reference Documentation](/cloud/cloud-command-reference)
-- [Using Spin to Make HTTP Requests](/spin/v2/http-outbound)
+- [Using Spin to Make HTTP Requests](https://spinframework.dev/v2/http-outbound)
