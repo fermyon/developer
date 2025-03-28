@@ -20,6 +20,6 @@ To review quotas and FAQs, please visit [Fermyon Cloud FAQ documentation.](../..
 
 References:
 
-- [Serverless AI API Guide](../../spin/v2/serverless-ai-api-guide)
-- [Serverless AI Tutorial](../../spin/v2/serverless-ai-hello-world.md)
+- [Serverless AI API Guide](https://spinframework.dev/v2/serverless-ai-api-guide)
+- [Serverless AI Tutorial](https://spinframework.dev/v2/serverless-ai-hello-world.md)
 - [`spin cloud GPU` plugin](../../api/hub/preview/plugin_spin_cloud_gpu)

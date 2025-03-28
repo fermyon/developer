@@ -3,7 +3,7 @@
 Prerequisites to run the website locally:
 
 - [npm and node](https://docs.npmjs.com/cli/v8/configuring-npm/install)
-- [Spin](https://developer.fermyon.com/spin/quickstart)
+- [Spin](https://spinframework.dev/spin/quickstart)
 
 Build and run the website locally:
 
@@ -19,5 +19,3 @@ spin watch # Uses spin watch to run the website and reload when content changes.
 ```
 
 2. View the website at `http://localhost:3000`.
-
-If you would like to edit the contents of the [developer.fermyon.com](https://developer.fermyon.com/) website and contribute your changes, please visit the [Contributing to Docs](https://developer.fermyon.com/spin/contributing-docs) page.

@@ -45,7 +45,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/cloud-comman
 
 ## Spin Cloud Command
 
-Fermyon provides a [`cloud` plugin](https://github.com/fermyon/cloud-plugin) for the [Spin CLI](./cli-reference.md) for you to manage Spin applications in Fermyon Cloud. This page documents the `spin cloud` command. Specifically, all of the available options and subcommands. For more information on subcommand stability, see the [subcommands stability table](#subcommand-stability-table). You can reproduce the Spin Cloud command documentation on your machine by using the `--help` flag. For example:
+Fermyon provides a [`cloud` plugin](https://github.com/fermyon/cloud-plugin) for the [Spin CLI](https://spinframework.dev) for you to manage Spin applications in Fermyon Cloud. This page documents the `spin cloud` command. Specifically, all of the available options and subcommands. For more information on subcommand stability, see the [subcommands stability table](#subcommand-stability-table). You can reproduce the Spin Cloud command documentation on your machine by using the `--help` flag. For example:
 
 <!-- markdownlint-disable-next-line titlecase-rule -->
 ## spin cloud

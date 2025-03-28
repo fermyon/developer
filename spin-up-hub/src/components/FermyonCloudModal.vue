@@ -64,7 +64,7 @@ export default {
               <div class="container">
                 <div class="container-title">Before You Deploy</div>
                 <div class="container-info">
-                  You’ll need to install <a href="https://developer.fermyon.com/spin/v2/install" target="_blank">Spin</a> - our open source developer tool - and have a
+                  You’ll need to install <a href="https://spinframework.dev/v2/install" target="_blank">Spin</a> - our open source developer tool - and have a
                   <a href="https://cloud.fermyon.com/login" target="_blank">Fermyon Cloud</a> account (free) to deploy the application to.
                 </div>
                 <div class="section">

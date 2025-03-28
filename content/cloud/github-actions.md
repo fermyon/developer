@@ -27,8 +27,8 @@ In this tutorial, you'll create an application and deploy it from GitHub to Ferm
 ## Prerequisites 
 
 To ensure the tutorial goes smoothly, please check you have the following:
-* Spin 1.0 or above [installed](/spin/quickstart#install-spin). You can check the version using `spin --version`.
-* Spin templates [installed](/spin/quickstart#install-a-template). You can check with `spin templates list`.
+* Spin 1.0 or above [installed](https://spinframework.dev/quickstart#install-spin). You can check the version using `spin --version`.
+* Spin templates [installed](https://spinframework.dev/quickstart#install-a-template). You can check with `spin templates list`.
 * The [GitHub CLI](https://cli.github.com/manual/) installed.
 * A Fermyon Cloud account that is set up via your preferred [GitHub user account](https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email)
 
@@ -396,5 +396,5 @@ Congratulations on deploying your first Spin application using GitHub Actions!
 ## Next Steps
 
 - Learn more about the [Fermyon GitHub Actions](https://github.com/fermyon/actions) collection
-- To learn more about how to develop Spin applications, head over to the [Spin documentation](/spin/index)
+- To learn more about how to develop Spin applications, head over to the [Spin documentation](https://spinframework.dev/index)
 - Find known issues and file new ones in the [Fermyon Cloud Feedback repository](https://github.com/fermyon/feedback)

@@ -46,7 +46,7 @@ DeisLabs (at Microsoft) proposed Wagi based on the CGI 1.1 specification.
 
 - The architecture document is [in the Wagi server repo](https://github.com/deislabs/wagi/blob/main/docs/architecture.md)
 - The description of the [environment variables](https://github.com/deislabs/wagi/blob/main/docs/environment_variables.md)
-- Spin's [Wagi support](../spin/v2/http-trigger)
+- Spin's [Wagi support](https://spinframework.dev/v2/http-trigger)
 
 ## Spin Improvement Proposals (SIPs)
 
