@@ -64,8 +64,8 @@ To learn more about what feature support looks like for various programming lang
 
 ## Technical Frequently Asked Questions
 
-- **Q: Which regions is Fermyon Wasm Functions available in today?**
-  - In public preview, Fermyon Wasm Functions is available in US East, US West, EU Central, and EU West.
+- **Q: Where is Fermyon Wasm Functions available today?**
+  - Currently Fermyon Wasm Functions are deployed throughout North America and Europe, with larger geographic coverage coming soon.
 - **Q: How is user data structured in Fermyon Wasm Functions?**
   - Each user has an associated account (created implicitly with `spin aka login`), which serves as the primary entity for managing their resources. An account is linked to zero or more Spin applications, allowing flexibility in how users develop and deploy their workloads.
 - **Q: How are Spin applications managed within a Fermyon Wasm Functions account?**
