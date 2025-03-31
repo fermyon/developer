@@ -1062,8 +1062,8 @@ function scrollSideMenu() {
         let active = sidemenu.querySelector(".active");
         if (active) {
             active.parentElement.parentElement.parentElement.firstElementChild.checked = true;
-            active.parentElement.parentElement.classList.add("stay-open");
-            active.parentElement.parentElement.previousElementSibling.classList.add("stay-open");
+            active.parentElement?.parentElement?.classList.add("stay-open");
+            active.parentElement?.parentElement?.previousElementSibling?.classList.add("stay-open");
             active.scrollIntoView({
                 behavior: "auto",
                 block: "center",
