@@ -5,15 +5,11 @@
     <div class="columns">
 
         {{! This adds the sidebar }}
-        {{#if (active_project request.spin-path-info "/spin/" )}}
-        {{> spin_sidebar }}
-        {{else}}
         {{#if (active_project request.spin-path-info "/cloud/" )}}
         {{> cloud_sidebar }}
         {{else}}
         {{#if (active_project request.spin-path-info "/bartholomew/" )}}
         {{> bartholomew_sidebar }}
-        {{/if}}
         {{/if}}
         {{/if}}
         
