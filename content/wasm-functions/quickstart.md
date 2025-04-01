@@ -553,5 +553,5 @@ Congratulations, you've now deployed your first Spin application to _Fermyon Was
 ## Next Steps
 
 - Learn how to [list and inspect](./list-and-inspect) your Spin applications deployed to _Fermyon Wasm Functions_
-- Go and check out the [Key Value Store](./using-key-value-store) and [PostgreSQL](./querying-relational-database) tutorials
+- Go and check out the [Key Value Store](./using-key-value-store) and [PostgreSQL](./querying-postgresql) tutorials
 - Learn how to [delete your Spin application](delete)
