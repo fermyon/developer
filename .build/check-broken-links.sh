@@ -78,6 +78,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://docs.github.com/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/remembering-your-github-username-or-email'    \
     --exclude 'https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification'                                                        \
     --exclude 'https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template'                                                            \
+    --exclude 'https://x.com/fermyontech'                                                                                                                                                   \
     --exclude 'https://twitter.com/fermyontech'                                                                                                                                             \
     --exclude 'https://twitter.com/fermyontech/status/1641537393818738710'                                                                                                                  \
     --exclude 'https://www.godaddy.com'                                                                                                                                                     \
@@ -85,6 +86,9 @@ blc --recursive http://127.0.0.1:3000                                           
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://www.gnu.org/software/coreutils/'                                                                                                                                     \
+    --exclude 'https://techdocs.akamai.com/home'                                                                                                                                            \
+    --exclude 'https://techdocs.akamai.com/property-mgr/docs/welcome-prop-manager'                                                                                                          \
+    --exclude  'https://bsky.app/profile/fermyon.com'                                                                                                                                        \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
     --exclude 'https://dotnet.microsoft.com/en-us/download/dotnet/8.0'                                                                                                                      \
     --exclude 'https://www.developerweek.com/'                                                                                                                                              \
