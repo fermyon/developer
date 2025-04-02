@@ -37,7 +37,7 @@ In order to interact with Fermyon Wasm Functions (Login, Deploy, etc), you need 
 <!-- @selectiveCpy -->
 
 ```console
-$ spin plugin install --url https://fermyon-neutrino-artifacts-public.s3.amazonaws.com/plugin/aka.json
+$ spin plugin install aka
 ```
 
 If you've previously installed the `aka` plugin, take a moment to upgrade it to ensure compatibility with the latest features and fixes. To upgrade, run:
@@ -46,7 +46,7 @@ If you've previously installed the `aka` plugin, take a moment to upgrade it to 
 
 ```console
 $ spin plugins update
-$ spin plugins upgrade --url https://fermyon-neutrino-artifacts-public.s3.amazonaws.com/plugin/aka.json
+$ spin plugins upgrade aka
 ```
 
 You can learn more about managing Spin plugins in [this article](../spin/v3/managing-plugins.md).

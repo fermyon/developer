@@ -88,7 +88,7 @@ In order to interact with Fermyon Wasm Functions (Login, Deploy, etc), you need 
 <!-- @selectiveCpy -->
 
 ```
-$ spin plugin install --url https://fermyon-neutrino-artifacts-public.s3.amazonaws.com/plugin/aka.json
+$ spin plugin install aka
 ```
 
 ## Install Language Specific Tooling
