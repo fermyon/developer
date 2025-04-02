@@ -140,26 +140,6 @@ component = "serverless-ai"
 route = "/cloud/serverless-ai"
 
 [[trigger.http]]
-id = "trigger-spin-version-proxy"
-component = "spin-version-proxy"
-route = "/spin/..."
-
-[[trigger.http]]
-id = "trigger-bartholomew-spin-v1"
-component = "bartholomew-spin-v1"
-route = "/spin/v1/..."
-
-[[trigger.http]]
-id = "trigger-bartholomew-spin-v2"
-component = "bartholomew-spin-v2"
-route = "/spin/v2/..."
-
-[[trigger.http]]
-id = "trigger-bartholomew-spin-v3"
-component = "bartholomew-spin-v3"
-route = "/spin/v3/..."
-
-[[trigger.http]]
 id = "trigger-redirect-wasm-langs-root"
 component = "redirect-wasm-langs-root"
 route = "/wasm-languages/"
@@ -183,6 +163,11 @@ route = "/spin/v2/kubernetes-sidecars"
 id = "trigger-spin-kubernetes-known-issues"
 component = "redirect-spin-kubernetes-known-issues"
 route = "/spin/v2/kubernetes-known-issues"
+
+[[trigger.http]]
+id = "trigger-spin-redirect-spin-to-spinframework"
+component = "redirect-spin-to-spinframework"
+route = "/spin/..."
 
 [component.bartholomew]
 # Using build from bartholomew main
@@ -220,87 +205,87 @@ environment = { DESTINATION = "/bartholomew/index" }
 # Redirect /spin/rust-components/http-trigger to /spin/http-trigger
 [component.redirect-spin-rust-components-http-trigger]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/http-trigger" }
+environment = { DESTINATION = "https://spinframework.dev/http-trigger" }
 
 # Redirect /spin/contributing/extending-and-embedding to /spin/extending-and-embedding
 [component.spin-contributing-extending-and-embedding]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/extending-and-embedding" }
+environment = { DESTINATION = "https://spinframework.dev/extending-and-embedding" }
 
 # Redirect /spin/rust-components/redis-trigger to /spin/redis-trigger
 [component.spin-rust-components-redis-trigger]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/redis-trigger" }
+environment = { DESTINATION = "https://spinframework.dev/redis-trigger" }
 
 # Redirect /spin/configuration to /spin/writing-apps
 [component.spin-configuration]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/writing-apps" }
+environment = { DESTINATION = "https://spinframework.dev/writing-apps" }
 
 # Redirect /spin/configuration/http-trigger to /spin/http-trigger
 [component.spin-configuration-http-trigger]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/http-trigger" }
+environment = { DESTINATION = "https://spinframework.dev/http-trigger" }
 
 # Redirect /spin/configuration/redis-trigger to /spin/redis-trigger
 [component.spin-configuration-redis-trigger]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/redis-trigger" }
+environment = { DESTINATION = "https://spinframework.dev/redis-trigger" }
 
 # Redirect /spin/quickstart/developing to /spin/quickstart
 [component.spin-quickstart-developing]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/quickstart" }
+environment = { DESTINATION = "https://spinframework.dev/quickstart" }
 
 # Redirect /spin/quickstart/configuration to /spin/writing-apps
 [component.spin-quickstart-configuration]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/writing-apps" }
+environment = { DESTINATION = "https://spinframework.dev/writing-apps" }
 
 # Redirect /spin/quickstart/install to /spin/install
 [component.spin-quickstart-install]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/install" }
+environment = { DESTINATION = "https://spinframework.dev/install" }
 
 # Redirect /spin/quickstart/go-components to /spin/go-components
 [component.spin-quickstart-go-components]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/go-components" }
+environment = { DESTINATION = "https://spinframework.dev/go-components" }
 
 # Redirect /spin/quickstart/rust-components to /spin/rust-components
 [component.spin-quickstart-rust-components]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/rust-components" }
+environment = { DESTINATION = "https://spinframework.dev/rust-components" }
 
 # Redirect /spin/contributing/ to spin/contributing-spin
 [component.spin-contributing]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/contributing-spin" }
+environment = { DESTINATION = "https://spinframework.dev/contributing-spin" }
 
 # Redirect /spin/kv-store/ to spin/key-value-store-tutorial
 [component.spin-kv-store-tutorial]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/kv-store-tutorial" }
+environment = { DESTINATION = "https://spinframework.dev/kv-store-tutorial" }
 
 # Redirecting from common to spin incase someone had it bookmarked before removal of common
 [component.redirect-contributing-common-to-spin]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/cli-reference" }
+environment = { DESTINATION = "https://spinframework.dev/cli-reference" }
 
 # Redirect /spin/kubernetes-dynamic-configuration to /spin/kubernetes
 [component.redirect-spin-kubernetes-dynamic-configuration]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" }
+environment = { DESTINATION = "https://spinframework.dev/kubernetes" }
 
-# Redirect /spin/kubernetes-sidecars  to /spin/kubernetes
+# Redirect /spin/kubernetes-sidecars to /spin/kubernetes
 [component.redirect-spin-kubernetes-sidecars]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" }
+environment = { DESTINATION = "https://spinframework.dev/kubernetes" }
 
-# Redirect /spin/kubernetes-known-issues  to /spin/kubernetes
+# Redirect /spin/kubernetes-known-issues to /spin/kubernetes
 [component.redirect-spin-kubernetes-known-issues]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/kubernetes" }
+environment = { DESTINATION = "https://spinframework.dev/kubernetes" }
 
 [component.hub-fileserver-static]
 source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
@@ -314,27 +299,27 @@ workdir = "spin-up-hub"
 # Redirect /spin/spin-oci to /spin/registry-tutorial
 [component.registry-tutorial]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/registry-tutorial" }
+environment = { DESTINATION = "https://spinframework.dev/registry-tutorial" }
 
 # Redirect /spin/url-shortener to /spin/url-shortener-tutorial
 [component.url-shortener-tutorial]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/url-shortener-tutorial" }
+environment = { DESTINATION = "https://spinframework.dev/url-shortener-tutorial" }
 
 # Redirect /spin/kv-store-tutorial to /spin/key-value-store-tutorial
 [component.key-value-store-tutorial]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/key-value-store-tutorial" }
+environment = { DESTINATION = "https://spinframework.dev/key-value-store-tutorial" }
 
 # Redirect /spin/serverless-ai-tutorial to /spin/ai-sentiment-analysis-api-tutorial
 [component.ai-sentiment-analysis-api-tutorial]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/ai-sentiment-analysis-api-tutorial" }
+environment = { DESTINATION = "https://spinframework.dev/ai-sentiment-analysis-api-tutorial" }
 
 # Redirect /cloud/serverless-ai to /spin/serverless-ai-hello-world
 [component.serverless-ai]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://developer.fermyon.com/spin/serverless-ai-hello-world.md" }
+environment = { DESTINATION = "https://spinframework.dev/serverless-ai-hello-world.md" }
 
 # Redirect /wasm-languages to /wasm-languages/webassembly-language-support
 [component.redirect-wasm-langs-root]
@@ -346,40 +331,7 @@ environment = { DESTINATION = "/wasm-languages/webassembly-language-support" }
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "/wasm-functions/index" }
 
-# Component to give us clean versioned URLs for spin from the root
-[component.spin-version-proxy]
-source = "modules/spin-redirecter.wasm"
-variables = { latest_spin_version = "v3" }
-files = ["spin-redirect.json"]
-exclude_files = ["**/node_modules"]
-allowed_outbound_hosts = ["http://self"]
-# Need to modify action to get the js2wasm plugin
-# [component.build]
-# workdir = "spin-redirecter"
-# command = "npm install && npm run build"
-
-[component.bartholomew-spin-v1]
-# Using build from bartholomew main
-source = "modules/bartholomew.wasm"
-environment = { PREVIEW_MODE = "0" }
-files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
-
-[component.bartholomew-spin-v1.build]
-command = "npm run build-index && npm run build-hub-index"
-watch = ["content/**/*", "templates/*"]
-
-[component.bartholomew-spin-v2]
-# Using build from bartholomew main
-source = "modules/bartholomew.wasm"
-environment = { PREVIEW_MODE = "0" }
-files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
-
-[component.bartholomew-spin-v2.build]
-command = "npm run build-index && npm run build-hub-index"
-watch = ["content/**/*", "templates/*"]
-
-[component.bartholomew-spin-v3]
-# Using build from bartholomew main
-source = "modules/bartholomew.wasm"
-environment = { PREVIEW_MODE = "0" }
-files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
+# Redirect /spin/...  to spinframework.dev/...
+[component.redirect-spin-to-spinframework]
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://spinframework.dev" }
