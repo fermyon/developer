@@ -14,7 +14,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/variables.md
 
 Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
 
-These variables are defined in a Spin application manifest (in the `[variables]` section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables. You can refer to the [dynamic configuration documentation](/spin/dynamic-configuration.md) to learn how to configure variables locally. In Fermyon Cloud, you can set and update variables for Spin applications using the [`spin cloud variables`](/cloud/cloud-command-reference.md#spin-cloud-variables) command.
+These variables are defined in a Spin application manifest (in the `[variables]` section) and are provided by a configuration provider. When using Spin locally, the configuration provider can be Vault for secrets or host environment variables. You can refer to the [dynamic configuration documentation](https://spinframework.dev/dynamic-configuration.md) to learn how to configure variables locally. In Fermyon Cloud, you can set and update variables for Spin applications using the [`spin cloud variables`](/cloud/cloud-command-reference.md#spin-cloud-variables) command.
 
 This tutorial will guide you through the process of creating a simple application that validates passwords. If you prefer to learn through video, you can follow along with this recording.
 
@@ -32,7 +32,7 @@ python3 --version
 
 If you do not have Python 3.10 or later, you can install it by following the instructions [here](https://www.python.org/downloads/).
 
-Since this example is written in Python, make sure you have the required tools installed to write Spin applications in Python. The Spin CLI facilitates the creation of new Spin applications using application [templates](/cloud/cli-reference#templates). In this tutorial, we will use the `http-py` template that provides a `requirements.txt` file to handle dependencies:
+Since this example is written in Python, make sure you have the required tools installed to write Spin applications in Python. The Spin CLI facilitates the creation of new Spin applications using application [templates](https://spinframework.dev/managing-templates). In this tutorial, we will use the `http-py` template that provides a `requirements.txt` file to handle dependencies:
 
 <!-- @selectiveCpy -->
 
@@ -190,7 +190,7 @@ class IncomingHandler(IncomingHandler):
             bytes(response, "utf-8"))
 ```
 
-Build and run the application locally to test it out. We will use the [environment variable provider](/spin/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_VARIABLE_`:
+Build and run the application locally to test it out. We will use the [environment variable provider](https://spinframework.dev/dynamic-configuration.md#environment-variable-provider) to set the variable values locally. The provider gets the variable values from the `spin` process's environment, searching for environment variables prefixed with `SPIN_VARIABLE_`:
 
 <!-- @selectiveCpy -->
 
@@ -258,4 +258,4 @@ $ spin cloud variables list --app "pw_checker"
 
 Congratulations 🎉! You've built and deployed your first dynamically configurable Spin application.
 
-If you want to do more with your Spin applications, check out tutorials on persisting data in Fermyon Cloud, whether with the [built-in key/value service](/spin/key-value-store-tutorial.md), [Redis](/cloud/data-redis.md), or [PostgreSQL](/cloud/data-postgres.md).
+If you want to do more with your Spin applications, check out tutorials on persisting data in Fermyon Cloud, whether with the [built-in key/value service](https://spinframework.dev/key-value-store-tutorial.md), [Redis](/cloud/data-redis.md), or [PostgreSQL](/cloud/data-postgres.md).

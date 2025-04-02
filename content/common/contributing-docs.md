@@ -1,9 +1,8 @@
 title = "Contributing to Docs"
-template = "spin_main"
-date = "2022-01-01T00:00:01Z"
+template = "common_main"
+date = "2023-11-04T00:00:01Z"
 [extra]
-canonical_url = "https://spinframework.dev/v2/contributing-docs"
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/contributing-docs.md"
+url = "https://github.com/fermyon/developer/blob/main/content/common/contributing-docs.md"
 keywords = "contribute contributing"
 
 ---
@@ -28,6 +27,7 @@ keywords = "contribute contributing"
   - [6.5 How To Properly Edit CSS Styles](#65-how-to-properly-edit-css-styles)
   - [6.6 Checking Your Content - Using Bartholomew's CLI](#66-checking-your-content---using-bartholomews-cli)
   - [6.7 Checking Your Content - Preview a Documentation Page on Localhost](#67-checking-your-content---preview-a-documentation-page-on-localhost)
+  - [6.8 Scheduling Menu Items for Timed Release](#68-scheduling-menu-items-for-timed-release)
   - [7. Checking Web Pages](#7-checking-web-pages)
   - [8. Add Changes](#8-add-changes)
   - [9. Commit Changes](#9-commit-changes)
@@ -54,7 +54,7 @@ How-to guides are oriented towards showing a user how to solve a problem, which 
 
 ### 3. Reference
 
-Reference resources are merely a dry description; describing the feature in its simplest form. A great example of a reference resource is the [Spin CLI Reference page](https://spinframework.dev/cli-reference). You will notice that the CLI Reference page simply lists all of the commands and available options.
+Reference resources are merely a dry description; describing the feature in its simplest form. An example of a reference resource is the [Spin application manifest reference](https://spinframework.dev/manifest-reference). You will notice that the Manifest Reference page simply lists all of the manifest entries and available options.
 
 ### 4. Explanation
 
@@ -85,15 +85,15 @@ body_source = "<path to the content>"
 
 ```
 
-The value for the `body_source` key, should be the path from which the content is being shared (relative to the repository's `content` folder). For example if the Spin project's `developer/content/spin/contributing-docs.md` holds the sharable content (as the single source of truth), then the Cloud project can display that same content by using the following frontmatter:
+The value for the `body_source` key, should be the path from which the content is being shared (relative to the repository's `content` folder). For example if the Spin project's `developer/content/common/contributing-docs.md` holds the sharable content (as the single source of truth), then the Cloud project can display that same content by using the following frontmatter:
 
 <!-- @nocpy -->
 
 ```toml
 title = "Contributing to Docs"
 template = "cloud_main"
-date = "2022-01-01T00:00:01Z"
-body_source = "/spin/contributing-docs"
+date = "2023-11-04T00:00:01Z"
+body_source = "/common/contributing-docs"
 
 [extra]
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/contributing-docs.md"
@@ -102,7 +102,7 @@ keywords = "contribute contributing"
 ---
 ```
 
-> Note: the `body_source = "/spin/contributing-docs"` part of the frontmatter does not need to include the `.md` file extention (as is also the case when hyperlinking via markdown anywhere in a developer documentation file's body).
+> Note: the `body_source = "/spin/contributing-docs"` part of the frontmatter does not need to include the `.md` file extension (as is also the case when hyperlinking via markdown anywhere in a developer documentation file's body).
 
 ## Technical Documentation Procedure (Video)
 
@@ -175,9 +175,23 @@ hello
 
 The no copy annotation (`<!-- @nocpy -->`) precedes a code block where no copy and pasting of code is intended. If using the no copy attribute please still be sure to add the appropriate syntax highlighting to your code block (for display purposes). For example:
 
-`<!-- @nocpy -->`
+![No Copy Source Code Example](/static/image/no-copy-source-code-example.png)
 
-```bash
+Please find copyable snippet below, for your convenience:
+
+````
+<!-- @nocpy -->
+
+```text
+Some generic code not intended for copying/pasting
+```
+````
+
+The above markdown will render the following code block on the web page:
+
+<!-- @nocpy -->
+
+```text
 Some generic code not intended for copying/pasting
 ```
 
@@ -187,7 +201,7 @@ If you want the code in a code block to be copyable with no "smarts" to remove t
 
 **Multi-tab code blocks**
 
-Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin](https://spinframework.dev/install#installing-spin) installer documentation and [Spin Key/Value documentation](https://spinframework.dev/key-value-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
+Multi-tab code blocks [have recently been implemented](https://github.com/fermyon/developer/pull/239). Examples can be seen in the [Spin installer documentation](https://spinframework.dev/install#installing-spin) and [Spin Key/Value documentation](https://spinframework.dev/key-value-store-tutorial#the-spin-toml-file). The above examples demonstrate how tabs can either represent platforms i.e. `Windows`, `Linux` and `macOS` or represent specific programming languages i.e. `Rust`, `JavaScript` and `Golang` etc. Here is a brief example of how to implement multi-tab code blocks when writing technical documentation for this site, using markdown.
 
 The first step to implementing multi-tab code blocks is placing the `enable_shortcodes = true` configuration at the start of the `.md` file. Specifically, in the `.md` file's frontmatter.
 
@@ -282,15 +296,25 @@ If you create content with many headings it is highly recommended to place a ToC
 
 Once you are satisfied with your contribution, you can programmatically check your content.
 
-If you have not done so already, please go ahead and perform the `npm install` command; to enable Node dependencies such as `markdownlint-cli2`. Simply run the following command, from the root of the developer repository:
+If you have not done so already, please go ahead and perform the `npm ci` (npm clean install) command; to enable Node dependencies such as `markdownlint-cli2`. Simply run the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ npm install
+$ npm ci
 ```
 
-With all Node dependencies installed, you can now check for broken links (which takes several minutes) and also lint your markdown files. Simply run the following command, from the root of the developer repository:
+On top of the Node dependencies the `timeout` executable must be installed on your system and added to the `PATH` environment variable. The `timeout` executable is included in the [gnu coreutils package](https://www.gnu.org/software/coreutils/) which should be present in most Linux distributions. 
+
+On macOS you can install the `timeout` binary using the Homebrew package manager as shown below:
+
+<!-- @selectiveCpy -->
+
+```bash
+$ brew install coreutils
+```
+
+Having all dependencies installed, you can now check for broken links (which takes several minutes) and also lint your markdown files. Simply run the following command, from the root of the developer repository:
 
 <!-- @selectiveCpy -->
 
@@ -360,7 +384,7 @@ If you create a new markdown file and/or you notice a file without the explicit 
 
 ```
 [extra]
-url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/contributing-docs.md"
+url = "https://github.com/fermyon/developer/blob/main/content/cloud/contributing-docs.md"
 ```
 
 ### 6.5 How To Properly Edit CSS Styles
@@ -432,15 +456,29 @@ You can host your changes to the developer documentation on your own machine (lo
 <!-- @selectiveCpy -->
 
 ```bash
-$ npm install
+$ npm ci
 $ cd spin-up-hub
-$ npm install
+$ npm ci
 $ cd ..
 $ spin build
 $ spin up -e "PREVIEW_MODE=1"
 ```
 
-> Please note: using the `PREVIEW_MODE=1` as part of a `spin` command is safe on localhost and allows you to view content (even if the `date` setting in the content's `.md` is set to a future date). It is often the case that you will be checking content before the publishing date via your system. The developer documentation's manifest file `spin.toml` has the `PREVIEW_MODE` set to `0` i.e. `environment = { PREVIEW_MODE = "0" }`. This `spin.toml` file is correct for a production environment and should always be `0` (so that the CMS adheres to the publishing `date` setting for content on the public site). Simply put, you can use `PREVIEW_MODE=1` safely in your command line on your locahost but you should never update the `spin.toml` file (in this regard).
+> Please note: using the `PREVIEW_MODE=1` as part of a `spin` command is safe on localhost and allows you to view the content (even if the `date` setting in the content's `.md` is set to a future date). It is often the case that you will be checking content before the publishing date via your system. The developer documentation's manifest file `spin.toml` has the `PREVIEW_MODE` set to `0` i.e. `environment = { PREVIEW_MODE = "0" }`. This `spin.toml` file is correct for a production environment and should always be `0` (so that the CMS adheres to the publishing `date` setting for content on the public site). Simply put, you can use `PREVIEW_MODE=1` safely in your command line on your localhost but you should never update the `spin.toml` file (in this regard).
+
+### 6.8 Scheduling Menu Items for Timed Release
+
+As mentioned above, all pages (`.md` files) in the documentation have a UTC date i.e. `date = "2023-07-25T17:26:00Z"`. The `date` is a page scheduling mechanism whereby each page is only displayed if the `date` has elapsed. Menu items (found in the `/developer/templates/*.hbs` files) that relate to a scheduled page can also be scheduled (so the specific menu item and its associated page appear at the same time). Simply envelope the menu item with the following `if` syntax to synchronize the appearance of the menu item with the related page:
+
+<!-- @nocpy -->
+
+```
+{{#if (timed_publish "2023-07-25T17:26:00Z" env.PREVIEW_MODE)}}
+    // Scheduled menu item for timed release
+{{/if}}
+```
+
+> In order to keep the code tidy and readable it is advised to remove the `if` logic (from the `.hbs` file) that wraps the content, once the `timed_publish` has elapsed.
 
 ### 7. Checking Web Pages
 
@@ -449,16 +487,18 @@ The `bart check` command can be used to check the content. Simply pass in the co
 <!-- @selectiveCpy -->
 
 ```bash
-$ bart check --shortcodes ./shortcodes content/spin/variables.md
+$ bart check --shortcodes ./shortcodes content/cloud/develop.md
 shortcodes: registering alert
+shortcodes: registering suh_cards
 shortcodes: registering details
 shortcodes: registering tabs
 shortcodes: registering startTab
+shortcodes: registering card_element
 shortcodes: registering blockEnd
-✅ content/spin/variables.md
+✅ content/cloud/develop.md
 ```
 
-> Note: `using a wildcard `*` will check a whole directory via a single command. For example, running `bart check --shortcodes ./shortcodes content/spin/*` will check all markdown files in the Spin project's documentation section.
+> Note: `using a wildcard `*` will check a whole directory via a single command. For example, running `bart check --shortcodes ./shortcodes content/cloud/*` will check all markdown files in the Spin project's documentation section.
 
 ### 8. Add Changes
 
@@ -474,7 +514,9 @@ $ git add
 
 ### 9. Commit Changes
 
-Before committing, please ensure that your GitHub installation is configured sufficiently so that you can `--signoff` as part of the `git commit` command. For example, please ensure that the `user.name` and `user.email` are configured in your terminal. You can check if these are set by typing `git config --list`.
+All commits must be signed off *and* GPG-signed with a GitHub verification key. The rest of this section is primarily for contributors not familiar with signing, and describes how to configure signing, and how to sign commits.
+
+First, ensure that your Git installation is configured sufficiently so that you can `--signoff` as part of the `git commit` command. Typically, you need the `user.name` and `user.email` to be configured in your Git session. You can check if these are set by typing `git config --list`.
 
 If you need to set these values please use the following commands:
 
@@ -489,9 +531,9 @@ $ git config user.name "yourusername"
 $ git config user.email "youremail@somemail.com"
 ```
 
-More information can be found at this GitHub documentation page called [signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
+You must also set up a GPG verification key on your GitHub account, and add this to your Git settings.  For more information about setting up a GPG verification key, see GitHub's documentation about [adding a GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account) and [telling your Git client about your GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
 
-Type the following commit command to ensure that you sign off (--signoff), sign the data (-S) - recommended, and also leave a short message (-m):
+With all this set up, type the following commit command, which both _signs off_ (--signoff) and _cryptographically signs_ the data (-S), and leaves a short commit message (-m):
 
 <!-- @selectiveCpy -->
 
@@ -499,7 +541,7 @@ Type the following commit command to ensure that you sign off (--signoff), sign 
 $ git commit -S --signoff -m "Updating documentation"
 ```
 
-> Note: the `--signoff` option will only add a Signed-off-by trailer by the committer at the end of the commit log message. In addition to this, it is recommended that you use the `-S` option which will GPG-sign your commits. For more information about using GPG in GitHub see [this GitHub documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
+> Note: the `--signoff` option only adds a Signed-off-by trailer by the committer at the end of the commit log message. You must also use the `-S` option which will GPG-sign your commits. For more information about GPG-signing commits see [the GitHub documentation page for signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 
 ### 10. Push Changes
 

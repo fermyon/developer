@@ -64,11 +64,11 @@ First, you need to have `spin` CLI installed on your computer. Please use the of
 
 ## Using Spin Application Templates
 
-The `spin` CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](/spin/v3/managing-templates). The template we are interested in, for this tutorial, is the `http-js` template.
+The `spin` CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](https://spinframework.dev/v3/managing-templates). The template we are interested in, for this tutorial, is the `http-js` template.
 
 ## Creating Our New Spin Application
 
-The official `spin` CLI documentation also has instructions on how to [create a new Spin application](/spin/v3/writing-apps#creating-an-application-from-a-template), from an existing template. Using the docs as a reference, we can create a new Spin application based on the `http-js` template, move into the application directory and install its dependencies as shown here:
+The official `spin` CLI documentation also has instructions on how to [create a new Spin application](https://spinframework.dev/v3/writing-apps#creating-an-application-from-a-template), from an existing template. Using the docs as a reference, we can create a new Spin application based on the `http-js` template, move into the application directory and install its dependencies as shown here:
 
 <!-- @selectiveCpy -->
 
@@ -82,7 +82,7 @@ $ npm install
 
 ## Configuration
 
-Open the Spin application's `spin.toml` file, add an application variable and link it to the `hello-postgresql` component. This allows modifying the connection string for PostgreSQL without changing the actual source code. Consult the Spin documentation to learn more about [using variables in Spin](/spin/v3/variables).
+Open the Spin application's `spin.toml` file, add an application variable and link it to the `hello-postgresql` component. This allows modifying the connection string for PostgreSQL without changing the actual source code. Consult the Spin documentation to learn more about [using variables in Spin](https://spinframework.dev/v3/variables).
 
 <!-- @nocpy -->
 

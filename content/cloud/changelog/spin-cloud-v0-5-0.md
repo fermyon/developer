@@ -14,7 +14,7 @@ image = "/static/image/changelog/spin-cloud-0.5.0.jpg"
 
 We’re excited to announce the v0.5.0 release of the `spin cloud` plugin. Some notable improvements over the last minor update include: 
 
-- Support for component model on Fermyon Cloud! Simply use [Spin 2.0’s application manifest](../../spin/v2/manifest-reference) and run `spin cloud deploy` to deploy your component model enlightened Spin application to Fermyon Cloud. You can learn more about the many benefits of the component model (polyglot, performance, & portability, to name a few) with [our latest blog post](https://www.fermyon.com/blog/index).
+- Support for component model on Fermyon Cloud! Simply use [Spin 2.0’s application manifest](https://spinframework.dev/v2/manifest-reference) and run `spin cloud deploy` to deploy your component model enlightened Spin application to Fermyon Cloud. You can learn more about the many benefits of the component model (polyglot, performance, & portability, to name a few) with [our latest blog post](https://www.fermyon.com/blog/index).
 - `spin cloud logs` allows you to stream logs produced by your Spin application of choice running on Fermyon Cloud.
 
 Also, please note, there is a slight rewording in the help commands of `spin cloud`'s help text:
@@ -24,5 +24,5 @@ Also, please note, there is a slight rewording in the help commands of `spin clo
 **References**
 
 - [Spin 2.0 blog post](https://www.fermyon.com/blog/index)
-- [Spin 2.0 quickstart guide](../../spin/v2/quickstart)
+- [Spin 2.0 quickstart guide](https://spinframework.dev/v2/quickstart)
 - [Spin Cloud Plugin Reference Documentation](/cloud/cloud-command-reference)

@@ -12,7 +12,7 @@ enable_shortcodes = true
   - [Specifying Variables](#specifying-variables)
 - [Next Steps](#next-steps)
 
-This article will guide you through deploying a Spin Application to _Fermyon Wasm Functions_. You can deploy your [Spin App](/spin) in just a few steps.
+This article will guide you through deploying a Spin Application to _Fermyon Wasm Functions_. You can deploy your [Spin App](https://spinframework.dev) in just a few steps.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ $ spin plugins update
 $ spin plugins upgrade aka
 ```
 
-You can learn more about managing Spin plugins in [this article](../spin/v3/managing-plugins.md).
+You can learn more about managing Spin plugins in [this article](https://spinframework.dev/v3/managing-plugins.md).
 
 ## Log in to Fermyon Wasm Functions
 
@@ -93,7 +93,7 @@ View application:   https://c8769081-7ae5-4041-a10f-61d344a67da2.aka.fermyon.tec
 
 ### Specifying Variables
 
-Spin supports [application variables](/spin/variables). Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more.
+Spin supports [application variables](https://spinframework.dev/variables). Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more.
 
 For example, consider a Spin application with the following variable declaration as part of the application manifest (`spin.toml`):
 

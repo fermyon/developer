@@ -17,7 +17,7 @@ Many Spin applications require data storage between invocations. Fermyon Cloud o
 
 To facilitate the seamless transition of applications between different environments, such as from a local development environment to Fermyon Cloud, Spin applications don't reference databases by their physical location, like a connection string. Instead, they use a label. A label is an abstract identifier, such as "default," "user-accounts," or "transactions." The environment determines how this label is mapped to a physical database.
 
-In the Spin development environment, that mapping is handled by the [runtime configuration file](/spin/dynamic-configuration#runtime-configuration).  In Fermyon Cloud, it's managed through _links_.
+In the Spin development environment, that mapping is handled by the [runtime configuration file](https://spinframework.dev/dynamic-configuration#runtime-configuration).  In Fermyon Cloud, it's managed through _links_.
 
 > Link management is currently available for SQLite Databases and Key Value Stores. In this article, we will showcase SQLite Databases, although you can apply the same concepts to Key Value Stores as well. 
 
@@ -209,5 +209,5 @@ If you delete a Fermyon Cloud application, it removes any links associated with 
 ## Next Steps
 
 * Review the [SQLite Database Tutorial](noops-sql-db.md) to learn how to use links and labels with your SQLite Database
-* Review the [Key Value Store Tutorial](../spin/v2/key-value-store-tutorial.md)
+* Review the [Key Value Store Tutorial](https://spinframework.dev/v2/key-value-store-tutorial.md)
 * Visit the [Spin Cloud Plugin](cloud-command-reference.md) reference article to learn more about the `spin cloud link sqlite` commands
