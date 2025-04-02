@@ -11,7 +11,7 @@ enable_shortcodes = true
   - [Deploy Spin Application to Fermyon Wasm Functions](#deploy-spin-application-to-fermyon-wasm-functions)
 - [Creating a Cron Job for Your Spin Application](#creating-a-cron-job-for-your-spin-application)
 - [Managing Cron Jobs](#managing-cron-jobs)
-- [Delete Cron Job](#delete-cron-job)
+- [Delete a Cron Job](#delete-cron-job)
 - [Next Steps](#next-steps)
   
 This tutorial guides you through the process of scheduling HTTP requests in a Spin application running on Fermyon Wasm Functions using cron jobs. The `spin aka crons` command allows applications to receive scheduled HTTP triggers without relying on external services. In this tutorial, you'll learn how to define and manage cron jobs using the `spin aka crons` command.
@@ -34,9 +34,9 @@ Use Cases for Cron Jobs:
 * Log file rotation
 * Scheduled notifications
 
-# Create Spin application 
+# Create a Spin Application 
 
-You must have a running Spin application on Fermyon Wasm Functions to apply the cron trigger to. We'll create a new Spin application for scheduling tasks using cron jobs using the `http-js` template:
+You must have a running Spin application on Fermyon Wasm Functions to associate a cron job with. We'll create a new Spin application using the `http-js` template which we will then invoke on a schedule using a cron job:
 
 <!-- @selectiveCpy -->
 
@@ -126,7 +126,7 @@ Hello from a cron component at 2025-04-02T03:16:14.212Z%
 
 # Creating a Cron Job for Your Spin Application
 
-Now we will use the `spin aka crons` command to invoke the Spin app's HTTP endpoint at our desired interval. The syntax for this request follows standard crontab format.
+Now we will use the `spin aka crons` command to invoke the Spin app's HTTP endpoint on our desired schedule. The syntax for this request follows standard crontab format.
 
 > `spin aka cron` supports single digits in each cron expression field and intervals in every position except the day of the week (e.g., `* */12 * * *` for every 12 hours). The smallest supported cron configuration is every 5 minutes (`*/5 * * * *`). Other syntax elements like comma-separated lists and ranges are not supported. Please feel free to[leave feedback](https://fibsu0jcu2g.typeform.com/to/G2u4tPcP) if your desired range is not supported. 
 
