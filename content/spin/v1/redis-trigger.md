@@ -112,7 +112,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/fermyon/spin/sdk/go/redis"
+	"github.com/spinframework/spin/sdk/go/redis"
 )
 
 func init() {

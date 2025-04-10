@@ -89,7 +89,7 @@ component = "user-manager"
 ### Resolving Overlapping Routes
 
 If multiple triggers could potentially handle the same request based on their
-defined routes, the trigger whose route has the longest matching prefix 
+defined routes, the trigger whose route has the longest matching prefix
 takes precedence.  This also means that exact matches take precedence over wildcard matches.
 
 In the following example, requests starting with the  `/users/` prefix (e.g. `/users/1`)
@@ -302,7 +302,7 @@ class IncomingHandler(http.IncomingHandler):
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/http)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2@v2.0.0/http)
 
 In Go, you register the handler as a callback in your program's `init` function.  Call `spinhttp.Handle`, passing your handler as the sole argument.  Your handler takes a `http.Request` record, from the standard `net/http` package, and a `ResponseWriter` to construct the response.
 
@@ -313,7 +313,7 @@ import (
         "fmt"
         "net/http"
 
-        spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+        spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
 )
 
 func init() {

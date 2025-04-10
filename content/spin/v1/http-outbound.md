@@ -111,11 +111,11 @@ You can find a complete example for using outbound HTTP in the [Python SDK repos
 
 {{ startTab "TinyGo"}}
 
-HTTP functions are available in the `github.com/fermyon/spin/sdk/go/http` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/http). The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations. For example:
+HTTP functions are available in the `github.com/spinframework/spin/sdk/go/http` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/http). The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations. For example:
 
 ```go
 import (
-	spinhttp "github.com/fermyon/spin/sdk/go/http"
+	spinhttp "github.com/spinframework/spin/sdk/go/http"
 )
 
 res1, err1 := spinhttp.Get("https://random-data-api.fermyon.app/animals/json")

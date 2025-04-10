@@ -153,7 +153,7 @@ Once the build commands are set up, running `spin build` will execute, sequentia
 $ spin build
 Building component hello with `cargo build --target wasm32-wasi --release`
     Updating crates.io index
-    Updating git repository `https://github.com/fermyon/spin`
+    Updating git repository `https://github.com/spinframework/spin`
 
     //--snip--
 

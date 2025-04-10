@@ -85,7 +85,7 @@ This page contains information about language support for Spin features:
 
 {{ startTab "TinyGo"}}
 
-**[📄 Visit the TinyGo Spin SDK reference documentation](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2) to see specific modules, functions, variables and syntax relating to the following TinyGo SDK.**
+**[📄 Visit the TinyGo Spin SDK reference documentation](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2) to see specific modules, functions, variables and syntax relating to the following TinyGo SDK.**
 
 | Feature | SDK Supported? |
 |-----|-----|

@@ -402,7 +402,7 @@ Now let's have a look at the code. Below is the complete source
 code for a Spin HTTP component written in TypeScript — A function is attached to the fetch event listener which receives and responds to the HTTP request.
 
 ```javascript
-❯ cat hello-world/src/index.ts 
+❯ cat hello-world/src/index.ts
 import { AutoRouter } from 'itty-router';
 
 let router = AutoRouter();
@@ -501,7 +501,7 @@ The `requirements.txt`, by default, contains the references to the `spin-sdk` an
 <!-- @selectiveCpy -->
 
 ```bash
-$ pip3 install -r requirements.txt 
+$ pip3 install -r requirements.txt
 Collecting spin-sdk==3.1.0 (from -r requirements.txt (line 1))
   Using cached spin_sdk-3.1.0-py3-none-any.whl.metadata (16 kB)
 Collecting componentize-py==0.13.3 (from -r requirements.txt (line 2))
@@ -521,7 +521,7 @@ The `hello-python` directory structure created by the Spin `http-py` template is
 ```text
 ├── app.py
 ├── spin.toml
-└── requirements.txt 
+└── requirements.txt
 ```
 
 The additional `spin.toml` file is the manifest file, which tells Spin what events should trigger what components.  In this case our trigger is HTTP, for a Web application, and we have only one component, at the route `/...`.  This is a wildcard that matches any route.
@@ -652,7 +652,7 @@ import (
         "fmt"
         "net/http"
 
-        spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+        spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
 )
 
 func init() {
@@ -684,7 +684,7 @@ Executing the build command for component hello-rust: cargo build --target wasm3
    Compiling anyhow v1.0.69
    Compiling version_check v0.9.4
    # ...
-   Compiling spin-sdk v0.10.0 
+   Compiling spin-sdk v0.10.0
    Compiling hello-rust v0.1.0 (/home/ivan/testing/start/hello_rust)
     Finished release [optimized] target(s) in 11.94s
 Finished building all Spin components
@@ -816,7 +816,7 @@ You can always run this command manually; `spin build` is a shortcut.
 ```bash
 $ spin build
 Executing the build command for component hello-go: tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm .
-go: downloading github.com/fermyon/spin/sdk/go v0.10.0
+go: downloading github.com/spinframework/spin/sdk/go v0.10.0
 Finished building all Spin components
 ```
 
@@ -881,7 +881,7 @@ date = "2023-11-04T00:00:01Z"
 Hello, Fermyon
 ```
 
-> The `curl` output may vary based on which language SDK you use. 
+> The `curl` output may vary based on which language SDK you use.
 
 You'll also see any logging (stdout/stderr) from the generated code printed to the console where Spin is running. For more details, see the [page about running Spin applications](./running-apps.md).
 

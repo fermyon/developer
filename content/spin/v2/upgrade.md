@@ -27,7 +27,7 @@ $ spin --version
 
 You can compare the output from the above command with the [latest release release](https://github.com/spinframework/spin/releases/latest) listed in the Spin GitHub repository (which is also shown in the image below):
 
-![spin version image](https://img.shields.io/github/v/release/fermyon/spin)
+![spin version image](https://img.shields.io/github/v/release/spinframework/spin)
 
 ## Upgrade Spin
 
@@ -67,7 +67,7 @@ $ where spin
 
 {{ blockEnd }}
 
-### Installer 
+### Installer
 
 If you originally followed the documentation's [installer script method](./install#installing-spin), please revisit to reinstall.
 
@@ -118,7 +118,7 @@ If you have upgraded Spin and don't see the newer version, please consider the f
 
 ### Not Seeing the Latest Version?
 
-It may be possible that you have installed Spin **using more than one** of the above methods. In this case, the Spin executable that runs is the one that is listed first in your `PATH` system variable. 
+It may be possible that you have installed Spin **using more than one** of the above methods. In this case, the Spin executable that runs is the one that is listed first in your `PATH` system variable.
 
 If you have upgraded Spin yet still see the old version using `spin --version` this can be due to the order of precedence in your `PATH`. Try echoing your path to the screen and checking to see whether the location of your intended Spin executable is listed before or after other pre-existing installation paths:
 
@@ -129,6 +129,6 @@ echo $PATH
 
 > Paths are separated by the `:` (colon)
 
-In the above case, the [Cargo install method](./install#using-cargo-to-install-spin)'s installation will take precedence over the [installer script method](./install#installing-spin)'s installation. 
+In the above case, the [Cargo install method](./install#using-cargo-to-install-spin)'s installation will take precedence over the [installer script method](./install#installing-spin)'s installation.
 
 In this case, you can either remove the Cargo installation of Spin using `cargo uninstall spin-cli` or update your system path to prioritize the Spin binary path that you prefer.

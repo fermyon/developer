@@ -161,7 +161,7 @@ workdir = "second-http-rust-component"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
 [[component]]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
+source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
 id = "assets"
 files = [ { source = "assets", destination = "/" } ]
 [component.trigger]

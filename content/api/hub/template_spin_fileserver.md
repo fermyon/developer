@@ -13,9 +13,9 @@ created_at = "2022-10-15T00:22:56Z"
 last_updated = "2023-03-14T00:22:56Z"
 spin_version = ">v0.1"
 summary =  "A Spin template to serve static assets."
-url = "https://github.com/fermyon/spin-fileserver"
+url = "https://github.com/spinframework/spin-fileserver"
 template_id = "static-fileserver"
-repo_url = "https://github.com/fermyon/spin"
+repo_url = "https://github.com/spinframework/spin"
 keywords = "static websites, fileserver"
 
 ---

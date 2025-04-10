@@ -579,7 +579,7 @@ import (
         "fmt"
         "net/http"
 
-        spinhttp "github.com/fermyon/spin/sdk/go/http"
+        spinhttp "github.com/spinframework/spin/sdk/go/http"
 )
 
 func init() {
@@ -613,7 +613,7 @@ Executing the build command for component hello-rust: cargo build --target wasm3
    Compiling anyhow v1.0.69
    Compiling version_check v0.9.4
    # ...
-   Compiling spin-sdk v0.10.0 
+   Compiling spin-sdk v0.10.0
    Compiling hello-rust v0.1.0 (/home/ivan/testing/start/hello_rust)
     Finished release [optimized] target(s) in 11.94s
 Successfully ran the build command for the Spin components.
@@ -798,7 +798,7 @@ date: Thu, 02 Mar 2023 00:05:42 GMT
 Hello, Fermyon
 ```
 
-> The `curl` output may vary based on which language SDK you use. 
+> The `curl` output may vary based on which language SDK you use.
 
 Congratulations! You just created, built and ran your first Spin application!
 

@@ -26,7 +26,7 @@ Most applications will not require changes. The following changes may affect app
   If you relied on environment variables taking precedence over other sources, you will need to stop setting `--runtime-config-file`
   or tweak your workflow.
 * Some modules produced by languages with older WASI support may no longer run. This specifically affects WAGI applications
-  compiled with a WASI-SDK version 18 or earlier. See [https://github.com/fermyon/spin/issues/2552](https://github.com/fermyon/spin/issues/2552) for details
+  compiled with a WASI-SDK version 18 or earlier. See [https://github.com/spinframework/spin/issues/2552](https://github.com/spinframework/spin/issues/2552) for details
   of the issue and for possible workarounds.
 
 The following change will not affect most application authors, but may affect you if you work directly with the low-level WASI interfaces:

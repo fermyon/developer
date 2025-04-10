@@ -34,7 +34,7 @@ $ cargo build --target wasm32-wasi --release
 ```
 
 While `--release` is not required, doing so will drastically reduce the size of the output `.wasm` module.
-WebAssembly binaries will be written to your project's `target/wasm32-wasi/release` directory. 
+WebAssembly binaries will be written to your project's `target/wasm32-wasi/release` directory.
 
 ## Pros and Cons
 

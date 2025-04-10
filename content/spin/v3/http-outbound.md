@@ -103,7 +103,7 @@ const response = await fetch("https://example.com/users");
 
 You can find a complete example of using outbound HTTP in the JavaScript SDK repository on [GitHub](https://github.com/spinframework/spin-js-sdk/tree/main/examples/common-patterns/outbound-http)
 
-**Note**: `fetch` currently only works when building for the HTTP trigger.  
+**Note**: `fetch` currently only works when building for the HTTP trigger.
 
 {{ blockEnd }}
 
@@ -131,13 +131,13 @@ You can find a complete example for using outbound HTTP in the [Python SDK repos
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/http)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2@v2.0.0/http)
 
-HTTP functions are available in the `github.com/fermyon/spin/sdk/go/v2/http` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/http) The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations. For example:
+HTTP functions are available in the `github.com/spinframework/spin/sdk/go/v2/http` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2/http) The general function is named `Send`, but the Go SDK also surfaces individual functions, with request-specific parameters, for the `Get` and `Post` operations. For example:
 
 ```go
 import (
-	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+	spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
 )
 
 res1, err1 := spinhttp.Get("https://random-data-api.fermyon.app/animals/json")

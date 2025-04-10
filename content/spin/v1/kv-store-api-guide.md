@@ -59,7 +59,7 @@ fn handle_request(_req: Request) -> Result<Response> {
 }
 ```
 
-**General Notes** 
+**General Notes**
 
 `set` **Operation**
 - For set, the value argument can be of any type that implements AsRef<[u8]>
@@ -95,7 +95,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 ```
 
 **General Notes**
-- The spinSdk object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the @fermyon/spin-sdk package. For example: 
+- The spinSdk object is always available at runtime. Code checking and completion are available in TypeScript at design time if the module imports anything from the @fermyon/spin-sdk package. For example:
 
 `get` **Operation**
 - The result is of the type `ArrayBuffer | null`
@@ -124,7 +124,7 @@ def handle_request(request):
     store.set("mykey", "myvalue")
     value = store.get()
     //
-    return Response(status, [("content-type", "text/plain")], value)   
+    return Response(status, [("content-type", "text/plain")], value)
 
 ```
 
@@ -137,10 +137,10 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-Key value functions are provided by the `github.com/fermyon/spin/sdk/go/key_value` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/key_value). For example: 
+Key value functions are provided by the `github.com/spinframework/spin/sdk/go/key_value` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/key_value). For example:
 
 ```go
-import "github.com/fermyon/spin/sdk/go/key_value"
+import "github.com/spinframework/spin/sdk/go/key_value"
 
 func example() error {
     store, err := key_value.Open("default")

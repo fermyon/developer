@@ -13,9 +13,9 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v3/serverless
 - [Troubleshooting](#troubleshooting)
   - [Error "Local LLM operations are not supported in this version of Spin"](#error-local-llm-operations-are-not-supported-in-this-version-of-spin)
 
-The nature of AI and LLM workloads on already trained models lends itself very naturally to a serverless-style architecture. As a framework for building and deploying serverless applications, Spin provides an interface for you to perform AI inference within Spin applications. 
+The nature of AI and LLM workloads on already trained models lends itself very naturally to a serverless-style architecture. As a framework for building and deploying serverless applications, Spin provides an interface for you to perform AI inference within Spin applications.
 
-## Using Serverless AI From Applications 
+## Using Serverless AI From Applications
 
 ### Configuration
 
@@ -98,7 +98,7 @@ fn handle_code(req: Request) -> anyhow::Result<impl IntoResponse> {
         },
     )?;
 
-    // -- snip --	
+    // -- snip --
 }
 
 ```
@@ -109,7 +109,7 @@ The `infer_with_options` examples, operation:
 
 - The above example takes the model name `llm::InferencingModel::CodellamaInstruct` as input. From an interface point of view, the model name is technically an alias for a string (to maximize future compatibility as users want to support more and different types of models).
 - The second parameter is a prompt (string) from whoever/whatever is making the request to the `handle_code()` function.
-- A third, optional, parameter which is an interface allows you to specify parameters such as `max_tokens`, `repeat_penalty`, `repeat_penalty_last_n_token_count`, `temperature`, `top_k` and `top_p`.  
+- A third, optional, parameter which is an interface allows you to specify parameters such as `max_tokens`, `repeat_penalty`, `repeat_penalty_last_n_token_count`, `temperature`, `top_k` and `top_p`.
 - The return value (the `inferencing-result` record) contains a text field of type `string`. Ideally, this would be a `stream` that would allow streaming inferencing results back to the user, but alas streaming support is not yet ready for use so we leave that as a possible future backward incompatible change.
 
 {{ blockEnd }}
@@ -118,7 +118,7 @@ The `infer_with_options` examples, operation:
 
 > [**Want to go straight to the reference documentation?**  Find it here.](https://spinframework.github.io/spin-js-sdk/stable/modules/Llm.html)
 
-To use Serverless AI functions, [the `Llm` module](https://spinframework.github.io/spin-js-sdk/stable/modules/Llm.html) from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example: 
+To use Serverless AI functions, [the `Llm` module](https://spinframework.github.io/spin-js-sdk/stable/modules/Llm.html) from the Spin SDK provides two methods: `infer` and `generateEmbeddings`. For example:
 
 ```javascript
 import { AutoRouter } from 'itty-router';
@@ -145,14 +145,14 @@ addEventListener('fetch', async (event: FetchEvent) => {
 
 `infer` operation:
 
-- It takes in the following arguments - model name, prompt and a optional third parameter for inferencing options. 
+- It takes in the following arguments - model name, prompt and a optional third parameter for inferencing options.
 - The model name is a string. There are enums for the inbuilt models (llama2-chat and codellama) in [`InferencingModels`](https://spinframework.github.io/spin-js-sdk/stable/enums/Llm.InferencingModels.html).
-- The optional third parameter which is an [InferencingOptions](https://spinframework.github.io/spin-js-sdk/stable/interfaces/Llm.InferencingOptions.html) interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.  
+- The optional third parameter which is an [InferencingOptions](https://spinframework.github.io/spin-js-sdk/stable/interfaces/Llm.InferencingOptions.html) interface allows you to specify parameters such as `maxTokens`, `repeatPenalty`, `repeatPenaltyLastNTokenCount`, `temperature`, `topK`, `topP`.
 - The return value is an [`InferenceResult`](https://spinframework.github.io/spin-js-sdk/stable/interfaces/Llm.EmbeddingResult.html).
 
 `generateEmbeddings` operation:
 
-- It takes two arguments - model name and list of strings to generate the embeddings for. 
+- It takes two arguments - model name and list of strings to generate the embeddings for.
 - The model name is a string. There are enums for the inbuilt models (AllMiniLmL6V2) in [`EmbeddingModels`](https://spinframework.github.io/spin-js-sdk/stable/enums/Llm.EmbeddingModels.html).
 - The return value is an [`EmbeddingResult`](https://spinframework.github.io/spin-js-sdk/stable/interfaces/Llm.EmbeddingResult.html)
 
@@ -183,15 +183,15 @@ class IncomingHandler(http.IncomingHandler):
 - The model name is passed in as a string (as shown above; `"llama2-chat"`).
 [`infer_with_options` operation](https://spinframework.github.io/spin-python-sdk/llm.html#spin_sdk.llm.infer_with_options):
 
-- It takes in a model name, prompt text, and optionally a [parameter object](https://spinframework.github.io/spin-python-sdk/llm.html#spin_sdk.llm.InferencingParams) to control the inferencing. 
+- It takes in a model name, prompt text, and optionally a [parameter object](https://spinframework.github.io/spin-python-sdk/llm.html#spin_sdk.llm.InferencingParams) to control the inferencing.
 
 {{ blockEnd }}
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/llm)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2@v2.0.0/llm)
 
-Serverless AI functions are available in the `github.com/fermyon/spin/sdk/go/v2/llm` package. See [Go Packages](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/llm) for reference documentation. For example:
+Serverless AI functions are available in the `github.com/spinframework/spin/sdk/go/v2/llm` package. See [Go Packages](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2/llm) for reference documentation. For example:
 
 ```go
 package main
@@ -200,8 +200,8 @@ import (
 	"fmt"
 	"net/http"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
-	"github.com/fermyon/spin/sdk/go/v2/llm"
+	spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
+	"github.com/spinframework/spin/sdk/go/v2/llm"
 )
 
 func init() {

@@ -9,7 +9,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v2/variables.
 - [Adding Variables to Your Applications](#adding-variables-to-your-applications)
 - [Using Variables From Applications](#using-variables-from-applications)
 
-Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
+Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more.
 
 These variables are defined in a Spin application manifest (in the `[variables]` section), and their values can be set or overridden at runtime by an [application variables provider](./dynamic-configuration.md#application-variables-runtime-configuration). When running Spin locally, the variables provider can be [Hashicorp Vault](./dynamic-configuration.md#vault-application-variable-provider) for secrets, [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault), or host environment variables.
 
@@ -92,7 +92,7 @@ The Spin SDK surfaces the Spin configuration interface to your language. The [in
 |------------|--------------------|---------------------|----------|
 | `get`      | Variable name      | Variable value      | Gets the value of the variable from the configured provider |
 
-To illustrate the variables API, each of the following examples makes a request to some API with a bearer token. The API URI, version, and token are all passed as application variables. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications). 
+To illustrate the variables API, each of the following examples makes a request to some API with a bearer token. The API URI, version, and token are all passed as application variables. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications).
 
 The exact details of calling the config SDK from a Spin application depends on the language:
 
@@ -191,9 +191,9 @@ class IncomingHandler(IncomingHandler):
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/variables)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2@v2.0.0/variables)
 
-The function is available in the `github.com/fermyon/spin/sdk/go/v2/variables` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/variables) for reference documentation.
+The function is available in the `github.com/spinframework/spin/sdk/go/v2/variables` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2/variables) for reference documentation.
 
 ```go
 import (
@@ -201,8 +201,8 @@ import (
 	"fmt"
 	"net/http"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
-	"github.com/fermyon/spin/sdk/go/v2/variables"
+	spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
+	"github.com/spinframework/spin/sdk/go/v2/variables"
 )
 
 func init() {

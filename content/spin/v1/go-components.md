@@ -52,7 +52,7 @@ import (
  "fmt"
  "net/http"
 
- spinhttp "github.com/fermyon/spin/sdk/go/http"
+ spinhttp "github.com/spinframework/spin/sdk/go/http"
 )
 
 func init() {
@@ -95,7 +95,7 @@ import (
  "net/http"
  "os"
 
- spinhttp "github.com/fermyon/spin/sdk/go/http"
+ spinhttp "github.com/spinframework/spin/sdk/go/http"
 )
 
 func init() {
@@ -191,7 +191,7 @@ package main
 import (
  "fmt"
 
- "github.com/fermyon/spin/sdk/go/redis"
+ "github.com/spinframework/spin/sdk/go/redis"
 )
 
 func init() {
@@ -276,8 +276,8 @@ import (
  "net/http"
  "os"
 
- spin_http "github.com/fermyon/spin/sdk/go/http"
- "github.com/fermyon/spin/sdk/go/redis"
+ spin_http "github.com/spinframework/spin/sdk/go/http"
+ "github.com/spinframework/spin/sdk/go/redis"
 )
 
 func init() {

@@ -104,7 +104,7 @@ For example, suppose the application `base` path is `base = "/shop"`.  Then a tr
 ### Resolving Overlapping Routes
 
 If multiple triggers could potentially handle the same request based on their
-defined routes, the trigger whose route has the longest matching prefix 
+defined routes, the trigger whose route has the longest matching prefix
 takes precedence.  This also means that exact matches take precedence over wildcard matches.
 
 In the following example, requests starting with the  `/users/` prefix (e.g. `/users/1`)
@@ -305,7 +305,7 @@ class IncomingHandler(http.IncomingHandler):
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/http)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2@v2.0.0/http)
 
 In Go, you register the handler as a callback in your program's `init` function.  Call `spinhttp.Handle`, passing your handler as the sole argument.  Your handler takes a `http.Request` record, from the standard `net/http` package, and a `ResponseWriter` to construct the response.
 
@@ -318,7 +318,7 @@ import (
         "fmt"
         "net/http"
 
-        spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+        spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
 )
 
 func init() {
@@ -507,7 +507,7 @@ When exposing HTTP triggers using HTTPS you must provide `spin up` with a TLS ce
 
 The `spin up` command's `--tls-cert` and `--tls-key` trigger options provide a way for you to specify both a TLS certificate and a private key (whilst running the `spin up` command).
 
-The `--tls-cert` option specifies the path to the TLS certificate to use for HTTPS, if this is not set, normal HTTP will be used. The certificate should be in PEM format. 
+The `--tls-cert` option specifies the path to the TLS certificate to use for HTTPS, if this is not set, normal HTTP will be used. The certificate should be in PEM format.
 
 The `--tls-key` option specifies the path to the private key to use for HTTPS, if this is not set, normal HTTP will be used. The key should be in PKCS#8 format. For more information, please see the [Spin CLI Reference](./cli-reference#trigger-options).
 

@@ -42,7 +42,7 @@ Here are some additional details about [creating a repository from a template](h
 
 ## Fetch Your Site
 
-Clone the repository which you created in the previous step: 
+Clone the repository which you created in the previous step:
 
 <!-- @nocpy -->
 

@@ -2,7 +2,7 @@ title = "Develop a Spin application"
 template = "functions_main"
 date = "2022-03-14T00:22:56Z"
 enable_shortcodes = true
-[extra] 
+[extra]
 url = "https://github.com/fermyon/developer/blob/main/content/cloud/develop.md"
 
 ---
@@ -65,7 +65,7 @@ $ sudo mv ./spin /usr/local/bin/spin
 
 {{ startTab "Windows"}}
 
-Download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
+Download <a href="https://github.com/spinframework/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
 
 Unzip the binary release and place the `spin.exe` in your system path.
 
@@ -86,7 +86,7 @@ The quickest and most convenient way to start a new application is to use a Spin
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin --update
 Copying remote template source
 Installing template redis-rust...
 Installing template http-rust...
@@ -110,7 +110,7 @@ Note: The Rust templates are in a repo that contains several other languages; th
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-js-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-js-sdk --update
 Copying remote template source
 Installing template http-js...
 Installing template http-ts...
@@ -137,7 +137,7 @@ If you do not have Python 3.10 or later, you can install it by following the ins
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --update
 Copying remote template source
 Installing template http-py...
 +---------------------------------------------+
@@ -154,7 +154,7 @@ Installing template http-py...
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin --update
 Copying remote template source
 Installing template redis-go...
 Installing template http-go...
@@ -174,7 +174,7 @@ Note: The Go templates are in a repo that contains several other languages; they
 
 {{ blockEnd }}
 
-{{ details "Additional info" "If you already have templates installed, you can update them by running `spin templates install --git https://github.com/fermyon/spin --update`." }}
+{{ details "Additional info" "If you already have templates installed, you can update them by running `spin templates install --git https://github.com/spinframework/spin --update`." }}
 
 ### Install the Tools
 
@@ -213,7 +213,7 @@ $ spin plugins install js2wasm --yes
 
 {{ startTab "Python" }}
 
-> Historic: You may have seen a `py2wasm` plugin in your travels. Please note, `py2wasm` has since been replaced by `componentize-py`. 
+> Historic: You may have seen a `py2wasm` plugin in your travels. Please note, `py2wasm` has since been replaced by `componentize-py`.
 
 The process of getting your system ready to write Wasm-powered Python applications, using `componentize-py` is as follows:
 
@@ -221,7 +221,7 @@ The process of getting your system ready to write Wasm-powered Python applicatio
 
 ```bash
 # As shown above, we install the Python SDK (which provides us with Spin's http-py template)
-$ spin templates install --git https://github.com/fermyon/spin-python-sdk --update
+$ spin templates install --git https://github.com/spinframework/spin-python-sdk --update
 ```
 
 Once we have the Spin template(s) from the `spin-python-sdk` repository we can scaffold out a new app. For this example, we will be using the `http-py` template. The scaffolded app, that the `http-py` template creates, has a `requirements.txt` file that facilitates the installation of `spin-sdk` and `componentize-py`. While you could manually install these using Pip, the `requirements.txt` file has the appropriate version numbers set making the process quicker and also more robust. Let's create a new Spin app and install the contents of `requirements.txt`:
@@ -281,7 +281,7 @@ The `requirements.txt`, by default, contains the references to the `spin-sdk` an
 
 ```bash
 # Now we can install Componentize-Py and the Spin SDK via the requirements file
-$ pip3 install -r requirements.txt 
+$ pip3 install -r requirements.txt
 ```
 
 From here the app is ready to build and run:
@@ -507,7 +507,7 @@ Next, let’s build the app:
 $ spin build
 Building component hello-rust with `cargo build --target wasm32-wasi --release`
     Updating crates.io index
-    Updating git repository `https://github.com/fermyon/spin`
+    Updating git repository `https://github.com/spinframework/spin`
    # ...
     Finished release [optimized] target(s) in 27.81s
 Finished building all Spin components
@@ -588,7 +588,7 @@ If the build fails, check:
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin build 
+$ spin build
 Building component hello-go with `tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go`
 Finished building all Spin components
 ```

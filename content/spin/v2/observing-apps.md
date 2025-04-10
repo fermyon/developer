@@ -45,7 +45,7 @@ In order to view the telemetry data you need to run an OTel compliant [collector
 
 ```sh
 cd  ~
-git clone git@github.com:fermyon/spin.git
+git clone git@github.com:spinframework/spin.git
 cd spin/hack/o11y-stack
 docker compose up -d
 ```

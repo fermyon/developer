@@ -78,7 +78,7 @@ The code below is an [Outbound MySQL example](https://github.com/spinframework/s
 ```ts
 import { ResponseBuilder, Mysql } from '@fermyon/spin-sdk';
 
-// Connects as the root user without a password 
+// Connects as the root user without a password
 const DB_URL = "mysql://root:@127.0.0.1/spin_dev"
 
 /*
@@ -94,7 +94,7 @@ export async function handler(_req: Request, res: ResponseBuilder) {
   conn.execute('delete from test where id=?', [4]);
   conn.execute('insert into test values (4,5)', []);
   let ret = conn.query('select * from test', []);
-  // return a object that looks like 
+  // return a object that looks like
   // { "columns": [{name: "id", dataType: "int32"}], "rows": [{ "id": 4, "val": 5 }] }
   res.send(JSON.stringify(ret, null, 2));
 }
@@ -117,7 +117,7 @@ class IncomingHandler(http.IncomingHandler):
     def handle_request(self, request: Request) -> Response:
         with mysql.open("mysql://root:@127.0.0.1/spin_dev") as db:
             print(db.query("select * from test", []))
-        
+
         return Response(
             200,
             {"content-type": "text/plain"},
@@ -129,9 +129,9 @@ class IncomingHandler(http.IncomingHandler):
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
+> [**Want to go straight to the reference documentation?**  Find it here.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2)
 
-MySQL functions are available in the `github.com/fermyon/spin/sdk/go/v2/mysql` package, and PostgreSQL in `github.com/fermyon/spin/sdk/go/v2/pg`. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
+MySQL functions are available in the `github.com/spinframework/spin/sdk/go/v2/mysql` package, and PostgreSQL in `github.com/spinframework/spin/sdk/go/v2/pg`. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2)
 
 The package follows the usual Go database API. Use `Open` to return a connection to the database of type `*sql.DB` - see the [Go standard library documentation](https://pkg.go.dev/database/sql#DB) for usage information.  For example:
 
@@ -144,8 +144,8 @@ import (
 	"net/http"
 	"os"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
-	"github.com/fermyon/spin/sdk/go/v2/pg"
+	spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
+	"github.com/spinframework/spin/sdk/go/v2/pg"
 )
 
 type Pet struct {
