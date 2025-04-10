@@ -17,4 +17,4 @@ References:
 - [SQLite Database Documentation](/cloud/noops-sql-db)
 - [SQLite Database Blog Post](https://www.fermyon.com/blog/announcing-noops-sql-db)
 - [Discord Channel](https://www.fermyon.com/discord)
-- [Spin's SQLite Database Storage API](/spin/sqlite-api-guide.md)
+- [Spin's SQLite Database Storage API](https://spinframework.dev/sqlite-api-guide.md)

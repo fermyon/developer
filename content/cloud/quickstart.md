@@ -71,7 +71,7 @@ Unzip the binary release and place the `spin.exe` in your system path.
 
 {{ blockEnd }}
 
-{{ details "Learn more" "[Spin](https://github.com/spinframework/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). \n\n The [Spin](/spin) documentation is a good starting place to learn more about using the framework to develop applications."}}
+{{ details "Learn more" "[Spin](https://github.com/spinframework/spin) is an open-source project used for creating, developing, building, running, and deploying Spin applications. It is both a CLI tool and a runtime, and provides SDKs for a variety of programming languages, including, but not limited to, Rust, TinyGo, and C#. \n\n The Spin project provides installers that are supported on Linux (amd64), macOS (amd64 and arm64), and Windows(amd64). \n\n The [Spin](https://spinframework.dev) documentation is a good starting place to learn more about using the framework to develop applications."}}
 
 ## Log in to the Fermyon Cloud
 
@@ -112,7 +112,7 @@ $ git clone https://github.com/fermyon/cloud-start && cd cloud-start
 
 This command clones the repository into a local directory named `cloud-start`, and then enters that directory.
 
-{{ details "Learn more" "To write your Spin application, you would start by using the command `spin new [template name] [project name]`. This gives you the option to select a template based on your preference of programming language and trigger for your module - e.g., `spin new rust-http my_rust_http_trigger`. \n\n The [Spin quickstart](/spin/quickstart) guides you through creating a Spin application from scratch." }}
+{{ details "Learn more" "To write your Spin application, you would start by using the command `spin new [template name] [project name]`. This gives you the option to select a template based on your preference of programming language and trigger for your module - e.g., `spin new rust-http my_rust_http_trigger`. \n\n The [Spin quickstart](https://spinframework.dev/quickstart) guides you through creating a Spin application from scratch." }}
 
 ## Deploy the Application
 

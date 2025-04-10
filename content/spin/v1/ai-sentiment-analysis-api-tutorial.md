@@ -3,7 +3,7 @@ template = "spin_main"
 date = "2023-09-05T09:00:00Z"
 enable_shortcodes = true
 [extra]
-canonical_url = "https://developer.fermyon.com/spin/v2/ai-sentiment-analysis-api-tutorial"
+canonical_url = "https://spinframework.dev/v2/ai-sentiment-analysis-api-tutorial"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/ai-sentiment-analysis-api-tutorial.md"
 
 ---
@@ -32,7 +32,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/ai-sentime
 - [Conclusion](#conclusion)
 - [Next Steps](#next-steps)
 
-> This tutorial does not work with Spin `v3.0` or above as the on disk representation of the models have changed. Refer to the [V3 tutorial](/spin/v3/ai-sentiment-analysis-api-tutorial) depending on your Spin version.  
+> This tutorial does not work with Spin `v3.0` or above as the on disk representation of the models have changed. Refer to the [V3 tutorial](https://spinframework.dev/v3/ai-sentiment-analysis-api-tutorial) depending on your Spin version.  
 
 Artificial Intelligence (AI) Inferencing performs well on GPUs. However, GPU infrastructure is both scarce and expensive. This tutorial will show you how to use Fermyon Serverless AI to quickly build advanced AI-enabled serverless applications that can run on Fermyon Cloud. Your applications will benefit from 50 millisecond cold start times and operate 100x faster than other on-demand AI infrastructure services. Take a quick look at the video below to learn about executing inferencing on LLMs with no extra setup.
 

@@ -15,7 +15,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/develop.md"
 - [Run the Application](#run-the-application)
 - [Next Steps](#next-steps)
 
-This article briefly describes how to create a new Spin application. For a more thorough guide to developing Spin applications, take a look [here](/spin/writing-apps).
+This article briefly describes how to create a new Spin application. For a more thorough guide to developing Spin applications, take a look [here](https://spinframework.dev/writing-apps).
 
 ## Prerequisites - Install the Spin CLI
 
@@ -192,7 +192,7 @@ You'll need the `wasm32-wasi` target for Rust:
 $ rustup target add wasm32-wasi
 ```
 
-[Learn more in the language guide.](/spin/rust-components)
+[Learn more in the language guide.](https://spinframework.dev/rust-components)
 
 {{ blockEnd }}
 
@@ -207,7 +207,7 @@ $ spin plugins update
 $ spin plugins install js2wasm --yes
 ```
 
-[Learn more in the language guide.](/spin/javascript-components)
+[Learn more in the language guide.](https://spinframework.dev/javascript-components)
 
 {{ blockEnd }}
 
@@ -292,7 +292,7 @@ From here the app is ready to build and run:
 $ spin build --up
 ```
 
-[Learn more in the language guide.](/spin/python-components)
+[Learn more in the language guide.](https://spinframework.dev/python-components)
 
 {{ blockEnd }}
 
@@ -300,7 +300,7 @@ $ spin build --up
 
 You'll need the TinyGo compiler, as the standard Go compiler does not yet support the WASI standard.  See the [TinyGo installation guide](https://tinygo.org/getting-started/install/).
 
-[Learn more in the language guide.](/spin/go-components)
+[Learn more in the language guide.](https://spinframework.dev/go-components)
 
 {{ blockEnd }}
 
@@ -637,5 +637,5 @@ Hello, Fermyon
 ## Next Steps
 
 - Learn how to [deploy an application](deploy)
-- To learn more about how to develop Spin applications, head over to the [Spin documentation](/spin)
+- To learn more about how to develop Spin applications, head over to the [Spin documentation](https://spinframework.dev)
 - Find known issues and file new ones with this [GitHub repository](https://github.com/fermyon/feedback)

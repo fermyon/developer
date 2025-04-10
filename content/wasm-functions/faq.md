@@ -34,33 +34,33 @@ Fermyon Wasm Functions supports Spin CLI v0.6.0 or newer. That being said, there
 | Feature                                                                                                         | Supported in Fermyon Wasm Functions?                           |
 | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | **Triggers**                                                                                                    |
-| [HTTP](https://developer.fermyon.com/spin/http-trigger)                                                         | Supported                                                      |
-| [Redis](https://developer.fermyon.com/spin/redis-trigger)                                                       | Not supported                                                  |
+| [HTTP](https://spinframework.dev/http-trigger)                                                         | Supported                                                      |
+| [Redis](https://spinframework.dev/redis-trigger)                                                       | Not supported                                                  |
 | **APIs**                                                                                                        |
-| [Outbound HTTP](https://developer.fermyon.com/spin/v3/rust-components#sending-outbound-http-requests)           | Supported                                                      |
-| [Configuration Variables](https://developer.fermyon.com/spin/v3/variables)                                      | Supported                                                      |
-| [Key Value Storage](https://developer.fermyon.com/spin/v3/kv-store-api-guide)                                   | Supported                                                      |
-| [SQLite Storage](https://developer.fermyon.com/spin/sqlite-api-guide)                                           | Not supported                                                  |
-| [Serverless AI](https://developer.fermyon.com/spin/serverless-ai-api-guide)                                     | [Limited Access](https://fibsu0jcu2g.typeform.com/to/dOFZ338a) |
-| [Service Chaining](https://developer.fermyon.com/spin/http-outbound#local-service-chaining)                     | Supported                                                      |
-| [MySQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications)          | Supported                                                      |
-| [PostgreSQL](https://developer.fermyon.com/spin/rdbms-storage#using-mysql-and-postgresql-from-applications)     | Supported                                                      |
-| [Outbound Redis](https://developer.fermyon.com/spin/rust-components#storing-data-in-redis-from-rust-components) | Supported                                                      |
+| [Outbound HTTP](https://spinframework.dev/v3/rust-components#sending-outbound-http-requests)           | Supported                                                      |
+| [Configuration Variables](https://spinframework.dev/v3/variables)                                      | Supported                                                      |
+| [Key Value Storage](https://spinframework.dev/v3/kv-store-api-guide)                                   | Supported                                                      |
+| [SQLite Storage](https://spinframework.dev/sqlite-api-guide)                                           | Not supported                                                  |
+| [Serverless AI](https://spinframework.dev/serverless-ai-api-guide)                                     | [Limited Access](https://fibsu0jcu2g.typeform.com/to/dOFZ338a) |
+| [Service Chaining](https://spinframework.dev/http-outbound#local-service-chaining)                     | Supported                                                      |
+| [MySQL](https://spinframework.dev/rdbms-storage#using-mysql-and-postgresql-from-applications)          | Supported                                                      |
+| [PostgreSQL](https://spinframework.dev/rdbms-storage#using-mysql-and-postgresql-from-applications)     | Supported                                                      |
+| [Outbound Redis](https://spinframework.dev/rust-components#storing-data-in-redis-from-rust-components) | Supported                                                      |
 | [wasi-blobstore](https://github.com/WebAssembly/wasi-blobstore)                                                 | Not supported in Spin                                          |
 | [wasi-config](https://github.com/WebAssembly/wasi-config)                                                       | Supported (2024-09-27 snapshot)                                |
 | [wasi-keyvalue](https://github.com/WebAssembly/wasi-keyvalue)                                                   | Supported (2024-10-17 snapshot)                                |
 | [wasi-messaging](https://github.com/WebAssembly/wasi-messaging)                                                 | Not supported in Spin                                          |
 | **Features**                                                                                                    |
-| [Component dependencies](https://developer.fermyon.com/spin/v3/writing-apps#using-component-dependencies)       | Supported                                                      |
+| [Component dependencies](https://spinframework.dev/v3/writing-apps#using-component-dependencies)       | Supported                                                      |
 | **Extensibility**                                                                                               |
-| [Custom Triggers](https://developer.fermyon.com/spin/extending-and-embedding)                                   | Not supported                                                  |
+| [Custom Triggers](https://spinframework.dev/extending-and-embedding)                                   | Not supported                                                  |
 
-To learn more about what feature support looks like for various programming languages, visit the [Spin Language Support Guide](/spin/v3/language-support-overview).
+To learn more about what feature support looks like for various programming languages, visit the [Spin Language Support Guide](https://spinframework.dev/v3/language-support-overview).
 
 ### Other Limitations
 
 - You cannot communicate between Spin applications using local name resolution
-- [Runtime configuration](/spin/dynamic-configuration#runtime-configuration) is not supported at this time
+- [Runtime configuration](https://spinframework.dev/dynamic-configuration#runtime-configuration) is not supported at this time
 
 ## Technical Frequently Asked Questions
 

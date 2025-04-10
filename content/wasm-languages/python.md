@@ -57,7 +57,7 @@ Installed 1 template(s)
 +---------------------------------------------+
 ```
 
-**Please note:** For more information about managing `spin templates`, see the [templates section](../spin/v2/cli-reference#spin-templates) in the Spin Command Line Interface (CLI) documentation.
+**Please note:** For more information about managing `spin templates`, see the [templates section](https://spinframework.dev/managing-templates) in the Spin Command Line Interface (CLI) documentation.
 
 ## Example
 
@@ -176,7 +176,7 @@ Joel's video on Spin, Python, and Components (Recorded at WasmCon on Sep 12, 202
 Here are some great resources:
 - A tutorial for building [Python Wasm apps with Spin](https://dev.to/technosophos/building-a-serverless-webassembly-app-with-spin-5dh9)
 - The [Spin Python SDK](https://github.com/spinframework/spin-python-sdk)
-- The [Spin Developer Docs](../spin) fully document the Python SDKs
+- The [Spin Developer Docs](https://spinframework.dev) fully document the Python SDKs
 - [Python Wasm examples](../../hub/index) at Spin Hub
 - The [Componentize-Py](https://pypi.org/project/componentize-py/) tooling
 - VMware has a [distribution of CPython as Wasm](https://github.com/vmware-labs/webassembly-language-runtimes/tree/main/python) based on the official CPython

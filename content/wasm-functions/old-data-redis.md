@@ -27,7 +27,7 @@ First, you need to have Spin installed on your computer. Please use the official
 
 ## Using Spin Application Templates
 
-The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](/wasm-functions/cli-reference#templates). For example:
+The Spin CLI facilitates the creation of new Spin applications through the use of application templates. You can install Spin application templates using the [official Spin CLI documentation](https://spinframework.dev/managing-templates). For example:
 
 <!-- @selectiveCpy -->
 
@@ -59,7 +59,7 @@ The template we are interested in is `http-rust`.
 
 ## Creating Our New Spin Application
 
-The official Spin CLI documentation also has instructions on how to [create a new Spin application](/wasm-functions/cli-reference#new). Let's go ahead and create a new `http-rust` application:
+The official Spin CLI documentation also has instructions on how to [create a new Spin application](https://spinframework.dev/quickstart). Let's go ahead and create a new `http-rust` application:
 
 <!-- @selectiveCpy -->
 

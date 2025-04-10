@@ -10,7 +10,7 @@ image = "/static/changelog/fermyon-severless-ai-twitter-card.jpg"
 
 ---
 
-We're thrilled to announce that [Fermyon Serverless AI](/cloud/serverless-ai) is in private beta. Developers can now [use Spin to perform AI inferencing and embedding](/spin/ai-sentiment-analysis-api-tutorial) from within serverless Spin applications (that are either running locally or deployed to Fermyon Cloud). You can sign up for the private beta using [this short form](https://fibsu0jcu2g.typeform.com/to/mNzgXRvB). 
+We're thrilled to announce that [Fermyon Serverless AI](/cloud/serverless-ai) is in private beta. Developers can now [use Spin to perform AI inferencing and embedding](https://spinframework.dev/ai-sentiment-analysis-api-tutorial) from within serverless Spin applications (that are either running locally or deployed to Fermyon Cloud). You can sign up for the private beta using [this short form](https://fibsu0jcu2g.typeform.com/to/mNzgXRvB). 
 
 <img src="/static/image/changelog/fermyon-severless-ai-twitter-card.jpg" alt="Custom Fermyon Subdomains">
 
@@ -21,4 +21,4 @@ References:
 - [Fermyon Serverless AI (Private Beta) Documentation](/cloud/serverless-ai.md)
 - [Serverless AI (Private Beta) Blog Post](https://www.fermyon.com/blog/introducing-fermyon-serverless-ai)
 - [Discord Channel](https://www.fermyon.com/discord)
-- [Spin's Serverless API](/spin/serverless-ai-api-guide.md)
+- [Spin's Serverless API](https://spinframework.dev/serverless-ai-api-guide.md)

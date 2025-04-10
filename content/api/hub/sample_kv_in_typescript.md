@@ -18,7 +18,7 @@ keywords = "typescript, javascript, key-value"
 
 ---
 
-This sample shows how to use all of the different [Key/Value functions](../../spin/kv-store-api-guide) in TypeScript, including how to decode results, trap errors in a `try/catch`, and work with JSON.
+This sample shows how to use all of the different [Key/Value functions](https://spinframework.dev/kv-store-api-guide) in TypeScript, including how to decode results, trap errors in a `try/catch`, and work with JSON.
 
 This will help you get started with KV storage either locally using `spin up` or in Fermyon Cloud using `spin deploy`.
 

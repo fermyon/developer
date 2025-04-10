@@ -35,7 +35,7 @@ The Spin SDK makes it very easy to build Javascript/TypeScript Wasm applications
 
 ### Prerequisites
 
-If you have not done so already, please [install Spin](/spin/v3/install). Having Spin installed will allow us to easily use Spin application templates.
+If you have not done so already, please [install Spin](https://spinframework.dev/v3/install). Having Spin installed will allow us to easily use Spin application templates.
 
 ### The Spin JS/TS SDK Template
 

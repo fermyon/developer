@@ -15,6 +15,6 @@ Now, when your application is deployed to Fermyon Cloud you can set and update v
 
 References:
 
-- [Dynamic and Runtime Application Configuration](../../spin/dynamic-configuration)
+- [Dynamic and Runtime Application Configuration](https://spinframework.dev/dynamic-configuration)
 - [Configuring Spin Application Variables and Secrets Tutorial](../variables)
 - [cloud-plugin](https://github.com/fermyon/cloud-plugin)

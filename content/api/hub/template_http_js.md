@@ -20,6 +20,6 @@ keywords = "web app, http, api"
 
 ---
 
-This is the default HTTP trigger template for JavaScript. It installs by default with the [Spin install script](../../spin/install#installing-spin).
+This is the default HTTP trigger template for JavaScript. It installs by default with the [Spin install script](https://spinframework.dev/install#installing-spin).
 
-This guide walks you through how to use it: [HTTP Components](../../spin/javascript-components#http-components)
+This guide walks you through how to use it: [HTTP Components](https://spinframework.dev/javascript-components#http-components)

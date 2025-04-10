@@ -2,7 +2,7 @@ title = "Building Spin components in Go"
 template = "spin_main"
 date = "2022-03-14T00:22:56Z"
 [extra]
-canonical_url = "https://developer.fermyon.com/spin/v2/go-components"
+canonical_url = "https://spinframework.dev/v2/go-components"
 url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/go-components.md"
 
 ---
@@ -349,7 +349,7 @@ WASI can be used when implementing a Spin component.
 
 ## Storing Data in the Spin Key-Value Store
 
-Spin has a key-value store built in. For information about using it from TinyGo, see [the key-value store tutorial](/spin/key-value-store-tutorial).
+Spin has a key-value store built in. For information about using it from TinyGo, see [the key-value store tutorial](https://spinframework.dev/key-value-store-tutorial).
 
 ## Storing Data in SQLite
 
