@@ -71,7 +71,7 @@ $ sudo mv ./spin /usr/local/bin/spin
 
 {{ startTab "Windows"}}
 
-Download <a href="https://github.com/fermyon/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
+Download <a href="https://github.com/spinframework/spin/releases/latest" class="spin-install" id="spin-install-windows">the Windows binary release of Spin</a> from GitHub.
 
 Unzip the binary release and place the `spin.exe` in your system path.
 
@@ -323,7 +323,7 @@ import (
 	"fmt"
 	"net/http"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+	spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
 )
 
 func init() {
@@ -429,7 +429,7 @@ Finished building all Spin components
 ```bash
 $ spin build
 Executing the build command for component hello-spin: tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go
-go: downloading github.com/fermyon/spin/sdk/go v0.10.0
+go: downloading github.com/spinframework/spin/sdk/go v0.10.0
 Finished building all Spin components
 ```
 
@@ -494,7 +494,7 @@ date: Tue, 14 Jan 2025 16:10:36 GMT
 Hello, Fermyon
 ```
 
-You can terminate `spin up` at anytime, by pressing `CTRL+C`. 
+You can terminate `spin up` at anytime, by pressing `CTRL+C`.
 
 ## Log in to the Fermyon Wasm Functions
 
@@ -509,13 +509,13 @@ $ spin aka login
 <!-- @nocpy -->
 
 ```console
-Go to https://login.neutrino.fermyon.computer/realms/neutrino/device?user_code=BB-AA 
+Go to https://login.neutrino.fermyon.computer/realms/neutrino/device?user_code=BB-AA
 and follow the prompts.
 
 Don't worry, we'll wait here for you. You got this.
 ```
 
-Click the link displayed as part of the output from the `spin aka login` command. Authenticate using your individual GitHub Account and authorize the `spin` CLI for interacting with your _Fermyon Wasm Functions_ account. 
+Click the link displayed as part of the output from the `spin aka login` command. Authenticate using your individual GitHub Account and authorize the `spin` CLI for interacting with your _Fermyon Wasm Functions_ account.
 
 ## Deploy the Application
 

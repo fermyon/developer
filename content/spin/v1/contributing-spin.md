@@ -50,7 +50,7 @@ to make to Spin, make sure you can correctly build the project:
 
 ```bash
 # clone the repository
-$ git clone https://github.com/fermyon/spin && cd spin
+$ git clone https://github.com/spinframework/spin && cd spin
 # add a new remote pointing to your fork of the project
 $ git remote add fork https://github.com/<your-username>/spin
 # create a new branch for your work

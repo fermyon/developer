@@ -128,7 +128,7 @@ For components that are published on the Web, provide a `url` field containing t
 
 ```toml
 [component.asset-server]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375" }
+source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.0.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375" }
 ```
 
 Multiple components can have the same source.  An example is a document archive, where one component might serve user interface assets (CSS, images, etc.) on one route, while another serves the documents themselves on another route - both using the same file server module, but with different settings.
@@ -387,7 +387,7 @@ route = "/static/..."
 component = "fileserver"
 
 [component.fileserver]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375" }
+source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.0.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375" }
 files = [ { source = "static/", destination = "/" } ]
 ```
 

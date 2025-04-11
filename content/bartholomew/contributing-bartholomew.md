@@ -205,14 +205,14 @@ $ cd ~/bartholomew
 $ make bart
 ```
 
-Once built, you will find the very useful `bart` CLI executable in the `~/bartholomew/target/release` directory. 
+Once built, you will find the very useful `bart` CLI executable in the `~/bartholomew/target/release` directory.
 
 For more information about how to use the CLI, please type `~/bartholomew/target/release/bart --help`, as shown below:
 
 <!-- @selectiveCpy -->
 
 ```bash
-$ ~/bartholomew/target/release/bart --help    
+$ ~/bartholomew/target/release/bart --help
 bart 0.6.0
 The Bartholomew CLI
 
@@ -269,7 +269,7 @@ The output from the above command will be similar to the following (depending on
 
 ## The Relationship Between Bartholomew and Spin
 
-To run Bartholomew, you will need a Spin-capable runtime. 
+To run Bartholomew, you will need a Spin-capable runtime.
 
 For Spin, follow [the Spin quickstart guide](https://spinframework.dev/quickstart) which details how to either:
 - download the latest Spin binary release,
@@ -456,7 +456,7 @@ The final stage of a successful contribution will be a notification that the PR 
 
 ## Thank You
 
-At this point, you have performed a significant amount of work which is greatly appreciated. 
+At this point, you have performed a significant amount of work which is greatly appreciated.
 
 Thank you for contributing!
 

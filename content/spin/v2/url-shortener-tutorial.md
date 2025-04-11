@@ -47,7 +47,7 @@ using Spin.
 First, we start with [a new Spin component written in Rust](./rust-components.md):
 
 ```rust
-/// A Spin HTTP component that redirects requests 
+/// A Spin HTTP component that redirects requests
 /// based on the router configuration.
 #[http_component]
 fn redirect(req: Request) -> Result<Response> {
@@ -119,7 +119,7 @@ And the component can now handle incoming requests:
 # to /spin should be redirected
 $ curl -i localhost:3000/spin
 HTTP/1.1 308 Permanent Redirect
-location: https://github.com/fermyon/spin
+location: https://github.com/spinframework/spin
 content-length: 0
 # based on the configuration file, a request
 # to /hype should be redirected

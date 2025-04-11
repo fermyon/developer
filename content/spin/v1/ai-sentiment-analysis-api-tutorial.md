@@ -46,9 +46,9 @@ In this tutorial we will:
 
 ## Tutorial Prerequisites
 
-### Spin 
+### Spin
 
-You will need to [install the latest version of Spin](install#installing-spin). Serverless AI is supported on Spin versions 1.5 and above. 
+You will need to [install the latest version of Spin](install#installing-spin). Serverless AI is supported on Spin versions 1.5 and above.
 
 If you already have Spin installed, [check what version you are on and upgrade](upgrade#are-you-on-the-latest-version) if required.
 
@@ -78,7 +78,7 @@ $ spin templates install --git https://github.com/spinframework/spin-python-sdk 
 
 > This tutorial uses [Meta AI](https://ai.meta.com/)'s Llama 2, Llama Chat and Code Llama models you will need to visit [Meta's Llama webpage](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and agree to Meta's License, Acceptable Use Policy, and to Meta’s privacy policy before fetching and using Llama models.
 
-## Serverless AI Inferencing With Spin Applications 
+## Serverless AI Inferencing With Spin Applications
 
 Now, let's dive deep into a comprehensive tutorial and unlock your potential to use Fermyon Serverless AI.
 **Note:** The full source code with other examples can be found in our [Github repo](https://github.com/fermyon/ai-examples/tree/main)
@@ -640,9 +640,9 @@ We create an `assets` directory where we can store files to serve statically (se
 $ mkdir assets
 ```
 
-### Add the Front-End 
+### Add the Front-End
 
-We can add a webpage that asks the user for some text and does the sentiment analysis on it. In your assets folder, create two files `dynamic.js` and `index.html`. 
+We can add a webpage that asks the user for some text and does the sentiment analysis on it. In your assets folder, create two files `dynamic.js` and `index.html`.
 
 Here's the code snippet for `index.html`
 
@@ -716,7 +716,7 @@ Here's the code snippet for `index.html`
 </html>
 ```
 
-Here's the code snippet for `dynamic.js` 
+Here's the code snippet for `dynamic.js`
 
 ```javascript
 // Listen for the Enter key being pressed
@@ -870,7 +870,7 @@ route = "/api/..."
 command = "npm run build"
 
 [[component]]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.3/spin_static_fs.wasm", digest = "sha256:38bf971900228222f7f6b2ccee5051f399adca58d71692cdfdea98997965fd0d" }
+source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.0.3/spin_static_fs.wasm", digest = "sha256:38bf971900228222f7f6b2ccee5051f399adca58d71692cdfdea98997965fd0d" }
 id = "ui"
 files = [ { source = "assets", destination = "/" } ]
 [component.trigger]
@@ -913,7 +913,7 @@ $ curl -vXPOST 'localhost:3000/api/sentiment-analysis' -H'Content-Type: applicat
 
 ### Deploy to Fermyon Cloud
 
-Deploying to the Fermyon Cloud is one simple command. If you have not logged into your Fermyon Cloud account already, the CLI will prompt you to login. Follow the instructions to complete the authorization process.  
+Deploying to the Fermyon Cloud is one simple command. If you have not logged into your Fermyon Cloud account already, the CLI will prompt you to login. Follow the instructions to complete the authorization process.
 
 <!-- @selectiveCpy -->
 

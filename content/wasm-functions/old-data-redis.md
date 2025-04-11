@@ -32,7 +32,7 @@ The Spin CLI facilitates the creation of new Spin applications through the use o
 <!-- @selectiveCpy -->
 
 ```bash
-$ spin templates install --git https://github.com/fermyon/spin --update
+$ spin templates install --git https://github.com/spinframework/spin --update
 ```
 
 The output from the command above will be similar to the following:
@@ -79,12 +79,12 @@ HTTP path: /...
 
 > You can change these values later, in the project's `spin.toml` file.
 
-## Redis 
+## Redis
 
-To create your free database go to [app.redislabs.com](https://app.redislabs.com/). For this tutorial, we are signing up using GitHub authentication. 
+To create your free database go to [app.redislabs.com](https://app.redislabs.com/). For this tutorial, we are signing up using GitHub authentication.
 
-> Note: Programmatic access to the Redis cloud console (Redis Rest API) requires a Redislabs paid plan, so we will just be using the free tier for this tutorial. 
- 
+> Note: Programmatic access to the Redis cloud console (Redis Rest API) requires a Redislabs paid plan, so we will just be using the free tier for this tutorial.
+
 Once you have logged in to Redislabs click on the `Data Access Control` and `Databases` menus (in the left sidebar) to create roles/users and a new Redis database. Be sure to acknowledge the usernames, passwords and database URLs (provided during setup) as we will be using these to configure our Spin application. Please see the [Redis docs](https://developer.redis.com/howtos/quick-start/?s=redis%20cloud) for additional information.
 
 ## Configuration
@@ -111,7 +111,7 @@ allowed_outbound_hosts = ["redis://redis-1234.redislabs.com:15730"]
 
 In this tutorial we will create the code to store and retrieve data from a Redislabs database.
 
-## Rust 
+## Rust
 
 The following is the content which is required in the `src/lib.rs` file. Feel free to cut and paste the following, for convenience:
 
@@ -192,11 +192,11 @@ The above deploy command will produce similar output to the following:
 <!-- @nocpy -->
 
 ```text
-Waiting for application to be ready... 
+Waiting for application to be ready...
 Application deployed to https://redisrustapplication-8270f183.aka.fermyon.tech/
 
-View application:   
-https://redisrustapplication-8270f183.aka.fermyon.tech/  
+View application:
+https://redisrustapplication-8270f183.aka.fermyon.tech/
 ```
 
 Visiting the URL, which is provided by the spin deploy command's output will show the `Eureka Fermyon Wasm Functions!` value for the `spin-example` key which is stored in Redis.

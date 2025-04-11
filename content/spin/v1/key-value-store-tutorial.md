@@ -88,7 +88,7 @@ $ spin new http-go spin-key-value
 
 ## Configuration
 
-Good news - Spin will take care of setting up your key value store. However, in order to make sure your Spin application has permission to access the key value store, you must add the `key_value_stores = ["default"]` line in the `[[component]]` area of the `spin.toml` file. This line is necessary to communicate to Spin that a given component has access to the default key value store. A newly scaffolded Spin application will not have this line; you will need to add it. 
+Good news - Spin will take care of setting up your key value store. However, in order to make sure your Spin application has permission to access the key value store, you must add the `key_value_stores = ["default"]` line in the `[[component]]` area of the `spin.toml` file. This line is necessary to communicate to Spin that a given component has access to the default key value store. A newly scaffolded Spin application will not have this line; you will need to add it.
 
 >> Tip: You can choose between various store implementations by modifying [the runtime configuration](dynamic-configuration.md#key-value-store-runtime-configuration). The default implementation uses [SQLite](https://www.sqlite.org/index.html) within the Spin framework.
 
@@ -175,7 +175,7 @@ command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
 
 ## Write Code to Save and Load Data
 
-In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application. 
+In this section, we use the Spin SDK to open and persist our application's data inside our default key/value store. This is a special store that every environment running Spin applications will make available for their application.
 
 > Please note: Spin applications written in Rust can [store and retrieve Rust data structures](./rust-components#storing-data-in-the-spin-key-value-store) in the application's data store.
 
@@ -338,8 +338,8 @@ import (
 	"io"
 	"net/http"
 
-	spin_http "github.com/fermyon/spin/sdk/go/http"
-	"github.com/fermyon/spin/sdk/go/key_value"
+	spin_http "github.com/spinframework/spin/sdk/go/http"
+	"github.com/spinframework/spin/sdk/go/key_value"
 )
 
 func init() {
@@ -412,7 +412,7 @@ func main() {}
 
 ## Building and Deploying Your Spin Application
 
-Now let's build and deploy our Spin Application locally. Run the following command to build your application: 
+Now let's build and deploy our Spin Application locally. Run the following command to build your application:
 
 <!-- @selectiveCpy -->
 
@@ -443,7 +443,7 @@ We can now use a `HEAD` request to confirm that our component is holding data fo
 <!-- @selectiveCpy -->
 
 ```bash
-$ curl -I HEAD localhost:3000/test -v                                                     
+$ curl -I HEAD localhost:3000/test -v
 
 Trying 127.0.0.1:3000...
 * Connected to localhost (127.0.0.1) port 3000

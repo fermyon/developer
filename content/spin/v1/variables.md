@@ -10,7 +10,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/spin/v1/variables.
 - [Adding Variables to Your Applications](#adding-variables-to-your-applications)
 - [Using Variables From Applications](#using-variables-from-applications)
 
-Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more. 
+Spin supports dynamic application variables. Instead of being static, their values can be updated without modifying the application, creating a simpler experience for rotating secrets, updating API endpoints, and more.
 
 These variables are defined in a Spin application manifest (in the `[variables]` section), and their values can be set or overridden at runtime by an [application variables provider](./dynamic-configuration.md#application-variables-runtime-configuration). When running Spin locally, the variables provider can be [Hashicorp Vault](./dynamic-configuration.md#vault-application-variable-provider) for secrets, or host environment variables.
 
@@ -77,7 +77,7 @@ The Spin SDK surfaces the Spin configuration interface to your language. The [in
 |------------|-------------------------------------|---------------------|----------|
 | `get-config`    | Variable name  | Variable value    | Gets the value of the variable from the configured provider |
 
-To illustrate the config API, each of the following examples receives a password via the HTTP request body, compares it to the value stored in the application variable, and returns a JSON response indicating whether the submitted password matched or not. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications). 
+To illustrate the config API, each of the following examples receives a password via the HTTP request body, compares it to the value stored in the application variable, and returns a JSON response indicating whether the submitted password matched or not. The application manifest associated with the examples would look similar to the one described [in the previous section](#adding-variables-to-your-applications).
 
 The exact details of calling the config SDK from a Spin application depends on the language:
 
@@ -168,7 +168,7 @@ def handle_request(request):
 
 {{ startTab "TinyGo"}}
 
-The config function is available in the `github.com/fermyon/spin/sdk/go/config` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/config) for reference documentation.
+The config function is available in the `github.com/spinframework/spin/sdk/go/config` package and is named `Get`. See [Go package](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/config) for reference documentation.
 
 ```go
 import (
@@ -176,8 +176,8 @@ import (
 	"io"
 	"net/http"
 
-	spinconfig "github.com/fermyon/spin/sdk/go/config"
-	spinhttp "github.com/fermyon/spin/sdk/go/http"
+	spinconfig "github.com/spinframework/spin/sdk/go/config"
+	spinhttp "github.com/spinframework/spin/sdk/go/http"
 )
 
 spinhttp.Handle(func(w http.ResponseWriter, r *http.Request) {

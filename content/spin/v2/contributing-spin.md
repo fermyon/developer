@@ -20,7 +20,7 @@ typos, adding examples, one-liner code fixes, tests, or complete features.
 
 <div style="display: block" align="left">
   <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=423679664&limit=30&image_size=auto&color_scheme=dark" width="655" height="auto">
-  <img alt="Active Contributors of fermyon/spin - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=423679664&limit=30&image_size=auto&color_scheme=light" width="655" height="auto">
+  <img alt="Active Contributors of spinframework/spin - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=423679664&limit=30&image_size=auto&color_scheme=light" width="655" height="auto">
 </div>
 
 >> _Recent contributors to Spin, past 30 days. Widget courtesy of <a href="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors?repo_id=423679664&limit=30">OSSinsight.io</a>._
@@ -49,7 +49,7 @@ soon as possible. First, make sure you have Rust installed.
 
 After [installing Rust](https://www.rust-lang.org/tools/install) please ensure the `wasm32-wasi` and
   `wasm32-unknown-unknown` targets are configured. For example:
-  
+
 ```bash
 rustup target add wasm32-wasi && rustup target add wasm32-unknown-unknown
 ```
@@ -57,7 +57,7 @@ rustup target add wasm32-wasi && rustup target add wasm32-unknown-unknown
 In addition, make sure you have the following prerequisites configured:
 
 - [`rustfmt`](https://github.com/rust-lang/rustfmt)
-- [`clippy`](https://github.com/rust-lang/rust-clippy) 
+- [`clippy`](https://github.com/rust-lang/rust-clippy)
 - `make`
 - [`rust-analyzer`](https://rust-analyzer.github.io/) extension (for Visual Studio Code users)
 - [GPG signature verification for your GitHub commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) and remember to use a sign-off message (`git commit -S -s`) on each of your commits
@@ -68,7 +68,7 @@ Once you have set up the prerequisites and identified the contribution you want 
 
 ```bash
 # clone the repository
-$ git clone https://github.com/fermyon/spin && cd spin
+$ git clone https://github.com/spinframework/spin && cd spin
 # add a new remote pointing to your fork of the project
 $ git remote add fork https://github.com/<your-username>/spin
 # create a new branch for your work

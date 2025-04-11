@@ -66,7 +66,7 @@ let value = redis::get(&address, &key)?;
 
 * The arguments and results are enums, representing integers, binary payloads, and (for results) status and nil values.
 
-You can find a complete Rust code example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using Rust) section](./rust-components#storing-data-in-redis-from-rust-components). 
+You can find a complete Rust code example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/spinframework/spin-rust-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using Rust) section](./rust-components#storing-data-in-redis-from-rust-components).
 
 {{ blockEnd }}
 
@@ -120,11 +120,11 @@ You can find a complete Python code example for using outbound Redis from an HTT
 
 {{ startTab "TinyGo"}}
 
-Redis functions are available in the `github.com/fermyon/spin/sdk/go/redis` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/redis). The function names are TitleCased. For example:
+Redis functions are available in the `github.com/spinframework/spin/sdk/go/redis` package. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/redis). The function names are TitleCased. For example:
 
 ```go
 import (
-	"github.com/fermyon/spin/sdk/go/redis"
+	"github.com/spinframework/spin/sdk/go/redis"
 )
 
 payload, err := redis.Get(address, key)
@@ -142,7 +142,7 @@ payload, err := redis.Get(address, key)
 * The arguments are passed as `[]redis.RedisParameter`. You can construct `RedisParameter` instances around an `interface{}` but must provide a `Kind`. For example, `hello := redis.RedisParameter{Kind: redis.RedisParameterKindBinary, Val: []byte("hello")}`.
 * The results are returned as `[]redis.Result`. You can use the `Kind` member of `redis.Result` to interpret the `Val`.
 
-You can find a complete TinyGo example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using TinyGo) section](./go-components#storing-data-in-redis-from-go-components). 
+You can find a complete TinyGo example for using outbound Redis from an HTTP component in the [Spin repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples/redis-outbound). Please also see this, related, [outbound Redis (using TinyGo) section](./go-components#storing-data-in-redis-from-go-components).
 
 {{ blockEnd }}
 

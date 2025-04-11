@@ -96,7 +96,7 @@ struct ToDo {
 }
 ```
 
-**General Notes** 
+**General Notes**
 * All functions are on the `spin_sdk::sqlite::Connection` type.
 * Parameters are instances of the `ValueParam` enum; you must wrap raw values in this type.
 * The `execute` function returns a `QueryResult`. To iterate over the rows use the `rows()` function. This returns an iterator; use `collect()` if you want to load it all into a collection.
@@ -162,8 +162,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/http"
-	"github.com/fermyon/spin/sdk/go/sqlite"
+	spinhttp "github.com/spinframework/spin/sdk/go/http"
+	"github.com/spinframework/spin/sdk/go/sqlite"
 )
 
 type Todo struct {

@@ -26,7 +26,7 @@ Using TinyGo to compile components for Spin is currently required, as the
 
 > All examples from this page can be found in [the Spin Go SDK repository on GitHub](https://github.com/spinframework/spin-go-sdk/tree/main/examples).
 
-[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2)
+[**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2)
 
 ## Versions
 
@@ -52,7 +52,7 @@ import (
  "fmt"
  "net/http"
 
- spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+ spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
 )
 
 func init() {
@@ -124,7 +124,7 @@ import (
  "net/http"
  "os"
 
- spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
+ spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
 )
 
 func init() {
@@ -217,7 +217,7 @@ package main
 import (
  "fmt"
 
- "github.com/fermyon/spin/sdk/go/v2/redis"
+ "github.com/spinframework/spin/sdk/go/v2/redis"
 )
 
 func init() {
@@ -309,8 +309,8 @@ import (
  "net/http"
  "os"
 
- spin_http "github.com/fermyon/spin/sdk/go/v2/http"
- "github.com/fermyon/spin/sdk/go/v2/redis"
+ spin_http "github.com/spinframework/spin/sdk/go/v2/http"
+ "github.com/spinframework/spin/sdk/go/v2/redis"
 )
 
 func init() {

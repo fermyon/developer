@@ -140,7 +140,7 @@ The following is a list of the types of content that a user can submit to the Sp
     - Spin Application examples
     - Code snippets
 - **(Spin) Templates**
-    - Complete components such as the [Spin static-fileserver](https://github.com/fermyon/spin-fileserver)
+    - Complete components such as the [Spin static-fileserver](https://github.com/spinframework/spin-fileserver)
 - **(Spin) Plugins**
     - Triggers and tools
     - See Lee-Orr’s Message trigger: [https://github.com/lee-orr/spin-message-trigger](https://github.com/lee-orr/spin-message-trigger)
@@ -237,7 +237,7 @@ $ git push -u origin my_new_branch
 
 If you return to your GitHub repository in your browser, you will notice that a PR has automatically been generated for you.
 
-Clicking on the green “Compare and pull request” button will allow you to add a title and description as part of the PR. 
+Clicking on the green “Compare and pull request” button will allow you to add a title and description as part of the PR.
 
 ![Compare and pull request](/static/image/compare_and_pull_request.png)
 

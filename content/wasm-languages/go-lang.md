@@ -35,7 +35,7 @@ Things we like:
 
 We're neutral about:
 
-- The resulting binary sizes start at around 300k, but can rapidly climb 
+- The resulting binary sizes start at around 300k, but can rapidly climb
 
 Things we're not big fans of:
 
@@ -71,7 +71,7 @@ import (
 	"fmt"
 	"net/http"
 
-	spinhttp "github.com/fermyon/spin-go-sdk/http"
+	spinhttp "github.com/spinframework/spin-go-sdk/http"
 )
 
 func main() {

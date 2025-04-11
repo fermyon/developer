@@ -174,7 +174,7 @@ route = "/static/..."
 component = "assets"
 
 [component.assets]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.1.0/spin_static_fs.wasm", digest = "sha256:96c76d9af86420b39eb6cd7be5550e3cb5d4cc4de572ce0fd1f6a29471536cb4" }
+source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.1.0/spin_static_fs.wasm", digest = "sha256:96c76d9af86420b39eb6cd7be5550e3cb5d4cc4de572ce0fd1f6a29471536cb4" }
 files = [ { source = "assets", destination = "/" } ]
 
 [[trigger.http]]

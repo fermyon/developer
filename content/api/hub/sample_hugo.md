@@ -20,7 +20,6 @@ keywords = "Hugo, spin-fileserver, SSG, template, Fermyon Cloud"
 
 ### Getting started
 
-The [hugo-spin](https://github.com/ThorstenHans/hugo-spin) comes with all batteries included to serve your next [Hugo](https://gohugo.io) site leveraging the [`spin-fileserver`](https://github.com/fermyon/spin-fileserver). 
+The [hugo-spin](https://github.com/ThorstenHans/hugo-spin) comes with all batteries included to serve your next [Hugo](https://gohugo.io) site leveraging the [`spin-fileserver`](https://github.com/spinframework/spin-fileserver).
 
 To get started, open the [hugo-spin](https://github.com/ThorstenHans/hugo-spin) repository and click the "Use this template" button. Once you've created your own repository from the template, you can use the `make start` and `make deploy` to either build and the site locally, or to deploy it to Fermyon Cloud.
-

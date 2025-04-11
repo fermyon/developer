@@ -65,7 +65,7 @@ fn handle_request(_req: Request) -> Result<impl IntoResponse> {
 }
 ```
 
-**General Notes** 
+**General Notes**
 
 `set` **Operation**
 - For set, the value argument can be of any type that implements `AsRef<[u8]>`
@@ -129,7 +129,7 @@ class IncomingHandler(http.IncomingHandler):
         with key_value.open_default() as store:
             store.set("test", bytes("hello world!", "utf-8"))
             val = store.get("test")
-            
+
         return Response(
             200,
             {"content-type": "text/plain"},
@@ -148,12 +148,12 @@ class IncomingHandler(http.IncomingHandler):
 
 {{ startTab "TinyGo"}}
 
-> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2@v2.0.0/kv)
+> [**Want to go straight to the Spin SDK reference documentation?**  Find it here.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2@v2.0.0/kv)
 
-Key value functions are provided by the `github.com/fermyon/spin/sdk/go/v2/kv` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/fermyon/spin/sdk/go/v2/kv) For example:
+Key value functions are provided by the `github.com/spinframework/spin/sdk/go/v2/kv` module. [See Go Packages for reference documentation.](https://pkg.go.dev/github.com/spinframework/spin/sdk/go/v2/kv) For example:
 
 ```go
-import "github.com/fermyon/spin/sdk/go/v2/kv"
+import "github.com/spinframework/spin/sdk/go/v2/kv"
 
 func example() error {
     store, err := kv.OpenStore("default")

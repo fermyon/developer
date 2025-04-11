@@ -631,9 +631,9 @@ import (
 	"net/http"
 	"strings"
 
-	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
-	"github.com/fermyon/spin/sdk/go/v2/kv"
-	"github.com/fermyon/spin/sdk/go/v2/llm"
+	spinhttp "github.com/spinframework/spin/sdk/go/v2/http"
+	"github.com/spinframework/spin/sdk/go/v2/kv"
+	"github.com/spinframework/spin/sdk/go/v2/llm"
 )
 
 type sentimentAnalysisRequest struct {
@@ -993,7 +993,7 @@ route = "/..."
 component = "ui"
 
 [component.ui]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.3.0/spin_static_fs.wasm", digest = "sha256:ef88708817e107bf49985c7cefe4dd1f199bf26f6727819183d5c996baa3d148" }
+source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.3.0/spin_static_fs.wasm", digest = "sha256:ef88708817e107bf49985c7cefe4dd1f199bf26f6727819183d5c996baa3d148" }
 files = [{ source = "assets", destination = "/" }]
 
 [[trigger.http]]
@@ -1056,7 +1056,7 @@ route = "/..."
 component = "ui"
 
 [component.ui]
-source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.3.0/spin_static_fs.wasm", digest = "sha256:ef88708817e107bf49985c7cefe4dd1f199bf26f6727819183d5c996baa3d148" }
+source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.3.0/spin_static_fs.wasm", digest = "sha256:ef88708817e107bf49985c7cefe4dd1f199bf26f6727819183d5c996baa3d148" }
 files = [{ source = "assets", destination = "/" }]
 ```
 

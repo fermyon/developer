@@ -39,7 +39,7 @@ $ spin doctor
 
 If `spin doctor` detects a problem it can fix, you can choose to accept the fix, skip it to fix manually later, or see more details before choosing.  If `spin doctor` can't fix the problem, it displays the problem so you can make your own decision about how to fix it.
 
-> `spin doctor` is in an early stage of development, and there are many potential problems it doesn't yet check for. Please [raise an issue](https://github.com/fermyon/spin/issues/new?template=suggestion.md) if you have a problem you think `spin doctor` should check for.
+> `spin doctor` is in an early stage of development, and there are many potential problems it doesn't yet check for. Please [raise an issue](https://github.com/spinframework/spin/issues/new?template=suggestion.md) if you have a problem you think `spin doctor` should check for.
 
 ## Spin Test
 
