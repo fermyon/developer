@@ -45,25 +45,19 @@
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
                 <!-- show the active project name -->
-                {{#if (active_project request.spin-full-url "/spin/" )}}
+                {{#if (active_project request.spin-full-url "/cloud/" )}}
                     <a class="navbar-link is-active is-hoverable">
-                        <span>Spin</span>
+                        <span>Cloud</span>
                     </a>
                 {{else}}
-                    {{#if (active_project request.spin-full-url "/cloud/" )}}
+                    {{#if (active_project request.spin-full-url "/wasm-functions/" )}}
                         <a class="navbar-link is-active is-hoverable">
-                            <span>Cloud</span>
+                            <span>Wasm Functions</span>
                         </a>
                     {{else}}
-                        {{#if (active_project request.spin-full-url "/wasm-functions/" )}}
-                            <a class="navbar-link is-active is-hoverable">
-                                <span>Wasm Functions</span>
-                            </a>
-                        {{else}}
-                            <a class="navbar-link is-hoverable">
-                                <span>Docs</span>
-                            </a>
-                        {{/if}}
+                        <a class="navbar-link is-hoverable">
+                            <span>Docs</span>
+                        </a>
                     {{/if}}
                 {{/if}}
                 

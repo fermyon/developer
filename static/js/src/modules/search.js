@@ -1,6 +1,6 @@
 const { el, mount, text, list, setChildren, setStyle, setAttr } = redom;
 
-const projectList = ["Spin", "Cloud", "Bartholomew"];
+const projectList = ["Wasm Functions", "Cloud", "Bartholomew"];
 const versionPattern = /^v\d+$/;
 let idx;
 let documents;
@@ -15,41 +15,12 @@ async function getSearchIndex() {
 }
 
 //
-// This function filters and builds the search index, based on which project is selected (Spin v1, V2, V3, Cloud, Etc.),
+// This function filters and builds the search index, based on which project is selected (Wasm Functions, Cloud, Etc.),
 //
 async function setupSearch() {
   documents = await getSearchIndex();
   let currentPath = window.location.pathname;
   let splitPath = currentPath.split("/");
-  let version = splitPath[2];
-  // Adds spin/v1, spin/v2 or spin/v3 based on current path.
-  // If not on a spin project (e.g., cloud), add spin/v3 (latest)
-  if (version == "v1") {
-    documents = documents.filter((k) => {
-      if (k.project != "spin") {
-        return true;
-      }
-      return k.url.includes("spin/v1/");
-    });
-  } else if (version == "v2") {
-    documents = documents.filter((k) => {
-      if (k.project != "spin") {
-        return true;
-      }
-      return k.url.includes("spin/v2/");
-    });
-  } else if (version == "v3") {
-    documents = documents.filter((k) => {
-      if (k.project != "spin") {
-        return true;
-      }
-      return k.url.includes("spin/v3/");
-    });
-  } else {
-    documents = documents.filter((k) => {
-      return k.project != "spin" || k.url.includes("spin/v3/");
-    });
-  }
 
   idx = lunr(function () {
     this.field("title");
@@ -271,11 +242,11 @@ class ModalSuggest {
   constructor() {
     this.projectData = [
       {
-        project: "Spin",
-        link1: ["Install", "/spin/install"],
-        link2: ["Quickstart", "/spin/quickstart/"],
-        link3: ["Develop", "/spin/developing"],
-        link4: ["Deploy", "/spin/deploying-to-fermyon/"],
+        project: "Wasm Functions",
+        link1: ["Quickstart", "/wasm-functions/quickstart"],
+        link2: ["Deploy", "/wasm-functions/deploy"],
+        link3: ["Support", "/wasm-functions/support"],
+        link4: ["FAQ", "/wasm-functions/faq"],
       },
       {
         project: "Cloud",
