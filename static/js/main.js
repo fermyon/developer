@@ -639,7 +639,7 @@ parcelHelpers.export(exports, "searchButton", ()=>searchButton);
 parcelHelpers.export(exports, "searchModal", ()=>searchModal);
 const { el , mount , text , list , setChildren , setStyle , setAttr  } = redom;
 const projectList = [
-    "Spin",
+    "Wasm Functions",
     "Cloud",
     "Bartholomew"
 ];
@@ -659,21 +659,6 @@ async function setupSearch() {
     let currentPath = window.location.pathname;
     let splitPath = currentPath.split("/");
     let version = splitPath[2];
-    if (version == "v1") documents = documents.filter((k)=>{
-        if (k.project != "spin") return true;
-        return k.url.includes("spin/v1/");
-    });
-    else if (version == "v2") documents = documents.filter((k)=>{
-        if (k.project != "spin") return true;
-        return k.url.includes("spin/v2/");
-    });
-    else if (version == "v3") documents = documents.filter((k)=>{
-        if (k.project != "spin") return true;
-        return k.url.includes("spin/v3/");
-    });
-    else documents = documents.filter((k)=>{
-        return k.project != "spin" || k.url.includes("spin/v3/");
-    });
     idx = lunr(function() {
         this.field("title");
         this.field("subheading");
@@ -865,22 +850,22 @@ class ModalSuggest {
     constructor(){
         this.projectData = [
             {
-                project: "Spin",
+                project: "Wasm Functions",
                 link1: [
-                    "Install",
-                    "/spin/install"
+                    "Quickstart",
+                    "/wasm-functions/quickstart"
                 ],
                 link2: [
-                    "Quickstart",
-                    "/spin/quickstart/"
+                    "Deploy",
+                    "/wasm-functions/deploy"
                 ],
                 link3: [
-                    "Develop",
-                    "/spin/developing"
+                    "Support",
+                    "/wasm-functions/support"
                 ],
                 link4: [
-                    "Deploy",
-                    "/spin/deploying-to-fermyon/"
+                    "FAQ",
+                    "/wasm-functions/faq"
                 ]
             },
             {
@@ -1250,15 +1235,9 @@ class multiTabBlockHandler {
             return k.dataset.title;
         });
         this.active = this.langs.indexOf(activeValue);
-        if (tabClass != "spin-version") this.active = this.active > 0 ? this.active : 0;
-        else this.active = this.active > 0 ? this.active : this.nodes.length - 1;
+        this.active = this.active > 0 ? this.active : 0;
         this.tabs = list("ul", codeblockLanguageTab, null, this.ChildEventHandler.bind(this));
         this.el = el("div.tabs.is-boxed", this.tabs);
-        // If the tabClass is `spin-version` reverse the order of the list
-        if (tabClass === "spin-version") setStyle(this.tabs, {
-            display: "flex",
-            "flex-direction": "row-reverse"
-        });
         this.tabs.update(this.langs, {
             active: this.active
         });
