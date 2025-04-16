@@ -14,7 +14,7 @@ However, we haven't tracked down any examples or implementations.
 
 Apple is hinting that not only do they have such a tool, but they use it in their apps.
 
-According to [this tweet](https://twitter.com/lrz/status/1250453967957561344?s=20):
+According to [this tweet](https://x.com/lrz/status/1250453967957561344?s=20):
 
 > What have I been working on lately? Just a few days ago, iWork 10.0 shipped with iCloud apps that now include features extracted from the native codebase (C++/ObjC), using WebAssembly!
 
