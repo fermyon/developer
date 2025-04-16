@@ -40,24 +40,16 @@ You must have a Spin application deployed to Fermyon Wasm Functions to associate
 <!-- @selectiveCpy -->
 
 ```console
-$ spin new -t http-js --accept-defaults hello-cron-job
+$ spin new -t http-js --accept-defaults hello-world
 
-$ cd hello-cron-job
+$ cd hello-world
 
 $ npm install
 ```
 
-We'll go ahead add a path that will be used our cron job in later steps:
+Let’s update the event handler to confirm that our Spin application runs at the expected interval. To keep things simple, we’ll add a log statement that prints the time the application is triggered. This will help us verify that the cron job is working correctly. In a real-world scenario, you might query a database for stale records, call an API to sync data, or trigger a more complex workflow like sending a report or cleaning up expired sessions. 
 
-```toml
-[[trigger.http]]
-route = "/cron-me"
-component = "hello-cron-job"
-```
-
-> Note that you can have multiple cron jobs per Spin application as long as the combination of schedule and path_and_query is unique. We will review how to set those values later in the tutorial.  
-
-Let’s update the event handler to confirm that our Spin application runs at the expected interval. To keep things simple, we’ll add a log statement that prints the message query value each time the application is triggered. This will help us verify that the cron job is working correctly. In a real-world scenario, you might use these values to query a database for stale records, call an API to sync data, or trigger a more complex workflow like sending a report or cleaning up expired sessions. To apply the changes, navigate to the `hello-cron-job` directory, open `src/index.js`, and add the following code snippet:
+To apply the simple log changes, navigate to the `hello-world` directory, open `src/index.js`, and add the following code snippet:
 
 <!-- @selectiveCpy -->
 
@@ -68,19 +60,16 @@ import { AutoRouter } from 'itty-router';
 // Initialize the router
 let router = AutoRouter();
 
-// Define a route that responds to GET requests at /cron-me
-router.get("/cron-me", (request) => {
+// Define a route that responds to GET requests 
+router.get("/", (request) => {
     // Parse the request URL to access query parameters
     const url = new URL(request.url);
-
-    // Read the 'msg' query parameter, defaulting to an empty string if not provided
-    const msg = url.searchParams.get("msg") || "";
 
     // Capture the current timestamp
     const now = new Date().toISOString();
 
     // Log every time the route is triggered, including the message (if any)
-    console.log(`Cron job triggered at ${now} with msg: "${msg}"`);
+    console.log(`Cron job triggered at ${now}"`);
 
     // Return a generic success response
     return new Response("Cron job executed", {
@@ -107,7 +96,7 @@ Let's curl the application's endpoint to test if it is working as expected:
 <!-- @selectiveCpy -->
 
 ```console
-curl localhost:3000/cron-me
+curl localhost:3000
 ```
 
  You should see the following output in response:
@@ -133,12 +122,10 @@ Upon successful deployment, you should see output along the lines of:
 <!-- @nocpy -->
 
 ```console
-App 'hello-cron-job' initialized successfully.
+App 'hello-world' initialized successfully.
 Waiting for application to be ready... ready                                                                                   
 
-Application URL:   https://1064f8cc-4b83-4fb0-a550-ff51d8a85a18.aka.fermyon.tech/
-  Routes:
-  - hello-cron-job: https://1064f8cc-4b83-4fb0-a550-ff51d8a85a18.aka.fermyon.tech/cron-me
+Application URL: https://af30f3b0-ed52-4c5b-b2dd-b261945ff696.aka.fermyon.tech/
 ```
 
 You can use the domain name provided to you by Fermyon Wasm Functions to test that the Spin application is working as expected by curling the new endpoint:
@@ -146,7 +133,7 @@ You can use the domain name provided to you by Fermyon Wasm Functions to test th
 <!-- @selectiveCpy -->
 
 ```console
-curl https://1064f8cc-4b83-4fb0-a550-ff51d8a85a18.aka.fermyon.tech/cron-me
+curl https://af30f3b0-ed52-4c5b-b2dd-b261945ff696.aka.fermyon.tech/
 ```
 
 You should receive the same message as you did during local testing:
@@ -163,18 +150,20 @@ Now we’ll use the `spin aka crons` command to invoke the Spin application's HT
 
 > `spin aka crons` supports multiple digits in each cron field, as well as intervals in any position (e.g., `* */12 * * *` to run every 12 hours). You can also use comma-separated lists and ranges. If your schedule includes a specific time of day, be sure to use UTC—you may need to [convert your local time to UTC](https://www.worldtimebuddy.com/?pl=1&lid=100&h=100&hf=1) to ensure correct execution.
 
-Let’s create a cron job that triggers your Spin application every 5 minutes. The `spin aka crons` create subcommand takes three arguments:
+Let’s create a cron job that triggers your Spin application every 5 minutes with the `spin aka crons create` subcommand. The cron job you generate with this subcommand will be associated with the Spin application in your current working directory that you deployed to Fermyon Wasm Functions. The `spin aka crons create` subcommand takes three arguments:
 
 * **Schedule** – How often the job runs, in standard cron syntax
-* **Path and query** – The HTTP path (and optional query parameters) to invoke
-* **Name** – A name for your cron job (this will be associated with the Spin application in your current working directory)
+* **Path and query** – The HTTP path and (optional) query parameters to invoke.   
+* **Name** – A name for your cron job
 
-In this example, we’ll schedule a job to hit the `/cron-me` path with a msg query parameter set to "fwf" every 5 minutes, for a Spin app named hello-cron-job.
+> Note that you can have multiple cron jobs per Spin application as long as the combination of **schedule** and **path and query*** is unique. You might want multiple cron jobs in a single Spin application when different tasks need to run on separate schedules or require different logic. For example, you may want your Spin appliation to fetch different types of data, perform distinct maintenance routines, or sync with multiple external services independently.
+
+In this example, we’ll schedule a job to hit the `/*` path with a msg query parameter set to "fwf" every 5 minutes, for a Spin app named hello-world.
 
 <!-- @selectiveCpy -->
 
 ```console
-spin aka crons create "*/5 * * * *" "/cron-me?msg=fwf" "cron-job-1"
+spin aka crons create "*/5 * * * *" "/*" "cron-job-1"
 ```
 
 You should see output similar to:
@@ -190,8 +179,8 @@ If we wait 5 minutes and check our application logs with the `spin aka logs` sub
 <!-- @nocpy -->
 
 ```console
-spin aka logs -a hello-cron-job
-2025-04-02 04:00:00 [hello-cron-job]  Cron job triggered at 2025-04-12T04:00:00Z with msg: "fwf" 
+spin aka logs -a hello-world
+2025-04-02 04:00:00 [hello-world]  Cron job triggered at 2025-04-12T04:00:00Z
 ```
 
 # Managing Cron Jobs
@@ -210,7 +199,7 @@ spin aka crons list
 +----------------+--------------+-------------------------+
 | Name           | Schedule     | Next Run                |
 +=========================================================+
-| hello-cron-job |  */5 * * * * | 2025-04-02 04:00:00 UTC |
+| cron-job-1     |  */5 * * * * | 2025-04-02 04:00:00 UTC |
 +----------------+--------------+-------------------------+
 ```
 
@@ -221,13 +210,13 @@ To delete a cron job, use:
 <!-- @selectiveCpy -->
 
 ```console
-spin aka crons delete hello-cron-job
+spin aka crons delete cron-job-1
 ```
 
 <!-- @nocpy -->
 
 ```console
-Deleted cron job 'hello-cron-job' with schedule '*/5 * * * *'
+Deleted cron job 'cron-job-1' with schedule '*/5 * * * *'
 ```
 
 Your application will persist unless you explicitly run the `spin aka apps delete` command. 
