@@ -163,7 +163,7 @@ In this example, we’ll schedule a job to hit the `/*` path with a msg query pa
 <!-- @selectiveCpy -->
 
 ```console
-spin aka crons create "*/5 * * * *" "/*" "cron-job-1"
+spin aka crons create "*/5 * * * *" "/" "cron-job-1"
 ```
 
 You should see output similar to:
