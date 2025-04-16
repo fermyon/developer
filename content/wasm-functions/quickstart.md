@@ -93,7 +93,7 @@ $ spin plugin install aka
 
 ## Install Language Specific Tooling
 
-With Spin you can build applications using a wide variety of different programming languages. This quickstart, contains instructions and samples for JavaScript, TypeScript and Rust.
+With Spin you can build applications using a wide variety of different programming languages. This quickstart, contains instructions and samples for JavaScript, TypeScript, Rust and TinyGo.
 
 Language specific tooling must be installed on your machine, follow these installation instructions:
 
@@ -428,6 +428,11 @@ Finished building all Spin components
 
 ```bash
 $ spin build
+```
+
+<!-- @nocpy -->
+
+```console
 Executing the build command for component hello-spin: tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go
 go: downloading github.com/spinframework/spin/sdk/go v0.10.0
 Finished building all Spin components
@@ -437,8 +442,9 @@ If the build fails, check:
 
 * Are you in the `hello-spin` directory?
 * Did you successfully [install TinyGo](#install-language-specific-tooling)?
-* Are your versions of Go and TinyGo up to date?  The Spin SDK needs TinyGo 0.27 or above.
+* Are your versions of Go and TinyGo up to date? The Spin SDK needs TinyGo 0.27 or above.
 * Set Environment Variable `CGO_ENABLED=1`. (Since the Go SDK is built using CGO, it requires the CGO_ENABLED=1 environment variable to be set.)
+* Are your Spin templates up-to-date? Use `spin templates upgrade` to upgrade them
 
 If you would like to know what build command Spin runs for a component, you can find it in the manifest, in the `component.(id).build` section:
 
