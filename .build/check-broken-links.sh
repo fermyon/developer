@@ -83,6 +83,7 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://twitter.com/fermyontech/status/1641537393818738710'                                                                                                                  \
     --exclude 'https://www.godaddy.com'                                                                                                                                                     \
     --exclude 'https://linux.die.net/man/1/which'                                                                                                                                           \
+    --exclude 'https://www.namecheap.com'                                                                                                                                           \
                                                                                                                                                                                             \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://www.gnu.org/software/coreutils/'                                                                                                                                     \
