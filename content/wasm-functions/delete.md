@@ -4,7 +4,6 @@ date = "2025-01-16T00:22:56Z"
 enable_shortcodes = true
 
 ---
-- [Sign in to Fermyon Wasm Functions](#sign-in-to-fermyon-wasm-functions)
 - [Find the Application You Want to Delete](#find-the-application-you-want-to-delete)
 - [Delete Your Application](#delete-your-application)
 - [Next Steps](#next-steps)
@@ -36,7 +35,7 @@ Use the `spin aka apps delete` command to delete a particular Spin application f
 <!-- @selectiveCpy -->
 
 ```console
-$ spin aka apps delete --app validate-jwt-tokens
+$ spin aka apps delete --name validate-jwt-tokens
 ```
 
 The `spin aka apps` command, will ask you to confirm deleting the application of choice. Once confirmed, the application will be removed from your _Fermyon Wasm Functions_ account.
