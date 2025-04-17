@@ -12,6 +12,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/fermyon-clou
   - [Service Resolution](#service-resolution)
   - [Traffic Routing](#traffic-routing)
   - [Application Packaging and Distribution](#application-packaging-and-distribution)
+  - [Database Storage](#database-storage)
   - [Web UI, API and CLI](#web-ui-api-and-cli)
 
 ## The Fermyon Cloud Explained
@@ -52,7 +53,7 @@ To package and distribute applications to and within the cloud, we rely on an OC
 
 ### Database Storage
 
-Fermyon Cloud uses [Turso Database](https://docs.turso.tech/) to power its [SQLite Database using SQLite](/cloud/noops-sql-db.md). Turso's low-latency performance characteristics and use of [libSQL](https://libsql.org/), an open-source fork of [SQLite](https://sqlite.org/), made it a natural fit for Fermyon Cloud's managed base offering.
+Fermyon Cloud uses [Turso Database](https://docs.turso.tech/introduction) to power its [SQLite Database using SQLite](/cloud/noops-sql-db.md). Turso's low-latency performance characteristics and use of [libSQL](https://libsql.org/), an open-source fork of [SQLite](https://sqlite.org/), made it a natural fit for Fermyon Cloud's managed base offering.
 
 ### Web UI, API and CLI
 

@@ -16,7 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/cloud/data-postgre
 
 ## PostgreSQL
 
-[PostgreSQL](https://www.postgresql.org/), is a powerful, open-source object-relational database system that has earned a strong reputation for reliability, robustness and performance. This tutorial will implement a persistent storage solution for Fermyon Cloud, using PostgreSQL. In this tutorial, we will be using [ElephantSQL](https://www.elephantsql.com/plans.html)'s free PostgreSQL service.
+[PostgreSQL](https://www.postgresql.org/), is a powerful, open-source object-relational database system that has earned a strong reputation for reliability, robustness and performance. This tutorial will implement a persistent storage solution for Fermyon Cloud, using PostgreSQL. In this tutorial, we will be using ElephantSQL's free PostgreSQL service.
 
 ## Spin and Fermyon Cloud
 

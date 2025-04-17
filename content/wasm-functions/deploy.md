@@ -7,7 +7,7 @@ enable_shortcodes = true
 - [Prerequisites](#prerequisites)
   - [Install the Spin CLI](#install-the-spin-cli)
   - [Install the `aka` Plugin](#install-the-aka-plugin)
-- [Log in to the Fermyon Wasm Functions](#log-in-to-the-fermyon-wasm-functions)
+- [Log in to Fermyon Wasm Functions](#log-in-to-fermyon-wasm-functions)
 - [Deploy Your Application](#deploy-your-application)
   - [Specifying Variables](#specifying-variables)
 - [Next Steps](#next-steps)
@@ -123,7 +123,7 @@ View application:   https://c8769081-7ae5-4041-a10f-61d344a67da2.aka.fermyon.tec
 
 ---
 
-Take a look at the [Quickstart](quickstart), it guides you through the process of creating a new Spin application (either using JavaScript, TypeScript, or Rust) and deploying it to _Fermyon Wasm Functions_.
+Take a look at the [Quickstart](quickstart), it guides you through the process of creating a new Spin application (either using JavaScript, TypeScript, Rust, or TinyGo) and deploying it to _Fermyon Wasm Functions_.
 
 {{ details "Additional info" "`spin aka deploy` can point to a `spin.toml` file by using the `--file` option." }}
 
