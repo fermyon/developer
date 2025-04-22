@@ -265,7 +265,7 @@ environment = { DESTINATION = "https://spinframework.dev/contributing-spin", STA
 # Redirect /spin/kv-store/ to https://spinframework.dev/key-value-store-tutorial
 [component.spin-kv-store-tutorial]
 source = "modules/redirect.wasm"
-environment = { DESTINATION = "https://spinframework.dev/kv-store-tutorial" }
+environment = { DESTINATION = "https://spinframework.dev/key-value-store-tutorial" }
 
 # Redirecting from common to spin incase someone had it bookmarked before removal of common
 [component.redirect-contributing-common-to-spin]
