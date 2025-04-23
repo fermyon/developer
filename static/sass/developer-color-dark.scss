@@ -496,12 +496,12 @@ html.dark-theme {
         .projects-wrapper {
             div.projects-column {
                 &:before {
-                    border-left: 2px dashed rgba(255,255,255,0.35);
-                    border-bottom: 2px dashed rgba(255,255,255,0.35);
+                    border-left: 2px dashed rgba(255,255,255,0.15);
+                    border-bottom: 2px dashed rgba(255,255,255,0.15);
                 }
                 &:after {
-                    border-top: 2px dashed rgba(255,255,255,0.35);
-                    border-right: 2px dashed rgba(255,255,255,0.35);
+                    border-top: 2px dashed rgba(255,255,255,0.15);
+                    border-right: 2px dashed rgba(255,255,255,0.15);
                 }
             }
             .project-category {

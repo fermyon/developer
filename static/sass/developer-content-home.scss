@@ -114,6 +114,28 @@
 				border-right: 2px dashed rgba($lavenderfloral, 0.5);
 				z-index: -1;
 			}
+
+			&:first-of-type:before,
+			&:first-of-type:after,
+			&:nth-of-type(2):before {
+				border-bottom: none;
+				border-top: none;
+			}
+
+			&.projects-column-two:before {
+				border-left: none;
+			} 
+			
+			&.projects-column-two:after {
+				border-top: none;
+				border-right: none;
+			}
+
+			&.projects-column-three:before,
+			&.projects-column-three:after {
+				border-left: none;
+				border-right: none;
+			}
 		}
 		
 		.project-category {

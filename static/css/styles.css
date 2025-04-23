@@ -1790,13 +1790,13 @@ html.dark-theme .developer-home-wrap .projects-wrapper-parent:after {
 }
 
 html.dark-theme .developer-home-wrap .projects-wrapper div.projects-column:before {
-  border-bottom: 2px dashed #ffffff59;
-  border-left: 2px dashed #ffffff59;
+  border-bottom: 2px dashed #ffffff26;
+  border-left: 2px dashed #ffffff26;
 }
 
 html.dark-theme .developer-home-wrap .projects-wrapper div.projects-column:after {
-  border-top: 2px dashed #ffffff59;
-  border-right: 2px dashed #ffffff59;
+  border-top: 2px dashed #ffffff26;
+  border-right: 2px dashed #ffffff26;
 }
 
 html.dark-theme .developer-home-wrap .projects-wrapper .project-category aside:before {
@@ -2043,6 +2043,25 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   position: absolute;
   top: 12rem;
   right: calc(25% + 2.67rem);
+}
+
+.documentation > .developer-home-wrap .projects-wrapper div.projects-column:first-of-type:before, .documentation > .developer-home-wrap .projects-wrapper div.projects-column:first-of-type:after, .documentation > .developer-home-wrap .projects-wrapper div.projects-column:nth-of-type(2):before {
+  border-top: none;
+  border-bottom: none;
+}
+
+.documentation > .developer-home-wrap .projects-wrapper div.projects-column.projects-column-two:before {
+  border-left: none;
+}
+
+.documentation > .developer-home-wrap .projects-wrapper div.projects-column.projects-column-two:after {
+  border-top: none;
+  border-right: none;
+}
+
+.documentation > .developer-home-wrap .projects-wrapper div.projects-column.projects-column-three:before, .documentation > .developer-home-wrap .projects-wrapper div.projects-column.projects-column-three:after {
+  border-left: none;
+  border-right: none;
 }
 
 .documentation > .developer-home-wrap .projects-wrapper .project-category {
