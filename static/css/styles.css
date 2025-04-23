@@ -1784,9 +1784,19 @@ html.dark-theme .developer-home-wrap h2, html.dark-theme .developer-home-wrap h3
 }
 
 html.dark-theme .developer-home-wrap .projects-wrapper-parent:after {
-  opacity: .5;
+  opacity: .75;
   background: url("grid-dark.83123bac.png");
   border: 1px solid #0e8fdd40;
+}
+
+html.dark-theme .developer-home-wrap .projects-wrapper div.projects-column:before {
+  border-bottom: 2px dashed #ffffff59;
+  border-left: 2px dashed #ffffff59;
+}
+
+html.dark-theme .developer-home-wrap .projects-wrapper div.projects-column:after {
+  border-top: 2px dashed #ffffff59;
+  border-right: 2px dashed #ffffff59;
 }
 
 html.dark-theme .developer-home-wrap .projects-wrapper .project-category aside:before {
@@ -1831,6 +1841,10 @@ html.dark-theme .developer-home-wrap .projects-wrapper .card-project a.card-foot
 
 html.dark-theme .developer-home-wrap .projects-wrapper .card-project:hover a.card-footer-item {
   color: #34e8bd !important;
+}
+
+html.dark-theme .developer-home-wrap .projects-wrapper .card-project.card-spin .card-icon img {
+  mix-blend-mode: plus-lighter;
 }
 
 html.dark-theme .developer-home-wrap .project-gh-button.button {
@@ -2004,6 +2018,33 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   position: relative;
 }
 
+.documentation > .developer-home-wrap .projects-wrapper div.projects-column:before {
+  width: 33%;
+  min-height: 20rem;
+  content: " ";
+  z-index: -2;
+  border-bottom: 2px dashed #a87ce680;
+  border-left: 2px dashed #a87ce680;
+  display: block;
+  position: absolute;
+  top: 11.75rem;
+  left: calc(33% + 4rem);
+}
+
+.documentation > .developer-home-wrap .projects-wrapper div.projects-column:after {
+  width: 25%;
+  min-height: 20rem;
+  content: " ";
+  z-index: -1;
+  border-top: 2px dashed #a87ce680;
+  border-right: 2px dashed #a87ce680;
+  border-top-right-radius: 3rem;
+  display: block;
+  position: absolute;
+  top: 12rem;
+  right: calc(25% + 2.67rem);
+}
+
 .documentation > .developer-home-wrap .projects-wrapper .project-category {
   min-height: 392px;
   padding-top: 0;
@@ -2063,18 +2104,16 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 .documentation > .developer-home-wrap .project-gh-button.button {
+  min-height: 3.5rem;
   border: 1px solid #a87ce626;
   border-radius: .33rem;
-  margin-top: 1.825rem;
-  margin-bottom: .575rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   padding: 1rem 2rem;
   font-family: Space Grotesk, Tofu, Sen, Europa, Avenir, system, -apple-system, SFNSText-Regular, San Francisco, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  position: absolute;
-  bottom: 2rem;
-  left: calc(33.3% + .25rem);
-  right: .25rem;
+  display: block;
   box-shadow: 0 2px .5rem #2a2a4a1a;
   color: #0e092d !important;
   background: #fff !important;
@@ -2085,6 +2124,20 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   border-radius: 1rem;
   margin-top: 2rem;
   transition: all .3s ease-in-out;
+  position: relative;
+}
+
+.documentation > .developer-home-wrap .card-project a.card-link {
+  z-index: 225;
+  background: none;
+  border-radius: 1rem;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.documentation > .developer-home-wrap .card-project a.card-link:hover {
+  background: #ffffff09;
 }
 
 .documentation > .developer-home-wrap .card-project .card-icon {
@@ -4158,6 +4211,10 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
     color: #0d203f !important;
   }
 
+  .documentation > .developer-home-wrap .projects-wrapper div.projects-column:before, .documentation > .developer-home-wrap .projects-wrapper div.projects-column:after {
+    display: none;
+  }
+
   .documentation > .developer-home-wrap .projects-wrapper .project-category {
     min-height: auto;
   }
@@ -4169,6 +4226,7 @@ html.dark-theme body main .feedback-wrapper .feedback-modal a {
 
   .documentation > .developer-home-wrap .projects-wrapper .project-category aside:before {
     height: 1px;
+    opacity: .1;
     left: .75rem;
     right: .75rem;
   }

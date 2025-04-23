@@ -490,10 +490,20 @@ html.dark-theme {
         .projects-wrapper-parent:after {
             background: url(/static/image/grid-dark.png) repeat 0 0;
             border: 1px solid rgba($colablue, 0.25);
-            opacity: 0.5;
+            opacity: 0.75;
         }
 
         .projects-wrapper {
+            div.projects-column {
+                &:before {
+                    border-left: 2px dashed rgba(255,255,255,0.35);
+                    border-bottom: 2px dashed rgba(255,255,255,0.35);
+                }
+                &:after {
+                    border-top: 2px dashed rgba(255,255,255,0.35);
+                    border-right: 2px dashed rgba(255,255,255,0.35);
+                }
+            }
             .project-category {
                 aside {
                     &:before {
@@ -540,6 +550,14 @@ html.dark-theme {
                 &:hover {
                     a.card-footer-item {
                         color: $seagreen !important;
+                    }
+                }
+
+                &.card-spin {
+                    .card-icon {
+                        img {
+                            mix-blend-mode: plus-lighter;
+                        }
                     }
                 }
             }
