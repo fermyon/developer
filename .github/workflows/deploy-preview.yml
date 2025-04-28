@@ -20,7 +20,6 @@ jobs:
       - name: Install npm packages
         run: |
           npm ci
-          npm ci --prefix ./spin-up-hub
 
       - name: Build app
         run: |

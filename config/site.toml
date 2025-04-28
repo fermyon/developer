@@ -6,7 +6,6 @@ index_site_pages = [
     "home",
     "changelog",
     "changelog_fwf",
-    "hub_list_api",
 ]
 prepend_route_info = true
 

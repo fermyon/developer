@@ -10,9 +10,6 @@ Build and run the website locally:
 1. Run the following commands:
 
 ```bash
-cd spin-up-hub
-npm ci
-cd ../
 npm ci
 spin build
 spin watch # Uses spin watch to run the website and reload when content changes.
