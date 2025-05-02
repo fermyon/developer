@@ -158,7 +158,7 @@ Let’s create a cron job that triggers your Spin application every 5 minutes wi
 
 > Note that you can have multiple cron jobs per Spin application as long as the combination of **schedule** and **path and query*** is unique. You might want multiple cron jobs in a single Spin application when different tasks need to run on separate schedules or require different logic. For example, you may want your Spin appliation to fetch different types of data, perform distinct maintenance routines, or sync with multiple external services independently.
 
-In this example, we’ll schedule a job to hit the `/*` path with a msg query parameter set to "fwf" every 5 minutes, for a Spin app named hello-world.
+In this example, we’ll schedule a job to hit the `/` path every 5 minutes, and name it `cron-job-1`. The job will created for the `hello-world` Spin app.
 
 <!-- @selectiveCpy -->
 
