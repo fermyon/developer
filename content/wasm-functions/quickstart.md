@@ -151,7 +151,7 @@ You'll need the TinyGo compiler, as the standard Go compiler does not yet suppor
 
 ## Create a New Spin Application
 
-Next we'll prepare an application with Spin. You can [write an app from scratch](https://spinframework.dev/v3/writing-apps) or use an <a href="https://developer.fermyon.com/hub" class="external">existing template</a>. The <a href="https://developer.fermyon.com/hub" class="external">Spin Hub <svg class=""  style="width: 0.75rem; height: 0.75rem;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />  <line x1="10" y1="14" x2="20" y2="4" />  <polyline points="15 4 20 4 20 9" /></svg></a> has many reference examples and templates:
+Next we'll prepare an application with Spin. You can [write an app from scratch](https://spinframework.dev/v3/writing-apps) or use an <a href="https://spinframework.dev/hub" class="external">existing template</a>. The <a href="https://spinframework.dev/hub" class="external">Spin Hub <svg class=""  style="width: 0.75rem; height: 0.75rem;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />  <line x1="10" y1="14" x2="20" y2="4" />  <polyline points="15 4 20 4 20 9" /></svg></a> has many reference examples and templates:
 
 <div style="margin: 3rem auto;">
 {{suh_cards}}
