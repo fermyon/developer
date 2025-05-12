@@ -6,6 +6,7 @@ enable_shortcodes = true
 ---
 
 - [About the Fermyon Wasm Functions Key Value Store](#about-the-fermyon-wasm-functions-key-value-store)
+  - [Key Value Limitations and Considerations](#key-value-limitations-and-considerations)
 - [Creating a New Spin Application](#creating-a-new-spin-application)
 - [Grant Key Value Store Permission](#grant-key-value-store-permission)
 - [Implementing the Spin Application](#implementing-the-spin-application)
@@ -45,7 +46,7 @@ $ npm install
 
 ## Grant Key Value Store Permission
 
-To enable a component in Spin to use a key value store, you need to [grant it the necessary permissions in the application's manifest](https://spinframework.dev/kv-store-api-guide#granting-key-value-store-permissions-to-components) (`spin.toml`) by adding a key-value store label. This both grants the component access to the key value store and signals _Fermyon Wasm Functions_ (FWF) to provision one for the application. In this tutorial, we’ll use the label "default", but you can choose any label that works best for you.
+To enable a component in Spin to use a Key value Store, you need to [grant it the necessary permissions in the application's manifest](https://spinframework.dev/kv-store-api-guide#granting-key-value-store-permissions-to-components) (`spin.toml`) by adding a label. A label is a developer-defined string that links your component to an external resource. In this case, the resource is a Key Value Store. When deploying to _Fermyon Wasm Functions_, the label must be set to "default" to signal the platform to automatically provision a Key Value Store for your Spin application. While other labels besides "default" can be used for linking to existing resources in a local developer workflow, "default" is required for automatic key value provisioning on _Fermyon Wasm Functions_.
 
 ```toml
 [component.hello-key-value-store]
