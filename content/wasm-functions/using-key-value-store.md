@@ -48,7 +48,7 @@ $ npm install
 
 To enable a component in Spin to use a key-value store, you need to [grant it the necessary permissions in the application's manifest](https://spinframework.dev/kv-store-api-guide#granting-key-value-store-permissions-to-components) (`spin.toml`).  To do this, add the label of the store to the component's `key_value_stores` in `spin.toml`.
 
-In _Fermyon Wasm Functions_, the only label allowed is `"default"` which signals to the platform to automatically provision a Key Value store for your Spin  application.
+In _Fermyon Wasm Functions_, the only label allowed is `"default"` which signals to the platform to automatically provision a key value store for your Spin  application.
 
 ```toml
 [component.hello-key-value-store]
