@@ -50,4 +50,4 @@ That’s how to upgrade a Spin application.
 
 ## Next Steps
 
-- [List and Inspect Applications](list-and-inspect)
+- [Link Applications](app-linking)

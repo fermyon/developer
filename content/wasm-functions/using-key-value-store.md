@@ -223,10 +223,15 @@ $ spin aka deploy
 <!-- @nocpy -->
 
 ```console
-App 'hello-key-value-store' initialized successfully.
-Waiting for application to be ready...         ready
-Application deployed to https://524468d8-104d-467d-ac32-24f0c1b0d54b.aka.fermyon.tech/
-View application:   https://524468d8-104d-467d-ac32-24f0c1b0d54b.aka.fermyon.tech/
+Name of new app: hello-key-value-store
+Creating new app hello-key-value-store in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app hello-key-value-store
+Waiting for app to be ready... ready
+
+App Routes:
+- hello-key-value-store: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 Once deployment has finished, we can - again - use `curl` to invoke the Spin application. This time we will send requests to the generated origin of our Spin application running on _Fermyon Wasm Functions_:

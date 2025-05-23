@@ -84,11 +84,15 @@ $ spin aka deploy
 <!-- @nocpy -->
 
 ```console
-App 'myapp' initialized successfully.
-Deploying application to Fermyon Wasm Functions on Akamai..
-Waiting for application to be ready... ready
+Name of new app: myapp
+Creating new app myapp in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app myapp
+Waiting for app to be ready... ready
 
-View application:   https://c8769081-7ae5-4041-a10f-61d344a67da2.aka.fermyon.tech/
+App Routes:
+- myapp: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 ### Specifying Variables
@@ -115,10 +119,12 @@ $ spin aka deploy --variable compression_level=3
 <!-- @nocpy -->
 
 ```console
-Deploying application to Fermyon Wasm Functions on Akamai..
-Waiting for application to be ready... ready
+Deploying updated version of app my-app in account your-account (version 1 → 2)
+OK to continue? yes
+Waiting for app to be ready... ready
 
-View application:   https://c8769081-7ae5-4041-a10f-61d344a67da2.aka.fermyon.tech/
+App Routes:
+- my-app: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 ---
