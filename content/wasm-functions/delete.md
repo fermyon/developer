@@ -12,15 +12,15 @@ It’s easy to delete an Spin application from _Fermyon Wasm Functions_. This ca
 
 ## Find the Application You Want to Delete
 
-First, you may want to find the application you want to delete, you could use the `spin aka apps list` command to retrieve a list of all Spin applications deployed to your _Fermyon Wasm Functions_ account:
+First, you may want to find the application you want to delete, you could use the `spin aka app list` command to retrieve a list of all Spin applications deployed to your _Fermyon Wasm Functions_ account:
 
 <!-- @selectiveCpy -->
 
 ```console
-$ spin aka apps list
+$ spin aka app list
 ```
 
-<!-- @nocpy --> 
+<!-- @nocpy -->
 
 ```console
 hello-fermyon-wasm-functions
@@ -30,15 +30,15 @@ query-external-database
 
 ## Delete Your Application
 
-Use the `spin aka apps delete` command to delete a particular Spin application from your _Fermyon Wasm Functions_ account:
+Use the `spin aka app delete` command to delete a particular Spin application from your _Fermyon Wasm Functions_ account:
 
 <!-- @selectiveCpy -->
 
 ```console
-$ spin aka apps delete --name validate-jwt-tokens
+$ spin aka app delete --app-name validate-jwt-tokens
 ```
 
-The `spin aka apps` command, will ask you to confirm deleting the application of choice. Once confirmed, the application will be removed from your _Fermyon Wasm Functions_ account.
+The `spin aka app delete` command, will ask you to confirm deleting the application of choice. Once confirmed, the application will be removed from your _Fermyon Wasm Functions_ account.
 
 <!-- @nocpy -->
 

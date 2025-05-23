@@ -488,10 +488,15 @@ The above deploy command will produce similar output to the following:
 <!-- @nocpy -->
 
 ```bash
-App 'linode-mysql' initialized successfully.
-Waiting for application to be ready... ready
+Name of new app: linode-mysql
+Creating new app linode-mysql in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app linode-mysql
+Waiting for app to be ready... ready
 
-View application:   https://8d332abd-5f9e-4943-aaaa-60c219213410.aka.fermyon.tech/
+App Routes:
+- linode-mysql: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 Finally, you can use `curl` to interact with the application you just deployed to _Fermyon Wasm Functions_. First, let's send a `GET` request to the `/products` endpoint to retrieve a list of all products:

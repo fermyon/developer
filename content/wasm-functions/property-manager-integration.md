@@ -69,10 +69,15 @@ The `spin aka deploy` command will generate an output similar to the one shown b
 <!-- @noCpy -->
 
 ```console
-App 'hello-fermyon-wasm-functions' initialized successfully.
-Waiting for application to be ready... ready
+Name of new app: hello-fermyon-wasm-functions
+Creating new app hello-fermyon-wasm-functions in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app hello-fermyon-wasm-functions
+Waiting for app to be ready... ready
 
-View application: https://27383f31-adbe-482f-a859-2ce9aad02c4f.aka.fermyon.tech/
+App Routes:
+- hello-fermyon-wasm-functions: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 Copy the URL from the output shown in your terminal, we'll need it in a second to configure the Akamai Property.

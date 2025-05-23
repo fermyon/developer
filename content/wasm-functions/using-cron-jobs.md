@@ -122,10 +122,15 @@ Upon successful deployment, you should see output along the lines of:
 <!-- @nocpy -->
 
 ```console
-App 'hello-world' initialized successfully.
-Waiting for application to be ready... ready                                                                                   
+Name of new app: hello-world
+Creating new app hello-world in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app hello-world
+Waiting for app to be ready... ready
 
-Application URL: https://af30f3b0-ed52-4c5b-b2dd-b261945ff696.aka.fermyon.tech/
+App Routes:
+- hello-world: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 You can use the domain name provided to you by Fermyon Wasm Functions to test that the Spin application is working as expected by curling the new endpoint:
