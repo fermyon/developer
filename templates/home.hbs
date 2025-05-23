@@ -57,19 +57,22 @@ read_pages_glob = ["events/*.md"]
                     <!-- Spin Card -->
                     <div class="column is-half">
                         <div class="card card-project card-spin">
+                            <a href="https://spinframework.dev/" target="_blank" class="card-link"></a>
                             <div class="card-header">
                                 <div class="card-icon">
                                     <img src="/static/image/icon-spin.png" alt="Spin" />
                                 </div>
                             </div>
                             <div class="card-content">
+                                
                                 <h2>
                                     Spin
                                     <span class="tag tag-cncf">A CNCF sandbox project.</span>
                                 </h2>
                                 <p>The easiest way to start building and running Wasm apps.
                                     Spin has a
-                                    full-featured CLI, plugin system, and supports many languages.</p>
+                                    full-featured CLI, plugin system, and supports many languages.
+                                </p>
                             </div>
                             <div class="card-footer">
                                 <a href="https://spinframework.dev/" class="card-footer-item has-text-link">
@@ -98,11 +101,12 @@ read_pages_glob = ["events/*.md"]
                         </ul>
                     </aside>
                 </div>
-                <div class="column projects-column">
+                <div class="column projects-column projects-column-two">
                     <div class="columns">
                         <!-- Wasm Functions Card -->
                         <div class="column is-half">
                             <div class="card card-project card-functions">
+                                <a href="/wasm-functions/index" class="card-link"></a>
                                 <div class="card-header">
                                     <div class="card-icon">
                                         <img src="/static/image/icon-functions.png" alt="Wasm Functions" />
@@ -123,6 +127,7 @@ read_pages_glob = ["events/*.md"]
                         <!-- Cloud Card -->
                         <div class="column is-half">
                             <div class="card card-project card-cloud">
+                                <a href="/cloud/index" class="card-link"></a>
                                 <div class="card-header">
                                     <div class="card-icon">
                                         <img src="/static/image/icon-cloud.png" alt="Fermyon Cloud" />
@@ -142,8 +147,10 @@ read_pages_glob = ["events/*.md"]
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Deploy to Kubernetes Compute Section -->
+        <!-- Deploy to Kubernetes Compute Section -->
+        <div class="projects-wrapper">
             <div class="columns is-multiline">
                 <div class="column project-category is-one-third-desktop is-full-touch">
                     <aside>
@@ -158,11 +165,12 @@ read_pages_glob = ["events/*.md"]
                         </ul>
                     </aside>
                 </div>
-                <div class="column projects-column">
+                <div class="column projects-column projects-column-three">
                     <div class="columns">
                         <!-- SpinKube Card -->
                         <div class="column is-half">
                             <div class="card card-project card-spinkube">
+                                <a href="https://spinkube.dev" target="_blank" class="card-link"></a>
                                 <div class="card-header">
                                     <div class="card-icon">
                                         <img src="/static/image/icon-spinkube.png" alt="SpinKube" />
@@ -185,6 +193,7 @@ read_pages_glob = ["events/*.md"]
                         <!-- Platform for Kubernetes Card -->
                         <div class="column is-half">
                             <div class="card card-project card-platform">
+                                <a href="https://www.fermyon.com/platform" target="_blank" class="card-link"></a>
                                 <div class="card-header">
                                     <div class="card-icon">
                                         <img src="/static/image/icon-fp4k.png" alt="Platform for Kubernetes" />
@@ -195,7 +204,7 @@ read_pages_glob = ["events/*.md"]
                                     <p>Enterprise solution for Wasm workloads in Kubernetes - in your cloud or on-prem. High density, efficient compute.</p>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="https://www.fermyon.com/platform" class="card-footer-item has-text-link">
+                                    <a href="https://www.fermyon.com/platform" class="card-footer-item has-text-link" target="_blank">
                                         Get a Demo <img src="/static/image/arrowexternal.svg" alt="external link" class="external" />
                                     </a>
                                 </div>
@@ -206,7 +215,8 @@ read_pages_glob = ["events/*.md"]
             </div>
 
             <div class="columns mt-6">
-                <div class="column">
+                <div class="column is-one-third-desktop is-hidden-touch">&nbsp;</div>
+                <div class="column is-two-thirds-desktop is-full-touch is-end">
                     <a href="https://github.com/fermyon" class="button project-gh-button is-small is-full is-outlined is-link">
                         More projects on GitHub <i class="fas fa-arrow-right ml-2"></i>
                     </a>

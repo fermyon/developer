@@ -87,6 +87,57 @@
 		position: relative;
 		padding-bottom: 1rem;
 		
+		div.projects-column {
+			&:before {
+				width: 33%;
+				left: calc(33% + 4rem);
+				top: 11.75rem;
+				min-height: 20rem;
+				display: block;
+				content: " ";
+				position: absolute;
+				border-left: 2px dashed rgba($lavenderfloral, 0.5);
+				border-bottom: 2px dashed rgba($lavenderfloral, 0.5);
+				z-index: -2;
+			}
+			
+			&:after {
+				width: 25%;
+				right: calc(25% + 2.67rem);
+				top: 12rem;
+				min-height: 20rem;
+				display: block;
+				content: " ";
+				border-top-right-radius: 3rem;
+				position: absolute;
+				border-top: 2px dashed rgba($lavenderfloral, 0.5);
+				border-right: 2px dashed rgba($lavenderfloral, 0.5);
+				z-index: -1;
+			}
+
+			&:first-of-type:before,
+			&:first-of-type:after,
+			&:nth-of-type(2):before {
+				border-bottom: none;
+				border-top: none;
+			}
+
+			&.projects-column-two:before {
+				border-left: none;
+			} 
+			
+			&.projects-column-two:after {
+				border-top: none;
+				border-right: none;
+			}
+
+			&.projects-column-three:before,
+			&.projects-column-three:after {
+				border-left: none;
+				border-right: none;
+			}
+		}
+		
 		.project-category {
 			min-height: 392px;
 			position: relative;
@@ -153,10 +204,6 @@
 	}
 	
 	.project-gh-button.button {
-		position: absolute;
-		bottom: 2rem;
-		left: calc(33.3% + 0.25rem);
-		right: 0.25rem;
 		border: 1px solid darken($lavenderfloral, 12.5%);
 		border-radius: 0.33rem;
 		font-family: $spaceGro;
@@ -169,15 +216,34 @@
 		border-radius: 0.33rem;
 		font-family: $spaceGro;
 		box-shadow: 0 2px 0.5rem  rgba(#2a2a4a, 0.1);
-		margin-top: 1.825rem;
-		margin-bottom: 0.575rem;
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
+		display: block;
+		min-height: 3.5rem;
 	}
 	
 	.card-project {
 		border-radius: 1rem;
 		height: 100%;
 		margin-top: 2rem;
+		position: relative;
 		@include transition;
+
+		a.card-link {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 225;
+			display: block;
+			border-radius: 1rem;
+			background: transparent;
+
+			&:hover {
+				background: rgba(255,255,255,0.035);
+			}
+		}
 
 		.card-icon {
 			align-items: center;

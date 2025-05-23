@@ -152,6 +152,12 @@
             }
             
             .projects-wrapper {
+
+                div.projects-column {
+                    &:before, &:after {
+                        display: none;
+                    }
+                }
                 .project-category {
                     min-height: auto;
 
@@ -163,6 +169,7 @@
                             left: 0.75rem;
                             right: 0.75rem;
                             height: 1px;
+                            opacity: 0.1;
                         }
                     }
                 }
