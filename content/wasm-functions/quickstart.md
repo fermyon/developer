@@ -509,7 +509,7 @@ $ spin aka login
 <!-- @nocpy -->
 
 ```console
-Go to https://login.neutrino.fermyon.computer/realms/neutrino/device?user_code=BB-AA
+Go to https://login.infra.fermyon.tech/realms/neutrino/device?user_code=BB-AA
 and follow the prompts.
 
 Don't worry, we'll wait here for you. You got this.
@@ -527,7 +527,7 @@ Finally, let's deploy the application to _Fermyon Wasm Functions_:
 $ spin aka deploy
 ```
 
-The `spin` command will run using the Spin binary in your system path and read the Spin application definition file `spin.toml` in the current (`hello-spin`) directory to know what application to deploy.
+The `spin` command will run using the Spin binary in your system path and read the Spin application definition file `spin.toml` in the current (`hello-spin`) directory to know what application to deploy. It will ask you for a name for the application (defaulting to `hello-spin`) and then it will ask for confirmation that you want to deploy.
 
 {{ details "Learn more" "Deploying a Spin application to _Fermyon Wasm Functions_ includes packaging the application and all the required files, uploading it to an OCI registry, as well as instantiating the application on _Fermyon Wasm Functions_. " }}
 
@@ -538,12 +538,15 @@ This is what a successful Spin application deployment on Fermyon Wasm Functions 
 <!-- @nocpy -->
 
 ```console
-Pushing app to the Registry....
-App 'hello-spin' initialized successfully.
-Waiting for application to be ready... ready
+Name of new app: hello-spin
+Creating new app hello-spin in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app hello-spin
+Waiting for app to be ready... ready
 
-Application deployed to https://ac465a57-8d62-443e-a8ed-f50872dd17b7.aka.fermyon.tech/
-View application:   https://ac465a57-8d62-443e-a8ed-f50872dd17b7.aka.fermyon.tech/
+App Routes:
+- hello-spin: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 You can `CTRL`+Click on the link in the terminal to visit the web application you just deployed.

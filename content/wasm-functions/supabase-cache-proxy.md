@@ -527,10 +527,15 @@ $ spin aka deploy --variable supabase_url="<YOUR_SUPABASE_URL>" \
 ```
 
 ```console
-App 'supabase-proxy' initialized successfully.
-Waiting for application to be ready... ready
+Name of new app: supabase-proxy
+Creating new app supabase-proxy in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app supabase-proxy
+Waiting for app to be ready... ready
 
-View application:   https://b4208b18-5dbf-4408-8555-5779881b7207.aka.fermyon.tech/
+App Routes:
+- supabase-proxy: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 ### Testing the Application
@@ -726,9 +731,12 @@ $ spin aka deploy --variable supabase_url="\<YOUR_SUPABASE_URL\>" \
 ```
 
 ```console
-Waiting for application to be ready... ready
+Deploying updated version of app supabase-proxy in account your-account (version 1 → 2)
+OK to continue? yes
+Waiting for app to be ready... ready
 
-View application:   https://b4208b18-5dbf-4408-8555-5779881b7207.aka.fermyon.tech/
+App Routes:
+- supabase-proxy: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 You can use the Supabase portal to insert, update, or delete records from the `articles` table. On the flip side use the `spin aka logs` command, to retrieve logs from your Spin application running on _Fermyon Wasm Functions_. The cache invalidation implementation will generate log messages that you could use to verify cache busting also works for database chances done by third party applications now.
