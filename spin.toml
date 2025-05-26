@@ -104,10 +104,10 @@ id = "trigger-redirect-contributing-common-to-spin"
 component = "redirect-contributing-common-to-spin"
 route = "/common/cli-reference"
 
-[[trigger.http]]
-id = "trigger-hub-fileserver-static"
-component = "hub-fileserver-static"
-route = "/hub/..."
+#[[trigger.http]]
+#id = "trigger-hub-fileserver-static"
+#component = "hub-fileserver-static"
+#route = "/hub/..."
 
 [[trigger.http]]
 id = "trigger-registry-tutorial"
@@ -177,7 +177,7 @@ route = "/spin/..."
 [component.bartholomew]
 # Using build from bartholomew main
 source = "modules/bartholomew.wasm"
-environment = { PREVIEW_MODE = "0" }
+environment = { PREVIEW_MODE = "1" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 
 [component.bartholomew.build]
@@ -287,14 +287,14 @@ environment = { DESTINATION = "https://spinframework.dev/kubernetes", STATUSCODE
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://spinframework.dev/kubernetes", STATUSCODE = "301" }
 
-[component.hub-fileserver-static]
-source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
-environment = { FALLBACK_PATH = "./index.html" }
-files = [{ source = "spin-up-hub/dist/", destination = "/" }]
+#[component.hub-fileserver-static]
+#source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
+#environment = { FALLBACK_PATH = "./index.html" }
+#files = [{ source = "spin-up-hub/dist/", destination = "/" }]
 
-[component.hub-fileserver-static.build]
-command = "npm run build"
-workdir = "spin-up-hub"
+#[component.hub-fileserver-static.build]
+#command = "npm run build"
+#workdir = "spin-up-hub"
 
 # Redirect /spin/spin-oci to https://spinframework.dev/registry-tutorial
 [component.registry-tutorial]
