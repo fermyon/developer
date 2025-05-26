@@ -363,10 +363,15 @@ Deployment to _Fermyon Wasm Functions_ will take a couple of seconds, once the d
 <!-- @nocpy -->
 
 ```console
-App 'linode-streaming-app' initialized successfully.
-Waiting for application to be ready... ready
+Name of new app: linode-streaming-app
+Creating new app linode-streaming-app in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app linode-streaming-app
+Waiting for app to be ready... ready
 
-View application:   https://70b79692-1028-4aa5-9395-e311f44d038b.aka.fermyon.tech/
+App Routes:
+- linode-streaming-app: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 ## Conclusion

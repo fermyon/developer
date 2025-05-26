@@ -440,9 +440,15 @@ The above deploy command will produce similar output to the following:
 <!-- @nocpy -->
 
 ```bash
-Waiting for application to be ready... ready
-Application deployed to https://rust-pg-12345678.aka.fermyon.tech/
-View application: https://rust-pg-12345678.aka.fermyon.tech/
+Name of new app: hello-postgresql
+Creating new app hello-postgresql in account your-account
+Note: If you would instead like to deploy to an existing app, cancel this deploy and link this workspace to the app with `spin aka app link`
+OK to continue? yes
+Workspace linked to app hello-postgresql
+Waiting for app to be ready... ready
+
+App Routes:
+- hello-postgresql: https://ec8a19d8-6d10-4056-bb69-cc864306b489.aka.fermyon.tech (wildcard)
 ```
 
 Finally, you can use `curl` to interact with the application you just deployed to _Fermyon Wasm Functions_. First, let's send a `GET` request to the `/products` endpoint to retrieve a list of all products:
