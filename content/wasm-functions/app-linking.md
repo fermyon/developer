@@ -12,7 +12,7 @@ enable_shortcodes = true
 
 Your local workspace can be linked to an application running in _Fermyon Wasm Functions_. This is a convenience so that you don't always have to specify the `--app-name` when running commands.
 
-{{ details "What is a workspace?" "A workspace is a directory on your local machine that contains the Spin application code and manifest file. It is where you develop and test your application before deploying it to _Fermyon Wasm Functions_. Any child directory of where the Spin manifest is located is also considered part of the workspace." }}
+A workspace is a directory on your local machine that contains the Spin application code and manifest file. It is where you develop and test your application before deploying it to _Fermyon Wasm Functions_. Any child directory of where the Spin manifest is located is also considered part of the workspace.
 
 ## Inspecting Your Workspace
 
