@@ -1,5 +1,5 @@
-title = "`spin aka` v0.4 Updates"
-template = "changelog_fwf"
+title = "spin aka v0.4 Updates"
+template = "changelog_fwf_item"
 date = "2025-05-26T12:00:00Z"
 enable_shortcodes = true
 tags = ["spin_aka_plugin"]
@@ -9,6 +9,8 @@ type= "changelog_post"
 ---
 
 We're excited to announce the release of the `spin aka` v0.4.0, the latest version of Fermyon Wasm Functions' plugin!
+
+<!-- break -->
 
 This release focuses on making your development experience smoother, especially when collaborating with teammates and deploying your applications. Here’s what’s new:
 
