@@ -177,7 +177,7 @@ route = "/spin/..."
 [component.bartholomew]
 # Using build from bartholomew main
 source = "modules/bartholomew.wasm"
-environment = { PREVIEW_MODE = "1" }
+environment = { PREVIEW_MODE = "0" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 
 [component.bartholomew.build]
