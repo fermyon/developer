@@ -1,5 +1,5 @@
 title = "`spin aka` v0.4 Updates"
-template = "changelog_item"
+template = "changelog_fwf"
 date = "2025-05-26T12:00:00Z"
 enable_shortcodes = true
 tags = ["spin_aka_plugin"]
