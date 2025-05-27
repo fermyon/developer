@@ -1,0 +1,86 @@
+---
+read_pages_glob = ["wasm-functions/changelog/*.md"]
+---
+
+{{> content_top }}
+
+<main class="container is-fullwidth is-widescreen page-wrap ">
+    <div class="columns is-justify-content-center">
+
+        {{! This adds the sidebar }}
+        <div class="menu-wrap is-narrow is-hidden-desktop" id="docsMenu">
+            <aside class="menu">
+
+                <div id="search-button-container" class="search-button-container"></div>
+
+                <p class="menu-label">
+                    Projects
+                </p>
+                <ul class="menu-list">
+                    <li><a href="/cloud/index">Fermyon Cloud</a></li>
+                    <li><a href="/bartholomew/index">Bartholomew</a></li>
+                </ul>
+
+                <a class="navbar-item button is-primary is-rounded is-small" href="https://fibsu0jcu2g.typeform.com/fwf-preview"
+                    target="_blank">Request Access</a>
+            </aside>
+        </div>
+
+        <article class="column content content-docs content-docs-wide changelog-wrapper">
+            <div class="columns is-flex-wrap-wrap changelog-header">
+                <div class="column is-half is-full-mobile">
+                    <h1>Changelog</h1>
+                    <div>
+                        What's new with Fermyon Wasm Functions &dash; features, fixes and updates. Follow <a
+                            href="https://twitter.com/fermyontech" target="_blank">@fermyontech</a> for more.
+                    </div>
+                </div>
+                <div class="column is-half is-full-mobile changelog-animation is-hidden-touch">
+                    <div class="terminal">
+                        <div class="control">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                        <div class="prompts">
+                            <div><span class="prompt-sign">(main) $</span> curl
+                                https://developer.fermyon.com/wasm-functions/changelog</div>
+                            <div>Getting the latest weather updates from Fermyon Wasm Functions!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns changelog-content is-flex-wrap-wrap">
+                {{#each (content_filter site.pages "/content/wasm-functions/changelog/" "changelog_post")}}
+                <div class="columns">
+                    <div class="column is-half is-full-mobile changelog-item-title"
+                        data-tags='[{{#each this.page.head.tags}}{{#if @last}}"{{this}}" {{else}} "{{this}}",{{/if}}{{/each}}]''>
+                        <h3><a href="{{this.uri}}">{{this.page.head.title}}</a></h3>
+                        <div class="changelog-item-date">
+                            {{#if this.page.head.date}}{{date_format "%B %d, %Y" this.page.head.date}}{{/if}}
+                        </div>
+                        {{!-- <div class="changelog-item-tags">
+                            {{#each this.page.head.tags}}
+                            <span>{{this}}</span>
+                            {{/each}}
+                        </div> --}}
+                    </div>
+                    <div class="column is-half is-hidden-mobile changelog-item-content-summary">
+                        {{{truncate_post this.page.body}}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+
+            {{> content_footer }}
+        </article>
+
+    </div>
+</main>
+
+{{> content_bottom }}
+
+</body>
+
+</html>
