@@ -98,7 +98,7 @@ case $OSTYPE in
     ;;
 *)
     fancy_print 1 "The OSTYPE: ${OSTYPE} is not supported by this script."
-    fancy_print 2 "Please refer to this article to install Spin: https://wasm-functions.fermyon.app/fermyon-wasm-functions/quickstart"
+    fancy_print 2 "Please refer to this article to install Spin: https://developer.fermyon.com/wasm-functions/quickstart"
     exit 1
     ;;
 esac
@@ -154,5 +154,5 @@ if [[ $VERSION = "canary" ]]; then
     fancy_print 3 "Be sure to update templates to point to 'canary' SDKs."
 fi
 # Direct to quicks-start doc
-fancy_print 0 "You're good to go. Check here for the next steps: https://wasm-functions.fermyon.app/fermyon-wasm-functions/quickstart"
+fancy_print 0 "You're good to go. Check here for the next steps: https://developer.fermyon.com/wasm-functions/quickstart"
 fancy_print 0 "Run './spin' to get started"
