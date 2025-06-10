@@ -37,7 +37,7 @@ Download the `spin` binary using the `install.sh` script hosted on this site:
 
 <!-- @selectiveCpy -->
 
-<pre class="bash spin-install" id="spin-install-quick"><code>$ curl -fsSL https://wasm-functions.fermyon.app/downloads/install.sh | bash
+<pre class="bash spin-install" id="spin-install-quick"><code>$ curl -fsSL https://developer.fermyon.com/downloads/fwf_install.sh | bash
 </code></pre>
 
 Then move the `spin` binary somewhere in your path, so you can run it from anywhere. For example:
