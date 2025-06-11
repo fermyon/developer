@@ -19,7 +19,7 @@ This release focuses on making your development experience smoother, especially 
 We've refined the sub-command structure and standardized flag names, so it's easier to learn and use `spin aka` day-to-day.
 
 * App Linking for Collaboration
-Working with others on the same app? [App linking](app-linking.md) now makes it simpler to coordinate and develop together without stepping on each other’s toes.
+Working with others on the same app? [App linking](/wasm-functions/app-linking.md) now makes it simpler to coordinate and develop together without stepping on each other’s toes.
 
 * Friendlier Error Messages and Help Text
 When things go wrong (or if you just need a reminder), you’ll now see clearer, more actionable messages and improved command help.
