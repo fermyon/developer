@@ -9,6 +9,19 @@ html.dark-theme {
     body.documentation {
         background: $oxforddark !important;
 
+        .pagination-next {
+            background-color: #282F55 !important;
+            color: #fff !important;
+
+            p {
+                color: #ccc !important;
+            }
+
+            &:hover {
+                background-color: $bluedark !important;
+            }
+        }
+
         main {
             position: relative;
 

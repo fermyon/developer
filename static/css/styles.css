@@ -1419,6 +1419,19 @@ html.dark-theme body.documentation {
   background: #0e092d !important;
 }
 
+html.dark-theme body.documentation .pagination-next {
+  color: #fff !important;
+  background-color: #282f55 !important;
+}
+
+html.dark-theme body.documentation .pagination-next p {
+  color: #ccc !important;
+}
+
+html.dark-theme body.documentation .pagination-next:hover {
+  background-color: #384687 !important;
+}
+
 html.dark-theme body.documentation main {
   position: relative;
 }
