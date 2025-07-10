@@ -9,6 +9,7 @@ enable_shortcodes = true
 - [spin aka app](#spin-aka-app)
 - [spin aka app delete](#spin-aka-app-delete)
 - [spin aka app help](#spin-aka-app-help)
+- [spin aka app history](#spin-aka-app-history)
 - [spin aka app link](#spin-aka-app-link)
 - [spin aka app list](#spin-aka-app-list)
 - [spin aka app status](#spin-aka-app-status)
@@ -157,15 +158,16 @@ OPTIONS:
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    cron      UNSTABLE: Manage cron jobs for an app
-    delete    Delete an app
-    deploy    Deploy an app to Fermyon Wasm Functions
-    help      Print this message or the help of the given subcommand(s)
-    link      Link your local workspace to an existing Fermyon Wasm Functions app
-    list      List apps
-    logs      Fetch the logs for an app
-    status    Display information about an app
-    unlink    Unlink your local workspace from an existing Fermyon Wasm Functions app
+    cron       UNSTABLE: Manage cron jobs for an app
+    delete     Delete an app
+    deploy     Deploy an app to Fermyon Wasm Functions
+    help       Print this message or the help of the given subcommand(s)
+    history    Lists past events for an app
+    link       Link your local workspace to an existing Fermyon Wasm Functions app
+    list       List apps
+    logs       Fetch the logs for an app
+    status     Display information about an app
+    unlink     Unlink your local workspace from an existing Fermyon Wasm Functions app
 
 ```
 
@@ -309,6 +311,65 @@ Spin compatibility: `>=v3.0.0`
 $ spin aka app help --help
 
 
+```
+
+{{ blockEnd }}
+{{ blockEnd }}
+
+<!-- markdownlint-disable-next-line titlecase-rule -->
+## spin aka app history
+
+{{ tabs "aka-plugin-version" }}
+{{ startTab "v0.4.0"}}
+
+Spin compatibility: `>=v3.0.0`
+
+<!-- @selectiveCpy -->
+
+```console
+$ spin aka app history --help
+spin-aka-app-history 0.4.1 (486ad84 2025-07-04)
+Lists past events for an app
+
+USAGE:
+    spin aka app history [OPTIONS]
+
+OPTIONS:
+        --account-id <ACCOUNT_ID>
+            The account to perform the operation in
+
+            Defaults to the current account context.
+
+        --app-id <APP_ID>
+            ID of the app
+
+            If neither `app-id` nor `app-name` is provided, the app will be inferred from the
+            workspace config.
+
+        --app-name <APP_NAME>
+            Name of the app
+
+            If neither `app-id` nor `app-name` is provided, the app will be inferred from the
+            workspace config.
+
+    -f, --from <PATH>
+            A path to the app
+
+            This may be a manifest (spin.toml) file or a directory containing a spin.toml file.
+
+            If omitted, it defaults to "./spin.toml".
+
+        --format <FORMAT>
+            Desired output format
+
+            [default: plain]
+            [possible values: plain, json]
+
+    -h, --help
+            Print help information
+
+    -V, --version
+            Print version information
 ```
 
 {{ blockEnd }}
@@ -560,6 +621,17 @@ OPTIONS:
 
     -h, --help
             Print help information
+
+    --usage-since <USAGE_SINCE>
+        Only show app usage since the given time.
+
+        The time can be specified as an RFC3339 timestamp, Unix epoch timestamp in seconds, or
+        as a duration from the present. The duration is specified as a number followed by a
+        unit: 's' for seconds, 'm' for minutes, 'h' for hours, or 'd' for days (e.g. "30m" for
+        30 minutes ago). The default is 7 days. A maximum of 7 days and minimum of 5 minutes is
+        enforced.
+
+        [default: 7d]
 
     -V, --version
             Print version information

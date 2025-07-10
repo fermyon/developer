@@ -8,7 +8,7 @@ type= "changelog_post"
 
 ---
 
-We're excited to announce the release of the `spin aka` v0.4.0, the latest version of Fermyon Wasm Functions' plugin!
+We're excited to announce the release of `spin aka` v0.4.0, the latest version of Fermyon Wasm Functions' plugin!
 
 <!-- break -->
 
