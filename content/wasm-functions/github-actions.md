@@ -28,7 +28,7 @@ CLI](/deploy#install-the-spin-cli) and follow these steps:
 
 ```sh
 $ spin aka login
-$ spin aka tokens create --name mytoken
+$ spin aka auth tokens create --name mytoken
 A personal access token has been created! The token will expire 30 days from now.
 Here is your access token: pat_**************************
 ```
@@ -112,7 +112,7 @@ provided secrets.
 
 ## Rotating Tokens
 
-By default, tokens generated with `spin aka tokens create` expire in 30 days. Once 30 days are up,
+By default, tokens generated with `spin aka auth tokens create` expire in 30 days. Once 30 days are up,
 the token will expire and you must create a new token to continue using it in a CI/CD pipeline.
 
 Before your token expires, create a new token to replace the old one:
@@ -120,7 +120,7 @@ Before your token expires, create a new token to replace the old one:
 <!-- @selectiveCpy -->
 
 ```sh
-$ spin aka tokens create --name mynewtoken
+$ spin aka auth tokens create --name mynewtoken
 A personal access token has been created! The token will expire 30 days from now.
 Here is your access token: pat_**************************
 ```
@@ -131,7 +131,7 @@ from the time it is issued:
 <!-- @selectiveCpy -->
 
 ```sh
-$ spin aka tokens create --name mynewtoken --expiration-days 90
+$ spin aka auth tokens create --name mynewtoken --expiration-days 90
 A personal access token has been created! The token will expire 90 days from now.
 Here is your access token: pat_**************************
 ```
