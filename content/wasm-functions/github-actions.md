@@ -22,7 +22,7 @@ window, such as in the middle of a Continuous Integration (CI) or Continuous Dep
 workflow.
 
 To generate a Personal Access Token for use in a GitHub Actions workflow, [install the Spin
-CLI](/deploy#install-the-spin-cli) and follow these steps:
+CLI](/wasm-functions/deploy#install-the-spin-cli) and follow these steps:
 
 <!-- @selectiveCpy -->
 
