@@ -100,7 +100,7 @@ jobs:
       run: spin build
 
     - name: Login to Fermyon Wasm Functions
-      run: spin aka login --token ${{ secrets.SPIN_AKA_ACCESS_TOKEN }}
+      run: spin aka login --token $\{{ secrets.SPIN_AKA_ACCESS_TOKEN }}
 
     - name: Deploy to Fermyon Wasm Functions
       run: spin aka deploy
@@ -184,7 +184,7 @@ app is deployed to Fermyon Wasm Functions:
 
 ```yaml
     - name: Deploy to Fermyon Wasm Functions
-      run: spin aka deploy --variable compression_level=${{ secrets.COMPRESSION_LEVEL }}
+      run: spin aka deploy --variable compression_level=$\{{ secrets.COMPRESSION_LEVEL }}
 ```
 
 ## Next Steps
