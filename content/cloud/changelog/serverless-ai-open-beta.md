@@ -22,4 +22,4 @@ References:
 
 - [Serverless AI API Guide](https://spinframework.dev/v2/serverless-ai-api-guide)
 - [Serverless AI Tutorial](https://spinframework.dev/v2/serverless-ai-hello-world.md)
-- [`spin cloud GPU` plugin](../../api/hub/preview/plugin_spin_cloud_gpu)
+- [`spin cloud GPU` plugin](https://spinframework.dev/hub/preview/plugin_spin_cloud_gpu)

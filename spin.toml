@@ -35,6 +35,11 @@ component = "redirect-bartholomew-index"
 route = "/bartholomew"
 
 [[trigger.http]]
+id = "trigger-wildcard-redirect-spin-up-hub"
+component = "wildcard-redirect-spin-up-hub"
+route = "/hub/..."
+
+[[trigger.http]]
 id = "trigger-redirect-spin-rust-components-http-trigger"
 component = "redirect-spin-rust-components-http-trigger"
 route = "/spin/rust-components/http-trigger"
@@ -103,11 +108,6 @@ route = "/spin/kv-store"
 id = "trigger-redirect-contributing-common-to-spin"
 component = "redirect-contributing-common-to-spin"
 route = "/common/cli-reference"
-
-[[trigger.http]]
-id = "trigger-hub-fileserver-static"
-component = "hub-fileserver-static"
-route = "/hub/..."
 
 [[trigger.http]]
 id = "trigger-registry-tutorial"
@@ -181,7 +181,7 @@ environment = { PREVIEW_MODE = "0" }
 files = ["content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 
 [component.bartholomew.build]
-command = "npm run build-index && npm run build-hub-index"
+command = "npm run build-index"
 watch = ["content/**/*", "templates/*"]
 
 [component.fileserver-static]
@@ -287,15 +287,6 @@ environment = { DESTINATION = "https://spinframework.dev/kubernetes", STATUSCODE
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://spinframework.dev/kubernetes", STATUSCODE = "301" }
 
-[component.hub-fileserver-static]
-source = { url = "https://github.com/spinframework/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
-environment = { FALLBACK_PATH = "./index.html" }
-files = [{ source = "spin-up-hub/dist/", destination = "/" }]
-
-[component.hub-fileserver-static.build]
-command = "npm run build"
-workdir = "spin-up-hub"
-
 # Redirect /spin/spin-oci to https://spinframework.dev/registry-tutorial
 [component.registry-tutorial]
 source = "modules/redirect.wasm"
@@ -335,6 +326,11 @@ environment = { DESTINATION = "https://spinframework.dev/quickstart", STATUSCODE
 [component.wildcard-redirect-to-spinframework]
 source = "modules/redirect.wasm"
 environment = { DESTINATION = "https://spinframework.dev", STATUSCODE = "301", INCLUDE_PATH = "true", TRIM_PREFIX = "/spin" }
+
+# Redirect /hub/...  to spinframework.dev/hub/...
+[component.wildcard-redirect-spin-up-hub]
+source = "modules/redirect.wasm"
+environment = { DESTINATION = "https://spinframework.dev", STATUSCODE = "301", INCLUDE_PATH = "true" }
 
 # Redirect /wasm-languages to /wasm-languages/webassembly-language-support
 [component.redirect-wasm-langs-root]

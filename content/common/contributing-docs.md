@@ -457,9 +457,6 @@ You can host your changes to the developer documentation on your own machine (lo
 
 ```bash
 $ npm ci
-$ cd spin-up-hub
-$ npm ci
-$ cd ..
 $ spin build
 $ spin up -e "PREVIEW_MODE=1"
 ```

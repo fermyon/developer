@@ -286,4 +286,4 @@ Congratulations 🎉, you now have an application and key value store running on
 ## Next Steps
 
 * Visit [FAQ](faq) for frequently asked questions.
-* Check out the [KV Explorer](https://developer.fermyon.com/hub/preview/template_kv_explorer) observability component that allows you to explore and manage the contents of your key value store
+* Check out the [KV Explorer](https://spinframework.dev/hub/preview/template_kv_explorer) observability component that allows you to explore and manage the contents of your key value store

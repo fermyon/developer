@@ -9,6 +9,3 @@ final_broken
 .spin
 # The search index is generated at time of deploy
 static/data.json
-static/hub-index-data.json
-# The build version of spin up hub
-spin-up-hub/dist/
