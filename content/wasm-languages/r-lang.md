@@ -20,5 +20,5 @@ Here are some great resources:
 
 - [webR](https://github.com/georgestagg/webR), an in-browser implementation of R
 - An excellent [blog post](https://blog.ouseful.info/2022/02/17/running-r-and-debian-linux-in-the-browser-via-wasm/) on webR.
-- An [in-browser R console](https://www.mas.ncl.ac.uk/~ngs54/webR/) built using webR
+- An [in-browser R console](https://webr.sh/) built using webR
 - A [Fortran-to-Wasm](https://github.com/StarGate01/Full-Stack-Fortran) compiler toolchain.
