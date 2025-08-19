@@ -10,8 +10,6 @@ type= "changelog_post"
 
 We're excited to announce the release of `spin aka` v0.4.2, the latest version of Fermyon Wasm Functions' plugin!
 
-<!-- break -->
-
 ### ✨ What's New in `spin aka` v0.4.2
 
 - A new `spin aka app history` command has been added that enables you to view things like the deployments you've made to your app.
@@ -30,5 +28,7 @@ We're excited to announce the release of `spin aka` v0.4.2, the latest version o
   ```
 
 - `spin aka login` no longer fails if you are trying to log in with a user that is associated with multiple accounts.
+
+<!-- break -->
 
 Existing users can get started by upgrading your [`spin aka` plugin](https://spinframework.dev/v3/managing-plugins#upgrading-plugins) or [request access](https://fibsu0jcu2g.typeform.com/fwf-preview) to Fermyon Wasm Functions today.

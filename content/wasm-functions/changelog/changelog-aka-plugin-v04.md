@@ -10,8 +10,6 @@ type= "changelog_post"
 
 We're excited to announce the release of `spin aka` v0.4.0, the latest version of Fermyon Wasm Functions' plugin!
 
-<!-- break -->
-
 This release focuses on making your development experience smoother, especially when collaborating with teammates and deploying your applications. Here’s what’s new:
 
 ### ✨ What's New in `spin aka` v0.4.0
@@ -26,5 +24,7 @@ When things go wrong (or if you just need a reminder), you’ll now see clearer,
 
 * Improved Deployment Flow
 Deploying your app is now more interactive, guiding you through the process for a smoother experience.
+
+<!-- break -->
 
 Existing users can get started by upgrading your [`spin aka` plugin](https://spinframework.dev/v3/managing-plugins#upgrading-plugins) or [request access](https://fibsu0jcu2g.typeform.com/fwf-preview) to Fermyon Wasm Functions today.
