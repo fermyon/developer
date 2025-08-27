@@ -41,8 +41,10 @@ $ spin new -t http-js --accept-defaults hello-key-value-store
 
 $ cd hello-key-value-store
 
-$ npm install
+$ npm install @spinframework/spin-kv 
 ```
+
+**Note:** The above `npm install` command installs the default packages in the template as well as the `@spinframework/spin-kv` required for this tutorial.
 
 ## Grant Key Value Store Permission
 
@@ -64,10 +66,10 @@ The `http-js` template generates a simple _Hello World_ example in `src/index.js
 - `GET /get/:key` for retrieving a value from key value store using the key provided as `:key`
 - `POST /set/:key` for storing a value provided as request payload using `:key` in key value store
 
-Let's start by bringing necessary capabilities from the `@fermyon/spin-sdk` package into scope and laying out the routes:
+Let's start by bringing necessary capabilities from the `@spinframework/spin-kv` package into scope and laying out the routes:
 
 ```JavaScript
-import { Kv } from '@fermyon/spin-sdk';
+import { openDefault } from '@spinframework/spin-kv';
 import { AutoRouter } from 'itty-router'
 
 const router = AutoRouter();
@@ -87,13 +89,13 @@ addEventListener('fetch', async (event) => {
 });
 ```
 
-Incoming `GET` requests at `/get/:key` will be handled by the `handleGetValue` function. As part of the function, we use the key value store APIs provided by the Spin SDK for JavaScript (`import Kv from '@fermyon/spin-sdk'`):
+Incoming `GET` requests at `/get/:key` will be handled by the `handleGetValue` function. As part of the function, we use the key value store APIs provided by the Spin SDK for JavaScript (`@spinframework/spin-kv`):
 
 ```JavaScript
 function handleGetValue(key) {
     // open the Key Value store with label "default"
     // if you specified a different label use the Kv.open("mylabel") function instead
-    const store = Kv.openDefault();
+    const store = openDefault();
 
     // check if key exists, if not return early with an HTTP 404 
     if (!store.exists(key)) {
@@ -127,7 +129,7 @@ function handleSetValue(key, requestBody) {
 
     // open the Key Value store with label "default"
     // if you specified a different label use the Kv.open("mylabel") function instead 
-    const store = Kv.openDefault();
+    const store = openDefault();
 
     // store data in the Key Value store at key
     store.setJson(key, payload);
