@@ -104,8 +104,10 @@ $ spin new -t http-ts -a linode-mysql
 
 $ cd linode-mysql
 
-$ npm install
+$ npm install @spinframework/spin-mysql @spinframework/spin-variables
 ```
+
+**Note:** The above `npm install` command installs the default packages in the template as well as the `@spinframework/spin-mysql` and `@spinframework/spin-variables` required for this tutorial.
 
 ## Configuration
 
@@ -151,7 +153,8 @@ $ npm install uuid --save
 We'll start with importing necessary capabilities, defining application constants, two helper functions, and laying out the HTTP API of our Spin application using the `AutoRouter` provided by the `itty-router` module:
 
 ```TypeScript
-import { Variables, Mysql } from "@fermyon/spin-sdk";
+import * as Variables from "@spinframework/spin-variables";
+import * as Mysql from "@spinframework/spin-mysql";
 import { AutoRouter } from "itty-router";
 import { v4 as uuidv4 } from 'uuid';
 import { validate as uuidValidate } from 'uuid';
@@ -401,16 +404,9 @@ found 0 vulnerabilities
 Building component linode-mysql with `npm run build`
 
 > linode-mysql@1.0.0 build
-> knitwit --out-dir build/wit/knitwit --out-world combined && npx webpack --mode=production && npx mkdirp dist && npx j2w -i build/bundle.js -d build/wit/knitwit -n combined -o dist/linode-mysql.wasm
+> npx webpack --mode=production && npx mkdirp dist && npx j2w -i build/bundle.js -d build/wit/knitwit -n combined -o dist/linode-mysql.wasm
 
-Attempting to read knitwit.json
-loaded configuration for: [ '@fermyon/spin-sdk' ]
-asset bundle.js 18.2 KiB [emitted] [javascript module] (name: main)
-orphan modules 42.8 KiB [orphan] 43 modules
-runtime modules 396 bytes 2 modules
-./src/index.ts + 12 modules 16.4 KiB [not cacheable] [built] [code generated]
-webpack 5.97.1 compiled successfully in 553 ms
-Using user-provided wit in: /Users/sasha/fwf-examples/tutorials/linode-mysql/build/wit/knitwit
+...
 Component successfully written.
 Finished building all Spin components
 ```

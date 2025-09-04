@@ -60,7 +60,7 @@ Install the `@aws-sdk/client-s3` dependency using `npm`:
 <!-- @selectiveCpy -->
 
 ```console
-$ npm install @aws-sdk/client-s3
+$ npm install @spinframework/spin-variables @aws-sdk/client-s3
 ```
 
 ## Step 3: Configure Spin Application Variables
@@ -112,7 +112,7 @@ Go ahead and replace the contents of  `src/index.ts` using the TypeScript code s
 ```typescript
 import { AutoRouter, json } from 'itty-router';
 import { S3Client, GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
-import { Variables } from '@fermyon/spin-sdk';
+import * as Variables from '@spinframework/spin-variables';
 
 const dec = new TextDecoder();
 const enc = new TextEncoder();

@@ -71,7 +71,7 @@ With the `spin` CLI, we can take advantage of its default templates by using the
 ```console
 $ spin new -t http-ts -a supabase-proxy
 $ cd supabase-proxy
-$ npm install @supabase/supabase-js --save
+$ npm install @spinframework/spin-variables @spinframework/spin-kv @supabase/supabase-js --save
 ```
 
 Next, we will update the application manifest (`spin.toml`) by adding three new variables to grant our application access to the following information:
@@ -117,7 +117,7 @@ In this section, we will implement the core HTTP handlers for our application, e
 Let's start by creating a `middlewares.ts` file in the `src` folder of your application and add the following code:
  
 ```ts
-import { Variables } from "@fermyon/spin-sdk";
+import * as Variables from "@spinframework/spin-variables"
 import { IRequest } from "itty-router";
 
 /**
@@ -352,7 +352,7 @@ Now that we have granted our component access to the `default` Key Value store, 
 We’ll use the `Kv` APIs provided by the Spin SDK tor interacting with the Key Value store. Place the following code in the new `src/cache.ts` file:
 
 ```ts
-import { Kv } from "@fermyon/spin-sdk";
+import * as Kv from "@spinframework/spin-kv";
 
 // CacheData is a wrapper for data stored in the key value store
 // it defines when data will expire
@@ -627,7 +627,7 @@ supabase_webhook_token = "{{ supabase_webhook_token }}"
 Update the `Config` interface and the `withConfig` function in `src/middlewares.ts` to load and expose the `webhookToken`:
 
 ```ts
-import { Variables } from "@fermyon/spin-sdk";
+import * as Variables from "@spinframework/spin-kv";
 import { IRequest } from "itty-router";
 
 export interface Config {
