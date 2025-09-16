@@ -53,5 +53,4 @@ Here are some great resources:
 - Example of building [C++ WebAssembly files with Clang](https://github.com/PetterS/clang-wasm)
 - The [yo-wasm](https://github.com/deislabs/yo-wasm) tool can help you get started faster. (Yes, we built `yo-wasm`.)
 - The [QT GUI toolkit](https://www.qt.io/) supports [compiling to WebAssembly](https://wiki.qt.io/Qt_for_WebAssembly) for the browser. (We blogged about [LibreOffice in the browser](https://www.fermyon.com/blog/qt-libreoffice-wasm). That uses QT.)
-- An article showing how to use [Emscripten to compile C++ to Wasm](https://medium.com/@tdeniffel/pragmatic-compiling-from-c-to-webassembly-a-guide-a496cc5954b8)
 - TutorialsPoint has a tutorial for [compiling C++ to WebAssembly using Emscripten](https://www.tutorialspoint.com/webassembly/webassembly_working_with_cplusplus.htm), but it focuses only on the browser case.
