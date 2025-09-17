@@ -35,7 +35,6 @@ Here's a detailed video by Joel Dice:
 
 Here are some great resources:
 
-- [WebAssembly for the Java Geek](https://www.javaadvent.com/2022/12/webassembly-for-the-java-geek.html) details how Wasm's bytecodes and virtual machine differ from Java's, and why this makes a difference.
 - An [in-depth blog](http://blog.dmitryalexandrov.net/webassembly-for-java-developers/) showing practical ways to run Java as Wasm
 - Does Wasm remind you of Java Applets? Then read [this blog post](https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash)
 - [GraalVM](https://www.graalvm.org/reference-manual/wasm/) has gained a lot of momentum as a WebAssembly runtime, though it does not appear to support compiling from languages to WebAssembly.

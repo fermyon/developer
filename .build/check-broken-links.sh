@@ -85,11 +85,14 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://linux.die.net/man/1/which'                                                                                                                                           \
     --exclude 'https://www.namecheap.com'                                                                                                                                           \
                                                                                                                                                                                             \
+    `## returns 429`                                                                                                                                                                        \
+    --exclude 'https://www.hashicorp.com/products/nomad'                                                                                                                                         \
+                                                                                                                                                                                            \
     `## false positives`                                                                                                                                                                    \
     --exclude 'https://www.gnu.org/software/coreutils/'                                                                                                                                     \
     --exclude 'https://techdocs.akamai.com/home'                                                                                                                                            \
     --exclude 'https://techdocs.akamai.com/property-mgr/docs/welcome-prop-manager'                                                                                                          \
-    --exclude  'https://bsky.app/profile/fermyon.com'                                                                                                                                        \
+    --exclude 'https://bsky.app/profile/fermyon.com'                                                                                                                                        \
     --exclude 'https://events.hashicorp.com/hashitalksdeploy'                                                                                                                               \
     --exclude 'https://dotnet.microsoft.com/en-us/download/dotnet/8.0'                                                                                                                      \
     --exclude 'https://www.developerweek.com/'                                                                                                                                              \
