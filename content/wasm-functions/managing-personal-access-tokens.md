@@ -4,10 +4,11 @@ date = "2025-09-18T00:22:56Z"
 enable_shortcodes = true
 
 ---
-- [Inspecting Your Workspace](#inspecting-your-workspace)
-- [Linking Your Workspace](#linking-your-workspace)
-- [Running Commands](#running-commands)
-- [Unlinking Your Workspace](#unlinking-your-workspace)
+
+- [Generating a PAT](#generating-a-pat)
+- [Listing All Your PATs](#listing-all-your-pats)
+- [Regenerating a PAT](#regenerating-a-pat)
+- [Removing a PAT](#removing-a-pat)
 - [Next Steps](#next-steps)
 
 There are several scenarios - like for example, automated deployments from CI/CD systems like GitHub Actions - in which you might want to authenticate against *Fermyon Wasm Functions* using Personal Access Tokens (PATs) instead of authenticating manually using the OAuth 2.0 Device Code flow. 
@@ -39,7 +40,7 @@ Please store this token in a safe place, as it will not be shown again.
 Here is your access token: pat_**************************
 ```
 
-## Listing all your PATs
+## Listing All Your PATs
 
 Once you've generated at least one PAT, you can print a list of all tokens using the `spin aka auth token list` command. This won't show the actual PATs, but you'll see essential metadata for every PAT created.
 
