@@ -48,7 +48,7 @@ Fermyon Wasm Functions supports Spin CLI v0.6.0 or newer. That being said, there
 | [Outbound Redis](https://spinframework.dev/rust-components#storing-data-in-redis-from-rust-components) | Supported                                                      |
 | [wasi-blobstore](https://github.com/WebAssembly/wasi-blobstore)                                                 | Not supported in Spin                                          |
 | [wasi-config](https://github.com/WebAssembly/wasi-config)                                                       | Supported (2024-09-27 snapshot)                                |
-| [wasi-keyvalue](https://github.com/WebAssembly/wasi-keyvalue)                                                   | Supported (2024-10-17 snapshot)                                |
+| [wasi-keyvalue](https://github.com/WebAssembly/wasi-keyvalue)                                                   | `wasi:keyvalue/store` and `wasi:keyvalue/batch` interfaces supported (2024-10-17 snapshot) |
 | [wasi-messaging](https://github.com/WebAssembly/wasi-messaging)                                                 | Not supported in Spin                                          |
 | **Features**                                                                                                    |
 | [Component dependencies](https://spinframework.dev/v3/writing-apps#using-component-dependencies)       | Supported                                                      |
