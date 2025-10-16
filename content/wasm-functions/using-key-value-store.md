@@ -26,7 +26,7 @@ Fermyon Wasm Functions provides key value data storage that is low-latency, pers
 
 ### Key Value Limitations and Considerations
 
-- WASI KV atomic `increment` and `compare-and-swap` operations will incur higher latencies. Consider using alternative key value operations if latency is a concern.
+- While the `wasi:keyvalue/store` and `wasi:keyvalue/batch` interfaces are supported, the `wasi:keyvalue/atomic` interface is not supported due to requiring a different consistency guarantee than can be provided by our global store.
 - Key value stores are currently scoped to applications and cannot be shared between applications.
 - Key value query rates are limited to enable experimenting with this feature. Rates can be increased to meet production needs per customer request.
 
