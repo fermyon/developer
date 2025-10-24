@@ -128,34 +128,6 @@
         }
         document.head.appendChild(script);
     </script>
-    <!-- Start of Common Room script -->
-    <script type="text/plain" data-type="application/javascript" data-name="commonroom">
-        (function() {
-            if (typeof window === 'undefined') return;
-            if (typeof window.signals !== 'undefined') return;
-            
-            var script = document.createElement('script');
-            script.src = 'https://cdn.cr-relay.com/v1/site/40a92ecf-d6bd-4336-ba35-100bcc10d008/signals.js';
-            script.async = true;
-            window.signals = Object.assign(
-                [],
-                ['page', 'identify', 'form'].reduce(function (acc, method){
-                    acc[method] = function () {
-                        signals.push([method, arguments]);
-                        return signals;
-                    };
-                    return acc;
-                }, {})
-            );
-            document.head.appendChild(script);
-        })();
-    </script>
-    <!-- Start of Reo Javascript -->
-    <script type="text/plain" data-type="application/javascript" data-name="reo"> !function () {
-            var
-                e, t, n; e = "57fed4b17f82a05", t = function () { Reo.init({ clientID: "57fed4b17f82a05" }) }, (n = document.createElement("script")).src = "https://static.reo.dev/" + e + "/reo.js", n.async = !0, n.onload = t, document.head.appendChild(n)
-        }();
-    </script>
 </head>
 
 <body class="documentation">
