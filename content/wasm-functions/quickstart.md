@@ -17,7 +17,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-functions/qui
 - [Success](#success)
 - [Next Steps](#next-steps)
 
-> This quickstart requires access to the public preview of Fermyon Wasm Functions. If you haven’t already requested access, please do so first by completing [this short form](https://fibsu0jcu2g.typeform.com/fwf-preview). The Fermyon team will review your request and follow up shortly.
+> This quickstart requires a Fermyon Wasm Functions account. If you haven’t already requested access, please do so first by completing [this short form](https://fibsu0jcu2g.typeform.com/fwf-preview). The Fermyon team will review your request and follow up shortly.
 
 Fermyon Wasm Functions is the platform for running [Spin](https://spinframework.dev) applications inside of the Akamai Connected Cloud. For more details on limitations and support policy, check out the [FAQ](faq.md).
 

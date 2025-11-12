@@ -20,7 +20,7 @@ This tutorial guides you through the process of scheduling HTTP requests in a Sp
 Before proceeding, ensure you have the following:
 
 - Spin and the `spin aka` plugin installed on your machine ([Installation Guide](./quickstart.md))
-- Access to Fermyon Wasm Functions preview ([Sign Up Form](https://fibsu0jcu2g.typeform.com/fwf-preview))
+- A [Fermyon Wasm Functions account](https://fibsu0jcu2g.typeform.com/fwf-preview)  
 
 # Introduction to Cron Jobs
 

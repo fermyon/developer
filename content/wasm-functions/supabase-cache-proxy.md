@@ -347,7 +347,7 @@ Now that we have granted our component access to the `default` Key Value store, 
 - All data persisted in the cache should have an expiration timestamp taking the `cache_ttl` configuration data into context
 - Cache invalidation should happen whenever data is added, updated or removed from the cache
 
-> **A note on cache performance expectations:** Fermyon Wasm Functions' Key Value store does not currently support geo-replication in public preview. This means that cache performance may vary depending on where requests originate. While this works well for many use cases, some latency-sensitive applications may experience differences in response times. We welcome [feedback](https://fibsu0jcu2g.typeform.com/to/G2u4tPcP) on how this impacts your experience so we can improve the service in future releases.
+> **A note on cache performance expectations:** Fermyon Wasm Functions' Key Value store does not currently support geo-replication. This means that cache performance may vary depending on where requests originate. While this works well for many use cases, some latency-sensitive applications may experience differences in response times. We welcome [feedback](https://fibsu0jcu2g.typeform.com/to/G2u4tPcP) on how this impacts your experience so we can improve the service in future releases.
 
 We’ll use the `Kv` APIs provided by the Spin SDK tor interacting with the Key Value store. Place the following code in the new `src/cache.ts` file:
 

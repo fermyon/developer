@@ -38,7 +38,7 @@ As we're going to use [TypeScript](https://www.typescriptlang.org/) to for build
 
 ### Configuring MySQL Database Server Access
 
-With a MySQL cluster deployed to your Linode account, you must explicitly allow inbound connections using either IPv6 or IPv4 addresses. For the sake of this tutorial and during public preview of _Fermyon Wasm Functions_, we'll use the `0.0.0.0/0` CIDR to allow inbound connectivity from any host to the MySQL database server. 
+With a MySQL cluster deployed to your Linode account, you must explicitly allow inbound connections using either IPv6 or IPv4 addresses. For the sake of this tutorial, we'll use the `0.0.0.0/0` CIDR to allow inbound connectivity from any host to the MySQL database server. 
 
 You can add the CIDR mentioned above, by browsing to the _Settings_ panel of your MySQL server and clicking the _Manage Access_ button. Once added the `0.0.0.0/0` CIDR and saving the changes, you should see the CIDR being explicitly listed on the settings panel, as shown here:
 

@@ -16,7 +16,7 @@ url = "https://github.com/fermyon/developer/blob/main/content/wasm-functions/faq
 
 ## Quota Limits
 
-> > Limits are subject to change as part of public preview. If you're interested in higher limits, please [contact us](https://www.fermyon.com/contact) for assistance.
+> > If you're interested in higher limits, please [contact us](https://www.fermyon.com/contact) for assistance.
 
 | All limits can be increased on request | Default Limit |
 | -------------------------------------- | ------------- |

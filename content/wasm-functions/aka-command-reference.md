@@ -66,7 +66,7 @@ SUBCOMMANDS:
     init             Configure an application
     login            Log into Fermyon Wasm Functions on Akamai
     logs             Get logs for an application
-    send-feedback    Send Fermyon Wasm Functions preview feedback
+    send-feedback    Send Fermyon Wasm Functions product feedback
 
 ```
 
@@ -1599,7 +1599,7 @@ Spin compatibility: `>=v3.0.0`
 $ spin aka send-feedback --help
 
 spin-aka-send-feedback 0.1.0 (d451558 2025-01-28)
-Send Fermyon Wasm Functions preview feedback
+Send Fermyon Wasm Functions product feedback
 
 USAGE:
     spin aka send-feedback
