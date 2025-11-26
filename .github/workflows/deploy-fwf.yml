@@ -1,0 +1,74 @@
+name: Deploy Developer Docs to Fermyon Wasm Functions
+
+on:
+  push:
+    branches:
+      - 'main'
+
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Git ref to deploy from (refs/tags/v* for tag)'
+        default: 'refs/heads/main'
+      commit:
+        description: 'Commit SHA to deploy from (optional)'
+
+# Construct a concurrency group to be shared across workflow runs.
+# The default behavior ensures that only one is running at a time, with
+# all others queuing and thus not interrupting runs that are in-flight.
+concurrency: ${{ github.workflow }}
+
+jobs:
+  echo-inputs:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    steps:
+      - name: Echo Inputs
+        run: |
+          echo ref: ${{ inputs.ref }}
+          echo commit: ${{ inputs.commit }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.repository_owner == 'fermyon' }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check out specific ref
+        if: ${{ github.event_name == 'workflow_dispatch' }} && ${{ inputs.ref != ''}}
+        run: git checkout ${{ inputs.ref }}
+
+      - name: Check out specific commit
+        if: ${{ github.event_name == 'workflow_dispatch' }} && ${{ inputs.commit != ''}}
+        run: git checkout ${{ inputs.commit }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Spin
+        run: |
+          curl -fsSL https://wasm-functions.fermyon.app/downloads/install.sh | bash
+          mv spin /usr/local/bin/spin
+
+      - name: Install npm packages
+        run: |
+          npm ci
+
+      - name: Build app
+        run: |
+          spin build
+
+
+      - name: Login to Fermyon Wasm Functions
+        run: spin aka login --token ${{ secrets.SPIN_AKA_ACCESS_TOKEN }}
+
+      - name: Link environment to production function
+        run: spin aka app link --app-id ${{ vars.SPIN_AKA_APP_ID }} --account-id ${{ vars.SPIN_AKA_ACCOUNT_ID }}
+
+      - name: Deploy to Fermyon Wasm Functions
+        run: spin aka deploy --app-id ${{ vars.SPIN_AKA_APP_ID }} --no-confirm --account-id ${{ vars.SPIN_AKA_ACCOUNT_ID }}
+
+      - name: Get status
+        run: spin aka app status --app-id ${{ vars.SPIN_AKA_APP_ID }} --account-id ${{ vars.SPIN_AKA_ACCOUNT_ID }}
