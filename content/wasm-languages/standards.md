@@ -27,7 +27,7 @@ WebAssembly is standardized by W3C, the same group that standardizes CSS, HTML, 
 
 - The [WASI site](https://wasi.dev) is the main page
 - The [WASI repo](https://github.com/WebAssembly/WASI)
-- The working group [charter](https://github.com/WebAssembly/WASI/blob/main/Charter.md)
+- The working group [charter](https://github.com/WebAssembly/WASI/blob/main/docs/Charter.md)
 - Most of the WASI proposed standards are [in the WebAssembly GitHub](https://github.com/orgs/WebAssembly/repositories?q=wasi)
 - The [WASI libc library](https://github.com/WebAssembly/wasi-libc) is the C library for core WASI
 
