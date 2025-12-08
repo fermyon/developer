@@ -83,7 +83,10 @@ blc --recursive http://127.0.0.1:3000                                           
     --exclude 'https://twitter.com/fermyontech/status/1641537393818738710'                                                                                                                  \
     --exclude 'https://www.godaddy.com'                                                                                                                                                     \
     --exclude 'https://linux.die.net/man/1/which'                                                                                                                                           \
-    --exclude 'https://www.namecheap.com'                                                                                                                                           \
+    --exclude 'https://www.namecheap.com'                                                                                                                                                   \
+    --exclude 'https://www.npmjs.com'                                                                                                                                                       \
+    --exclude 'https://medium.com'                                                                                                                                                          \
+    --exclude 'https://betterprogramming.pub'                                                                                                                                               \
                                                                                                                                                                                             \
     `## returns 429`                                                                                                                                                                        \
     --exclude 'https://www.hashicorp.com/products/nomad'                                                                                                                                         \
