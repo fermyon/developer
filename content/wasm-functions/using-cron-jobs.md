@@ -184,7 +184,7 @@ If we wait 5 minutes and check our application logs with the `spin aka logs` sub
 <!-- @nocpy -->
 
 ```console
-spin aka logs -a hello-world
+spin aka logs --app-name hello-world
 2025-04-02 04:00:00 [hello-world]  Cron job triggered at 2025-04-12T04:00:00Z
 ```
 
