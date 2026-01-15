@@ -2789,7 +2789,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 #topbar.navbar .navbar-menu {
-  height: 4rem;
+  height: 4.8rem;
   padding-left: 1.33vw;
   padding-right: 1vw;
   display: flex;
@@ -3163,7 +3163,12 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
 }
 
 @media screen and (min-width: 1140px) {
-  .navbar-dropdown.mega-menu {
+  header .container:not(.is-max-desktop):not(.is-max-widescreen) {
+    max-width: 1524px;
+    display: inline-flex;
+  }
+
+  .navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu {
     max-width: 1080px;
     margin-left: -540px;
     position: fixed;
@@ -3244,7 +3249,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   background: #e6d2f1;
   display: block;
   position: absolute;
-  top: 1rem;
+  top: 1.35rem;
   right: 30.5rem;
 }
 
@@ -3256,7 +3261,7 @@ html.dark-theme .klaro .cookie-modal .cm-modal .cm-header h1 {
   background: url("search.2af741de.svg") 0 0 / cover no-repeat;
   display: inline-block;
   position: absolute;
-  top: 1.33rem;
+  top: 1.75rem;
   right: 31.35rem;
 }
 
