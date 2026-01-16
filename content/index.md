@@ -6,7 +6,7 @@ enable_shortcodes = true
 
 ### Start Building
 
-<p class="subtitle mb-5">The <a href="https://spinframework.dev/hub" target="_blank">Spin Hub</a> is an open library of templates, plugins and resources to help you create powerful apps, fast.</p>
+<p class="subtitle mb-5">The <a href="https://spinframework.dev/hub" target="_blank">Spin Hub</a> is an open library of templates, plugins and resources to help you create powerful apps, fast!</p>
 
 {{suh_cards}}
 {{card_element "sample" "Next.js React App" "An app template for running Next.js as a Wasm app with Spin." "https://spinframework.dev/hub/preview/template_nextjs" "JS,Next,http" true }}
