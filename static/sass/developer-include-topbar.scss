@@ -60,7 +60,7 @@
         padding-left: 1.33vw;
         padding-right: 1vw;
         display: flex;
-        height: 4rem;
+        height: 4.8rem;
 
         .has-dropdown {
             a.navbar-link {
@@ -443,7 +443,11 @@
 }
 
 @media screen and (min-width: 1140px) {
-    .navbar-dropdown.mega-menu {
+    header .container:not(.is-max-desktop):not(.is-max-widescreen) {
+        max-width: 1524px;
+        display: inline-flex;
+    }
+    .navbar-menu .navbar-start .is-hoverable .navbar-dropdown.mega-menu {
         max-width: 1080px;
         position: fixed;
         margin-top: 0 !important;
