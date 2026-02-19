@@ -46,6 +46,6 @@
     "check-broken-links": ".build/check-broken-links.sh"
   },
   "dependencies": {
-    "npm": "^11.8.0"
+    "npm": "^11.10.1"
   }
 }
