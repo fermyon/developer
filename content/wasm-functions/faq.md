@@ -46,10 +46,10 @@ Fermyon Wasm Functions supports Spin CLI v0.6.0 or newer. That being said, there
 | [MySQL](https://spinframework.dev/rdbms-storage#using-mysql-and-postgresql-from-applications)          | Supported                                                      |
 | [PostgreSQL](https://spinframework.dev/rdbms-storage#using-mysql-and-postgresql-from-applications)     | Supported                                                      |
 | [Outbound Redis](https://spinframework.dev/rust-components#storing-data-in-redis-from-rust-components) | Supported                                                      |
-| [wasi-blobstore](https://github.com/WebAssembly/wasi-blobstore)                                                 | Not supported in Spin                                          |
+| [wasi-blobstore](https://github.com/WebAssembly/wasi-blobstore)                                                 | Not supported in Spin, Not supported in Fermyon Wasm Functions                                          |
 | [wasi-config](https://github.com/WebAssembly/wasi-config)                                                       | Supported (2024-09-27 snapshot)                                |
 | [wasi-keyvalue](https://github.com/WebAssembly/wasi-keyvalue)                                                   | `wasi:keyvalue/store` and `wasi:keyvalue/batch` interfaces supported (2024-10-17 snapshot) |
-| [wasi-messaging](https://github.com/WebAssembly/wasi-messaging)                                                 | Not supported in Spin                                          |
+| [wasi-messaging](https://github.com/WebAssembly/wasi-messaging)                                                 | Not supported in Spin, Not supported in Fermyon Wasm Functions                                          |
 | **Features**                                                                                                    |
 | [Component dependencies](https://spinframework.dev/v3/writing-apps#using-component-dependencies)       | Supported                                                      |
 | **Extensibility**                                                                                               |
@@ -65,9 +65,9 @@ To learn more about what feature support looks like for various programming lang
 ## Technical Frequently Asked Questions
 
 - **Q: Where is Fermyon Wasm Functions available today?**
-  - Currently Fermyon Wasm Functions are deployed throughout North America and Europe, with larger geographic coverage coming soon.
+  - Currently Fermyon Wasm Functions are deployed throughout the world in more than 20 locations.
 - **Q: How is user data structured in Fermyon Wasm Functions?**
-  - Each user has an associated account (created implicitly with `spin aka login`), which serves as the primary entity for managing their resources. An account is linked to zero or more Spin applications, allowing flexibility in how users develop and deploy their workloads.
+  - Each user has an associated account (created implicitly with `spin aka login`), which serves as the primary entity for managing their resources. An account is linked to zero or more Spin applications, allowing flexibility in how users develop and deploy their workloads. For shared access to applications, please reach out to [support](./support.md).
 - **Q: How are Spin applications managed within a Fermyon Wasm Functions account?**
   - Each Spin application belongs to a specific account and operates independently, ensuring modularity and security. Applications include metadata, dependencies, and deployment configurations, allowing for scalable and efficient management. If you have additional questions or need further clarification, please reach out to [support](./support.md).
 - **Q: How long does a login session last with Fermyon Wasm Functions? Will my Spin applications persist after I’ve been logged out?**
