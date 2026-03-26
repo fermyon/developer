@@ -155,7 +155,7 @@ Next we'll prepare an application with Spin. You can [write an app from scratch]
 
 <div style="margin: 3rem auto;">
 {{suh_cards}}
-{{card_element "example" "103 Early Hints with HarperDB" "A sample app to query HarperDB for early hints." "https://github.com/fermyon/fwf-examples/tree/main/samples/early-hints-rust" "Rust" true }}
+{{card_element "example" "Image Conversion" "A sample app for image conversion and resizing." "https://github.com/fermyon/fwf-examples/tree/main/samples/image-conversion" "Rust" true }}
 {{card_element "example" "Traffic Splitting & Mirroring" "A traffic monitoring application, demoing traffic splitting workloads." "https://github.com/fermyon/fwf-examples/tree/main/samples/traffic-splitting" "Javascript" true }}
 {{card_element "example" "Alter Response Headers" "How to alter the headers as you stream a response from an origin." "https://github.com/fermyon/fwf-examples/tree/main/samples/alter-headers" "Typescript" true }}
 {{blockEnd}}
