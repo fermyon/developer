@@ -1,5 +1,7 @@
 # The Fermyon developer website
 
+test!
+
 Prerequisites to run the website locally:
 
 - [npm and node](https://docs.npmjs.com/cli/v8/configuring-npm/install)
