@@ -117,7 +117,8 @@ esac
 
 # Check desired version. Default to latest if no desired version was requested
 if [[ -z $VERSION ]]; then
-    VERSION=$(curl -so- https://github.com/spinframework/spin/releases | grep 'href="/spinframework/spin/releases/tag/v[0-9]*.[0-9]*.[0-9]*\"' | sed -E 's/.*\/spinframework\/spin\/releases\/tag\/(v[0-9\.]+)".*/\1/g' | head -1)
+    # VERSION=$(curl -so- https://github.com/spinframework/spin/releases | grep 'href="/spinframework/spin/releases/tag/v[0-9]*.[0-9]*.[0-9]*\"' | sed -E 's/.*\/spinframework\/spin\/releases\/tag\/(v[0-9\.]+)".*/\1/g' | head -1)
+    VERSION="v3.6.3"
 fi
 
 # Constructing download FILE and URL
