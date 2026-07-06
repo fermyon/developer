@@ -153,6 +153,48 @@ if [[ $VERSION = "canary" ]]; then
     fancy_print 3 "Warning: You are using canary Spin, but templates use latest stable SDKs."
     fancy_print 3 "Be sure to update templates to point to 'canary' SDKs."
 fi
+
+# Configure the default Spin environment in the user's shell profile
+fancy_print 0 "Step 6: Configuring SPIN_NEW_DEFAULT_ENVIRONMENT in your shell profile"
+
+SPIN_ENV_LINE='export SPIN_NEW_DEFAULT_ENVIRONMENT=akamai-functions'
+
+# Determine which shell profile to update
+case $(basename "${SHELL:-}") in
+"zsh")
+    PROFILE="${HOME}/.zshrc"
+    ;;
+"bash")
+    # Prefer whichever profile already exists.
+    if [[ -f "${HOME}/.bashrc" ]]; then
+        PROFILE="${HOME}/.bashrc"
+    elif [[ -f "${HOME}/.bash_profile" ]]; then
+        PROFILE="${HOME}/.bash_profile"
+    else
+        PROFILE="${HOME}/.bashrc"
+    fi
+    ;;
+"fish")
+    # Fish uses its own syntax and config location.
+    PROFILE="${HOME}/.config/fish/config.fish"
+    SPIN_ENV_LINE='set -gx SPIN_NEW_DEFAULT_ENVIRONMENT akamai-functions'
+    mkdir -p "$(dirname "$PROFILE")"
+    ;;
+*)
+    PROFILE="${HOME}/.profile"
+    ;;
+esac
+
+# Append the export only if it is not already present
+if [[ -f "$PROFILE" ]] && grep -qF "$SPIN_ENV_LINE" "$PROFILE"; then
+    fancy_print 0 "SPIN_NEW_DEFAULT_ENVIRONMENT is already set in ${PROFILE}"
+else
+    printf '\n%s\n' "$SPIN_ENV_LINE" >>"$PROFILE"
+    fancy_print 0 "Added SPIN_NEW_DEFAULT_ENVIRONMENT to ${PROFILE}"
+fi
+fancy_print 3 "Restart your shell or run 'source ${PROFILE}' for the change to take effect."
+fancy_print 0 "Done...\n"
+
 # Direct to quicks-start doc
 fancy_print 0 "You're good to go. Check here for the next steps: https://developer.fermyon.com/wasm-functions/quickstart"
 fancy_print 0 "Run './spin' to get started"
