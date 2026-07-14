@@ -37,4 +37,4 @@ The log messages shown above have been generated using the [`log/slog` package](
 
 ## Next Steps
 
-- [Delete an application](delete)
+- [Managing Personal Access Tokens (PATs)](managing-personal-access-tokens)
